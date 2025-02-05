@@ -2,516 +2,611 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>European Family Adventure - Trip Proposal</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
   <style>
-    /* Basic Responsive Styling */
+    /* Global Styles */
     body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #f7f8fb, #e0f7fa);
+      font-family: 'Open Sans', Arial, sans-serif;
+      color: #333;
       line-height: 1.6;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    h1, h2, h3 {
-      margin-top: 1.5em;
-      margin-bottom: 0.5em;
-    }
-    h1 {
-      font-size: 1.8em;
-    }
-    h2 {
-      font-size: 1.4em;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 0.2em;
-    }
-    h3 {
-      font-size: 1.2em;
-    }
-    ul, ol {
-      margin: 0.5em 0 1em 1.4em;
     }
     a {
-      color: #0066cc;
+      color: #0077cc;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
     a:hover {
-      text-decoration: underline;
+      color: #005fa3;
     }
-    strong {
-      font-weight: 600;
+    ul {
+      list-style: disc;
+      margin-left: 20px;
+      padding-left: 0;
     }
-    .budget-list li {
-      margin-bottom: 0.4em;
+    /* Banner Section */
+    .banner {
+      background: url('https://source.unsplash.com/1600x400/?travel,Europe') center center/cover no-repeat;
+      text-align: center;
+      padding: 80px 20px;
+      color: #fff;
+      position: relative;
     }
+    .banner::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+    .banner-text {
+      position: relative;
+      z-index: 2;
+    }
+    .banner h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.5em;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .banner p {
+      font-size: 1.2em;
+      margin-top: 10px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    /* Main Container */
+    .container {
+      max-width: 700px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 30px;
+      margin: 20px auto;
+    }
+    /* Headings */
+    h1, h2, h3 {
+      font-family: 'Merriweather', serif;
+      color: #2a2a2a;
+      margin-bottom: 0.5em;
+    }
+    h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.3em;
+      margin-top: 1.2em;
+    }
+    /* Section spacing */
+    .section {
+      margin-bottom: 30px;
+    }
+    /* Notes style */
     .notes {
       font-style: italic;
       color: #555;
-    }
-    .section {
-      margin-bottom: 2em;
-    }
-    /* Make tables responsive */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1em 0;
-    }
-    table, th, td {
-      border: 1px solid #ddd;
-    }
-    th, td {
-      padding: 0.5em;
-      text-align: left;
-    }
-    th {
-      background-color: #f5f5f5;
-    }
-    @media (max-width: 600px) {
-      body {
-        margin: 10px;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Main Header -->
-  <h1>
-    <a href="https://www.ricksteves.com/europe" target="_blank">
-      European Family Adventure
-    </a>
-  </h1>
+  <!-- Header Banner -->
+  <div class="banner">
+    <div class="banner-text">
+      <h1>European Family Adventure</h1>
+      <p>Travel Proposal for Debbie Welford</p>
+    </div>
+  </div>
 
-  <!-- Trip Overview -->
-  <h2>Trip Overview</h2>
-  <ul>
-    <li><strong>Duration</strong>: 11 Days</li>
-    <li><strong>Travelers</strong>: 4 People</li>
-    <li><strong>Season</strong>: Summer 2025</li>
-    <li><strong>Total Budget</strong>: $15,500 ($3,875 per person)</li>
-  </ul>
-
-<h3>Budget Breakdown</h3>
-<ul class="budget-list">
-  <li><a>Flights</a>: $5,100</li>
-  <li><a>Rail Travel</a>: $2,650</li>
-  <li><a>Hotels</a>: $4,800</li>
-  <li><a>Activities</a>: $2,540</li>
-</ul>
-
-  <!-- London Section -->
-  <h2>
-    <a href="https://www.visitlondon.com/" target="_blank">London</a> (2 Nights)
-  </h2>
-
-  <h3>Accommodation</h3>
-  <p>
-    <strong>
-      <a href="https://www.strandpalacehotel.co.uk/" target="_blank">
-        Strand Palace Hotel
-      </a>
-    </strong><br>
-    Location: 
-    <a href="https://www.coventgarden.london/" target="_blank">Near Covent Garden</a><br>
-    Room Type: Superior Room
-  </p>
-
-  <h3>Day 1</h3>
-  <ul>
-    <li><strong>Hotel Check-in</strong>: After 3:00 PM</li>
-    <li>
-      <strong>
-        <a href="https://www.viator.com/tours/London/Westminster-Walking-Tour-and-Westminster-Abbey-Entry/d737-75760P78" target="_blank">
-          Westminster Walking Tour
-        </a>
-      </strong> ($180)
+  <!-- Main Content Container -->
+  <div class="container">
+    <!-- Trip Overview -->
+    <div class="section">
+      <h2>Trip Overview</h2>
       <ul>
-        <li>Time: 4:00 PM</li>
-        <li>Description: Historical landmarks tour</li>
+        <li><strong>Duration</strong>: 11 Days</li>
+        <li><strong>Travelers</strong>: 4 People</li>
+        <li><strong>Season</strong>: Summer 2025</li>
+        <li><strong>Total Budget</strong>: $15,500 ($3,875 per person)</li>
       </ul>
-    </li>
-    <li>
-      <strong>
-        <a href="https://rules.co.uk/" target="_blank">Dinner at Rules</a>
-      </strong>
+    </div>
+
+    <!-- Budget Breakdown -->
+    <div class="section">
+      <h3>Budget Breakdown</h3>
+      <ul class="budget-list">
+        <li>Flights: $5,100</li>
+        <li>Rail Travel: $2,650</li>
+        <li>Hotels: $4,800</li>
+        <li>Activities: $2,540</li>
+      </ul>
+    </div>
+
+    <!-- London Section -->
+    <div class="section">
+      <h2><a href="https://www.visitlondon.com/">London</a> (2 Nights)</h2>
+      <h3>Accommodation</h3>
+      <p>
+        <strong><a href="https://www.strandpalacehotel.co.uk/">Strand Palace Hotel</a></strong><br>
+        Location: <a href="https://www.coventgarden.london/">Near Covent Garden</a><br>
+        Room Type: Superior Room
+      </p>
+
+      <h3>Day 1</h3>
       <ul>
-        <li>Time: 7:30 PM</li>
-        <li class="notes">
-          Oldest restaurant in London 
-          (<a href="https://en.wikipedia.org/wiki/Rules_Restaurant" target="_blank">More info</a>), ★★★★½
+        <li><strong>Hotel Check-in</strong>: After 3:00 PM</li>
+        <li>
+          <strong>
+            <a href="https://www.viator.com/tours/London/Westminster-Walking-Tour-and-Westminster-Abbey-Entry/d737-75760P78?pid=P00005400&uid=U00232400&mcid=58086&currency=USD">
+              Westminster Walking Tour
+            </a>
+          </strong> ($180)
+          <ul>
+            <li>Time: 4:00 PM</li>
+            <li>Description: Historical landmarks tour</li>
+          </ul>
+        </li>
+        <li>
+          <strong><a href="https://rules.co.uk/">Dinner at Rules</a></strong>
+          <ul>
+            <li>Time: 7:30 PM</li>
+            <li class="notes">
+              Oldest restaurant in London (<a href="https://en.wikipedia.org/wiki/Rules_Restaurant">More info</a>), ★★★★½
+            </li>
+          </ul>
         </li>
       </ul>
-    </li>
-  </ul>
 
-  <h3>Day 2</h3>
-  <ul>
-    <li>
-      <strong>
-        <a href="https://www.viator.com/tours/London/London-Eye-River-Cruise/d737-2988P12" target="_blank">
-          Thames River Cruise from London Eye
-        </a>
-      </strong> ($180)
+      <h3>Day 2</h3>
       <ul>
-        <li>Time: 10:00 AM</li>
-        <li>Description: Panoramic views</li>
+        <li>
+          <strong>
+            <a href="https://www.viator.com/tours/London/London-Eye-River-Cruise/d737-2988P12?pid=P00005400&uid=U00232400&mcid=58086&currency=USD">
+              Thames River Cruise from London Eye
+            </a>
+          </strong> ($180)
+          <ul>
+            <li>Time: 10:00 AM</li>
+            <li>Description: Panoramic views</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Afternoon at Leisure</strong><br>
+          Suggested: <a href="https://www.hrp.org.uk/tower-of-london/">Tower of London</a>
+        </li>
       </ul>
-    </li>
-    <li>
-      <strong>Afternoon at Leisure</strong><br>
-      Suggested: 
-      <a href="https://www.hrp.org.uk/tower-of-london/" target="_blank">
-        Tower of London
-      </a>
-    </li>
-  </ul>
 
-  <h3>Free Activities in London</h3>
-  <ul>
-    <li><a href="https://www.britishmuseum.org/" target="_blank">British Museum</a> (free entry)</li>
-    <li><a href="https://www.royalparks.org.uk/parks/hyde-park" target="_blank">Hyde Park</a> walk</li>
-    <li><a href="https://www.nationalgallery.org.uk/" target="_blank">National Gallery</a> (free entry)</li>
-    <li><a href="https://www.timeout.com/london/things-to-do/south-bank" target="_blank">South Bank</a> street performers</li>
-    <li><a href="https://www.camdenmarket.com/" target="_blank">Camden Market</a> exploration</li>
-  </ul>
-
-  <h3>Shopping in London</h3>
-  <ul>
-    <li><a href="https://www.harrods.com/" target="_blank">Harrods</a> - Luxury department store</li>
-    <li><a href="https://www.selfridges.com/" target="_blank">Selfridges</a> - High-end shopping</li>
-    <li><a href="https://www.visitlondon.com/shopping/area/oxford-street" target="_blank">Oxford Street</a> - Major shopping destination</li>
-    <li><a href="https://www.coventgarden.london/" target="_blank">Covent Garden</a> - Unique boutiques</li>
-    <li><a href="https://www.visitlondon.com/shopping/area/carnaby-street" target="_blank">Carnaby Street</a> - Trendy fashion stores</li>
-  </ul>
-
-  <h3>Dining Suggestions</h3>
-  <ul>
-    <li><a href="https://rules.co.uk/" target="_blank">Rules Restaurant</a> - Traditional British cuisine</li>
-    <li><a href="https://www.wiltons.co.uk/" target="_blank">Wilton's</a> - Seafood and fine dining</li>
-    <li><a href="https://www.theskygarden.com/food-and-drink/darwin-brasserie" target="_blank">Darwin Brasserie</a> - Modern British cuisine</li>
-    <li><a href="https://www.dishoom.com/covent-garden/" target="_blank">Dishoom Covent Garden</a> - Bombay-style café</li>
-    <li><a href="https://www.thedelaunay.com/" target="_blank">The Delaunay</a> - European-style grand café</li>
-  </ul>
-
-  <h3>Transportation</h3>
-  <ul>
-    <li>
-      <strong>
-        <a href="https://tfl.gov.uk/fares/how-to-pay-and-where-to-buy-tickets-and-passes/pay-as-you-go" target="_blank">
-          Oyster Card
-        </a>
-      </strong>
+      <h3>Free Activities in London</h3>
       <ul>
-        <li>Deposit: £5</li>
-        <li>Daily cap: £8.10 (zones 1-2)</li>
+        <li><a href="https://www.britishmuseum.org/">British Museum</a> (free entry)</li>
+        <li><a href="https://www.royalparks.org.uk/parks/hyde-park">Hyde Park</a> walk</li>
+        <li><a href="https://www.nationalgallery.org.uk/">National Gallery</a> (free entry)</li>
+        <li><a href="https://www.timeout.com/london/things-to-do/south-bank">South Bank</a> street performers</li>
+        <li><a href="https://www.camdenmarket.com/">Camden Market</a> exploration</li>
       </ul>
-    </li>
-    <li>Primary Transport: 
-      <a href="https://tfl.gov.uk/modes/tube/" target="_blank">London Underground (Tube)</a>
-    </li>
-    <li>Recommended Apps: 
-      <a href="https://citymapper.com/" target="_blank">Citymapper</a>, 
-      <a href="https://tfl.gov.uk/campaign/plan-your-journey" target="_blank">TfL Go</a>
-    </li>
-  </ul>
 
-  <!-- Paris Section -->
-  <h2>
-    <a href="https://en.parisinfo.com/" target="_blank">Paris</a> (2 Nights)
-  </h2>
-
-  <h3>Accommodation</h3>
-  <p>
-    <strong>
-      <a href="https://www.arcotel-magdachampselysees.com/en/our-hotel/" target="_blank">
-        Hotel Magda
-      </a>
-    </strong><br>
-    Location: Near train station<br>
-    Room Type: Family Room
-  </p>
-
-  <h3>Day 3</h3>
-  <ul>
-    <li><strong>Travel: <a href="https://www.eurostar.com/" target="_blank">Eurostar to Paris</a></strong> (Morning)</li>
-    <li>
-      <strong>
-        <a href="https://www.viator.com/tours/Paris/Bateaux-Parisiens-Seine-River-Sightseeing-Cruise/d479-5756SIGHTSEEING" target="_blank">
-          Seine River Cruise
-        </a>
-      </strong> ($200)
+      <h3>Shopping in London</h3>
       <ul>
-        <li>Time: 4:00 PM</li>
-        <li>Description: Scenic city views</li>
+        <li><a href="https://www.harrods.com/">Harrods</a> - Luxury department store</li>
+        <li><a href="https://www.selfridges.com/">Selfridges</a> - High-end shopping</li>
+        <li><a href="https://www.visitlondon.com/shopping/area/oxford-street">Oxford Street</a> - Major shopping destination</li>
+        <li><a href="https://www.coventgarden.london/">Covent Garden</a> - Unique boutiques</li>
+        <li><a href="https://www.visitlondon.com/shopping/area/carnaby-street">Carnaby Street</a> - Trendy fashion stores</li>
       </ul>
-    </li>
-    <li>
-      <strong>
-        <a href="https://www.le-train-bleu.com/en/" target="_blank">
-          Dinner at Le Train Bleu
-        </a>
-      </strong>
+
+      <h3>Dining Suggestions</h3>
       <ul>
-        <li>Time: 8:00 PM</li>
-        <li class="notes">Belle Époque splendor, ★★★★★</li>
+        <li><a href="https://rules.co.uk/">Rules Restaurant</a> - Traditional British cuisine</li>
+        <li><a href="https://www.wiltons.co.uk/">Wilton's</a> - Seafood and fine dining</li>
+        <li><a href="https://www.theskygarden.com/food-and-drink/darwin-brasserie">Darwin Brasserie</a> - Modern British cuisine</li>
+        <li><a href="https://www.dishoom.com/covent-garden/">Dishoom Covent Garden</a> - Bombay-style café</li>
+        <li><a href="https://www.thedelaunay.com/">The Delaunay</a> - European-style grand café</li>
       </ul>
-    </li>
-  </ul>
 
-  <h3>Day 4</h3>
-  <ul>
-    <li><strong>Morning Exploration</strong><br>
-      Suggested: 
-      <a href="https://www.toureiffel.paris/en/the-monument" target="_blank">
-        Eiffel Tower
-      </a>
-    </li>
-    <li>
-      <strong>Evening Departure</strong><br>
-      <a href="https://www.nightjet.com/en/#/home" target="_blank">
-        Nightjet
-      </a> sleeper train to Vienna
-    </li>
-  </ul>
-
-  <h3>Free Activities in Paris</h3>
-  <ul>
-    <li><a href="https://en.parisinfo.com/tourist-site/walking-paths/champs-elysees" target="_blank">Champs-Élysées</a> walk</li>
-    <li><a href="https://en.parisinfo.com/paris-park/69308/luxembourg-gardens" target="_blank">Luxembourg Gardens</a></li>
-    <li><a href="https://www.notredamedeparis.fr/en/" target="_blank">Notre-Dame Cathedral</a> exterior</li>
-    <li><a href="https://en.parisinfo.com/tourist-site/districts-districts/le-marais" target="_blank">Le Marais neighborhood</a></li>
-    <li><a href="https://en.parisinfo.com/tourist-site/monuments-gardens/5783/montmartre" target="_blank">Montmartre</a> street performers</li>
-  </ul>
-
-  <h3>Shopping in Paris</h3>
-  <ul>
-    <li><a href="https://www.galerieslafayette.com/" target="_blank">Galeries Lafayette</a> - Iconic department store</li>
-    <li><a href="https://en.parisinfo.com/practical/addresses/shopping/rue-du-faubourg-saint-honore" target="_blank">Rue du Faubourg Saint-Honoré</a> - Luxury fashion</li>
-    <li><a href="https://en.parisinfo.com/tourist-site/districts-districts/le-marais" target="_blank">Le Marais</a> - Vintage boutiques</li>
-    <li><a href="https://en.parisinfo.com/tourist-site/districts-districts/saint-germain-des-pres" target="_blank">Saint-Germain-des-Prés</a> - High-end shopping</li>
-    <li><a href="https://en.parisinfo.com/paris-site/97313/passage-des-panoramas" target="_blank">Passage des Panoramas</a> - Historic shopping arcade</li>
-  </ul>
-
-  <h3>Dining Suggestions</h3>
-  <ul>
-    <li><a href="https://www.le-train-bleu.com/en/" target="_blank">Le Train Bleu</a> - Historic restaurant</li>
-    <li><a href="https://www.bistrot-paul-bert.com/" target="_blank">Le Bistrot Paul Bert</a> - Classic French bistro</li>
-    <li><a href="https://www.septime-paris.com/" target="_blank">Septime</a> - Modern French cuisine</li>
-    <li><a href="https://www.chez-l-ami-louis.com/" target="_blank">L'Ami Louis</a> - Traditional cooking</li>
-    <li><a href="https://www.bouillon-pigalle.fr/" target="_blank">Bouillon Pigalle</a> - Affordable dining</li>
-  </ul>
-
-  <h3>Transportation</h3>
-  <ul>
-    <li>
-      <strong>
-        <a href="https://www.ratp.fr/en/titres-et-tarifs/paris-visite" target="_blank">
-          Paris Visite Travel Pass
-        </a>
-      </strong><br>
-      Price Range: €14.90 - €65.80<br>
-      Covers: Metro, bus, RER
-    </li>
-    <li>Recommended App: 
-      <a href="https://www.ratp.fr/en/actualites/mobile-app" target="_blank">RATP</a>
-    </li>
-  </ul>
-
-  <!-- Vienna Section -->
-  <h2>Vienna (2 Nights)</h2>
-
-  <h3>Accommodation</h3>
-  <p>
-    <strong>Austria Trend Hotel Europa Wien</strong><br>
-    Location: City center<br>
-    Room Type: Executive Room
-  </p>
-
-  <h3>Day 5</h3>
-  <ul>
-    <li><strong>Arrival &amp; Check-in</strong>: Morning, Room from 2:00 PM</li>
-    <li>
-      <strong>Mozart Concert</strong> ($280)
+      <h3>Transportation</h3>
       <ul>
-        <li>Time: 7:30 PM</li>
-        <li>Location: Golden Hall</li>
+        <li>
+          <strong>
+            <a href="https://tfl.gov.uk/fares/how-to-pay-and-where-to-buy-tickets-and-passes/pay-as-you-go">
+              Oyster Card
+            </a>
+          </strong>
+          <ul>
+            <li>Deposit: £5</li>
+            <li>Daily cap: £8.10 (zones 1-2)</li>
+          </ul>
+        </li>
+        <li>Primary Transport: <a href="https://tfl.gov.uk/modes/tube/">London Underground (Tube)</a></li>
+        <li>Recommended Apps: <a href="https://citymapper.com/">Citymapper</a>, <a href="https://tfl.gov.uk/campaign/plan-your-journey">TfL Go</a></li>
       </ul>
-    </li>
-  </ul>
+    </div>
 
-  <h3>Day 6</h3>
-  <ul>
-    <li>
-      <strong>Vienna Exploration</strong><br>
-      Suggested Visits:
+    <!-- Paris Section -->
+    <div class="section">
+      <h2><a href="https://en.parisinfo.com/">Paris</a> (2 Nights)</h2>
+      <h3>Accommodation</h3>
+      <p>
+        <strong>
+          <a href="https://www.arcotel-magdachampselysees.com/en/our-hotel/">
+            Hotel Magda
+          </a>
+        </strong><br>
+        Location: Near train station<br>
+        Room Type: Family Room
+      </p>
+
+      <h3>Day 3</h3>
       <ul>
-        <li><a href="https://www.schoenbrunn.at/en" target="_blank">Schönbrunn Palace</a></li>
-        <li><a href="https://www.belvedere.at/en" target="_blank">Belvedere</a></li>
+        <li>
+          <strong>Travel: <a href="https://www.eurostar.com/">Eurostar to Paris</a></strong> (Morning)
+        </li>
+        <li>
+          <strong>
+            <a href="https://www.viator.com/tours/Paris/Bateaux-Parisiens-Seine-River-Sightseeing-Cruise?pid=P00005400&uid=U00232400&mcid=58086&currency=USD">
+              Seine River Cruise
+            </a>
+          </strong> ($200)
+          <ul>
+            <li>Time: 4:00 PM</li>
+            <li>Description: Scenic city views</li>
+          </ul>
+        </li>
+        <li>
+          <strong>
+            <a href="https://www.le-train-bleu.com/en/">
+              Dinner at Le Train Bleu
+            </a>
+          </strong>
+          <ul>
+            <li>Time: 8:00 PM</li>
+            <li class="notes">Belle Époque splendor, ★★★★★</li>
+          </ul>
+        </li>
       </ul>
-    </li>
-    <li>
-      <strong>Dinner at Steirereck</strong>
+
+      <h3>Day 4</h3>
       <ul>
-        <li>Time: 7:00 PM</li>
-        <li class="notes">Modern Austrian cuisine, ★★★★★</li>
+        <li>
+          <strong>Morning Exploration</strong><br>
+          Suggested: <a href="https://www.toureiffel.paris/en/the-monument">Eiffel Tower</a>
+        </li>
+        <li>
+          <strong>Evening Departure</strong><br>
+          <a href="https://www.nightjet.com/en/#/home">Nightjet</a> sleeper train to Vienna
+        </li>
       </ul>
-    </li>
-  </ul>
 
-  <h3>Free Activities in Vienna</h3>
-  <ul>
-    <li><a href="https://www.wien.info/en/sightseeing/parks-gardens/stadtpark" target="_blank">Walk through Stadtpark</a></li>
-    <li><a href="https://www.vienna.info/en/sightseeing/highlights/historic-centre" target="_blank">Explore historic city center</a> (UNESCO World Heritage site)</li>
-    <li><a href="https://www.stephansdom.at/en/" target="_blank">Visit St. Stephen's Cathedral exterior</a></li>
-    <li><a href="https://musikverein.at/en/" target="_blank">Free classical music at Musikverein</a></li>
-    <li><a href="https://www.wien.info/en/sightseeing/walks/danube-canal" target="_blank">Stroll along the Danube Canal</a></li>
-  </ul>
-
-  <h3>Shopping in Vienna</h3>
-  <ul>
-    <li><a href="https://www.goldenes-quartier.at/en" target="_blank">Goldenes Quartier</a> - Luxury shopping area</li>
-    <li><a href="https://www.vienna.info/en/shopping/shopping-streets/mariahilfer-strasse" target="_blank">Mariahilfer Straße</a> - Main shopping street</li>
-    <li><a href="https://www.vienna.info/en/shopping/markets/naschmarkt" target="_blank">Naschmarkt</a> - Large market with local goods</li>
-    <li><a href="https://www.vienna.info/en/sightseeing/shopping-streets/kohlmarkt" target="_blank">Kohlmarkt</a> - High-end luxury brands</li>
-    <li><a href="https://www.vienna.info/en/shopping/shopping-streets/kaerntner-strasse" target="_blank">Kärtner Straße</a> - Pedestrian shopping zone</li>
-  </ul>
-
-  <h3>Dining Suggestions</h3>
-  <ul>
-    <li><a href="https://steirereck.at/en/" target="_blank">Steirereck</a> - Michelin-starred modern Austrian cuisine</li>
-    <li><a href="https://www.plachutta.at/en/" target="_blank">Plachutta</a> - Traditional Viennese cuisine</li>
-    <li><a href="https://www.naschmarkt.at/en/restaurants/neni-am-naschmarkt" target="_blank">NENI am Naschmarkt</a> - Modern international cuisine</li>
-    <li><a href="https://www.levante.at/" target="_blank">Levante</a> - Middle Eastern fusion</li>
-    <li><a href="https://www.gasthaus-poschl.at/" target="_blank">Gasthaus Pöschl</a> - Authentic Austrian tavern</li>
-  </ul>
-
-  <h3>Transportation</h3>
-  <ul>
-    <li>
-      <strong>Vienna City Card</strong><br>
-      Price: 24-hour pass €17.10 (includes airport transfer)<br>
-      <a href="https://www.wienerlinien.at/web/en/network" target="_blank">Comprehensive network</a>: U-Bahn, trams, buses
-    </li>
-    <li>Recommended App: 
-      <a href="https://www.wienerlinien.at/web/en/mobile-services" target="_blank">WienMobil</a>
-    </li>
-  </ul>
-
-  <!-- Rome Section -->
-  <h2>Rome (3 Nights)</h2>
-
-  <h3>Accommodation</h3>
-  <p>
-    <strong>Hotel Nord Nuova Roma</strong><br>
-    Location: Near Termini<br>
-    Room Type: Quadruple Room
-  </p>
-
-  <h3>Day 7</h3>
-  <ul>
-    <li><strong>Train to Rome</strong> (Morning, First class Trenitalia)</li>
-    <li>
-      <strong>Rome by Golf Cart Private Tour</strong> ($400)
+      <h3>Free Activities in Paris</h3>
       <ul>
-        <li>Time: 4:00 PM</li>
-        <li>Description: City highlights tour</li>
+        <li>
+          <a href="https://www.parisinfo.com/musee-monument-paris/71304/Avenue-des-Champs-Elysees">
+            Champs-Élysées
+          </a> - Famous avenue perfect for walking and window shopping
+        </li>
+        <li>
+          <a href="https://en.parisinfo.com/paris-museum-monument/71393/Jardin-du-Luxembourg">
+            Luxembourg Gardens
+          </a> - Beautiful public park with free entry
+        </li>
+        <li>
+          <a href="https://www.sacre-coeur-montmartre.com/english/">
+            Sacré-Cœur Basilica
+          </a> - Free entry with amazing city views
+        </li>
+        <li>
+          <a href="https://www.parisinfo.com/decouvrir-paris/balades-a-paris/balade-dans-le-marais">
+            Le Marais
+          </a> - Historic district with great architecture
+        </li>
+        <li>
+          <a href="https://www.notredamedeparis.fr/en/">
+            Notre-Dame Cathedral
+          </a> - Exterior viewing during restoration
+        </li>
       </ul>
-    </li>
-    <li>
-      <strong>Dinner at Roscioli</strong>
+
+      <h3>Shopping in Paris</h3>
       <ul>
-        <li>Time: 8:00 PM</li>
-        <li class="notes">Roman cuisine, ★★★★½</li>
+        <li>
+          <a href="https://theculturetrip.com/europe/france/paris/articles/a-beginners-guide-to-the-marche-aux-puces-de-saint-ouen">
+            Marché aux Puces de Saint-Ouen
+          </a> - World's largest flea market with antiques and vintage finds
+        </li>
+        <li>
+          <a href="https://www.empreintes-paris.com/">
+            Empreintes
+          </a> - Contemporary French crafts and artisanal objects
+        </li>
+        <li>
+          <a href="https://www.deyrolle.com/">
+            Deyrolle
+          </a> - Historic taxidermy shop and cabinet of curiosities
+        </li>
+        <li>
+          <a href="https://www.tripadvisor.com/Attraction_Review-g187147-d2072996-Reviews-Passage_Verdeau-Paris_Ile_de_France.html">
+            Passage Verdeau
+          </a> - 19th-century covered passage with antique shops and print dealers
+        </li>
+        <li>
+          <a href="https://www.epices-roellinger.com/">
+            Épices Roellinger
+          </a> - Exceptional spice shop with rare blends and vanilla from around the world
+        </li>
+        <li>
+          <a href="https://www.lamaisonplisson.com/">
+            La Maison Plisson
+          </a> - Gourmet food shop with carefully curated French products
+        </li>
       </ul>
-    </li>
-  </ul>
 
-  <h3>Day 8</h3>
-  <ul>
-    <li>
-      <strong>Colosseum Tour</strong> ($240)
+      <h3>Dining Suggestions</h3>
       <ul>
-        <li>Time: 9:00 AM</li>
-        <li>Description: Ancient Rome exploration</li>
+        <li>
+          <a href="https://www.bouillon-chartier.com/en">
+            Bouillon Chartier
+          </a> - Historic restaurant with affordable traditional French cuisine
+        </li>
+        <li>
+          <a href="https://www.restaurant-allard.fr/en/">
+            Allard
+          </a> - Classic French dining by Alain Ducasse
+        </li>
+        <li>
+          <a href="https://www.bouillon-pigalle.com/">
+            Bouillon Pigalle
+          </a> - Popular affordable French restaurant
+        </li>
+        <li>
+          <a href="https://www.tripadvisor.com/Restaurant_Review-g187147-d719087-Reviews-Clown_Bar-Paris_Ile_de_France.html">
+            Clown Bar
+          </a> - Creative modern cuisine in a former circus building
+        </li>
+        <li>
+          <a href="https://www.candelaria-paris.com/">
+            Candelaria
+          </a> - Hidden taqueria and mezcal bar
+        </li>
+        <li>
+          <a href="https://www.alainducasse-meurice.com/en/home">
+            Le Meurice Alain Ducasse
+          </a> - Elegant dining with contemporary French cuisine in a historic setting
+        </li>
+        <li>
+          <a href="https://www.restaurants-toureiffel.com/en/jules-verne-restaurant.html">
+            Le Jules Verne
+          </a> - Gourmet French restaurant on the Eiffel Tower, offering panoramic city views
+        </li>
+        <li>
+          <a href="https://www.lesombres-restaurant.com/">
+            Les Ombres
+          </a> - Modern French cuisine with a rooftop terrace and stunning Eiffel Tower views
+        </li>
+        <li>
+          <a href="https://www.lesdeuxmagots.fr/">
+            Les Deux Magots
+          </a> - Historic café known for its literary clientele, offering traditional French fare
+        </li>
       </ul>
-    </li>
-    <li>
-      <strong>Vatican Museums</strong> ($200)
+    </div>
+
+    <!-- Vienna Section -->
+    <div class="section">
+      <h2>Vienna (2 Nights)</h2>
+      <h3>Accommodation</h3>
+      <p>
+        <strong>Austria Trend Hotel Europa Wien</strong><br>
+        Location: City center<br>
+        Room Type: Executive Room
+      </p>
+
+      <h3>Day 5</h3>
       <ul>
-        <li>Time: 2:00 PM</li>
-        <li>Description: Including Sistine Chapel</li>
+        <li><strong>Arrival &amp; Check-in</strong>: Morning, Room from 2:00 PM</li>
+        <li>
+          <strong>Mozart Concert</strong> ($280)
+          <ul>
+            <li>Time: 7:30 PM</li>
+            <li>Location: Golden Hall</li>
+            <li>Details: 
+              <a href="https://www.viator.com/tours/Vienna/Vienna-Mozart-Concert-at-the-Musikverein/d454-2322MVMVB?pid=P00005400&uid=U00232400&mcid=58086&currency=USD">
+                Vienna Mozart Concert at the Musikverein
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
-    </li>
-  </ul>
 
-  <h3>Day 9 - Cinque Terre Day Trip</h3>
-  <ul>
-    <li>
-      <strong>Cinque Terre Day Trip</strong> ($240)
+      <h3>Day 6</h3>
       <ul>
-        <li>Full Day: Scenic coastal exploration</li>
+        <li>
+          <strong>Vienna Exploration</strong><br>
+          Suggested Visits:
+          <ul>
+            <li><a href="https://www.schoenbrunn.at/en">Schönbrunn Palace</a></li>
+            <li><a href="https://www.belvedere.at/en">Belvedere</a></li>
+          </ul>
+        </li>
+        <li>
+          <strong>Dinner at Steirereck</strong>
+          <ul>
+            <li>Time: 7:00 PM</li>
+            <li class="notes">Modern Austrian cuisine, ★★★★★</li>
+          </ul>
+        </li>
       </ul>
-    </li>
-    <li>
-      <strong>Dinner at La Giostra</strong>
+
+      <h3>Free Activities in Vienna</h3>
       <ul>
-        <li>Time: 8:00 PM</li>
-        <li class="notes">Tuscan excellence, ★★★★½</li>
+        <li><a href="https://www.wien.info/en/sightseeing/parks-gardens/stadtpark">Walk through Stadtpark</a></li>
+        <li><a href="https://www.vienna.info/en/sightseeing/highlights/historic-centre">Explore historic city center</a> (UNESCO World Heritage site)</li>
+        <li><a href="https://www.stephanskirche.at/index.php">Visit St. Stephen's Cathedral exterior</a></li>
+        <li><a href="https://musikverein.at/en/">Free classical music at Musikverein</a></li>
+        <li><a href="https://www.wien.info/en/recommendations/summer-scene-on-the-danube-canal">Stroll along the Danube Canal</a></li>
       </ul>
-    </li>
-  </ul>
 
-  <h3>Free Activities in Rome</h3>
-  <ul>
-    <li><a href="https://www.060608.it/en/cultura-e-svago/monumenti/foro-romano" target="_blank">Walk through Roman Forum area</a></li>
-    <li><a href="https://www.turismoroma.it/?page_id=4495" target="_blank">Explore Trevi Fountain and Spanish Steps</a></li>
-    <li><a href="https://www.turismoroma.it/?page_id=4668" target="_blank">Stroll through Trastevere neighborhood</a></li>
-    <li><a href="https://www.pantheon.roma.it/en/" target="_blank">Visit Pantheon exterior</a></li>
-    <li><a href="https://www.turismoroma.it/?page_id=4539" target="_blank">People-watching at Piazza Navona</a></li>
-  </ul>
+      <h3>Shopping in Vienna</h3>
+      <ul>
+        <li><a href="https://goldenesquartier.com/">Goldenes Quartier</a> - Luxury shopping area</li>
+        <li><a href="https://www.wien.info/en/dine-drink/markets/naschmarkt-353536">Naschmarkt</a> - Large market with local goods</li>
+        <li><a href="https://www.wien.info/en/see-do/shopping/old-city">Kohlmarkt</a> - High-end luxury brands</li>
+      </ul>
 
-  <h3>Shopping in Rome</h3>
-  <ul>
-    <li><a href="https://www.turismoroma.it/?page_id=5010" target="_blank">Via del Corso</a> - Main shopping street</li>
-    <li><a href="https://www.turismoroma.it/?page_id=4844" target="_blank">Via Condotti</a> - Luxury designer boutiques</li>
-    <li><a href="https://www.rinascente.it/" target="_blank">Rinascente</a> - Department store</li>
-    <li><a href="https://www.turismoroma.it/?page_id=4688" target="_blank">Campo de' Fiori Market</a> - Local goods and souvenirs</li>
-    <li><a href="https://www.turismoroma.it/?page_id=4669" target="_blank">Monti neighborhood</a> - Vintage and independent stores</li>
-  </ul>
+      <h3>Dining Suggestions</h3>
+      <ul>
+        <li><a href="https://steirereck.at/en/">Steirereck</a> - Michelin-starred modern Austrian cuisine</li>
+        <li><a href="https://www.plachutta.at/en/">Plachutta</a> - Traditional Viennese cuisine</li>
+        <li><a href="https://www.schachtelwirt.at/">Schachtelwirt</a> - Cozy eatery offering traditional Austrian dishes</li>
+        <li><a href="https://www.mottoamfluss.at/">Motto am Fluss</a> - Stylish café and restaurant overlooking the Danube</li>
+        <li><a href="https://www.klyo.at/">Klyo</a> - Modern riverside café known for all-day breakfast</li>
+        <li><a href="https://www.gasthaus-kopp.at/">Gasthaus Kopp</a> - Traditional Viennese tavern with authentic local dishes</li>
+      </ul>
 
-  <h3>Dining Suggestions</h3>
-  <ul>
-    <li><a href="https://www.roscioli.com/restaurant" target="_blank">Roscioli</a> - Classic Roman cuisine</li>
-    <li><a href="https://www.ristorantelagiostra.com/" target="_blank">La Giostra</a> - Tuscan-inspired restaurant</li>
-    <li><a href="https://www.keatingrome.com/" target="_blank">Keating</a> - Modern Roman dining</li>
-    <li><a href="https://www.armando-al-pantheon.com/" target="_blank">Armando al Pantheon</a> - Traditional Roman trattoria</li>
-    <li><a href="https://www.pizzeria-da-remo.com/" target="_blank">Pizzeria da Remo</a> - Authentic Roman pizza</li>
-  </ul>
+      <h3>Transportation</h3>
+      <ul>
+        <li>
+          <strong>Vienna City Card</strong><br>
+          Price: 24-hour pass €17.10 (includes airport transfer)<br>
+          <a href="https://www.wienerlinien.at/web/en/network">Comprehensive network</a>: U-Bahn, trams, buses
+        </li>
+        <li>Recommended App: <a href="https://www.wienerlinien.at/web/en/mobile-services">WienMobil</a></li>
+      </ul>
+    </div>
 
-  <h3>Transportation</h3>
-  <ul>
-    <li>
-      <strong>Roma Pass</strong><br>
-      Price: 48-hour pass €32.00 (includes 2 museum entries)<br>
-      <a href="https://www.atac.roma.it/index.asp?lingua=ENG" target="_blank">Transport options</a>
-    </li>
-    <li>Recommended App: 
-      <a href="https://moovitapp.com/" target="_blank">Moovit</a>
-    </li>
-  </ul>
+    <!-- Rome Section -->
+    <div class="section">
+      <h2>Rome (3 Nights)</h2>
+      <h3>Accommodation</h3>
+      <p>
+        <strong><a href="https://www.hotelnordnuovaroma.it/en/Hotel">Nord Nuova Roma</a></strong><br>
+        Location: Near Termini<br>
+        Room Type: Quadruple Room
+      </p>
 
-  <!-- Important Notes -->
-  <h2>Important Notes</h2>
-  <ul>
-    <li>UK ETA required for London (£10 per person, apply 3+ days before)</li>
-    <li>EU ETIAS required (€7 per person, apply 30+ days before)</li>
-    <li>All restaurant reservations must be made in advance</li>
-    <li>Local taxes additional at hotels</li>
-    <li>Tours include skip-the-line access</li>
-  </ul>
+      <h3>Day 7</h3>
+      <ul>
+        <li><strong>Train to Rome</strong> (Morning, First class Trenitalia)</li>
+        <li>
+          <strong>Rome by Golf Cart Private Tour</strong> ($400)<br>
+          <a href="https://www.viator.com/tours/Rome/Rome-by-Golf-Cart-Private-Tour/d511-7377P1?pid=P00005400&uid=U00232400&mcid=58086&currency=USD">
+            Book Golf Cart Tour
+          </a>
+          <ul>
+            <li>Time: 4:00 PM</li>
+            <li>Description: City highlights tour</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Dinner at Roscioli</strong>
+          <ul>
+            <li>Time: 8:00 PM</li>
+            <li class="notes">Roman cuisine, ★★★★½</li>
+          </ul>
+        </li>
+      </ul>
 
+      <h3>Day 8</h3>
+      <ul>
+        <li>
+          <strong>Colosseum Tour</strong> ($240)<br>
+          <a href="https://www.viator.com/tours/Rome/Skip-the-line-Gladiators-Entrance-and-Colosseum-Arena-Express-Tour/d511-62972P2?pid=P00005400&uid=U00232400&mcid=58086&currency=USD">
+            Book Colosseum Tour
+          </a>
+          <ul>
+            <li>Time: 9:00 AM</li>
+            <li>Description: Ancient Rome exploration</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Vatican Museums</strong> ($200)<br>
+          <a href="https://www.viator.com/tours/Rome/Skip-the-Line-Vatican-Museums-and-Sistine-Chapel-Guided-Tour/d511-3731VATICAN?pid=P00005400&uid=U00232400&mcid=58086&currency=USD">
+            Book Vatican Tour
+          </a>
+          <ul>
+            <li>Time: 2:00 PM</li>
+            <li>Description: Including Sistine Chapel</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Day 9 - Cinque Terre Day Trip</h3>
+      <ul>
+        <li>
+          <strong>Cinque Terre Day Trip</strong> ($240)<br>
+          <a href="https://www.tripadvisor.com/AttractionProductReview-g187895-d11450562-Cinque_Terre_Day_Trip_from_Florence_with_Optional_Hiking-Florence_Tuscany.html">
+            Book Cinque Terre Tour
+          </a>
+          <ul>
+            <li>Full Day: Scenic coastal exploration</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Dinner at La Giostra</strong>
+          <ul>
+            <li>Time: 8:00 PM</li>
+            <li class="notes">Tuscan excellence, ★★★★½</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Free Activities in Rome</h3>
+      <ul>
+        <li><a href="https://www.060608.it/en/cultura-e-svago/monumenti/foro-romano">Walk through Roman Forum area</a></li>
+        <li><a href="https://www.turismoroma.it/?page_id=4495">Explore Trevi Fountain and Spanish Steps</a></li>
+        <li><a href="https://www.turismoroma.it/?page_id=4668">Stroll through Trastevere neighborhood</a></li>
+        <li><a href="https://www.pantheon.roma.it/en/">Visit Pantheon exterior</a></li>
+        <li><a href="https://www.turismoroma.it/?page_id=4539">People-watching at Piazza Navona</a></li>
+      </ul>
+
+      <h3>Shopping in Rome</h3>
+      <ul>
+        <li><a href="https://www.turismoroma.it/?page_id=5010">Via del Corso</a> - Main shopping street</li>
+        <li><a href="https://www.turismoroma.it/?page_id=4844">Via Condotti</a> - Luxury designer boutiques</li>
+        <li><a href="https://www.rinascente.it/">Rinascente</a> - Department store</li>
+        <li><a href="https://www.turismoroma.it/?page_id=4688">Campo de' Fiori Market</a> - Local goods and souvenirs</li>
+        <li><a href="https://www.turismoroma.it/?page_id=4669">Monti neighborhood</a> - Vintage and independent stores</li>
+      </ul>
+
+      <h3>Dining Suggestions</h3>
+      <ul>
+        <li><a href="https://www.roscioli.com/restaurant">Roscioli</a> - Classic Roman cuisine</li>
+        <li><a href="https://www.ristorantelagiostra.com/">La Giostra</a> - Tuscan-inspired restaurant</li>
+        <li><a href="https://www.keatingrome.com/">Keating</a> - Modern Roman dining</li>
+        <li><a href="https://www.armando-al-pantheon.com/">Armando al Pantheon</a> - Traditional Roman trattoria</li>
+        <li><a href="https://www.pizzeria-da-remo.com/">Pizzeria da Remo</a> - Authentic Roman pizza</li>
+      </ul>
+
+      <h3>Transportation</h3>
+      <ul>
+        <li>
+          <strong>Roma Pass</strong><br>
+          Price: 48-hour pass €32.00 (includes 2 museum entries)<br>
+          <a href="https://www.atac.roma.it/">Transport options</a>
+        </li>
+        <li>Recommended App: <a href="https://moovitapp.com/">Moovit</a></li>
+      </ul>
+    </div>
+
+    <!-- Important Notes -->
+    <div class="section">
+      <h2>Important Notes</h2>
+      <ul>
+        <li>UK ETA required for London (£10 per person, apply 3+ days before)</li>
+        <li>EU ETIAS required (€7 per person, apply 30+ days before)</li>
+        <li>All restaurant reservations must be made in advance</li>
+        <li>Local taxes additional at hotels</li>
+        <li>Tours include skip-the-line access</li>
+      </ul>
+    </div>
+
+  </div><!-- End main container -->
 
 </body>
 </html>
