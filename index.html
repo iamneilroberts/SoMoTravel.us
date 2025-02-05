@@ -1,981 +1,393 @@
-<!-- core.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darren & Sara's Anniversary Trip</title>
+    <title>European Family Adventure - Daily Itinerary</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
             line-height: 1.6;
-            padding: 16px;
+            color: #333;
             background: #f5f5f7;
-            color: #1d1d1f;
-            max-width: 800px;
+            padding: 16px;
+        }
+        
+        .container {
+            max-width: 600px;
             margin: 0 auto;
         }
-
-        .header {
-            text-align: center;
-            margin-bottom: 24px;
-            padding: 16px;
+        
+        section {
             background: white;
             border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
-
-        .section-card {
-            background: white;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .collapsible-header {
-            width: 100%;
-            padding: 16px;
-            background: white;
-            border: none;
-            text-align: left;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.1em;
-            font-weight: 600;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .collapsible-content {
-            display: none;
-            padding: 16px;
-        }
-
-        .collapsible-content.active {
-            display: block;
-        }
-
-        .travel-item {
-            background: #f0f7ff;
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-
-        .accommodation-item {
-            background: #f3e8ff;
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-
-        .dining-item {
-            background: #fff0f0;
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-
-        .important-note {
-            background: #fff7ed;
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-
-        .quick-ref-item {
-            background: #f0f9ff;
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-
-        .optional-item {
-            background: #f0fff4;
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-
-        .ai-suggestion {
-            background: #f5f0ff;
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            border-left: 4px solid #8b5cf6;
-        }
-
+        
         h1 {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-        }
-
-        h2 {
-            font-size: 1.25rem;
+            font-size: 24px;
             margin-bottom: 12px;
         }
-
+        
+        h2 {
+            font-size: 20px;
+            margin: 20px 0 12px;
+            color: #1a1a1a;
+        }
+        
         h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-
-        .dates {
+            font-size: 16px;
             color: #666;
-            font-size: 1.1rem;
+            margin-top: 20px;
         }
 
-        .tag {
+        .day {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        
+        .price {
             display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-bottom: 8px;
-            background: #e5e7eb;
-            color: #1d1d1f;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-weight: 500;
+            margin-left: 8px;
         }
 
-        .time-info {
-            font-weight: 600;
-            color: #1d1d1f;
+        .total {
+            background: #e3f2fd;
+            color: #1565c0;
+            font-size: 18px;
+            padding: 8px 16px;
+            margin: 16px 0;
         }
 
-        .home-time {
-            font-size: 0.9rem;
+        .location {
+            border-top: 2px solid #eee;
+            padding-top: 24px;
+            margin-top: 24px;
+        }
+
+        .meta {
             color: #666;
+            font-size: 14px;
+        }
+
+        .time {
+            color: #666;
+            font-size: 14px;
+            margin-top: 4px;
         }
 
         a {
             color: #0066cc;
             text-decoration: none;
-            word-break: break-word;
         }
 
         a:hover {
             text-decoration: underline;
         }
 
+        .alert {
+            background: #fff3e0;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .activity {
+            margin: 12px 0;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .activity:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .rating {
+            color: #ffc107;
+            margin-left: 4px;
+        }
+
+        .hotel {
+            background: #f0f4f8;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+        }
+
         ul {
-            margin-left: 24px;
-            margin-bottom: 12px;
+            list-style: none;
         }
 
         li {
-            margin-bottom: 8px;
+            margin: 8px 0;
+            padding-left: 16px;
+            position: relative;
         }
 
-        .toggle-icon {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .rotate {
-            transform: rotate(180deg);
-        }
-
-        @media (min-width: 768px) {
-            body {
-                padding: 24px;
-            }
+        li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Darren & Sara's Anniversary Trip</h1>
-        <p class="dates">October 5-15, 2025</p>
-    </div>
-
-    <!-- Quick Reference Section -->
-    <div class="section-card">
-        <button class="collapsible-header">
-            <span>⚡ Quick Reference</span>
-            <span class="toggle-icon">▼</span>
-        </button>
-        <div class="collapsible-content">
-            <div class="quick-ref-item">
-                <h3>Travel Agent</h3>
-                <p>Susie & Brad Jones<br>
-                <a href="tel:251.293.4992">251.293.4992</a><br>
-                <a href="mailto:susie.jones@cruiseplanners.com">susie.jones@cruiseplanners.com</a></p>
-            </div>
-
-            <div class="quick-ref-item">
-                <h3>Emergency Contacts</h3>
-                <p>UK Emergency: <a href="tel:999">999</a> or <a href="tel:112">112</a><br>
-                US Embassy London: <a href="tel:+442074999000">+44 20 7499 9000</a><br>
-                Travel Insurance: #TR789456</p>
-            </div>
-
-            <div class="quick-ref-item">
-                <h3>Important Reminders</h3>
-                <ul>
-                    <li>Drive on the LEFT side</li>
-                    <li>Bring UK power adapters</li>
-                    <li>Keep passport & valid driver's license accessible</li>
-                    <li>Car rental needs credit card</li>
-                    <li>Currency: British Pound (£)</li>
-                    <li>Notify bank and credit cards of travel</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Day 1 Section -->
-<div class="section-card">
-    <button class="collapsible-header">
-        <span>October 5 - Sunday</span>
-        <span class="toggle-icon">▼</span>
-    </button>
-    <div class="collapsible-content">
-        <div class="travel-item">
-            <span class="tag">✈️ flight</span>
-            <p class="time-info">5:25 PM EDT - Depart Washington Dulles (IAD)</p>
-            <p>Delta Airlines DL 9447</p>
-            <p>Flight duration: 7h 45m</p>
-            <div class="important-note">
-                <h3>Check-in Requirements</h3>
-                <ul>
-                    <li>Arrive at least 3 hours before departure (2:25 PM)</li>
-                    <li>Have passports and boarding passes easily accessible</li>
-                    <li>International baggage must be checked at least 60 minutes before departure</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Day 2 Section -->
-<div class="section-card">
-    <button class="collapsible-header">
-        <span>October 6 - Monday</span>
-        <span class="toggle-icon">▼</span>
-    </button>
-    <div class="collapsible-content">
-        <div class="travel-item">
-            <span class="tag">✈️ flight</span>
-            <p class="time-info">7:10 AM CEST - Arrive Amsterdam (AMS)</p>
-            <p class="home-time">1:10 AM EDT at home</p>
-            <p>Delta Airlines DL 9447</p>
-            <p>Layover duration: 1h 40m</p>
-        </div>
-        
-        <div class="travel-item">
-            <span class="tag">✈️ flight</span>
-            <p class="time-info">8:50 AM CEST - Depart Amsterdam (AMS)</p>
-            <p>Delta Airlines DL 9298</p>
-            <p>Flight duration: 1h 15m</p>
-        </div>
-        
-        <div class="travel-item">
-            <span class="tag">✈️ flight</span>
-            <p class="time-info">9:05 AM BST - Arrive Bristol (BRS)</p>
-            <p>Bristol International Airport</p>
-            <p>Immigration and baggage claim on arrival level</p>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">🚗 rental</span>
-            <p class="time-info">Car Rental Pickup</p>
-            <p>Hertz - Compact Automatic</p>
-            <p>Confirmation: HZ12345</p>
-            <p>Duration: 11 days</p>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">🗺️ directions</span>
-            <p class="time-info">Bristol Airport to The Kennard</p>
-            <p>Drive time: Approximately 1 hour (25 miles)</p>
-            <p>Route: A4 towards Bath city center</p>
-        </div>
-
-        <div class="accommodation-item">
-            <span class="tag">🏨 hotel</span>
-            <p class="time-info">Check-in: The Kennard</p>
-            <p>Confirmation: 237890234</p>
-            <p><a href="https://maps.google.com/?q=11+Henrietta+St,+Bathwick,+Avon,+Bath+BA2+6LL,+UK">11 Henrietta St, Bathwick, Avon, Bath BA2 6LL, UK</a></p>
-            <p>Phone: <a href="tel:+441225310472">+44 1225 310472</a></p>
-            <p>Email: <a href="mailto:info@kennard.co.uk">info@kennard.co.uk</a></p>
-            <p>Room Type: Double Room</p>
-            <p><em>Note: Breakfast included</em></p>
-        </div>
-
-        <div class="important-note">
-            <h3>Bath Transportation Tips</h3>
-            <p>The compact city center is best explored on foot. Parking is available but expensive - check <a href="https://www.bathcarparks.co.uk/">Bath Car Parks</a> for availability. Consider using the park-and-ride service if planning to drive into the city center.</p>
-        </div>
-    </div>
-</div>
-<!-- Day 3 Section -->
-<div class="section-card">
-    <button class="collapsible-header">
-        <span>October 7 - Tuesday</span>
-        <span class="toggle-icon">▼</span>
-    </button>
-    <div class="collapsible-content">
-        <div class="travel-item">
-            <span class="tag">🎫 activity</span>
-            <p class="time-info">10:00 AM - Bath City Walking Tour</p>
-            <p>Confirmation: 389023 (Viator)</p>
-            <p>Meeting Point: <a href="https://maps.google.com/?q=29-30+Park+St,+Bath+BA1+2TF,+United+Kingdom">29-30 Park St, Bath BA1 2TF</a></p>
-            <p>Phone: <a href="tel:+441225852722">+44 1225 852722</a></p>
-            <p>Duration: Approximately 2-3 hours</p>
-            <p>Includes: Roman Baths and city highlights</p>
-        </div>
-
-        <div class="dining-item">
-            <span class="tag">🍴 dining</span>
-            <p class="time-info">Afternoon Tea at Sally Lunn's</p>
-            <p>Historic Eating House (est. 1482)</p>
-            <p><a href="https://maps.google.com/?q=4+North+Parade+Passage+Bath,+BA1+1NX">4 North Parade Passage, Bath BA1 1NX</a></p>
-            <p>Phone: <a href="tel:+441225461634">+44 1225 461634</a></p>
-            <p>Famous for: Sally Lunn Buns</p>
-            <p>Reservations: <a href="https://bookings.designmynight.com/book?venue_id=64e36aa51c10f366f921ea13&source=partner">Book Online</a></p>
-        </div>
-    </div>
-</div>
-
-<!-- Day 4 Section -->
-<div class="section-card">
-    <button class="collapsible-header">
-        <span>October 8 - Wednesday</span>
-        <span class="toggle-icon">▼</span>
-    </button>
-    <div class="collapsible-content">
-        <div class="travel-item">
-            <span class="tag">🎫 activity</span>
-            <h3>Stonehenge Visit</h3>
-            <p class="time-info">Opening Hours: 9:30 AM - 5:00 PM</p>
-            <div class="important-note">
-                <p><strong>Important Notes:</strong></p>
-                <ul>
-                    <li>Advance online booking required</li>
-                    <li>Best visiting times: Early morning or late afternoon</li>
-                    <li>Book at: <a href="https://stonehengetickets.tours/visit-stonehenge-opening-hours/">Official Booking Site</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">🗺️ directions</span>
-            <p class="time-info">Bath to Stonehenge</p>
-            <p>Drive time: Approximately 1 hour (34 miles)</p>
-            <p>Route: A36 and A303</p>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">ℹ️ info</span>
-            <h3>Recommended Additional Sites</h3>
-            <ul>
-                <li><strong>Old Sarum</strong>
-                    <br>Historic site with Norman Castle ruins
-                    <br>Free access to earthworks, small fee for castle entry
-                    <br><a href="https://www.english-heritage.org.uk/visit/places/old-sarum/">English Heritage Site</a>
-                </li>
-                <li><strong>Bradford-on-Avon Saxon Church</strong>
-                    <br>Historic church site, no entrance fee
-                    <br><a href="https://saxonchurch.org.uk/">Visit Website</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- Day 5 Section -->
-<div class="section-card">
-    <button class="collapsible-header">
-        <span>October 9 - Thursday</span>
-        <span class="toggle-icon">▼</span>
-    </button>
-    <div class="collapsible-content">
-        <div class="travel-item">
-            <span class="tag">🗺️ directions</span>
-            <p class="time-info">Bath to Winchester</p>
-            <p>Drive time: Approximately 1 hour 45 minutes (67 miles)</p>
-            <p>Route: A36 → A303 → M3 → Winchester</p>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">🎫 activity</span>
-            <h3>Winchester Cathedral</h3>
-            <ul>
-                <li>Historic cathedral with Jane Austen's grave in north nave aisle</li>
-                <li>Special features: Medieval architecture, longest Gothic cathedral in Europe</li>
-                <li>Location: <a href="https://maps.google.com/?q=Winchester+Cathedral,+Winchester,+Hampshire">9 The Close, Winchester SO23 9LS</a></li>
-            </ul>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">🎫 activity</span>
-            <h3>Winchester Castle - Great Hall</h3>
-            <p class="time-info">Opening Hours: 10:00 AM - 5:00 PM</p>
-            <ul>
-                <li>13th-century aisled hall</li>
-                <li>Features King Arthur's Round Table</li>
-                <li>Includes Queen Eleanor's Garden</li>
-            </ul>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">🎫 activity</span>
-            <h3>Hospital of St Cross</h3>
-            <p class="time-info">Opening Hours: 9:30 AM - 5:00 PM</p>
-            <p>England's oldest almshouse</p>
-            <p><a href="https://hospitalofstcross.co.uk/">Visit Website</a></p>
-            <p>Beautiful architecture and tranquil gardens along the River Itchen</p>
-        </div>
-    </div>
-</div>
-
-<!-- Day 6 Section -->
-<div class="section-card">
-    <button class="collapsible-header">
-        <span>October 10 - Friday</span>
-        <span class="toggle-icon">▼</span>
-    </button>
-    <div class="collapsible-content">
-        <div class="accommodation-item">
-            <span class="tag">🏨 hotel</span>
-            <p class="time-info">11:00 AM - Check-out from The Kennard</p>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">🗺️ directions</span>
-            <p class="time-info">Scenic Drive to Cotswolds</p>
-            <p>Recommended stops:</p>
+    <div class="container">
+        <section>
+            <h1>European Family Adventure</h1>
+            <div class="meta">11 Days | 4 Travelers | Summer 2025</div>
+            <div class="total">Total: $15,500 ($3,875 per person)</div>
             
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Upper & Lower Slaughter</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>Old Mill Museum - Historic working mill</li>
-                        <li>St. Mary Church along the River Eye</li>
-                        <li><a href="https://maps.google.com/?q=Lower+Slaughter,+Gloucestershire">View on Map</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Cotswold Motoring Museum</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <p>Located in Bourton-on-the-Water</p>
-                    <ul>
-                        <li>Features vintage cars, motorcycles, and bicycles</li>
-                        <li>Extensive toy collection including pedal cars and model vehicles</li>
-                        <li>Home to the children's TV character Brum</li>
-                        <li>Founded in 1978 by Mike Cavanagh</li>
-                        <li>Now operated by Civil Service Motoring Association</li>
-                        <li><a href="https://maps.google.com/?q=Cotswold+Motoring+Museum,+Bourton-on-the-Water">View on Map</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Snowshill Manor</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>National Trust property</li>
-                        <li>Historic manor house with unique collections</li>
-                        <li><a href="https://maps.google.com/?q=Snowshill+Manor,+Gloucestershire">View on Map</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Chipping Campden</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <p>Historic market town in the Cotswolds</p>
-                    <ul>
-                        <li>Famous for its long and wide High Street (14th-17th century)</li>
-                        <li>Notable features:
-                            <br>- St James' Church (wool church)
-                            <br>- Market Hall
-                            <br>- Town Hall
-                        </li>
-                        <li>Rich medieval wool trading history</li>
-                        <li>Starting point of the Cotswold Way</li>
-                        <li>Features various architectural styles and music festivals</li>
-                        <li><a href="https://maps.google.com/?q=Chipping+Campden,+Gloucestershire">View on Map</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="accommodation-item">
-            <span class="tag">🏨 hotel</span>
-            <p class="time-info">4:00 PM - Check-in at Country Courtyard Cottage</p>
-            <p>Confirmation: 1238089724</p>
-            <p><a href="https://maps.google.com/?q=Owlpen,+Dursley+GL11+5BX,+United+Kingdom">Owlpen, Dursley GL11 5BX, United Kingdom</a></p>
-            <p>Phone: <a href="tel:+441453861300">+44 1453 861300</a></p>
-            <p>Room Type: 1 Queen</p>
-            <div class="important-note">
-                <p><strong>Amenities Include:</strong></p>
-                <ul>
-                    <li>Full Kitchen</li>
-                    <li>Laundry Facilities</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Day 7 Section -->
-<div class="section-card">
-    <button class="collapsible-header">
-        <span>October 11 - Saturday</span>
-        <span class="toggle-icon">▼</span>
-    </button>
-    <div class="collapsible-content">
-        <div class="travel-item">
-            <span class="tag">🗺️ directions</span>
-            <p class="time-info">Cotswolds to Oxford</p>
-            <p>Drive time: Approximately 1 hour 15 minutes (40 miles)</p>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">🎫 activity</span>
-            <h3>Oxford University Tour</h3>
-            <p><a href="https://www.viator.com/tours/Oxford/University-and-City-Tour/d5537-107266P2">Book Tour Here</a></p>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Bodleian Library</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>One of the oldest libraries in Europe</li>
-                        <li>Famous for its historic architecture and massive collection</li>
-                        <li>Featured in Harry Potter films</li>
-                        <li><a href="https://maps.google.com/?q=Bodleian+Library+Oxford">View on Map</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Christ Church Cathedral</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>Unique dual role as cathedral and college chapel</li>
-                        <li>Historic dining hall that inspired Hogwarts Great Hall</li>
-                        <li>Beautiful medieval architecture</li>
-                        <li><a href="https://www.chch.ox.ac.uk/cathedral/visiting">Visitor Information</a></li>
-                        <li><a href="https://maps.google.com/?q=Christ+Church+Cathedral+Oxford">View on Map</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Ashmolean Museum</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>World's first university museum</li>
-                        <li>World-class collection of art and archaeology</li>
-                        <li>Free admission</li>
-                        <li><a href="https://maps.google.com/?q=Ashmolean+Museum+Oxford">View on Map</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Oxford Castle & Prison</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>1000 years of history</li>
-                        <li>Climb St George's Tower for city views</li>
-                        <li>Explore medieval crypt</li>
-                        <li><a href="https://maps.google.com/?q=Oxford+Castle+and+Prison">View on Map</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">🌿 activity</span>
-            <h3>Oxford Botanic Gardens & Arboretum</h3>
-            <p>Britain's oldest botanic garden (founded 1621)</p>
-            <p><a href="https://obga.ox.ac.uk/">Visit Website</a></p>
-        </div>
-    </div>
-</div>
-
-<!-- Day 8 Section -->
-<div class="section-card">
-    <button class="collapsible-header">
-        <span>October 12 - Sunday</span>
-        <span class="toggle-icon">▼</span>
-    </button>
-    <div class="collapsible-content">
-        <div class="optional-item">
-            <span class="tag">🚂 optional</span>
-            <h3>London Day Trip</h3>
-            
-            <div class="important-note">
-                <h4>Train Schedule</h4>
-                <p><strong>Outbound:</strong> Moreton-in-Marsh to London Paddington</p>
-                <ul>
-                    <li>Recommended departure: 8:05 AM (arrives 9:47 AM)</li>
-                    <li>Journey time: 1 hour 42 minutes</li>
-                    <li>Scenic route through:
-                        <br>- Oxford's historic spires
-                        <br>- Thames Valley
-                        <br>- Windsor Castle views (right side of train)
-                        <br>- West London's urban landscape
-                    </li>
-                </ul>
-                <p><strong>Return:</strong> London Paddington to Moreton-in-Marsh</p>
-                <ul>
-                    <li>Recommended return: 7:50 PM (arrives 9:32 PM)</li>
-                    <li>Last train: 9:22 PM (arrives 11:05 PM)</li>
-                </ul>
-            </div>
-
-            <h4>Suggested London Itinerary</h4>
-            <p>Total time in London: ~10 hours (10:00 AM - 7:30 PM)</p>
-            <ul>
-                <li><strong>10:30 AM - 12:00 PM:</strong> Westminster Abbey 
-                    <br>Gothic architecture, Poets' Corner
-                    <br>2-minute walk from Westminster tube station</li>
-                
-                <li><strong>12:00 PM - 1:00 PM:</strong> Thames riverside walk
-                    <br>Parliament photo opportunities
-                    <br>Big Ben, London Eye views</li>
-                
-                <li><strong>1:00 PM - 3:00 PM:</strong> Tower of London
-                    <br>Crown Jewels, medieval palace
-                    <br>20-minute tube journey from Westminster</li>
-                
-                <li><strong>3:30 PM - 5:00 PM:</strong> British Museum
-                    <br>Rosetta Stone, Egyptian mummies
-                    <br>15-minute tube journey from Tower Hill</li>
-                
-                <li><strong>5:15 PM - 6:45 PM:</strong> St Paul's Cathedral
-                    <br>Dome climb for sunset views
-                    <br>15-minute walk from British Museum</li>
-                
-                <li><strong>6:45 PM - 7:30 PM:</strong> Evening South Bank walk
-                    <br>Riverside views, dinner options
-                    <br>Short walk across Millennium Bridge from St Paul's</li>
+            <ul style="margin-top: 16px">
+                <li>Flights: <span class="price">$5,100</span></li>
+                <li>Rail Travel: <span class="price">$2,650</span></li>
+                <li>Hotels: <span class="price">$4,800</span></li>
+                <li>Activities: <span class="price">$2,540</span></li>
             </ul>
+        </section>
 
-            <div class="important-note">
-                <p><strong>Travel Tips:</strong></p>
+        <section>
+            <h2>London</h2>
+            <div class="hotel">
+                <a href="https://www.strandpalacehotel.co.uk" target="_blank">Strand Palace Hotel</a>
+                <span class="price">$1,200</span>
+                <div class="meta">Superior Room | 2 Nights | Near Covent Garden</div>
+            </div>
+
+            <div class="day">
+                <h3>Day 1</h3>
+                <div class="activity">
+                    <div>Hotel Check-in</div>
+                    <div class="time">After 3:00 PM</div>
+                </div>
+                <div class="activity">
+                    <div>
+                        <a href="https://westminster-abbey.org/visit-us" target="_blank">Westminster Walking Tour</a>
+                        <span class="price">$180</span>
+                    </div>
+                    <div class="time">4:00 PM | Historical landmarks tour</div>
+                </div>
+                <div class="activity">
+                    <div>
+                        <a href="https://rules.co.uk" target="_blank">Dinner at Rules</a>
+                        <span class="rating">★★★★½</span>
+                    </div>
+                    <div class="time">7:30 PM | Oldest restaurant in London</div>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 2</h3>
+                <div class="activity">
+                    <div>
+                        <a href="https://www.londoneye.com" target="_blank">London Eye Fast Track</a>
+                        <span class="price">$180</span>
+                    </div>
+                    <div class="time">10:00 AM | Panoramic views</div>
+                </div>
+                <div class="activity">
+                    <div>Afternoon at leisure</div>
+                    <div class="time">Suggested: <a href="https://www.hrp.org.uk/tower-of-london" target="_blank">Tower of London</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Paris</h2>
+            <div class="hotel">
+                <a href="https://www.ihg.com/holidayinn/hotels/gb/en/paris/parst/hoteldetail" target="_blank">Holiday Inn Paris Gare de l'Est</a>
+                <span class="price">$1,100</span>
+                <div class="meta">Family Room | 2 Nights | Near train station</div>
+            </div>
+
+            <div class="day">
+                <h3>Day 3</h3>
+                <div class="activity">
+                    <div>
+                        <a href="https://www.eurostar.com" target="_blank">Eurostar to Paris</a>
+                    </div>
+                    <div class="time">Morning | 2h15m journey</div>
+                </div>
+                <div class="activity">
+                    <div>
+                        <a href="https://www.vedettesdupontneuf.com" target="_blank">Seine River Cruise</a>
+                        <span class="price">$200</span>
+                    </div>
+                    <div class="time">4:00 PM | Scenic city views</div>
+                </div>
+                <div class="activity">
+                    <div>
+                        <a href="https://www.le-train-bleu.com" target="_blank">Dinner at Le Train Bleu</a>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                    <div class="time">8:00 PM | Belle Époque splendor</div>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 4</h3>
+                <div class="activity">
+                    <div>Paris Exploration</div>
+                    <div class="time">Morning suggestions:
+                        <br>• <a href="https://www.louvre.fr/en" target="_blank">Louvre Museum</a>
+                        <br>• <a href="https://www.toureiffel.paris" target="_blank">Eiffel Tower</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <div>Evening Departure</div>
+                    <div class="time">8:00 PM | <a href="https://www.nightjet.com" target="_blank">Nightjet</a> sleeper train to Vienna</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Vienna</h2>
+            <div class="hotel">
+                <a href="https://www.austria-trend.at/en/hotels/europa-wien" target="_blank">Austria Trend Hotel Europa Wien</a>
+                <span class="price">$1,200</span>
+                <div class="meta">Executive Room | 2 Nights | City center</div>
+            </div>
+
+            <div class="day">
+                <h3>Day 5</h3>
+                <div class="activity">
+                    <div>Arrival & Check-in</div>
+                    <div class="time">Morning arrival | Room from 2:00 PM</div>
+                </div>
+                <div class="activity">
+                    <div>
+                        <a href="https://www.musikverein.at/en" target="_blank">Mozart Concert</a>
+                        <span class="price">$280</span>
+                    </div>
+                    <div class="time">7:30 PM | Golden Hall</div>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 6</h3>
+                <div class="activity">
+                    <div>Vienna Exploration</div>
+                    <div class="time">Suggested visits:
+                        <br>• <a href="https://www.schoenbrunn.at/en" target="_blank">Schönbrunn Palace</a>
+                        <br>• <a href="https://www.belvedere.at/en" target="_blank">Belvedere</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <div>
+                        <a href="https://steirereck.at/en" target="_blank">Dinner at Steirereck</a>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                    <div class="time">7:00 PM | Modern Austrian cuisine</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Rome</h2>
+            <div class="hotel">
+                <a href="https://www.hotelnordnuovaroma.it" target="_blank">Hotel Nord Nuova Roma</a>
+                <span class="price">$1,300</span>
+                <div class="meta">Quadruple Room | 3 Nights | Near Termini</div>
+            </div>
+
+            <div class="day">
+                <h3>Day 7</h3>
+                <div class="activity">
+                    <div>
+                        <a href="https://www.trenitalia.com" target="_blank">Train to Rome</a>
+                    </div>
+                    <div class="time">Morning | First class Trenitalia</div>
+                </div>
+                <div class="activity">
+                    <div>
+                        <a href="https://www.viator.com/tours/Rome/Rome-by-Golf-Cart-Private-Tour/d511-7377P1" target="_blank">Rome by Golf Cart Private Tour</a>
+                        <span class="price">$400</span>
+                    </div>
+                    <div class="time">4:00 PM | City highlights tour</div>
+                </div>
+                <div class="activity">
+                    <div>
+                        <a href="https://www.roscioli.com/restaurant" target="_blank">Dinner at Roscioli</a>
+                        <span class="rating">★★★★½</span>
+                    </div>
+                    <div class="time">8:00 PM | Roman cuisine</div>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 8</h3>
+                <div class="activity">
+                    <div>
+                        <a href="https://www.parcocolosseo.it/en" target="_blank">Colosseum Tour</a>
+                        <span class="price">$240</span>
+                    </div>
+                    <div class="time">9:00 AM | Ancient Rome exploration</div>
+                </div>
+                <div class="activity">
+                    <div>
+                        <a href="https://www.museivaticani.va" target="_blank">Vatican Museums</a>
+                        <span class="price">$200</span>
+                    </div>
+                    <div class="time">2:00 PM | Including Sistine Chapel</div>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 9 - Florence Day Trip</h3>
+                <div class="activity">
+                    <div>High-speed train to Florence</div>
+                    <div class="time">Early Morning</div>
+                </div>
+                <div class="activity">
+                    <div>
+                        <a href="https://www.uffizi.it/en" target="_blank">Uffizi Gallery</a>
+                        <span class="price">$240</span>
+                    </div>
+                    <div class="time">10:00 AM | Renaissance masterpieces</div>
+                </div>
+                <div class="activity">
+                    <div>Walking Tour <span class="price">$320</span></div>
+                    <div class="time">2:00 PM | City highlights</div>
+                </div>
+                <div class="activity">
+                    <div>
+                        <a href="https://www.ristorantelagiostra.com" target="_blank">Dinner at La Giostra</a>
+                        <span class="rating">★★★★½</span>
+                    </div>
+                    <div class="time">8:00 PM | Tuscan excellence</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Important Notes</h2>
+            <div class="alert">
                 <ul>
-                    <li>Purchase train tickets in advance for best prices</li>
-                    <li>Consider getting a one-day London Travelcard with your train ticket</li>
-                    <li>Book Westminster Abbey and Tower of London tickets online to avoid queues</li>
-                    <li>British Museum is free entry, no booking required</li>
-                    <li>Last entry to St Paul's dome is typically 4:15 PM</li>
+                    <li>UK ETA required for London (£10 pp, apply 3+ days before)</li>
+                    <li>EU ETIAS required (€7 pp, apply 30+ days before)</li>
+                    <li>All restaurant reservations must be made in advance</li>
+                    <li>Local taxes additional at hotels</li>
+                    <li>Tours include skip-the-line access</li>
                 </ul>
             </div>
-        </div>
-
-        <div class="ai-suggestion">
-            <span class="tag">💡 Claude AI Alternative Suggestions</span>
-            <h3>Local Cotswolds Activities</h3>
-            <p>If you prefer to stay local, here are some recommended activities:</p>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f5f0ff;">
-                    <span>Hidcote Manor Garden</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>One of England's greatest arts and crafts gardens</li>
-                        <li>Series of outdoor "rooms" with unique character</li>
-                        <li>30 minutes from Moreton-in-Marsh</li>
-                        <li><a href="https://maps.google.com/?q=Hidcote+Manor+Garden">View on Map</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f5f0ff;">
-                    <span>Batsford Arboretum</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>56-acre Victorian arboretum</li>
-                        <li>Japanese gardens and water features</li>
-                        <li>10 minutes from Moreton-in-Marsh</li>
-                        <li><a href="https://maps.google.com/?q=Batsford+Arboretum">View on Map</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f5f0ff;">
-                    <span>Broadway Tower & Village</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>Highest castle in the Cotswolds</li>
-                        <li>Spectacular views over 16 counties</li>
-                        <li>Picturesque village with antique shops</li>
-                        <li>20 minutes from Moreton-in-Marsh</li>
-                        <li><a href="https://maps.google.com/?q=Broadway+Tower">View on Map</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        </section>
     </div>
-</div>
-<!-- Day 9 Section -->
-<div class="section-card">
-    <button class="collapsible-header">
-        <span>October 13 - Monday</span>
-        <span class="toggle-icon">▼</span>
-    </button>
-    <div class="collapsible-content">
-        <div class="travel-item">
-            <span class="tag">🎫 activity</span>
-            <h3>Roman Monuments Tour</h3>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Chedworth Roman Villa</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>National Trust property</li>
-                        <li>One of Britain's largest Roman villas</li>
-                        <li>Features intact mosaic floors</li>
-                        <li><a href="https://www.cotswolds.com/listing/chedworth-roman-villa-%28national-trust%29/13408301/">Visit Website</a></li>
-                        <li><a href="https://maps.google.com/?q=Chedworth+Roman+Villa">View on Map</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Corinium Museum</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <p>Located in Cirencester</p>
-                    <ul>
-                        <li>Significant Roman artifacts collection</li>
-                        <li>Interactive displays about Roman Britain</li>
-                        <li><a href="https://coriniummuseum.org/">Visit Website</a></li>
-                        <li><a href="https://maps.google.com/?q=Corinium+Museum+Cirencester">View on Map</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">🎫 activity</span>
-            <h3>Historic Churches & Architecture</h3>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 St John the Baptist Church</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>Notable wool church</li>
-                        <li>Medieval architecture</li>
-                        <li><a href="https://www.cotswolds.com/listing/burford-st-john-the-baptist-church/203615301/">Visit Website</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Tetbury Wool Merchant Homes</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>Historic merchant houses</li>
-                        <li>17th-century architecture</li>
-                        <li><a href="https://www.cotswolds.com/listing/tetbury/67090301/">Learn More</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Malmesbury Abbey</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>Tomb of first King of England</li>
-                        <li>Norman and Gothic architecture</li>
-                        <li><a href="https://www.malmesburyabbey.com/">Visit Website</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Day 10 Section -->
-<div class="section-card">
-    <button class="collapsible-header">
-        <span>October 14 - Tuesday</span>
-        <span class="toggle-icon">▼</span>
-    </button>
-    <div class="collapsible-content">
-        <div class="travel-item">
-            <span class="tag">🗺️ directions</span>
-            <h3>Scenic Drive around Historic Cotswolds</h3>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">🎫 activity</span>
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Sudeley Castle</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>Contains Katherine Parr's tomb</li>
-                        <li>Tudor gardens</li>
-                        <li>Historic royal castle</li>
-                        <li><a href="https://sudeleycastle.co.uk/">Visit Website</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Stanway House</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>Home of the Earls of Wemyss</li>
-                        <li>Famous water gardens</li>
-                        <li>Jacobean manor house</li>
-                        <li><a href="https://www.stanwayfountain.co.uk/">Visit Website</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section-card" style="background: transparent; box-shadow: none;">
-                <button class="collapsible-header" style="background: #f0f7ff;">
-                    <span>📍 Great Malvern Priory</span>
-                    <span class="toggle-icon">▼</span>
-                </button>
-                <div class="collapsible-content">
-                    <ul>
-                        <li>Medieval monastery</li>
-                        <li>Notable stained glass</li>
-                        <li><a href="https://www.greatmalvernpriory.org.uk/heritage">Visit Website</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Day 11 Section -->
-<div class="section-card">
-    <button class="collapsible-header">
-        <span>October 15 - Wednesday</span>
-        <span class="toggle-icon">▼</span>
-    </button>
-    <div class="collapsible-content">
-        <div class="accommodation-item">
-            <span class="tag">🏨 hotel</span>
-            <p class="time-info">Check-out from Country Courtyard Cottage by 10:00 AM</p>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">🗺️ directions</span>
-            <p class="time-info">Cottage to Bristol Airport</p>
-            <p>Drive time: Approximately 1 hour 15 minutes (45 miles)</p>
-            <p>Route: M5 → A38</p>
-            <div class="important-note">
-                <p><strong>Timeline:</strong></p>
-                <ul>
-                    <li>Depart cottage by 5:45 AM</li>
-                    <li>Arrive at car rental return by 7:00 AM</li>
-                    <li>Allow 30 minutes for rental car return process</li>
-                    <li>Airport shuttle from car rental to terminal: 10 minutes</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">✈️ flight</span>
-            <p class="time-info">9:20 AM BST - Depart Bristol (BRS)</p>
-            <p>KLM Flight KL 1076</p>
-            <p>Bristol International Airport</p>
-            <p>Flight duration: 1h 15m</p>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">✈️ flight</span>
-            <p class="time-info">11:35 AM CEST - Arrive Amsterdam (AMS)</p>
-            <p>KLM Flight KL 1076</p>
-            <p>Layover duration: 1h 30m</p>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">✈️ flight</span>
-            <p class="time-info">1:05 PM CEST - Depart Amsterdam (AMS)</p>
-            <p>KLM Flight KL 651</p>
-            <p>Flight duration: 8h 30m</p>
-        </div>
-
-        <div class="travel-item">
-            <span class="tag">✈️ flight</span>
-            <p class="time-info">3:35 PM EDT - Arrive Washington Dulles (IAD)</p>
-            <p>KLM Flight KL 651</p>
-            <p>Washington Dulles International Airport</p>
-        </div>
-    </div>
-</div>
-<!-- DAY_SECTIONS_INSERT_POINT -->
-
-    <script>
-        document.querySelectorAll('.collapsible-header').forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-                const icon = button.querySelector('.toggle-icon');
-                content.classList.toggle('active');
-                icon.classList.toggle('rotate');
-            });
-        });
-
-        // Open the first section by default
-        document.querySelector('.collapsible-content').classList.add('active');
-    </script>
 </body>
 </html>
