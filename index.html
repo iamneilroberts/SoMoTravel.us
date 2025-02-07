@@ -6,13 +6,18 @@
     <title>European Family Adventure - Summer 2025</title>
     <style>
         :root {
-            --primary: #2C3E50;
-            --secondary: #34495E;
-            --accent: #3498DB;
-            --background: #F8FAFC;
-            --text: #2C3E50;
-            --border: #E2E8F0;
+            --primary: #367B4C;
+            --secondary: #408557;
+            --accent: #4A9A63;
+            --background: #F8FAF9;
+            --text: #2F3E36;
+            --border: #D8E6DE;
             --card-bg: #FFFFFF;
+            --highlight: #88B799;
+            --link: #1A6B75;
+            --link-hover: #2D8D98;
+            --warning: #FFF3CD;
+            --warning-border: #FFE69C;
         }
 
         * {
@@ -22,312 +27,672 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
             color: var(--text);
             background: var(--background);
-            padding: 20px;
+            padding: 16px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             background: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .header {
-            background: var(--primary);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            background-image: linear-gradient(135deg, #2C3E50 0%, #3498DB 100%);
-        }
-
-        .header h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .summary-box {
-            background: var(--accent);
-            color: white;
-            padding: 20px;
-            margin: -20px 20px 20px;
-            border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
+        .main-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .main-header h1 {
+            font-size: 1.8em;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .main-header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .price-showcase {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px auto;
+            max-width: 280px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .price-total {
+            font-size: 1.8em;
+            color: var(--primary);
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .price-per-person {
+            color: var(--secondary);
+            font-size: 1.1em;
+        }
+
         .section {
-            padding: 30px 20px;
+            padding: 20px;
             border-bottom: 1px solid var(--border);
         }
 
-        .section:last-child {
-            border-bottom: none;
-        }
-
-        .section h2 {
+        .section-title {
+            font-size: 1.2em;
             color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.5em;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .card {
             background: var(--background);
             border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 16px;
+            margin-bottom: 16px;
             border: 1px solid var(--border);
+        }
+
+        .card:last-child {
+            margin-bottom: 0;
         }
 
         .card h3 {
             color: var(--secondary);
-            margin-bottom: 10px;
-        }
-
-        .price-summary {
-            background: #EBF8FF;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid #BEE3F8;
-        }
-
-        .alert {
-            background: #FFF3CD;
-            border-left: 4px solid #FFC107;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
+            margin-bottom: 12px;
+            font-size: 1.1em;
         }
 
         ul {
-            list-style-type: none;
-            padding-left: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            padding-left: 20px;
             position: relative;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
         }
 
         li::before {
             content: "•";
-            color: var(--accent);
-            font-weight: bold;
             position: absolute;
-            left: -15px;
+            left: 0;
+            color: var(--accent);
         }
 
-        .duration-badge {
-            background: var(--accent);
+        .journey-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            gap: 12px;
+        }
+
+        .journey-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .city-name {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .duration {
+            color: var(--secondary);
+            font-size: 0.95em;
+        }
+
+        .warning-box {
+            background: var(--warning);
+            border: 1px solid var(--warning-border);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 12px;
+        }
+
+        .warning-box li::before {
+            color: #FFA000;
+        }
+
+        .info-box {
+            background: #E8F5E9;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 12px;
+        }
+
+        .highlight-text {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        .divider {
+            height: 8px;
+            background: var(--background);
+            margin: 0;
+        }
+
+        .city-header {
+            background: var(--primary);
             color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            margin-left: 10px;
+            padding: 20px;
         }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
+        .city-header h2 {
+            font-size: 1.5em;
+            margin-bottom: 4px;
+        }
 
-            .header {
-                padding: 30px 15px;
-            }
+        .city-dates {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
 
-            .section {
-                padding: 20px 15px;
-            }
+        .transport-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--highlight);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-left: 8px;
+        }
+
+        .schedule-time {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .category-label {
+            font-weight: 600;
+            color: var(--secondary);
+            margin: 16px 0 8px 0;
+        }
+
+        .kims-pick {
+            background: #FFF3E0;
+            border-left: 4px solid #FF9800;
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .kims-pick h4 {
+            color: #E65100;
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+<div class="main-header">
             <h1>European Family Adventure</h1>
             <p>Summer 2025 • 11 Days • 4 Travelers</p>
-        </div>
-
-        <div class="summary-box">
-            <h2>Complete Package Price</h2>
-            <p style="font-size: 1.4em; margin: 10px 0;">$15,550</p>
-            <p>$3,887.50 per person</p>
+            
+            <div class="price-showcase">
+                <div>Complete Package</div>
+                <div class="price-total">$15,550</div>
+                <div class="price-per-person">$3,887.50 per person</div>
+            </div>
         </div>
 
         <div class="section">
-            <h2>Package Overview</h2>
-            <div class="price-summary">
-                <h3>Investment Breakdown</h3>
+            <h2 class="section-title">✨ Experience Highlights</h2>
+            <div class="card">
                 <ul>
-                    <li>Transportation: $7,750</li>
-                    <li>Premium Accommodations: $4,920</li>
-                    <li>Tours & Activities: $2,880</li>
+                    <li>Premium accommodations in city centers</li>
+                    <li>First-class rail between cities</li>
+                    <li>Skip-the-line museum access</li>
+                    <li>Curated city tours with local experts</li>
+                    <li>Iconic landmarks & hidden gems</li>
                 </ul>
             </div>
         </div>
 
         <div class="section">
-            <h2>🚨 Entry Requirements</h2>
-            <div class="alert">
-                <ul>
-                    <li>UK ETA for London: £10 per person (apply 3+ days before)</li>
-                    <li>EU ETIAS: €7 per person (apply 30+ days before)</li>
-                </ul>
+            <h2 class="section-title">🗺️ Journey Overview</h2>
+            <div class="card">
+                <div class="journey-item">
+                    <div class="city-name">London</div>
+                    <div class="duration">2 nights</div>
+                </div>
+                <div class="journey-item">
+                    <div class="city-name">Paris</div>
+                    <div class="duration">2 nights</div>
+                </div>
+                <div class="journey-item">
+                    <div class="city-name">Vienna</div>
+                    <div class="duration">2 nights</div>
+                </div>
+                <div class="journey-item">
+                    <div class="city-name">Rome</div>
+                    <div class="duration">3 nights</div>
+                </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>✈️ Transportation</h2>
+            <h2 class="section-title">✈️ Transportation</h2>
             <div class="card">
                 <h3>International Flights</h3>
-                <p>Delta Airlines via Atlanta</p>
                 <ul>
+                    <li>Delta Airlines via Atlanta</li>
                     <li>Mobile → London</li>
                     <li>Rome → Mobile</li>
                 </ul>
             </div>
-
             <div class="card">
                 <h3>Rail Travel</h3>
                 <ul>
                     <li>London → Paris: Eurostar (2h15m)</li>
                     <li>Paris → Vienna: Nightjet sleeper</li>
                     <li>Vienna → Rome: Trenitalia first class</li>
-                    <li>Rome ↔ Pompeii: High-speed rail</li>
                 </ul>
             </div>
         </div>
 
         <div class="section">
-            <h2>🏨 Premium Accommodations</h2>
-            <div class="card">
-                <h3>London <span class="duration-badge">2 nights</span></h3>
-                <p>Strand Palace Hotel</p>
-                <p>Superior Room • Near Covent Garden</p>
-            </div>
-
-            <div class="card">
-                <h3>Paris <span class="duration-badge">2 nights</span></h3>
-                <p>7 Eiffel by Malone</p>
-                <p>Luxury Room • Near Eiffel Tower</p>
-            </div>
-
-            <div class="card">
-                <h3>Vienna <span class="duration-badge">2 nights</span></h3>
-                <p>Elaya Hotel Vienna City Center</p>
-                <p>Executive Room • City center location</p>
-            </div>
-
-            <div class="card">
-                <h3>Rome <span class="duration-badge">3 nights</span></h3>
-                <p>Una Hotels Deco Roma</p>
-                <p>Superior Room • City center location</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>🎫 Included Experiences</h2>
-            <div class="card">
-                <h3>London</h3>
+            <h2 class="section-title">⚠️ Important Requirements</h2>
+            <div class="warning-box">
                 <ul>
-                    <li>Westminster Walking Tour</li>
-                    <li>London Eye Fast Track</li>
-                    <li>British Museum (free entry)</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Paris</h3>
-                <ul>
-                    <li>Seine River Cruise</li>
-                    <li>Eiffel Tower visit</li>
-                    <li>Luxembourg Gardens</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Vienna</h3>
-                <ul>
-                    <li>Mozart Concert at Golden Hall</li>
-                    <li>Schönbrunn Palace</li>
-                    <li>Historic city center walking tour</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Rome & Beyond</h3>
-                <ul>
-                    <li>Rome Golf Cart Tour</li>
-                    <li>Colosseum & Roman Forum Tour</li>
-                    <li>Vatican Museums & Sistine Chapel</li>
-                    <li>Pompeii & Amalfi Coast Day Trip</li>
+                    <li>UK ETA required for London
+                        <br>£10 per person, apply 3+ days before</li>
+                    <li>EU ETIAS required for other cities
+                        <br>€7 per person, apply 30+ days before</li>
+                    <li>Travel insurance recommended
+                        <br>$250-350 per person</li>
                 </ul>
             </div>
         </div>
 
-        <div class="section">
-            <h2>🗓️ Daily Overview</h2>
-            <div class="card">
-                <h3>Days 1-2: London</h3>
+<div class="section">
+    <h2 class="section-title">💰 Investment Details</h2>
+    <div class="info-box">
+        <h3>Package Includes:</h3>
+        <ul>
+            <li>Transportation: $7,750
                 <ul>
-                    <li>Arrival and hotel check-in</li>
-                    <li>Westminster area exploration</li>
-                    <li>London Eye experience</li>
-                    <li>British Museum visit</li>
+                    <li>International Airfare: $5,100</li>
+                    <li>Rail Travel: $2,650</li>
                 </ul>
-            </div>
+            </li>
+            <li>Luxury Accommodations: $4,920</li>
+            <li>Tours & Experiences: $2,880</li>
+        </ul>
+    </div>
+</div>
 
-            <div class="card">
-                <h3>Days 3-4: Paris</h3>
-                <ul>
-                    <li>Morning Eurostar to Paris</li>
-                    <li>Seine River Cruise</li>
-                    <li>Eiffel Tower visit</li>
-                    <li>Evening departure on sleeper train</li>
-                </ul>
-            </div>
+        <div class="divider"></div>
+<div class="city-header">
+    <h2>London</h2>
+    <div class="city-dates">Days 1-2 • Summer 2025</div>
+</div>
 
-            <div class="card">
-                <h3>Days 5-6: Vienna</h3>
-                <ul>
-                    <li>Morning arrival in Vienna</li>
-                    <li>Historic center exploration</li>
-                    <li>Evening Mozart Concert</li>
-                    <li>Schönbrunn Palace visit</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Days 7-10: Rome</h3>
-                <ul>
-                    <li>Arrival and city tour by golf cart</li>
-                    <li>Ancient Rome exploration</li>
-                    <li>Vatican Museums visit</li>
-                    <li>Full-day Pompeii & Amalfi Coast excursion</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>📝 Important Notes</h2>
-            <ul>
-                <li>City taxes collected at check-in (€2-6 per person/night)</li>
-                <li>Restaurant reservations needed 2-8 weeks ahead</li>
-                <li>Travel insurance recommended ($250-350 per person)</li>
-                <li>All tours include skip-the-line access</li>
-                <li>Train station transfers included with hotels</li>
-                <li>Museum passes should be booked in advance</li>
-                <li>All prices in USD unless noted</li>
-            </ul>
+<div class="section">
+    <h2 class="section-title">🏨 Accommodation</h2>
+    <div class="card">
+        <h3><a href="https://www.strandpalacehotel.co.uk/">Strand Palace Hotel</a> <span class="tag">2 nights</span></h3>
+        <p>Superior Room (2 doubles)</p>
+        <p>Location: Near Covent Garden</p>
+        <div class="info-box">
+            <div class="transport-info">🚇 Nearest Tube: Covent Garden (5 min walk)</div>
+            <div class="transport-info">🚶‍♂️ Walking distance to most attractions</div>
         </div>
     </div>
+</div>
+            
+<div class="kims-pick">
+    <h4>Kim Recommends: Hidden Gem Breakfast</h4>
+    <p>Start your day at <a href="https://www.thewolseley.com/">The Wolseley</a> - a historic grand café just steps from Green Park. Their English breakfast is perfection, served in an elegant Art Deco setting. A true London institution that many tourists miss! Go early (before 8:30am) to avoid the crowds.</p>
+</div>
+
+<div class="section">
+    <h2 class="section-title">🎫 Included Activities</h2>
+    <div class="card">
+        <ul>
+            <li><a href="https://www.viator.com/tours/London/Westminster-Walking-Tour-and-Westminster-Abbey-Entry/d737-75760P78">Westminster Walking Tour</a> - Historical landmarks tour (Day 1, 4:00 PM)</li>
+            <li><a href="https://www.viator.com/tours/London/London-Eye-River-Cruise/d737-2988P12">London Eye and Thames River Cruise</a> - (Day 2, 10:00 AM)</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <h2 class="section-title">📍 Local Recommendations</h2>
+    <div class="card">
+        <div class="category-label">Free Activities</div>
+        <ul>
+            <li><a href="https://www.britishmuseum.org/">British Museum</a> - 10 min walk, allow 2-3 hours</li>
+            <li><a href="https://www.nationalgallery.org.uk/">National Gallery</a> - European masterpieces</li>
+            <li><a href="https://www.coventgarden.london/whats-on">Covent Garden performers</a> - Daily entertainment</li>
+        </ul>
+        <div class="category-label">Shopping</div>
+        <ul>
+            <li><a href="https://www.coventgarden.london/shopping">Covent Garden Market</a> - Unique shops & crafts</li>
+            <li><a href="https://www.oxfordstreet.co.uk/">Oxford Street</a> - Major brands, 15 min walk</li>
+            <li><a href="https://www.sevendials.co.uk/">Seven Dials</a> - Boutique shopping district</li>
+        </ul>
+        <div class="category-label">Dining</div>
+        <ul>
+            <li><a href="https://rules.co.uk/">Rules</a> - London's oldest restaurant (reserve ahead)</li>
+            <li><a href="https://www.dishoom.com/covent-garden/">Dishoom</a> - Popular Indian cuisine</li>
+            <li><a href="https://boroughmarket.org.uk/">Borough Market</a> - Gourmet food stalls</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <h2 class="section-title">📅 Daily Schedule</h2>
+    <div class="card">
+        <div class="schedule-time">Day 1</div>
+        <ul>
+            <li>Hotel check-in after 3 PM</li>
+            <li>Westminster Walking Tour (4:00 PM)</li>
+            <li>Evening: Covent Garden exploration</li>
+        </ul>
+        
+        <div class="schedule-time">Day 2</div>
+        <ul>
+            <li>Thames Cruise (10:00 AM)</li>
+            <li>British Museum (afternoon)</li>
+            <li>Optional: National Gallery</li>
+        </ul>
+    </div>
+</div>
+
+        <div class="section">
+            <h2 class="section-title">📅 Daily Schedule</h2>
+            <div class="card">
+                <div class="schedule-time">Day 1</div>
+                <ul>
+                    <li>Hotel check-in after 3 PM</li>
+                    <li>Westminster Walking Tour (4:00 PM)</li>
+                    <li>Evening: Covent Garden exploration</li>
+                </ul>
+                
+                <div class="schedule-time">Day 2</div>
+                <ul>
+                    <li>Thames Cruise (10:00 AM)</li>
+                    <li>British Museum (afternoon)</li>
+                    <li>Optional: National Gallery</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+<div class="city-header">
+            <h2>Paris</h2>
+            <div class="city-dates">Days 3-4 • Summer 2025</div>
+        </div>
+
+      <div class="section">
+    <h2 class="section-title">🏨 Accommodation</h2>
+    <div class="card">
+        <h3><a href="https://www.hotel-7eiffel-paris.com/en/">Hotel 7 Eiffel</a> <span class="tag">2 nights</span></h3>
+        <p>Family Room (2 doubles)</p>
+        <p>Location: Near Eiffel Tower</p>
+        <div class="info-box">
+            <div class="transport-info">🚇 Metro: École Militaire (5 min walk)</div>
+            <div class="transport-info">🗼 10 min walk to Eiffel Tower</div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <h2 class="section-title">🎫 Included Activities</h2>
+    <div class="card">
+        <ul>
+            <li><a href="https://www.viator.com/tours/Paris/Seine-River-Cruise-Sightseeing-with-Optional-Aperitif-or-Snack/d479-5636CRUISE">Seine River Cruise</a> - Scenic city views (Day 3, 4:00 PM)</li>
+
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <h2 class="section-title">📍 Local Recommendations</h2>
+    <div class="card">
+        <div class="category-label">Free Activities</div>
+        <ul>
+            <li><a href="https://www.parisinfo.com/musee-monument-paris/71304/Avenue-des-Champs-Elysees">Champs-Élysées</a> - Famous avenue</li>
+            <li><a href="https://en.parisinfo.com/paris-museum-monument/71393/Jardin-du-Luxembourg">Luxembourg Gardens</a> - Beautiful park</li>
+            <li><a href="https://www.sacre-coeur-montmartre.com/english/">Sacré-Cœur</a> - Amazing views</li>
+        </ul>
+        <div class="category-label">Shopping</div>
+        <ul>
+            <li><a href="https://www.galerieslafayette.com/">Galeries Lafayette</a> - Luxury department store</li>
+            <li><a href="https://www.marais.paris/">Le Marais</a> - Trendy boutiques</li>
+            <li><a href="https://www.bouquinistesparis.com/">Seine Bouquinistes</a> - Antique books</li>
+        </ul>
+        <div class="category-label">Dining</div>
+        <ul>
+            <li><a href="https://www.le-train-bleu.com/en/">Le Train Bleu</a> - Belle Époque splendor (reserved)</li>
+            <li><a href="https://bouillon-chartier.com/en/">Bouillon Chartier</a> - Historic affordable dining</li>
+            <li><a href="https://www.lesdeuxmagots.fr/en/">Les Deux Magots</a> - Classic café</li>
+        </ul>
+    </div>
+</div>
+
+        <div class="section">
+            <h2 class="section-title">📅 Daily Schedule</h2>
+            <div class="card">
+                <div class="schedule-time">Day 3</div>
+                <ul>
+                    <li>Arrival via Eurostar</li>
+                    <li>Hotel check-in after 2 PM</li>
+                    <li>Seine River Cruise (4:00 PM)</li>
+                    <li>Evening: Le Train Bleu dinner</li>
+                </ul>
+                
+                <div class="schedule-time">Day 4</div>
+                <ul>
+                    <li>Louvre Museum (morning)</li>
+                    <li>Eiffel Tower visit (afternoon)</li>
+                    <li>Evening: Montmartre exploration</li>
+                </ul>
+            </div>
+        </div>
+<div class="divider"></div>
+<div class="city-header">
+    <h2>Vienna</h2>
+    <div class="city-dates">Days 5-6 • Summer 2025</div>
+</div>
+<div class="section">
+    <h2 class="section-title">🏨 Accommodation</h2>
+    <div class="card">
+        <h3><a href="https://www.elaya-hotels.com/en/vienna-city-center">elaya hotel vienna city center</a> <span class="tag">2 nights</span></h3>
+        <p>Executive Room (2 doubles)</p>
+        <p>Location: City center</p>
+        <div class="info-box">
+            <div class="transport-info">🚶‍♂️ Central location near Ringstrasse</div>
+            <div class="transport-info">🎭 Walking distance to major attractions</div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <h2 class="section-title">🎫 Included Activities</h2>
+    <div class="card">
+        <ul>
+            <li><a href="https://www.viator.com/tours/Vienna/Vienna-Mozart-Concert-at-the-Musikverein/d454-2322MVMVB">Mozart Concert at Golden Hall</a> - Evening performance (Day 5, 7:30 PM)</li>
+        </ul>
+    </div>
+</div>
+<div class="section">
+    <h2 class="section-title">📍 Local Recommendations</h2>
+    <div class="card">
+        <div class="category-label">Free Activities</div>
+        <ul>
+            <li><a href="https://www.wien.info/en/sightseeing/parks-gardens/stadtpark">Stadtpark</a> - Beautiful city park</li>
+            <li><a href="https://www.stephanskirche.at/">St. Stephen's Cathedral</a> - Gothic masterpiece</li>
+            <li><a href="https://www.wien.info/en/sightseeing/prater/prater-254586">Prater Park</a> - Historic amusement park</li>
+        </ul>
+        <div class="category-label">Shopping</div>
+        <ul>
+            <li><a href="https://www.wien.info/en/shopping/markets/naschmarkt">Naschmarkt</a> - Famous food market</li>
+            <li><a href="https://www.mariahilferstrasse.at/">Mariahilfer Straße</a> - Shopping street</li>
+            <li><a href="https://www.dorotheum.at/en/">Dorotheum</a> - Historic auction house</li>
+        </ul>
+        <div class="category-label">Dining</div>
+        <ul>
+            <li><a href="https://steirereck.at/en/">Steirereck</a> - Michelin-starred (reserved)</li>
+            <li><a href="https://www.plachutta.at/en/">Plachutta</a> - Famous for Tafelspitz</li>
+            <li><a href="https://www.cafe-central.wien/en/">Café Central</a> - Historic coffeehouse</li>
+        </ul>
+    </div>
+</div>
+<div class="section">
+    <h2 class="section-title">📅 Daily Schedule</h2>
+    <div class="card">
+        <div class="schedule-time">Day 5</div>
+        <ul>
+            <li>Arrive from Paris (morning)</li>
+            <li>Hotel check-in after 2 PM</li>
+            <li>Afternoon: City orientation walk</li>
+            <li>Mozart Concert (7:30 PM)</li>
+        </ul>
+        
+        <div class="schedule-time">Day 6</div>
+        <ul>
+            <li>Schönbrunn Palace (morning)</li>
+            <li>Belvedere Palace (afternoon)</li>
+            <li>Evening: Steirereck dinner</li>
+        </ul>
+    </div>
+</div>
+        <div class="divider"></div>        
+<div class="city-header">
+    <h2>Rome</h2>
+    <div class="city-dates">Days 7-9 • Summer 2025</div>
+</div>
+
+<div class="section">
+    <h2 class="section-title">🏨 Accommodation</h2>
+    <div class="card">
+        <h3><a href="https://www.gruppouna.it/en/unahotels/unahotels-deco-roma">Una Hotels Deco Roma</a> <span class="tag">3 nights</span></h3>
+        <p>Quadruple Room (2 doubles)</p>
+        <p>Location: Central Rome</p>
+        <div class="info-box">
+            <div class="transport-info">🚇 Republica Metro Station nearby</div>
+            <div class="transport-info">🚶‍♂️ Walking distance to many attractions</div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2 class="section-title">🎫 Included Activities</h2>
+    <div class="card">
+        <ul>
+            <li><a href="https://www.viator.com/tours/Rome/Rome-by-Golf-Cart-Private-Tour/d511-7377P1">Rome Golf Cart Tour</a> - City highlights (Day 7, 4:00 PM)</li>
+            <li><a href="https://www.viator.com/Rome-attractions/Colosseum/d511-a701">Colosseum Tour</a> - Skip-the-line access (Day 8, 9:00 AM)</li>
+            <li><a href="https://www.viator.com/tours/Rome/Skip-the-Line-Vatican-Museums-and-Sistine-Chapel-Guided-Tour/d511-3731VATICAN">Vatican Museums</a> - Early entry tickets (Day 8, 2:00 PM)</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <h2 class="section-title">📍 Local Recommendations</h2>
+    <div class="card">
+        <div class="category-label">Free Activities</div>
+        <ul>
+            <li><a href="https://www.rome.net/pantheon">Pantheon</a> - Ancient temple, free entry</li>
+            <li><a href="https://www.turismoroma.it/en/places/fontana-di-trevi">Trevi Fountain</a> - Best before 8am</li>
+            <li><a href="https://www.rome.net/piazza-navona">Piazza Navona</a> - Beautiful square</li>
+        </ul>
+
+        <div class="category-label">Shopping</div>
+        <ul>
+            <li><a href="https://www.rome.net/via-del-corso">Via del Corso</a> - Main shopping street</li>
+            <li><a href="https://www.mercatocentrale.com/roma/">Mercato Centrale</a> - Gourmet food market</li>
+            <li><a href="https://www.portaportese.it/">Porta Portese</a> - Sunday flea market</li>
+        </ul>
+
+        <div class="category-label">Dining</div>
+        <ul>
+            <li><a href="https://www.roscioli.com/restaurant/">Roscioli</a> - Roman cuisine </li>
+            <li><a href="https://www.armandomrama.it/">Armando al Pantheon</a> - Classic Roman</li>
+            <li><a href="https://www.pizzeriaidagermana.it/">Da Germana</a> - Local favorite pizza</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <h2 class="section-title">📅 Daily Schedule</h2>
+    <div class="card">
+        <div class="schedule-time">Day 7</div>
+        <ul>
+            <li>Arrive from Vienna (morning)</li>
+            <li>Hotel check-in after 2 PM</li>
+            <li>Golf Cart Tour (4:00 PM)</li>
+            <li>Evening: Welcome dinner at Roscioli</li>
+        </ul>
+        
+        <div class="schedule-time">Day 8</div>
+        <ul>
+            <li>Colosseum Tour (9:00 AM)</li>
+            <li>Vatican Museums (2:00 PM)</li>
+            <li>Evening: Trastevere exploration</li>
+        </ul>
+
+        <div class="schedule-time">Day 9</div>
+        <ul>
+            <li>Morning: Pantheon and Trevi Fountain</li>
+            <li>Afternoon: Shopping and relaxation</li>
+            <li>Evening: Farewell dinner in Rome</li>
+        </ul>
+    </div>
+</div>
+        <div class="divider"></div>
+</div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                    this.getElementsByClassName("icon")[0].innerHTML = "+";
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                    this.getElementsByClassName("icon")[0].innerHTML = "-";
+                }
+            });
+        }
+    </script>
 </body>
-</html>
+</html>        
