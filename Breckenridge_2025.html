@@ -3,710 +3,655 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breckenridge Winter Vacation Proposal</title>
+    <title>Breckenridge Winter Vacation Guide</title>
     <style>
-        :root {
-            /* Primary color scheme */
-            --primary-color: #0056b3;
-            --secondary-color: #0069d9;
-            --accent-color: #e74c3c;
-            
-            /* Background colors */
-            --background-color: #ffffff;
-            --card-bg: #ffffff;
-            --note-bg: #f8f9fa;
-            --light-accent: #f1f8ff;
-            
-            /* Text colors */
-            --text-color: #212529;
-            --heading-color: #0056b3;
-            --note-text: #212529;
-            
-            /* Functional colors */
-            --dark-color: #343a40;
-            --border-color: #dee2e6;
-            --highlight-color: #0056b3;
-            --success-color: #28a745;
-            --price-color: #175e3d;
-        }
-        
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
+            color: #333;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
-            font-size: 16px;
+        }
+        
+        .header {
+            background-color: #1a5276;
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
         
         .container {
-            max-width: 100%;
-            padding: 0 15px;
+            max-width: 800px;
             margin: 0 auto;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            background-image: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            padding: 15px;
         }
         
         h1 {
             margin: 0;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            color: white;
+            font-size: 24px;
         }
         
         h2 {
-            color: var(--heading-color);
-            font-size: 1.5rem;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            font-weight: 700;
+            background-color: #1a5276;
+            color: white;
+            padding: 10px 15px;
+            margin: 20px 0 10px 0;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        h2:after {
+            content: ' +';
+            float: right;
+        }
+        
+        h2.active:after {
+            content: ' -';
         }
         
         h3 {
-            color: var(--heading-color);
-            margin-top: 20px;
+            color: #1a5276;
+            margin-top: 15px;
+            font-size: 16px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        
+        .section-content {
+            display: none;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .active + .section-content {
+            display: block;
+        }
+        
+        .day {
+            background-color: #eaf2f8;
+            padding: 10px;
             margin-bottom: 10px;
-            font-size: 1.3rem;
-            font-weight: 600;
+            border-radius: 5px;
         }
         
-        .subtitle {
-            margin-top: 5px;
-            font-size: 1rem;
-            opacity: 0.9;
-            color: white;
-        }
-        
-        .collapsible {
-            background-color: var(--primary-color);
-            color: white;
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            border: none;
-            border-radius: 8px;
-            text-align: left;
-            outline: none;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-top: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.3s;
-        }
-        
-        .active, .collapsible:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        .content {
-            padding: 0 18px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-            background-color: var(--card-bg);
-            border-radius: 0 0 8px 8px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        
-        .content-inner {
-            padding: 15px;
-            color: var(--text-color);
-        }
-        
-        .content-inner p {
-            color: var(--text-color);
-        }
-        
-        .day-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 6px;
-            margin: 15px 0 10px 0;
-            font-weight: 600;
+        .day-title {
+            font-weight: bold;
+            color: #1a5276;
+            margin-bottom: 5px;
         }
         
         .activity {
-            border-left: 3px solid var(--accent-color);
-            padding: 10px 15px;
-            margin: 10px 0;
-            background-color: var(--light-accent);
-            border-radius: 0 6px 6px 0;
-            color: var(--text-color);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 10px;
+            padding-left: 15px;
         }
         
         .time {
-            font-weight: 700;
-            color: var(--primary-color);
+            font-weight: bold;
         }
         
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.9rem;
-        }
-        
-        .pricing-table th,
-        .pricing-table td {
-            padding: 10px 8px;
-            text-align: left;
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-        }
-        
-        .pricing-table th {
-            background-color: var(--primary-color);
-            color: white;
-        }
-                
-        .pricing-table tr:nth-child(even) {
-            background-color: var(--light-accent);
-        }
-        
-        .pricing-category {
-            font-weight: 600;
-        }
-        
-        .pricing-range {
-            color: var(--price-color);
-            font-weight: 600;
-        }
-        
-        .total-row {
-            background-color: var(--highlight-color) !important;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .total-row .pricing-range {
-            color: white;
-        }
-        
-        .note {
-            margin: 15px 0;
-            padding: 15px;
-            background-color: var(--note-bg);
-            border-left: 4px solid var(--highlight-color);
-            border-radius: 0 6px 6px 0;
-            color: var(--note-text);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--highlight-color);
-        }
-        
-        .note-title {
-            font-weight: 700;
-            color: var(--heading-color);
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
-        
-        .accommodation-card {
-            background-color: var(--light-accent);
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .accommodation-title {
-            color: var(--heading-color);
-            margin-top: 0;
+        .item {
+            background-color: white;
+            padding: 10px;
             margin-bottom: 10px;
-            font-size: 1.2rem;
-            font-weight: 700;
+            border-radius: 5px;
+            border-left: 4px solid #1a5276;
         }
         
-        .accommodation-features {
-            list-style-type: none;
-            padding-left: 0;
-            margin-top: 15px;
-        }
-        
-        .accommodation-features li {
-            margin-bottom: 8px;
-            padding-left: 25px;
-            position: relative;
-            color: var(--text-color);
-        }
-        
-        .accommodation-features li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
+        .item-name {
             font-weight: bold;
+            color: #1a5276;
         }
         
-        .list-columns {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-        }
-        
-        .inclusions,
-        .exclusions {
-            list-style-type: none;
-            padding-left: 0;
-            margin-top: 10px;
-        }
-        
-        .inclusions li,
-        .exclusions li {
-            margin-bottom: 8px;
-            padding-left: 25px;
-            position: relative;
-            color: var(--text-color);
-        }
-        
-        .inclusions li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--success-color);
-            font-weight: bold;
-        }
-        
-        .exclusions li::before {
-            content: "✕";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-        
-        .cta {
-            text-align: center;
-            margin: 25px 0;
-            padding: 20px;
-            background-color: var(--light-accent);
-            border-radius: 8px;
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 12px 28px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .cta-button:active {
-            transform: scale(0.98);
-        }
-        
-        .footer {
-            background-color: var(--dark-color);
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 30px;
-            font-size: 0.9rem;
-        }
-        
-        .footer p {
-            margin: 8px 0;
-            color: white;
-        }
-        
-        .footer a {
-            color: #a7d1f5;
-            text-decoration: none;
-        }
-        
-        .kim-signature {
-            font-family: Arial, Helvetica, sans-serif;
+        .item-type {
             font-style: italic;
-            font-size: 1.3rem;
-            margin-top: 15px;
-            color: var(--accent-color);
+            color: #666;
+            font-size: 14px;
         }
         
-        .kim-title {
-            font-size: 0.8rem;
-            margin-top: 5px;
-            color: #ffffff;
-            opacity: 0.9;
+        .price {
+            color: #2c8c3c;
+            font-weight: bold;
         }
         
-        .tag {
-            display: inline-block;
-            background-color: var(--highlight-color);
-            color: white;
-            padding: 3px 6px;
+        .budget-friendly {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 2px 5px;
             border-radius: 3px;
-            font-size: 0.7rem;
-            font-weight: 600;
+            font-size: 12px;
             margin-left: 5px;
         }
         
-        .collapsible:after {
-            content: '↓';
-            font-size: 0.8rem;
-            color: white;
+        .tip-box {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .tip-title {
             font-weight: bold;
+            color: #17a2b8;
         }
         
-        .active:after {
-            content: '↑';
+        .emergency-box {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 5px;
         }
         
-        .highlight {
-            background-color: #fff3cd;
-            color: #333;
-            padding: 2px 5px;
-            border-radius: 3px;
+        .kims-pick {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 5px;
         }
         
-        @media screen and (min-width: 768px) {
-            .list-columns {
-                grid-template-columns: 1fr 1fr;
-            }
+        .kims-title {
+            font-weight: bold;
+            color: #28a745;
+        }
+        
+        .footer {
+            background-color: #1a5276;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        ul {
+            margin-top: 5px;
+            padding-left: 20px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>BRECKENRIDGE WINTER VACATION</h1>
-            <div class="subtitle">December 18-23, 2025 | 5 Nights</div>
-        </div>
-    </header>
+    <div class="header">
+        <h1>BRECKENRIDGE WINTER VACATION</h1>
+        <div>December 18-23, 2025</div>
+    </div>
 
     <div class="container">
-        <button class="collapsible">Trip Overview</button>
-        <div class="content">
-            <div class="content-inner">
-                <p>Experience the magic of winter in one of Colorado's most captivating mountain destinations. This carefully crafted 5-night getaway combines world-class skiing, unique winter adventures, and memorable family experiences in the charming town of Breckenridge.</p>
-                
-                <p><strong>Dates:</strong> December 18-23, 2025 (5 nights)</p>
-                <p><strong>Travelers:</strong> Kyle, Jennifer, Tanner (20), and Carter (14)</p>
-                <p><strong>Destination:</strong> Breckenridge, Colorado</p>
-                <p><strong>Accommodation:</strong> Beaver Run Resort - Ski-in/Ski-out 2-bedroom condo</p>
-                <p><strong>Budget Range:</strong> $8,755-$11,020</p>
-                
-                <div class="note">
-                    <div class="note-title">Perfect Winter Timing</div>
-                    <p>Mid-December in Breckenridge typically offers excellent snow conditions with fewer crowds than the holiday peak period. Your dates provide an ideal balance of winter experience and value.</p>
-                </div>
+        <h2>Trip Overview</h2>
+        <div class="section-content">
+            <p><strong>Dates:</strong> December 18-23, 2025 (5 nights)</p>
+            <p><strong>Travelers:</strong> Kyle, Jennifer, Tanner (20), and Carter (14)</p>
+            <p><strong>Accommodation:</strong> TBD (One Ski Hill or Village of Breckenridge)</p>
+            <p><strong>Budget Range:</strong> $9,299-11,109</p>
+            
+            <div class="tip-box">
+                <div class="tip-title">Quick Tips</div>
+                <ul>
+                    <li>Resort Elevation: 9,600 feet (stay hydrated!)</li>
+                    <li>Weather: Average Dec temperatures range from 14°F to 32°F</li>
+                    <li>Free Summit Stage bus service available around town</li>
+                    <li>Book lift tickets at least 7 days in advance for best pricing</li>
+                    <li>High altitude can cause altitude sickness; acclimate slowly</li>
+                </ul>
             </div>
         </div>
 
-        <button class="collapsible">Vacation Highlights</button>
-        <div class="content">
-            <div class="content-inner">
-                <h3>World-Class Skiing</h3>
-                <p>Enjoy three full days of skiing at Breckenridge Ski Resort, with access to 5 peaks and 187 trails suited for all skill levels.</p>
-                
-                <h3>Ski-In/Ski-Out Accommodation</h3>
-                <p>Stay at the Beaver Run Resort with direct access to the slopes, spacious 2-bedroom condo, and resort amenities including pools and hot tubs.</p>
-                
-                <h3>Unique Winter Experiences</h3>
-                <p>Create lasting memories with snowmobiling, monster truck sleigh rides, ghost tours, and an outdoor treasure hunt escape room.</p>
-                
-                <h3>Elevated Dining & Wine</h3>
-                <p>Enjoy a blend of casual and fine dining experiences, including wine tasting for Jennifer and a special celebration dinner at Briar Rose Chophouse.</p>
-            </div>
-        </div>
-
-        <button class="collapsible">Daily Itinerary</button>
-        <div class="content">
-            <div class="content-inner">
-                <div class="day-header">DAY 1: THURSDAY, DECEMBER 18 - ARRIVAL</div>
+        <h2>Daily Itinerary</h2>
+        <div class="section-content">
+            <div class="day">
+                <div class="day-title">DAY 1: THURSDAY, DECEMBER 18 - ARRIVAL</div>
                 
                 <div class="activity">
-                    <span class="time">2:00 PM</span> - Arrival in Breckenridge
+                    <span class="time">2:00 PM:</span> Arrival in Breckenridge
                 </div>
                 
                 <div class="activity">
-                    <span class="time">2:30 PM</span> - Check-in at Beaver Run Resort
-                    <div>2-bedroom condo with mountain views</div>
+                    <span class="time">2:30 PM:</span> Check-in at lodging TBD (One Ski Hill or Village of Breckenridge)
                 </div>
                 
                 <div class="activity">
-                    <span class="time">3:30 PM</span> - Resort orientation and lift ticket pickup
+                    <span class="time">3:30 PM:</span> Resort orientation and lift ticket pickup
                 </div>
                 
                 <div class="activity">
-                    <span class="time">5:00 PM</span> - Dinner at Base Nine Bar (on-site)
+                    <span class="time">5:00 PM:</span> Dinner at nearby restaurant
                 </div>
                 
                 <div class="activity">
-                    <span class="time">7:00 PM</span> - Ghostly Tales Walking Tour
-                </div>
-                
-                <div class="day-header">DAY 2: FRIDAY, DECEMBER 19 - FIRST SKI DAY</div>
-                
-                <div class="activity">
-                    <span class="time">7:00 AM</span> - Breakfast at Spencer's (on-site)
-                </div>
-                
-                <div class="activity">
-                    <span class="time">8:30 AM-4:00 PM</span> - Skiing for Kyle, Tanner & Carter
-                </div>
-                
-                <div class="activity">
-                    <span class="time">9:30 AM-5:00 PM</span> - For Jennifer: Shopping & Wine Tasting
-                </div>
-                
-                <div class="activity">
-                    <span class="time">6:00 PM</span> - Family Dinner at Mi Casa Mexican
-                </div>
-                
-                <div class="day-header">DAY 3: SATURDAY, DECEMBER 20 - SECOND SKI DAY</div>
-                
-                <div class="activity">
-                    <span class="time">8:30 AM-3:30 PM</span> - Skiing for Kyle, Tanner & Carter
-                </div>
-                
-                <div class="activity">
-                    <span class="time">9:30 AM-3:30 PM</span> - For Jennifer: Historic District Tour & Wine Blending
-                </div>
-                
-                <div class="activity">
-                    <span class="time">4:30 PM</span> - Monster Truck Sleigh Ride <span class="tag">Family</span>
-                </div>
-                
-                <div class="activity">
-                    <span class="time">7:00 PM</span> - Split Dinners (Parents & Kids)
-                </div>
-                
-                <div class="day-header">DAY 4: SUNDAY, DECEMBER 21 - ADVENTURE DAY</div>
-                
-                <div class="activity">
-                    <span class="time">9:00 AM</span> - Family Snowmobile Tour
-                </div>
-                
-                <div class="activity">
-                    <span class="time">2:30 PM</span> - Treasure Hunt Outdoor Escape Room
-                </div>
-                
-                <div class="day-header">DAY 5: MONDAY, DECEMBER 22 - FINAL SKI DAY</div>
-                
-                <div class="activity">
-                    <span class="time">8:30 AM-4:00 PM</span> - Skiing for Kyle, Tanner & Carter
-                </div>
-                
-                <div class="activity">
-                    <span class="time">11:00 AM-3:00 PM</span> - For Jennifer: Wine & Dine Tour
-                </div>
-                
-                <div class="activity">
-                    <span class="time">5:30 PM</span> - Celebration Dinner at Briar Rose
-                </div>
-                
-                <div class="day-header">DAY 6: TUESDAY, DECEMBER 23 - DEPARTURE</div>
-                
-                <div class="activity">
-                    <span class="time">4:30 AM</span> - Early Departure
+                    <span class="time">7:00 PM:</span> <strong>Ghostly Tales Walking Tour</strong>
+                    <div>Duration: 90 minutes | Cost: ~$35 per person ($140 total)</div>
                 </div>
             </div>
-        </div>
-
-        <button class="collapsible">Accommodation</button>
-        <div class="content">
-            <div class="content-inner">
-                <div class="accommodation-card">
-                    <h3 class="accommodation-title">Beaver Run Resort & Conference Center</h3>
-                    <p><strong>Location:</strong> 620 Village Road, Breckenridge, CO</p>
-                    <p><strong>Check-in:</strong> December 18, 2025</p>
-                    <p><strong>Check-out:</strong> December 23, 2025</p>
-                    <p><strong>Rate:</strong> $450-550 per night</p>
-                    
-                    <ul class="accommodation-features">
-                        <li>True ski-in/ski-out access to Peak 9</li>
-                        <li>Spacious 2-bedroom condo with mountain views</li>
-                        <li>Multiple heated pools and hot tubs</li>
-                        <li>On-site dining options</li>
-                        <li>Fitness center and spa facilities</li>
-                        <li>Complimentary resort shuttle</li>
-                        <li>Ski storage and rental shop</li>
-                    </ul>
+            
+            <div class="day">
+                <div class="day-title">DAY 2: FRIDAY, DECEMBER 19 - FIRST SKI DAY</div>
+                
+                <div class="activity">
+                    <span class="time">7:00 AM:</span> Breakfast at nearby café
+                </div>
+                
+                <div class="activity">
+                    <span class="time">8:30 AM-4:00 PM:</span> Skiing for Kyle, Tanner & Carter
+                    <div>Morning warm-up runs on Quicksilver SuperChair</div>
+                    <div>Lunch at <strong>Ten Mile Station</strong> on the mountain ($)</div>
+                </div>
+                
+                <div class="activity">
+                    <span class="time">9:30 AM-5:00 PM:</span> For Jennifer:
+                    <div>Historic Main Street shopping and galleries</div>
+                    <div>Lunch at <strong>Blue River Bistro</strong> ($$)</div>
+                    <div>Wine tasting at <strong>Continental Divide Winery</strong> (2:00 PM)</div>
+                </div>
+                
+                <div class="activity">
+                    <span class="time">6:00 PM:</span> Family dinner at <strong>Hearthstone Pizza</strong> (Kim's recommendation, $)
                 </div>
             </div>
-        </div>
-
-        <button class="collapsible">Pricing</button>
-        <div class="content">
-            <div class="content-inner">
-                <table class="pricing-table">
-                    <tr>
-                        <th>Category</th>
-                        <th>Price (USD)</th>
-                    </tr>
-                    <tr>
-                        <td class="pricing-category">Flights (4 people)</td>
-                        <td class="pricing-range">$1,600-2,400</td>
-                    </tr>
-                    <tr>
-                        <td class="pricing-category">Ground Transportation</td>
-                        <td class="pricing-range">$640-840</td>
-                    </tr>
-                    <tr>
-                        <td class="pricing-category">Accommodation (5 nights)</td>
-                        <td class="pricing-range">$2,250-2,750</td>
-                    </tr>
-                    <tr>
-                        <td class="pricing-category">Lift Tickets (3 days, 3 skiers)</td>
-                        <td class="pricing-range">$1,620-2,070</td>
-                    </tr>
-                    <tr>
-                        <td class="pricing-category">Equipment Rental (if needed)</td>
-                        <td class="pricing-range">$540-675</td>
-                    </tr>
-                    <tr>
-                        <td class="pricing-category">Activities & Tours</td>
-                        <td class="pricing-range">$1,305-1,535</td>
-                    </tr>
-                    <tr>
-                        <td class="pricing-category">Dining (all meals)</td>
-                        <td class="pricing-range">$1,800-2,500</td>
-                    </tr>
-                    <tr class="total-row">
-                        <td class="pricing-category">TOTAL PACKAGE</td>
-                        <td class="pricing-range">$8,755-11,020</td>
-                    </tr>
-                </table>
+            
+            <div class="day">
+                <div class="day-title">DAY 3: SATURDAY, DECEMBER 20 - SECOND SKI DAY & SLEIGH RIDE</div>
                 
-                <div class="note">
-                    <div class="note-title">Value Notes</div>
-                    <p>Package includes all transportation, accommodation, activities, and estimated dining expenses. Purchase lift tickets at least 7 days in advance for best pricing.</p>
+                <div class="activity">
+                    <span class="time">7:00 AM:</span> Breakfast at <strong>Columbine Cafe</strong> (109 S Main St, $)
+                </div>
+                
+                <div class="activity">
+                    <span class="time">8:30 AM-3:30 PM:</span> Skiing for Kyle, Tanner & Carter
+                    <div>Explore Peaks 7 and 9</div>
+                    <div>Lunch at <strong>The Maggie</strong> at Peak 9 base ($)</div>
+                </div>
+                
+                <div class="activity">
+                    <span class="time">9:30 AM-3:30 PM:</span> For Jennifer:
+                    <div>Guided tour of Breckenridge Historic District (9:30 AM, ~$20)</div>
+                    <div>Lunch at <strong>Crepes a la Cart</strong> (307 S Main St, $)</div>
+                    <div>"Blend Your Own Wine" at Continental Divide Winery (2:00 PM, $110 + tax & gratuity)</div>
+                </div>
+                
+                <div class="activity">
+                    <span class="time">4:30 PM:</span> <strong>Monster Truck Sleigh Ride</strong> (whole family)
+                    <div>Duration: 45-60 minutes | Cost: ~$53 per person ($212 total)</div>
+                </div>
+                
+                <div class="activity">
+                    <span class="time">7:00 PM:</span> Romantic dinner for Jennifer & Kyle at <strong>Briar Rose Chophouse</strong> ($$)
+                    <div>Dinner for Tanner & Carter at <strong>HD Tavern</strong> (hotdogs and video games, $)</div>
+                </div>
+            </div>
+            
+            <div class="day">
+                <div class="day-title">DAY 4: SUNDAY, DECEMBER 21 - ADVENTURE DAY</div>
+                
+                <div class="activity">
+                    <span class="time">7:00 AM:</span> Breakfast at hotel or nearby café
+                </div>
+                
+                <div class="activity">
+                    <span class="time">9:00 AM:</span> Family snowmobile tour with <strong>Good Times Adventures</strong>
+                    <div>Half-day guided tour through White River National Forest</div>
+                    <div>Cost: ~$150 per person ($600 total)</div>
+                </div>
+                
+                <div class="activity">
+                    <span class="time">1:00 PM:</span> Lunch at <strong>Hearthstone Pizza</strong> (Kim's recommendation, $)
+                </div>
+                
+                <div class="activity">
+                    <span class="time">2:30 PM:</span> <strong>Treasure Hunt Outdoor Escape Room</strong>
+                    <div>Interactive adventure through Breckenridge</div>
+                    <div>Duration: 2 hours | Cost: ~$45 per person ($180 total)</div>
+                </div>
+                
+                <div class="activity">
+                    <span class="time">6:30 PM:</span> Dinner at <strong>Rita's</strong> (Kim's recommendation, $)
+                </div>
+            </div>
+            
+            <div class="day">
+                <div class="day-title">DAY 5: MONDAY, DECEMBER 22 - FINAL SKI DAY & WINE TOUR</div>
+                
+                <div class="activity">
+                    <span class="time">7:00 AM:</span> Breakfast at <strong>Cabin Coffee Co.</strong> (222 S Main St, $)
+                </div>
+                
+                <div class="activity">
+                    <span class="time">8:30 AM-4:00 PM:</span> Skiing for Kyle, Tanner & Carter
+                    <div>Explore Peak 8 and Imperial Express SuperChair</div>
+                    <div>Lunch at <strong>Vista Haus</strong> on Peak 8 ($)</div>
+                </div>
+                
+                <div class="activity">
+                    <span class="time">11:00 AM-3:00 PM:</span> For Jennifer:
+                    <div><strong>Summit County Wine & Dine Tour</strong></div>
+                    <div>4-hour guided experience visiting local wineries</div>
+                    <div>Cost: ~$140</div>
+                </div>
+                
+                <div class="activity">
+                    <span class="time">5:30 PM:</span> Special family celebration dinner at <strong>Briar Rose Chophouse</strong> ($$)
+                </div>
+                
+                <div class="activity">
+                    <span class="time">8:00 PM:</span> Return to accommodations to pack for early departure
+                </div>
+            </div>
+            
+            <div class="day">
+                <div class="day-title">DAY 6: TUESDAY, DECEMBER 23 - EARLY DEPARTURE</div>
+                
+                <div class="activity">
+                    <span class="time">3:30 AM:</span> Wake-up and final preparations
+                </div>
+                
+                <div class="activity">
+                    <span class="time">4:30 AM:</span> Departure from Breckenridge (pre-arranged private shuttle service)
                 </div>
             </div>
         </div>
-
-        <button class="collapsible">Inclusions & Exclusions</button>
-        <div class="content">
-            <div class="content-inner">
-                <div class="list-columns">
-                    <div>
-                        <h3>Inclusions</h3>
-                        <ul class="inclusions">
-                            <li>5 nights accommodation</li>
-                            <li>Ski-in/ski-out access</li>
-                            <li>All listed activities</li>
-                            <li>Local transportation</li>
-                            <li>Resort amenities</li>
-                            <li>24/7 travel support</li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h3>Exclusions</h3>
-                        <ul class="exclusions">
-                            <li>Airfare</li>
-                            <li>Travel insurance</li>
-                            <li>Equipment rental</li>
-                            <li>Personal expenses</li>
-                            <li>Gratuities</li>
-                            <li>Unspecified meals</li>
-                        </ul>
-                    </div>
-                </div>
+        
+        <h2>Trip Budget & Pricing</h2>
+        <div class="section-content">
+            <h3>Total Budget: $9,299-11,109</h3>
+            
+            <div class="item">
+                <div class="item-name">Accommodation (47-43% of total)</div>
+                <p>One Ski Hill Place or Village of Breckenridge (5 nights): <span class="price">$5,147-5,717</span></p>
+                <p>2-bedroom condo with mountain views</p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Transportation (21-24% of total)</div>
+                <p>Flights to Denver (round-trip for family of 4): <span class="price">$1,600-2,400</span></p>
+                <p>Private shuttle: Denver to Breckenridge: <span class="price">$340-440</span></p>
+                <p>Early morning departure shuttle (Dec 23): <span class="price">$300-400</span></p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Skiing</div>
+                <p>Lift tickets (3 days for 3 skiers): <span class="price">~$870</span></p>
+                <p>Equipment Rental (if needed): Not included in budget</p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Activities & Experiences</div>
+                <p>Ghostly Tales Walking Tour: <span class="price">~$140</span></p>
+                <p>Monster Truck Sleigh Ride: <span class="price">~$212</span></p>
+                <p>Snowmobile Tour: <span class="price">~$600</span></p>
+                <p>Treasure Hunt Escape Room: <span class="price">~$180</span></p>
+                <p>Wine & Dine Tour (Jennifer): <span class="price">~$140</span></p>
+                <p>Blend Your Own Wine (Jennifer): <span class="price">$110 + tax & gratuity</span></p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Dining (estimated)</div>
+                <p>Breakfasts (5 days x 4 people): <span class="price">$300-500</span></p>
+                <p>Lunches (5 days x 4 people): <span class="price">$300-600</span></p>
+                <p>Dinners (5 nights x 4 people): <span class="price">$500-1,200</span></p>
+                <p>Special celebration dinner at Briar Rose: <span class="price">~$400</span></p>
+            </div>
+            
+            <div class="tip-box">
+                <div class="tip-title">Money-Saving Tips</div>
+                <ul>
+                    <li>Book lift tickets at least 7 days in advance for best pricing</li>
+                    <li>Consider multi-day activity packages for discounts</li>
+                    <li>Many condos include kitchen facilities to save on meal costs</li>
+                    <li>The free Summit Stage bus can reduce transportation costs</li>
+                    <li>Look for free activities like Carter Park sledding</li>
+                </ul>
             </div>
         </div>
 
-        <button class="collapsible">Travel Tips</button>
-        <div class="content">
-            <div class="content-inner">
-                <div class="note">
-                    <div class="note-title">Booking Recommendations</div>
-                    <ul>
-                        <li>Book lift tickets 7+ days in advance</li>
-                        <li>Reserve Aurum and Briar Rose restaurants</li>
-                        <li>Book tours 2+ weeks in advance</li>
-                        <li>Arrange early departure shuttle early</li>
-                    </ul>
-                </div>
-                
-                <div class="note">
-                    <div class="note-title">Altitude Tips</div>
-                    <ul>
-                        <li>Breckenridge elevation: 9,600 feet</li>
-                        <li>Stay hydrated; limit alcohol first day</li>
-                        <li>Consider half-day ski sessions to acclimate</li>
-                        <li>Bring moisturizer and lip balm</li>
-                    </ul>
-                </div>
-                
-                <div class="note">
-                    <div class="note-title">Packing Essentials</div>
-                    <ul>
-                        <li>Ski gear: jackets, pants, base layers, etc.</li>
-                        <li>Winter boots with good traction</li>
-                        <li>Casual winter wear for evenings</li>
-                        <li>Swimwear for hot tubs</li>
-                        <li>Sunscreen (SPF 50+)</li>
-                    </ul>
-                </div>
+        <h2>Dining Guide</h2>
+        <div class="section-content">
+            <h3>On-Mountain Dining</h3>
+            
+            <div class="item">
+                <div class="item-name">Ten Mile Station (Peak 9)</div>
+                <div class="item-type">American, Lunch</div>
+                <p>Fast casual cafeteria-style dining with mountain views</p>
+                <p>Perfect for quick ski breaks</p>
+                <p>Price Range: $</p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Vista Haus (Peak 8)</div>
+                <div class="item-type">American, Lunch</div>
+                <p>Casual self-service with panoramic views</p>
+                <p>Known for gourmet burgers and fresh salads</p>
+                <p>Price Range: $</p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">The Maggie (Peak 9 Base)</div>
+                <div class="item-type">American, Lunch</div>
+                <p>Convenient base location with indoor and outdoor seating</p>
+                <p>Good for quick lunches</p>
+                <p>Price Range: $</p>
+            </div>
+            
+            <h3>Family Casual Dinners</h3>
+            
+            <div class="item">
+                <div class="item-name">Hearthstone Pizza <span class="budget-friendly">Kim's Pick</span></div>
+                <div class="item-type">Pizza, Family-Friendly</div>
+                <p>Great pizza in a casual setting, perfect for families</p>
+                <p>Kim's recommendation!</p>
+                <p>Price Range: $</p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Mi Casa Mexican Restaurant</div>
+                <div class="item-type">Mexican, Dinner</div>
+                <p>Family-friendly Mexican with excellent margaritas and tableside guacamole</p>
+                <p>Price Range: $</p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Briar Rose Chophouse</div>
+                <div class="item-type">Steakhouse, Fine Dining</div>
+                <p>Historic steakhouse in a Victorian building with excellent wine list</p>
+                <p>Perfect for your special celebration dinner!</p>
+                <p>Price Range: $$</p>
+                <p>Reservations recommended: (970) 453-9948</p>
+            </div>
+            
+            <div class="kims-pick">
+                <div class="kims-title">Kim's Quick Breakfast Tips</div>
+                <p><strong>Columbine Cafe</strong> (109 S Main St) opens early and has great breakfast burritos and cinnamon rolls.</p>
+                <p><strong>Cabin Coffee Co.</strong> (222 S Main St) is perfect for grab-and-go breakfast sandwiches and coffee before hitting the slopes.</p>
             </div>
         </div>
 
-        <div class="cta">
-            <h2>Ready to Experience Breckenridge?</h2>
-            <p>Secure your winter adventure with a 25% deposit.<br>Balance due 60 days before departure.</p>
-            <a href="#" class="cta-button">Book This Package</a>
+        <h2>Activities & Experiences</h2>
+        <div class="section-content">
+            <h3>Featured Experiences</h3>
+            
+            <div class="item">
+                <div class="item-name">Ghostly Tales Walking Tour</div>
+                <p>Walk the historic streets of Breckenridge and hear tales of ghosts, hauntings, and the wild mining days.</p>
+                <p>Cost: ~$35 per person ($140 total)</p>
+                <p>Location: Meet at Breckenridge Welcome Center</p>
+                <p>Duration: 90 minutes</p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Monster Truck Sleigh Ride</div>
+                <p>A unique winter adventure! Travel through the snow-covered forest in a sleigh pulled by a monster truck.</p>
+                <p>Cost: ~$53 per person ($212 total)</p>
+                <p>Duration: 45-60 minutes</p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Family Snowmobile Tour</div>
+                <p>Explore the White River National Forest on a guided snowmobile tour with Good Times Adventures.</p>
+                <p>Cost: ~$150 per person ($600 total)</p>
+                <p>Duration: Half-day adventure</p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Treasure Hunt Outdoor Escape Room</div>
+                <p>Interactive adventure game that takes you throughout Breckenridge solving puzzles to find hidden treasure.</p>
+                <p>Cost: ~$45 per person ($180 total)</p>
+                <p>Duration: 2 hours</p>
+            </div>
+            
+            <h3>Free Activities Nearby</h3>
+            
+            <div class="item">
+                <div class="item-name">Carter Park Sledding <span class="budget-friendly">Kim's Pick</span></div>
+                <p>Located at 300 S High St, this free sledding hill is perfect for family fun. Kim recommends this as a great free activity!</p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Historic Main Street</div>
+                <p>Explore Breckenridge's beautifully preserved Victorian architecture. Pick up a free self-guided tour map at the Welcome Center (203 S Main St).</p>
+            </div>
+        </div>
+
+        <h2>Accommodation Options</h2>
+        <div class="section-content">
+            <h3>Your Lodging Options (Final selection pending)</h3>
+            
+            <div class="item">
+                <div class="item-name">Option 1: One Ski Hill Place</div>
+                <div class="item-type">Luxury Ski-in/Ski-out Condo</div>
+                <p>Location: Peak 8, Breckenridge, Colorado</p>
+                <p><strong>Room Type:</strong> 2-bedroom condo with mountain views</p>
+                <p><strong>Price Range:</strong> $5,147-5,717 (5 nights)</p>
+                <p><strong>Amenities:</strong> Ski-in/ski-out access, hot tubs, heated pool, on-site dining options, fitness center, spa</p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Option 2: Village of Breckenridge</div>
+                <div class="item-type">Convenient Center Location</div>
+                <p>Location: Near Main Street, Breckenridge, Colorado</p>
+                <p><strong>Room Type:</strong> 2-bedroom condo with mountain views</p>
+                <p><strong>Price Range:</strong> $5,147-5,717 (5 nights)</p>
+                <p><strong>Amenities:</strong> Close to shops and restaurants, hot tubs, pool, fitness center, ski-in/ski-out access</p>
+            </div>
+            
+            <div class="tip-box">
+                <div class="tip-title">Accommodation Notes</div>
+                <ul>
+                    <li>Both options offer spacious 2-bedroom condos perfect for your family of 4</li>
+                    <li>One Ski Hill Place offers more luxury amenities and prime ski access</li>
+                    <li>Village of Breckenridge offers better access to downtown shops and restaurants</li>
+                    <li>Both options include kitchen facilities if you want to prepare some meals in</li>
+                    <li>Final selection will be made soon - your preferences are welcome!</li>
+                </ul>
+            </div>
+            
+            <h3>Transportation Details</h3>
+            
+            <div class="item">
+                <div class="item-name">Airport Transfers</div>
+                <p><strong>Denver to Breckenridge:</strong> Private shuttle service ($340-440)</p>
+                <p><strong>Early Departure (Dec 23):</strong> Special early morning shuttle ($300-400)</p>
+                <p>Travel time approximately 2 hours each way, depending on weather and traffic</p>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Local Transportation</div>
+                <p><strong>Summit Stage:</strong> Free public bus service throughout Summit County</p>
+                <p><strong>Resort Shuttle:</strong> Complimentary shuttle service may be available from your accommodation</p>
+                <p><strong>Ride-sharing:</strong> Uber/Lyft available but limited during peak times</p>
+            </div>
+        </div>
+
+        <h2>Important Information</h2>
+        <div class="section-content">
+            <div class="emergency-box">
+                <h3>Emergency Contacts</h3>
+                <p><strong>Emergency:</strong> 911</p>
+                <p><strong>Breckenridge Medical Center:</strong> (970) 453-1010</p>
+                <p><strong>Breckenridge Police (non-emergency):</strong> (970) 453-2941</p>
+                <p><strong>One Ski Hill:</strong> (970) 547-8500</p>
+                <p><strong>Village of Breckenridge (main office):</strong> (970) 453-3800</p>
+            </div>
+            
+            <h3>Packing Suggestions</h3>
+            <div class="item">
+                <div class="item-name">Ski Gear</div>
+                <ul>
+                    <li>Ski jackets & pants</li>
+                    <li>Base layers & mid layers</li>
+                    <li>Ski socks (multiple pairs)</li>
+                    <li>Gloves/mittens & hand warmers</li>
+                    <li>Neck gaiter or balaclava</li>
+                    <li>Helmet & goggles</li>
+                </ul>
+            </div>
+            
+            <div class="item">
+                <div class="item-name">Winter Items</div>
+                <ul>
+                    <li>Winter boots with good traction</li>
+                    <li>Casual winter wear for evenings</li>
+                    <li>Hat and gloves for non-ski activities</li>
+                    <li>Swimwear (for hot tubs)</li>
+                </ul>
+            </div>
+            
+            <h3>Altitude Tips</h3>
+            <div class="tip-box">
+                <div class="tip-title">High Altitude Precautions</div>
+                <ul>
+                    <li>Breckenridge sits at 9,600 feet elevation</li>
+                    <li>Stay hydrated! Drink more water than you think you need</li>
+                    <li>Limit alcohol consumption, especially on your first day</li>
+                    <li>Consider starting with half-day activities to acclimate</li>
+                    <li>Symptoms of altitude sickness include headache, nausea, and fatigue</li>
+                    <li>If symptoms persist, seek medical attention</li>
+                </ul>
+            </div>
+            
+            <div class="kims-pick">
+                <div class="kims-title">Kim's Local Tips</div>
+                <p><strong>Morning Ski Strategy:</strong> Start early! The first hour after lifts open has the best snow conditions and shortest lines.</p>
+                <p><strong>Non-Ski Day Option:</strong> If Jennifer wants to join for part of a ski day, the gondola is scenic ride-friendly for non-skiers.</p>
+                <p><strong>Hidden Local Secret:</strong> The oxygen bar on Main Street can be a lifesaver if altitude symptoms hit!</p>
+            </div>
         </div>
     </div>
 
     <div class="footer">
-        <div class="container">
-            <p>Proposal prepared for the [Last Name] Family</p>
-            <p>December 18-23, 2025 | Breckenridge, Colorado</p>
-            <p><strong>Kim Henderson</strong><br>
-            Cruise & Tour Specialist</p>
-            <p><a href="tel:251-289-1505">251-289-1505</a><br>
-            <a href="mailto:kim.henderson@cruiseplanners.com">kim.henderson@cruiseplanners.com</a><br>
-            <a href="http://www.somotravelspecialist.com" target="_blank">www.somotravelspecialist.com</a></p>
-            <div class="kim-signature">Kim Henderson</div>
-            <div class="kim-title">Associate of Susie & Brad Jones<br>A Cruise Planners® Independent Franchise Owner</div>
-        </div>
+        <p>Your Breckenridge Winter Vacation Guide | December 18-23, 2025</p>
+        <p>Created for Kyle & Jennifer's Family</p>
     </div>
 
     <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
-
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight){
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                }
+        // Simple toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all section headers
+            var headers = document.querySelectorAll('h2');
+            
+            // Add click event to each header
+            headers.forEach(function(header) {
+                header.addEventListener('click', function() {
+                    // Toggle active class
+                    this.classList.toggle('active');
+                    
+                    // Toggle display of content
+                    var content = this.nextElementSibling;
+                    if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                    } else {
+                        content.style.display = 'block';
+                    }
+                });
             });
-        }
-        
-        // Auto-open the first section
-        document.getElementsByClassName("collapsible")[0].click();
+            
+            // Open the first section by default
+            if (headers.length > 0) {
+                headers[0].click();
+            }
+        });
     </script>
 </body>
 </html>
