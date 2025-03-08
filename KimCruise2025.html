@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caribbean Cruise: Virgin Voyages</title>
+    <style>
+        :root {
+            --primary: #0077b6;
+            --secondary: #00b4d8;
+            --accent: #fb8500;
+            --light: #f8f9fa;
+            --dark: #023e8a;
+            --success: #2ec4b6;
+            --warning: #f8961e;
+            --danger: #e71d36;
+            --text: #03045e;
+            --text-light: #457b9d;
+            --border: #caf0f8;
+            --shadow: rgba(0,0,0,0.1);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #023e8a;
+                --secondary: #0077b6;
+                --accent: #ff9e00;
+                --light: #1a202c;
+                --dark: #caf0f8;
+                --text: #f0f8ff;
+                --text-light: #a8dadc;
+                --border: #4a5568;
+                --shadow: rgba(0,0,0,0.3);
+            }
+            body {
+                background-color: #1a202c;
+                color: var(--text);
+            }
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            padding-bottom: 80px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        header h1 {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+        
+        header p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        nav {
+            background-color: var(--secondary);
+            position: sticky;
+            top: 60px;
+            z-index: 99;
+        }
+        
+        .nav-container {
+            display: flex;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        
+        .nav-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-item {
+            flex: 0 0 auto;
+            padding: 12px 15px;
+            color: white;
+            text-decoration: none;
+            white-space: nowrap;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .section {
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px var(--shadow);
+            overflow: hidden;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .section {
+                background-color: #2d3748;
+            }
+        }
+        
+        .section-header {
+            padding: 15px;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .section-header h2 {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        .section-content {
+            padding: 15px;
+            display: none;
+        }
+        
+        .section-content.active {
+            display: block;
+        }
+        
+        .chevron {
+            transition: transform 0.3s ease;
+        }
+        
+        .section.expanded .chevron {
+            transform: rotate(180deg);
+        }
+        
+        .day {
+            margin-bottom: 20px;
+            border-left: 3px solid var(--accent);
+            padding-left: 15px;
+        }
+        
+        .day:last-child {
+            margin-bottom: 0;
+        }
+        
+        .day-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        .day-content {
+            margin-left: 15px;
+        }
+        
+        .time-slot {
+            margin-bottom: 15px;
+        }
+        
+        .time-slot-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+        
+        .list-item {
+            display: flex;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .list-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .list-item-icon {
+            flex: 0 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .list-item-content {
+            flex: 1;
+        }
+        
+        .list-item-title {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        
+        .list-item-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 3px;
+        }
+        
+        .list-item-description {
+            font-size: 0.9rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .badge-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .badge-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .badge-accent {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .badge-success {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .badge-warning {
+            background-color: var(--warning);
+            color: white;
+        }
+        
+        .badge-info {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .address {
+            font-style: italic;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            color: var(--text-light);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 15px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+        
+        .tab.active {
+            border-bottom-color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .price {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px var(--shadow);
+        }
+        
+        .card-header {
+            padding: 15px;
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .card-body {
+            padding: 15px;
+            background-color: white;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .card-body {
+                background-color: #2d3748;
+            }
+        }
+        
+        .card-title {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .hidden-gem {
+            background-color: rgba(0, 119, 182, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .hidden-gem-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .hidden-gem-title svg {
+            margin-right: 8px;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 7px;
+            width: 2px;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -30px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 2px solid var(--light);
+        }
+        
+        .timeline-content {
+            border-radius: 5px;
+            padding: 15px;
+            background-color: white;
+            box-shadow: 0 2px 4px var(--shadow);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .timeline-content {
+                background-color: #2d3748;
+            }
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 10px var(--shadow);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-info {
+            text-align: left;
+        }
+        
+        .footer-name {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        
+        .footer-contact {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .footer-contact a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .route-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        
+        .route-info .airport {
+            flex: 0 0 80px;
+            font-weight: 600;
+        }
+        
+        .route-line {
+            flex: 1;
+            height: 2px;
+            background-color: var(--text-light);
+            position: relative;
+            margin: 0 10px;
+        }
+        
+        .route-line::after {
+            content: "✈️";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .alert {
+            background-color: #ffe8d6;
+            border-left: 4px solid var(--warning);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .alert:before {
+            content: "⚠️";
+            margin-right: 10px;
+        }
+        
+        .reminder {
+            background-color: #e8f4f8;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .reminder:before {
+            content: "⏰";
+            margin-right: 10px;
+        }
+        
+        .requirements {
+            background-color: #fff8e6;
+            border-left: 4px solid var(--warning);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .confirmation {
+            font-style: italic;
+            margin: 5px 0;
+            color: var(--text-light);
+        }
+        
+        .confirmation span {
+            font-weight: 600;
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Caribbean Cruise Adventure</h1>
+            <p>Virgin Voyages • March 7-15, 2025</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#overview" class="nav-item">Overview</a>
+                <a href="#itinerary" class="nav-item">Itinerary</a>
+                <a href="#flights" class="nav-item">Flights</a>
+                <a href="#excursions" class="nav-item">Excursions</a>
+                <a href="#dining" class="nav-item">Dining</a>
+                <a href="#packing" class="nav-item">Packing</a>
+                <a href="#practical" class="nav-item">Practical Info</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="section" id="overview">
+            <div class="section-header">
+                <h2>Trip Overview</h2>
+                <span class="chevron">▼</span>
+            </div>
+            <div class="section-content active">
+                <div class="card">
+                    <div class="card-body">
+                        <p><strong>Cruise:</strong> Virgin Voyages Caribbean</p>
+                        <p><strong>Dates:</strong> March 7-15, 2025</p>
+                        <p><strong>Duration:</strong> 9 Days</p>
+                        <p><strong>Ports of Call:</strong> San Juan, Tortola, Barbados, St. Lucia, Antigua, St. Maarten</p>
+                        <p><strong>Confirmation #:</strong> 1341265</p>
+                    </div>
+                </div>
+                
+                <p>Enjoy a luxurious 7-night Caribbean cruise aboard Virgin Voyages, visiting 6 beautiful islands with a pre-cruise overnight stay in San Juan, Puerto Rico. This adult-only cruise experience features premium dining venues, innovative entertainment, and immersive shore excursions.</p>
+                
+                <div class="hidden-gem">
+                    <div class="hidden-gem-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        Kim's Hidden Gem
+                    </div>
+                    <p>Pack a small "embarkation day bag" with swimwear, sunscreen, and a change of clothes so you can enjoy the ship's amenities while waiting for your luggage to be delivered to your cabin. The Virgin Voyages pools and restaurants open immediately, so you can start your vacation right away!</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Other Onboard Dining Venues</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>In addition to your reserved dining venues, you can also enjoy these restaurants at your leisure (no reservation required):</p>
+                        
+                        <ul>
+                            <li><strong>The Galley</strong> - Food hall featuring multiple stations with everything from tacos to burgers, pasta, and sushi</li>
+                            <li><strong>The Pizza Place</strong> - Made-to-order pizzas and flatbreads</li>
+                            <li><strong>The Dock House</strong> - Mediterranean small plates</li>
+                            <li><strong>The Social Club</strong> - Comfort food with games</li>
+                            <li><strong>The Perch Pool Bar</strong> - Casual bites by the pool</li>
+                        </ul>
+                        
+                        <p><strong>Note:</strong> While reservations are recommended for dinner at all specialty restaurants, breakfast and lunch are typically open seating at most venues.</p>
+                    </div>
+                </div>
+                
+                <div class="hidden-gem">
+                    <div class="hidden-gem-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        Kim's Hidden Gem
+                    </div>
+                    <p>Start your day with a quick coffee and pastry at The Grounds Club, Virgin's artisanal coffee shop. Their pour-over coffee is delicious, and the pastries are made fresh daily. Then in the evening, don't miss "The Dock" during sunset hours - it's the perfect spot for a pre-dinner cocktail with amazing ocean views. The Mediterranean-inspired small plates are perfect for sharing!</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PACKING SECTION -->
+        <div class="section" id="packing">
+            <div class="section-header">
+                <h2>Packing Tips</h2>
+                <span class="chevron">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Essential Items</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Documents:</strong> Passport, cruise documents, flight tickets, travel insurance information</li>
+                            <li><strong>Medications:</strong> Prescription medications in original containers, basic over-the-counter medicines</li>
+                            <li><strong>Clothing:</strong> Lightweight casual wear, smart casual attire for dinners, swimwear, cover-ups</li>
+                            <li><strong>Footwear:</strong> Comfortable walking shoes, sandals, water shoes, dressier shoes for evening</li>
+                            <li><strong>Sun Protection:</strong> Sunscreen (reef-safe), sunglasses, sun hat, light cover-ups</li>
+                            <li><strong>Electronics:</strong> Phone, camera, chargers, adapters if needed, portable battery pack</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Virgin Voyages-Specific Items</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Reusable Water Bottle:</strong> Virgin has filtered water stations throughout the ship</li>
+                            <li><strong>Workout Gear:</strong> For the ship's extensive fitness offerings</li>
+                            <li><strong>Backpack or Tote:</strong> For shore excursions and carrying essentials</li>
+                            <li><strong>Evening Outfits:</strong> Virgin encourages stylish dress but has no formal nights</li>
+                            <li><strong>Theme Night Attire:</strong> Check the Virgin Voyages app before sailing for any theme night details</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">For Shore Excursions</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Beach Bag:</strong> For carrying towels and beach essentials</li>
+                            <li><strong>Water Shoes:</strong> For rocky beaches and water activities</li>
+                            <li><strong>Snorkel Gear:</strong> If you prefer your own (also available for rent)</li>
+                            <li><strong>Underwater Camera:</strong> For capturing underwater memories</li>
+                            <li><strong>Dry Bag:</strong> To protect electronics on water-based excursions</li>
+                            <li><strong>Cash:</strong> Small denominations for souvenirs and local vendors</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="hidden-gem">
+                    <div class="hidden-gem-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        Kim's Hidden Gem
+                    </div>
+                    <p>Pack a few magnetic hooks for your cabin walls! Virgin's cabins are designed with metal walls, so magnetic hooks can help you organize things like hats, lanyards, or wet swimsuits to dry. Also, bring along a multi-port USB charger to maximize the limited outlets in your cabin - you'll be charging phones, cameras, and other devices throughout your trip.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PRACTICAL INFORMATION SECTION -->
+        <div class="section" id="practical">
+            <div class="section-header">
+                <h2>Practical Information</h2>
+                <span class="chevron">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="tabs">
+                    <div class="tab active" data-tab="weather">Weather</div>
+                    <div class="tab" data-tab="money">Money</div>
+                    <div class="tab" data-tab="wifi">WiFi & Comms</div>
+                    <div class="tab" data-tab="health">Health</div>
+                    <div class="tab" data-tab="embark">Boarding</div>
+                </div>
+                
+                <div class="tab-content active" id="weather-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Caribbean Weather - March</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Temperature Range:</strong> 75-85°F (24-29°C)</p>
+                            <p><strong>Water Temperature:</strong> 78-80°F (25-27°C)</p>
+                            <p><strong>Precipitation:</strong> Low chance of rain (March is part of the dry season)</p>
+                            <p><strong>Humidity:</strong> Moderate to high</p>
+                            <p><strong>UV Index:</strong> Very high - sun protection essential</p>
+                            <p>March offers some of the best weather in the Caribbean with warm temperatures, low rainfall, and comfortable humidity levels. Perfect for beach activities and water sports.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="money-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Currency & Spending</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4>Onboard</h4>
+                            <ul>
+                                <li>Virgin Voyages is cashless - link a credit card to your account</li>
+                                <li>All specialty dining is included in your fare</li>
+                                <li>Basic beverages (water, some juices, tea, coffee) included</li>
+                                <li>Alcoholic beverages and specialty drinks are additional</li>
+                                <li>Gratuities are included in your fare</li>
+                                <li>WiFi basic package is included for all sailors</li>
+                            </ul>
+                            
+                            <h4>Ports of Call</h4>
+                            <ul>
+                                <li><strong>Puerto Rico:</strong> US Dollar</li>
+                                <li><strong>Tortola (BVI):</strong> US Dollar</li>
+                                <li><strong>Barbados:</strong> Barbadian Dollar (fixed to USD at 2:1 rate); US Dollars widely accepted</li>
+                                <li><strong>St. Lucia:</strong> Eastern Caribbean Dollar; US Dollars widely accepted</li>
+                                <li><strong>Antigua:</strong> Eastern Caribbean Dollar; US Dollars widely accepted</li>
+                                <li><strong>St. Maarten:</strong> US Dollar on Dutch side; Euro on French side; US Dollars accepted everywhere</li>
+                            </ul>
+                            
+                            <p><strong>Tip:</strong> Bring small denominations of US dollars for small purchases and tips in ports.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="wifi-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">WiFi & Communications</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4>Onboard WiFi</h4>
+                            <ul>
+                                <li>Basic WiFi included in your fare (social media and messaging)</li>
+                                <li>Premium WiFi available for streaming (additional cost)</li>
+                                <li>Download the Virgin Voyages app before sailing</li>
+                            </ul>
+                            
+                            <h4>International Phone Use</h4>
+                            <ul>
+                                <li>Check with your carrier about international plans or cruise ship packages</li>
+                                <li>Consider turning on airplane mode and using WiFi only</li>
+                                <li>WhatsApp and other messaging apps work well with basic WiFi</li>
+                            </ul>
+                            
+                            <h4>Staying Connected in Ports</h4>
+                            <ul>
+                                <li>Public WiFi available in many port areas and cafes</li>
+                                <li>Consider a portable WiFi device for the journey</li>
+                                <li>Local SIM cards available (if your phone is unlocked)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="health-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Health & Safety</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4>Medical Facilities</h4>
+                            <ul>
+                                <li>Ship has a medical center with doctors and nurses</li>
+                                <li>Medical services onboard come with a fee</li>
+                                <li>All islands have medical facilities for emergencies</li>
+                            </ul>
+                            
+                            <h4>Health Recommendations</h4>
+                            <ul>
+                                <li>Bring prescription medications in original containers</li>
+                                <li>Pack basic over-the-counter medications</li>
+                                <li>Use reef-safe sunscreen and apply frequently</li>
+                                <li>Stay hydrated in the Caribbean heat</li>
+                                <li>Use insect repellent in ports, especially in evenings</li>
+                            </ul>
+                            
+                            <h4>Safety Tips</h4>
+                            <ul>
+                                <li>Attend the safety drill at the beginning of the cruise</li>
+                                <li>Use ship safe for valuables and travel documents</li>
+                                <li>Be aware of your surroundings in ports</li>
+                                <li>Use reputable transportation and tour operators</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="embark-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Embarkation & Disembarkation</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4>Check-in Process</h4>
+                            <ul>
+                                <li>Complete online check-in via the Virgin Voyages app before sailing</li>
+                                <li>Upload a selfie to create your digital "Sailor ID"</li>
+                                <li>Select your embarkation time slot during online check-in</li>
+                                <li>Arrive at your scheduled embarkation time to avoid crowds</li>
+                            </ul>
+                            
+                            <h4>Embarkation Day</h4>
+                            <ul>
+                                <li>Drop checked luggage with porters at the terminal</li>
+                                <li>Keep essential items in a carry-on bag</li>
+                                <li>Have your passport and boarding pass ready</li>
+                                <li>Your cabin may not be ready until 3:00 PM</li>
+                                <li>Restaurants and pools are open upon boarding</li>
+                            </ul>
+                            
+                            <h4>Disembarkation Day</h4>
+                            <ul>
+                                <li>Express walk-off option available for those carrying all luggage</li>
+                                <li>Luggage tag colors/groups assigned for scheduled departures</li>
+                                <li>Vacate cabin by 9:00 AM on final morning</li>
+                                <li>Breakfast available in select restaurants</li>
+                                <li>Allow at least 2 hours to get from ship to airport</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Toggle sections
+                const sectionHeaders = document.querySelectorAll('.section-header');
+                sectionHeaders.forEach(header => {
+                    header.addEventListener('click', function() {
+                        const section = this.parentElement;
+                        const content = this.nextElementSibling;
+                        
+                        section.classList.toggle('expanded');
+                        content.classList.toggle('active');
+                    });
+                });
+                
+                // Tabs functionality
+                                        const tabs = document.querySelectorAll('.tab');
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        const tabId = this.getAttribute('data-tab');
+                        
+                        // Remove active class from all tabs and contents
+                        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                        
+                        // Add active class to current tab and content
+                        this.classList.add('active');
+                        document.getElementById(`${tabId}-content`).classList.add('active');
+                    });
+                });
+                
+                // Smooth scroll to anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if (!targetElement) return;
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // If target is a section, expand it
+                        if (targetElement.classList.contains('section')) {
+                            const content = targetElement.querySelector('.section-content');
+                            if (content && !content.classList.contains('active')) {
+                                targetElement.classList.add('expanded');
+                                content.classList.add('active');
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-name">Kim Henderson</div>
+                    <div class="footer-contact">
+                        <a href="tel:2512891505">251-289-1505</a> • 
+                        <a href="mailto:kim.henderson@cruiseplanners.com">kim.henderson@cruiseplanners.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+        
+        <!-- ITINERARY SECTION -->
+        <div class="section" id="itinerary">
+            <div class="section-header">
+                <h2>Itinerary</h2>
+                <span class="chevron">▼</span>
+            </div>
+            <div class="section-content">
+                <!-- Day 1 -->
+                <div class="day">
+                    <div class="day-title">Friday, Mar 7 Day 1 - TRAVEL TO SAN JUAN</div>
+                    <div class="day-content">
+                        <div class="time-slot">
+                            <div class="time-slot-title">Morning/Afternoon</div>
+                            <ul>
+                                <li><strong>5:20 AM:</strong> Depart Mobile (MOB) on American Airlines</li>
+                                <li><strong>8:18 AM:</strong> Arrive in Charlotte (CLT)</li>
+                                <li><strong>11:04 AM:</strong> Depart Charlotte (CLT) on American Airlines</li>
+                                <li><strong>3:44 PM:</strong> Arrive in San Juan (SJU)</li>
+                            </ul>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time-slot-title">Evening</div>
+                            <ul>
+                                <li>Check in at Sheraton Resort and Spa, San Juan</li>
+                                <li>Dinner at your leisure (see recommendations below)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="reminder">
+                            <strong>Remember:</strong> Check-in online 24 hours before your departure time for a smoother airport experience.
+                        </div>
+                        
+                        <div class="hidden-gem">
+                            <div class="hidden-gem-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                                Kim's Hidden Gem
+                            </div>
+                            <p>For dinner tonight, enjoy these excellent options within walking distance of the Sheraton:</p>
+                            <ul>
+                                <li><strong>Oceano</strong> - Upscale seafood restaurant with beautiful ocean views (10-minute walk). Try their fresh ceviche or grilled Caribbean lobster.</li>
+                                <li><strong>La Bodeguita del Medio</strong> - Cuban restaurant with lively atmosphere and excellent mojitos (5-minute walk).</li>
+                                <li><strong>Metropol Restaurant</strong> - Puerto Rican and Cuban cuisine in a casual setting (7-minute walk). Famous for their mofongo varieties and roast pork.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 2 -->
+                <div class="day">
+                    <div class="day-title">Saturday, Mar 8 Day 2 - EMBARKATION IN SAN JUAN</div>
+                    <div class="day-content">
+                        <div class="time-slot">
+                            <div class="time-slot-title">Morning</div>
+                            <ul>
+                                <li>Check out from Sheraton Resort and Spa</li>
+                                <li>Drop luggage at cruise terminal (by noon)</li>
+                                <li>Self-guided walking tour of Old San Juan</li>
+                            </ul>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time-slot-title">Afternoon</div>
+                            <ul>
+                                <li><strong>4:15 PM:</strong> Check-in at San Juan Cruise Port</li>
+                                <li>All passengers must be on board by 6:00 PM</li>
+                                <li>Explore the ship and enjoy its amenities</li>
+                            </ul>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time-slot-title">Evening</div>
+                            <ul>
+                                <li><strong>7:30 PM:</strong> Dinner at Extra Virgin (Italian trattoria)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Old San Juan Walking Tour</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Recommended walking route (1-2 hours):</p>
+                                <ol>
+                                    <li><strong>Start at Plaza Colón</strong> - Central meeting point with the statue of Christopher Columbus</li>
+                                    <li><strong>Calle Fortaleza</strong> - Walk down this main street with colorful buildings and shops</li>
+                                    <li><strong>La Fortaleza/Governor's Mansion</strong> - View the beautiful blue exterior of this historic building</li>
+                                    <li><strong>Plaza de Armas</strong> - Historic main square with a beautiful fountain</li>
+                                    <li><strong>Caleta de las Monjas</strong> - Picturesque narrow street with great photo opportunities</li>
+                                    <li><strong>Paseo de la Princesa</strong> - Scenic promenade along the old city walls</li>
+                                    <li><strong>Raíces Fountain</strong> - Stunning bronze sculpture representing Puerto Rico's heritage</li>
+                                    <li><strong>Return to the cruise terminal</strong> via Paseo de la Princesa and Calle Marina</li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="requirements">
+                            <h4>Don't Forget for Embarkation</h4>
+                            <ul>
+                                <li>Passport</li>
+                                <li>Cruise confirmation documents</li>
+                                <li>Credit card for onboard expenses</li>
+                                <li>Any prescription medications</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="hidden-gem">
+                            <div class="hidden-gem-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                                Kim's Hidden Gem
+                            </div>
+                            <p>During your walking tour, stop at <strong>Café Manolín</strong> (251 Calle San Justo) for a quick and authentic lunch. This local institution serves traditional Puerto Rican favorites like mofongo and tostones in a casual setting. Their sandwiches are perfect for a quick bite before heading to the ship. If you prefer something sweet, <strong>Señor Paleta</strong> on Calle Tetuan offers gourmet popsicles with tropical fruit flavors—perfect for cooling off during your walk!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 3 -->
+                <div class="day">
+                    <div class="day-title">Sunday, Mar 9 Day 3 - TORTOLA, BRITISH VIRGIN ISLANDS</div>
+                    <div class="day-content">
+                        <div class="time-slot">
+                            <div class="time-slot-title">Morning</div>
+                            <ul>
+                                <li><strong>10:15 AM:</strong> Shore Excursion in Tortola (see Excursions section for details)</li>
+                            </ul>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time-slot-title">Evening</div>
+                            <ul>
+                                <li><strong>6:15 PM:</strong> Dinner at Test Kitchen - Part cooking school, part restaurant offering a multi-course tasting menu with beverage pairings</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="hidden-gem">
+                            <div class="hidden-gem-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                                Kim's Hidden Gem
+                            </div>
+                            <p>If your tour includes free time or ends early, try to visit <strong>Smuggler's Cove</strong> – a hidden gem beach on the western end of Tortola. This secluded cove has powder-soft sand, excellent snorkeling opportunities right off the beach, and fewer crowds than other popular spots. The Smuggler's Cove Beach Bar serves delicious rum punches and fresh island food with your toes in the sand.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 4 -->
+                <div class="day">
+                    <div class="day-title">Monday, Mar 10 Day 4 - DAY AT SEA</div>
+                    <div class="day-content">
+                        <div class="time-slot">
+                            <div class="time-slot-title">Full Day</div>
+                            <ul>
+                                <li>Enjoy the ship's amenities and activities</li>
+                                <li><strong>8:00 AM:</strong> Breakfast at Razzle Dazzle</li>
+                                <li><strong>6:15 PM:</strong> Dinner at Razzle Dazzle</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Ship Highlights</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Take advantage of today to explore these onboard experiences:</p>
+                                <ul>
+                                    <li><strong>The Manor</strong> - Signature nightclub with innovative performances</li>
+                                    <li><strong>The Athletic Club</strong> - Outdoor training zone with the largest daybed at sea</li>
+                                    <li><strong>Redemption Spa</strong> - Spa with thermal suite and variety of treatments</li>
+                                    <li><strong>The Runway</strong> - Outdoor walking/jogging track that doubles as a ca
