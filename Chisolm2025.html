@@ -3,2173 +3,1074 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>European Adventure: Mobile Guide</title>
+    <title>European Adventure - Dublin, London & Stoneleigh</title>
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e67e22;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --danger: #e74c3c;
-            --text: #333;
-            --text-light: #7f8c8d;
-            --border: #ddd;
-            --shadow: rgba(0,0,0,0.1);
-        }
-        
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary: #34495e;
-                --secondary: #2980b9;
-                --accent: #d35400;
-                --light: #2c3e50;
-                --dark: #ecf0f1;
-                --text: #ecf0f1;
-                --text-light: #bdc3c7;
-                --border: #4a5568;
-                --shadow: rgba(0,0,0,0.3);
-            }
-            body {
-                background-color: #1a202c;
-                color: var(--text);
-            }
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            --primary-color: #2c3e50;
+            --secondary-color: #2980b9;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-text: #fff;
+            --card-bg: #f8f9fa;
+            --border-color: #ddd;
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
             line-height: 1.6;
-            color: var(--text);
-            background-color: var(--light);
-            padding-bottom: 80px;
+            background-color: #f0f2f5;
         }
         
-        .container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 15px;
+        /* Header Styles */
+        .header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 15px 20px;
+            text-align: left;
         }
         
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        header h1 {
-            font-size: 1.4rem;
+        .header h1 {
             margin: 0;
+            font-size: 1.5rem;
         }
         
-        header p {
-            margin: 0;
+        .header p {
+            margin: 5px 0 0;
             font-size: 0.9rem;
-            opacity: 0.8;
+            opacity: 0.9;
         }
         
-        nav {
-            background-color: var(--secondary);
-            position: sticky;
-            top: 60px;
-            z-index: 99;
-        }
-        
-        .nav-container {
-            display: flex;
+        /* Navigation */
+        .nav {
+            background-color: var(--secondary-color);
             overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
-        
-        .nav-container::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .nav-item {
-            flex: 0 0 auto;
-            padding: 12px 15px;
-            color: white;
-            text-decoration: none;
             white-space: nowrap;
-            font-weight: 500;
+            padding: 10px 0;
+        }
+        
+        .nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
             font-size: 0.9rem;
         }
         
-        .section {
-            margin: 20px 0;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px var(--shadow);
-            overflow: hidden;
+        .nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
         
-        @media (prefers-color-scheme: dark) {
-            .section {
-                background-color: #2d3748;
-            }
+        /* Section Styles */
+        .section {
+            margin: 15px;
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
         }
         
         .section-header {
             padding: 15px;
-            background-color: var(--primary);
-            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            color: var(--light-text);
             cursor: pointer;
         }
         
         .section-header h2 {
-            font-size: 1.1rem;
             margin: 0;
-        }
-        
-        .section-content {
-            padding: 15px;
-            display: none;
-        }
-        
-        .section-content.active {
-            display: block;
+            font-size: 1.2rem;
         }
         
         .chevron {
+            font-size: 1.2rem;
             transition: transform 0.3s ease;
         }
         
-        .section.expanded .chevron {
-            transform: rotate(180deg);
+        .section-content {
+            background-color: #222f3e;
+            color: var(--light-text);
+            padding: 15px;
+            display: block;
         }
         
-        .day {
+        /* Info List */
+        .info-list {
             margin-bottom: 20px;
-            border-left: 3px solid var(--accent);
-            padding-left: 15px;
         }
         
-        .day:last-child {
-            margin-bottom: 0;
+        .info-list p {
+            margin: 8px 0;
         }
         
-        .day-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: var(--accent);
+        .info-list strong {
+            font-weight: bold;
         }
         
-        .day-content {
-            margin-left: 15px;
-        }
-        
-        .time-slot {
-            margin-bottom: 15px;
-        }
-        
-        .time-slot-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--secondary);
-        }
-        
-        .list-item {
-            display: flex;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .list-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .list-item-icon {
-            flex: 0 0 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-            color: var(--accent);
-        }
-        
-        .list-item-content {
-            flex: 1;
-        }
-        
-        .list-item-title {
-            font-weight: 600;
-            margin-bottom: 3px;
-        }
-        
-        .list-item-subtitle {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-bottom: 3px;
-        }
-        
-        .list-item-description {
-            font-size: 0.9rem;
-        }
-        
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-        
-        .badge-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .badge-secondary {
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        .badge-accent {
-            background-color: var(--accent);
-            color: white;
-        }
-        
-        .badge-success {
-            background-color: var(--success);
-            color: white;
-        }
-        
-        .badge-warning {
-            background-color: var(--warning);
-            color: white;
-        }
-        
-        .badge-info {
-            background-color: #3498db;
-            color: white;
-        }
-        
-        .address {
-            font-style: italic;
-            font-size: 0.85rem;
-            margin-bottom: 5px;
-            color: var(--text-light);
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 8px 15px;
-            background-color: var(--secondary);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-top: 10px;
-        }
-        
-        .btn-sm {
-            padding: 5px 10px;
-            font-size: 0.8rem;
-        }
-        
-        .btn-block {
-            display: block;
-            width: 100%;
-            text-align: center;
-        }
-        
-        .btn-accent {
-            background-color: var(--accent);
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-        }
-        
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 15px;
-        }
-        
-        .tab {
-            padding: 10px 15px;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-        }
-        
-        .tab.active {
-            border-bottom-color: var(--accent);
-            font-weight: 600;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .price {
-            font-weight: 600;
-            color: var(--accent);
-        }
-        
-        .card {
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 4px var(--shadow);
-        }
-        
-        .card-header {
-            padding: 15px;
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .card-body {
-            padding: 15px;
-            background-color: white;
-        }
-        
-        @media (prefers-color-scheme: dark) {
-            .card-body {
-                background-color: #2d3748;
-            }
-        }
-        
-        .card-title {
-            margin: 0;
-            font-size: 1.1rem;
-        }
-        
+        /* Hidden Gem */
         .hidden-gem {
-            background-color: rgba(52, 152, 219, 0.1);
-            border-left: 4px solid #3498db;
+            background-color: #1e3a5f;
+            border-radius: 6px;
             padding: 15px;
             margin: 15px 0;
-            border-radius: 0 5px 5px 0;
+            border-left: 4px solid #3498db;
         }
         
         .hidden-gem-title {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
             color: #3498db;
-            font-weight: 600;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
         
         .hidden-gem-title svg {
             margin-right: 8px;
         }
         
-        .timeline {
-            position: relative;
-            margin: 20px 0;
-            padding-left: 30px;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 7px;
-            width: 2px;
-            background-color: var(--primary);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 25px;
-        }
-        
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .timeline-dot {
-            position: absolute;
-            left: -30px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            border: 2px solid var(--light);
-        }
-        
-        .timeline-content {
-            border-radius: 5px;
-            padding: 15px;
-            background-color: white;
-            box-shadow: 0 2px 4px var(--shadow);
-        }
-        
-        @media (prefers-color-scheme: dark) {
-            .timeline-content {
-                background-color: #2d3748;
-            }
-        }
-        
-        .timeline-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .footer {
-            background-color: var(--primary);
+        .visit-website-btn {
+            display: inline-block;
+            background-color: #3498db;
             color: white;
-            padding: 20px 0;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -2px 10px var(--shadow);
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .footer-info {
-            text-align: left;
-        }
-        
-        .footer-name {
-            font-weight: 600;
-            margin-bottom: 3px;
-        }
-        
-        .footer-contact {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-        
-        .footer-contact a {
-            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
             text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 10px;
         }
         
-        .footer-logo {
-            width: 100px;
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .footer p {
+            margin: 5px 0;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>European Adventure</h1>
-            <p>Dublin, London & Stoneleigh • Sep 18-28, 2025</p>
-        </div>
-    </header>
+    <!-- Header -->
+    <div class="header">
+        <h1>European Adventure</h1>
+        <p>Dublin, London & Stoneleigh • Sep 18-28, 2025</p>
+    </div>
     
-    <nav>
-        <div class="container">
-            <div class="nav-container">
-                <a href="#overview" class="nav-item">Overview</a>
-                <a href="#itinerary" class="nav-item">Itinerary</a>
-                <a href="#transportation" class="nav-item">Transport</a>
-                <a href="#accommodations" class="nav-item">Accommodations</a>
-                <a href="#dining" class="nav-item">Dining</a>
-                <a href="#tours" class="nav-item">Tours</a>
-                <a href="#walking" class="nav-item">Walking Tour</a>
-                <a href="#practical" class="nav-item">Practical Info</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation -->
+    <div class="nav">
+        <a href="#overview">Overview</a>
+        <a href="#itinerary">Itinerary</a>
+        <a href="#transport">Transport</a>
+        <a href="#accommodations">Accommodations</a>
+        <a href="#dining">Dining</a>
+        <a href="#tours">Tours</a>
+        <a href="#walking-tour">Walking Tour</a>
+        <a href="#practical-info">Practical Info</a>
+    </div>
     
-    <div class="container">
-        <div class="section" id="overview">
-            <div class="section-header">
-                <h2>Trip Overview</h2>
-                <span class="chevron">▼</span>
-            </div>
-            <div class="section-content active">
-                <div class="card">
-                    <div class="card-body">
-                        <p><strong>Travelers:</strong> Hank & Stephanie Chisholm</p>
-                        <p><strong>Dates:</strong> September 18-28, 2025</p>
-                        <p><strong>Duration:</strong> 11 Days</p>
-                        <p><strong>Destinations:</strong> Dublin, London, Stoneleigh</p>
-                    </div>
-                </div>
-                
-                <p>A customized journey through Ireland and England with special focus on historical sites, castles, and equestrian experiences. This trip combines leisure travel with Hank's work-related component, allowing you to experience the rich cultural heritage of Ireland, a taste of London, and professional engagement in Stoneleigh, England.</p>
-                
-                <div class="hidden-gem">
-                    <div class="hidden-gem-title">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                        </svg>
-                        Kim's Hidden Gem
-                    </div>
-                    <p>For your morning coffee in Dublin, be sure to visit <strong>3FE (Third Floor Espresso)</strong>. This local favorite was started by a former investment banker who followed his passion for coffee. They roast their own beans and serve some of the best filter coffee and espresso in Ireland with a simple but delicious breakfast menu.</p>
-                    <p class="address">32-34 Grand Canal Street Lower, Dublin 2</p>
-                    <a href="https://3fe.com/" class="btn btn-sm">Visit Website</a>
-                </div>
-            </div>
+    <!-- Trip Overview Section -->
+    <div class="section" id="overview">
+        <div class="section-header">
+            <h2>Trip Overview</h2>
+            <span class="chevron">▼</span>
         </div>
-        
-        <!-- ITINERARY SECTION -->
-        <div class="section" id="itinerary">
-            <div class="section-header">
-                <h2>Itinerary</h2>
-                <span class="chevron">▼</span>
+        <div class="section-content">
+            <div class="info-list">
+                <p><strong>Travelers:</strong> Hank & Stephanie Chisholm</p>
+                <p><strong>Dates:</strong> September 18-28, 2025</p>
+                <p><strong>Duration:</strong> 11 Days</p>
+                <p><strong>Destinations:</strong> Dublin, London, Stoneleigh</p>
             </div>
-            <div class="section-content">
-                <!-- Day 0 -->
-                <div class="day">
-                    <div class="day-title">Wednesday, Sep 18 Day 0 - DEPARTURE DAY</div>
-                    <div class="day-content">
-                        <div class="time-slot">
-                            <div class="time-slot-title">Afternoon</div>
-                            <ul>
-                                <li>Depart from the United States</li>
-                                <li>Most flights to Dublin from the U.S. are overnight, arriving the following morning</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">Evening</div>
-                            <ul>
-                                <li>Overnight Flight</li>
-                                <li>Try to get some rest on the flight to minimize jet lag upon arrival</li>
-                                <li>Consider paying for premium economy on the overseas flights</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Day 1 -->
-                <div class="day">
-                    <div class="day-title">Thursday, Sep 19 Day 1 - DUBLIN ARRIVAL</div>
-                    <div class="day-content">
-                        <div class="time-slot">
-                            <div class="time-slot-title">Morning</div>
-                            <ul>
-                                <li>Arrive at Dublin Airport</li>
-                                <li>Clear customs and immigration. Proceed to the car rental desk.</li>
-                                <li><strong>10:00 AM:</strong> Car Rental Pickup</li>
-                                <li><strong>11:30 AM:</strong> Hotel Check-in or Luggage Drop at The Riu Plaza The Gresham Dublin</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">Afternoon</div>
-                            <ul>
-                                <li><strong>1:00 PM:</strong> Lunch at The Pepper Pot</li>
-                                <li><strong>2:30 PM:</strong> Original Dublin Walking Tour (Viator - INCLUDED)</li>
-                                <li><strong>5:00 PM:</strong> Rest at Hotel</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">Evening</div>
-                            <ul>
-                                <li><strong>7:00 PM:</strong> Dinner at Darkey Kelly's - Traditional Irish pub food and live music in a relaxed, historic setting</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Afternoon Walking Options</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>After checking in and having lunch, you can easily explore these walkable attractions:</p>
-                                <ul>
-                                    <li>St. Stephen's Green - Beautiful park just minutes from your hotel</li>
-                                    <li>Grafton Street - Lively pedestrian shopping street with street performers</li>
-                                    <li>Trinity College - Historic university campus with cobbled squares</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <p><strong>NOTE:</strong> A complimentary personalized self-guided walking tour document is provided separately. This 4-5 hour route covers Dublin highlights at your own pace and can be used on any day during your Dublin stay.</p>
-                    </div>
-                </div>
-                
-                <!-- Day 2 -->
-                <div class="day">
-                    <div class="day-title">Friday, Sep 20 Day 2 - CASTLES & HERITAGE</div>
-                    <div class="day-content">
-                        <div class="time-slot">
-                            <div class="time-slot-title">Morning</div>
-                            <ul>
-                                <li><strong>7:30 AM:</strong> Breakfast at Bewley's Grafton Street</li>
-                                <li><strong>8:30 AM:</strong> Depart for Trim Castle (drive approximately 45 minutes to County Meath)</li>
-                                <li><strong>9:30 AM:</strong> Trim Castle - Ireland's largest Anglo-Norman castle, used in the movie "Braveheart"</li>
-                                <li><strong>11:30 AM:</strong> Drive to Hill of Tara (short 20-minute drive)</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">Afternoon</div>
-                            <ul>
-                                <li><strong>12:00 PM:</strong> Hill of Tara - Ancient ceremonial and political center with archaeological remains</li>
-                                <li><strong>1:30 PM:</strong> Lunch at Maguires Café at Hill of Tara</li>
-                                <li><strong>2:30 PM:</strong> Drive to Malahide Castle (approximately 1 hour to Malahide, north of Dublin)</li>
-                                <li><strong>3:30 PM:</strong> Malahide Castle & Gardens - Beautiful medieval castle home to the Talbot family for nearly 800 years</li>
-                                <li><strong>5:30 PM:</strong> Return to Dublin</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">Evening</div>
-                            <ul>
-                                <li><strong>7:30 PM:</strong> Dinner at The Church Café Bar & Restaurant - Unique restaurant in a restored 18th-century church with unpretentious Irish fare</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="hidden-gem">
-                            <div class="hidden-gem-title">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                </svg>
-                                Kim's Hidden Gem
-                            </div>
-                            <p>After dinner, visit <strong>The Long Hall</strong>, one of Dublin's most beautiful Victorian-era pubs dating back to 1766. With original ornate decor, red leather seating, dark wood, and brass fittings, this is where locals go for a quality pint in an authentic Irish atmosphere.</p>
-                            <p class="address">51 South Great George's Street, Dublin 2</p>
-                            <a href="https://www.facebook.com/TheLongHallDublin/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Day 3 -->
-                <div class="day">
-                    <div class="day-title">Saturday, Sep 21 Day 3 - WICKLOW MOUNTAINS & IRISH NATIONAL STUD</div>
-                    <div class="day-content">
-                        <div class="time-slot">
-                            <div class="time-slot-title">Morning</div>
-                            <ul>
-                                <li><strong>7:30 AM:</strong> Breakfast at Queen of Tarts</li>
-                                <li><strong>8:30 AM:</strong> Depart for Irish National Stud & Gardens (drive approximately 1 hour to County Kildare)</li>
-                                <li><strong>10:00 AM:</strong> Irish National Stud & Gardens - Ireland's premier horse breeding facility, home to magnificent horses and Japanese Gardens</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">Afternoon</div>
-                            <ul>
-                                <li><strong>12:30 PM:</strong> Lunch at Silken Thomas</li>
-                                <li><strong>1:45 PM:</strong> Drive to Glendalough (journey through the scenic Wicklow Mountains, approximately 1 hour drive)</li>
-                                <li><strong>3:00 PM:</strong> Glendalough Monastic Site - 6th-century monastic settlement with ancient round towers, stone churches, and Celtic crosses</li>
-                                <li><strong>4:30 PM:</strong> Scenic Drive Through Wicklow Mountains - Drive through the Sally Gap, one of Ireland's most scenic mountain passes</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">Evening</div>
-                            <ul>
-                                <li><strong>6:30 PM:</strong> Return to Dublin</li>
-                                <li><strong>8:00 PM:</strong> Dinner at The Brazen Head - Ireland's oldest pub (established 1198) with traditional Irish food and live music</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Suggested Day Trips from Dublin</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>Client to arrange if interested:</p>
-                                <ul>
-                                    <li><strong>Newgrange & Brú na Bóinne</strong> - Prehistoric monument older than Stonehenge and the Egyptian pyramids</li>
-                                    <li><strong>Causey Farm Experience</strong> - Working Irish farm offering interactive experiences including sheepdog demonstrations</li>
-                                    <li><strong>Howth Cliff Walk</strong> - Scenic coastal walk with stunning views of Dublin Bay</li>
-                                    <li><strong>Farrier Workshop with Irish Master Farrier</strong> - Arrange a private demonstration or workshop with renowned Irish farrier Edward Butler</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Day 4 -->
-                <div class="day">
-                    <div class="day-title">Sunday, Sep 22 Day 4 - DUBLIN TO LONDON</div>
-                    <div class="day-content">
-                        <div class="time-slot">
-                            <div class="time-slot-title">Morning</div>
-                            <ul>
-                                <li><strong>7:00 AM:</strong> Breakfast at Bewley's Grafton Street</li>
-                                <li><strong>8:00 AM:</strong> Check-out and Return Rental Car (drive to Dublin Airport)</li>
-                                <li><strong>12:00 PM:</strong> Flight to London - Aer Lingus flight #164</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">Afternoon</div>
-                            <ul>
-                                <li><strong>1:30 PM:</strong> Arrive in London (take the Heathrow Express or taxi to your hotel)</li>
-                                <li><strong>3:00 PM:</strong> Check-in at The Tower Hotel London</li>
-                                <li><strong>4:00 PM:</strong> Thames River Cruise - Scenic cruise passing Tower Bridge, Houses of Parliament, Big Ben, and London Eye</li>
-                                <li><strong>5:30 PM:</strong> South Bank Walking Exploration - Leisurely stroll with street performers, food stalls, and views of London's skyline</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">Evening</div>
-                            <ul>
-                                <li><strong>8:00 PM:</strong> Dinner at The Anchor & Hope - Unpretentious British gastropub with hearty, traditional food and a local atmosphere</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="day">
-                    <div class="day-title">Monday, Sep 23 Day 5 - LONDON TO STONELEIGH</div>
-                    <div class="day-content">
-                        <div class="time-slot">
-                            <div class="time-slot-title">Morning</div>
-                            <ul>
-                                <li><strong>7:00 AM:</strong> Breakfast at Kaffeine - Australian/New Zealand-inspired café known for excellent coffee and breakfast items</li>
-                                <li><strong>8:30 AM:</strong> Beefeaters VIP Tower of London Tour Plus Thames River Cruise (Viator - INCLUDED)
-                                    <ul>
-                                        <li>Skip-the-line access to the Tower of London</li>
-                                        <li>Guided tour by a Yeoman Warder (Beefeater)</li>
-                                        <li>See the Crown Jewels and learn about the Tower's fascinating history</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">Afternoon</div>
-                            <ul>
-                                <li><strong>12:00 PM:</strong> Westminster Walking Tour and Westminster Abbey Entry (Viator - INCLUDED)
-                                    <ul>
-                                        <li>Guided walking tour of Westminster area</li>
-                                        <li>Skip-the-line entry to Westminster Abbey</li>
-                                        <li>See Houses of Parliament, Big Ben, and 10 Downing Street</li>
-                                    </ul>
-                                </li>
-                                <li><strong>3:00 PM:</strong> Return to hotel, collect luggage, and check-out</li>
-                                <li><strong>4:30 PM:</strong> Train from London Euston Station to Birmingham New Street Station (journey time: 1.5-2 hours)</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">Evening</div>
-                            <ul>
-                                <li><strong>7:00 PM:</strong> Taxi from Birmingham New Street Station to Birmingham Airport</li>
-                                <li><strong>7:30 PM:</strong> Collect Rental Car at Birmingham Airport - Enterprise Intermediate Sport Utility Vehicle (SUV)</li>
-                                <li><strong>8:30 PM:</strong> Drive to Coventry/Stoneleigh area (driving time: approximately 30 minutes)</li>
-                                <li><strong>9:00 PM:</strong> Arrive and check in at Telegraph Hotel - Coventry</li>
-                                <li><strong>9:30 PM:</strong> Late dinner at hotel or nearby restaurant</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Afternoon Walking Options in London</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>If you have time before heading to Stoneleigh, consider:</p>
-                                <ul>
-                                    <li>London Bridge & Riverside Walk - Stroll along the Thames with views of Tower Bridge</li>
-                                    <li>Southwark Cathedral - Historic church near Borough Market</li>
-                                    <li>The Globe Theatre - Reconstructed Shakespearean theater</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="hidden-gem">
-                            <div class="hidden-gem-title">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                </svg>
-                                Kim's Hidden Gem
-                            </div>
-                            <p>While in Stoneleigh, visit <strong>The British Horse Society Headquarters</strong> at nearby Stoneleigh Park! As a farrier and avid rider with a love of horses, you'll appreciate that this is the home of the UK's largest equine charity. The grounds are beautiful, and they sometimes offer tours when arranged in advance.</p>
-                            <p class="address">The British Horse Society, Abbey Park, Stareton, Kenilworth, Warwickshire CV8 2XZ</p>
-                            <a href="https://www.bhs.org.uk/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Day 6 -->
-                <div class="day">
-                    <div class="day-title">Tuesday, Sep 24 Day 6 - STONELEIGH WORK DAY 1</div>
-                    <div class="day-content">
-                        <div class="time-slot">
-                            <div class="time-slot-title">DAYTIME</div>
-                            <ul>
-                                <li>Farrier-related work activities as scheduled</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">EVENING</div>
-                            <ul>
-                                <li>Dinner at The Cottage Inn - Cozy country pub with traditional British comfort food
-                                    <p class="address">22 Stoneleigh Rd, Kenilworth CV8 2GD</p>
-                                    <a href="http://www.cottageinnatkenilworth.co.uk/" class="btn btn-sm">Visit Website</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Day 7 -->
-                <div class="day">
-                    <div class="day-title">Wednesday, Sep 25 Day 7 - STONELEIGH WORK DAY 2</div>
-                    <div class="day-content">
-                        <div class="time-slot">
-                            <div class="time-slot-title">DAYTIME</div>
-                            <ul>
-                                <li>Farrier-related work activities as scheduled</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">EVENING</div>
-                            <ul>
-                                <li>Visit to Warwick Castle (if time permits) - One of England's finest medieval castles, 15 minutes from Stoneleigh
-                                    <a href="https://www.warwick-castle.com/" class="btn btn-sm">Visit Website</a>
-                                </li>
-                                <li>Dinner at The Queen & Castle - Traditional pub with views of Kenilworth Castle
-                                    <p class="address">Castle Green, Kenilworth CV8 1ND</p>
-                                    <a href="https://www.queenandcastle.co.uk/" class="btn btn-sm">Visit Website</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Day 8 -->
-                <div class="day">
-                    <div class="day-title">Thursday, Sep 26 Day 8 - STONELEIGH WORK DAY 3</div>
-                    <div class="day-content">
-                        <div class="time-slot">
-                            <div class="time-slot-title">DAYTIME</div>
-                            <ul>
-                                <li>Farrier-related work activities as scheduled</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">EVENING</div>
-                            <ul>
-                                <li>Visit to Kenilworth Castle (if time permits) - Impressive ruins of a medieval fortress, 10 minutes from Stoneleigh
-                                    <a href="https://www.english-heritage.org.uk/visit/places/kenilworth-castle/" class="btn btn-sm">Visit Website</a>
-                                </li>
-                                <li>Dinner at The Red Lion - Family-run pub with homemade food and local ales
-                                    <p class="address">45 Warwick Rd, Warwick CV34 5JZ</p>
-                                    <a href="https://www.redlionwarwick.co.uk/" class="btn btn-sm">Visit Website</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Day 9 -->
-                <div class="day">
-                    <div class="day-title">Friday, Sep 27 Day 9 - STONELEIGH WORK DAY 4</div>
-                    <div class="day-content">
-                        <div class="time-slot">
-                            <div class="time-slot-title">DAYTIME</div>
-                            <ul>
-                                <li>Farrier-related work activities as scheduled</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">EVENING</div>
-                            <ul>
-                                <li>Visit to Stratford-upon-Avon (if time permits) - Shakespeare's birthplace, about 30 minutes drive from Stoneleigh
-                                    <a href="https://www.shakespeare.org.uk/" class="btn btn-sm">Visit Website</a>
-                                </li>
-                                <li>Dinner at Farmers Fayre Farm Shop & Cafe - Farm-to-table cafe at Stoneleigh Park
-                                    <p class="address">Stoneleigh Park, Kenilworth CV8 2LG</p>
-                                    <a href="https://www.farmersfayre.co.uk/" class="btn btn-sm">Visit Website</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Day 10 -->
-                <div class="day">
-                    <div class="day-title">Saturday, Sep 28 Day 10 - DEPARTURE DAY</div>
-                    <div class="day-content">
-                        <div class="time-slot">
-                            <div class="time-slot-title">Morning</div>
-                            <ul>
-                                <li><strong>7:00 AM:</strong> Breakfast at hotel</li>
-                                <li><strong>7:30 AM:</strong> Check-out and drive to Birmingham Airport</li>
-                                <li><strong>8:30 AM:</strong> Return rental car</li>
-                                <li><strong>9:35 AM:</strong> Depart Birmingham Airport - Lufthansa flights #953/418, United Airlines flight #4295</li>
-                            </ul>
-                        </div>
-                        <div class="time-slot">
-                            <div class="time-slot-title">Evening</div>
-                            <ul>
-                                <li><strong>7:10 PM:</strong> Arrive Mobile (local time)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- TRANSPORTATION SECTION -->
-        <div class="section" id="transportation">
-            <div class="section-header">
-                <h2>Transportation</h2>
-                <span class="chevron">▼</span>
-            </div>
-            <div class="section-content">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">International Flights</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Outbound: USA to Dublin</div>
-                                <div class="list-item-subtitle">Thu, Sep 18, 2025</div>
-                                <div class="list-item-description">
-                                    <p><strong>Flight:</strong> United Airlines flights #4951/710</p>
-                                    <p><strong>Depart:</strong> Mobile (MOB) at 12:55 PM</p>
-                                    <p><strong>Connect:</strong> Washington DC - Dulles (IAD)</p>
-                                    <p><strong>Arrive:</strong> Dublin (DUB) at 7:10 AM, Sep 19</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Return: Birmingham to USA</div>
-                                <div class="list-item-subtitle">Sat, Sep 28, 2025</div>
-                                <div class="list-item-description">
-                                    <p><strong>Flight:</strong> Lufthansa flights #953/418, United Airlines flight #4295</p>
-                                    <p><strong>Depart:</strong> Birmingham (BHX) at 9:35 AM</p>
-                                    <p><strong>Connections:</strong> Frankfurt (FRA), Washington DC - Dulles (IAD)</p>
-                                    <p><strong>Arrive:</strong> Mobile (MOB) at 7:10 PM</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Intra-European Travel</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 2L11 13"></path>
-                                    <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Dublin to London Flight</div>
-                                <div class="list-item-subtitle">Sun, Sep 22, 2025</div>
-                                <div class="list-item-description">
-                                    <p><strong>Flight:</strong> Aer Lingus flight #164</p>
-                                    <p><strong>Depart:</strong> Dublin (DUB) at 12:00 PM</p>
-                                    <p><strong>Arrive:</strong> London Heathrow (LHR) at 1:25 PM</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="8" width="20" height="8" rx="2"></rect>
-                                    <path d="M4 8v8"></path>
-                                    <path d="M20 8v8"></path>
-                                    <path d="M2 12h20"></path>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">London to Birmingham Train</div>
-                                <div class="list-item-subtitle">Mon, Sep 23, 2025</div>
-                                <div class="list-item-description">
-                                    <p><strong>Depart:</strong> London Euston Station at 4:30 PM</p>
-                                    <p><strong>Arrive:</strong> Birmingham New Street Station</p>
-                                    <p><strong>Journey time:</strong> 1.5-2 hours</p>
-                                    <p><strong>Note:</strong> First Class tickets provide more space and complimentary refreshments</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Car Rentals</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"></path>
-                                    <circle cx="6.5" cy="16.5" r="2.5"></circle>
-                                    <circle cx="16.5" cy="16.5" r="2.5"></circle>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Dublin Airport</div>
-                                <div class="list-item-subtitle">Sep 19-22, 2025</div>
-                                <div class="list-item-description">
-                                    <p><strong>Pick-up:</strong> Sep 19, 7:45 AM</p>
-                                    <p><strong>Drop-off:</strong> Sep 22, 11:00 AM</p>
-                                    <p><strong>Vehicle type:</strong> Enterprise Compact Car</p>
-                                    <p><strong>Includes:</strong> All taxes</p>
-                                    <p class="badge badge-success">INCLUDED IN PACKAGE</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"></path>
-                                    <circle cx="6.5" cy="16.5" r="2.5"></circle>
-                                    <circle cx="16.5" cy="16.5" r="2.5"></circle>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Birmingham Airport, United Kingdom</div>
-                                <div class="list-item-subtitle">Sep 23-28, 2025</div>
-                                <div class="list-item-description">
-                                    <p><strong>Pick-up:</strong> Sep 23, 7:30 PM</p>
-                                    <p><strong>Drop-off:</strong> Sep 28, 8:30 AM</p>
-                                    <p><strong>Vehicle type:</strong> Enterprise Intermediate Sport Utility Vehicle (SUV)</p>
-                                    <p><strong>Includes:</strong> All taxes</p>
-                                    <p class="badge badge-success">INCLUDED IN PACKAGE</p>
-                                    <p><strong>Note:</strong> A taxi will be required from Birmingham New Street Station to Birmingham Airport to collect the rental car</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- ACCOMMODATIONS SECTION -->
-        <div class="section" id="accommodations">
-            <div class="section-header">
-                <h2>Accommodations</h2>
-                <span class="chevron">▼</span>
-            </div>
-            <div class="section-content">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Riu Plaza The Gresham Dublin</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-subtitle">Dublin, Ireland</div>
-                                <div class="list-item-description">
-                                    <p><strong>Check-in:</strong> Sep 19, 2025</p>
-                                    <p><strong>Check-out:</strong> Sep 22, 2025</p>
-                                    <p><strong>Room Type:</strong> Deluxe Superior King - Bed & Breakfast</p>
-                                    <p><strong>Rating:</strong> 4-star hotel</p>
-                                    <p><strong>Location:</strong> 23 O'Connell Street Upper, North City, Dublin, D01 C3W7, Ireland</p>
-                                    <p><strong>Amenities:</strong> Free Wi-Fi, restaurant, bar, 24-hour front desk</p>
-                                    <a href="https://www.riuplaza.com/en/hotel/ireland/dublin/hotel-riu-plaza-the-gresham-dublin/" class="btn">Visit Hotel Website</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">The Tower Hotel London</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-subtitle">London, United Kingdom</div>
-                                <div class="list-item-description">
-                                    <p><strong>Check-in:</strong> Sep 22, 2025</p>
-                                    <p><strong>Check-out:</strong> Sep 23, 2025</p>
-                                    <p><strong>Room Type:</strong> Standard Double Room, with Bridge View - Free WiFi</p>
-                                    <p><strong>Rating:</strong> 4-star hotel</p>
-                                    <p><strong>Location:</strong> St Katharine's Way, London E1W 1LD, United Kingdom</p>
-                                    <p><strong>Amenities:</strong> Free Wi-Fi, restaurant, bar, fitness center, views of Tower Bridge</p>
-                                    <a href="https://www.guoman.com/the-tower" class="btn">Visit Hotel Website</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Telegraph Hotel - Coventry</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-subtitle">Coventry/Stoneleigh Area, United Kingdom</div>
-                                <div class="list-item-description">
-                                    <p><strong>Check-in:</strong> Sep 23, 2025</p>
-                                    <p><strong>Check-out:</strong> Sep 28, 2025</p>
-                                    <p><strong>Room Type:</strong> Big - Double - Free WiFi</p>
-                                    <p><strong>Rating:</strong> 4-star hotel</p>
-                                    <p><strong>Location:</strong> 157 Corporation St, Coventry CV1 1GU, United Kingdom</p>
-                                    <p><strong>Amenities:</strong> Free Wi-Fi, restaurant, bar, 24-hour front desk, stylish 1950s-inspired design</p>
-                                    <a href="https://www.telegraph-hotel.com/" class="btn">Visit Hotel Website</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section" id="dining">
-            <div class="section-header">
-                <h2>Dining Recommendations</h2>
-                <span class="chevron">▼</span>
-            </div>
-            <div class="section-content">
-                <div class="tabs">
-                    <div class="tab active" data-tab="dublin">Dublin</div>
-                    <div class="tab" data-tab="london">London</div>
-                    <div class="tab" data-tab="stoneleigh">Stoneleigh</div>
-                </div>
-                
-                <div class="tab-content active" id="dublin-content">
-                    <div class="list-item">
-                        <div class="list-item-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                <line x1="6" y1="1" x2="6" y2="4"></line>
-                                <line x1="10" y1="1" x2="10" y2="4"></line>
-                                <line x1="14" y1="1" x2="14" y2="4"></line>
-                            </svg>
-                        </div>
-                        <div class="list-item-content">
-                            <div class="list-item-title">Darkey Kelly's</div>
-                            <div class="list-item-description">Traditional Irish pub food and live music in a relaxed, historic setting.</div>
-                            <p class="address">19 Fishamble St, Temple Bar, Dublin 8</p>
-                            <a href="https://darkeykellys.ie/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                    
-                    <div class="list-item">
-                        <div class="list-item-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                <line x1="6" y1="1" x2="6" y2="4"></line>
-                                <line x1="10" y1="1" x2="10" y2="4"></line>
-                                <line x1="14" y1="1" x2="14" y2="4"></line>
-                            </svg>
-                        </div>
-                        <div class="list-item-content">
-                            <div class="list-item-title">The Brazen Head</div>
-                            <div class="list-item-description">Ireland's oldest pub (established 1198) with traditional Irish food and live music.</div>
-                            <p class="address">20 Lower Bridge Street, Dublin 8</p>
-                            <a href="https://www.brazenhead.com/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                    
-                    <div class="list-item">
-                        <div class="list-item-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                <line x1="6" y1="1" x2="6" y2="4"></line>
-                                <line x1="10" y1="1" x2="10" y2="4"></line>
-                                <line x1="14" y1="1" x2="14" y2="4"></line>
-                            </svg>
-                        </div>
-                        <div class="list-item-content">
-                            <div class="list-item-title">The Church Café Bar & Restaurant</div>
-                            <div class="list-item-description">Unique restaurant in a restored 18th-century church with unpretentious Irish fare.</div>
-                            <p class="address">Junction of Mary St & Jervis St, Dublin 1</p>
-                            <a href="https://www.thechurch.ie/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                    
-                    <div class="list-item">
-                        <div class="list-item-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                <line x1="6" y1="1" x2="6" y2="4"></line>
-                                <line x1="10" y1="1" x2="10" y2="4"></line>
-                                <line x1="14" y1="1" x2="14" y2="4"></line>
-                            </svg>
-                        </div>
-                        <div class="list-item-content">
-                            <div class="list-item-title">Queen of Tarts</div>
-                            <div class="list-item-description">Charming cafe known for delicious homemade pastries, scones, and Irish breakfast.</div>
-                            <p class="address">Cow's Lane, Dame Street, Temple Bar, Dublin 2</p>
-                            <a href="https://www.queenoftarts.ie/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                    
-                    <div class="list-item">
-                        <div class="list-item-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                <line x1="6" y1="1" x2="6" y2="4"></line>
-                                <line x1="10" y1="1" x2="10" y2="4"></line>
-                                <line x1="14" y1="1" x2="14" y2="4"></line>
-                            </svg>
-                        </div>
-                        <div class="list-item-content">
-                            <div class="list-item-title">Bewley's Grafton Street</div>
-                            <div class="list-item-description">Iconic Dublin cafe since 1927 known for cherry buns and full Irish breakfast.</div>
-                            <p class="address">78-79 Grafton Street, Dublin 2</p>
-                            <a href="https://bewleys.com/ie/grafton-street-cafe/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                    
-                    <div class="list-item">
-                        <div class="list-item-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                <line x1="6" y1="1" x2="6" y2="4"></line>
-                                <line x1="10" y1="1" x2="10" y2="4"></line>
-                                <line x1="14" y1="1" x2="14" y2="4"></line>
-                            </svg>
-                        </div>
-                        <div class="list-item-content">
-                            <div class="list-item-title">3FE (Third Floor Espresso)</div>
-                            <div class="list-item-description">Local favorite coffee shop with house-roasted beans and simple, delicious breakfast.</div>
-                            <p class="address">32-34 Grand Canal Street Lower, Dublin 2</p>
-                            <a href="https://3fe.com/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tab-content" id="london-content">
-                    <div class="list-item">
-                        <div class="list-item-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                <line x1="6" y1="1" x2="6" y2="4"></line>
-                                <line x1="10" y1="1" x2="10" y2="4"></line>
-                                <line x1="14" y1="1" x2="14" y2="4"></line>
-                            </svg>
-                        </div>
-                        <div class="list-item-content">
-                            <div class="list-item-title">The Anchor & Hope</div>
-                            <div class="list-item-description">Unpretentious British gastropub with hearty, traditional food and a local atmosphere.</div>
-                            <p class="address">36 The Cut, Waterloo, London SE1 8LP</p>
-                            <a href="https://www.anchorandhopepub.co.uk/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                    
-                    <div class="list-item">
-                        <div class="list-item-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                <line x1="6" y1="1" x2="6" y2="4"></line>
-                                <line x1="10" y1="1" x2="10" y2="4"></line>
-                                <line x1="14" y1="1" x2="14" y2="4"></line>
-                            </svg>
-                        </div>
-                        <div class="list-item-content">
-                            <div class="list-item-title">Kaffeine</div>
-                            <div class="list-item-description">Australian/New Zealand-inspired café known for excellent coffee and breakfast items.</div>
-                            <p class="address">66 Great Titchfield Street, Fitzrovia, London W1W 7QJ</p>
-                            <a href="https://www.kaffeine.co.uk/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                    
-                    <div class="list-item">
-                        <div class="list-item-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                <line x1="6" y1="1" x2="6" y2="4"></line>
-                                <line x1="10" y1="1" x2="10" y2="4"></line>
-                                <line x1="14" y1="1" x2="14" y2="4"></line>
-                            </svg>
-                        </div>
-                        <div class="list-item-content">
-                            <div class="list-item-title">Borough Market Vendors</div>
-                            <div class="list-item-description">Historic food market with a variety of international cuisine options and local specialties.</div>
-                            <p class="address">8 Southwark Street, London SE1 1TL</p>
-                            <a href="https://boroughmarket.org.uk/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tab-content" id="stoneleigh-content">
-                    <div class="list-item">
-                        <div class="list-item-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                <line x1="6" y1="1" x2="6" y2="4"></line>
-                                <line x1="10" y1="1" x2="10" y2="4"></line>
-                                <line x1="14" y1="1" x2="14" y2="4"></line>
-                            </svg>
-                        </div>
-                        <div class="list-item-content">
-                            <div class="list-item-title">The Cottage Inn</div>
-                            <div class="list-item-description">Cozy country pub with traditional British comfort food.</div>
-                            <p class="address">22 Stoneleigh Rd, Kenilworth CV8 2GD</p>
-                            <a href="http://www.cottageinnatkenilworth.co.uk/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                    
-                    <div class="list-item">
-                        <div class="list-item-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                <line x1="6" y1="1" x2="6" y2="4"></line>
-                                <line x1="10" y1="1" x2="10" y2="4"></line>
-                                <line x1="14" y1="1" x2="14" y2="4"></line>
-                            </svg>
-                        </div>
-                        <div class="list-item-content">
-                            <div class="list-item-title">The Queen & Castle</div>
-                            <div class="list-item-description">Traditional pub with views of Kenilworth Castle.</div>
-                            <p class="address">Castle Green, Kenilworth CV8 1ND</p>
-                            <a href="https://www.queenandcastle.co.uk/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                    
-                    <div class="list-item">
-                        <div class="list-item-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                <line x1="6" y1="1" x2="6" y2="4"></line>
-                                <line x1="10" y1="1" x2="10" y2="4"></line>
-                                <line x1="14" y1="1" x2="14" y2="4"></line>
-                            </svg>
-                        </div>
-                        <div class="list-item-content">
-                            <div class="list-item-title">The Red Lion</div>
-                            <div class="list-item-description">Family-run pub with homemade food and local ales.</div>
-                            <p class="address">45 Warwick Rd, Warwick CV34 5JZ</p>
-                            <a href="https://www.redlionwarwick.co.uk/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                    
-                    <div class="list-item">
-                        <div class="list-item-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                <line x1="6" y1="1" x2="6" y2="4"></line>
-                                <line x1="10" y1="1" x2="10" y2="4"></line>
-                                <line x1="14" y1="1" x2="14" y2="4"></line>
-                            </svg>
-                        </div>
-                        <div class="list-item-content">
-                            <div class="list-item-title">Farmers Fayre Farm Shop & Cafe</div>
-                            <div class="list-item-description">Farm-to-table cafe at Stoneleigh Park.</div>
-                            <p class="address">Stoneleigh Park, Kenilworth CV8 2LG</p>
-                            <a href="https://www.farmersfayre.co.uk/" class="btn btn-sm">Visit Website</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section" id="tours">
-            <div class="section-header">
-                <h2>Tours & Activities</h2>
-                <span class="chevron">▼</span>
-            </div>
-            <div class="section-content">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Included Tours</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Original Dublin Walking Tour</div>
-                                <div class="list-item-subtitle">September 19, 2025</div>
-                                <div class="list-item-description">
-                                    <p>Explore Dublin's highlights with a knowledgeable local guide. Learn about Dublin's fascinating history, culture, and architecture. Visit key landmarks including Trinity College, Temple Bar, and Dublin Castle.</p>
-                                    <p><strong>Duration:</strong> 2 hours</p>
-                                    <p><strong>Meeting Point:</strong> In front of Trinity College main entrance</p>
-                                    <p class="price">$27 per person</p>
-                                    <p class="badge badge-success">INCLUDED IN PACKAGE</p>
-                                    <a href="https://www.viator.com/tours/Dublin/Original-Dublin-Walking-Tour/d503-344886P3" class="btn btn-accent">Tour Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Beefeaters VIP Tower of London Tour Plus Thames River Cruise</div>
-                                <div class="list-item-subtitle">September 23, 2025</div>
-                                <div class="list-item-description">
-                                    <p>Skip-the-line access to the Tower of London with guided tour by a Yeoman Warder (Beefeater). See the Crown Jewels and learn about the Tower's fascinating history. Includes Thames River sightseeing cruise.</p>
-                                    <p><strong>Duration:</strong> 3 hours</p>
-                                    <p class="price">$115 per person</p>
-                                    <p class="badge badge-success">INCLUDED IN PACKAGE</p>
-                                    <a href="https://www.viator.com/tours/London/Tower-of-London-Storytelling-Tour-with-Thames-River-Cruise/d737-24338P83" class="btn btn-accent">Tour Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Westminster Walking Tour and Westminster Abbey Entry</div>
-                                <div class="list-item-subtitle">September 23, 2025</div>
-                                <div class="list-item-description">
-                                    <p>Guided walking tour of Westminster area with skip-the-line entry to Westminster Abbey. See Houses of Parliament, Big Ben, and 10 Downing Street. Learn about British royal history and government.</p>
-                                    <p><strong>Duration:</strong> 2.5 hours</p>
-                                    <p class="price">$115.42 per person</p>
-                                    <p class="badge badge-success">INCLUDED IN PACKAGE</p>
-                                    <a href="https://www.viator.com/tours/London/Westminster-Walking-Tour-and-Westminster-Abbey-Entry/d737-75760P78" class="btn btn-accent">Tour Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-<div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Recommended Viator Tours</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Wicklow, Powerscourt, and Glendalough Tour from Dublin</div>
-                                <div class="list-item-subtitle">Available during your Dublin stay</div>
-                                <div class="list-item-description">
-                                    <p>Experience the natural beauty of the Garden of Ireland on a day trip to Wicklow, Powerscourt Gardens, and Glendalough. See stunning Irish landscapes with an expert guide.</p>
-                                    <p><strong>Duration:</strong> 8 hours</p>
-                                    <p class="price">$42 per person</p>
-                                    <a href="https://www.viator.com/tours/Dublin/Wicklow-Mountains-Glendalough-and-Kilkenny-Day-Tour-from-Dublin/d503-8962P8" class="btn btn-accent">View on Viator</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Dublin Literary Pub Crawl</div>
-                                <div class="list-item-subtitle">Evening entertainment option</div>
-                                <div class="list-item-description">
-                                    <p>This evening tour combines Dublin's literary heritage with its pub culture. Professional actors perform works by Joyce, Beckett, and other Irish writers while leading you to historic pubs.</p>
-                                    <p><strong>Duration:</strong> 2 hours</p>
-                                    <p><strong>Starting Point:</strong> The Duke Pub, 9 Duke Street</p>
-                                    <p class="price">$16 per person</p>
-                                    <a href="https://www.viator.com/tours/Dublin/Dublin-Literary-Pub-Crawl/d503-3978LITERARY" class="btn btn-accent">View on Viator</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Stratford-upon-Avon: Shakespeare's Story Plus Entry to 5 Houses</div>
-                                <div class="list-item-subtitle">Option for your Stoneleigh stay</div>
-                                <div class="list-item-description">
-                                    <p>Explore Shakespeare's hometown with entry to his birthplace, family homes, and his wife Anne Hathaway's cottage. Perfect for a day trip from Stoneleigh.</p>
-                                    <p><strong>Duration:</strong> 4-5 hours (self-guided)</p>
-                                    <p class="price">$30 per person</p>
-                                    <a href="https://www.viator.com/tours/Stratford-upon-Avon/Shakespeare-Houses-Pass/d22393-117509P2" class="btn btn-accent">View on Viator</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Client-Arranged Activities</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Irish National Stud & Gardens</div>
-                                <div class="list-item-subtitle">September 21, 2025</div>
-                                <div class="list-item-description">
-                                    <p>Ireland's premier horse breeding facility, home to magnificent horses and Japanese Gardens. Visit includes world-class stallions and their offspring, guided tour explaining the breeding program and history, access to the Horse Museum, and beautiful Japanese Gardens and St. Fiachra's Garden.</p>
-                                    <p><strong>Location:</strong> Tully, Kildare, Co. Kildare</p>
-                                    <p class="price">€14 per adult</p>
-                                    <a href="https://irishnationalstud.ie/" class="btn">Visit Website</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Glendalough Monastic Site</div>
-                                <div class="list-item-subtitle">September 21, 2025</div>
-                                <div class="list-item-description">
-                                    <p>6th-century monastic settlement with ancient round towers, stone churches, and Celtic crosses set in a beautiful glacial valley.</p>
-                                    <p><strong>Location:</strong> Glendalough, Co. Wicklow</p>
-                                    <p class="price">€5 per adult for the Visitor Centre</p>
-                                    <a href="https://www.glendalough.ie/" class="btn">Visit Website</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Trim Castle</div>
-                                <div class="list-item-subtitle">September 20, 2025</div>
-                                <div class="list-item-description">
-                                    <p>Ireland's largest Anglo-Norman castle, used in the movie "Braveheart." Explore this impressive medieval fortress with its unique stone keep.</p>
-                                    <p><strong>Location:</strong> Trim, Co. Meath</p>
-                                    <p class="price">€5 per adult</p>
-                                    <a href="https://heritageireland.ie/places-to-visit/trim-castle/" class="btn">Visit Website</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Malahide Castle & Gardens</div>
-                                <div class="list-item-subtitle">September 20, 2025</div>
-                                <div class="list-item-description">
-                                    <p>Beautiful medieval castle home to the Talbot family for nearly 800 years, featuring a butterfly house and spectacular gardens.</p>
-                                    <p><strong>Location:</strong> Malahide Demesne, Malahide, Co. Dublin</p>
-                                    <p class="price">€14 per adult</p>
-                                    <a href="https://www.malahidecastleandgardens.ie/" class="btn">Visit Website</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- WALKING TOUR SECTION -->
-        <div class="section" id="walking">
-            <div class="section-header">
-                <h2>Dublin Self-Guided Walking Tour</h2>
-                <span class="chevron">▼</span>
-            </div>
-            <div class="section-content">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Tour Overview</h3>
-                    </div>
-                    <div class="card-body">
-                        <p><strong>Date:</strong> Friday, September 19, 2025</p>
-                        <p><strong>Duration:</strong> 4-5 hours (with optional extensions)</p>
-                        <p><strong>Distance:</strong> Approximately 4 km (2.5 miles)</p>
-                        <p><strong>Difficulty:</strong> Easy - mostly flat terrain with occasional steps</p>
-                        <p><strong>Start/End:</strong> The Riu Plaza The Gresham Dublin, 23 O'Connell Street Upper</p>
-                        
-                        <p>Explore the heart of Dublin on this self-guided walking tour that takes you through the city's historic center. You'll discover iconic landmarks, charming streets, and hidden gems while experiencing the authentic atmosphere of Ireland's capital. This tour is designed at a relaxed pace with plenty of opportunities to stop for coffee, shopping, or to simply soak in the Dublin ambiance.</p>
-                        
-                        <p><strong>Tour Highlights:</strong></p>
+            
+            <p>A customized journey through Ireland and England with special focus on historical sites, castles, and equestrian experiences. This trip combines leisure travel with Hank's work-related component, allowing you to experience the rich cultural heritage of Ireland, a taste of London, and professional engagement in Stoneleigh, England.</p>
+
+
+
+    <!-- Itinerary Section -->
+
+    <div class="section" id="itinerary">
+        <div class="section-header">
+            <h2>Itinerary</h2>
+            <span class="chevron">▼</span>
+        </div> 
+        <div class="section-content">
+            <!-- Day 0 -->
+            <div class="day">
+                <div class="day-title">Wednesday, Sep 18 Day 0 - DEPARTURE DAY</div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <div class="time-slot-title">Afternoon</div>
                         <ul>
-                            <li>Experience the grandeur of Dublin's main thoroughfare, O'Connell Street</li>
-                            <li>Cross the iconic Ha'penny Bridge over the River Liffey</li>
-                            <li>Explore the cobbled streets of Temple Bar cultural quarter</li>
-                            <li>Visit Dublin Castle, the historic heart of the city</li>
-                            <li>See the magnificent St. Patrick's Cathedral</li>
-                            <li>Enjoy the green oasis of St. Stephen's Green</li>
+                            <li>Depart from the United States</li>
+                            <li>Most flights to Dublin from the U.S. are overnight, arriving the following morning</li>
+                        </ul>
+                    </div>
+                    <div class="time-slot">
+                        <div class="time-slot-title">Evening</div>
+                        <ul>
+                            <li>Overnight Flight</li>
+                            <li>Try to get some rest on the flight to minimize jet lag upon arrival</li>
+                            <li>Consider paying for premium economy on the overseas flights</li>
                         </ul>
                     </div>
                 </div>
-                
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Stop 1: The Riu Plaza The Gresham Dublin</div>
-                            <p>Your tour begins at the historic Gresham Hotel, one of Dublin's most iconic places to stay. Opened in 1817, this landmark hotel on O'Connell Street has hosted countless notable guests throughout its rich history.</p>
-                            <p><strong>Start Time:</strong> 9:00 AM</p>
-                            <p class="address">23 O'Connell Street Upper</p>
-                            <a href="https://www.riu.com/en/hotel/ireland/dublin/hotel-riu-plaza-the-gresham-dublin/" class="btn btn-sm">Hotel Website</a>
-                        </div>
+            </div>
+            
+            <!-- Day 1 -->
+            <div class="day">
+                <div class="day-title">Thursday, Sep 19 Day 1 - DUBLIN ARRIVAL</div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <div class="time-slot-title">Morning</div>
+                        <ul>
+                            <li>Arrive at Dublin Airport</li>
+                            <li>Clear customs and immigration</li>
+                            <li><strong>11:30 AM:</strong> Hotel Check-in or Luggage Drop at The Riu Plaza The Gresham Dublin</li>
+                        </ul>
                     </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Stop 2: O'Connell Street & The Spire</div>
-                            <p>Walk south down O'Connell Street, Dublin's main thoroughfare. Notice the imposing monument to Daniel O'Connell at the southern end of the street and the striking 120-meter stainless steel spire (officially titled the "Monument of Light") that has become a modern symbol of Dublin.</p>
-                            <p><strong>Duration:</strong> 15-20 minutes</p>
-                            <p class="address">O'Connell Street Lower</p>
-                        </div>
+                    <div class="time-slot">
+                        <div class="time-slot-title">Afternoon</div>
+                        <ul>
+                            <li><strong>1:00 PM:</strong> Lunch at The Pepper Pot</li>
+                            <li><strong>2:30 PM:</strong> Original Dublin Walking Tour (Viator - INCLUDED)</li>
+                            <li><strong>5:00 PM:</strong> Rest at Hotel</li>
+                        </ul>
                     </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Stop 3: General Post Office (GPO)</div>
-                            <p>Visit the iconic General Post Office, one of Ireland's most famous buildings and the focal point of the 1916 Easter Rising. The building's beautiful neoclassical façade and its role in Irish history make it a must-see. Consider visiting the GPO Witness History exhibition inside to learn more about this pivotal moment in Ireland's path to independence.</p>
-                            <p><strong>Duration:</strong> 20-40 minutes</p>
-                            <p class="address">O'Connell Street Lower</p>
-                            <p><strong>Hours:</strong> 9:00 AM - 5:30 PM</p>
-                            <p><strong>Admission:</strong> GPO Witness History: €14 per adult</p>
-                            <a href="https://www.gpowitnesshistory.ie/" class="btn btn-sm">GPO Witness History Website</a>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Stop 4: Ha'penny Bridge</div>
-                            <p>Continue south to the River Liffey and cross the iconic Ha'penny Bridge (officially the Liffey Bridge). This pedestrian bridge, built in 1816, was the first to cross the Liffey and got its nickname from the halfpenny toll once required to cross it. It offers great views along the river and is one of Dublin's most photographed landmarks.</p>
-                            <p><strong>Duration:</strong> 10-15 minutes</p>
-                            <p class="address">Bachelors Walk to Temple Bar</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Stop 5: Temple Bar District</div>
-                            <p>Explore the lively Temple Bar district, Dublin's cultural quarter known for its cobbled streets, colorful buildings, and vibrant atmosphere. While primarily known for its nightlife, during the day Temple Bar is filled with quirky shops, galleries, and street performers. This is a perfect spot to stop for a mid-morning coffee or snack.</p>
-                            <p><strong>Duration:</strong> 30-45 minutes</p>
-                            <p class="address">Temple Bar Area</p>
-                            <a href="https://www.visitdublin.com/see-do/details/temple-bar" class="btn btn-sm">Temple Bar Information</a>
-                            
-                            <div class="hidden-gem">
-                                <div class="hidden-gem-title">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                    </svg>
-                                    Kim's Hidden Gem
-                                </div>
-                                <p>While in Temple Bar, don't miss <strong>The Gutter Bookshop</strong> - a charming independent bookstore with a fantastic selection of Irish literature and signed copies from local authors. It's a peaceful retreat from the busier streets and offers a genuine slice of Dublin's literary culture. Ask about their "Blind Date with a Book" section for a fun surprise read!</p>
-                                <p class="address">Cow's Lane, Temple Bar, Dublin 8</p>
-                                <a href="https://gutterbookshop.com/" class="btn btn-sm">Visit Website</a>
-                            </div>
-                        </div>
+                    <div class="time-slot">
+                        <div class="time-slot-title">Evening</div>
+                        <ul>
+                            <li><strong>7:00 PM:</strong> Dinner at Darkey Kelly's - Traditional Irish pub food and live music in a relaxed, historic setting</li>
+                        </ul>
                     </div>
                 </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Recommended Lunch Stops</h3>
+            </div>
+            
+            <!-- Day 2 -->
+            <div class="day">
+                <div class="day-title">Friday, Sep 20 Day 2 - BOYNE VALLEY SMALL GROUP TOUR</div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <div class="time-slot-title">Morning</div>
+                        <ul>
+                            <li><strong>7:30 AM:</strong> Breakfast at hotel</li>
+                            <li><strong>8:30 AM:</strong> Meet in the hotel lobby for pickup</li>
+                            <li><strong>9:00 AM:</strong> Start of "Day Trip from Dublin: New Grange, Knowth, Trim Castle and the Hill of Tara" small group tour (Viator - INCLUDED)</li>
+                            <li>Visit to Newgrange or Knowth prehistoric monument (UNESCO World Heritage Site)</li>
+                        </ul>
                     </div>
-                    <div class="card-body">
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                    <line x1="6" y1="1" x2="6" y2="4"></line>
-                                    <line x1="10" y1="1" x2="10" y2="4"></line>
-                                    <line x1="14" y1="1" x2="14" y2="4"></line>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">The Woollen Mills</div>
-                                <div class="list-item-description">Located near the Ha'penny Bridge, this bright and airy restaurant offers Irish cuisine with a modern twist. Housed in a historic building where James Joyce once worked, it features local ingredients and fantastic views of the River Liffey.</div>
-                                <p class="address">42 Lower Ormond Quay, North City, Dublin 1</p>
-                                <p><strong>Price Range:</strong> €€</p>
-                                <a href="https://www.thewoollenmills.com/" class="btn btn-sm">Visit Website</a>
-                            </div>
+                    <div class="time-slot">
+                        <div class="time-slot-title">Afternoon</div>
+                        <ul>
+                            <li>Continue Boyne Valley tour</li>
+                            <li>Visit to Trim Castle - Ireland's largest Anglo-Norman castle, used in the movie "Braveheart"</li>
+                            <li>Visit to the Hill of Tara - Ancient ceremonial and political center with archaeological remains</li>
+                        </ul>
+                    </div>
+                    <div class="time-slot">
+                        <div class="time-slot-title">Evening</div>
+                        <ul>
+                            <li><strong>5:30 PM:</strong> Return to Dublin</li>
+                            <li><strong>7:30 PM:</strong> Dinner at The Church Café Bar & Restaurant - Unique restaurant in a restored 18th-century church with unpretentious Irish fare</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="hidden-gem">
+                        <div class="hidden-gem-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            Kim's Hidden Gem
                         </div>
-                        
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                                    <line x1="6" y1="1" x2="6" y2="4"></line>
-                                    <line x1="10" y1="1" x2="10" y2="4"></line>
-                                    <line x1="14" y1="1" x2="14" y2="4"></line>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">The Queen of Tarts</div>
-                                <div class="list-item-description">A charming cafe near Dublin Castle specializing in homemade cakes, tarts, and scones. They also serve hearty breakfast and lunch options in a cozy, vintage-inspired setting. Perfect for those with a sweet tooth!</div>
-                                <p class="address">Cow's Lane, Dame Street, Temple Bar, Dublin 2</p>
-                                <p><strong>Price Range:</strong> €€</p>
-                                <a href="https://www.queenoftarts.ie/" class="btn btn-sm">Visit Website</a>
-                            </div>
-                        </div>
+                        <p>After dinner, visit The Long Hall, one of Dublin's most beautiful Victorian-era pubs dating back to 1766. With original ornate decor, red leather seating, dark wood, and brass fittings, this is where locals go for a quality pint in an authentic Irish atmosphere.</p>
+                        <p>Address: 51 South Great George's Street, Dublin 2</p>
+                        <a href="https://www.facebook.com/TheLongHallDublin/" class="visit-website-btn">Visit Website</a>
                     </div>
                 </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Optional Extensions</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                                    <polyline points="21 15 16 10 5 21"></polyline>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">The Little Museum of Dublin</div>
-                                <div class="list-item-description">Located on St. Stephen's Green, this quirky museum tells the story of Dublin in the 20th century through donated artifacts and memorabilia. The guided tours are informative and entertaining, offering insights into Dublin's recent history and culture.</div>
-                                <p class="address">15 St Stephen's Green, Dublin 2</p>
-                                <p><strong>Hours:</strong> 9:30 AM - 5:00 PM</p>
-                                <p><strong>Admission:</strong> €12 per adult</p>
-                                <a href="https://www.littlemuseum.ie/" class="btn btn-sm">Visit Website</a>
-                            </div>
-                        </div>
-                        
-                        <div class="list-item">
-                            <div class="list-item-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                                    <polyline points="21 15 16 10 5 21"></polyline>
-                                </svg>
-                            </div>
-                            <div class="list-item-content">
-                                <div class="list-item-title">Irish Whiskey Museum</div>
-                                <div class="list-item-description">Located across from Trinity College, this museum offers guided tours on the history of Irish whiskey, with tastings included. It's an interactive and fun way to learn about one of Ireland's most famous exports.</div>
-                                <p class="address">119 Grafton Street, Dublin 2</p>
-                                <p><strong>Hours:</strong> 10:00 AM - 6:00 PM</p>
-                                <p><strong>Admission:</strong> €23 per adult (with tastings)</p>
-                                <a href="https://www.irishwhiskeymuseum.ie/" class="btn btn-sm">Visit Website</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <a href="#full-walking-tour" class="btn btn-block btn-primary">See Full Walking Tour</a>
             </div>
         </div>
-        
+    </div>
+<!-- End section 2 -->
 
-        <div class="section" id="practical">
-            <div class="section-header">
-                <h2>Practical Information</h2>
-                <span class="chevron">▼</span>
+            <!-- Day 3 -->
+            <div class="day">
+                <div class="day-title">Saturday, Sep 21 Day 3 - PRIVATE HORSE LOVERS TOUR & WICKLOW MOUNTAINS</div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <div class="time-slot-title">Morning</div>
+                        <ul>
+                            <li><strong>7:30 AM:</strong> Breakfast at Queen of Tarts</li>
+                            <li><strong>8:30 AM:</strong> Meet in the hotel lobby for pickup</li>
+                            <li><strong>9:00 AM:</strong> Start of "A Day At The Races & the Horse Lovers Tour" private tour (Viator - INCLUDED)</li>
+                            <li>Visit to Irish National Stud & Gardens - Ireland's premier horse breeding facility, home to magnificent horses and Japanese Gardens</li>
+                            <li>Guided tour of the stud farm, up-close experience with thoroughbreds, and exploration of the Japanese Gardens</li>
+                        </ul>
+                    </div>
+                    <div class="time-slot">
+                        <div class="time-slot-title">Afternoon</div>
+                        <ul>
+                            <li><strong>1:00 PM:</strong> Lunch at a local recommended spot</li>
+                            <li><strong>2:00 PM:</strong> Private driver continues to the Wicklow Mountains</li>
+                            <li><strong>3:00 PM:</strong> Glendalough Monastic Site - 6th-century monastic settlement with ancient round towers, stone churches, and Celtic crosses</li>
+                            <li><strong>4:30 PM:</strong> Scenic Drive Through Wicklow Mountains - Drive through the Sally Gap, one of Ireland's most scenic mountain passes</li>
+                        </ul>
+                    </div>
+                    <div class="time-slot">
+                        <div class="time-slot-title">Evening</div>
+                        <ul>
+                            <li><strong>6:30 PM:</strong> Return to Dublin</li>
+                            <li><strong>8:00 PM:</strong> Dinner at The Brazen Head - Ireland's oldest pub (established 1198) with traditional Irish food and live music</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="hidden-gem">
+                        <div class="hidden-gem-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            Kim's Hidden Gem
+                        </div>
+                        <p>While in the Wicklow Mountains, make sure to stop at one of the scenic viewpoints along the Sally Gap. The views over the heather-covered hills and peat bogs are spectacular, especially in the late afternoon light. Many locals consider this drive one of Ireland's best-kept secrets, with landscapes that inspired many Irish poets and writers.</p>
+                    </div>
+                </div>
             </div>
-            <div class="section-content">
-                <div class="tabs">
-                    <div class="tab active" data-tab="weather">Weather</div>
-                    <div class="tab" data-tab="packing">Packing</div>
-                    <div class="tab" data-tab="requirements">Travel Requirements</div>
-                    <div class="tab" data-tab="emergency">Emergency</div>
-                    <div class="tab" data-tab="budget">Budget</div>
-                </div>
-                
-                <div class="tab-content active" id="weather-content">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Dublin (September)</h3>
-                        </div>
-                        <div class="card-body">
-                            <p><strong>Temperature Range:</strong> 51-64°F (11-18°C)</p>
-                            <p><strong>Precipitation:</strong> 7-10 rainy days typical</p>
-                            <p><strong>Seasonal Considerations:</strong> Autumn weather can be changeable; layers recommended</p>
-                            <p><strong>Daylight Hours:</strong> Approximately 12-13 hours of daylight</p>
-                        </div>
+            
+            <!-- Day 4 -->
+            <div class="day">
+                <div class="day-title">Sunday, Sep 22 Day 4 - DUBLIN TO LONDON</div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <div class="time-slot-title">Morning</div>
+                        <ul>
+                            <li><strong>7:00 AM:</strong> Breakfast at Bewley's Grafton Street</li>
+                            <li><strong>8:00 AM:</strong> Check-out</li>
+                            <li><strong>12:00 PM:</strong> Flight to London - Aer Lingus flight #164</li>
+                        </ul>
                     </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">London & Stoneleigh (September)</h3>
-                        </div>
-                        <div class="card-body">
-                            <p><strong>Temperature Range:</strong> 54-66°F (12-19°C)</p>
-                            <p><strong>Precipitation:</strong> 8-10 rainy days typical</p>
-                            <p><strong>Seasonal Considerations:</strong> Similar to Dublin; can be pleasant but prepare for rain</p>
-                            <p><strong>Daylight Hours:</strong> Approximately 12-13 hours of daylight</p>
-                        </div>
+                    <div class="time-slot">
+                        <div class="time-slot-title">Afternoon</div>
+                        <ul>
+                            <li><strong>1:30 PM:</strong> Arrive in London (take the Heathrow Express or taxi to your hotel)</li>
+                            <li><strong>3:00 PM:</strong> Check-in at The Tower Hotel London</li>
+                            <li><strong>4:00 PM:</strong> Thames River Cruise - Scenic cruise passing Tower Bridge, Houses of Parliament, Big Ben, and London Eye</li>
+                            <li><strong>5:30 PM:</strong> South Bank Walking Exploration - Leisurely stroll with street performers, food stalls, and views of London's skyline</li>
+                        </ul>
+                    </div>
+                    <div class="time-slot">
+                        <div class="time-slot-title">Evening</div>
+                        <ul>
+                            <li><strong>8:00 PM:</strong> Dinner at The Anchor & Hope - Unpretentious British gastropub with hearty, traditional food and a local atmosphere</li>
+                        </ul>
                     </div>
                 </div>
-                
-                <div class="tab-content" id="packing-content">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Clothing Items</h3>
-                        </div>
-                        <div class="card-body">
-                            <ul>
-                                <li>Waterproof jacket or rain shell</li>
-                                <li>Lightweight sweaters or cardigans for layering</li>
-                                <li>Long-sleeve shirts and t-shirts</li>
-                                <li>Comfortable walking pants/jeans</li>
-                                <li>One dressier outfit for nice dinners</li>
-                                <li>Comfortable walking shoes (waterproof if possible)</li>
-                                <li>Light scarf (versatile for variable temperatures)</li>
-                            </ul>
-                        </div>
+            </div>
+            
+            <!-- Day 5 -->
+            <div class="day">
+                <div class="day-title">Monday, Sep 23 Day 5 - LONDON BLACK CAB TOUR & TOWER OF LONDON</div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <div class="time-slot-title">Morning</div>
+                        <ul>
+                            <li><strong>7:00 AM:</strong> Breakfast at Kaffeine - Australian/New Zealand-inspired café known for excellent coffee and breakfast items</li>
+                            <li><strong>8:30 AM:</strong> "Private Tour: Black Taxi Tour of London" (Viator - INCLUDED)
+                                <ul>
+                                    <li>Private 2-hour tour in an iconic London black cab</li>
+                                    <li>Customized itinerary with a knowledgeable driver-guide</li>
+                                    <li>Photo stops at major London landmarks including Buckingham Palace, Westminster Abbey, and hidden gems</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="time-slot">
+                        <div class="time-slot-title">Afternoon</div>
+                        <ul>
+                            <li><strong>11:30 AM:</strong> Beefeaters VIP Tower of London Tour Plus Thames River Cruise (Viator - INCLUDED)
+                                <ul>
+                                    <li>Skip-the-line access to the Tower of London</li>
+                                    <li>Guided tour by a Yeoman Warder (Beefeater)</li>
+                                    <li>See the Crown Jewels and learn about the Tower's fascinating history</li>
+                                </ul>
+                            </li>
+                            <li><strong>3:00 PM:</strong> Return to hotel, collect luggage, and check-out</li>
+                            <li><strong>4:30 PM:</strong> Train from London Euston Station to Coventry Station (journey time: 1.5-2 hours)</li>
+                        </ul>
+                    </div>
+                    <div class="time-slot">
+                        <div class="time-slot-title">Evening</div>
+                        <ul>
+                            <li><strong>7:00 PM:</strong> Arrive in Coventry</li>
+                            <li><strong>7:30 PM:</strong> Met by friends for transport to their home in Stoneleigh area</li>
+                            <li><strong>9:00 PM:</strong> Dinner with friends</li>
+                        </ul>
                     </div>
                     
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Travel Essentials</h3>
+                    <div class="hidden-gem">
+                        <div class="hidden-gem-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            Kim's Hidden Gem
                         </div>
-                        <div class="card-body">
-                            <ul>
-                                <li>UK/Ireland electrical adapter (Type G, 3-pin)</li>
-                                <li>Portable phone charger/power bank</li>
-                                <li>Small daypack for daily excursions</li>
-                                <li>Reusable water bottle</li>
-                                <li>Small umbrella</li>
-                                <li>Medications in original containers</li>
-                                <li>Copy of passport and travel documents</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Equestrian/Professional Items</h3>
-                        </div>
-                        <div class="card-body">
-                            <ul>
-                                <li>Any specific equipment needed for farrier work portion (check with work contacts)</li>
-                                <li>Casual professional attire for work meetings</li>
-                                <li>Appropriate footwear for equestrian environments</li>
-                            </ul>
-                        </div>
+                        <p>While in Stoneleigh, visit The British Horse Society Headquarters at nearby Stoneleigh Park! As a farrier and avid rider with a love of horses, you'll appreciate that this is the home of the UK's largest equine charity. The grounds are beautiful, and they sometimes offer tours when arranged in advance.</p>
+                        <p>Address: The British Horse Society, Abbey Park, Stareton, Kenilworth, Warwickshire CV8 2XZ</p>
+                        <a href="https://www.bhs.org.uk/" class="visit-website-btn">Visit Website</a>
                     </div>
                 </div>
-                
-                <div class="tab-content" id="requirements-content">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Visa Requirements</h3>
-                        </div>
-                        <div class="card-body">
-                            <ul>
-                                <li>US citizens do not need a visa for tourist visits to Ireland or the UK for stays under 90 days</li>
-                                <li>Valid passport required with at least six months validity beyond your return date</li>
-                                <li>At least two blank passport pages required</li>
-                            </ul>
-                        </div>
+            </div>
+<!-- End section 3 -->
+
+            <!-- Days 6-9 (Stoneleigh Work Days) -->
+            <div class="day">
+                <div class="day-title">Tuesday, Sep 24 - Friday, Sep 27 STONELEIGH WORK DAYS</div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <div class="time-slot-title">Daytime</div>
+                        <ul>
+                            <li>Farrier-related work activities as scheduled</li>
+                        </ul>
                     </div>
                     
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Vaccinations</h3>
+                            <h3 class="card-title">Evening Dining & Activities</h3>
                         </div>
                         <div class="card-body">
-                            <ul>
-                                <li>No special vaccinations required for travel to Ireland and the UK</li>
-                                <li>Routine vaccinations (MMR, Tdap, etc.) should be up-to-date</li>
-                                <li>COVID-19 requirements: Check current regulations closer to departure date</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Travel Insurance</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>Highly recommended for all international travel. Should include:</p>
-                            <ul>
-                                <li>Trip cancellation/interruption coverage</li>
-                                <li>Medical coverage</li>
-                                <li>Emergency evacuation</li>
-                                <li>Baggage loss/delay</li>
-                                <li>Rental car coverage</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Currency</h3>
-                        </div>
-                        <div class="card-body">
-                            <ul>
-                                <li>Ireland: Euro (€)</li>
-                                <li>United Kingdom: British Pound (£)</li>
-                                <li>Credit cards widely accepted; inform your bank of travel plans</li>
-                                <li>Recommend carrying small amount of local currency for small purchases</li>
-                                <li>ATMs readily available in both countries</li>
-                            </ul>
+                            <h4>Tuesday (Day 6)</h4>
+                            <p>Dinner at The Cottage Inn - Cozy country pub with traditional British comfort food</p>
+                            <p>Address: 22 Stoneleigh Rd, Kenilworth CV8 2GD</p>
+                            
+                            <h4>Wednesday (Day 7)</h4>
+                            <p>Visit to Warwick Castle (if time permits) - One of England's finest medieval castles, 15 minutes from Stoneleigh</p>
+                            <p>Dinner at The Queen & Castle - Traditional pub with views of Kenilworth Castle</p>
+                            <p>Address: Castle Green, Kenilworth CV8 1ND</p>
+                            
+                            <h4>Thursday (Day 8)</h4>
+                            <p>Visit to Kenilworth Castle (if time permits) - Impressive ruins of a medieval fortress, 10 minutes from Stoneleigh</p>
+                            <p>Dinner at The Red Lion - Family-run pub with homemade food and local ales</p>
+                            <p>Address: 45 Warwick Rd, Warwick CV34 5JZ</p>
+                            
+                            <h4>Friday (Day 9)</h4>
+                            <p>Visit to Stratford-upon-Avon (if time permits) - Shakespeare's birthplace, about 30 minutes drive from Stoneleigh</p>
+                            <p>Dinner at Farmers Fayre Farm Shop & Cafe - Farm-to-table cafe at Stoneleigh Park</p>
+                            <p>Address: Stoneleigh Park, Kenilworth CV8 2LG</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="tab-content" id="emergency-content">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Emergency Contacts</h3>
-                        </div>
-                        <div class="card-body">
-                            <p><strong>Ireland Emergency Services:</strong> 112 or 999</p>
-                            <p><strong>UK Emergency Services:</strong> 999 or 112</p>
-                            <p><strong>US Embassy in Ireland:</strong> +353 1 668 8777</p>
-                            <p><strong>US Embassy in UK:</strong> +44 20 7499 9000</p>
-                        </div>
+            </div>
+            
+            <!-- Day 10 -->
+            <div class="day">
+                <div class="day-title">Saturday, Sep 28 Day 10 - DEPARTURE DAY</div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <div class="time-slot-title">Morning</div>
+                        <ul>
+                            <li><strong>7:00 AM:</strong> Breakfast with friends</li>
+                            <li><strong>7:30 AM:</strong> Friends drive you to Birmingham Airport</li>
+                            <li><strong>9:35 AM:</strong> Depart Birmingham Airport - Lufthansa flights #953/418, United Airlines flight #4295</li>
+                        </ul>
                     </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Nearest Hospitals</h3>
-                        </div>
-                        <div class="card-body">
-                            <p><strong>Dublin:</strong> St. Vincent's University Hospital, Elm Park, Dublin 4<br>Tel: +353 1 221 4000</p>
-                            <p><strong>London:</strong> St. Thomas' Hospital, Westminster Bridge Road<br>Tel: +44 20 7188 7188</p>
-                            <p><strong>Warwickshire:</strong> University Hospital Coventry, Clifford Bridge Road<br>Tel: +44 24 7696 4000</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Somo Travel Contact</h3>
-                        </div>
-                        <div class="card-body">
-                            <p><strong>Kim Henderson</strong><br>Cruise & Tour Specialist</p>
-                            <p><strong>Phone:</strong> 251-289-1505</p>
-                            <p><strong>Email:</strong> kim.henderson@cruiseplanners.com</p>
-                            <p><strong>Web:</strong> www.somotravelspecialist.com</p>
-                        </div>
+                    <div class="time-slot">
+                        <div class="time-slot-title">Evening</div>
+                        <ul>
+                            <li><strong>7:10 PM:</strong> Arrive Mobile (local time)</li>
+                        </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Transportation Section -->
+    <div class="section" id="transport">
+        <div class="section-header">
+            <h2>Transport</h2>
+            <span class="chevron">▼</span>
+        </div>
+        <div class="section-content">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">International Flights</h3>
+                </div>
+                <div class="card-body">
+                    <h4>USA to Dublin (Thu, Sep 18, 2025)</h4>
+                    <ul>
+                        <li><strong>Flight:</strong> United Airlines flights #4951/710</li>
+                        <li><strong>Depart:</strong> Mobile (MOB) at 12:55 PM</li>
+                        <li><strong>Connect:</strong> Washington DC - Dulles (IAD)</li>
+                        <li><strong>Arrive:</strong> Dublin (DUB) at 7:10 AM, Sep 19</li>
+                    </ul>
+                    
+                    <h4>Birmingham to USA (Sat, Sep 28, 2025)</h4>
+                    <ul>
+                        <li><strong>Flight:</strong> Lufthansa flights #953/418, United Airlines flight #4295</li>
+                        <li><strong>Depart:</strong> Birmingham (BHX) at 9:35 AM</li>
+                        <li><strong>Connections:</strong> Frankfurt (FRA), Washington DC - Dulles (IAD)</li>
+                        <li><strong>Arrive:</strong> Mobile (MOB) at 7:10 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Intra-European Travel</h3>
+                </div>
+                <div class="card-body">
+                    <h4>Dublin to London Flight (Sun, Sep 22, 2025)</h4>
+                    <ul>
+                        <li><strong>Flight:</strong> Aer Lingus flight #164</li>
+                        <li><strong>Depart:</strong> Dublin (DUB) at 12:00 PM</li>
+                        <li><strong>Arrive:</strong> London Heathrow (LHR) at 1:25 PM</li>
+                    </ul>
+                    
+                    <h4>London to Coventry Train (Mon, Sep 23, 2025)</h4>
+                    <ul>
+                        <li><strong>Depart:</strong> London Euston Station at 4:30 PM</li>
+                        <li><strong>Arrive:</strong> Coventry Station</li>
+                        <li><strong>Journey time:</strong> 1.5-2 hours</li>
+                        <li><strong>Note:</strong> First Class tickets provide more space and complimentary refreshments</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="alert">
+                <strong>Airport Tips:</strong> Arrive at the airport 2 hours early for international flights. Check your passport validity (must be valid for at least 6 months beyond your return date).
+            </div>
+        </div>
+    </div>
+<!-- End section 4 -->
+
+    <!-- Accommodations Section -->
+    <div class="section" id="accommodations">
+        <div class="section-header">
+            <h2>Accommodations</h2>
+            <span class="chevron">▼</span>
+        </div>
+        <div class="section-content">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Riu Plaza The Gresham Dublin</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Check-in:</strong> Sep 19, 2025</li>
+                        <li><strong>Check-out:</strong> Sep 22, 2025</li>
+                        <li><strong>Room Type:</strong> Deluxe Superior King - Bed & Breakfast</li>
+                        <li><strong>Rating:</strong> 4-star hotel</li>
+                        <li><strong>Location:</strong> 23 O'Connell Street Upper, North City, Dublin, D01 C3W7, Ireland</li>
+                        <li><strong>Amenities:</strong> Free Wi-Fi, restaurant, bar, 24-hour front desk</li>
+                        <li><a href="https://www.riuplaza.com/en/hotel/ireland/dublin/hotel-riu-plaza-the-gresham-dublin/" class="visit-website-btn">Visit Website</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">The Tower Hotel London</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Check-in:</strong> Sep 22, 2025</li>
+                        <li><strong>Check-out:</strong> Sep 23, 2025</li>
+                        <li><strong>Room Type:</strong> Standard Double Room, with Bridge View - Free WiFi</li>
+                        <li><strong>Rating:</strong> 4-star hotel</li>
+                        <li><strong>Location:</strong> St Katharine's Way, London E1W 1LD, United Kingdom</li>
+                        <li><strong>Amenities:</strong> Free Wi-Fi, restaurant, bar, fitness center, views of Tower Bridge</li>
+                        <li><a href="https://www.guoman.com/the-tower" class="visit-website-btn">Visit Website</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Stoneleigh Area</h3>
+                </div>
+                <div class="card-body">
+                    <p>No hotel needed in Coventry/Stoneleigh, staying with friends.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dining Section -->
+    <div class="section" id="dining">
+        <div class="section-header">
+            <h2>Dining Recommendations</h2>
+            <span class="chevron">▼</span>
+        </div>
+        <div class="section-content">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Dublin</h3>
+                </div>
+                <div class="card-body">
+                    <div class="restaurant">
+                        <h4>Darkey Kelly's</h4>
+                        <p>Traditional Irish pub food and live music in a relaxed, historic setting.</p>
+                        <p>Address: 19 Fishamble St, Temple Bar, Dublin 8</p>
+                        <a href="https://darkeykellys.ie/" class="visit-website-btn">Visit Website</a>
+                    </div>
+                    
+                    <div class="restaurant">
+                        <h4>The Brazen Head</h4>
+                        <p>Ireland's oldest pub (established 1198) with traditional Irish food and live music.</p>
+                        <p>Address: 20 Lower Bridge Street, Dublin 8</p>
+                        <a href="https://www.brazenhead.com/" class="visit-website-btn">Visit Website</a>
+                    </div>
+                    
+                    <div class="restaurant">
+                        <h4>The Church Café Bar & Restaurant</h4>
+                        <p>Unique restaurant in a restored 18th-century church with unpretentious Irish fare.</p>
+                        <p>Address: Junction of Mary St & Jervis St, Dublin 1</p>
+                        <a href="https://www.thechurch.ie/" class="visit-website-btn">Visit Website</a>
+                    </div>
+                    
+                    <div class="restaurant">
+                        <h4>Queen of Tarts</h4>
+                        <p>Charming cafe known for delicious homemade pastries, scones, and Irish breakfast.</p>
+                        <p>Address: Cow's Lane, Dame Street, Temple Bar, Dublin 2</p>
+                        <a href="https://www.queenoftarts.ie/" class="visit-website-btn">Visit Website</a>
+                    </div>
+                    
+                    <div class="restaurant">
+                        <h4>Bewley's Grafton Street</h4>
+                        <p>Iconic Dublin cafe since 1927 known for cherry buns and full Irish breakfast.</p>
+                        <p>Address: 78-79 Grafton Street, Dublin 2</p>
+                        <a href="https://bewleys.com/ie/grafton-street-cafe/" class="visit-website-btn">Visit Website</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">London</h3>
+                </div>
+                <div class="card-body">
+                    <div class="restaurant">
+                        <h4>The Anchor & Hope</h4>
+                        <p>Unpretentious British gastropub with hearty, traditional food and a local atmosphere.</p>
+                        <p>Address: 36 The Cut, Waterloo, London SE1 8LP</p>
+                        <a href="https://www.anchorandhopepub.co.uk/" class="visit-website-btn">Visit Website</a>
+                    </div>
+                    
+                    <div class="restaurant">
+                        <h4>Kaffeine</h4>
+                        <p>Australian/New Zealand-inspired café known for excellent coffee and breakfast items.</p>
+                        <p>Address: 66 Great Titchfield Street, Fitzrovia, London W1W 7QJ</p>
+                        <a href="https://www.kaffeine.co.uk/" class="visit-website-btn">Visit Website</a>
+                    </div>
+                    
+                    <div class="restaurant">
+                        <h4>Borough Market Vendors</h4>
+                        <p>Historic food market with a variety of international cuisine options and local specialties.</p>
+                        <p>Address: 8 Southwark Street, London SE1 1TL</p>
+                        <a href="https://boroughmarket.org.uk/" class="visit-website-btn">Visit Website</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Stoneleigh/Coventry</h3>
+                </div>
+                <div class="card-body">
+                    <div class="restaurant">
+                        <h4>The Cottage Inn</h4>
+                        <p>Cozy country pub with traditional British comfort food.</p>
+                        <p>Address: 22 Stoneleigh Rd, Kenilworth CV8 2GD</p>
+                        <a href="http://www.cottageinnatkenilworth.co.uk/" class="visit-website-btn">Visit Website</a>
+                    </div>
+                    
+                    <div class="restaurant">
+                        <h4>The Queen & Castle</h4>
+                        <p>Traditional pub with views of Kenilworth Castle.</p>
+                        <p>Address: Castle Green, Kenilworth CV8 1ND</p>
+                        <a href="https://www.queenandcastle.co.uk/" class="visit-website-btn">Visit Website</a>
+                    </div>
+                    
+                    <div class="restaurant">
+                        <h4>The Red Lion</h4>
+                        <p>Family-run pub with homemade food and local ales.</p>
+                        <p>Address: 45 Warwick Rd, Warwick CV34 5JZ</p>
+                        <a href="https://www.redlionwarwick.co.uk/" class="visit-website-btn">Visit Website</a>
+                    </div>
+                    
+                    <div class="restaurant">
+                        <h4>Farmers Fayre Farm Shop & Cafe</h4>
+                        <p>Farm-to-table cafe at Stoneleigh Park.</p>
+                        <p>Address: Stoneleigh Park, Kenilworth CV8 2LG</p>
+                        <a href="https://www.farmersfayre.co.uk/" class="visit-website-btn">Visit Website</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- End section 5 -->
+    <!-- Tours Section -->
+    <div class="section" id="tours">
+        <div class="section-header">
+            <h2>Tour Details</h2>
+            <span class="chevron">▼</span>
+        </div>
+        <div class="section-content">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Dublin</h3>
+                </div>
+                <div class="card-body">
+                    <div class="tour">
+                        <h4>Original Dublin Walking Tour</h4>
+                        <p><strong>Date:</strong> September 19, 2025</p>
+                        <p><strong>Description:</strong> Explore Dublin's highlights with a knowledgeable local guide. Learn about Dublin's fascinating history, culture, and architecture. Visit key landmarks including Trinity College, Temple Bar, and Dublin Castle.</p>
+                        <p><strong>Duration:</strong> 2 hours</p>
+                        <p><strong>Meeting Point:</strong> In front of Trinity College main entrance</p>
+                        <p><strong>Price:</strong> $27 per person</p>
+                        <p><strong class="included">INCLUDED IN PACKAGE</strong></p>
+                        <a href="https://www.viator.com/tours/Dublin/Original-Dublin-Walking-Tour/d503-344886P3" class="visit-website-btn">View on Viator</a>
+                    </div>
+                    
+                    <div class="tour">
+                        <h4>Day Trip from Dublin: New Grange, Knowth, Trim Castle and the Hill of Tara</h4>
+                        <p><strong>Date:</strong> September 20, 2025</p>
+                        <p><strong>Description:</strong> Small group tour (max 13 people) to the historic Boyne Valley. Visit Newgrange prehistoric monument (UNESCO site), Trim Castle and the sacred Hill of Tara. Includes knowledgeable guide and comfortable transportation.</p>
+                        <p><strong>Duration:</strong> 8-9 hours</p>
+                        <p><strong>Meeting Point:</strong> Hotel pickup included</p>
+                        <p><strong>Price:</strong> $85 per person</p>
+                        <p><strong class="included">INCLUDED IN PACKAGE</strong></p>
+                        <a href="https://www.viator.com/tours/Dublin/Small-Group-Day-Trip-to-the-Boyne-Valley-from-Dublin-Newgrange-Trim-Castle-and-Hill-of-Tara/d503-36548P1" class="visit-website-btn">View on Viator</a>
+                    </div>
+                    
+                    <div class="tour">
+                        <h4>A Day At The Races & the Horse Lovers Tour</h4>
+                        <p><strong>Date:</strong> September 21, 2025</p>
+                        <p><strong>Description:</strong> Private horse-focused tour with visit to the Irish National Stud. See racing horses, learn about thoroughbred breeding, and explore the Japanese Gardens. Includes private driver for the day with extension to Wicklow Mountains.</p>
+                        <p><strong>Duration:</strong> 8-9 hours</p>
+                        <p><strong>Meeting Point:</strong> Hotel pickup included</p>
+                        <p><strong>Price:</strong> $450 for private tour</p>
+                        <p><strong class="included">INCLUDED IN PACKAGE</strong></p>
+                        <a href="https://www.viator.com/tours/Dublin/A-Day-At-The-Races-and-the-Horse-Lovers-Tour/d503-244136P2" class="visit-website-btn">View on Viator</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">London</h3>
+                </div>
+                <div class="card-body">
+                    <div class="tour">
+                        <h4>Private Tour: Black Taxi Tour of London</h4>
+                        <p><strong>Date:</strong> September 23, 2025</p>
+                        <p><strong>Description:</strong> Explore London in a traditional black taxi with a knowledgeable driver-guide. Customize your 2-hour itinerary or follow driver recommendations to see London's key attractions with insider knowledge and commentary.</p>
+                        <p><strong>Duration:</strong> 2 hours</p>
+                        <p><strong>Meeting Point:</strong> Hotel pickup included</p>
+                        <p><strong>Price:</strong> $250 per taxi (not per person)</p>
+                        <p><strong class="included">INCLUDED IN PACKAGE</strong></p>
+                        <a href="https://www.viator.com/tours/London/Private-Tour-Black-Taxi-Tour-of-London/d737-2496LONSIGHT" class="visit-website-btn">View on Viator</a>
+                    </div>
+                    
+                    <div class="tour">
+                        <h4>Beefeaters VIP Tower of London Tour Plus Thames River Cruise</h4>
+                        <p><strong>Date:</strong> September 23, 2025</p>
+                        <p><strong>Description:</strong> Skip-the-line access to the Tower of London with guided tour by a Yeoman Warder (Beefeater). See the Crown Jewels and learn about the Tower's fascinating history. Includes Thames River sightseeing cruise.</p>
+                        <p><strong>Duration:</strong> 3 hours</p>
+                        <p><strong>Price:</strong> $115 per person</p>
+                        <p><strong class="included">INCLUDED IN PACKAGE</strong></p>
+                        <a href="https://www.viator.com/tours/London/Tower-of-London-Storytelling-Tour-with-Thames-River-Cruise/d737-24338P83" class="visit-website-btn">View on Viator</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Walking Tour Section -->
+    <div class="section" id="walking-tour">
+        <div class="section-header">
+            <h2>Dublin Self-Guided Walking Tour</h2>
+            <span class="chevron">▼</span>
+        </div>
+        <div class="section-content">
+            <div class="tour-overview">
+                <p><strong>Date:</strong> Friday, September 19, 2025</p>
+                <p><strong>Duration:</strong> 4-5 hours (with optional extensions)</p>
+                <p><strong>Distance:</strong> Approximately 4 km (2.5 miles)</p>
+                <p><strong>Difficulty:</strong> Easy - mostly flat terrain with occasional steps</p>
+                <p><strong>Start/End:</strong> The Riu Plaza The Gresham Dublin, 23 O'Connell Street Upper</p>
+            </div>
+            
+            <p>Explore the heart of Dublin on this self-guided walking tour that takes you through the city's historic center. You'll discover iconic landmarks, charming streets, and hidden gems while experiencing the authentic atmosphere of Ireland's capital. This tour is designed at a relaxed pace with plenty of opportunities to stop for coffee, shopping, or to simply soak in the Dublin ambiance.</p>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Tour Highlights</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Experience the grandeur of Dublin's main thoroughfare, O'Connell Street</li>
+                        <li>Cross the iconic Ha'penny Bridge over the River Liffey</li>
+                        <li>Explore the cobbled streets of Temple Bar cultural quarter</li>
+                        <li>Visit Dublin Castle, the historic heart of the city</li>
+                        <li>See the magnificent St. Patrick's Cathedral</li>
+                        <li>Enjoy the green oasis of St. Stephen's Green</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tour-stops">
+                <h3>Recommended Stops</h3>
                 
-                <div class="tab-content" id="budget-content">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Transportation & Lodging</h3>
-                        </div>
-                        <div class="card-body">
-                            <p><strong>Complete Travel Package:</strong> $5,949.35 (for both travelers)</p>
+                <div class="tour-stop">
+                    <h4>Stop 1: The Riu Plaza The Gresham Dublin</h4>
+                    <p>Your tour begins at the historic Gresham Hotel, one of Dublin's most iconic places to stay. Opened in 1817, this landmark hotel on O'Connell Street has hosted countless notable guests throughout its rich history.</p>
+                    <p><strong>Start Time:</strong> 9:00 AM</p>
+                </div>
+                
+                <div class="tour-stop">
+                    <h4>Stop 2: O'Connell Street & The Spire</h4>
+                    <p>Walk south down O'Connell Street, Dublin's main thoroughfare. Notice the imposing monument to Daniel O'Connell at the southern end of the street and the striking 120-meter stainless steel spire (officially titled the "Monument of Light") that has become a modern symbol of Dublin.</p>
+                    <p><strong>Duration:</strong> 15-20 minutes</p>
+                </div>
+                
+                <div class="tour-stop">
+                    <h4>Stop 3: General Post Office (GPO)</h4>
+                    <p>Visit the iconic General Post Office, one of Ireland's most famous buildings and the focal point of the 1916 Easter Rising. Consider visiting the GPO Witness History exhibition inside to learn more about this pivotal moment in Ireland's path to independence.</p>
+                    <p><strong>Duration:</strong> 20-40 minutes</p>
+                    <p><strong>Hours:</strong> 9:00 AM - 5:30 PM</p>
+                    <p><strong>Admission:</strong> GPO Witness History: €14 per adult</p>
+                </div>
+                
+                <div class="tour-stop">
+                    <h4>Stop 4: Ha'penny Bridge</h4>
+                    <p>Continue south to the River Liffey and cross the iconic Ha'penny Bridge (officially the Liffey Bridge). This pedestrian bridge, built in 1816, was the first to cross the Liffey and got its nickname from the halfpenny toll once required to cross it.</p>
+                    <p><strong>Duration:</strong> 10-15 minutes</p>
+                </div>
+                
+                <div class="tour-stop">
+                    <h4>Stop 5: Temple Bar District</h4>
+                    <p>Explore the lively Temple Bar district, Dublin's cultural quarter known for its cobbled streets, colorful buildings, and vibrant atmosphere. This is a perfect spot to stop for a mid-morning coffee or snack.</p>
+                    <p><strong>Duration:</strong> 30-45 minutes</p>
+                </div>
+            </div>
+            
+            <div class="hidden-gem">
+                <div class="hidden-gem-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    Kim's Hidden Gem
+                </div>
+                <p>While in Temple Bar, don't miss <strong>The Gutter Bookshop</strong> - a charming independent bookstore with a fantastic selection of Irish literature and signed copies from local authors. It's a peaceful retreat from the busier streets and offers a genuine slice of Dublin's literary culture.</p>
+            </div>
+        </div>
+    </div>
+<!-- End section 6 -->
+
+    <!-- Practical Info Section -->
+    <div class="section" id="practical-info">
+        <div class="section-header">
+            <h2>Practical Information</h2>
+            <span class="chevron">▼</span>
+        </div>
+        <div class="section-content">
+            <!-- Weather Section -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Weather Expectations</h3>
+                </div>
+                <div class="card-body">
+                    <h4>Dublin (September)</h4>
+                    <ul>
+                        <li><strong>Temperature Range:</strong> 51-64°F (11-18°C)</li>
+                        <li><strong>Precipitation:</strong> 7-10 rainy days typical</li>
+                        <li><strong>Seasonal Considerations:</strong> Autumn weather can be changeable; layers recommended</li>
+                        <li><strong>Daylight Hours:</strong> Approximately 12-13 hours of daylight</li>
+                    </ul>
+                    
+                    <h4>London & Stoneleigh (September)</h4>
+                    <ul>
+                        <li><strong>Temperature Range:</strong> 54-66°F (12-19°C)</li>
+                        <li><strong>Precipitation:</strong> 8-10 rainy days typical</li>
+                        <li><strong>Seasonal Considerations:</strong> Similar to Dublin; can be pleasant but prepare for rain</li>
+                        <li><strong>Daylight Hours:</strong> Approximately 12-13 hours of daylight</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Packing Section -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Packing Suggestions</h3>
+                </div>
+                <div class="card-body">
+                    <h4>Clothing Items</h4>
+                    <ul>
+                        <li>Waterproof jacket or rain shell</li>
+                        <li>Lightweight sweaters or cardigans for layering</li>
+                        <li>Long-sleeve shirts and t-shirts</li>
+                        <li>Comfortable walking pants/jeans</li>
+                        <li>One dressier outfit for nice dinners</li>
+                        <li>Comfortable walking shoes (waterproof if possible)</li>
+                        <li>Light scarf (versatile for variable temperatures)</li>
+                    </ul>
+                    
+                    <h4>Travel Essentials</h4>
+                    <ul>
+                        <li>UK/Ireland electrical adapter (Type G, 3-pin)</li>
+                        <li>Portable phone charger/power bank</li>
+                        <li>Small daypack for daily excursions</li>
+                        <li>Reusable water bottle</li>
+                        <li>Small umbrella</li>
+                        <li>Medications in original containers</li>
+                        <li>Copy of passport and travel documents</li>
+                    </ul>
+                    
+                    <h4>Equestrian/Professional Items</h4>
+                    <ul>
+                        <li>Any specific equipment needed for farrier work portion (check with work contacts)</li>
+                        <li>Casual professional attire for work meetings</li>
+                        <li>Appropriate footwear for equestrian environments</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Travel Requirements Section -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Travel Requirements</h3>
+                </div>
+                <div class="card-body">
+                    <h4>Visa Requirements</h4>
+                    <ul>
+                        <li>US citizens do not need a visa for tourist visits to Ireland or the UK for stays under 90 days</li>
+                        <li>Valid passport required with at least six months validity beyond your return date</li>
+                        <li>At least two blank passport pages required</li>
+                    </ul>
+                    
+                    <h4>Vaccinations</h4>
+                    <ul>
+                        <li>No special vaccinations required for travel to Ireland and the UK</li>
+                        <li>Routine vaccinations (MMR, Tdap, etc.) should be up-to-date</li>
+                        <li>COVID-19 requirements: Check current regulations closer to departure date</li>
+                    </ul>
+                    
+                    <h4>Travel Insurance</h4>
+                    <p>Highly recommended for all international travel. Should include:</p>
+                    <ul>
+                        <li>Trip cancellation/interruption coverage</li>
+                        <li>Medical coverage</li>
+                        <li>Emergency evacuation</li>
+                        <li>Baggage loss/delay</li>
+                        <li>Rental car coverage</li>
+                    </ul>
+                    
+                    <h4>Currency</h4>
+                    <ul>
+                        <li>Ireland: Euro (€)</li>
+                        <li>United Kingdom: British Pound (£)</li>
+                        <li>Credit cards widely accepted; inform your bank of travel plans</li>
+                        <li>Recommend carrying small amount of local currency for small purchases</li>
+                        <li>ATMs readily available in both countries</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Emergency Info Section -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Emergency Information</h3>
+                </div>
+                <div class="card-body">
+                    <h4>Emergency Contacts</h4>
+                    <ul>
+                        <li>Ireland Emergency Services: 112 or 999</li>
+                        <li>UK Emergency Services: 999 or 112</li>
+                        <li>US Embassy in Ireland: +353 1 668 8777</li>
+                        <li>US Embassy in UK: +44 20 7499 9000</li>
+                    </ul>
+                    
+                    <h4>Nearest Hospitals</h4>
+                    <ul>
+                        <li><strong>Dublin:</strong> St. Vincent's University Hospital, Elm Park, Dublin 4<br>
+                            Tel: +353 1 221 4000</li>
+                        <li><strong>London:</strong> St. Thomas' Hospital, Westminster Bridge Road<br>
+                            Tel: +44 20 7188 7188</li>
+                        <li><strong>Warwickshire:</strong> University Hospital Coventry, Clifford Bridge Road<br>
+                            Tel: +44 24 7696 4000</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Budget Section -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Budget Breakdown</h3>
+                </div>
+                <div class="card-body">
+                    <h4>Transportation & Lodging</h4>
+                    <ul>
+                        <li><strong>Complete Travel Package:</strong> $5,949.35 (for both travelers)
                             <ul>
                                 <li>Flights: Round-trip from Mobile to Dublin, returning from Birmingham</li>
                                 <li>Intra-European Flight: Dublin to London (September 22)</li>
-                                <li>London to Birmingham Train (September 23)</li>
+                                <li>London to Coventry Train (September 23)</li>
                                 <li>Dublin Hotel: Riu Plaza The Gresham Dublin (3 nights)</li>
                                 <li>London Hotel: The Tower Hotel London (1 night)</li>
-                                <li>Coventry Hotel: Telegraph Hotel - Coventry (5 nights)</li>
-                                <li>Car Rental Ireland: Enterprise Compact Car (3 days)</li>
-                                <li>Car Rental UK: Enterprise Intermediate SUV (5 days)</li>
-                                <li>Taxi from Birmingham New Street Station to Birmingham Airport</li>
+                                <li>Taxi from Heathrow to London hotel</li>
+                                <li>First class train tickets from London to Coventry</li>
                             </ul>
-                            <p><strong>SUBTOTAL:</strong> $5,949.35 (total package)</p>
-                        </div>
-                    </div>
+                        </li>
+                        <li><strong>SUBTOTAL:</strong> $5,949.35</li>
+                    </ul>
                     
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Included Viator Tours</h3>
-                        </div>
-                        <div class="card-body">
-                            <ul>
-                                <li><strong>Original Dublin Walking Tour:</strong> $27 per person</li>
-                                <li><strong>Beefeaters VIP Tower of London Tour Plus Thames River Cruise:</strong> $115 per person</li>
-                                <li><strong>Westminster Walking Tour and Westminster Abbey Entry:</strong> $115.42 per person</li>
-                            </ul>
-                            <p><strong>SUBTOTAL:</strong> $257.42 per person ($514.84 total) - INCLUDED IN PACKAGE PRICE</p>
-                        </div>
-                    </div>
+                    <h4>Included Viator Tours</h4>
+                    <ul>
+                        <li><strong>Original Dublin Walking Tour:</strong> $27 per person ($54 total)</li>
+                        <li><strong>Day Trip from Dublin: New Grange, Knowth, Trim Castle and the Hill of Tara:</strong> $85 per person ($170 total)</li>
+                        <li><strong>A Day At The Races & the Horse Lovers Tour:</strong> $450 (private tour for 2 people)</li>
+                        <li><strong>Private Tour: Black Taxi Tour of London:</strong> $250 (private tour for 2 people)</li>
+                        <li><strong>Beefeaters VIP Tower of London Tour Plus Thames River Cruise:</strong> $115 per person ($230 total)</li>
+                        <li><strong>SUBTOTAL:</strong> $1,154 total - INCLUDED IN PACKAGE PRICE</li>
+                    </ul>
                     
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Additional Tours & Attractions</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>CLIENT TO ARRANGE:</p>
-                            <ul>
-                                <li><strong>Irish National Stud & Gardens:</strong> €14 ($15) per person</li>
-                                <li><strong>Glendalough Visitor Centre:</strong> €5 ($5.50) per person</li>
-                                <li><strong>Trim Castle:</strong> €5 ($5.50) per person</li>
-                                <li><strong>Hill of Tara Visitor Centre:</strong> €5 ($5.50) per person</li>
-                                <li><strong>Malahide Castle & Gardens:</strong> €14 ($15) per person</li>
-                                <li><strong>Thames River Cruise:</strong> £14 ($18) per person</li>
-                            </ul>
-                            <p><strong>SUBTOTAL:</strong> $68.50 per person ($137 total) - CLIENT TO BOOK DIRECTLY</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Recommended Dining & Optional Activities</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>Estimated daily costs per person:</p>
-                            <ul>
-                                <li><strong>Breakfast:</strong> $15-20 (when not included at hotel)</li>
-                                <li><strong>Lunch:</strong> $20-30</li>
-                                <li><strong>Dinner:</strong> $35-50</li>
-                                <li><strong>Additional beverages, snacks, souvenirs:</strong> $30-40 per day</li>
-                            </ul>
-                            <p><strong>Estimated food and incidentals:</strong> $100-140 per person per day</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Payment Schedule</h3>
-                        </div>
-                        <div class="card-body">
-                            <p><strong>Total Package Cost:</strong> $6,464.19</p>
-                            <p><strong>Deposit (25%):</strong> $1,616.05 - Due upon confirmation</p>
-                            <p><strong>Remaining Balance (75%):</strong> $4,848.14 - Due 120 days before departure (May 21, 2025)</p>
-                            <p><strong>Travel Insurance:</strong> Typically costs approximately 10% of the total package price. Final quotes will be provided based on your specific needs and trip details.</p>
-                        </div>
-                    </div>
+                    <h4>Payment Schedule</h4>
+                    <p><strong>Total Package Cost:</strong> $6,864.19</p>
+                    <p><small>Note: This includes the transportation & lodging base cost of $5,949.35 plus tours, insurance, and additional fees.</small></p>
                 </div>
             </div>
         </div>
-        
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Toggle sections
-                const sectionHeaders = document.querySelectorAll('.section-header');
-                sectionHeaders.forEach(header => {
-                    header.addEventListener('click', function() {
-                        const section = this.parentElement;
-                        const content = this.nextElementSibling;
-                        
-                        section.classList.toggle('expanded');
-                        content.classList.toggle('active');
-                    });
-                });
-                
-                // Tabs functionality
-                const tabs = document.querySelectorAll('.tab');
-                tabs.forEach(tab => {
-                    tab.addEventListener('click', function() {
-                        const tabId = this.getAttribute('data-tab');
-                        
-                        // Remove active class from all tabs and contents
-                        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                        
-                        // Add active class to current tab and content
-                        this.classList.add('active');
-                        document.getElementById(`${tabId}-content`).classList.add('active');
-                    });
-                });
-                
-                // Smooth scroll to anchor links
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        const targetId = this.getAttribute('href');
-                        if (targetId === '#') return;
-                        
-                        const targetElement = document.querySelector(targetId);
-                        if (!targetElement) return;
-                        
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                        
-                        // If target is a section, expand it
-                        if (targetElement.classList.contains('section')) {
-                            const content = targetElement.querySelector('.section-content');
-                            if (content && !content.classList.contains('active')) {
-                                targetElement.classList.add('expanded');
-                                content.classList.add('active');
-                            }
-                        }
-                    });
-                });
-            });
-        </script>
     </div>
     
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <div class="footer-name">Kim Henderson</div>
-                    <div class="footer-contact">
-                        <a href="tel:2512891505">251-289-1505</a> • 
-                        <a href="mailto:kim.henderson@cruiseplanners.com">kim.henderson@cruiseplanners.com</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>Kim Henderson</strong></p>
+        <p>251-289-1505 • kim.henderson@cruiseplanners.com</p>
+    </div>
+
+    <script>
+        // Toggle section content
+        document.querySelectorAll('.section-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const chevron = header.querySelector('.chevron');
+                
+                if (content.style.display === 'none') {
+                    content.style.display = 'block';
+                    chevron.innerHTML = '▼';
+                } else {
+                    content.style.display = 'none';
+                    chevron.innerHTML = '▶';
+                }
+            });
+        });
+    </script>
 </body>
-</html> 
+</html>
+<!-- End section 7 -->
