@@ -3,225 +3,999 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kim's Gems - European Travel Specialist</title>
+    <title>European Adventure Mobile Guide</title>
     <style>
         :root {
-            --primary-color: #2E8B57;
-            --secondary-color: #1a5336;
-            --accent-color: #FFB74D;
-            --background-color: #ffffff;
-            --text-color: #333333;
-            --border-color: #e0e0e0;
-            --card-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            --primary: #1a73e8;
+            --secondary: #f8f9fa;
+            --accent: #e8710a;
+            --text: #202124;
+            --border: #dadce0;
+            --light-border: #f1f3f4;
+            --success: #0f9d58;
+            --warning: #f4b400;
+            --error: #d93025;
         }
-
-        * {
-            box-sizing: border-box;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            color: var(--text);
             margin: 0;
             padding: 0;
+            background-color: #f9f9f9;
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--text-color);
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f0 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
         .header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.5rem;
             text-align: center;
-            margin-bottom: 2rem;
-            padding: 2rem 1rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
         }
-
-        .logo {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
+        .summary {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
         }
-
-        .subtitle {
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+        .summary p {
+            margin: 0.5rem 0;
         }
-
-        .description {
+        .container {
+            padding: 0.5rem;
             max-width: 800px;
             margin: 0 auto;
-            color: #666;
-            font-size: 1.1rem;
         }
-
-        .trips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 2rem;
-        }
-
-        .trip-card {
+        .card {
             background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
-            position: relative;
+            border-radius: 8px;
+            margin-bottom: 1rem;
             overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-
-        .trip-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        .card-header {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--light-border);
+            font-weight: bold;
+            font-size: 1.1rem;
+            background-color: #f5f7f9;
         }
-
-        .trip-card::before {
-            content: '💎';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            opacity: 0.2;
+        .card-content {
+            padding: 1rem;
         }
-
-        .trip-title {
-            color: var(--primary-color);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+        .day-header {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .day-content {
+            padding: 0.5rem;
+        }
+        .time-item {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--light-border);
+        }
+        .time-item:last-child {
+            border-bottom: none;
+        }
+        .time-label {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .item-title {
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+        .item-details {
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+        .price {
+            color: var(--accent);
             font-weight: bold;
         }
-
-        .trip-date {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .trip-status {
+        .badge {
             display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            background: #E8F5E9;
-            color: var(--primary-color);
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: var(--primary);
+            color: white;
+            margin-right: 0.5rem;
         }
-
-        .add-trip {
-            border: 2px dashed var(--border-color);
+        .badge.confirmed {
+            background: var(--success);
+        }
+        .badge.planned {
+            background: var(--warning);
+        }
+        .alert {
+            background: #fff3e0;
+            border-left: 4px solid var(--accent);
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        .gem {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        .gem-title {
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+        }
+        .gem-title svg {
+            margin-right: 0.5rem;
+        }
+        .details-row {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+        .details-label {
+            font-weight: bold;
+            min-width: 120px;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-align: center;
+            flex: 1;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        .navigation {
+            background: white;
+            position: sticky;
+            bottom: 0;
+            display: flex;
+            justify-content: space-around;
+            padding: 0.5rem;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+            z-index: 90;
+        }
+        .nav-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 200px;
+            font-size: 0.8rem;
+            color: var(--text);
             text-decoration: none;
-            color: #666;
         }
-
-        .add-trip:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
+        .nav-item.active {
+            color: var(--primary);
+            font-weight: bold;
         }
-
-        .add-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+        .section-title {
+            font-weight: bold;
+            margin: 1.5rem 0 0.5rem 0;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
         }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
+        @media (max-width: 480px) {
+            .details-row {
+                flex-direction: column;
             }
-
-            .logo {
-                font-size: 2rem;
+            .details-label {
+                margin-bottom: 0.25rem;
             }
-
-            .trips-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 3rem;
-            padding: 2rem;
-            color: #666;
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1>European Adventure</h1>
+    </div>
+    
+    <div class="summary">
+        <p>London • Paris • Rome</p>
+        <p>May 23 - June 1, 2025 | 3 Adults</p>
+        <p><strong>Total: $11,113.15</strong> ($3,704.38 per person)</p>
+    </div>
+    
     <div class="container">
-        <header class="header">
-            <div class="logo">Kim's Gems 💎</div>
-            <div class="subtitle">European Travel Specialist</div>
-            <p class="description">
-                Crafting personalized European adventures with hidden gems and unforgettable experiences. Each itinerary is carefully designed to blend must-see highlights with off-the-beaten-path discoveries.
-            </p>
-        </header>
+        <div class="card">
+            <div class="card-header">Trip Overview</div>
+            <div class="card-content">
+                <div class="details-row">
+                    <div class="details-label">Status:</div>
+                    <div>Confirmed</div>
+                </div>
+                <div class="details-row">
+                    <div class="details-label">Duration:</div>
+                    <div>9 Nights</div>
+                </div>
+                <div class="details-row">
+                    <div class="details-label">Confirmation:</div>
+                    <div>H9E653AP</div>
+                </div>
+                <div class="details-row">
+                    <div class="details-label">Payment:</div>
+                    <div>$10,982.85 (Paid in full)</div>
+                </div>
+                <div class="details-row">
+                    <div class="details-label">Destination Fees:</div>
+                    <div>$130.30 (Pay at hotels)</div>
+                </div>
+                
+                <div class="alert">
+                    <h4 style="margin-top: 0;">Required Actions:</h4>
+                    <ul style="margin-bottom: 0; padding-left: 1.5rem;">
+                        <li>UK ETA ($10 pp) - Apply by April 23</li>
+                        <li>EU ETIAS ($7 pp) - Apply by April 23</li>
+                        <li>Book Eurostar London-Paris transfer</li>
+                        <li>Make restaurant reservations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-        <main class="trips-grid">
-            <!-- Active Trip Example -->
-            <a href="miller_ireland_mobile_proposal.html" class="trip-card">
-                <div class="trip-title">Miller Ireland Adventure</div>
-                <div class="trip-date">July 2025</div>
-                <div class="trip-status">Planning</div>
-            </a>
+        <!-- Day 1: Departure -->
+        <div class="card">
+            <div class="day-header">
+                <div>Day 1: Friday, May 23</div>
+                <div>DEPARTURE</div>
+            </div>
+            <div class="day-content">
+                <div class="time-item">
+                    <div class="item-title">✈️ Outbound Flight</div>
+                    <div class="item-details">
+                        <div><span class="badge confirmed">Confirmed</span> American Airlines #5564/730</div>
+                        <div><strong>Confirmation:</strong> YAYCJK</div>
+                        <p>
+                            <strong>1:03 PM:</strong> Depart Gulfport (GPT)<br>
+                            <strong>3:58 PM:</strong> Arrive Charlotte (CLT)<br>
+                            <strong>6:35 PM:</strong> Depart Charlotte (CLT)<br>
+                            <strong>7:40 AM:</strong> Arrive London Heathrow (LHR) (next day)
+                        </p>
+                        <div><strong>Seats:</strong> 14C, 14D, 17C / 26D, 26H, 27D</div>
+                    </div>
+                </div>
+                
+                <div class="alert">
+                    <h4 style="margin-top: 0;">Pre-Flight Checklist:</h4>
+                    <ul style="margin-bottom: 0; padding-left: 1.5rem;">
+                        <li>Confirm all travel documents are packed</li>
+                        <li>Check airline baggage restrictions</li>
+                        <li>Arrive at GPT airport by 11:00 AM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-            <!-- Placeholder Trip Cards -->
-            <a href="DavidsonSilverMoonCruise_mobileGuide.html" class="trip-card">
-                <div class="trip-title">Davidson Alaska Cruise</div>
-                <div class="trip-date">May 6-16, 2025</div>
-                <div class="trip-status">Planning</div>
-            </a>
+        <!-- Day 2: London Arrival -->
+        <div class="card">
+            <div class="day-header">
+                <div>Day 2: Saturday, May 24</div>
+                <div>LONDON ARRIVAL</div>
+            </div>
+            <div class="day-content">
+                <div class="time-item">
+                    <div class="time-label">7:40 AM</div>
+                    <div class="item-title">Arrive London Heathrow (LHR)</div>
+                    <div class="item-details">
+                        <p>Clear customs and collect baggage</p>
+                    </div>
+                </div>
+                
+                <div class="time-item">
+                    <div class="item-title">🏨 Hotel Check-in</div>
+                    <div class="item-details">
+                        <div><span class="badge confirmed">Confirmed</span> Great Scotland Yard Hotel</div>
+                        <p>
+                            <strong>Rating:</strong> 5-star<br>
+                            <strong>Room Type:</strong> 2 connecting rooms (1 King, 2 Twin beds)<br>
+                            <strong>Features:</strong> 495 sq ft, inner courtyard view, 2 bathrooms<br>
+                            <strong>Check-in:</strong> May 24 | <strong>Check-out:</strong> May 27
+                        </p>
+                        <div class="alert">
+                            Early check-in requested (storage if unavailable)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="time-item">
+                    <div class="time-label">2:00 PM</div>
+                    <div class="item-title">London Private Black Cab Tour</div>
+                    <div class="item-details">
+                        <div><span class="badge planned">Planned</span> <span class="price">$121 pp</span></div>
+                        <p>
+                            4-hour city overview including:<br>
+                            - Buckingham Palace<br>
+                            - Tower of London<br>
+                            - Key London landmarks
+                        </p>
+                        <div class="action-buttons">
+                            <a href="https://www.viator.com/tours/London/London-Sightseeing-Taxi-Tour/d737-465595P1" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="time-item">
+                    <div class="time-label">Evening</div>
+                    <div class="item-title">Free Time</div>
+                    <div class="item-details">
+                        <p>Rest and dinner at your leisure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <a href="Welford_Europe_2025.html" class="trip-card">
-                <div class="trip-title">Welford Europe 2025</div>
-                <div class="trip-date">May 23 - June 1, 2025</div>
-                <div class="trip-status">Planning</div>
-            </a>
-
-            <a href="Breckenridge_2025.html" class="trip-card">
-                <div class="trip-title">Breckenridge Ski Trip</div>
-                <div class="trip-date">December 18-23, 2025</div>
-                <div class="trip-status">Planning</div>
-            </a>
-
-            <a href="Chisolm2025.html" class="trip-card">
-                <div class="trip-title">European Adventure: Dublin, London & Stoneleigh</div>
-                <div class="trip-date">September 18-28, 2025</div>
-                <div class="trip-status">Planning</div>
-            </a>         
+        <!-- Day 3: London -->
+        <div class="card">
+            <div class="day-header">
+                <div>Day 3: Sunday, May 25</div>
+                <div>LONDON</div>
+            </div>
+            <div class="day-content">
+                <div class="time-item">
+                    <div class="time-label">8:30 AM</div>
+                    <div class="item-title">Early Access Crown Jewels Tour</div>
+                    <div class="item-details">
+                        <div><span class="badge planned">Planned</span> <span class="price">$120 pp</span></div>
+                        <p>
+                            - Watch Opening Ceremony<br>
+                            - Beefeater Tour included<br>
+                            - Early access to Crown Jewels<br>
+                            - Thames River Cruise included
+                        </p>
+                        <div class="action-buttons">
+                            <a href="https://www.viator.com/tours/London/Early-Access-Crown-Jewels-Complete-Tour-of-Tower-of-London-with-Opening-Ceremony/d737-62043P10" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="time-item">
+                    <div class="time-label">Afternoon</div>
+                    <div class="item-title">Thames River Cruise</div>
+                    <div class="item-details">
+                        <div><span class="badge confirmed">Included</span> with Tower of London Tour</div>
+                        <p>See London from the water</p>
+                    </div>
+                </div>
+                
+                <div class="gem">
+                    <div class="gem-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#2196f3" stroke="none">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        Kim's Hidden Gem: Borough Market
+                    </div>
+                    <p>London's oldest food market - perfect for lunch!</p>
+                    <ul style="margin-bottom: 0; padding-left: 1.5rem;">
+                        <li>Location: 8 Southwark Street</li>
+                        <li>Best time: After 2 PM for shorter lines</li>
+                        <li>Must-try: Neal's Yard Dairy for cheese tasting</li>
+                        <li>Scenic walk across London Bridge from Tower</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <a href="#" class="nav-item active">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Itinerary
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            Info
+        </a>
+    </div>
+    <!-- Day 4: London -->
+    <div class="card">
+        <div class="day-header">
+            <div>Day 4: Monday, May 26</div>
+            <div>LONDON</div>
+        </div>
+        <div class="day-content">
+            <div class="time-item">
+                <div class="time-label">9:55 AM</div>
+                <div class="item-title">Changing of the Guard Walking Tour</div>
+                <div class="item-details">
+                    <div><span class="badge planned">Planned</span> <span class="price">$29.45 pp</span></div>
+                    <p>
+                        - Duration: 1.5 hours<br>
+                        - Expert guide explains ceremony<br>
+                        - Best photo opportunities<br>
+                    </p>
+                    <div class="action-buttons">
+                        <a href="https://www.viator.com/tours/London/Changing-of-the-Guard-Guided-Walking-Tour-in-London/d737-9086P1" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
             
-            <a href="KimCruise2025.html" class="trip-card">
-                <div class="trip-title">Virgin Voyages from San Juan</div>
-                <div class="trip-date">March 7-15, 2025</div>
-                <div class="trip-status">Planning</div>
-            </a>                
-
-            <!-- Add New Trip Card -->
-            <a href="#" class="trip-card add-trip">
-                <div class="add-icon">+</div>
-                <div>Add New Trip</div>
-            </a>
-        </main>
-
-        <footer class="footer">
-            <p>Contact Kim for personalized European travel planning</p>
-        </footer>
+            <div class="time-item">
+                <div class="time-label">Afternoon</div>
+                <div class="item-title">British Museum</div>
+                <div class="item-details">
+                    <div><span class="badge included">Free</span></div>
+                    <p>
+                        - Key artifacts and treasures<br>
+                        - Perfect introduction to world history<br>
+                        - No cost (donations welcome)
+                    </p>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time-label">Evening</div>
+                <div class="item-title">Free Time</div>
+                <div class="item-details">
+                    <p>Dinner and packing for Paris transfer tomorrow</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Day 5: London to Paris -->
+    <div class="card">
+        <div class="day-header">
+            <div>Day 5: Tuesday, May 27</div>
+            <div>LONDON TO PARIS</div>
+        </div>
+        <div class="day-content">
+            <div class="time-item">
+                <div class="time-label">Morning</div>
+                <div class="item-title">Hotel Check-out and Transfer</div>
+                <div class="item-details">
+                    <p>
+                        - Check out from Great Scotland Yard Hotel<br>
+                        - Transfer to St Pancras Station
+                    </p>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time-label">10:24 AM</div>
+                <div class="item-title">Eurostar to Paris</div>
+                <div class="item-details">
+                    <div><span class="badge planned">To be booked</span> <span class="price">$135 pp</span></div>
+                    <p>
+                        - Depart: London St Pancras 10:24 AM<br>
+                        - Arrive: Paris Gare du Nord 1:47 PM<br>
+                        - Travel time: Approximately 2h 23m
+                    </p>
+                    <div class="alert">
+                        Arrive at St Pancras 1 hour before departure for security and border control
+                    </div>
+                    <div class="action-buttons">
+                        <a href="https://www.eurostar.com/us-en/train/uk/london-to-paris" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time-label">Afternoon</div>
+                <div class="item-title">🏨 Hotel Check-in</div>
+                <div class="item-details">
+                    <div><span class="badge confirmed">Confirmed</span> Elysees Union</div>
+                    <p>
+                        <strong>Rating:</strong> 3-star<br>
+                        <strong>Room Type:</strong> Triple with Breakfast<br>
+                        <strong>Location:</strong> 16th District/Right Bank<br>
+                        <strong>Check-in:</strong> May 27 | <strong>Check-out:</strong> May 29
+                    </p>
+                    <div class="alert">
+                        Mandatory City Tax (5.53€) per person per night to be collected by the hotel
+                    </div>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time-label">5:00 PM</div>
+                <div class="item-title">Paris Introduction</div>
+                <div class="item-details">
+                    <div><span class="badge planned">Planned</span> <span class="price">$45 pp</span></div>
+                    <p>
+                        - 2-hour private guide introduction<br>
+                        - Learn to navigate the city<br>
+                        - Get personalized recommendations
+                    </p>
+                    <div class="action-buttons">
+                        <a href="https://www.viator.com/tours/Paris/Private-Paris-Kickstart-Tour-with-a-Local/d479-24380P193" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Day 6: Paris -->
+    <div class="card">
+        <div class="day-header">
+            <div>Day 6: Wednesday, May 28</div>
+            <div>PARIS</div>
+        </div>
+        <div class="day-content">
+            <div class="time-item">
+                <div class="time-label">10:00 AM</div>
+                <div class="item-title">Louvre Museum</div>
+                <div class="item-details">
+                    <div><span class="badge planned">Planned</span> <span class="price">$141.68 pp</span></div>
+                    <p>
+                        - 3-hour masterpieces tour<br>
+                        - Expert guide brings art to life<br>
+                        - See the Mona Lisa without crowds
+                    </p>
+                    <div class="action-buttons">
+                        <a href="https://www.viator.com/tours/Paris/Skip-the-line-Private-Guided-Tour-Louvre-Museum/d479-6353P7" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time-label">2:30 PM</div>
+                <div class="item-title">Fashion Tour</div>
+                <div class="item-details">
+                    <div><span class="badge planned">Planned</span> <span class="price">$97.00 pp</span></div>
+                    <p>
+                        - 2-hour walking tour<br>
+                        - Learn about Paris fashion history<br>
+                        - Visit iconic fashion districts
+                    </p>
+                    <div class="action-buttons">
+                        <a href="https://www.viator.com/tours/Paris/Fashion-History-Private-Tour-in-the-Heart-of-Paris-The-Fashion-Capital/d479-21155P1" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gem">
+                <div class="gem-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#2196f3" stroke="none">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    Kim's Hidden Gem: CityPharma
+                </div>
+                <p>Famous pharmacy for French skincare and beauty products</p>
+                <ul style="margin-bottom: 0; padding-left: 1.5rem;">
+                    <li>20-40% discounts on luxury brands</li>
+                    <li>Location: 26 Rue du Four</li>
+                    <li>Best time: Early morning to avoid crowds</li>
+                    <li><a href="https://witwhimsy.com/what-to-buy-at-citypharma-in-paris/">Shopping Guide</a></li>
+                </ul>
+            </div>
+            
+            <div class="alert">
+                <p><strong>Restaurant Recommendation:</strong> Le Train Bleu</p>
+                <p>Iconic belle-époque restaurant with ornate gilded ceilings</p>
+                <p><strong>Reservation needed:</strong> 1 month in advance</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Day 7: Paris to Rome -->
+    <div class="card">
+        <div class="day-header">
+            <div>Day 7: Thursday, May 29</div>
+            <div>PARIS TO ROME</div>
+        </div>
+        <div class="day-content">
+            <div class="time-item">
+                <div class="time-label">Early Morning</div>
+                <div class="item-title">Hotel Check-out and Transfer</div>
+                <div class="item-details">
+                    <p>
+                        - Check out from Elysees Union<br>
+                        - 6:30 AM: Transfer to Charles de Gaulle Airport
+                    </p>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time-label">9:10 AM</div>
+                <div class="item-title">✈️ Flight to Rome</div>
+                <div class="item-details">
+                    <div><span class="badge confirmed">Confirmed</span> Air France #1204</div>
+                    <div><strong>Confirmation:</strong> 4XTJ5L</div>
+                    <p>
+                        <strong>9:10 AM:</strong> Depart Paris (CDG)<br>
+                        <strong>11:10 AM:</strong> Arrive Rome (FCO)
+                    </p>
+                    <div><strong>Seats:</strong> 01C, 03C, 01D</div>
+                    <div><strong>Class:</strong> Business Z</div>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time-label">Afternoon</div>
+                <div class="item-title">🏨 Hotel Check-in</div>
+                <div class="item-details">
+                    <div><span class="badge confirmed">Confirmed</span> Hotel Ariston</div>
+                    <p>
+                        <strong>Rating:</strong> 4-star<br>
+                        <strong>Room Type:</strong> Deluxe Room with Breakfast<br>
+                        <strong>Check-in:</strong> May 29 | <strong>Check-out:</strong> June 1
+                    </p>
+                    <div class="alert">
+                        Mandatory City Tax (7.50€) per person per day to be collected by the hotel
+                    </div>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time-label">3:00 PM</div>
+                <div class="item-title">City Overview</div>
+                <div class="item-details">
+                    <div><span class="badge planned">Planned</span> <span class="price">$192.48 pp</span></div>
+                    <p>
+                        - 3-hour effortless city overview<br>
+                        - See major highlights<br>
+                        - Perfect introduction to Rome
+                    </p>
+                    <div class="action-buttons">
+                        <a href="https://www.viator.com/tours/Rome/Rome-Golf-Cart-Tour-Best-Activity-in-Rome/d511-360122P1" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Day 8: Rome -->
+    <div class="card">
+        <div class="day-header">
+            <div>Day 8: Friday, May 30</div>
+            <div>ROME</div>
+        </div>
+        <div class="day-content">
+            <div class="time-item">
+                <div class="time-label">8:00 AM</div>
+                <div class="item-title">Vatican Museums</div>
+                <div class="item-details">
+                    <div><span class="badge planned">Planned</span> <span class="price">$164.68 pp</span></div>
+                    <p>
+                        - Skip-the-line guided tour<br>
+                        - Expert art history guide<br>
+                        - See the Sistine Chapel<br>
+                    </p>
+                    <div class="action-buttons">
+                        <a href="https://www.viator.com/tours/Rome/Skip-the-Line-Vatican-Museums-and-Sistine-Chapel-Guided-Tour/d511-3731VATICAN" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time-label">2:00 PM</div>
+                <div class="item-title">Ancient Rome</div>
+                <div class="item-details">
+                    <div><span class="badge planned">Planned</span> <span class="price">$105.86 pp</span></div>
+                    <p>
+                        - Expert archaeologist guide<br>
+                        - Visit Colosseum, Forum, Palatine Hill<br>
+                        - Learn about ancient Roman life
+                    </p>
+                    <div class="action-buttons">
+                        <a href="https://www.viator.com/tours/Rome/Colosseum-and-Ancient-Rome-Tour-with-Roman-Forum-and-Palatine-Hill/d511-3731COLOSSEUM" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gem">
+                <div class="gem-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#2196f3" stroke="none">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    Kim's Hidden Gem: Trastevere
+                </div>
+                <p>Perfect evening neighborhood for dinner!</p>
+                <ul style="margin-bottom: 0; padding-left: 1.5rem;">
+                    <li>Best time: Evening for atmosphere</li>
+                    <li>Try Da Enzo al 29 for authentic Roman cuisine</li>
+                    <li>Visit Basilica di Santa Maria fountain at sunset</li>
+                    <li><a href="https://www.lonelyplanet.com/articles/perfect-day-itinerary-trastevere-rome">Neighborhood Guide</a></li>
+                </ul>
+            </div>
+            
+            <div class="alert">
+                <p><strong>Restaurant Recommendation:</strong> Roscioli</p>
+                <p>Famed deli/restaurant with amazing pasta & wine</p>
+                <p><strong>Reservation needed:</strong> 2 weeks in advance</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Day 9: Pompeii -->
+    <div class="card">
+        <div class="day-header">
+            <div>Day 9: Saturday, May 31</div>
+            <div>POMPEII DAY TRIP</div>
+        </div>
+        <div class="day-content">
+            <div class="time-item">
+                <div class="time-label">8:00 AM</div>
+                <div class="item-title">High-Speed Train Adventure</div>
+                <div class="item-details">
+                    <div><span class="badge planned">Planned</span> <span class="price">$229.00 pp</span></div>
+                    <p>
+                        <strong>Full Day Schedule:</strong><br>
+                        - 8:00 AM: Depart Rome on high-speed train<br>
+                        - 9:30 AM: Meet archaeologist guide in Naples<br>
+                        - 10:00 AM: Guided Pompeii tour<br>
+                        - 1:00 PM: Traditional Neapolitan lunch with wine<br>
+                        - 3:00 PM: Return journey to Rome<br>
+                        - 5:00 PM: Arrive back in Rome
+                    </p>
+                    <p>
+                        <strong>Includes:</strong><br>
+                        - First class train tickets<br>
+                        - Expert archaeologist guide<br>
+                        - Lunch and wine tasting<br>
+                        - All entrance fees
+                    </p>
+                    <div class="action-buttons">
+                        <a href="https://www.viator.com/tours/Rome/Rome-to-Pompeii-Guided-Tour-with-Wine-and-Lunch-by-High-Speed-Train/d511-5831P90" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Day 10: Departure -->
+    <div class="card">
+        <div class="day-header">
+            <div>Day 10: Sunday, June 1</div>
+            <div>DEPARTURE</div>
+        </div>
+        <div class="day-content">
+            <div class="time-item">
+                <div class="time-label">Morning</div>
+                <div class="item-title">Hotel Check-out</div>
+                <div class="item-details">
+                    <p>
+                        - Early checkout from Hotel Ariston<br>
+                        - 7:00 AM: Hotel pickup for Rome Airport transfer
+                    </p>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time-label">10:00 AM</div>
+                <div class="item-title">✈️ Return Flight</div>
+                <div class="item-details">
+                    <div><span class="badge confirmed">Confirmed</span> American Airlines #239/5324</div>
+                    <div><strong>Confirmation:</strong> YAYCJK</div>
+                    <p>
+                        <strong>10:00 AM:</strong> Depart Rome (FCO)<br>
+                        <strong>3:00 PM:</strong> Arrive Dallas/Fort Worth (DFW)<br>
+                        <strong>9:21 PM:</strong> Depart Dallas/Fort Worth (DFW)<br>
+                        <strong>11:03 PM:</strong> Arrive Gulfport (GPT)
+                    </p>
+                    <div><strong>Seats:</strong> 33D, 33H, 34D / 13C, 14C, 14D</div>
+                </div>
+            </div>
+            
+            <div class="alert">
+                <h4 style="margin-top: 0;">Final Morning Checklist:</h4>
+                <ul style="margin-bottom: 0; padding-left: 1.5rem;">
+                    <li>Pack night before - early morning departure</li>
+                    <li>Allow 45 minutes for airport transfer</li>
+                    <li>Have passports and documents easily accessible</li>
+                    <li>Keep valuables in carry-on luggage</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Trip Cost Breakdown -->
+    <div class="card">
+        <div class="card-header">Trip Cost Breakdown</div>
+        <div class="card-content">
+            <table class="cost-table">
+                <tr>
+                    <th>Item</th>
+                    <th class="price-column">Amount</th>
+                </tr>
+                <tr>
+                    <td>Package (Flights, Hotels, Transfers)</td>
+                    <td class="price-column">$11,182.85</td>
+                </tr>
+                <tr>
+                    <td>SPRINGSAVINGS25B Promotion</td>
+                    <td class="price-column">-$200.00</td>
+                </tr>
+                <tr>
+                    <td>Pay in Destination (City Taxes)</td>
+                    <td class="price-column">$130.30</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td class="price-column">$11,113.15</td>
+                </tr>
+            </table>
+            
+            <p><strong>Optional Tour Costs (per person):</strong></p>
+            <table class="cost-table">
+                <tr>
+                    <th>Tour</th>
+                    <th class="price-column">Price PP</th>
+                </tr>
+                <tr>
+                    <td>London Black Cab Tour</td>
+                    <td class="price-column">$121.00</td>
+                </tr>
+                <tr>
+                    <td>Crown Jewels Tour</td>
+                    <td class="price-column">$120.00</td>
+                </tr>
+                <tr>
+                    <td>Changing of the Guard Tour</td>
+                    <td class="price-column">$29.45</td>
+                </tr>
+                <tr>
+                    <td>Eurostar Train</td>
+                    <td class="price-column">$135.00</td>
+                </tr>
+                <tr>
+                    <td>Paris Kickstart Tour</td>
+                    <td class="price-column">$45.00</td>
+                </tr>
+                <tr>
+                    <td>Louvre Museum Tour</td>
+                    <td class="price-column">$141.68</td>
+                </tr>
+                <tr>
+                    <td>Fashion History Tour</td>
+                    <td class="price-column">$97.00</td>
+                </tr>
+                <tr>
+                    <td>Rome Golf Cart Tour</td>
+                    <td class="price-column">$192.48</td>
+                </tr>
+                <tr>
+                    <td>Vatican & Sistine Chapel Tour</td>
+                    <td class="price-column">$164.68</td>
+                </tr>
+                <tr>
+                    <td>Colosseum & Forum Tour</td>
+                    <td class="price-column">$105.86</td>
+                </tr>
+                <tr>
+                    <td>Pompeii Archaeological Tour</td>
+                    <td class="price-column">$229.00</td>
+                </tr>
+                <tr>
+                    <td>Total Optional Tours (per person)</td>
+                    <td class="price-column">$1,381.15</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Important Information -->
+    <div class="card">
+        <div class="card-header">Important Information</div>
+        <div class="card-content">
+            <div class="alert">
+                <h4 style="margin-top: 0;">Entry Requirements:</h4>
+                <p>You must apply for:</p>
+                <ul style="padding-left: 1.5rem;">
+                    <li><strong>UK ETA ($10 pp)</strong> - Apply 30+ days before travel</li>
+                    <li><strong>EU ETIAS ($7 pp)</strong> - Apply 30+ days before travel</li>
+                </ul>
+                <p>Requirements for US travelers:</p>
+                <ul style="margin-bottom: 0; padding-left: 1.5rem;">
+                    <li>Passport must be valid for at least 6 months after your return date</li>
+                    <li>At least 2 blank passport pages required</li>
+                </ul>
+            </div>
+            
+            <div class="section-title">Restaurant Reservations</div>
+            <ul class="checklist">
+                <li>Rules (London) - Book 3 weeks ahead</li>
+                <li>Le Train Bleu (Paris) - Book 1 month ahead</li>
+                <li>Roscioli (Rome) - Book 2 weeks ahead</li>
+            </ul>
+            
+            <div class="section-title">Packing Tips</div>
+            <ul class="checklist">
+                <li>Weather will range from 55-75°F (13-24°C)</li>
+                <li>Comfortable walking shoes (lots of walking)</li>
+                <li>Adapter plugs (Type G for UK, Type C/F for Europe)</li>
+                <li>Light layers for variable weather</li>
+                <li>One nicer outfit for upscale restaurants</li>
+            </ul>
+            
+            <div class="section-title">Emergency Contacts</div>
+            <div class="details-row">
+                <div class="details-label">Reservation #:</div>
+                <div>H9E653AP</div>
+            </div>
+            <div class="details-row">
+                <div class="details-label">US Embassy UK:</div>
+                <div>+44 20 7499 9000</div>
+            </div>
+            <div class="details-row">
+                <div class="details-label">US Embassy France:</div>
+                <div>+33 1 43 12 22 22</div>
+            </div>
+            <div class="details-row">
+                <div class="details-label">US Embassy Italy:</div>
+                <div>+39 06 46741</div>
+            </div>
+            <div class="details-row">
+                <div class="details-label">Travel Insurance:</div>
+                <div>[Policy Number]</div>
+            </div>
+            <div class="details-row">
+                <div class="details-label">Apple Vacations:</div>
+                <div>1-800-517-2000</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <a href="#" class="nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+        </a>
+        <a href="#" class="nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Itinerary
+        </a>
+        <a href="#" class="nav-item active">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            Info
+        </a>
     </div>
 </body>
 </html>
