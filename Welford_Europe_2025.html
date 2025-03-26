@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>European Adventure</title>
+    <title>European Adventure Compact Proposal</title>
     <style>
         :root {
             --primary: #1a73e8;
@@ -49,13 +49,6 @@
             margin: 15px 0;
             border-radius: 4px;
         }
-        .actions {
-            background: #e3f2fd;
-            border-left: 4px solid #2196f3;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
         .summary-item {
             display: flex;
             justify-content: space-between;
@@ -72,16 +65,32 @@
             padding-left: 20px;
             margin: 10px 0;
         }
-        .day {
-            border-left: 4px solid var(--primary);
-            padding: 8px 15px;
+        .actions {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
             margin: 15px 0;
-            background: #f5f5f5;
+            border-radius: 4px;
         }
-        h3 {
-            margin-top: 25px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--primary);
+        details {
+            margin: 10px 0;
+        }
+        summary {
+            padding: 10px;
+            background: #f5f5f5;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        details[open] summary {
+            margin-bottom: 10px;
+        }
+        .gem {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
         }
         @media (max-width: 600px) {
             body {
@@ -95,23 +104,27 @@
         <h1>European Adventure</h1>
         <p>London • Paris • Rome</p>
         <p>May 23 - June 1, 2025</p>
-        <h2>$16,383.78 ($4,095.95 per person)</h2>
+        <h2>$15,659.40 ($5,219.80 per person)</h2>
     </header>
 
     <div class="card">
-        <div class="card-header">Summary</div>
+        <div class="card-header">Trip Cost Summary</div>
         <div class="card-content">
             <div class="summary-item">
-                <span>Transportation, Lodging, and Excursions:</span>
-                <span>$15,843.78</span>
+                <span>Package Price (including Air, Hotel, and Excursions):</span>
+                <span>$14,989.10</span>
             </div>
             <div class="summary-item">
-                <span>Eurostar Rail Tickets:</span>
+                <span>Eurostar Rail London to Paris:</span>
                 <span>$540.00</span>
             </div>
+            <div class="summary-item">
+                <span>Pay in destination:</span>
+                <span>$130.30</span>
+            </div>
             <div class="total-cost">
-                <div>Total Package: $16,383.78</div>
-                <div>Per Person (4): $4,095.95</div>
+                <div>Total Package: $15,659.40</div>
+                <div>Per Person (3): $5,219.80</div>
             </div>
         </div>
     </div>
@@ -121,166 +134,195 @@
         <ul>
             <li>Apply for UK ETA ($10 pp) - minimum 30 days before travel</li>
             <li>Apply for EU ETIAS ($7 pp) - minimum 30 days before travel</li>
-            <li>Book Eurostar London-Paris transfer</li>
-            <li>Make advance restaurant reservations (3 weeks ahead)</li>
+            <li>Make advance restaurant reservations:
+                <ul>
+                    <li>Rules Restaurant (London) - 3 weeks ahead</li>
+                    <li>Le Train Bleu (Paris) - 1 month ahead</li>
+                    <li>Roscioli (Rome) - 2 weeks ahead</li>
+                </ul>
+            </li>
         </ul>
     </div>
 
-    <h3>Flights</h3>
-    <p><strong>Outbound:</strong> May 23, 2025</p>
-    <ul>
-        <li>Mobile Regional Airport to Washington Dulles International Airport: UA4951, 12:45 PM - 4:10 PM</li>
-        <li>Washington Dulles International Airport to London Heathrow Airport: UA918, 6:35 PM - May 24, 6:55 AM</li>
-    </ul>
-    
-    <p><strong>Paris to Rome:</strong> May 29, 2025</p>
-    <ul>
-        <li>Paris Charles de Gaulle Airport to Rome Fiumicino Airport: Air France #1004, 9:10 AM - 11:10 AM</li>
-    </ul>
-    
-    <p><strong>Return:</strong> June 1, 2025</p>
-    <ul>
-        <li>Rome Fiumicino Airport to Washington Dulles International Airport: UA885, 10:20 AM - 2:20 PM</li>
-        <li>Washington Dulles International Airport to Mobile Regional Airport: UA4295, 5:40 PM - 7:19 PM</li>
-    </ul>
+    <details>
+        <summary>Flights</summary>
+        <div class="card-content">
+            <p><strong>Outbound:</strong> Friday, May 23, 2025</p>
+            <ul>
+                <li>Gulfport, Mississippi to Charlotte, North Carolina: American Airlines #5564, 1:03 PM - 3:58 PM</li>
+                <li>Charlotte, North Carolina to London Heathrow, United Kingdom: American Airlines #730, 6:35 PM - May 24, 7:40 AM</li>
+            </ul>
+            
+            <p><strong>Paris to Rome:</strong> Thursday, May 29, 2025</p>
+            <ul>
+                <li>Paris Charles De Gaulle, France to Rome Fiumicino, Italy: Air France #1204, 6:55 AM - 8:55 AM</li>
+            </ul>
+            
+            <p><strong>Return:</strong> Sunday, June 1, 2025</p>
+            <ul>
+                <li>Rome Fiumicino, Italy to Dallas/Fort Worth, Texas: American Airlines #239, 10:00 AM - 3:00 PM</li>
+                <li>Dallas/Fort Worth, Texas to Gulfport, Mississippi: American Airlines #5324, 9:21 PM - 11:03 PM</li>
+            </ul>
+        </div>
+    </details>
 
-    <h3>Rail</h3>
-    <p><strong>London to Paris:</strong> May 27, 2025</p>
-    <ul>
-        <li>Eurostar to Paris via English Channel Tunnel, 10:24 AM - 1:47 PM</li>
-        <li>$135 per person</li>
-        <li><strong>Note:</strong> Client responsible for transfers between hotels and stations</li>
-    </ul>
+    <details>
+        <summary>Rail</summary>
+        <div class="card-content">
+            <p><strong>London to Paris:</strong> Tuesday, May 27, 2025</p>
+            <ul>
+                <li>Eurostar, 10:24 AM - 1:47 PM</li>
+                <li>Journey through English Channel Tunnel (35 minutes underwater portion)</li>
+                <li>Comfortable seats with power outlets and onboard café</li>
+                <li>Luggage allowance of two bags per person</li>
+            </ul>
+        </div>
+    </details>
 
-    <h3>Accommodations</h3>
-    <p><strong>London:</strong> May 24-27, 2025</p>
-    <ul>
-        <li>Hilton London Metropole</li>
-        <li>Apartment, 1 Bedroom (2 double beds)</li>
-    </ul>
-    
-    <p><strong>Paris:</strong> May 27-29, 2025</p>
-    <ul>
-        <li>7 Eiffel by Malone</li>
-        <li>Family Room, 2 Bedrooms</li>
-    </ul>
-    
-    <p><strong>Rome:</strong> May 29-June 1, 2025</p>
-    <ul>
-        <li>Hotel Ariston</li>
-        <li>Standard Quadruple Room</li>
-        <li>Free breakfast included</li>
-    </ul>
+    <details>
+        <summary>Accommodations</summary>
+        <div class="card-content">
+            <p><strong>London:</strong> May 24-27, 2025</p>
+            <ul>
+                <li>Great Scotland Yard, in The Unbound Collection by Hyatt</li>
+                <li>Two connecting rooms: 1 King and 2 Twin beds</li>
+                <li>Inner courtyard view, 495 sq ft, 2 bathrooms</li>
+                <li>5-Star Rating</li>
+                <li><a href="https://www.hyatt.com/en-US/hotel/england-united-kingdom/great-scotland-yard/lhrub" target="_blank">Hotel Website</a></li>
+            </ul>
+            
+            <p><strong>Paris:</strong> May 27-29, 2025</p>
+            <ul>
+                <li>Elysees Union - 16th District/Right Bank</li>
+                <li>Triple with Breakfast</li>
+                <li>3-Star Rating</li>
+                <li>Note: City Tax of 5.53€ per person per night</li>
+                <li><a href="https://www.elysees-union.com/en/" target="_blank">Hotel Website</a></li>
+            </ul>
+            
+            <p><strong>Rome:</strong> May 29-June 1, 2025</p>
+            <ul>
+                <li>Hotel Ariston</li>
+                <li>Deluxe Room with Breakfast</li>
+                <li>4-Star Rating</li>
+                <li>Note: City Tax of 7.50€ per person per day</li>
+                <li><a href="https://www.hotelariston.it/en/" target="_blank">Hotel Website</a></li>
+            </ul>
+        </div>
+    </details>
 
-    <h3>Booked Excursions</h3>
-    <p><strong>London:</strong></p>
-    <ul>
-        <li>London Private Black Cab Tour</li>
-        <li>Early Access Crown Jewels Tour</li>
-        <li>Changing of the Guard Walking Tour</li>
-    </ul>
-    
-    <p><strong>Paris:</strong></p>
-    <ul>
-        <li>Kickstart Paris Tour</li>
-        <li>Private Guided Louvre Tour</li>
-        <li>Fashion History Private Tour</li>
-    </ul>
-    
-    <p><strong>Rome:</strong></p>
-    <ul>
-        <li>Private Tour by Golf Cart</li>
-        <li>Vatican Museums & Sistine Chapel Tour</li>
-        <li>Colosseum & Ancient Rome Tour</li>
-        <li>Pompeii via High Speed Rail w/ Vineyard Lunch</li>
-    </ul>
+    <details>
+        <summary>Planned Excursions</summary>
+        <div class="card-content">
+            <p><strong>London:</strong></p>
+            <ul>
+                <li>Private Black Cab Tour of London</li>
+                <li>VIP Tower of London / Crown Jewels Tour</li>
+                <li>Changing of the Guard Walking Tour</li>
+                <li>British Museum Speed Tour</li>
+            </ul>
+            
+            <p><strong>Paris:</strong></p>
+            <ul>
+                <li>Kickstart Paris Tour</li>
+                <li>Skip-the-Line Private Guided Louvre Tour</li>
+                <li>Fashion History Private Tour</li>
+                <li>CityPharma Visit</li>
+            </ul>
+            
+            <p><strong>Rome:</strong></p>
+            <ul>
+                <li>Rome Golf Cart Tour</li>
+                <li>Vatican Museums & Sistine Chapel Tour</li>
+                <li>Colosseum & Ancient Rome Tour</li>
+                <li>Day Trip to Pompeii via High Speed Rail</li>
+            </ul>
+        </div>
+    </details>
 
-    <h3>Daily Itinerary</h3>
-    
-    <div class="day">
-        <p><strong>Friday, May 23 - Day 1: DEPARTURE</strong></p>
+    <details>
+        <summary>Daily Itinerary</summary>
+        <div class="card-content">
+            <p><strong>Friday, May 23 - Day 1: DEPARTURE</strong></p>
+            <ul>
+                <li>1:03 PM - Depart Gulfport, Mississippi</li>
+                <li>Overnight flight to London</li>
+            </ul>
+            
+            <p><strong>Saturday, May 24 - Day 2: LONDON ARRIVAL</strong></p>
+            <ul>
+                <li>7:40 AM - Arrive London Heathrow</li>
+                <li>Hotel: Great Scotland Yard</li>
+                <li>Afternoon - Rest and acclimate</li>
+            </ul>
+            
+            <p><strong>Sunday, May 25 - Day 3: LONDON</strong></p>
+            <ul>
+                <li>9:00 AM - Private Black Cab Tour of London</li>
+                <li>8:00 AM - VIP Tower of London / Crown Jewels Tour</li>
+                <li>2:00 PM - Borough Market Visit</li>
+                <li>Afternoon - Thames River Cruise</li>
+            </ul>
+            
+            <p><strong>Monday, May 26 - Day 4: LONDON</strong></p>
+            <ul>
+                <li>9:55 AM - Changing of the Guard Tour</li>
+                <li>Afternoon - British Museum Speed Tour</li>
+            </ul>
+            
+            <p><strong>Tuesday, May 27 - Day 5: LONDON TO PARIS</strong></p>
+            <ul>
+                <li>10:24 AM - Eurostar to Paris</li>
+                <li>1:47 PM - Arrive Paris Gare du Nord</li>
+                <li>Hotel: Elysees Union</li>
+                <li>5:00 PM - Kickstart Paris Tour</li>
+            </ul>
+            
+            <p><strong>Wednesday, May 28 - Day 6: PARIS</strong></p>
+            <ul>
+                <li>10:00 AM - Louvre Museum Tour</li>
+                <li>2:30 PM - Fashion History Tour</li>
+                <li>After tour - CityPharma visit</li>
+            </ul>
+            
+            <p><strong>Thursday, May 29 - Day 7: PARIS TO ROME</strong></p>
+            <ul>
+                <li>6:55 AM - Flight to Rome</li>
+                <li>8:55 AM - Arrive Rome</li>
+                <li>Hotel: Hotel Ariston</li>
+                <li>3:00 PM - Rome Golf Cart Tour</li>
+            </ul>
+            
+            <p><strong>Friday, May 30 - Day 8: ROME</strong></p>
+            <ul>
+                <li>8:00 AM - Vatican Museums Tour</li>
+                <li>3:15 PM - Colosseum & Ancient Rome Tour</li>
+            </ul>
+            
+            <p><strong>Saturday, May 31 - Day 9: ROME/POMPEII</strong></p>
+            <ul>
+                <li>Meet at Rome Termini Station 30 minutes before departure</li>
+                <li>Full-day Pompeii via High Speed Rail</li>
+                <li>8:00 AM - Depart Rome by train</li>
+                <li>5:00 PM - Return to Rome</li>
+            </ul>
+            
+            <p><strong>Sunday, June 1 - Day 10: DEPARTURE</strong></p>
+            <ul>
+                <li>7:00 AM - Transfer to Rome Airport</li>
+                <li>10:00 AM - Depart Rome Fiumicino</li>
+                <li>11:03 PM - Arrive Gulfport, Mississippi</li>
+            </ul>
+        </div>
+    </details>
+
+    <div class="gem">
+        <h3>💎 Kim's Hidden Gem: Borough Market</h3>
+        <p>Don't miss London's oldest food market with over 1,000 years of history! Perfect for a late lunch after your Tower of London tour – just a scenic 10-minute walk across London Bridge.</p>
         <ul>
-            <li>12:45 PM - Depart Mobile (MOB)</li>
-            <li>Overnight flight to London</li>
-        </ul>
-    </div>
-    
-    <div class="day">
-        <p><strong>Saturday, May 24 - Day 2: LONDON ARRIVAL</strong></p>
-        <ul>
-            <li>06:55 AM - Arrive London Heathrow Airport</li>
-            <li>08:00 AM - Arrive at Hilton London Metropole</li>
-            <li>03:00 PM - London Private Black Cab Tour</li>
-        </ul>
-    </div>
-    
-    <div class="day">
-        <p><strong>Sunday, May 25 - Day 3: LONDON</strong></p>
-        <ul>
-            <li>08:30 AM - Early Access Crown Jewels Tour</li>
-            <li>02:00 PM - Borough Market Visit</li>
-            <li>Afternoon - Thames River Cruise</li>
-        </ul>
-    </div>
-    
-    <div class="day">
-        <p><strong>Monday, May 26 - Day 4: LONDON</strong></p>
-        <ul>
-            <li>09:55 AM - Changing of the Guard Walking Tour</li>
-            <li>Afternoon - British Museum Speed Tour</li>
-        </ul>
-    </div>
-    
-    <div class="day">
-        <p><strong>Tuesday, May 27 - Day 5: LONDON TO PARIS</strong></p>
-        <ul>
-            <li>10:24 AM - Eurostar to Paris via English Channel Tunnel</li>
-            <li>01:47 PM - Arrive Paris Gare du Nord</li>
-            <li>05:00 PM - Kickstart Paris Tour</li>
-        </ul>
-    </div>
-    
-    <div class="day">
-        <p><strong>Wednesday, May 28 - Day 6: PARIS</strong></p>
-        <ul>
-            <li>10:00 AM - Private Guided Louvre Tour</li>
-            <li>02:30 PM - Fashion History Private Tour</li>
-            <li>After tour - CityPharma visit</li>
-        </ul>
-    </div>
-    
-    <div class="day">
-        <p><strong>Thursday, May 29 - Day 7: PARIS TO ROME</strong></p>
-        <ul>
-            <li>09:10 AM - Flight to Rome</li>
-            <li>11:10 AM - Arrive Rome</li>
-            <li>03:00 PM - Private Tour by Golf Cart</li>
-        </ul>
-    </div>
-    
-    <div class="day">
-        <p><strong>Friday, May 30 - Day 8: ROME</strong></p>
-        <ul>
-            <li>08:00 AM - Vatican Museums & Sistine Chapel Tour</li>
-            <li>02:00 PM - Colosseum & Ancient Rome Tour</li>
-        </ul>
-    </div>
-    
-    <div class="day">
-        <p><strong>Saturday, May 31 - Day 9: ROME/POMPEII</strong></p>
-        <ul>
-            <li>Pompeii via High Speed Rail w/ Vineyard Lunch</li>
-            <li>08:00 AM - Depart Rome by High-speed Rail</li>
-            <li>05:00 PM - Return to Rome</li>
-        </ul>
-    </div>
-    
-    <div class="day">
-        <p><strong>Sunday, June 1 - Day 10: DEPARTURE</strong></p>
-        <ul>
-            <li>07:00 AM - Transfer to Rome Airport</li>
-            <li>10:20 AM - Depart Rome (FCO)</li>
-            <li>07:19 PM - Arrive Mobile (MOB)</li>
+            <li>Best stalls: Neal's Yard Dairy for British cheese tasting, Bread Ahead for world-class donuts</li>
+            <li>Local tip: Visit after 2PM when the tourist crowds thin out</li>
+            <li><a href="https://boroughmarket.org.uk/" target="_blank">Borough Market Official Website</a></li>
         </ul>
     </div>
 
@@ -290,7 +332,7 @@
             <li>All flight times are local to each city</li>
             <li>Additional baggage charges may apply</li>
             <li>Entry requirements needed 30+ days before travel</li>
-            <li>Package price subject to change until payment</li>
+            <li>Reservation Number: H9E653AP</li>
         </ul>
     </div>
 </body>
