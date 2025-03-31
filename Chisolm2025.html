@@ -1,1076 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>European Adventure - Dublin, London & Stoneleigh</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #2980b9;
-            --accent-color: #3498db;
-            --text-color: #333;
-            --light-text: #fff;
-            --card-bg: #f8f9fa;
-            --border-color: #ddd;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            line-height: 1.6;
-            background-color: #f0f2f5;
-        }
-        
-        /* Header Styles */
-        .header {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 15px 20px;
-            text-align: left;
-        }
-        
-        .header h1 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-        
-        .header p {
-            margin: 5px 0 0;
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        /* Navigation */
-        .nav {
-            background-color: var(--secondary-color);
-            overflow-x: auto;
-            white-space: nowrap;
-            padding: 10px 0;
-        }
-        
-        .nav a {
-            color: var(--light-text);
-            text-decoration: none;
-            padding: 10px 15px;
-            display: inline-block;
-            font-size: 0.9rem;
-        }
-        
-        .nav a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Section Styles */
-        .section {
-            margin: 15px;
-            background-color: var(--primary-color);
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-        
-        .section-header {
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--light-text);
-            cursor: pointer;
-        }
-        
-        .section-header h2 {
-            margin: 0;
-            font-size: 1.2rem;
-        }
-        
-        .chevron {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .section-content {
-            background-color: #222f3e;
-            color: var(--light-text);
-            padding: 15px;
-            display: block;
-        }
-        
-        /* Info List */
-        .info-list {
-            margin-bottom: 20px;
-        }
-        
-        .info-list p {
-            margin: 8px 0;
-        }
-        
-        .info-list strong {
-            font-weight: bold;
-        }
-        
-        /* Hidden Gem */
-        .hidden-gem {
-            background-color: #1e3a5f;
-            border-radius: 6px;
-            padding: 15px;
-            margin: 15px 0;
-            border-left: 4px solid #3498db;
-        }
-        
-        .hidden-gem-title {
-            display: flex;
-            align-items: center;
-            color: #3498db;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .hidden-gem-title svg {
-            margin-right: 8px;
-        }
-        
-        .visit-website-btn {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-        
-        /* Footer */
-        .footer {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 15px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        .footer p {
-            margin: 5px 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>European Adventure: Dublin, London & Stoneleigh</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background: #f9f9f9;
+      line-height: 1.4;
+    }
+    .container {
+      padding: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    h2 {
+      font-size: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+      margin: 20px 0 10px;
+    }
+    h3 {
+      font-size: 18px;
+      margin: 15px 0 5px;
+    }
+    p, li {
+      font-size: 16px;
+      margin: 0 0 10px;
+    }
+    .price-card {
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 10px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .price {
+      font-weight: bold;
+      font-size: 18px;
+      color: #2c3e50;
+    }
+    .highlight {
+      background: #f8f9c7;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+    .summary {
+      background: #e8f4f8;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    ul {
+      padding-left: 20px;
+      margin: 5px 0 10px;
+    }
+    .day {
+      margin-bottom: 15px;
+    }
+    .dates {
+      color: #666;
+      font-size: 14px;
+    }
+    .hidden-gem {
+      background: #e8dfff;
+      border-left: 4px solid #7b5eba;
+      padding: 12px;
+      border-radius: 0 5px 5px 0;
+      margin: 15px 0;
+      position: relative;
+    }
+    .hidden-gem:before {
+      content: "KIM'S HIDDEN GEM";
+      display: block;
+      font-weight: bold;
+      font-size: 14px;
+      color: #7b5eba;
+      margin-bottom: 5px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <h1>European Adventure</h1>
-        <p>Dublin, London & Stoneleigh • Sep 18-28, 2025</p>
+  <header>
+    <h1>European Adventure: Dublin, London & Stoneleigh</h1>
+    <p class="dates">September 18-28, 2025 • 11 Days</p>
+  </header>
+  
+  <div class="container">
+    <div class="summary">
+      <p><strong>Travelers:</strong> 2 Adults (Hank & Stephanie Chisholm)</p>
+      <p><strong>Destinations:</strong> Dublin, Ireland • London, England • Stoneleigh, England</p>
+    </div>
+
+    <h2>Trip Overview</h2>
+    <p>A customized journey through Ireland and England focusing on historical sites, castles, and equestrian experiences. This trip combines leisure travel with a work-related component in Stoneleigh.</p>
+
+    <div class="price-card">
+      <h3>Summary Pricing</h3>
+      <p><span class="price">$5,227.26</span> - Base Package Cost</p>
+      <ul>
+        <li>Air & Hotel Package: $4,994.19</li>
+        <li>Rental Car (Ireland): $233.07</li>
+      </ul>
+      <p>Additional costs:</p>
+      <ul>
+        <li>London to Coventry Train: $30-76</li>
+      </ul>
+      <p class="highlight">Additional Tours & Excursions: Approximately $554.40-$667.40</p>
+    </div>
+
+    <h2>Flight Details</h2>
+    <div class="price-card">
+      <h3>Outbound</h3>
+      <p><strong>Sep 18:</strong> United Airlines #4951/710</p>
+      <p>Mobile (MOB) 12:55 PM → Washington (IAD) 4:20 PM → Dublin (DUB) 7:10 AM (Sep 19)</p>
+      
+      <h3>Internal</h3>
+      <p><strong>Sep 22:</strong> Aer Lingus #164</p>
+      <p>Dublin (DUB) 12:00 PM → London Heathrow (LHR) 1:25 PM</p>
+      
+      <h3>Return</h3>
+      <p><strong>Sep 28:</strong> Lufthansa #9562/8827, United #4295</p>
+      <p>Birmingham (BHX) 9:35 AM → Frankfurt (FRA) 12:10 PM → Washington (IAD) 3:50 PM → Mobile (MOB) 7:10 PM</p>
     </div>
     
-    <!-- Navigation -->
-    <div class="nav">
-        <a href="#overview">Overview</a>
-        <a href="#itinerary">Itinerary</a>
-        <a href="#transport">Transport</a>
-        <a href="#accommodations">Accommodations</a>
-        <a href="#dining">Dining</a>
-        <a href="#tours">Tours</a>
-        <a href="#walking-tour">Walking Tour</a>
-        <a href="#practical-info">Practical Info</a>
+    <h2>Hotel Accommodations</h2>
+    <div class="price-card">
+      <h3>Riu Plaza The Gresham Dublin</h3>
+      <p><strong>Dates:</strong> Sep 19-22, 2025 (3 nights)</p>
+      <p><strong>Room:</strong> Deluxe Superior King - Bed & Breakfast</p>
+      <p>Historic 4-star hotel in the heart of Dublin on O'Connell Street</p>
+      <p><a href="https://www.riu.com/en/hotel/ireland/dublin/hotel-riu-plaza-the-gresham-dublin/" target="_blank">Visit Hotel Website</a></p>
+      
+      <h3>The Tower Hotel London</h3>
+      <p><strong>Dates:</strong> Sep 22-23, 2025 (1 night)</p>
+      <p><strong>Room:</strong> Standard Double Limited View</p>
+      <p>Contemporary 4-star hotel with stunning views of Tower Bridge</p>
+      <p><a href="https://www.thistle.com/the-tower" target="_blank">Visit Hotel Website</a></p>
+      
+      <p><strong>Stoneleigh Accommodation:</strong> Arranged separately for Sep 23-28, 2025 (5 nights)</p>
     </div>
     
-    <!-- Trip Overview Section -->
-    <div class="section" id="overview">
-        <div class="section-header">
-            <h2>Trip Overview</h2>
-            <span class="chevron">▼</span>
-        </div>
-        <div class="section-content">
-            <div class="info-list">
-                <p><strong>Travelers:</strong> Hank & Stephanie Chisholm</p>
-                <p><strong>Dates:</strong> September 18-28, 2025</p>
-                <p><strong>Duration:</strong> 11 Days</p>
-                <p><strong>Destinations:</strong> Dublin, London, Stoneleigh</p>
-            </div>
-            
-            <p>A customized journey through Ireland and England with special focus on historical sites, castles, and equestrian experiences. This trip combines leisure travel with Hank's work-related component, allowing you to experience the rich cultural heritage of Ireland, a taste of London, and professional engagement in Stoneleigh, England.</p>
-
-
-
-    <!-- Itinerary Section -->
-
-    <div class="section" id="itinerary">
-        <div class="section-header">
-            <h2>Itinerary</h2>
-            <span class="chevron">▼</span>
-        </div> 
-        <div class="section-content">
-            <!-- Day 0 -->
-            <div class="day">
-                <div class="day-title">Wednesday, Sep 18 Day 0 - DEPARTURE DAY</div>
-                <div class="day-content">
-                    <div class="time-slot">
-                        <div class="time-slot-title">Afternoon</div>
-                        <ul>
-                            <li>Depart from the United States</li>
-                            <li>Most flights to Dublin from the U.S. are overnight, arriving the following morning</li>
-                        </ul>
-                    </div>
-                    <div class="time-slot">
-                        <div class="time-slot-title">Evening</div>
-                        <ul>
-                            <li>Overnight Flight</li>
-                            <li>Try to get some rest on the flight to minimize jet lag upon arrival</li>
-                            <li>Consider paying for premium economy on the overseas flights</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Day 1 -->
-            <div class="day">
-                <div class="day-title">Thursday, Sep 19 Day 1 - DUBLIN ARRIVAL</div>
-                <div class="day-content">
-                    <div class="time-slot">
-                        <div class="time-slot-title">Morning</div>
-                        <ul>
-                            <li>Arrive at Dublin Airport</li>
-                            <li>Clear customs and immigration</li>
-                            <li><strong>11:30 AM:</strong> Hotel Check-in or Luggage Drop at The Riu Plaza The Gresham Dublin</li>
-                        </ul>
-                    </div>
-                    <div class="time-slot">
-                        <div class="time-slot-title">Afternoon</div>
-                        <ul>
-                            <li><strong>1:00 PM:</strong> Lunch at The Pepper Pot</li>
-                            <li><strong>2:30 PM:</strong> Original Dublin Walking Tour (Viator - INCLUDED)</li>
-                            <li><strong>5:00 PM:</strong> Rest at Hotel</li>
-                        </ul>
-                    </div>
-                    <div class="time-slot">
-                        <div class="time-slot-title">Evening</div>
-                        <ul>
-                            <li><strong>7:00 PM:</strong> Dinner at Darkey Kelly's - Traditional Irish pub food and live music in a relaxed, historic setting</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Day 2 -->
-            <div class="day">
-                <div class="day-title">Friday, Sep 20 Day 2 - BOYNE VALLEY SMALL GROUP TOUR</div>
-                <div class="day-content">
-                    <div class="time-slot">
-                        <div class="time-slot-title">Morning</div>
-                        <ul>
-                            <li><strong>7:30 AM:</strong> Breakfast at hotel</li>
-                            <li><strong>8:30 AM:</strong> Meet in the hotel lobby for pickup</li>
-                            <li><strong>9:00 AM:</strong> Start of "Day Trip from Dublin: New Grange, Knowth, Trim Castle and the Hill of Tara" small group tour (Viator - INCLUDED)</li>
-                            <li>Visit to Newgrange or Knowth prehistoric monument (UNESCO World Heritage Site)</li>
-                        </ul>
-                    </div>
-                    <div class="time-slot">
-                        <div class="time-slot-title">Afternoon</div>
-                        <ul>
-                            <li>Continue Boyne Valley tour</li>
-                            <li>Visit to Trim Castle - Ireland's largest Anglo-Norman castle, used in the movie "Braveheart"</li>
-                            <li>Visit to the Hill of Tara - Ancient ceremonial and political center with archaeological remains</li>
-                        </ul>
-                    </div>
-                    <div class="time-slot">
-                        <div class="time-slot-title">Evening</div>
-                        <ul>
-                            <li><strong>5:30 PM:</strong> Return to Dublin</li>
-                            <li><strong>7:30 PM:</strong> Dinner at The Church Café Bar & Restaurant - Unique restaurant in a restored 18th-century church with unpretentious Irish fare</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="hidden-gem">
-                        <div class="hidden-gem-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                            </svg>
-                            Kim's Hidden Gem
-                        </div>
-                        <p>After dinner, visit The Long Hall, one of Dublin's most beautiful Victorian-era pubs dating back to 1766. With original ornate decor, red leather seating, dark wood, and brass fittings, this is where locals go for a quality pint in an authentic Irish atmosphere.</p>
-                        <p>Address: 51 South Great George's Street, Dublin 2</p>
-                        <a href="https://www.facebook.com/TheLongHallDublin/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <h2>Key Features</h2>
+    <ul>
+      <li>Self-drive exploration in Ireland</li>
+      <li>Irish National Stud & Gardens visit</li>
+      <li>Howth Cliff Walk & Boat Tour</li>
+      <li>Thames River Cruise in London</li>
+      <li>London Black Cab private tour</li>
+      <li>VIP Tower of London experience</li>
+    </ul>
+    
+    <div class="price-card">
+      <h3>Selected Viator Tours & Experiences</h3>
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+          <span><a href="https://www.viator.com/en-IE/tours/Dublin/Howth-Coastal-Boat-Tour/d503-37082P6" target="_blank" style="color: #2c3e50; text-decoration: underline;"><strong>Howth Cliff Cruises</strong></a></span>
+          <span>$33.20 per person</span>
+        </li>
+        <li style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+          <span><a href="https://www.viator.com/tours/London/London-Eye-River-Cruise/d737-2988P12" target="_blank" style="color: #2c3e50; text-decoration: underline;"><strong>Thames River Cruise</strong></a></span>
+          <span>$19-25 per person</span>
+        </li>
+        <li style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+          <span><a href="https://www.viator.com/tours/London/Private-Tour-Black-Taxi-Tour-of-London/d737-2496LONSIGHT" target="_blank" style="color: #2c3e50; text-decoration: underline;"><strong>Private Black Taxi Tour of London</strong></a></span>
+          <span>$200-225 total</span>
+        </li>
+        <li style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+          <span><a href="https://www.viator.com/en-GB/tours/London/VIP-Beefeater-Meeting-Tower-of-London-and-Crown-Jewels-3-Hour-Highlights-Tour/d737-8606P20" target="_blank" style="color: #2c3e50; text-decoration: underline;"><strong>VIP Beefeater Tower of London Tour</strong></a></span>
+          <span>$95-110 per person</span>
+        </li>
+      </ul>
+      <p style="font-size: 14px; color: #666; margin-top: 12px;">All tours include skip-the-line access where applicable. Prices subject to change. Click on tour names to view details.</p>
     </div>
-<!-- End section 2 -->
 
-            <!-- Day 3 -->
-            <div class="day">
-                <div class="day-title">Saturday, Sep 21 Day 3 - PRIVATE HORSE LOVERS TOUR & WICKLOW MOUNTAINS</div>
-                <div class="day-content">
-                    <div class="time-slot">
-                        <div class="time-slot-title">Morning</div>
-                        <ul>
-                            <li><strong>7:30 AM:</strong> Breakfast at Queen of Tarts</li>
-                            <li><strong>8:30 AM:</strong> Meet in the hotel lobby for pickup</li>
-                            <li><strong>9:00 AM:</strong> Start of "A Day At The Races & the Horse Lovers Tour" private tour (Viator - INCLUDED)</li>
-                            <li>Visit to Irish National Stud & Gardens - Ireland's premier horse breeding facility, home to magnificent horses and Japanese Gardens</li>
-                            <li>Guided tour of the stud farm, up-close experience with thoroughbreds, and exploration of the Japanese Gardens</li>
-                        </ul>
-                    </div>
-                    <div class="time-slot">
-                        <div class="time-slot-title">Afternoon</div>
-                        <ul>
-                            <li><strong>1:00 PM:</strong> Lunch at a local recommended spot</li>
-                            <li><strong>2:00 PM:</strong> Private driver continues to the Wicklow Mountains</li>
-                            <li><strong>3:00 PM:</strong> Glendalough Monastic Site - 6th-century monastic settlement with ancient round towers, stone churches, and Celtic crosses</li>
-                            <li><strong>4:30 PM:</strong> Scenic Drive Through Wicklow Mountains - Drive through the Sally Gap, one of Ireland's most scenic mountain passes</li>
-                        </ul>
-                    </div>
-                    <div class="time-slot">
-                        <div class="time-slot-title">Evening</div>
-                        <ul>
-                            <li><strong>6:30 PM:</strong> Return to Dublin</li>
-                            <li><strong>8:00 PM:</strong> Dinner at The Brazen Head - Ireland's oldest pub (established 1198) with traditional Irish food and live music</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="hidden-gem">
-                        <div class="hidden-gem-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                            </svg>
-                            Kim's Hidden Gem
-                        </div>
-                        <p>While in the Wicklow Mountains, make sure to stop at one of the scenic viewpoints along the Sally Gap. The views over the heather-covered hills and peat bogs are spectacular, especially in the late afternoon light. Many locals consider this drive one of Ireland's best-kept secrets, with landscapes that inspired many Irish poets and writers.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Day 4 -->
-            <div class="day">
-                <div class="day-title">Sunday, Sep 22 Day 4 - DUBLIN TO LONDON</div>
-                <div class="day-content">
-                    <div class="time-slot">
-                        <div class="time-slot-title">Morning</div>
-                        <ul>
-                            <li><strong>7:00 AM:</strong> Breakfast at Bewley's Grafton Street</li>
-                            <li><strong>8:00 AM:</strong> Check-out</li>
-                            <li><strong>12:00 PM:</strong> Flight to London - Aer Lingus flight #164</li>
-                        </ul>
-                    </div>
-                    <div class="time-slot">
-                        <div class="time-slot-title">Afternoon</div>
-                        <ul>
-                            <li><strong>1:30 PM:</strong> Arrive in London (take the Heathrow Express or taxi to your hotel)</li>
-                            <li><strong>3:00 PM:</strong> Check-in at The Tower Hotel London</li>
-                            <li><strong>4:00 PM:</strong> Thames River Cruise - Scenic cruise passing Tower Bridge, Houses of Parliament, Big Ben, and London Eye</li>
-                            <li><strong>5:30 PM:</strong> South Bank Walking Exploration - Leisurely stroll with street performers, food stalls, and views of London's skyline</li>
-                        </ul>
-                    </div>
-                    <div class="time-slot">
-                        <div class="time-slot-title">Evening</div>
-                        <ul>
-                            <li><strong>8:00 PM:</strong> Dinner at The Anchor & Hope - Unpretentious British gastropub with hearty, traditional food and a local atmosphere</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Day 5 -->
-            <div class="day">
-                <div class="day-title">Monday, Sep 23 Day 5 - LONDON BLACK CAB TOUR & TOWER OF LONDON</div>
-                <div class="day-content">
-                    <div class="time-slot">
-                        <div class="time-slot-title">Morning</div>
-                        <ul>
-                            <li><strong>7:00 AM:</strong> Breakfast at Kaffeine - Australian/New Zealand-inspired café known for excellent coffee and breakfast items</li>
-                            <li><strong>8:30 AM:</strong> "Private Tour: Black Taxi Tour of London" (Viator - INCLUDED)
-                                <ul>
-                                    <li>Private 2-hour tour in an iconic London black cab</li>
-                                    <li>Customized itinerary with a knowledgeable driver-guide</li>
-                                    <li>Photo stops at major London landmarks including Buckingham Palace, Westminster Abbey, and hidden gems</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="time-slot">
-                        <div class="time-slot-title">Afternoon</div>
-                        <ul>
-                            <li><strong>11:30 AM:</strong> Beefeaters VIP Tower of London Tour Plus Thames River Cruise (Viator - INCLUDED)
-                                <ul>
-                                    <li>Skip-the-line access to the Tower of London</li>
-                                    <li>Guided tour by a Yeoman Warder (Beefeater)</li>
-                                    <li>See the Crown Jewels and learn about the Tower's fascinating history</li>
-                                </ul>
-                            </li>
-                            <li><strong>3:00 PM:</strong> Return to hotel, collect luggage, and check-out</li>
-                            <li><strong>4:30 PM:</strong> Train from London Euston Station to Coventry Station (journey time: 1.5-2 hours)</li>
-                        </ul>
-                    </div>
-                    <div class="time-slot">
-                        <div class="time-slot-title">Evening</div>
-                        <ul>
-                            <li><strong>7:00 PM:</strong> Arrive in Coventry</li>
-                            <li><strong>7:30 PM:</strong> Met by friends for transport to their home in Stoneleigh area</li>
-                            <li><strong>9:00 PM:</strong> Dinner with friends</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="hidden-gem">
-                        <div class="hidden-gem-title">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                            </svg>
-                            Kim's Hidden Gem
-                        </div>
-                        <p>While in Stoneleigh, visit The British Horse Society Headquarters at nearby Stoneleigh Park! As a farrier and avid rider with a love of horses, you'll appreciate that this is the home of the UK's largest equine charity. The grounds are beautiful, and they sometimes offer tours when arranged in advance.</p>
-                        <p>Address: The British Horse Society, Abbey Park, Stareton, Kenilworth, Warwickshire CV8 2XZ</p>
-                        <a href="https://www.bhs.org.uk/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                </div>
-            </div>
-<!-- End section 3 -->
+    <div class="hidden-gem">
+      For your morning coffee in Dublin, be sure to visit 3FE (Third Floor Espresso) at least once during your stay. This local favorite was started by a former investment banker who followed his passion for coffee. They roast their own beans and serve some of the best filter coffee and espresso in Ireland with a simple but delicious breakfast menu.
+      <p><strong>Address:</strong> 32-34 Grand Canal Street Lower, Dublin 2<br>
+      <strong>Website:</strong> <a href="https://3fe.com/" target="_blank">https://3fe.com/</a></p>
+    </div>
 
-            <!-- Days 6-9 (Stoneleigh Work Days) -->
-            <div class="day">
-                <div class="day-title">Tuesday, Sep 24 - Friday, Sep 27 STONELEIGH WORK DAYS</div>
-                <div class="day-content">
-                    <div class="time-slot">
-                        <div class="time-slot-title">Daytime</div>
-                        <ul>
-                            <li>Farrier-related work activities as scheduled</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Evening Dining & Activities</h3>
-                        </div>
-                        <div class="card-body">
-                            <h4>Tuesday (Day 6)</h4>
-                            <p>Dinner at The Cottage Inn - Cozy country pub with traditional British comfort food</p>
-                            <p>Address: 22 Stoneleigh Rd, Kenilworth CV8 2GD</p>
-                            
-                            <h4>Wednesday (Day 7)</h4>
-                            <p>Visit to Warwick Castle (if time permits) - One of England's finest medieval castles, 15 minutes from Stoneleigh</p>
-                            <p>Dinner at The Queen & Castle - Traditional pub with views of Kenilworth Castle</p>
-                            <p>Address: Castle Green, Kenilworth CV8 1ND</p>
-                            
-                            <h4>Thursday (Day 8)</h4>
-                            <p>Visit to Kenilworth Castle (if time permits) - Impressive ruins of a medieval fortress, 10 minutes from Stoneleigh</p>
-                            <p>Dinner at The Red Lion - Family-run pub with homemade food and local ales</p>
-                            <p>Address: 45 Warwick Rd, Warwick CV34 5JZ</p>
-                            
-                            <h4>Friday (Day 9)</h4>
-                            <p>Visit to Stratford-upon-Avon (if time permits) - Shakespeare's birthplace, about 30 minutes drive from Stoneleigh</p>
-                            <p>Dinner at Farmers Fayre Farm Shop & Cafe - Farm-to-table cafe at Stoneleigh Park</p>
-                            <p>Address: Stoneleigh Park, Kenilworth CV8 2LG</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Day 10 -->
-            <div class="day">
-                <div class="day-title">Saturday, Sep 28 Day 10 - DEPARTURE DAY</div>
-                <div class="day-content">
-                    <div class="time-slot">
-                        <div class="time-slot-title">Morning</div>
-                        <ul>
-                            <li><strong>7:00 AM:</strong> Breakfast with friends</li>
-                            <li><strong>7:30 AM:</strong> Friends drive you to Birmingham Airport</li>
-                            <li><strong>9:35 AM:</strong> Depart Birmingham Airport - Lufthansa flights #953/418, United Airlines flight #4295</li>
-                        </ul>
-                    </div>
-                    <div class="time-slot">
-                        <div class="time-slot-title">Evening</div>
-                        <ul>
-                            <li><strong>7:10 PM:</strong> Arrive Mobile (local time)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <h2>Scenic Drive Experiences</h2>
+    <div class="price-card">
+      <h3>Irish Countryside Drive (Sep 20)</h3>
+      <p>Enjoy a picturesque drive through the lush Irish countryside on your way to the Irish National Stud. The route takes you west from Dublin along the R148/N4/M4 toward Kildare (75 km, approx. 1 hour). After exploring the Stud Farm, continue on a beautiful countryside loop:</p>
+      <ul>
+        <li><strong>Kilkea Castle:</strong> One of Ireland's oldest inhabited castles dating from 1180, offering perfect photo opportunities of medieval architecture</li>
+        <li><strong>Burtown House & Gardens:</strong> Georgian villa surrounded by spectacular gardens and woodlands</li>
+        <li><strong>Optional:</strong> Russborough House - magnificent Palladian mansion with extensive art collection</li>
+      </ul>
+      <p>Total driving loop: 130 km with stunning rural landscapes throughout</p>
+      
+      <h3>Howth Peninsula Coastal Drive (Sep 21)</h3>
+      <p>A scenic 30-minute drive (15 km) along Dublin Bay via the R105/Clontarf Road, offering beautiful coastal views. The route hugs the coastline, providing continuous sea vistas as you approach the charming fishing village of Howth. After your cliff walk and boat tour, explore further:</p>
+      <ul>
+        <li><strong>Howth Village:</strong> Weekend craft and food market, historic harbor</li>
+        <li><strong>Optional:</strong> Continue to either Bull Island Nature Reserve (UNESCO Biosphere) or Malahide Castle (12th-century castle with gardens)</li>
+      </ul>
+      <p>Round trip: 30-40 km of breathtaking coastal scenery</p>
     </div>
     
-    <!-- Transportation Section -->
-    <div class="section" id="transport">
-        <div class="section-header">
-            <h2>Transport</h2>
-            <span class="chevron">▼</span>
-        </div>
-        <div class="section-content">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">International Flights</h3>
-                </div>
-                <div class="card-body">
-                    <h4>USA to Dublin (Thu, Sep 18, 2025)</h4>
-                    <ul>
-                        <li><strong>Flight:</strong> United Airlines flights #4951/710</li>
-                        <li><strong>Depart:</strong> Mobile (MOB) at 12:55 PM</li>
-                        <li><strong>Connect:</strong> Washington DC - Dulles (IAD)</li>
-                        <li><strong>Arrive:</strong> Dublin (DUB) at 7:10 AM, Sep 19</li>
-                    </ul>
-                    
-                    <h4>Birmingham to USA (Sat, Sep 28, 2025)</h4>
-                    <ul>
-                        <li><strong>Flight:</strong> Lufthansa flights #953/418, United Airlines flight #4295</li>
-                        <li><strong>Depart:</strong> Birmingham (BHX) at 9:35 AM</li>
-                        <li><strong>Connections:</strong> Frankfurt (FRA), Washington DC - Dulles (IAD)</li>
-                        <li><strong>Arrive:</strong> Mobile (MOB) at 7:10 PM</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Intra-European Travel</h3>
-                </div>
-                <div class="card-body">
-                    <h4>Dublin to London Flight (Sun, Sep 22, 2025)</h4>
-                    <ul>
-                        <li><strong>Flight:</strong> Aer Lingus flight #164</li>
-                        <li><strong>Depart:</strong> Dublin (DUB) at 12:00 PM</li>
-                        <li><strong>Arrive:</strong> London Heathrow (LHR) at 1:25 PM</li>
-                    </ul>
-                    
-                    <h4>London to Coventry Train (Mon, Sep 23, 2025)</h4>
-                    <ul>
-                        <li><strong>Depart:</strong> London Euston Station at 4:30 PM</li>
-                        <li><strong>Arrive:</strong> Coventry Station</li>
-                        <li><strong>Journey time:</strong> 1.5-2 hours</li>
-                        <li><strong>Note:</strong> First Class tickets provide more space and complimentary refreshments</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="alert">
-                <strong>Airport Tips:</strong> Arrive at the airport 2 hours early for international flights. Check your passport validity (must be valid for at least 6 months beyond your return date).
-            </div>
-        </div>
-    </div>
-<!-- End section 4 -->
-
-    <!-- Accommodations Section -->
-    <div class="section" id="accommodations">
-        <div class="section-header">
-            <h2>Accommodations</h2>
-            <span class="chevron">▼</span>
-        </div>
-        <div class="section-content">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Riu Plaza The Gresham Dublin</h3>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li><strong>Check-in:</strong> Sep 19, 2025</li>
-                        <li><strong>Check-out:</strong> Sep 22, 2025</li>
-                        <li><strong>Room Type:</strong> Deluxe Superior King - Bed & Breakfast</li>
-                        <li><strong>Rating:</strong> 4-star hotel</li>
-                        <li><strong>Location:</strong> 23 O'Connell Street Upper, North City, Dublin, D01 C3W7, Ireland</li>
-                        <li><strong>Amenities:</strong> Free Wi-Fi, restaurant, bar, 24-hour front desk</li>
-                        <li><a href="https://www.riuplaza.com/en/hotel/ireland/dublin/hotel-riu-plaza-the-gresham-dublin/" class="visit-website-btn">Visit Website</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">The Tower Hotel London</h3>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li><strong>Check-in:</strong> Sep 22, 2025</li>
-                        <li><strong>Check-out:</strong> Sep 23, 2025</li>
-                        <li><strong>Room Type:</strong> Standard Double Room, with Bridge View - Free WiFi</li>
-                        <li><strong>Rating:</strong> 4-star hotel</li>
-                        <li><strong>Location:</strong> St Katharine's Way, London E1W 1LD, United Kingdom</li>
-                        <li><strong>Amenities:</strong> Free Wi-Fi, restaurant, bar, fitness center, views of Tower Bridge</li>
-                        <li><a href="https://www.guoman.com/the-tower" class="visit-website-btn">Visit Website</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Stoneleigh Area</h3>
-                </div>
-                <div class="card-body">
-                    <p>No hotel needed in Coventry/Stoneleigh, staying with friends.</p>
-                </div>
-            </div>
-        </div>
+    <h2>Detailed Itinerary</h2>
+    <div class="price-card">
+      <h3>Day 1-2: Travel & Dublin Arrival (Sep 18-19)</h3>
+      <ul>
+        <li><strong>Sep 18 Afternoon:</strong> United flight from Mobile through Washington DC</li>
+        <li><strong>Sep 19 Morning:</strong> Arrive Dublin 7:10 AM, pick up Enterprise rental car</li>
+        <li><strong>Sep 19 Afternoon:</strong> Lunch at The Pepper Pot, self-guided Dublin walking tour</li>
+        <li><strong>Sep 19 Evening:</strong> Dinner at Darkey Kelly's with traditional Irish music</li>
+      </ul>
+      
+      <h3>Day 3: Irish National Stud & Countryside (Sep 20)</h3>
+      <ul>
+        <li><strong>Morning:</strong> Breakfast at hotel, scenic 1-hour drive to Irish National Stud through the Irish countryside</li>
+        <li><strong>Irish National Stud (3 hours):</strong> Guided tour, racehorse experience, meet retired champion horses</li>
+        <li><strong>Afternoon:</strong> Lunch at Japanese Gardens Restaurant, then embark on a countryside castle tour loop (130 km):
+          <ul>
+            <li>Kilkea Castle - 12th century medieval castle with impressive stone architecture</li>
+            <li>Burtown House & Gardens - Historic Georgian estate with spectacular gardens</li>
+            <li>Optional: Russborough House - Palladian mansion with art treasures</li>
+          </ul>
+        </li>
+        <li><strong>Evening:</strong> Return to Dublin via scenic route, dinner at The Church Café Bar & Restaurant</li>
+      </ul>
+      
+      <div class="hidden-gem">
+        After dinner on Day 3, visit The Long Hall, one of Dublin's most beautiful Victorian-era pubs dating back to 1766. With original ornate decor, red leather seating, dark wood, and brass fittings, this is where locals go for a quality pint in an authentic Irish atmosphere.
+        <p><strong>Address:</strong> 51 South Great George's Street, Dublin 2<br>
+        <strong>Website:</strong> <a href="https://www.facebook.com/TheLongHallDublin/" target="_blank">https://www.facebook.com/TheLongHallDublin/</a></p>
+      </div>
+      
+      <h3>Day 4: Howth Coastal Experience (Sep 21)</h3>
+      <ul>
+        <li><strong>Morning:</strong> Breakfast at hotel, drive along Dublin Bay's stunning coastline to Howth (30 min)</li>
+        <li><strong>Howth Cliff Walk:</strong> Breathtaking 6km coastal hike along dramatic sea cliffs with panoramic views</li>
+        <li><strong>Afternoon:</strong> Fresh-caught seafood lunch at a harbor restaurant, followed by a thrilling 45-minute boat cruise along the rugged coastline with opportunities to spot seabirds and seals</li>
+        <li><strong>Late Afternoon:</strong> Explore Howth village or extend your coastal drive to either Bull Island Nature Reserve or Malahide Castle</li>
+        <li><strong>Evening:</strong> Return to Dublin via coastal route, dinner at The Brazen Head (Ireland's oldest pub, established 1198)</li>
+      </ul>
+      
+      <h3>Day 5: Dublin to London (Sep 22)</h3>
+      <ul>
+        <li><strong>Morning:</strong> Breakfast at Bewley's on Grafton Street, hotel checkout, return rental car at airport</li>
+        <li><strong>Afternoon:</strong> Flight to London (12:00 PM), check-in at The Tower Hotel</li>
+        <li><strong>Evening:</strong> Unforgettable Thames River Cruise showcasing iconic London landmarks from a unique vantage point - glide past Tower Bridge, Big Ben, Houses of Parliament and more while enjoying historical commentary, followed by South Bank walking exploration</li>
+        <li><strong>Dinner:</strong> The Anchor & Hope - unpretentious British gastropub</li>
+      </ul>
+      
+      <h3>Day 6: London Tours to Stoneleigh (Sep 23)</h3>
+      <ul>
+        <li><strong>Morning:</strong> Breakfast at Kaffeine, exclusive private Black Cab Tour with your own personal London expert (2 hours)</li>
+        <li><strong>Afternoon:</strong> Behind-the-scenes VIP Tower of London Beefeaters Tour with privileged Crown Jewels viewing, hotel checkout</li>
+        <li><strong>Late Afternoon:</strong> Train from London Euston Station to Coventry (1.5-2 hours)</li>
+        <li><strong>Evening:</strong> Arrival in Stoneleigh area</li>
+      </ul>
+      
+      <h3>Days 7-10: Stoneleigh (Sep 24-27)</h3>
+      <p>Days in Stoneleigh with evening opportunities to explore nearby attractions:</p>
+      <ul>
+        <li><strong>Warwick Castle:</strong> One of England's finest medieval fortresses (15 minutes from Stoneleigh)</li>
+        <li><strong>Kenilworth Castle:</strong> Impressive ruins of an Elizabethan palace (10 minutes from Stoneleigh)</li>
+        <li><strong>Stratford-upon-Avon:</strong> Shakespeare's birthplace with historic Tudor buildings (30 minutes away)</li>
+        <li><strong>Recommended Dining:</strong> The Cottage Inn, The Queen & Castle, The Red Lion, Farmers Fayre Farm Shop & Cafe</li>
+      </ul>
+      
+      <div class="hidden-gem">
+        While in Stoneleigh, visit The British Horse Society Headquarters at nearby Stoneleigh Park! As a farrier and avid rider with a love of horses, you'll appreciate that this is the home of the UK's largest equine charity. The grounds are beautiful, and they sometimes offer tours when arranged in advance.
+        <p><strong>Address:</strong> The British Horse Society, Abbey Park, Stareton, Kenilworth, Warwickshire CV8 2XZ<br>
+        <strong>Website:</strong> <a href="https://www.bhs.org.uk/" target="_blank">https://www.bhs.org.uk/</a></p>
+      </div>
+      
+      <h3>Day 11: Return Home (Sep 28)</h3>
+      <ul>
+        <li><strong>Morning:</strong> Breakfast, transfer to Birmingham Airport</li>
+        <li><strong>9:35 AM:</strong> Depart Birmingham</li>
+        <li><strong>Afternoon/Evening:</strong> Return flights via Frankfurt and Washington DC</li>
+        <li><strong>7:10 PM:</strong> Arrive Mobile</li>
+      </ul>
     </div>
     
-    <!-- Dining Section -->
-    <div class="section" id="dining">
-        <div class="section-header">
-            <h2>Dining Recommendations</h2>
-            <span class="chevron">▼</span>
-        </div>
-        <div class="section-content">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Dublin</h3>
-                </div>
-                <div class="card-body">
-                    <div class="restaurant">
-                        <h4>Darkey Kelly's</h4>
-                        <p>Traditional Irish pub food and live music in a relaxed, historic setting.</p>
-                        <p>Address: 19 Fishamble St, Temple Bar, Dublin 8</p>
-                        <a href="https://darkeykellys.ie/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <h4>The Brazen Head</h4>
-                        <p>Ireland's oldest pub (established 1198) with traditional Irish food and live music.</p>
-                        <p>Address: 20 Lower Bridge Street, Dublin 8</p>
-                        <a href="https://www.brazenhead.com/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <h4>The Church Café Bar & Restaurant</h4>
-                        <p>Unique restaurant in a restored 18th-century church with unpretentious Irish fare.</p>
-                        <p>Address: Junction of Mary St & Jervis St, Dublin 1</p>
-                        <a href="https://www.thechurch.ie/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <h4>Queen of Tarts</h4>
-                        <p>Charming cafe known for delicious homemade pastries, scones, and Irish breakfast.</p>
-                        <p>Address: Cow's Lane, Dame Street, Temple Bar, Dublin 2</p>
-                        <a href="https://www.queenoftarts.ie/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <h4>Bewley's Grafton Street</h4>
-                        <p>Iconic Dublin cafe since 1927 known for cherry buns and full Irish breakfast.</p>
-                        <p>Address: 78-79 Grafton Street, Dublin 2</p>
-                        <a href="https://bewleys.com/ie/grafton-street-cafe/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">London</h3>
-                </div>
-                <div class="card-body">
-                    <div class="restaurant">
-                        <h4>The Anchor & Hope</h4>
-                        <p>Unpretentious British gastropub with hearty, traditional food and a local atmosphere.</p>
-                        <p>Address: 36 The Cut, Waterloo, London SE1 8LP</p>
-                        <a href="https://www.anchorandhopepub.co.uk/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <h4>Kaffeine</h4>
-                        <p>Australian/New Zealand-inspired café known for excellent coffee and breakfast items.</p>
-                        <p>Address: 66 Great Titchfield Street, Fitzrovia, London W1W 7QJ</p>
-                        <a href="https://www.kaffeine.co.uk/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <h4>Borough Market Vendors</h4>
-                        <p>Historic food market with a variety of international cuisine options and local specialties.</p>
-                        <p>Address: 8 Southwark Street, London SE1 1TL</p>
-                        <a href="https://boroughmarket.org.uk/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Stoneleigh/Coventry</h3>
-                </div>
-                <div class="card-body">
-                    <div class="restaurant">
-                        <h4>The Cottage Inn</h4>
-                        <p>Cozy country pub with traditional British comfort food.</p>
-                        <p>Address: 22 Stoneleigh Rd, Kenilworth CV8 2GD</p>
-                        <a href="http://www.cottageinnatkenilworth.co.uk/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <h4>The Queen & Castle</h4>
-                        <p>Traditional pub with views of Kenilworth Castle.</p>
-                        <p>Address: Castle Green, Kenilworth CV8 1ND</p>
-                        <a href="https://www.queenandcastle.co.uk/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <h4>The Red Lion</h4>
-                        <p>Family-run pub with homemade food and local ales.</p>
-                        <p>Address: 45 Warwick Rd, Warwick CV34 5JZ</p>
-                        <a href="https://www.redlionwarwick.co.uk/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <h4>Farmers Fayre Farm Shop & Cafe</h4>
-                        <p>Farm-to-table cafe at Stoneleigh Park.</p>
-                        <p>Address: Stoneleigh Park, Kenilworth CV8 2LG</p>
-                        <a href="https://www.farmersfayre.co.uk/" class="visit-website-btn">Visit Website</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- End section 5 -->
-    <!-- Tours Section -->
-    <div class="section" id="tours">
-        <div class="section-header">
-            <h2>Tour Details</h2>
-            <span class="chevron">▼</span>
-        </div>
-        <div class="section-content">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Dublin</h3>
-                </div>
-                <div class="card-body">
-                    <div class="tour">
-                        <h4>Original Dublin Walking Tour</h4>
-                        <p><strong>Date:</strong> September 19, 2025</p>
-                        <p><strong>Description:</strong> Explore Dublin's highlights with a knowledgeable local guide. Learn about Dublin's fascinating history, culture, and architecture. Visit key landmarks including Trinity College, Temple Bar, and Dublin Castle.</p>
-                        <p><strong>Duration:</strong> 2 hours</p>
-                        <p><strong>Meeting Point:</strong> In front of Trinity College main entrance</p>
-                        <p><strong>Price:</strong> $27 per person</p>
-                        <p><strong class="included">INCLUDED IN PACKAGE</strong></p>
-                        <a href="https://www.viator.com/tours/Dublin/Original-Dublin-Walking-Tour/d503-344886P3" class="visit-website-btn">View on Viator</a>
-                    </div>
-                    
-                    <div class="tour">
-                        <h4>Day Trip from Dublin: New Grange, Knowth, Trim Castle and the Hill of Tara</h4>
-                        <p><strong>Date:</strong> September 20, 2025</p>
-                        <p><strong>Description:</strong> Small group tour (max 13 people) to the historic Boyne Valley. Visit Newgrange prehistoric monument (UNESCO site), Trim Castle and the sacred Hill of Tara. Includes knowledgeable guide and comfortable transportation.</p>
-                        <p><strong>Duration:</strong> 8-9 hours</p>
-                        <p><strong>Meeting Point:</strong> Hotel pickup included</p>
-                        <p><strong>Price:</strong> $85 per person</p>
-                        <p><strong class="included">INCLUDED IN PACKAGE</strong></p>
-                        <a href="https://www.viator.com/tours/Dublin/Small-Group-Day-Trip-to-the-Boyne-Valley-from-Dublin-Newgrange-Trim-Castle-and-Hill-of-Tara/d503-36548P1" class="visit-website-btn">View on Viator</a>
-                    </div>
-                    
-                    <div class="tour">
-                        <h4>A Day At The Races & the Horse Lovers Tour</h4>
-                        <p><strong>Date:</strong> September 21, 2025</p>
-                        <p><strong>Description:</strong> Private horse-focused tour with visit to the Irish National Stud. See racing horses, learn about thoroughbred breeding, and explore the Japanese Gardens. Includes private driver for the day with extension to Wicklow Mountains.</p>
-                        <p><strong>Duration:</strong> 8-9 hours</p>
-                        <p><strong>Meeting Point:</strong> Hotel pickup included</p>
-                        <p><strong>Price:</strong> $450 for private tour</p>
-                        <p><strong class="included">INCLUDED IN PACKAGE</strong></p>
-                        <a href="https://www.viator.com/tours/Dublin/A-Day-At-The-Races-and-the-Horse-Lovers-Tour/d503-244136P2" class="visit-website-btn">View on Viator</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">London</h3>
-                </div>
-                <div class="card-body">
-                    <div class="tour">
-                        <h4>Private Tour: Black Taxi Tour of London</h4>
-                        <p><strong>Date:</strong> September 23, 2025</p>
-                        <p><strong>Description:</strong> Explore London in a traditional black taxi with a knowledgeable driver-guide. Customize your 2-hour itinerary or follow driver recommendations to see London's key attractions with insider knowledge and commentary.</p>
-                        <p><strong>Duration:</strong> 2 hours</p>
-                        <p><strong>Meeting Point:</strong> Hotel pickup included</p>
-                        <p><strong>Price:</strong> $250 per taxi (not per person)</p>
-                        <p><strong class="included">INCLUDED IN PACKAGE</strong></p>
-                        <a href="https://www.viator.com/tours/London/Private-Tour-Black-Taxi-Tour-of-London/d737-2496LONSIGHT" class="visit-website-btn">View on Viator</a>
-                    </div>
-                    
-                    <div class="tour">
-                        <h4>Beefeaters VIP Tower of London Tour Plus Thames River Cruise</h4>
-                        <p><strong>Date:</strong> September 23, 2025</p>
-                        <p><strong>Description:</strong> Skip-the-line access to the Tower of London with guided tour by a Yeoman Warder (Beefeater). See the Crown Jewels and learn about the Tower's fascinating history. Includes Thames River sightseeing cruise.</p>
-                        <p><strong>Duration:</strong> 3 hours</p>
-                        <p><strong>Price:</strong> $115 per person</p>
-                        <p><strong class="included">INCLUDED IN PACKAGE</strong></p>
-                        <a href="https://www.viator.com/tours/London/Tower-of-London-Storytelling-Tour-with-Thames-River-Cruise/d737-24338P83" class="visit-website-btn">View on Viator</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <p style="margin-top:30px; font-size:14px; color:#666; text-align:center;">
+    
+    <div class="day">
+      <h3>Sep 18-19: Departure & Dublin Arrival</h3>
+      <p>Flight to Dublin, pick up rental car, check in at The Riu Plaza The Gresham</p>
     </div>
     
-    <!-- Walking Tour Section -->
-    <div class="section" id="walking-tour">
-        <div class="section-header">
-            <h2>Dublin Self-Guided Walking Tour</h2>
-            <span class="chevron">▼</span>
-        </div>
-        <div class="section-content">
-            <div class="tour-overview">
-                <p><strong>Date:</strong> Friday, September 19, 2025</p>
-                <p><strong>Duration:</strong> 4-5 hours (with optional extensions)</p>
-                <p><strong>Distance:</strong> Approximately 4 km (2.5 miles)</p>
-                <p><strong>Difficulty:</strong> Easy - mostly flat terrain with occasional steps</p>
-                <p><strong>Start/End:</strong> The Riu Plaza The Gresham Dublin, 23 O'Connell Street Upper</p>
-            </div>
-            
-            <p>Explore the heart of Dublin on this self-guided walking tour that takes you through the city's historic center. You'll discover iconic landmarks, charming streets, and hidden gems while experiencing the authentic atmosphere of Ireland's capital. This tour is designed at a relaxed pace with plenty of opportunities to stop for coffee, shopping, or to simply soak in the Dublin ambiance.</p>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Tour Highlights</h3>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Experience the grandeur of Dublin's main thoroughfare, O'Connell Street</li>
-                        <li>Cross the iconic Ha'penny Bridge over the River Liffey</li>
-                        <li>Explore the cobbled streets of Temple Bar cultural quarter</li>
-                        <li>Visit Dublin Castle, the historic heart of the city</li>
-                        <li>See the magnificent St. Patrick's Cathedral</li>
-                        <li>Enjoy the green oasis of St. Stephen's Green</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="tour-stops">
-                <h3>Recommended Stops</h3>
-                
-                <div class="tour-stop">
-                    <h4>Stop 1: The Riu Plaza The Gresham Dublin</h4>
-                    <p>Your tour begins at the historic Gresham Hotel, one of Dublin's most iconic places to stay. Opened in 1817, this landmark hotel on O'Connell Street has hosted countless notable guests throughout its rich history.</p>
-                    <p><strong>Start Time:</strong> 9:00 AM</p>
-                </div>
-                
-                <div class="tour-stop">
-                    <h4>Stop 2: O'Connell Street & The Spire</h4>
-                    <p>Walk south down O'Connell Street, Dublin's main thoroughfare. Notice the imposing monument to Daniel O'Connell at the southern end of the street and the striking 120-meter stainless steel spire (officially titled the "Monument of Light") that has become a modern symbol of Dublin.</p>
-                    <p><strong>Duration:</strong> 15-20 minutes</p>
-                </div>
-                
-                <div class="tour-stop">
-                    <h4>Stop 3: General Post Office (GPO)</h4>
-                    <p>Visit the iconic General Post Office, one of Ireland's most famous buildings and the focal point of the 1916 Easter Rising. Consider visiting the GPO Witness History exhibition inside to learn more about this pivotal moment in Ireland's path to independence.</p>
-                    <p><strong>Duration:</strong> 20-40 minutes</p>
-                    <p><strong>Hours:</strong> 9:00 AM - 5:30 PM</p>
-                    <p><strong>Admission:</strong> GPO Witness History: €14 per adult</p>
-                </div>
-                
-                <div class="tour-stop">
-                    <h4>Stop 4: Ha'penny Bridge</h4>
-                    <p>Continue south to the River Liffey and cross the iconic Ha'penny Bridge (officially the Liffey Bridge). This pedestrian bridge, built in 1816, was the first to cross the Liffey and got its nickname from the halfpenny toll once required to cross it.</p>
-                    <p><strong>Duration:</strong> 10-15 minutes</p>
-                </div>
-                
-                <div class="tour-stop">
-                    <h4>Stop 5: Temple Bar District</h4>
-                    <p>Explore the lively Temple Bar district, Dublin's cultural quarter known for its cobbled streets, colorful buildings, and vibrant atmosphere. This is a perfect spot to stop for a mid-morning coffee or snack.</p>
-                    <p><strong>Duration:</strong> 30-45 minutes</p>
-                </div>
-            </div>
-            
-            <div class="hidden-gem">
-                <div class="hidden-gem-title">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                    </svg>
-                    Kim's Hidden Gem
-                </div>
-                <p>While in Temple Bar, don't miss <strong>The Gutter Bookshop</strong> - a charming independent bookstore with a fantastic selection of Irish literature and signed copies from local authors. It's a peaceful retreat from the busier streets and offers a genuine slice of Dublin's literary culture.</p>
-            </div>
-        </div>
-    </div>
-<!-- End section 6 -->
-
-    <!-- Practical Info Section -->
-    <div class="section" id="practical-info">
-        <div class="section-header">
-            <h2>Practical Information</h2>
-            <span class="chevron">▼</span>
-        </div>
-        <div class="section-content">
-            <!-- Weather Section -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Weather Expectations</h3>
-                </div>
-                <div class="card-body">
-                    <h4>Dublin (September)</h4>
-                    <ul>
-                        <li><strong>Temperature Range:</strong> 51-64°F (11-18°C)</li>
-                        <li><strong>Precipitation:</strong> 7-10 rainy days typical</li>
-                        <li><strong>Seasonal Considerations:</strong> Autumn weather can be changeable; layers recommended</li>
-                        <li><strong>Daylight Hours:</strong> Approximately 12-13 hours of daylight</li>
-                    </ul>
-                    
-                    <h4>London & Stoneleigh (September)</h4>
-                    <ul>
-                        <li><strong>Temperature Range:</strong> 54-66°F (12-19°C)</li>
-                        <li><strong>Precipitation:</strong> 8-10 rainy days typical</li>
-                        <li><strong>Seasonal Considerations:</strong> Similar to Dublin; can be pleasant but prepare for rain</li>
-                        <li><strong>Daylight Hours:</strong> Approximately 12-13 hours of daylight</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Packing Section -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Packing Suggestions</h3>
-                </div>
-                <div class="card-body">
-                    <h4>Clothing Items</h4>
-                    <ul>
-                        <li>Waterproof jacket or rain shell</li>
-                        <li>Lightweight sweaters or cardigans for layering</li>
-                        <li>Long-sleeve shirts and t-shirts</li>
-                        <li>Comfortable walking pants/jeans</li>
-                        <li>One dressier outfit for nice dinners</li>
-                        <li>Comfortable walking shoes (waterproof if possible)</li>
-                        <li>Light scarf (versatile for variable temperatures)</li>
-                    </ul>
-                    
-                    <h4>Travel Essentials</h4>
-                    <ul>
-                        <li>UK/Ireland electrical adapter (Type G, 3-pin)</li>
-                        <li>Portable phone charger/power bank</li>
-                        <li>Small daypack for daily excursions</li>
-                        <li>Reusable water bottle</li>
-                        <li>Small umbrella</li>
-                        <li>Medications in original containers</li>
-                        <li>Copy of passport and travel documents</li>
-                    </ul>
-                    
-                    <h4>Equestrian/Professional Items</h4>
-                    <ul>
-                        <li>Any specific equipment needed for farrier work portion (check with work contacts)</li>
-                        <li>Casual professional attire for work meetings</li>
-                        <li>Appropriate footwear for equestrian environments</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Travel Requirements Section -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Travel Requirements</h3>
-                </div>
-                <div class="card-body">
-                    <h4>Visa Requirements</h4>
-                    <ul>
-                        <li>US citizens do not need a visa for tourist visits to Ireland or the UK for stays under 90 days</li>
-                        <li>Valid passport required with at least six months validity beyond your return date</li>
-                        <li>At least two blank passport pages required</li>
-                    </ul>
-                    
-                    <h4>Vaccinations</h4>
-                    <ul>
-                        <li>No special vaccinations required for travel to Ireland and the UK</li>
-                        <li>Routine vaccinations (MMR, Tdap, etc.) should be up-to-date</li>
-                        <li>COVID-19 requirements: Check current regulations closer to departure date</li>
-                    </ul>
-                    
-                    <h4>Travel Insurance</h4>
-                    <p>Highly recommended for all international travel. Should include:</p>
-                    <ul>
-                        <li>Trip cancellation/interruption coverage</li>
-                        <li>Medical coverage</li>
-                        <li>Emergency evacuation</li>
-                        <li>Baggage loss/delay</li>
-                        <li>Rental car coverage</li>
-                    </ul>
-                    
-                    <h4>Currency</h4>
-                    <ul>
-                        <li>Ireland: Euro (€)</li>
-                        <li>United Kingdom: British Pound (£)</li>
-                        <li>Credit cards widely accepted; inform your bank of travel plans</li>
-                        <li>Recommend carrying small amount of local currency for small purchases</li>
-                        <li>ATMs readily available in both countries</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Emergency Info Section -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Emergency Information</h3>
-                </div>
-                <div class="card-body">
-                    <h4>Emergency Contacts</h4>
-                    <ul>
-                        <li>Ireland Emergency Services: 112 or 999</li>
-                        <li>UK Emergency Services: 999 or 112</li>
-                        <li>US Embassy in Ireland: +353 1 668 8777</li>
-                        <li>US Embassy in UK: +44 20 7499 9000</li>
-                    </ul>
-                    
-                    <h4>Nearest Hospitals</h4>
-                    <ul>
-                        <li><strong>Dublin:</strong> St. Vincent's University Hospital, Elm Park, Dublin 4<br>
-                            Tel: +353 1 221 4000</li>
-                        <li><strong>London:</strong> St. Thomas' Hospital, Westminster Bridge Road<br>
-                            Tel: +44 20 7188 7188</li>
-                        <li><strong>Warwickshire:</strong> University Hospital Coventry, Clifford Bridge Road<br>
-                            Tel: +44 24 7696 4000</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Budget Section -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Budget Breakdown</h3>
-                </div>
-                <div class="card-body">
-                    <h4>Transportation & Lodging</h4>
-                    <ul>
-                        <li><strong>Complete Travel Package:</strong> $5,949.35 (for both travelers)
-                            <ul>
-                                <li>Flights: Round-trip from Mobile to Dublin, returning from Birmingham</li>
-                                <li>Intra-European Flight: Dublin to London (September 22)</li>
-                                <li>London to Coventry Train (September 23)</li>
-                                <li>Dublin Hotel: Riu Plaza The Gresham Dublin (3 nights)</li>
-                                <li>London Hotel: The Tower Hotel London (1 night)</li>
-                                <li>Taxi from Heathrow to London hotel</li>
-                                <li>First class train tickets from London to Coventry</li>
-                            </ul>
-                        </li>
-                        <li><strong>SUBTOTAL:</strong> $5,949.35</li>
-                    </ul>
-                    
-                    <h4>Included Viator Tours</h4>
-                    <ul>
-                        <li><strong>Original Dublin Walking Tour:</strong> $27 per person ($54 total)</li>
-                        <li><strong>Day Trip from Dublin: New Grange, Knowth, Trim Castle and the Hill of Tara:</strong> $85 per person ($170 total)</li>
-                        <li><strong>A Day At The Races & the Horse Lovers Tour:</strong> $450 (private tour for 2 people)</li>
-                        <li><strong>Private Tour: Black Taxi Tour of London:</strong> $250 (private tour for 2 people)</li>
-                        <li><strong>Beefeaters VIP Tower of London Tour Plus Thames River Cruise:</strong> $115 per person ($230 total)</li>
-                        <li><strong>SUBTOTAL:</strong> $1,154 total - INCLUDED IN PACKAGE PRICE</li>
-                    </ul>
-                    
-                    <h4>Payment Schedule</h4>
-                    <p><strong>Total Package Cost:</strong> $6,864.19</p>
-                    <p><small>Note: This includes the transportation & lodging base cost of $5,949.35 plus tours, insurance, and additional fees.</small></p>
-                </div>
-            </div>
-        </div>
+    <div class="day">
+      <h3>Sep 20: Irish National Stud & Gardens</h3>
+      <p>Tour the prestigious stud farm, meet champion racehorses, experience the interactive Irish Racehorse exhibit</p>
     </div>
     
-    <!-- Footer -->
-    <div class="footer">
-        <p><strong>Kim Henderson</strong></p>
-        <p>251-289-1505 • kim.henderson@cruiseplanners.com</p>
+    <div class="day">
+      <h3>Sep 21: Howth Cliff Walk & Boat Tour</h3>
+      <p>Breathtaking 6km coastal hike along dramatic sea cliffs, fresh-caught seafood at a local harbor restaurant, followed by a thrilling boat cruise along the rugged coastline with opportunities to spot seabirds and seals</p>
+    </div>
+    
+    <div class="day">
+      <h3>Sep 22: Dublin to London</h3>
+      <p>Flight to London, unforgettable Thames River Cruise showcasing iconic London landmarks from a unique vantage point - glide past Tower Bridge, Big Ben, Houses of Parliament and more while enjoying historical commentary, stay at The Tower Hotel</p>
+    </div>
+    
+    <div class="day">
+      <h3>Sep 23: London Tours to Stoneleigh</h3>
+      <p>Exclusive private Black Cab Tour with your own personal London expert, behind-the-scenes VIP Tower of London experience, train to Coventry</p>
+    </div>
+    
+    <div class="day">
+      <h3>Sep 24-27: Stoneleigh</h3>
+      <p>Farrier-related work activities, evening visits to nearby attractions</p>
+    </div>
+    
+    <div class="day">
+      <h3>Sep 28: Return Home</h3>
+      <p>Flights from Birmingham to Mobile via Frankfurt and Washington</p>
     </div>
 
-    <script>
-        // Toggle section content
-        document.querySelectorAll('.section-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const content = header.nextElementSibling;
-                const chevron = header.querySelector('.chevron');
-                
-                if (content.style.display === 'none') {
-                    content.style.display = 'block';
-                    chevron.innerHTML = '▼';
-                } else {
-                    content.style.display = 'none';
-                    chevron.innerHTML = '▶';
-                }
-            });
-        });
-    </script>
+    <div class="price-card">
+      <h3>Important Travel Authorization Information</h3>
+      
+      <h4 style="margin-top: 15px; margin-bottom: 10px; color: #2c3e50;">UK ETA (Electronic Travel Authorization)</h4>
+      <p><strong>REQUIRED FOR THIS TRIP - Starting January 8, 2025</strong></p>
+      <p>US citizens traveling to the United Kingdom (including Northern Ireland) need to obtain an Electronic Travel Authorization (ETA) if they do not have a UK visa or legal residency in the UK or the Republic of Ireland.</p>
+      
+      <p><strong>What You Need to Know:</strong></p>
+      <ul>
+        <li>Application: Online through the UK ETA app or official GOV.UK website</li>
+        <li>Cost: £10 (approximately $13) currently, increasing to £16 (approximately $20) from April 9, 2025</li>
+        <li>Processing time: Most decisions are immediate, but allow up to three working days</li>
+        <li>Validity: 2 years or until your passport expires, whichever comes first</li>
+        <li>Multiple entries: Valid for multiple visits to the UK</li>
+      </ul>
+      
+      <p><strong>YOU WILL NEED TO APPLY FOR THIS BEFORE YOUR TRIP</strong> as your entry to London will occur after January 8, 2025.</p>
+      
+      <p style="font-size: 14px; color: #666; margin-top: 12px;">For more information: 
+        <a href="https://www.gov.uk/guidance/apply-for-an-electronic-travel-authorisation-eta" target="_blank">UK ETA Official Website</a>
+      </p>
+    </div>
+
+    <p style="margin-top:30px; font-size:14px; color:#666; text-align:center;">
+      Prepared by Somo Travel • March 30, 2025<br>
+      Kim Henderson • 251-289-1505 • kim.henderson@cruiseplanners.com
+    </p>
+  </div>
 </body>
 </html>
-<!-- End section 7 -->
