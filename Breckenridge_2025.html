@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breckenridge Winter Vacation Mobile Guide</title>
+    <title>Breckenridge Winter Vacation - December 2025</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,26 +29,16 @@
         
         h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 26px;
         }
         
         h2 {
             background-color: #1a5276;
             color: white;
             padding: 10px 15px;
-            margin: 20px 0 10px 0;
+            margin: 20px 0 15px 0;
             font-size: 18px;
-            cursor: pointer;
             border-radius: 5px;
-        }
-        
-        h2:after {
-            content: ' +';
-            float: right;
-        }
-        
-        h2.active:after {
-            content: ' -';
         }
         
         h3 {
@@ -59,33 +49,23 @@
             padding-bottom: 5px;
         }
         
-        .section-content {
-            display: none;
-            padding: 10px;
-            background-color: white;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-        
-        .active + .section-content {
-            display: block;
-        }
-        
         .day {
             background-color: #eaf2f8;
-            padding: 10px;
-            margin-bottom: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
             border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .day-title {
             font-weight: bold;
             color: #1a5276;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 16px;
         }
         
         .activity {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             padding-left: 15px;
         }
         
@@ -95,104 +75,51 @@
         
         .item {
             background-color: white;
-            padding: 10px;
-            margin-bottom: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
             border-radius: 5px;
             border-left: 4px solid #1a5276;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         .item-name {
             font-weight: bold;
             color: #1a5276;
-        }
-        
-        .item-type {
-            font-style: italic;
-            color: #666;
-            font-size: 14px;
-        }
-        
-        .price {
-            color: #2c8c3c;
-            font-weight: bold;
-        }
-        
-        .budget-friendly {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-size: 12px;
-            margin-left: 5px;
+            font-size: 16px;
+            margin-bottom: 5px;
         }
         
         .tip-box {
             background-color: #d1ecf1;
             border-left: 4px solid #17a2b8;
-            padding: 10px;
+            padding: 12px;
             margin: 15px 0;
             border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         .tip-title {
             font-weight: bold;
             color: #17a2b8;
+            margin-bottom: 5px;
         }
         
         .emergency-box {
             background-color: #f8d7da;
             border-left: 4px solid #dc3545;
-            padding: 10px;
+            padding: 12px;
             margin: 15px 0;
             border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         .kims-pick {
-            background-color: #d4edda;
-            border-left: 4px solid #28a745;
-            padding: 10px;
+            background-color: #eaf2f8;
+            border-left: 4px solid #1a5276;
+            padding: 12px;
             margin: 15px 0;
             border-radius: 5px;
-        }
-        
-        .kims-title {
-            font-weight: bold;
-            color: #28a745;
-        }
-
-        .kims-gem {
-            background-color: #ffeeba;
-            border-left: 4px solid #856404;
-            padding: 10px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        
-        .kims-gem-title {
-            font-weight: bold;
-            color: #856404;
-        }
-        
-        .viator {
-            background-color: #e9ecef;
-            border-left: 4px solid #495057;
-            padding: 10px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        
-        .viator-title {
-            font-weight: bold;
-            color: #495057;
-        }
-        
-        .viator-badge {
-            background-color: #6c757d;
-            color: white;
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-size: 12px;
-            margin-left: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         .footer {
@@ -203,11 +130,6 @@
             margin-top: 20px;
             font-size: 14px;
         }
-        
-        ul {
-            margin-top: 5px;
-            padding-left: 20px;
-        }
 
         a {
             color: #1a5276;
@@ -217,36 +139,100 @@
         a:hover {
             text-decoration: underline;
         }
+        
+        .highlight-box {
+            margin-top: 15px;
+            margin-bottom: 20px;
+            background-color: #eaf2f8;
+            border-left: 4px solid #1a5276;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        ul {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-left: 25px;
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>BRECKENRIDGE WINTER VACATION</h1>
         <div>December 18-23, 2025</div>
+        <div style="font-size: 14px; margin-top: 5px;">Your Customized Family Adventure</div>
     </div>
 
     <div class="container">
+        <div class="highlight-box">
+            <div class="tip-title" style="color: #1a5276; font-size: 17px;">Your Perfect Family Ski Getaway</div>
+            <p>Escape to the winter wonderland of Breckenridge this December for a perfectly balanced family vacation that offers something for everyone. This meticulously crafted itinerary combines thrilling mountain adventures with relaxing moments, ensuring every family member returns home with incredible memories.</p>
+            <p>For Kyle, Tanner, and Carter, three days of world-class skiing await on Breckenridge's legendary terrain. With nearly 3,000 acres across five distinct peaks, skiers of all abilities will find their perfect runs. Meanwhile, Jennifer can indulge in Breckenridge's charming historic district, with unique shopping, wine experiences, and guided tours tailored just for her.</p>
+            <p>Beyond the slopes, we've curated exclusive experiences the whole family will treasure: glide through snowy landscapes on a vintage Monster Truck Sleigh Ride, explore the thrilling backcountry on a guided snowmobile adventure to the Continental Divide, and uncover local legends on a Ghostly Tales tour. Your slopeside accommodations at Beaver Run Resort provide the perfect blend of luxury and convenience—ski-in/ski-out access means more time enjoying the mountains and less time commuting.</p>
+            <p>Every detail has been thoughtfully arranged to provide the perfect blend of adventure and relaxation. This December, give your family the gift of an unforgettable mountain escape where lifelong memories await around every corner.</p>
+        </div>
+        
         <h2>Trip Overview</h2>
-        <div class="section-content">
+        <div>
             <p><strong>Dates:</strong> December 18-23, 2025 (5 nights)</p>
             <p><strong>Travelers:</strong> Kyle, Jennifer, Tanner (20), and Carter (14)</p>
-            <p><strong>Accommodation:</strong> TBD (One Ski Hill or Village of Breckenridge)</p>
-            <p><strong>Budget Range:</strong> $9,299-11,109</p>
+            <p><strong>Accommodation:</strong> Beaver Run Resort (2-bedroom slopeside condo)</p>
             
             <div class="tip-box">
-                <div class="tip-title">Quick Tips</div>
+                <div class="tip-title">Mountain Travel Essentials</div>
                 <ul>
-                    <li>Resort Elevation: 9,600 feet (stay hydrated!)</li>
-                    <li>Weather: Average Dec temperatures range from 14°F to 32°F</li>
-                    <li>Free Summit Stage bus service available around town</li>
-                    <li>Book lift tickets at least 7 days in advance for best pricing</li>
-                    <li>High altitude can cause altitude sickness; acclimate slowly</li>
+                    <li><strong>Resort Elevation:</strong> 9,600 feet (stay hydrated and acclimate slowly)</li>
+                    <li><strong>Weather:</strong> December temperatures typically range from 14°F to 32°F with frequent snowfall</li>
+                    <li><strong>Book lift tickets:</strong> At least 7 days in advance for best pricing</li>
+                    <li><strong>Transportation:</strong> The free Summit Stage bus provides convenient service throughout town</li>
+                    <li><strong>Rentals:</strong> Pre-book equipment at least 2 weeks before arrival</li>
+                    <li><strong>Dining:</strong> Make dinner reservations in advance, especially for weekend nights</li>
                 </ul>
             </div>
         </div>
 
+        <h2>Accommodations</h2>
+        <div>
+            <div class="item">
+                <div class="item-name">Beaver Run Resort</div>
+                <div>Slopeside 2-bedroom condo</div>
+                <p><strong>Address:</strong> 620 Village Rd, Breckenridge, Colorado</p>
+                <p><strong>Price:</strong> $3,140.00 (+$667.47 taxes)</p>
+                <p><strong>Location:</strong> Ski-in/ski-out property located on the ski run above the base of Peak 9</p>
+                <p><strong>Unit Features:</strong> 1,125 sq ft condo with 1 queen bed per bedroom, full kitchen, wood-burning fireplace, private balcony, and queen sleeper sofa</p>
+                <p><strong>Resort Amenities:</strong></p>
+                <ul>
+                    <li>Indoor/outdoor heated pool and second outdoor pool</li>
+                    <li>Seven outdoor hot tubs</li>
+                    <li>Fitness center</li>
+                    <li>Multiple bars and restaurants</li>
+                    <li>Ski and snowboard rental shops on-site</li>
+                    <li>Retail stores and mini market/deli</li>
+                    <li>Video arcade and game room</li>
+                    <li>Complimentary in-town shuttle</li>
+                    <li>Complimentary wireless Internet</li>
+                    <li>Guest laundry facilities</li>
+                </ul>
+                <p><strong>Why We Chose This Property:</strong> Beaver Run Resort is one of Breckenridge's most popular properties, offering world-class amenities and convenient access to the slopes. Perfect for families seeking both comfort and ski convenience.</p>
+            </div>
+        </div>
+
+        <h2>Skiing Details</h2>
+        <div>
+            <div class="item">
+                <div class="item-name">Epic 3 Day Restricted Pass</div>
+                <p><strong>For:</strong> Kyle, Tanner, and Carter</p>
+                <p><strong>Cost:</strong> $335.00 per person ($1,005 total)</p>
+                <p><strong>Valid:</strong> December 19-22, 2025</p>
+                <p><strong>Not valid:</strong> Nov 28-29, Dec 26-31, 2025, Jan 17 and Feb 14-15, 2026</p>
+                <p><strong>Pickup:</strong> Breckenridge Resort Ticket Office (Dec 18)</p>
+                <p><strong>Description:</strong> Experience three full days of skiing at Breckenridge's legendary terrain spanning five peaks and nearly 3,000 acres. Your Epic 3 Day Restricted Pass provides access to some of the best skiing in Colorado, with terrain suitable for all levels from beginner to expert.</p>
+            </div>
+        </div>
+
         <h2>Daily Itinerary</h2>
-        <div class="section-content">
+        <div>
             <div class="day">
                 <div class="day-title">THURSDAY, DECEMBER 18 - DAY 1: ARRIVAL</div>
                 
@@ -255,7 +241,7 @@
                 </div>
                 
                 <div class="activity">
-                    <span class="time">2:30 PM:</span> Check-in at lodging TBD (One Ski Hill or Village of Breckenridge)
+                    <span class="time">2:30 PM:</span> Check-in at Beaver Run Resort
                 </div>
                 
                 <div class="activity">
@@ -263,13 +249,12 @@
                 </div>
                 
                 <div class="activity">
-                    <span class="time">5:00 PM:</span> Dinner at <a href="https://downtowneric.com/" target="_blank">Downstairs at Eric's</a> (pizza and arcade games)
+                    <span class="time">5:00 PM:</span> Dinner at Downstairs at Eric's (pizza and arcade games)
                 </div>
                 
                 <div class="activity">
                     <span class="time">7:00 PM:</span> <strong>Ghostly Tales Walking Tour</strong>
-                    <div>Duration: 90 minutes | Cost: ~$35 per person ($140 total)</div>
-                    <div><a href="https://www.breckheritage.com/haunted-tour" target="_blank">Official Tour Website</a></div>
+                    <div>Duration: 90 minutes</div>
                 </div>
             </div>
             
@@ -283,18 +268,18 @@
                 <div class="activity">
                     <span class="time">8:30 AM-4:00 PM:</span> Skiing for Kyle, Tanner & Carter
                     <div>Morning warm-up runs on Quicksilver SuperChair</div>
-                    <div>Lunch at <a href="https://www.breckenridge.com/dining/ten-mile-station/" target="_blank">Ten Mile Station</a> on the mountain</div>
+                    <div>Lunch at Ten Mile Station on the mountain</div>
                 </div>
                 
                 <div class="activity">
                     <span class="time">9:30 AM-5:00 PM:</span> For Jennifer:
                     <div>Historic Main Street shopping and galleries</div>
-                    <div>Lunch at <a href="https://www.blueriverbreck.com/" target="_blank">Blue River Bistro</a></div>
-                    <div>Wine tasting at <a href="https://www.breckwinery.com/" target="_blank">Continental Divide Winery</a> (2:00 PM)</div>
+                    <div>Lunch at Blue River Bistro</div>
+                    <div>Wine tasting at Continental Divide Winery (2:00 PM)</div>
                 </div>
                 
                 <div class="activity">
-                    <span class="time">6:00 PM:</span> Family dinner at <a href="https://www.hearthstonebreckenridge.com/" target="_blank">Hearthstone Restaurant</a> (Kim's recommendation)
+                    <span class="time">6:00 PM:</span> Family dinner at Hearthstone Restaurant
                 </div>
             </div>
             
@@ -302,31 +287,30 @@
                 <div class="day-title">SATURDAY, DECEMBER 20 - DAY 3: SECOND SKI DAY & SLEIGH RIDE</div>
                 
                 <div class="activity">
-                    <span class="time">7:00 AM:</span> Breakfast at <a href="https://www.columbinecafe.com/" target="_blank">Columbine Cafe</a> (109 S Main St)
+                    <span class="time">7:00 AM:</span> Breakfast at Columbine Cafe (109 S Main St)
                 </div>
                 
                 <div class="activity">
                     <span class="time">8:30 AM-3:30 PM:</span> Skiing for Kyle, Tanner & Carter
                     <div>Explore Peaks 7 and 9</div>
-                    <div>Lunch at <a href="https://www.breckenridge.com/dining/the-maggie/" target="_blank">The Maggie</a> at Peak 9 base</div>
+                    <div>Lunch at The Maggie at Peak 9 base</div>
                 </div>
                 
                 <div class="activity">
                     <span class="time">9:30 AM-3:30 PM:</span> For Jennifer:
-                    <div>Guided tour of <a href="https://www.breckheritage.com/guided-tours" target="_blank">Breckenridge Historic District</a> (9:30 AM, ~$20)</div>
-                    <div>Lunch at <a href="https://www.crepesalacartbreckenridge.com/" target="_blank">Crepes a la Cart</a> (307 S Main St)</div>
-                    <div><a href="https://www.breckwinery.com/Blending-Experiences" target="_blank">"Blend Your Own Wine" at Continental Divide Winery</a> (2:00 PM, $110 + tax & gratuity)</div>
+                    <div>Guided tour of Breckenridge Historic District (9:30 AM)</div>
+                    <div>Lunch at Crepes a la Cart (307 S Main St)</div>
+                    <div>"Blend Your Own Wine" at Continental Divide Winery (2:00 PM)</div>
                 </div>
                 
                 <div class="activity">
                     <span class="time">4:30 PM:</span> <strong>Monster Truck Sleigh Ride</strong> (whole family)
-                    <div>Duration: 45-60 minutes | Cost: ~$53 per person ($212 total)</div>
-                    <div><a href="https://www.viator.com/tours/Breckenridge/Monster-Truck-Sleigh-Ride/d26252-158728P6" target="_blank">Book via Viator</a> <span class="viator-badge">Viator</span></div>
+                    <div>Duration: 45-60 minutes</div>
                 </div>
                 
                 <div class="activity">
-                    <span class="time">7:00 PM:</span> Romantic dinner for Jennifer & Kyle at <a href="https://briarrosechophouse.com/" target="_blank">Briar Rose Chophouse</a>
-                    <div>Dinner for Tanner & Carter at <a href="https://www.hdtavern.com/" target="_blank">HD Tavern</a> (chicago style hotdogs)</div>
+                    <span class="time">7:00 PM:</span> Romantic dinner for Jennifer & Kyle at Briar Rose Chophouse
+                    <div>Dinner for Tanner & Carter at HD Tavern (chicago style hotdogs)</div>
                 </div>
             </div>
             
@@ -338,24 +322,22 @@
                 </div>
                 
                 <div class="activity">
-                    <span class="time">9:00 AM:</span> Family snowmobile tour with <a href="https://www.goodtimesadventures.com/snowmobiling-tours/" target="_blank">Good Times Adventures</a>
+                    <span class="time">9:00 AM:</span> Family snowmobile tour with Good Times Adventures
                     <div>Half-day guided tour through White River National Forest</div>
-                    <div>Cost: ~$150 per person ($600 total)</div>
                 </div>
                 
                 <div class="activity">
-                    <span class="time">1:00 PM:</span> Lunch at <a href="https://www.hearthstonebreckenridge.com/" target="_blank">Hearthstone Restaurant</a> (Kim's recommendation)
+                    <span class="time">1:00 PM:</span> Lunch at Hearthstone Restaurant
                 </div>
                 
                 <div class="activity">
                     <span class="time">2:30 PM:</span> <strong>Treasure Hunt Outdoor Escape Room</strong>
                     <div>Interactive adventure through Breckenridge</div>
-                    <div>Duration: 2 hours | Cost: ~$45 per person ($180 total)</div>
-                    <div><a href="https://www.viator.com/tours/Breckenridge/Amazing-Scavenger-Hunt-Adventure-Breckenridge/d26252-7563P29" target="_blank">Book via Viator</a> <span class="viator-badge">Viator</span></div>
+                    <div>Duration: 2 hours</div>
                 </div>
                 
                 <div class="activity">
-                    <span class="time">6:30 PM:</span> Dinner at <a href="https://www.ritasbreck.com/" target="_blank">Rita's</a> (Kim's recommendation)
+                    <span class="time">6:30 PM:</span> Dinner at Rita's
                 </div>
             </div>
             
@@ -363,29 +345,23 @@
                 <div class="day-title">MONDAY, DECEMBER 22 - DAY 5: FINAL SKI DAY & WINE TOUR</div>
                 
                 <div class="activity">
-                    <span class="time">7:00 AM:</span> Breakfast at <a href="https://cabincoffeeco.com/" target="_blank">Cabin Coffee Co.</a> (222 S Main St)
+                    <span class="time">7:00 AM:</span> Breakfast at Cabin Coffee Co. (222 S Main St)
                 </div>
                 
                 <div class="activity">
                     <span class="time">8:30 AM-4:00 PM:</span> Skiing for Kyle, Tanner & Carter
                     <div>Explore Peak 8 and Imperial Express SuperChair</div>
-                    <div>Lunch at <a href="https://www.breckenridge.com/dining/vista-haus/" target="_blank">Vista Haus</a> on Peak 8</div>
+                    <div>Lunch at Vista Haus on Peak 8</div>
                 </div>
                 
                 <div class="activity">
                     <span class="time">11:00 AM-3:00 PM:</span> For Jennifer:
                     <div><strong>Summit County Wine & Dine Tour</strong></div>
                     <div>4-hour guided experience visiting local wineries</div>
-                    <div>Cost: ~$140</div>
-                    <div><a href="https://www.viator.com/tours/Breckenridge/Half-Day-Food-Tour-in-Breckenridge-with-a-Local-Guide/d26252-179270P1" target="_blank">Book via Viator</a> <span class="viator-badge">Viator</span></div>
                 </div>
                 
                 <div class="activity">
-                    <span class="time">6:00 PM:</span> Dinner at <a href="https://www.twistbreck.com/" target="_blank">Twist</a>
-                </div>
-                
-                <div class="activity">
-                    <span class="time">8:00 PM:</span> Return to accommodations to pack for early departure
+                    <span class="time">6:00 PM:</span> Dinner at Twist
                 </div>
             </div>
             
@@ -402,457 +378,106 @@
             </div>
         </div>
 
-        <h2>Pricing & Budget</h2>
-        <div class="section-content">
-            <h3>Transportation & Lodging (Booked by Kim)</h3>
-            
-            <div class="item">
-                <div class="item-name">Accommodation (5 nights)</div>
-                <p>One Ski Hill Place or Village of Breckenridge: <span class="price">$5,147-5,717</span></p>
-                <p>2-bedroom condo with mountain views</p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Transportation</div>
-                <p>Flights to Denver (round-trip for family of 4): <span class="price">$1,600-2,400</span></p>
-                <p>Private shuttle: Denver to Breckenridge: <span class="price">$340-440</span></p>
-                <p>Early morning departure shuttle (Dec 23): <span class="price">$300-400</span></p>
-            </div>
-            
-            <h3>Personally Selected Tours & Activities (Booked by Kim)</h3>
-            
-            <div class="item">
-                <div class="item-name">Skiing</div>
-                <p>Lift tickets (3 days for 3 skiers): <span class="price">~$2,400 total</span></p>
-                <p>Equipment Rental (3 days for 3 skiers): <span class="price">$540 - $670 total</span></p>
-            </div>
-            
+        <h2>Tours and Activities</h2>
+        <div>
             <div class="item">
                 <div class="item-name">Ghostly Tales Walking Tour</div>
-                <p>Date: December 18, 2025</p>
-                <p>Duration: 90 minutes</p>
-                <p>Price: <span class="price">$35 per person</span> ($140 total)</p>
+                <p><strong>Date:</strong> December 18, 2025</p>
+                <p><strong>Duration:</strong> 90 minutes</p>
+                <p><strong>Price:</strong> $35 per person ($140 total)</p>
+                <p><strong>Description:</strong> The original ghost tour of Breckenridge since 2010, this spooky walking adventure explores the darker side of Breckenridge's wild west past. Your costumed guide will lead you through downtown, sharing chilling tales of the ghosts that remain. Ghost hunting equipment provided to search for spirit energy!</p>
                 <p><a href="https://www.breckheritage.com/haunted-tour" target="_blank">Official Tour Website</a></p>
             </div>
             
             <div class="item">
-                <div class="item-name">Monster Truck Sleigh Ride <span class="viator-badge">Viator</span></div>
-                <p>Date: December 20, 2025</p>
-                <p>Duration: 45-60 minutes</p>
-                <p>Price: <span class="price">$53 per person</span> ($212 total)</p>
-                <p><a href="https://www.viator.com/tours/Breckenridge/Monster-Truck-Sleigh-Ride/d26252-158728P6" target="_blank">Book via Viator</a></p>
+                <div class="item-name">Monster Truck Sleigh Ride</div>
+                <p><strong>Date:</strong> December 20, 2025</p>
+                <p><strong>Duration:</strong> 45-60 minutes</p>
+                <p><strong>Price:</strong> $53 per person ($212 total)</p>
+                <p><strong>Description:</strong> A sleigh ride unlike any other! Ride behind a vintage truck on snow tracks high above the Country Boy Mine property for fabulous views and fascinating gold rush history. Visit an old miner's cabin and enjoy the amazing mountain scenery before returning for hot chocolate and s'mores around the fire.</p>
+                <p><a href="https://www.viator.com/tours/Breckenridge/Monster-Truck-Sleigh-Ride/d26252-158728P6" target="_blank">Details</a></p>
             </div>
             
             <div class="item">
                 <div class="item-name">Snowmobile Tour</div>
-                <p>Date: December 21, 2025</p>
-                <p>Duration: Half day</p>
-                <p>Price: <span class="price">$150 per person</span> ($600 total)</p>
+                <p><strong>Date:</strong> December 21, 2025</p>
+                <p><strong>Duration:</strong> Half day</p>
+                <p><strong>Price:</strong> $150 per person ($600 total)</p>
+                <p><strong>Description:</strong> Explore the beautiful backcountry of Breckenridge with Good Times Adventures, Summit County's premier snowmobile tour company since 1986. Experience brand new Ski-Doo snowmobiles on an unrivaled trail system through Swan River Valley and up to Georgia Pass, ending at the Continental Divide at 11,585 feet with spectacular panoramic views.</p>
                 <p><a href="https://www.goodtimesadventures.com/snowmobiling-tours/" target="_blank">Good Times Adventures</a></p>
             </div>
             
             <div class="item">
-                <div class="item-name">Treasure Hunt Outdoor Escape Room <span class="viator-badge">Viator</span></div>
-                <p>Date: December 21, 2025</p>
-                <p>Duration: 2 hours</p>
-                <p>Price: <span class="price">$45 per person</span> ($180 total)</p>
-                <p><a href="https://www.viator.com/tours/Breckenridge/Amazing-Scavenger-Hunt-Adventure-Breckenridge/d26252-7563P29" target="_blank">Book via Viator</a></p>
+                <div class="item-name">Treasure Hunt Outdoor Escape Room</div>
+                <p><strong>Date:</strong> December 21, 2025</p>
+                <p><strong>Duration:</strong> 2 hours</p>
+                <p><strong>Price:</strong> $45 per person ($180 total)</p>
+                <p><strong>Description:</strong> Skip the typical walking tours for a unique interactive adventure through Breckenridge. Hunt for clues and solve puzzles while exploring the town's historic buildings and learning about local history. Perfect for families looking for an engaging outdoor activity.</p>
+                <p><a href="https://www.viator.com/tours/Breckenridge/Amazing-Scavenger-Hunt-Adventure-Breckenridge/d26252-7563P29" target="_blank">Details</a></p>
             </div>
             
             <div class="item">
-                <div class="item-name">Summit County Wine & Dine Tour <span class="viator-badge">Viator</span></div>
-                <p>Date: December 22, 2025</p>
-                <p>Duration: 4 hours</p>
-                <p>Price: <span class="price">$140</span> (Jennifer only)</p>
-                <p><a href="https://www.viator.com/tours/Breckenridge/Half-Day-Food-Tour-in-Breckenridge-with-a-Local-Guide/d26252-179270P1" target="_blank">Book via Viator</a></p>
+                <div class="item-name">Summit County Wine & Dine Tour</div>
+                <p><strong>Date:</strong> December 22, 2025</p>
+                <p><strong>Duration:</strong> 4 hours</p>
+                <p><strong>Price:</strong> $140 (Jennifer only)</p>
+                <p><strong>Description:</strong> A sophisticated culinary experience through Summit County's best wineries and restaurants. This guided tour offers a perfect blend of local wine tasting and gourmet food sampling, providing Jennifer with a relaxing retreat while the rest of the family enjoys skiing.</p>
+                <p><a href="https://www.viator.com/tours/Breckenridge/Half-Day-Food-Tour-in-Breckenridge-with-a-Local-Guide/d26252-179270P1" target="_blank">Details</a></p>
             </div>
             
             <div class="item">
                 <div class="item-name">Blend Your Own Wine Experience</div>
-                <p>Date: December 20, 2025</p>
-                <p>Duration: 90 minutes</p>
-                <p>Price: <span class="price">$110 + tax & gratuity</span> (Jennifer only)</p>
+                <p><strong>Date:</strong> December 20, 2025</p>
+                <p><strong>Duration:</strong> 90 minutes</p>
+                <p><strong>Price:</strong> $110 + tax & gratuity (Jennifer only)</p>
+                <p><strong>Description:</strong> An exclusive hands-on experience at Continental Divide Winery where Jennifer will learn the art of wine blending. Create a custom blend, design a personalized label, and take home a bottle of your own creation—a perfect souvenir from your Breckenridge vacation.</p>
                 <p><a href="https://www.breckwinery.com/Blending-Experiences" target="_blank">Continental Divide Winery</a></p>
             </div>
-            
-            <div class="item">
-                <div class="item-name">Ski Equipment Rental</div>
-                <p>3 days for 3 skiers</p>
-                <p>Price: <span class="price">$540 - $670 total</span></p>
-                <p>Included in package</p>
-            </div>
-            
-            <h3>Payment Schedule</h3>
-            
-            <div class="item">
-                <div class="item-name">Total Trip Cost (Kim-arranged services only)</div>
-                <p><span class="price">$9,299-11,109</span></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Deposit</div>
-                <p>Amount: <span class="price">$2,500</span></p>
-                <p>Due Date: TBD (upon confirmation)</p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Remaining Balance</div>
-                <p>Amount: <span class="price">$6,799-8,609</span></p>
-                <p>Final Payment Due: 60 days before departure</p>
-            </div>
-            
-            <h3>Travel Insurance</h3>
-            
-            <div class="item">
-                <div class="item-name">Insurance Cost</div>
-                <p>To be determined based on final package</p>
-                <p>Travel insurance typically costs approximately 10% of the total package price</p>
-                <p>Strongly recommended for winter trips with ski activities</p>
-            </div>
-            
-            <div class="tip-box">
-                <div class="tip-title">Money-Saving Tips</div>
-                <ul>
-                    <li>Book lift tickets at least 7 days in advance for best pricing</li>
-                    <li>Ski equipment rental is included in your package ($540-$670 for 3 skiers for 3 days)</li>
-                    <li>Many condos include kitchen facilities to save on meal costs</li>
-                    <li>The free Summit Stage bus can reduce transportation costs</li>
-                    <li>Look for free activities like <a href="https://www.breckenridge.org/things-to-do/sledding" target="_blank">Carter Park sledding</a></li>
-                </ul>
+        </div>
+
+        <h2>Dining Recommendations</h2>
+        <div>
+            <div class="kims-pick">
+                <div class="tip-title">Kim's Breakfast Tips</div>
+                <p><strong>Columbine Cafe</strong> (109 S Main St) opens early and has great breakfast burritos and cinnamon rolls.</p>
+                <p><strong>Cabin Coffee Co.</strong> (222 S Main St) is perfect for grab-and-go breakfast sandwiches and coffee before hitting the slopes.</p>
+                <p><strong>Daybreak - A Breakfast Place</strong> (305 N Main St) - This local favorite opens at 7am. Their mountaineer breakfast skillet is perfect fuel for a ski day. Arrive before 8am to beat the crowds!</p>
             </div>
         </div>
 
-        <h2>Dining Guide</h2>
-        <div class="section-content">
-            <h3>On-Mountain Dining</h3>
-            
+        <h2>Trip Cost Breakdown</h2>
+        <div>
             <div class="item">
-                <div class="item-name">Ten Mile Station (Peak 9)</div>
-                <div class="item-type">American, Lunch</div>
-                <p>Fast casual cafeteria-style dining with mountain views</p>
-                <p>Perfect for quick ski breaks</p>
-                <p>Price Range: $</p>
-                <p><a href="https://www.breckenridge.com/dining/ten-mile-station/" target="_blank">Ten Mile Station</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Vista Haus (Peak 8)</div>
-                <div class="item-type">American, Lunch</div>
-                <p>Casual self-service with panoramic views</p>
-                <p>Known for gourmet burgers and fresh salads</p>
-                <p>Price Range: $</p>
-                <p><a href="https://www.breckenridge.com/dining/vista-haus/" target="_blank">Vista Haus</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">The Maggie (Peak 9 Base)</div>
-                <div class="item-type">American, Lunch</div>
-                <p>Convenient base location with indoor and outdoor seating</p>
-                <p>Good for quick lunches</p>
-                <p>Price Range: $</p>
-                <p><a href="https://www.breckenridge.com/dining/the-maggie/" target="_blank">The Maggie</a></p>
-            </div>
-            
-            <h3>Family Casual Dining</h3>
-            
-            <div class="item">
-                <div class="item-name">Hearthstone Restaurant <span class="budget-friendly">Kim's Pick</span></div>
-                <div class="item-type">American, Dinner</div>
-                <p>Great food in a casual setting, perfect for families</p>
-                <p>Kim's recommendation!</p>
-                <p>Price Range: $-$$</p>
-                <p><a href="https://www.hearthstonebreckenridge.com/" target="_blank">Hearthstone Restaurant</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Downstairs at Eric's</div>
-                <div class="item-type">Pizza, Arcade, Family-Friendly</div>
-                <p>Great pizza and arcade games in a fun atmosphere</p>
-                <p>Price Range: $</p>
-                <p><a href="https://downtowneric.com/" target="_blank">Downstairs at Eric's</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Rita's <span class="budget-friendly">Kim's Pick</span></div>
-                <div class="item-type">Mexican, Casual</div>
-                <p>Local favorite for casual dining with great value</p>
-                <p>Kim's recommendation!</p>
-                <p>Price Range: $</p>
-                <p><a href="https://www.ritasbreck.com/" target="_blank">Rita's</a></p>
-            </div>
-
-            <div class="item">
-                <div class="item-name">Twist</div>
-                <div class="item-type">American, Comfort Food</div>
-                <p>Creative comfort food in a cozy setting, great for sharing small plates</p>
-                <p>Price Range: $$</p>
-                <p><a href="https://www.twistbreck.com/" target="_blank">Twist</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">HD Tavern <span class="budget-friendly">Kim's Pick</span></div>
-                <div class="item-type">Hot Dogs, Casual</div>
-                <p>Chicago style hotdogs and dart games in a fun, casual atmosphere</p>
-                <p>Perfect for Tanner & Carter while parents have date night</p>
-                <p>Price Range: $</p>
-                <p><a href="https://www.hdtavern.com/" target="_blank">HD Tavern</a></p>
-            </div>
-            
-            <h3>Special Occasion Dining</h3>
-            
-            <div class="item">
-                <div class="item-name">Briar Rose Chophouse</div>
-                <div class="item-type">Steakhouse, Fine Dining</div>
-                <p>Historic steakhouse in a Victorian building with excellent wine list</p>
-                <p>Perfect for your romantic dinner!</p>
-                <p>Price Range: $$</p>
-                <p>Reservations recommended: (970) 453-9948</p>
-                <p><a href="https://briarrosechophouse.com/" target="_blank">Briar Rose Chophouse</a></p>
+                <div class="item-name">Pricing Details</div>
+                <p><strong>Total Estimated Cost:</strong> $7,200 - $8,500</p>
+                <p><strong>Airfare:</strong> $1,600 - $2,400</p>
+                <p><strong>Private shuttle Denver to Breckenridge:</strong> $340 - $440</p>
+                <p><strong>Early morning departure shuttle:</strong> $300 - $400</p>
+                <p><strong>Lodging:</strong> $3,140.00 (+$667.47 taxes)</p>
+                <p><strong>Lift tickets x 3:</strong> $1,005.00</p>
+                <p><strong>Equipment Rental x 3:</strong> $540 - $670</p>
+                <p><strong>Tours and Excursions:</strong> $1,272 total</p>
+                <p><strong>Travel Insurance:</strong> TBD (typically about 10% of total package)</p>
+                <p><strong>Deposit:</strong> $2,500 (required to confirm booking)</p>
             </div>
             
             <div class="kims-pick">
-                <div class="kims-title">Kim's Breakfast Tips</div>
-                <p><strong><a href="https://www.columbinecafe.com/" target="_blank">Columbine Cafe</a></strong> (109 S Main St) opens early and has great breakfast burritos and cinnamon rolls.</p>
-                <p><strong><a href="https://cabincoffeeco.com/" target="_blank">Cabin Coffee Co.</a></strong> (222 S Main St) is perfect for grab-and-go breakfast sandwiches and coffee before hitting the slopes.</p>
-                <p><strong><a href="https://www.crepesalacartbreckenridge.com/" target="_blank">Crepes a la Cart</a></strong> (307 S Main St) is a great spot for breakfast or lunch with sweet and savory options.</p>
-            </div>
-            
-            <div class="kims-gem">
-                <div class="kims-gem-title">Kim's Hidden Gem 💎</div>
-                <p><strong><a href="https://www.daybreakbreckenridge.com/" target="_blank">Daybreak - A Breakfast Place</a></strong> (305 N Main St) - This local favorite opens at 7am and is often overlooked by tourists. Their mountaineer breakfast skillet is perfect fuel for a ski day, and they have the best breakfast Bloody Mary in town with house-infused vodka. Arrive before 8am to beat the crowds!</p>
+                <div class="tip-title">Why Book Now</div>
+                <p><strong>Best availability:</strong> Prime ski-in/ski-out accommodations like Beaver Run sell out quickly for holiday periods</p>
+                <p><strong>Guarantee these rates:</strong> Lodging prices typically increase as availability decreases</p>
+                <p><strong>Tour security:</strong> Popular activities like the Monster Truck Sleigh Ride and snowmobile tours have limited daily capacity</p>
+                <p><strong>Peace of mind:</strong> Secure everything now and simply look forward to your perfect family getaway</p>
             </div>
         </div>
 
-        <h2>Free & Bargain Activities</h2>
-        <div class="section-content">
-            <div class="item">
-                <div class="item-name">Carter Park Sledding <span class="budget-friendly">Free</span></div>
-                <p>Located at 300 S High St, this free sledding hill is perfect for family fun.</p>
-                <p>Sleds are available for rent at nearby shops if needed</p>
-                <p><a href="https://www.breckenridge.org/things-to-do/sledding" target="_blank">Carter Park Sledding</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Breckenridge Welcome Center <span class="budget-friendly">Free</span></div>
-                <p>Interactive exhibits about Breckenridge history, free maps and brochures</p>
-                <p>Friendly staff can answer questions and offer local insights</p>
-                <p>Location: 203 S Main St</p>
-                <p><a href="https://www.gobreck.com/trip-ideas/visitor-center/" target="_blank">Breckenridge Welcome Center</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Summit Stage Bus <span class="budget-friendly">Free</span></div>
-                <p>Free public transportation throughout Summit County</p>
-                <p>Connects Breckenridge with nearby towns like Frisco and Dillon</p>
-                <p><a href="https://www.summitcountyco.gov/586/Transit-Summit-Stage" target="_blank">Summit Stage Bus Schedule</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Riverwalk Center <span class="budget-friendly">Free/Low Cost</span></div>
-                <p>Check for free concerts, art exhibitions, and events during your stay</p>
-                <p>Location: 150 W Adams Ave</p>
-                <p><a href="https://www.breckcreate.org/venues/riverwalk-center/" target="_blank">Riverwalk Center</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Maggie Pond Winter Ice Skating <span class="budget-friendly">Low Cost</span></div>
-                <p>Scenic outdoor ice skating in the Village at Breckenridge</p>
-                <p>Rental skates available ($12-15 per person)</p>
-                <p><a href="https://www.breckenridge.com/explore-the-resort/activities-and-events/winter-activities/ice-skating.aspx" target="_blank">Maggie Pond Ice Skating</a></p>
-            </div>
-        </div>
 
-        <h2>Shopping Guide</h2>
-        <div class="section-content">
-            <h3>Main Street Shopping</h3>
-            
-            <div class="item">
-                <div class="item-name">Breckenridge Main Street</div>
-                <p>Historic downtown with over 200 shops, boutiques, and galleries</p>
-                <p>Victorian architecture adds charm to your shopping experience</p>
-                <p><a href="https://www.gobreck.com/trip-ideas/main-street/" target="_blank">Main Street Guide</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Olive Fusion <span class="budget-friendly">Kim's Pick</span></div>
-                <p>Specialty olive oils, vinegars, spices, and local food products</p>
-                <p>Great for foodie souvenirs and gifts</p>
-                <p>Location: 216 S Main St</p>
-                <p><a href="https://www.olivefusion.com/" target="_blank">Olive Fusion</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Magical Scraps</div>
-                <p>Unique handmade gifts, jewelry, and home decor by local artisans</p>
-                <p>Location: 310 S Main St</p>
-                <p><a href="https://magicalscraps.com/" target="_blank">Magical Scraps</a></p>
-            </div>
-            
-            <h3>Skiing & Outdoor Gear</h3>
-            
-            <div class="item">
-                <div class="item-name">Mountain Outfitters</div>
-                <p>Locally owned outdoor shop with quality gear and apparel</p>
-                <p>Knowledgeable staff for gear advice</p>
-                <p>Location: 112 S Ridge St</p>
-                <p><a href="https://www.mountainoutfitters.com/" target="_blank">Mountain Outfitters</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Columbia Store</div>
-                <p>Well-priced outdoor clothing and winter accessories</p>
-                <p>Location: 231 S Main St</p>
-                <p><a href="https://www.columbia.com/stores-breckenridge-co.html" target="_blank">Columbia Store</a></p>
-            </div>
-        </div>
 
-        <h2>Unique Experiences</h2>
-        <div class="section-content">
-            <div class="item">
-                <div class="item-name">Oxygen Bar <span class="budget-friendly">Hidden Gem</span></div>
-                <p>Relief from altitude symptoms with flavored oxygen</p>
-                <p>Great way to adjust to the high altitude</p>
-                <p>Location: 226 S Main St</p>
-                <p><a href="https://www.oxygenbar.com/locations/breckenridge-co/" target="_blank">Breckenridge Oxygen Bar</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Gold Mine Tours</div>
-                <p>Explore Breckenridge's mining history with underground tours</p>
-                <p>Price: $25-35 per person</p>
-                <p><a href="https://countryboytours.com/" target="_blank">Country Boy Mine</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Dog Sledding <span class="viator-badge">Viator</span></div>
-                <p>Thrilling dog sled rides through scenic backcountry</p>
-                <p>Price: ~$175 per person</p>
-                <p><a href="https://www.viator.com/tours/Breckenridge/Dog-Sledding-Tour/d26252-18462P1" target="_blank">Book via Viator</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Breckenridge Distillery Tour</div>
-                <p>Tour the highest distillery in North America</p>
-                <p>Complimentary tastings included</p>
-                <p>Location: 1925 Airport Rd</p>
-                <p><a href="https://www.breckenridgedistillery.com/tours/" target="_blank">Breckenridge Distillery</a></p>
-            </div>
-        </div>
-
-        <h2>Accommodations</h2>
-        <div class="section-content">
-            <h3>Your Lodging Options (TBD)</h3>
-            
-            <div class="item">
-                <div class="item-name">Option 1: One Ski Hill Place</div>
-                <div class="item-type">Luxury Ski-in/Ski-out Condo</div>
-                <p>Location: Peak 8, Breckenridge, Colorado</p>
-                <p><strong>Room Type:</strong> 2-bedroom condo with mountain views</p>
-                <p><strong>Price Range:</strong> $5,147-5,717 (5 nights)</p>
-                <p><strong>Amenities:</strong> Ski-in/ski-out access, hot tubs, heated pool, on-site dining options, fitness center, spa</p>
-                <p><a href="https://www.oneskihill.com/" target="_blank">One Ski Hill Place</a></p>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Option 2: Village of Breckenridge</div>
-                <div class="item-type">Convenient Center Location</div>
-                <p>Location: Near Main Street, Breckenridge, Colorado</p>
-                <p><strong>Room Type:</strong> 2-bedroom condo with mountain views</p>
-                <p><strong>Price Range:</strong> $5,147-5,717 (5 nights)</p>
-                <p><strong>Amenities:</strong> Close to shops and restaurants, hot tubs, pool, fitness center, ski-in/ski-out access</p>
-                <p><a href="https://www.breckenridgegrandvacations.com/village/" target="_blank">Village of Breckenridge</a></p>
-            </div>
-        </div>
-
-        <h2>Important Information</h2>
-        <div class="section-content">
-            <div class="emergency-box">
-                <h3>Emergency Contacts</h3>
-                <p><strong>Emergency:</strong> 911</p>
-                <p><strong>Breckenridge Medical Center:</strong> (970) 453-1010</p>
-                <p><strong>Breckenridge Police (non-emergency):</strong> (970) 453-2941</p>
-                <p><strong>One Ski Hill:</strong> (970) 547-8500</p>
-                <p><strong>Village of Breckenridge (main office):</strong> (970) 453-3800</p>
-            </div>
-            
-            <h3>Packing Suggestions</h3>
-            <div class="item">
-                <div class="item-name">Ski Gear</div>
-                <ul>
-                    <li>Ski jackets & pants</li>
-                    <li>Base layers & mid layers</li>
-                    <li>Ski socks (multiple pairs)</li>
-                    <li>Gloves/mittens & hand warmers</li>
-                    <li>Neck gaiter or balaclava</li>
-                    <li>Helmet & goggles</li>
-                </ul>
-            </div>
-            
-            <div class="item">
-                <div class="item-name">Winter Items</div>
-                <ul>
-                    <li>Winter boots with good traction</li>
-                    <li>Casual winter wear for evenings</li>
-                    <li>Hat and gloves for non-ski activities</li>
-                    <li>Swimwear (for hot tubs)</li>
-                </ul>
-            </div>
-            
-            <h3>Altitude Tips</h3>
-            <div class="tip-box">
-                <div class="tip-title">High Altitude Precautions</div>
-                <ul>
-                    <li>Breckenridge sits at 9,600 feet elevation</li>
-                    <li>Stay hydrated! Drink more water than you think you need</li>
-                    <li>Limit alcohol consumption, especially on your first day</li>
-                    <li>Consider starting with half-day activities to acclimate</li>
-                    <li>Symptoms of altitude sickness include headache, nausea, and fatigue</li>
-                    <li>If symptoms persist, seek medical attention</li>
-                </ul>
-            </div>
-            
-            <div class="kims-pick">
-                <div class="kims-title">Kim's Local Tips</div>
-                <p><strong>Morning Ski Strategy:</strong> Start early! The first hour after lifts open has the best snow conditions and shortest lines.</p>
-                <p><strong>Non-Ski Day Option:</strong> If Jennifer wants to join for part of a ski day, the gondola is scenic ride-friendly for non-skiers.</p>
-                <p><strong>Hidden Local Secret:</strong> The oxygen bar on Main Street can be a lifesaver if altitude symptoms hit!</p>
-            </div>
-        </div>
     </div>
 
     <div class="footer">
-        <p>Your Breckenridge Winter Vacation Guide | December 18-23, 2025</p>
-        <p>Created for Kyle & Jennifer's Family</p>
-        <p>Questions? Contact Kim at yourtravelagent@email.com</p>
+        <p>Family Breckenridge Winter Vacation | December 18-23, 2025</p>
+        <p>Created for the Roach Family | Questions? Contact Kim: kim.henderson@cruiseplanners.com | 251-508-6921</p>
+        <p><em>Secure your perfect mountain holiday today! Deposit required to lock in these rates.</em></p>
     </div>
-
-    <script>
-        // Simple toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all section headers
-            var headers = document.querySelectorAll('h2');
-            
-            // Add click event to each header
-            headers.forEach(function(header) {
-                header.addEventListener('click', function() {
-                    // Toggle active class
-                    this.classList.toggle('active');
-                    
-                    // Toggle display of content
-                    var content = this.nextElementSibling;
-                    if (content.style.display === 'block') {
-                        content.style.display = 'none';
-                    } else {
-                        content.style.display = 'block';
-                    }
-                });
-            });
-            
-            // Open the first section by default
-            if (headers.length > 0) {
-                headers[0].click();
-            }
-        });
-    </script>
 </body>
 </html>
