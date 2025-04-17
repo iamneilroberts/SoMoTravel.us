@@ -1,860 +1,476 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scotland Highland Heritage Trip</title>
-    <style>
-        :root {
-            --primary: #1d3557;
-            --secondary: #457b9d;
-            --accent: #e63946;
-            --background: #f8f9fa;
-            --text: #333;
-            --light: #f1faee;
-            --border: #dee2e6;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--background);
-            max-width: 100%;
-            overflow-x: hidden;
-            font-size: 16px;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1.5rem 0;
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        header h1 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        .travelers {
-            background-color: white;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .travelers h2 {
-            color: var(--primary);
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 0.3rem;
-        }
-        
-        .travelers ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        
-        .travelers li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .travelers li:last-child {
-            border-bottom: none;
-        }
-        
-        .travelers li strong {
-            color: var(--primary);
-        }
-        
-        .alert {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border-radius: 4px;
-        }
-        
-        .alert strong {
-            color: #856404;
-        }
-        
-        .day-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 0;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .day-header {
-            background-color: var(--secondary);
-            color: white;
-            padding: 0.8rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .day-date {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .day-content {
-            padding: 1rem;
-        }
-        
-        .day-content h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-        
-        .day-content p {
-            margin-bottom: 0.8rem;
-        }
-        
-        .day-content ul {
-            padding-left: 1.2rem;
-            margin-bottom: 0.8rem;
-        }
-        
-        .day-content li {
-            margin-bottom: 0.3rem;
-        }
-        
-        .accommodation {
-            background-color: #e7f5ff;
-            padding: 0.8rem;
-            border-radius: 4px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .accommodation h4 {
-            color: var(--primary);
-            margin-bottom: 0.3rem;
-            font-size: 1rem;
-        }
-        
-        .transport {
-            background-color: #f0f5ff;
-            padding: 0.8rem;
-            border-radius: 4px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .transport h4 {
-            color: var(--primary);
-            margin-bottom: 0.3rem;
-            font-size: 1rem;
-        }
-        
-        .attractions {
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .attractions h2 {
-            color: var(--primary);
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 0.3rem;
-        }
-        
-        .attractions ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        
-        .attractions li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-        }
-        
-        .attractions li:last-child {
-            border-bottom: none;
-        }
-        
-        .attractions li strong {
-            color: var(--primary);
-            margin-right: 0.5rem;
-        }
-        
-        .attractions li a {
-            color: var(--secondary);
-            text-decoration: none;
-            margin-left: auto;
-        }
-        
-        .attractions li a:hover {
-            text-decoration: underline;
-        }
-        
-        .dining {
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .dining h2 {
-            color: var(--primary);
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 0.3rem;
-        }
-        
-        .restaurant {
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .restaurant:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        .restaurant h3 {
-            color: var(--primary);
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-        }
-        
-        .restaurant-details {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .restaurant-cuisine {
-            color: var(--secondary);
-        }
-        
-        .restaurant-price {
-            color: #6c757d;
-        }
-        
-        .restaurant-notes {
-            font-size: 0.9rem;
-        }
-        
-        .restaurant a {
-            color: var(--secondary);
-            font-size: 0.9rem;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-        
-        .restaurant a:hover {
-            text-decoration: underline;
-        }
-        
-        .practical-info {
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .practical-info h2 {
-            color: var(--primary);
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 0.3rem;
-        }
-        
-        .info-section {
-            margin-bottom: 1rem;
-        }
-        
-        .info-section h3 {
-            color: var(--primary);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .info-section ul {
-            padding-left: 1.2rem;
-        }
-        
-        .info-section li {
-            margin-bottom: 0.3rem;
-        }
-        
-        .emergency {
-            background-color: #f8d7da;
-            border-left: 4px solid #dc3545;
-            padding: 1rem;
-            margin-top: 1rem;
-            border-radius: 4px;
-        }
-        
-        .emergency h3 {
-            color: #721c24;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
-            color: #6c757d;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-        }
-        
-        .btn-link {
-            display: inline-block;
-            padding: 0.3rem 0.6rem;
-            background-color: var(--secondary);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            transition: background-color 0.2s;
-        }
-        
-        .btn-link:hover {
-            background-color: var(--primary);
-        }
-        
-        @media print {
-            body {
-                font-size: 12px;
-                background-color: white;
-            }
-            
-            .container {
-                width: 100%;
-                max-width: none;
-                padding: 0 0.5rem;
-            }
-            
-            header {
-                background-color: white;
-                color: black;
-                padding: 1rem 0;
-            }
-            
-            .day-header {
-                background-color: #eee;
-                color: black;
-            }
-            
-            .day-card, .attractions, .dining, .practical-info {
-                box-shadow: none;
-                border: 1px solid #ddd;
-                break-inside: avoid;
-            }
-            
-            .btn-link {
-                display: none;
-            }
-            
-            a {
-                text-decoration: none;
-                color: black;
-            }
-            
-            footer {
-                display: none;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            body {
-                font-size: 15px;
-            }
-            
-            header h1 {
-                font-size: 1.6rem;
-            }
-            
-            .day-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .day-date {
-                margin-top: 0.3rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scotland Highland Heritage Trip</title>
+  <style>
+    :root {
+      --primary-color: #2a4d69;
+      --secondary-color: #4a708b;
+      --accent-color: #92bcea;
+      --light-bg: #f5f8fc;
+      --dark-text: #333333;
+      --light-text: #ffffff;
+      --divider: #e0e0e0;
+      --success: #4caf50;
+      --warning: #ff9800;
+      --card-bg: #ffffff;
+      --card-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark-text);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .container {
+      max-width: 100%;
+      padding: 15px;
+    }
+    
+    header {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: 20px 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    
+    h2 {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+      margin: 25px 0 15px 0;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 8px;
+    }
+    
+    h3 {
+      font-size: 1.2rem;
+      color: var(--secondary-color);
+      margin: 20px 0 10px 0;
+    }
+    
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: var(--card-shadow);
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .card-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .card-title span {
+      margin-left: 8px;
+    }
+    
+    .day-header {
+      background-color: var(--secondary-color);
+      color: var(--light-text);
+      padding: 10px 15px;
+      border-radius: 8px 8px 0 0;
+      font-weight: bold;
+      margin-top: 25px;
+    }
+    
+    .day-content {
+      background-color: var(--card-bg);
+      border-radius: 0 0 8px 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: var(--card-shadow);
+    }
+    
+    ul {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+    
+    li {
+      margin-bottom: 8px;
+    }
+    
+    .time {
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .highlight {
+      background-color: #ffd54f;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    
+    .dinner {
+      color: #d32f2f;
+      font-weight: bold;
+    }
+    
+    .accordion {
+      background-color: var(--secondary-color);
+      color: var(--light-text);
+      cursor: pointer;
+      padding: 15px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      transition: 0.4s;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .active, .accordion:hover {
+      background-color: var(--primary-color);
+    }
+    
+    .panel {
+      padding: 0;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      border-radius: 0 0 8px 8px;
+      box-shadow: var(--card-shadow);
+    }
+    
+    .panel-content {
+      padding: 15px;
+    }
+    
+    .icon {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .toc {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    
+    .toc-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    .toc-link {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    
+    .note {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .divider {
+      height: 1px;
+      background-color: var(--divider);
+      margin: 20px 0;
+    }
+    
+    @media (min-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Scotland Highland Heritage Trip</h1>
-            <p>April 20-29, 2025</p>
-        </div>
-    </header>
-    
-    <div class="container">
-        <div class="travelers">
-            <h2>Travelers</h2>
-            <ul>
-                <li><strong>Neil Roberts</strong> (Primary Contact)</li>
-                <li><strong>Kim Henderson</strong></li>
-                <li><strong>Mary McAdory</strong> <small>(Requires rest during long walks, wheelchair assistance at airports)</small></li>
-            </ul>
-        </div>
-        
-        <div class="alert">
-            <p><strong>Trip Status:</strong> Confirmed</p>
-            <p><strong>Special Requests:</strong> Wheelchair assistance at airports, accessible paths prioritized, Mary requires rest during long walks.</p>
-        </div>
-        
-        <!-- Day 1 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Day 1: Travel Day</h2>
-                <div class="day-date">Sunday, April 20, 2025</div>
-            </div>
-            <div class="day-content">
-                <h3>Outbound Journey</h3>
-                <ul>
-                    <li><strong>12:46 PM:</strong> Depart Mobile (MOB)</li>
-                    <li><strong>3:38 PM:</strong> Arrive Charlotte (CLT)</li>
-                    <li><strong>Layover:</strong> 2h 47m in Charlotte</li>
-                    <li><strong>6:25 PM:</strong> Depart Charlotte (CLT)</li>
-                    <li><strong>Overnight flight to London Heathrow</strong></li>
-                </ul>
-                
-                <div class="transport">
-                    <h4>Flight Details</h4>
-                    <p><strong>Mobile to Charlotte:</strong> American Airlines 5797 (2h 52m)<br>
-                    Economy (H), Seats: 4A, 4C, 4B</p>
-                    
-                    <p><strong>Charlotte to London:</strong> American Airlines 730 (8h 05m)<br>
-                    Premium Economy (P), Seats: 16G, 16E, 16D<br>
-                    Meals: Dinner, Breakfast</p>
-                    
-                    <p><strong>Confirmation Number:</strong> JAGPHB / British Airways 3CWE9J</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Day 2 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Day 2: Arrival in Scotland</h2>
-                <div class="day-date">Monday, April 21, 2025</div>
-            </div>
-            <div class="day-content">
-                <h3>Travel & Check-in</h3>
-                <ul>
-                    <li><strong>7:30 AM:</strong> Arrive London Heathrow (LHR)</li>
-                    <li><strong>Layover:</strong> 5h 40m in London Heathrow</li>
-                    <li><strong>1:10 PM:</strong> Depart London Heathrow (LHR)</li>
-                    <li><strong>2:50 PM:</strong> Arrive Inverness (INV)</li>
-                    <li><strong>2:30 PM:</strong> Pick up rental car at Inverness Airport</li>
-                    <li><strong>3:00-4:00 PM:</strong> Check in to 20a, By The Ness apartment</li>
-                    <li><strong>Evening:</strong> Light exploring of Inverness city center (as energy permits)</li>
-                </ul>
-                
-                <div class="transport">
-                    <h4>Flight Details</h4>
-                    <p><strong>London to Inverness:</strong> AA 6890 (Operated by British Airways) (1h 40m)<br>
-                    Economy (H), Food/Beverages for Purchase</p>
-                    
-                    <p><strong>Confirmation Number:</strong> JAGPHB / British Airways 3CWE9J</p>
-                </div>
-                
-                <div class="transport">
-                    <h4>Car Rental</h4>
-                    <p><strong>Provider:</strong> Avis Europe Corporate<br>
-                    <strong>Vehicle:</strong> Hyundai Tucson or similar (SUV, Automatic transmission)<br>
-                    <strong>Confirmation #:</strong> GB103390130/17879930US5<br>
-                    <strong>Price:</strong> £429.37 GBP<br>
-                    <strong>Features:</strong> Unlimited mileage</p>
-                </div>
-                
-                <div class="accommodation">
-                    <h4>Accommodation: 20a, By The Ness</h4>
-                    <p><strong>Address:</strong> 20A Gordonville Road, Inverness, IV2 4SS<br>
-                    <strong>Check-in:</strong> 15:00 - 23:00<br>
-                    <strong>Type:</strong> Two-Bedroom Apartment, Entire apartment<br>
-                    <strong>Price:</strong> $874.20 (£660 paid)<br>
-                    <strong>Access Details:</strong> Keys are in an on-site lockbox<br>
-                    <strong>Features:</strong> Fully equipped kitchen, parking available</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Day 3 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Day 3: Inverness & Loch Ness</h2>
-                <div class="day-date">Tuesday, April 22, 2025</div>
-            </div>
-            <div class="day-content">
-                <h3>Activities</h3>
-                <ul>
-                    <li><strong>Morning:</strong> Inverness Castle and Museum</li>
-                    <li><strong>Afternoon:</strong> Loch Ness and Urquhart Castle visit</li>
-                    <li><strong>Evening:</strong> Dinner in Inverness</li>
-                </ul>
-                
-                <div class="attractions">
-                    <h4>Featured Attractions</h4>
-                    <p><strong>Inverness Castle</strong> – The castle is undergoing transformation and scheduled to reopen as "The Inverness Castle Experience" in 2025. The attraction will showcase Highland stories, culture and heritage. <a href="https://invernesscastle.scot/" target="_blank">Website</a></p>
-                    
-                    <p><strong>Urquhart Castle</strong> – Historic ruins on the shores of Loch Ness offering spectacular views, a visitor center, and exhibition about the castle's history. <a href="https://www.historicenvironment.scot/visit-a-place/places/urquhart-castle/" target="_blank">Website</a></p>
-                    <p>Opening times (Apr-Aug): Daily 9:30am to 7:15pm (last entry)<br>
-                    Adult admission: Approximately £13-15</p>
-                </div>
-                
-                <div class="accommodation">
-                    <h4>Accommodation: 20a, By The Ness</h4>
-                    <p><strong>Address:</strong> 20A Gordonville Road, Inverness, IV2 4SS</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Day 4 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Day 4: Culloden & Clava Cairns</h2>
-                <div class="day-date">Wednesday, April 23, 2025</div>
-            </div>
-            <div class="day-content">
-                <h3>Activities</h3>
-                <ul>
-                    <li><strong>Morning:</strong> Culloden Battlefield visitor center</li>
-                    <li><strong>Afternoon:</strong> Clava Cairns ancient stone circles</li>
-                    <li><strong>Evening:</strong> Rest at accommodation</li>
-                </ul>
-                
-                <div class="accommodation">
-                    <h4>Accommodation: 20a, By The Ness</h4>
-                    <p><strong>Address:</strong> 20A Gordonville Road, Inverness, IV2 4SS</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Day 5 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Day 5: Highland Exploration</h2>
-                <div class="day-date">Thursday, April 24, 2025</div>
-            </div>
-            <div class="day-content">
-                <h3>Activities</h3>
-                <ul>
-                    <li><strong>Flexible day for local exploration</strong></li>
-                    <li><strong>Optional visits to distilleries or local heritage sites</strong></li>
-                    <li><strong>Shopping in Inverness</strong></li>
-                </ul>
-                
-                <div class="accommodation">
-                    <h4>Accommodation: 20a, By The Ness</h4>
-                    <p><strong>Address:</strong> 20A Gordonville Road, Inverness, IV2 4SS</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Day 6 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Day 6: Journey to Isle of Skye</h2>
-                <div class="day-date">Friday, April 25, 2025</div>
-            </div>
-            <div class="day-content">
-                <h3>Activities</h3>
-                <ul>
-                    <li><strong>Morning:</strong> Check out of 20a, By The Ness (by 11:00)</li>
-                    <li><strong>Drive from Inverness to Isle of Skye</strong></li>
-                    <li><strong>Stop at Eilean Donan Castle en route</strong></li>
-                    <li><strong>Afternoon:</strong> Check in to Angus B&B in Dunvegan</li>
-                    <li><strong>Evening:</strong> Explore Dunvegan area</li>
-                </ul>
-                
-                <div class="accommodation">
-                    <h4>Accommodation: Angus B&B</h4>
-                    <p><strong>Location:</strong> Dunvegan, Isle of Skye<br>
-                    <strong>Features:</strong> Ground floor rooms requested, en-suite facilities, breakfast included, parking on site</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Day 7 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Day 7: Isle of Skye Exploration</h2>
-                <div class="day-date">Saturday, April 26, 2025</div>
-            </div>
-            <div class="day-content">
-                <h3>Activities</h3>
-                <ul>
-                    <li><strong>Morning:</strong> Dunvegan Castle & Gardens</li>
-                    <li><strong>Afternoon:</strong> Scenic drive to Neist Point Lighthouse</li>
-                    <li><strong>Optional visit to Talisker Distillery</strong></li>
-                </ul>
-                
-                <div class="accommodation">
-                    <h4>Accommodation: Angus B&B</h4>
-                    <p><strong>Location:</strong> Dunvegan, Isle of Skye</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Day 8 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Day 8: Return to Inverness</h2>
-                <div class="day-date">Sunday, April 27, 2025</div>
-            </div>
-            <div class="day-content">
-                <h3>Activities</h3>
-                <ul>
-                    <li><strong>Morning:</strong> Skye Museum of Island Life</li>
-                    <li><strong>Midday:</strong> Journey back to Inverness</li>
-                    <li><strong>Afternoon:</strong> Scenic stops along the way</li>
-                    <li><strong>Evening:</strong> Check into Inverness City Center VRBO apartment</li>
-                </ul>
-                
-                <div class="accommodation">
-                    <h4>Accommodation: City Center VRBO Apartment</h4>
-                    <p><strong>Location:</strong> Inverness, Scottish Highlands</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Day 9 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Day 9: Nairn Day</h2>
-                <div class="day-date">Monday, April 28, 2025</div>
-            </div>
-            <div class="day-content">
-                <h3>Activities</h3>
-                <ul>
-                    <li><strong>Morning:</strong> Check out of Inverness apartment</li>
-                    <li><strong>Drive to Nairn</strong></li>
-                    <li><strong>Afternoon:</strong> Nairn beach and town exploration</li>
-                    <li><strong>Check in to Muthu Newton Hotel</strong></li>
-                    <li><strong>Evening:</strong> Farewell dinner at recommended restaurant</li>
-                </ul>
-                
-                <div class="accommodation">
-                    <h4>Accommodation: Muthu Newton Hotel</h4>
-                    <p><strong>Address:</strong> Inverness Rd, Nairn, Scottish Highlands<br>
-                    <strong>Confirmation #:</strong> 4800455829<br>
-                    <strong>Price:</strong> £249.91 GBP<br>
-                    <strong>Website:</strong> <a href="https://www.muthuhotelsmgm.com/muthu-newton-hotel/" target="_blank">muthuhotelsmgm.com/muthu-newton-hotel</a></p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Day 10 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Day 10: Return Travel Day</h2>
-                <div class="day-date">Tuesday, April 29, 2025</div>
-            </div>
-            <div class="day-content">
-                <h3>Return Journey</h3>
-                <ul>
-                    <li><strong>Morning:</strong> Check out of Muthu Newton Hotel</li>
-                    <li><strong>10:00 AM:</strong> Return rental car to Inverness Airport</li>
-                    <li><strong>11:20 AM:</strong> Depart Inverness (INV)</li>
-                    <li><strong>1:00 PM:</strong> Arrive London Heathrow (LHR)</li>
-                    <li><strong>Layover:</strong> 2h 00m in London Heathrow</li>
-                    <li><strong>3:00 PM:</strong> Depart London Heathrow (LHR)</li>
-                    <li><strong>6:50 PM:</strong> Arrive Charlotte (CLT)</li>
-                    <li><strong>Layover:</strong> 1h 34m in Charlotte</li>
-                    <li><strong>8:24 PM:</strong> Depart Charlotte (CLT)</li>
-                    <li><strong>9:26 PM:</strong> Arrive Mobile (MOB)</li>
-                </ul>
-                
-                <div class="transport">
-                    <h4>Flight Details</h4>
-                    <p><strong>Inverness to London:</strong> AA 6623 (Operated by British Airways) (1h 40m)<br>
-                    Economy (H), Food/Beverages for Purchase</p>
-                    
-                    <p><strong>London to Charlotte:</strong> American Airlines 735 (8h 50m)<br>
-                    Premium Economy (P), Seats: 15A, 15C, 15D<br>
-                    Meals: Lunch, Snack</p>
-                    
-                    <p><strong>Charlotte to Mobile:</strong> AA 5970 (Operated by Piedmont Airlines as American Eagle) (1h 02m)<br>
-                    Economy (H), Seats: 4A, 4B, 4C<br>
-                    No meals</p>
-                    
-                    <p><strong>Confirmation Number:</strong> JAGPHB / British Airways 3CWE9J</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Dining Recommendations -->
-        <div class="dining">
-            <h2>Dining Recommendations (Nairn)</h2>
-            
-            <div class="restaurant">
-                <h3>Chaplin's Restaurant</h3>
-                <div class="restaurant-details">
-                    <div class="restaurant-cuisine">Scottish/Seafood</div>
-                    <div class="restaurant-price">££-£££</div>
-                </div>
-                <p class="restaurant-notes">Hotel's signature restaurant with seafood and traditional Scottish dishes</p>
-                <a href="https://www.muthuhotelsmgm.com/muthu-newton-hotel/food-drink.html" target="_blank">View Website</a>
-                <p><small>Reservation recommended</small></p>
-            </div>
-            
-            <div class="restaurant">
-                <h3>One One Two Wine Bar</h3>
-                <div class="restaurant-details">
-                    <div class="restaurant-cuisine">International/Tapas</div>
-                    <div class="restaurant-price">££-£££</div>
-                </div>
-                <p class="restaurant-notes">Ranked #1 on TripAdvisor, tapas-style small plates with extensive wine selection</p>
-                <a href="https://www.tripadvisor.com/Restaurant_Review-g186549-d12360135-Reviews-One_One_Two_Wine_Bar_and_Eatery-Nairn_Scottish_Highlands_Scotland.html" target="_blank">View on TripAdvisor</a>
-                <p><small>Reservation recommended</small></p>
-            </div>
-            
-            <div class="restaurant">
-                <h3>Ozzy's Fine Dining</h3>
-                <div class="restaurant-details">
-                    <div class="restaurant-cuisine">Scottish/Kurdish</div>
-                    <div class="restaurant-price">££-£££</div>
-                </div>
-                <p class="restaurant-notes">Highly rated fusion restaurant combining Scottish and Middle Eastern influences</p>
-                <a href="https://www.tripadvisor.com/Restaurant_Review-g186549-d23441071-Reviews-Ozzy_s_Fine_Dining_Restaurant-Nairn_Scottish_Highlands_Scotland.html" target="_blank">View on TripAdvisor</a>
-                <p><small>Reservation recommended</small></p>
-            </div>
-            
-            <div class="restaurant">
-                <h3>The Bandstand</h3>
-                <div class="restaurant-details">
-                    <div class="restaurant-cuisine">Pub/Seafood</div>
-                    <div class="restaurant-price">££-£££</div>
-                </div>
-                <p class="restaurant-notes">Award-winning pub with seafood and local fare, sea views</p>
-                <a href="https://www.thebandstandnairn.co.uk/" target="_blank">View Website</a>
-                <p><small>Reservation recommended</small></p>
-            </div>
-        </div>
-        
-        <!-- Important Attractions -->
-        <div class="attractions">
-            <h2>Important Attractions</h2>
-            <ul>
-                <li>
-                    <strong>Inverness Castle</strong> - Historic castle with panoramic views of the city
-                    <a href="https://invernesscastle.scot/" target="_blank" class="btn-link">Info</a>
-                </li>
-                <li>
-                    <strong>Loch Ness & Urquhart Castle</strong> - Famous lake and medieval castle ruins
-                    <a href="https://www.historicenvironment.scot/visit-a-place/places/urquhart-castle/" target="_blank" class="btn-link">Info</a>
-                </li>
-                <li>
-                    <strong>Isle of Skye</strong> - Dramatic landscapes, including the Quiraing and Old Man of Storr
-                    <a href="https://www.isleofskye.com/" target="_blank" class="btn-link">Info</a>
-                </li>
-                <li>
-                    <strong>Dunvegan Castle</strong> - Oldest continuously inhabited castle in Scotland
-                    <a href="https://www.dunvegancastle.com/" target="_blank" class="btn-link">Info</a>
-                </li>
-                <li>
-                    <strong>Eilean Donan Castle</strong> - Iconic castle at the meeting point of three lochs
-                    <a href="https://www.eileandonancastle.com/" target="_blank" class="btn-link">Info</a>
-                </li>
-                <li>
-                    <strong>Culloden Battlefield</strong> - Historic battle site with visitor center
-                    <a href="https://www.nts.org.uk/visit/places/culloden" target="_blank" class="btn-link">Info</a>
-                </li>
-                <li>
-                    <strong>Clava Cairns</strong> - Bronze Age burial chambers and standing stones
-                    <a href="https://www.historicenvironment.scot/visit-a-place/places/clava-cairns/" target="_blank" class="btn-link">Info</a>
-                </li>
-            </ul>
-        </div>
-        
-        <!-- Practical Information -->
-        <div class="practical-info">
-            <h2>Practical Information</h2>
-            
-            <div class="info-section">
-                <h3>Weather Information</h3>
-                <p><strong>April Conditions:</strong></p>
-                <ul>
-                    <li>Average high: 11°C (52°F)</li>
-                    <li>Average low: 4°C (39°F)</li>
-                    <li>Rainfall likely</li>
-                    <li>Changeable conditions</li>
-                </ul>
-                <p><strong>Required Gear:</strong></p>
-                <ul>
-                    <li>Waterproof jackets</li>
-                    <li>Walking shoes</li>
-                    <li>Layers for temperature changes</li>
-                    <li>Camera protection</li>
-                </ul>
-            </div>
-            
-            <div class="info-section">
-                <h3>Accessibility Notes</h3>
-                <ul>
-                    <li>Wheelchair assistance requested at all airports</li>
-                    <li>Mary needs rest during long walks</li>
-                    <li>Accessible paths prioritized in itinerary</li>
-                    <li>Elevator access at Inverness apartment</li>
-                    <li>Ground floor rooms at Angus B&B</li>
-                </ul>
-            </div>
-            
-            <div class="emergency">
-                <h3>Emergency Contacts</h3>
-                <p>American Airlines: +1-800-433-7300</p>
-                <p>British Airways: +44-844-493-0787</p>
-                <p>Avis Car Rental (Inverness Airport): +44-344-544-6017</p>
-                <p>Muthu Newton Hotel: +44-1667-453144</p>
-            </div>
-        </div>
-        
-        <footer>
-            <p>Scotland Highland Heritage Trip | April 20-29, 2025</p>
-            <p>Safe travels and enjoy your Scottish adventure!</p>
-        </footer>
+  <header>
+    <h1>Scotland Highland Heritage Trip</h1>
+    <p>April 20–29, 2025</p>
+  </header>
+  
+  <div class="container">
+    <div class="card">
+      <div class="card-title">
+        <span>👤 Travelers:</span>
+      </div>
+      <p>Neil Roberts, Kim Henderson, Mary McAdory</p>
+      <p><strong>Style:</strong> Heritage-focused with moderate pace and accessibility consideration</p>
+      <p><strong>Transport:</strong> Self-drive automatic SUV, ferry, train</p>
     </div>
+    
+    <div class="toc">
+      <strong>Quick Navigation:</strong>
+      <div class="toc-links">
+        <a href="#flights" class="toc-link">✈️ Flights</a>
+        <a href="#car" class="toc-link">🚗 Car</a>
+        <a href="#hotels" class="toc-link">🏨 Hotels</a>
+        <a href="#itinerary" class="toc-link">📆 Itinerary</a>
+        <a href="#dining" class="toc-link">🍽️ Dining</a>
+        <a href="#notes" class="toc-link">📝 Notes</a>
+      </div>
+    </div>
+    
+    <h2 id="flights">✈️ Flights</h2>
+    <button class="accordion">Outbound <span>⬇️</span></button>
+    <div class="panel">
+      <div class="panel-content">
+        <p><strong>Apr 20, 12:46 PM:</strong> Depart Mobile (MOB) – American Airlines 5797, Seats 4A/B/C</p>
+        <p><strong>3:38 PM:</strong> Arrive Charlotte (CLT) – Layover 2h 47m</p>
+        <p><strong>6:25 PM:</strong> Depart CLT – AA 730 to London Heathrow, Premium Economy (Seats 16G/E/D)</p>
+      </div>
+    </div>
+    
+    <button class="accordion">Inbound <span>⬇️</span></button>
+    <div class="panel">
+      <div class="panel-content">
+        <p><strong>Apr 29, 11:20 AM:</strong> Depart Inverness (INV) – BA operated AA 6623</p>
+        <p><strong>1:00 PM:</strong> Arrive LHR – Layover 2h</p>
+        <p><strong>3:00 PM:</strong> Depart LHR – AA 735 to Charlotte (Seats 15A/C/D)</p>
+        <p><strong>6:50 PM:</strong> Arrive CLT – Layover 1h 34m</p>
+        <p><strong>8:24 PM:</strong> Depart CLT – AA 5970 to Mobile</p>
+        <p><strong>9:26 PM:</strong> Arrive Mobile (MOB)</p>
+      </div>
+    </div>
+    
+    <p><strong>Booking Ref:</strong> JAGPHB / BA 3CWE9J</p>
+    
+    <h2 id="car">🚗 Rental Car</h2>
+    <div class="card">
+      <div class="card-title">
+        <span>🚙 Avis Europe Corporate</span>
+      </div>
+      <p><strong>Vehicle:</strong> Hyundai Tucson or similar (SUV, Automatic)</p>
+      <p><strong>Confirmation #:</strong> GB103390130/17879930US5</p>
+      <p><strong>Total Price:</strong> £429.37 GBP (Unlimited mileage)</p>
+    </div>
+    
+    <h2 id="hotels">🏨 Accommodations</h2>
+    
+    <button class="accordion">Inverness – 20a By The Ness (Apr 21–25, 27) <span>⬇️</span></button>
+    <div class="panel">
+      <div class="panel-content">
+        <p>20A Gordonville Road, Inverness, IV2 4SS</p>
+        <p>2-BR apartment with full kitchen and parking</p>
+        <p><strong>Price:</strong> $874.20 USD (£660 paid)</p>
+      </div>
+    </div>
+    
+    <button class="accordion">Isle of Skye – Aurora B&B (Apr 25–27) <span>⬇️</span></button>
+    <div class="panel">
+      <div class="panel-content">
+        <p>10 Ebost, West Struan, Isle of Skye, IV56 8FL</p>
+        <p>Ground floor room requested, en-suite, parking on site</p>
+      </div>
+    </div>
+    
+    <button class="accordion">Nairn – Muthu Newton Hotel (Apr 28) <span>⬇️</span></button>
+    <div class="panel">
+      <div class="panel-content">
+        <p>Inverness Road, Nairn</p>
+        <p><strong>Confirmation #:</strong> 4800455829</p>
+        <p><strong>Price:</strong> £249.91 GBP</p>
+      </div>
+    </div>
+    
+    <h2 id="itinerary">📅 Itinerary Overview</h2>
+    
+    <div class="day-header">Day 1 – Apr 20 (Sun): Travel Day</div>
+    <div class="day-content">
+      <ul>
+        <li>Depart Mobile ➜ Arrive London overnight via Charlotte</li>
+      </ul>
+    </div>
+    
+    <div class="day-header">Day 2 – Apr 21 (Mon): Arrival in Inverness</div>
+    <div class="day-content">
+      <ul>
+        <li>Flight to Inverness; pick up car</li>
+        <li>Check in: 20a By The Ness</li>
+        <li>Light grocery shopping</li>
+        <li>Walk along the River Ness if time allows</li>
+        <li class="dinner"><span class="time">5:30 PM:</span> Dinner at The Mustard Seed (Res #147464895)</li>
+      </ul>
+    </div>
+    
+    <div class="day-header">Day 3 – Apr 22 (Tue): Loch Ness Day</div>
+    <div class="day-content">
+      <ul>
+        <li><span class="time">9:00 AM:</span> Depart for Jacobite Freedom Tour</li>
+        <li><span class="time">10:00 AM – 1:00 PM:</span> 3-hour cruise with 1-hour at Urquhart Castle</li>
+        <li><span class="time">1:15 PM:</span> Lunch at The Fiddler's Highland Restaurant, Drumnadrochit</li>
+        <li><span class="time">2:30 PM:</span> Drive south via B852, stop at Suidhe Viewpoint</li>
+        <li>Optional: Short walk at Falls of Foyers</li>
+        <li>Return via Loch Ness loop</li>
+        <li class="dinner"><span class="time">7:00 PM:</span> Dinner at Hootananny Inverness</li>
+      </ul>
+    </div>
+    
+    <div class="day-header">Day 4 – Apr 23 (Wed): Culloden & Aviemore</div>
+    <div class="day-content">
+      <ul>
+        <li><span class="time">9:30 AM:</span> Depart for Culloden Battlefield</li>
+        <li><span class="time">10:00 AM – 12:00 PM:</span> Visit Culloden Visitor Centre and battlefield</li>
+        <li><span class="time">12:15 PM:</span> Lunch at Culloden Café</li>
+        <li><span class="time">1:30 PM:</span> Optional short stop at Clava Cairns or Inverness Botanic Gardens</li>
+        <li><span class="time">2:30–3:45 PM:</span> Rest at apartment</li>
+        <li><span class="time">4:45 PM:</span> Train from Inverness to Aviemore</li>
+        <li><span class="time">5:25 PM:</span> Arrive Aviemore, brief stroll in town center</li>
+        <li class="dinner"><span class="time">6:00 PM:</span> Dinner at Old Bridge Inn Aviemore (Ref: BH977HGK)</li>
+        <li><span class="time">8:44 PM:</span> Return train to Inverness</li>
+        <li><span class="time">9:25 PM:</span> Arrive back at apartment</li>
+      </ul>
+    </div>
+    
+    <div class="day-header">Day 5 – Apr 24 (Thu): Northern Highlands Loop</div>
+    <div class="day-content">
+      <ul>
+        <li><span class="time">8:30 AM:</span> Depart for Dunrobin Castle</li>
+        <li><span class="time">10:30 AM – 12:30 PM:</span> Tour castle and gardens, view falconry if available</li>
+        <li><span class="time">12:30 PM:</span> Lunch at Dunrobin tearoom</li>
+        <li><span class="time">2:00 PM:</span> Drive to Dornoch Cathedral (30-min stop)</li>
+        <li><span class="time">3:30 PM:</span> Falls of Shin (accessible viewpoint)</li>
+        <li>Return via Struie Hill for scenic overlook</li>
+        <li><span class="time">6:30 PM:</span> Arrive Inverness</li>
+        <li class="dinner">Dinner: Flexible/local choice</li>
+      </ul>
+    </div>
+    
+    <div class="day-header">Day 6 – Apr 25 (Fri): Journey to Skye</div>
+    <div class="day-content">
+      <ul>
+        <li><span class="time">9:00 AM:</span> Depart Inverness</li>
+        <li><span class="time">10:30 AM:</span> Visit Eilean Donan Castle</li>
+        <li><span class="time">12:15 PM:</span> Lunch at Clachan Bar or Eilean Donan Café</li>
+        <li><span class="time">2:00 PM:</span> Arrive Aurora B&B, Struan</li>
+        <li>Afternoon rest</li>
+        <li class="dinner"><span class="time">7:45 PM:</span> Dinner at The Old School Restaurant (Ref: CBW0O)</li>
+      </ul>
+    </div>
+    
+    <div class="day-header">Day 7 – Apr 26 (Sat): Skye Scenic Loop</div>
+    <div class="day-content">
+      <ul>
+        <li><span class="time">9:00 AM:</span> Depart for Dunvegan</li>
+        <li><span class="time">9:30 AM:</span> Breakfast at The Dunvegan Deli-Café (opens 8:00 AM)</li>
+        <li><span class="time">10:00 AM – 12:00 PM:</span> Tour Dunvegan Castle and gardens</li>
+        <li><span class="time">12:00 PM:</span> Lunch at Dunvegan Castle Café</li>
+        <li><span class="time">12:30 PM:</span> Visit Trumpan Church ruins</li>
+        <li><span class="time">1:30 PM:</span> Coral Beach walk (Mary can rest nearby)</li>
+        <li><span class="time">3:30 PM:</span> Return to B&B for rest</li>
+        <li class="dinner"><span class="time">5:30 PM:</span> Dinner at The Old Inn, Carbost (no reservation needed)</li>
+        <li><span class="time">7:00 PM:</span> Optional: Sunset at Neist Point</li>
+      </ul>
+    </div>
+    
+    <div class="day-header">Day 8 – Apr 27 (Sun): Ferry to Mallaig, Glenfinnan, Carrbridge</div>
+    <div class="day-content">
+      <ul>
+        <li><span class="time">8:30 AM:</span> Depart Aurora B&B</li>
+        <li><span class="time">9:45 AM:</span> Arrive Skye Museum of Island Life – <span class="highlight">Closed Sundays</span>, but grounds and exterior buildings are walkable</li>
+        <li><span class="time">10:45 AM:</span> Staffin Dinosaur Museum + Beach (tide permitting)</li>
+        <li><span class="time">12:15 PM:</span> Light lunch at Shed Café or Armadale Castle Café</li>
+        <li><span class="time">1:40 PM:</span> Ferry to Mallaig</li>
+        <li><span class="time">3:00 PM:</span> Glenfinnan Viaduct stop</li>
+        <li><span class="time">4:00 PM:</span> Commando Memorial, Spean Bridge</li>
+        <li class="dinner"><span class="time">6:00 PM:</span> Dinner at Rowan Tree Country Hotel, Alvie</li>
+        <li><span class="time">7:30 PM:</span> Return to Inverness VRBO</li>
+      </ul>
+    </div>
+    
+    <div class="day-header">Day 9 – Apr 28 (Mon): Nairn</div>
+    <div class="day-content">
+      <ul>
+        <li><span class="time">10:00 AM:</span> Check out of apartment</li>
+        <li><span class="time">10:45 AM:</span> Arrive Nairn, walk beach and town center</li>
+        <li>Afternoon at Muthu Newton Hotel</li>
+        <li class="dinner">Farewell dinner in hotel or nearby</li>
+      </ul>
+    </div>
+    
+    <div class="day-header">Day 10 – Apr 29 (Tue): Return Travel</div>
+    <div class="day-content">
+      <ul>
+        <li><span class="time">10:00 AM:</span> Return car at Inverness Airport</li>
+        <li>Flights Inverness ➜ London ➜ Charlotte ➜ Mobile</li>
+      </ul>
+    </div>
+    
+    <h2 id="dining">🍽️ Confirmed Dining Reservations</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Apr 21:</strong> The Mustard Seed, Inverness – 5:30 PM (Res #147464895)</li>
+        <li><strong>Apr 22:</strong> Hootananny, Inverness – 7:00 PM</li>
+        <li><strong>Apr 23:</strong> Old Bridge Inn, Aviemore – 6:00 PM (Ref: BH977HGK)</li>
+        <li><strong>Apr 25:</strong> The Old School Restaurant, Skye – 7:45 PM (Ref: CBW0O)</li>
+        <li><strong>Apr 27:</strong> Rowan Tree Country Hotel, Alvie – 6:00 PM</li>
+      </ul>
+    </div>
+    
+    <h2 id="notes">📝 Notes</h2>
+    <div class="note">
+      <ul>
+        <li>Mary requires wheelchair assistance at airports, accessible accommodations, and frequent rest breaks.</li>
+        <li>All accommodations and transportation confirmed.</li>
+        <li><strong>Important:</strong> Ferry from Armadale to Mallaig must be booked in advance.</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+      
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+            this.querySelector('span').innerHTML = "⬇️";
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            this.querySelector('span').innerHTML = "⬆️";
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
