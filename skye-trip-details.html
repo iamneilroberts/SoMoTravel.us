@@ -1,614 +1,607 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isle of Skye Trip Details</title>
-    <style>
-        :root {
-            --primary: #1d3557;
-            --secondary: #457b9d;
-            --accent: #e63946;
-            --background: #f8f9fa;
-            --text: #333;
-            --light: #f1faee;
-            --border: #dee2e6;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--background);
-            max-width: 100%;
-            overflow-x: hidden;
-            padding-bottom: 50px;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1.5rem 0;
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        header h1 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .card h2 {
-            color: var(--primary);
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 0.3rem;
-        }
-        
-        .card h3 {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin: 1rem 0 0.5rem 0;
-        }
-        
-        .card h4 {
-            color: var(--primary);
-            font-size: 1.1rem;
-            margin: 0.8rem 0 0.4rem 0;
-        }
-        
-        .card p {
-            margin-bottom: 0.8rem;
-        }
-        
-        ul {
-            padding-left: 1.2rem;
-            margin-bottom: 0.8rem;
-        }
-        
-        li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .time {
-            font-weight: bold;
-            color: var(--primary);
-        }
-        
-        .detail {
-            margin-left: 1rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .accommodation {
-            background-color: #e7f5ff;
-            padding: 0.8rem;
-            border-radius: 4px;
-            margin-top: 1rem;
-        }
-        
-        .day-header {
-            background-color: var(--secondary);
-            color: white;
-            padding: 0.8rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            margin-bottom: 0;
-        }
-        
-        .day-content {
-            padding: 1rem;
-            background-color: white;
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .meals {
-            background-color: #f0f5ff;
-            padding: 0.8rem;
-            border-radius: 4px;
-            margin-top: 0.8rem;
-            margin-bottom: 0.8rem;
-        }
-        
-        .activity-group {
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .activity-group:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        .accessibility {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border-radius: 4px;
-        }
-        
-        .accessibility h3 {
-            color: #856404;
-        }
-        
-        .sticky-nav {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: var(--primary);
-            display: flex;
-            justify-content: space-around;
-            padding: 0.5rem 0;
-            z-index: 1000;
-        }
-        
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 0.3rem 0.5rem;
-            border-radius: 4px;
-        }
-        
-        .nav-link:hover {
-            background-color: rgba(255,255,255,0.2);
-        }
-        
-        .collapse-toggle {
-            cursor: pointer;
-            color: var(--primary);
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .collapse-toggle::after {
-            content: '▼';
-            font-size: 0.8rem;
-            margin-left: 0.5rem;
-        }
-        
-        .collapse-toggle.collapsed::after {
-            content: '►';
-        }
-        
-        .collapse-content {
-            display: block;
-        }
-        
-        .collapse-content.collapsed {
-            display: none;
-        }
-        
-        @media (max-width: 600px) {
-            body {
-                font-size: 15px;
-            }
-            
-            header h1 {
-                font-size: 1.6rem;
-            }
-            
-            .day-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .day-date {
-                margin-top: 0.3rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isle of Skye - Highland Heritage Trip</title>
+  <style>
+    :root {
+      --primary-color: #2a4d69;
+      --secondary-color: #4a708b;
+      --accent-color: #92bcea;
+      --light-bg: #f5f8fc;
+      --dark-text: #333333;
+      --light-text: #ffffff;
+      --divider: #e0e0e0;
+      --success: #4caf50;
+      --warning: #ff9800;
+      --card-bg: #ffffff;
+      --card-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark-text);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .container {
+      max-width: 100%;
+      padding: 15px;
+    }
+    
+    header {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: 20px 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    
+    h2 {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+      margin: 25px 0 15px 0;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 8px;
+    }
+    
+    h3 {
+      font-size: 1.2rem;
+      color: var(--secondary-color);
+      margin: 20px 0 10px 0;
+    }
+    
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: var(--card-shadow);
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .card-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .card-title span {
+      margin-left: 8px;
+    }
+    
+    .day-header {
+      background-color: var(--secondary-color);
+      color: var(--light-text);
+      padding: 10px 15px;
+      border-radius: 8px 8px 0 0;
+      font-weight: bold;
+      margin-top: 25px;
+    }
+    
+    .day-content {
+      background-color: var(--card-bg);
+      border-radius: 0 0 8px 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: var(--card-shadow);
+    }
+    
+    ul {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+    
+    li {
+      margin-bottom: 8px;
+    }
+    
+    .time {
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .highlight {
+      background-color: #ffd54f;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    
+    .dinner {
+      color: #d32f2f;
+      font-weight: bold;
+    }
+    
+    .accordion {
+      background-color: var(--secondary-color);
+      color: var(--light-text);
+      cursor: pointer;
+      padding: 15px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      transition: 0.4s;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .active, .accordion:hover {
+      background-color: var(--primary-color);
+    }
+    
+    .panel {
+      padding: 0;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      border-radius: 0 0 8px 8px;
+      box-shadow: var(--card-shadow);
+    }
+    
+    .panel-content {
+      padding: 15px;
+    }
+    
+    .icon {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .toc {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    
+    .toc-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    .toc-link {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    
+    .note {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .divider {
+      height: 1px;
+      background-color: var(--divider);
+      margin: 20px 0;
+    }
+    
+    @media (min-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Isle of Skye Trip Details</h1>
-            <p>April 25-27, 2025</p>
-        </div>
-    </header>
-    
-    <div class="container">
-        <div class="card">
-            <h2>Accommodation</h2>
-            <div class="accommodation">
-                <p><strong>Name:</strong> Aurora B&B</p>
-                <p><strong>Address:</strong> 10 Ebost West Struan, Isle of Skye, IV56 8FL</p>
-                <p><strong>Check-in:</strong> April 25, 2025</p>
-                <p><strong>Check-out:</strong> April 27, 2025</p>
-                <p><strong>Duration:</strong> 2 nights</p>
-                <p><strong>Status:</strong> Confirmed</p>
-                <p><strong>Features:</strong> Ground floor rooms requested, en-suite facilities, breakfast not included, parking on site</p>
-                <p><strong>Location Note:</strong> Conveniently located for exploring both northern Skye (Dunvegan) and the Fairy Pools/Talisker area</p>
-            </div>
-        </div>
-        
-        <div class="accessibility">
-            <h3>Accessibility Notes for Mary</h3>
-            <div class="collapse-toggle" onclick="toggleCollapse(this)">Easily Accessible Sites</div>
-            <div class="collapse-content">
-                <ul>
-                    <li>Eilean Donan Castle (partial)</li>
-                    <li>Dunvegan Castle gardens</li>
-                    <li>Kilt Rock viewpoint</li>
-                    <li>Staffin Dinosaur Museum</li>
-                    <li>Portree harbor</li>
-                    <li>Sligachan viewpoint</li>
-                    <li>Most café and restaurant recommendations</li>
-                </ul>
-            </div>
-            
-            <div class="collapse-toggle" onclick="toggleCollapse(this)">Partially Accessible/Viewable from Car</div>
-            <div class="collapse-content">
-                <ul>
-                    <li>Old Man of Storr (main formation visible from car park)</li>
-                    <li>Staffin Beach (dinosaur footprints may be viewable from distance)</li>
-                    <li>Talisker Bay (sunset visible from parking area)</li>
-                    <li>Castle Moyl ruins (viewable from harbor)</li>
-                </ul>
-            </div>
-            
-            <div class="collapse-toggle" onclick="toggleCollapse(this)">For Neil and Kim While Mary Rests</div>
-            <div class="collapse-content">
-                <ul>
-                    <li>Short hike at Old Man of Storr (30-45 min)</li>
-                    <li>Walking down to Staffin Beach dinosaur footprints</li>
-                    <li>Dunbeg Broch walk (10 min uphill)</li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Day 1 -->
-        <div class="day-header">
-            <h2>Day 1: Journey to Skye & Southern Exploration</h2>
-            <div class="day-date">Friday, April 25, 2025</div>
-        </div>
-        <div class="day-content">
-            <div class="activity-group">
-                <h3>Morning</h3>
-                <p><span class="time">09:00:</span> Check out of 20a, By The Ness apartment in Inverness</p>
-                <p><span class="time">09:00-10:30:</span> Drive from Inverness to Eilean Donan Castle (70 miles, approx. 1 hr 30 min)</p>
-                <p><span class="time">10:30-12:00:</span> Visit Eilean Donan Castle (accessible for Mary)</p>
-                <ul class="detail">
-                    <li>Historic castle on a small tidal island</li>
-                    <li>Featured in numerous films including "Highlander"</li>
-                    <li>Picturesque setting with mountain backdrop</li>
-                    <li>Well-maintained paths suitable for Mary</li>
-                </ul>
-            </div>
-            
-            <div class="meals">
-                <h4>Lunch (12:00-13:00)</h4>
-                <p>Eilean Donan Castle Café or Clachan Bar in Dornie</p>
-                <ul class="detail">
-                    <li>Castle café offers soups, sandwiches, and Scottish specialties</li>
-                    <li>Clachan Bar serves traditional pub fare with local ingredients</li>
-                </ul>
-            </div>
-            
-            <div class="activity-group">
-                <h3>Afternoon</h3>
-                <p><span class="time">13:00-13:30:</span> Drive from Eilean Donan to Kyleakin (9 miles, approx. 20 min)</p>
-                <p><span class="time">13:30-14:00:</span> Stop at Kyleakin to see Castle Moyl ruins</p>
-                <ul class="detail">
-                    <li>Brief viewpoint stop (10-15 min)</li>
-                    <li>Historic ruins of 14th-15th century castle</li>
-                    <li>Good views across to the mainland</li>
-                    <li>Accessible viewing from harbor area</li>
-                </ul>
-                
-                <p><span class="time">14:00-14:15:</span> Drive Kyleakin to Broadford (7 miles, approx. 15 min)</p>
-                <p><span class="time">14:15-15:15:</span> Stop in Broadford</p>
-                <ul class="detail">
-                    <li>Stretch legs in town</li>
-                    <li>Coffee at Café Sia (well-regarded local café)</li>
-                    <li>Brief exploration of the village</li>
-                </ul>
-                
-                <p><span class="time">15:15-15:45:</span> Drive Broadford to Aurora B&B (12 miles, approx. 25 min)</p>
-                <p><span class="time">15:45-17:00:</span> Check in to Aurora B&B and rest</p>
-            </div>
-            
-            <div class="activity-group">
-                <h3>Evening</h3>
-                <p><span class="time">17:00-17:30:</span> Drive to Carbost (5 miles, approx. 10-15 min)</p>
-                <p><span class="time">18:00-19:30:</span> Dinner at Caora Dhubh Coffee Company or Taigh Ailean (Talisker Inn)</p>
-                <ul class="detail">
-                    <li>Caora Dhubh: Casual dining with local ingredients in converted farm building</li>
-                    <li>Taigh Ailean: Traditional pub food with local seafood, popular with locals</li>
-                </ul>
-                
-                <p><span class="time">19:30-20:15:</span> Optional evening drive to Talisker Bay viewpoint for sunset (4 miles from Carbost)</p>
-                <ul class="detail">
-                    <li>Short walk from car park, but Mary can enjoy sunset colors from car if preferred</li>
-                    <li>Beautiful black sand beach with sea stacks</li>
-                    <li>Often less crowded than other Skye attractions</li>
-                </ul>
-                
-                <p><span class="time">20:15-20:30:</span> Return to Aurora B&B (9 miles, approx. 20 min)</p>
-            </div>
-        </div>
-        
-        <!-- Day 2 -->
-        <div class="day-header">
-            <h2>Day 2: Northern Skye Exploration</h2>
-            <div class="day-date">Saturday, April 26, 2025</div>
-        </div>
-        <div class="day-content">
-            <div class="activity-group">
-                <h3>Morning</h3>
-                <p><span class="time">09:00:</span> Depart Aurora B&B</p>
-                <p><span class="time">09:00-09:45:</span> Drive to Dunvegan area (18 miles, approx. 35-40 min)</p>
-                <p><span class="time">09:45-10:30:</span> Breakfast at The Pier Café in Dunvegan or Café Lephin in Glendale</p>
-                <ul class="detail">
-                    <li>The Pier Café: Casual café with breakfast options and waterfront views</li>
-                    <li>Café Lephin: Small café with breakfast, coffee and baked goods</li>
-                </ul>
-                
-                <p><span class="time">10:30-12:30:</span> Visit Dunvegan Castle & Gardens</p>
-                <ul class="detail">
-                    <li>Oldest continuously inhabited castle in Scotland (800+ years)</li>
-                    <li>Home to the famous Fairy Flag</li>
-                    <li>Beautiful walled garden and woodland walks</li>
-                    <li>Well-maintained paths suitable for Mary</li>
-                    <li>Allow 2 hours for both castle and gardens</li>
-                </ul>
-            </div>
-            
-            <div class="meals">
-                <h4>Lunch (12:30-13:30)</h4>
-                <p>Dunvegan Castle café or Loch Bay Restaurant (15 min drive to Stein)</p>
-                <ul class="detail">
-                    <li>Castle café: Casual dining with soups, sandwiches and Scottish fare</li>
-                    <li>Loch Bay Restaurant: Seafood specialist in the village of Stein</li>
-                </ul>
-            </div>
-            
-            <div class="activity-group">
-                <h3>Afternoon</h3>
-                <p><span class="time">13:30-14:15:</span> Drive from Dunvegan to Uig (15 miles, approx. 30 min)</p>
-                <p><span class="time">14:15-14:35:</span> Brief stop at Skye Brewing Company in Uig</p>
-                <ul class="detail">
-                    <li>Sample local craft beers (Sky Blue, Sky Red, Sky Gold, Sky Black)</li>
-                    <li>Recently added gin production</li>
-                    <li>Small tasting room with views of Uig Bay</li>
-                </ul>
-                
-                <p><span class="time">14:35-15:15:</span> Drive from Uig to Kilmuir via Staffin (18 miles, approx. 35 min)</p>
-                <p><span class="time">15:15-16:00:</span> Visit Skye Museum of Island Life</p>
-                <ul class="detail">
-                    <li>Collection of thatched cottages showing island life up to the 1950s</li>
-                    <li>Relatively accessible paths between buildings</li>
-                    <li>Flora MacDonald's grave monument nearby</li>
-                    <li>Highland cattle may be visible (owner can call them over)</li>
-                    <li>Café with excellent coffee and homemade cakes</li>
-                </ul>
-                
-                <p><span class="time">16:00-16:15:</span> Drive to Staffin Dinosaur Museum (3 miles, approx. 10 min)</p>
-                <p><span class="time">16:15-17:00:</span> Visit Staffin Dinosaur Museum</p>
-                <ul class="detail">
-                    <li>£4 per adult admission</li>
-                    <li>Accessible facility with impressive fossil collection</li>
-                    <li>Includes world's smallest dinosaur footprint (1.7cm)</li>
-                    <li>Run by Dugald Ross who found many of the exhibits</li>
-                </ul>
-                
-                <p><span class="time">17:00-17:30:</span> Visit Staffin Beach (dinosaur footprints)</p>
-                <ul class="detail">
-                    <li>Visible at low tide (check tide times in advance)</li>
-                    <li>Neil and Kim can walk down to see prints while Mary rests in car</li>
-                    <li>170 million-year-old fossilized prints</li>
-                    <li>Alternative viewing spot may be available from parking area</li>
-                </ul>
-                
-                <p><span class="time">17:30-17:40:</span> Drive to Kilt Rock viewpoint (2 miles, approx. 5-10 min)</p>
-                <p><span class="time">17:40-18:00:</span> Kilt Rock & Mealt Falls viewpoint</p>
-                <ul class="detail">
-                    <li>Easily accessible from car park</li>
-                    <li>90m/300ft cliff face of basalt columns resembling a kilt</li>
-                    <li>Waterfall plunges from cliff to sea</li>
-                    <li>Great photo opportunity</li>
-                </ul>
-            </div>
-            
-            <div class="activity-group">
-                <h3>Evening</h3>
-                <p><span class="time">18:00-19:00:</span> Drive from Kilt Rock back toward accommodation area (35 miles, approx. 1 hour)</p>
-                <p><span class="time">19:00-20:30:</span> Dinner at The Three Chimneys in Colbost or Edinbane Lodge</p>
-                <ul class="detail">
-                    <li>The Three Chimneys: High-end dining with local ingredients (reservation essential)</li>
-                    <li>Edinbane Lodge: Fine Scottish cuisine in historic building (reservation required)</li>
-                </ul>
-                
-                <p><span class="time">20:30-21:00:</span> Return to Aurora B&B (distance varies: 12 miles/25 min from Edinbane or 7 miles/15 min from Colbost)</p>
-            </div>
-        </div>
-        
-        <!-- Day 3 -->
-        <div class="day-header">
-            <h2>Day 3: Return to Inverness via Portree</h2>
-            <div class="day-date">Sunday, April 27, 2025</div>
-        </div>
-        <div class="day-content">
-            <div class="activity-group">
-                <h3>Morning</h3>
-                <p><span class="time">09:00:</span> Check out of Aurora B&B</p>
-                <p><span class="time">09:00-09:45:</span> Drive to Broadford (12 miles, approx. 25 min)</p>
-                <p><span class="time">09:45-10:30:</span> Breakfast at Cafesia in Broadford</p>
-                <ul class="detail">
-                    <li>Café with good breakfast options and coffee</li>
-                </ul>
-                
-                <p><span class="time">10:30-11:00:</span> Drive from Broadford to Portree (25 miles, approx. 35 min)</p>
-                <p><span class="time">11:00-12:00:</span> Visit Portree harbor</p>
-                <ul class="detail">
-                    <li>Colorful buildings and scenic harbor</li>
-                    <li>Accessible short walk along waterfront</li>
-                    <li>Beautiful views of surrounding hills</li>
-                    <li>Portree is the largest town on Skye</li>
-                    <li>Relax at harbor-side café while taking in the views</li>
-                </ul>
-            </div>
-            
-            <div class="meals">
-                <h4>Lunch (12:00-13:15)</h4>
-                <p>Café Arriba or Scorrybreac Restaurant in Portree</p>
-                <ul class="detail">
-                    <li>Café Arriba: Casual dining with soups, sandwiches and local fare</li>
-                    <li>Scorrybreac: Higher-end restaurant with excellent seafood (may need reservation)</li>
-                </ul>
-            </div>
-            
-            <div class="activity-group">
-                <h3>Afternoon</h3>
-                <p><span class="time">13:15-13:45:</span> Drive from Portree to Old Man of Storr car park (7 miles, approx. 15 min)</p>
-                <p><span class="time">13:45-14:45:</span> Stop at Old Man of Storr car park</p>
-                <ul class="detail">
-                    <li>Mary can enjoy the view from car</li>
-                    <li>Neil and Kim could take a 30-45 minute quick hike if desired</li>
-                    <li>160-foot/50m rock pinnacle visible from parking area</li>
-                    <li>One of Skye's most iconic landscapes</li>
-                </ul>
-                
-                <p><span class="time">14:45-15:15:</span> Drive to Sligachan (10 miles, approx. 20 min)</p>
-                <p><span class="time">15:15-15:45:</span> Stop at Sligachan</p>
-                <ul class="detail">
-                    <li>Beautiful mountain views accessible from car park</li>
-                    <li>Historic bridge and hotel</li>
-                    <li>Great photo opportunity of the Cuillin mountains</li>
-                    <li>River Sligachan with legend of eternal beauty</li>
-                </ul>
-                
-                <p><span class="time">15:45-16:15:</span> Drive back toward Struan/Ebost area (15 miles, approx. 25 min)</p>
-                <p><span class="time">16:15-17:00:</span> Optional: Visit Dunbeg Broch near your accommodation</p>
-                <ul class="detail">
-                    <li>10-minute uphill walk for Neil and Kim while Mary rests in car</li>
-                    <li>Iron Age fort with spectacular views over Loch Bracadale</li>
-                    <li>About 3,000 years old</li>
-                    <li>One of the best preserved brochs on Skye</li>
-                </ul>
-                
-                <p><span class="time">17:00-19:30:</span> Journey back to Inverness (115 miles, approx. 2.5 hours)</p>
-                <ul class="detail">
-                    <li>Drive via Broadford, Kyle of Lochalsh, and Loch Ness</li>
-                    <li>Possible brief stops at viewpoints along the way as time permits</li>
-                    <li>Check into City Center VRBO apartment in Inverness</li>
-                </ul>
-            </div>
-            
-            <div class="activity-group">
-                <h3>Evening</h3>
-                <p><span class="time">20:00:</span> Dinner in Inverness</p>
-            </div>
-        </div>
-        
-        <div class="card">
-            <h2>Driving Distance Summary</h2>
-            <ul>
-                <li><strong>Day 1:</strong> Inverness to Aurora B&B via Eilean Donan Castle: ~100 miles (3 hours total driving)</li>
-                <li><strong>Day 2:</strong> Skye northern loop: ~110 miles (3.5 hours total driving)</li>
-                <li><strong>Day 3:</strong> Aurora B&B to Inverness via Portree: ~175 miles (4.5 hours total driving)</li>
-            </ul>
-        </div>
-        
-        <div class="card">
-            <h2>Additional Information</h2>
-            
-            <div class="collapse-toggle" onclick="toggleCollapse(this)">Dining Reservations Needed</div>
-            <div class="collapse-content">
-                <p>For these popular restaurants, advance reservations are strongly recommended:</p>
-                <ul>
-                    <li>The Three Chimneys (Colbost)</li>
-                    <li>Edinbane Lodge</li>
-                    <li>Scorrybreac Restaurant (Portree)</li>
-                    <li>Loch Bay Restaurant (Stein)</li>
-                </ul>
-            </div>
-            
-            <div class="collapse-toggle" onclick="toggleCollapse(this)">Weather Contingency Plans</div>
-            <div class="collapse-content">
-                <p>If weather is poor, consider these indoor alternatives:</p>
-                <ul>
-                    <li>Extended visit to Dunvegan Castle interior</li>
-                    <li>Talisker Distillery tour (if available)</li>
-                    <li>Additional time at Staffin Dinosaur Museum</li>
-                    <li>More time in cafés and restaurants</li>
-                    <li>Aros Centre in Portree (if open)</li>
-                </ul>
-            </div>
-            
-            <div class="collapse-toggle" onclick="toggleCollapse(this)">Local Specialties to Try</div>
-            <div class="collapse-content">
-                <ul>
-                    <li>Skye Brewery beers (Sky Blue, Sky Red, Sky Gold, Sky Black)</li>
-                    <li>Talisker whisky</li>
-                    <li>Fresh seafood (especially at Loch Bay Restaurant)</li>
-                    <li>Local lamb dishes</li>
-                    <li>Cullen skink (traditional Scottish soup)</li>
-                    <li>Haggis (for the adventurous)</li>
-                    <li>Cranachan (traditional Scottish dessert)</li>
-                </ul>
-            </div>
-        </div>
+  <header>
+    <h1>Isle of Skye - Highland Heritage Trip</h1>
+    <p>April 25–27, 2025</p>
+  </header>
+  
+  <div class="container">
+    <div class="card">
+      <div class="card-title">
+        <span>👤 Travelers:</span>
+      </div>
+      <p>Neil Roberts, Kim Henderson, Mary McAdory</p>
+      <p><strong>Style:</strong> Heritage-focused with moderate pace and accessibility consideration</p>
+      <p><strong>Transport:</strong> Self-drive automatic SUV</p>
     </div>
     
-    <div class="sticky-nav">
-        <a href="#" class="nav-link" onclick="scrollToDay(1); return false;">Day 1</a>
-        <a href="#" class="nav-link" onclick="scrollToDay(2); return false;">Day 2</a>
-        <a href="#" class="nav-link" onclick="scrollToDay(3); return false;">Day 3</a>
-        <a href="#" class="nav-link" onclick="scrollToTop(); return false;">↑ Top</a>
+    <div class="toc">
+      <strong>Quick Navigation:</strong>
+      <div class="toc-links">
+        <a href="#accommodation" class="toc-link">🏨 Accommodation</a>
+        <a href="#map" class="toc-link">🗺️ Map</a>
+        <a href="#itinerary" class="toc-link">📆 Itinerary</a>
+        <a href="#dining" class="toc-link">🍽️ Dining</a>
+        <a href="#accessibility" class="toc-link">♿ Accessibility</a>
+        <a href="#distances" class="toc-link">🚗 Distances</a>
+        <a href="#notes" class="toc-link">📝 Notes</a>
+      </div>
     </div>
-
-    <script>
-        function toggleCollapse(element) {
-            element.classList.toggle('collapsed');
-            var content = element.nextElementSibling;
-            content.classList.toggle('collapsed');
-        }
-        
-        function scrollToDay(day) {
-            const dayHeaders = document.querySelectorAll('.day-header');
-            if (dayHeaders.length >= day) {
-                dayHeaders[day-1].scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-        
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+    
+    <h2 id="accommodation">🏨 Accommodation</h2>
+    <div class="card">
+      <div class="card-title">
+        <span>Aurora B&B</span>
+      </div>
+      <p><strong>Address:</strong> 10 Ebost West Struan, Isle of Skye, IV56 8FL</p>
+      <p><strong>Check-in:</strong> April 25, 2025</p>
+      <p><strong>Check-out:</strong> April 27, 2025</p>
+      <p><strong>Duration:</strong> 2 nights</p>
+      <p><strong>Status:</strong> Confirmed</p>
+      <p><strong>Features:</strong> Ground floor rooms requested, en-suite facilities, breakfast not included, parking on site</p>
+      <p><strong>Location Note:</strong> Conveniently located for exploring both northern Skye (Dunvegan) and the Fairy Pools/Talisker area</p>
+    </div>
+    
+    <h2 id="map">🗺️ Interactive Trip Map</h2>
+    <div class="card">
+      <p>View our detailed itinerary route with all stops marked:</p>
+      <p><a href="https://www.google.com/maps/d/view?mid=1M4WbujBdzSUgxqIscKopqqhm1fvJvFs&ll=57.15683752520748%2C-4.6206035602350415&z=9" target="_blank" style="display: inline-block; background-color: var(--primary-color); color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; margin: 10px 0;">Open Interactive Map</a></p>
+      <p><small>Note: Opens in Google Maps. No login required. Internet connection needed.</small></p>
+    </div>
+    
+    <h2 id="itinerary">📅 Detailed Itinerary</h2>
+    
+    <div class="day-header">Day 6 – Apr 25 (Fri): Journey to Skye and Southern Exploration</div>
+    <div class="day-content">
+      <h3>Morning:</h3>
+      <ul>
+        <li><span class="time">09:00:</span> Check out of 20a, By The Ness apartment in Inverness</li>
+        <li><span class="time">09:00-10:30:</span> Drive from Inverness to Eilean Donan Castle (70 miles, approx. 1 hr 30 min)</li>
+        <li><span class="time">10:30-12:00:</span> Visit Eilean Donan Castle (accessible for Mary)
+          <ul>
+            <li>Historic castle on a small tidal island</li>
+            <li>Featured in numerous films including "Highlander"</li>
+            <li>Picturesque setting with mountain backdrop</li>
+            <li>Well-maintained paths suitable for Mary</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <h3>Lunch:</h3>
+      <ul>
+        <li><span class="time">12:00-13:00:</span> Lunch at Eilean Donan Castle Café or Clachan Bar in Dornie
+          <ul>
+            <li>Castle café offers soups, sandwiches, and Scottish specialties</li>
+            <li>Clachan Bar serves traditional pub fare with local ingredients</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <h3>Afternoon:</h3>
+      <ul>
+        <li><span class="time">13:00-13:30:</span> Drive from Eilean Donan to Kyleakin (9 miles, approx. 20 min)</li>
+        <li><span class="time">13:30-14:00:</span> Stop at Kyleakin to see Castle Moyl ruins
+          <ul>
+            <li>Brief viewpoint stop (10-15 min)</li>
+            <li>Historic ruins of 14th-15th century castle</li>
+            <li>Good views across to the mainland</li>
+            <li>Accessible viewing from harbor area</li>
+          </ul>
+        </li>
+        <li><span class="time">14:00-14:15:</span> Drive Kyleakin to Broadford (7 miles, approx. 15 min)</li>
+        <li><span class="time">14:15-15:15:</span> Stop in Broadford
+          <ul>
+            <li>Stretch legs in town</li>
+            <li>Coffee at Café Sia (well-regarded local café)</li>
+            <li>Brief exploration of the village</li>
+          </ul>
+        </li>
+        <li><span class="time">15:15-15:45:</span> Drive Broadford to Aurora B&B (12 miles, approx. 25 min)</li>
+        <li><span class="time">15:45-17:00:</span> Check in to Aurora B&B and rest</li>
+      </ul>
+      
+      <h3>Evening:</h3>
+      <ul>
+        <li><span class="time">17:00-17:30:</span> Drive to Carbost (5 miles, approx. 10-15 min)</li>
+        <li class="dinner"><span class="time">18:00-19:30:</span> Dinner at Caora Dhubh Coffee Company near Talisker Distillery or Taigh Ailean (Talisker Inn) in Carbost
+          <ul>
+            <li>Caora Dhubh: Casual dining with local ingredients in converted farm building</li>
+            <li>Taigh Ailean: Traditional pub food with local seafood, popular with locals</li>
+          </ul>
+        </li>
+        <li><span class="time">19:30-20:15:</span> Optional evening drive to Talisker Bay viewpoint for sunset (4 miles from Carbost, 10-15 min drive)
+          <ul>
+            <li>Short walk from car park, but Mary can enjoy sunset colors from car if preferred</li>
+            <li>Beautiful black sand beach with sea stacks</li>
+            <li>Often less crowded than other Skye attractions</li>
+          </ul>
+        </li>
+        <li><span class="time">20:15-20:30:</span> Return to Aurora B&B (9 miles, approx. 20 min)</li>
+      </ul>
+    </div>
+    
+    <div class="day-header">Day 7 – Apr 26 (Sat): Northern Skye Exploration</div>
+    <div class="day-content">
+      <h3>Morning:</h3>
+      <ul>
+        <li><span class="time">09:00:</span> Depart Aurora B&B</li>
+        <li><span class="time">09:00-09:45:</span> Drive to Dunvegan area (18 miles, approx. 35-40 min)</li>
+        <li><span class="time">09:45-10:30:</span> Breakfast at The Pier Café in Dunvegan or Café Lephin in Glendale
+          <ul>
+            <li>The Pier Café: Casual café with breakfast options and waterfront views</li>
+            <li>Café Lephin: Small café with breakfast, coffee and baked goods</li>
+          </ul>
+        </li>
+        <li><span class="time">10:30-12:30:</span> Visit Dunvegan Castle & Gardens
+          <ul>
+            <li>Oldest continuously inhabited castle in Scotland (800+ years)</li>
+            <li>Home to the famous Fairy Flag</li>
+            <li>Beautiful walled garden and woodland walks</li>
+            <li>Well-maintained paths suitable for Mary</li>
+            <li>Allow 2 hours for both castle and gardens</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <h3>Lunch:</h3>
+      <ul>
+        <li><span class="time">12:30-13:30:</span> Lunch at Dunvegan Castle café or drive to Loch Bay Restaurant (15 min drive to Stein)
+          <ul>
+            <li>Castle café: Casual dining with soups, sandwiches and Scottish fare</li>
+            <li>Loch Bay Restaurant: Seafood specialist in the village of Stein</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <h3>Afternoon:</h3>
+      <ul>
+        <li><span class="time">14:35-15:15:</span> Drive from Uig to Kilmuir via Staffin (18 miles, approx. 35 min)</li>
+        <li><span class="time">15:15-16:00:</span> Visit Skye Museum of Island Life
+          <ul>
+            <li>Collection of thatched cottages showing island life up to the 1950s</li>
+            <li>Relatively accessible paths between buildings</li>
+            <li>Flora MacDonald's grave monument nearby</li>
+            <li>Highland cattle may be visible (owner can call them over)</li>
+            <li>Café with excellent coffee and homemade cakes</li>
+          </ul>
+        </li>
+        <li><span class="time">16:00-16:15:</span> Drive to Staffin Dinosaur Museum (3 miles, approx. 10 min)</li>
+        <li><span class="time">16:15-17:00:</span> Visit Staffin Dinosaur Museum
+          <ul>
+            <li>£4 per adult admission</li>
+            <li>Accessible facility with impressive fossil collection</li>
+            <li>Includes world's smallest dinosaur footprint (1.7cm)</li>
+            <li>Run by Dugald Ross who found many of the exhibits</li>
+          </ul>
+        </li>
+        <li><span class="time">17:00-17:30:</span> Visit Staffin Beach (dinosaur footprints)
+          <ul>
+            <li>Visible at low tide (check tide times in advance)</li>
+            <li>Neil and Kim can walk down to see prints while Mary rests in car</li>
+            <li>170 million-year-old fossilized prints</li>
+            <li>Alternative viewing spot may be available from parking area</li>
+          </ul>
+        </li>
+        <li><span class="time">17:30-17:40:</span> Drive to Kilt Rock viewpoint (2 miles, approx. 5-10 min)</li>
+        <li><span class="time">17:40-18:00:</span> Kilt Rock & Mealt Falls viewpoint
+          <ul>
+            <li>Easily accessible from car park</li>
+            <li>90m/300ft cliff face of basalt columns resembling a kilt</li>
+            <li>Waterfall plunges from cliff to sea</li>
+            <li>Great photo opportunity</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <h3>Evening:</h3>
+      <ul>
+        <li class="dinner"><span class="time">19:00-20:30:</span> Dinner at The Old Inn, Carbost (no reservation needed)</li>
+        <li><span class="time">20:30-21:00:</span> Return to Aurora B&B (distance varies: 12 miles/25 min from Edinbane or 7 miles/15 min from Colbost)</li>
+      </ul>
+    </div>
+    
+    <div class="day-header">Day 8 – Apr 27 (Sun): Return to Inverness via Portree</div>
+    <div class="day-content">
+      <h3>Morning:</h3>
+      <ul>
+        <li><span class="time">09:00:</span> Check out of Aurora B&B</li>
+        <li><span class="time">09:00-09:45:</span> Drive to Broadford (12 miles, approx. 25 min)</li>
+        <li><span class="time">09:45-10:30:</span> Breakfast at Cafesia in Broadford
+          <ul>
+            <li>Café with good breakfast options and coffee</li>
+          </ul>
+        </li>
+        <li><span class="time">10:30-11:00:</span> Drive from Broadford to Portree (25 miles, approx. 35 min)</li>
+        <li><span class="time">11:00-12:00:</span> Visit Portree harbor
+          <ul>
+            <li>Colorful buildings and scenic harbor</li>
+            <li>Accessible short walk along waterfront</li>
+            <li>Beautiful views of surrounding hills</li>
+            <li>Portree is the largest town on Skye</li>
+            <li>Relax at harbor-side café while taking in the views</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <h3>Lunch:</h3>
+      <ul>
+        <li><span class="time">12:00-13:15:</span> Lunch at Café Arriba or Scorrybreac Restaurant in Portree
+          <ul>
+            <li>Café Arriba: Casual dining with soups, sandwiches and local fare</li>
+            <li>Scorrybreac: Higher-end restaurant with excellent seafood (may need reservation)</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <h3>Afternoon:</h3>
+      <ul>
+        <li><span class="time">13:15-13:45:</span> Drive from Portree to Old Man of Storr car park (7 miles, approx. 15 min)</li>
+        <li><span class="time">13:45-14:45:</span> Stop at Old Man of Storr car park
+          <ul>
+            <li>Mary can enjoy the view from car</li>
+            <li>Neil and Kim could take a 30-45 minute quick hike if desired</li>
+            <li>160-foot/50m rock pinnacle visible from parking area</li>
+            <li>One of Skye's most iconic landscapes</li>
+          </ul>
+        </li>
+        <li><span class="time">14:45-15:15:</span> Drive to Sligachan (10 miles, approx. 20 min)</li>
+        <li><span class="time">15:15-15:45:</span> Stop at Sligachan
+          <ul>
+            <li>Beautiful mountain views accessible from car park</li>
+            <li>Historic bridge and hotel</li>
+            <li>Great photo opportunity of the Cuillin mountains</li>
+            <li>River Sligachan with legend of eternal beauty</li>
+          </ul>
+        </li>
+        <li><span class="time">15:45-16:15:</span> Drive back toward Struan/Ebost area (15 miles, approx. 25 min)</li>
+        <li><span class="time">16:15-17:00:</span> Optional: Visit Dunbeg Broch near your accommodation
+          <ul>
+            <li>10-minute uphill walk for Neil and Kim while Mary rests in car</li>
+            <li>Iron Age fort with spectacular views over Loch Bracadale</li>
+            <li>About 3,000 years old</li>
+            <li>One of the best preserved brochs on Skye</li>
+          </ul>
+        </li>
+        <li><span class="time">17:00-19:30:</span> Journey back to Inverness (115 miles, approx. 2.5 hours)
+          <ul>
+            <li>Drive via Broadford, Kyle of Lochalsh, and Loch Ness</li>
+            <li>Possible brief stops at viewpoints along the way as time permits</li>
+            <li>Check into City Center VRBO apartment in Inverness</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <h3>Evening:</h3>
+      <ul>
+        <li class="dinner"><span class="time">20:00:</span> Dinner in Inverness</li>
+      </ul>
+    </div>
+    
+    <h2 id="distances">🚗 Driving Distance Summary</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Day 6:</strong> Inverness to Aurora B&B via Eilean Donan Castle: ~100 miles (3 hours total driving)</li>
+        <li><strong>Day 7:</strong> Skye northern loop: ~110 miles (3.5 hours total driving)</li>
+        <li><strong>Day 8:</strong> Aurora B&B to Inverness via Portree: ~175 miles (4.5 hours total driving)</li>
+      </ul>
+    </div>
+    
+    <h2 id="accessibility">♿ Accessibility Notes for Mary</h2>
+    
+    <button class="accordion">Easily Accessible Sites <span>⬇️</span></button>
+    <div class="panel">
+      <div class="panel-content">
+        <ul>
+          <li>Eilean Donan Castle (partial)</li>
+          <li>Dunvegan Castle gardens</li>
+          <li>Kilt Rock viewpoint</li>
+          <li>Staffin Dinosaur Museum</li>
+          <li>Portree harbor</li>
+          <li>Sligachan viewpoint</li>
+          <li>Most café and restaurant recommendations</li>
+        </ul>
+      </div>
+    </div>
+    
+    <button class="accordion">Viewable from Car <span>⬇️</span></button>
+    <div class="panel">
+      <div class="panel-content">
+        <ul>
+          <li>Old Man of Storr (main formation visible from car park)</li>
+          <li>Staffin Beach (dinosaur footprints may be viewable from distance)</li>
+          <li>Talisker Bay (sunset visible from parking area)</li>
+          <li>Castle Moyl ruins (viewable from harbor)</li>
+        </ul>
+      </div>
+    </div>
+    
+    <button class="accordion">For Neil and Kim While Mary Rests <span>⬇️</span></button>
+    <div class="panel">
+      <div class="panel-content">
+        <ul>
+          <li>Short hike at Old Man of Storr (30-45 min)</li>
+          <li>Walking down to Staffin Beach dinosaur footprints</li>
+          <li>Dunbeg Broch walk (10 min uphill)</li>
+        </ul>
+      </div>
+    </div>
+    
+    <h2 id="dining">🍽️ Dining Notes</h2>
+    
+    <div class="note">
+      <p><strong>Restaurants Requiring Advance Reservations:</strong></p>
+      <ul>
+        <li>The Three Chimneys (Colbost)</li>
+        <li>Edinbane Lodge</li>
+        <li>Scorrybreac Restaurant (Portree)</li>
+        <li>Loch Bay Restaurant (Stein)</li>
+      </ul>
+    </div>
+    
+    <h3>Local Specialties to Try</h3>
+    <div class="card">
+      <ul>
+        <li>Skye Brewery beers (Sky Blue, Sky Red, Sky Gold, Sky Black)</li>
+        <li>Talisker whisky</li>
+        <li>Fresh seafood (especially at Loch Bay Restaurant)</li>
+        <li>Local lamb dishes</li>
+        <li>Cullen skink (traditional Scottish soup)</li>
+        <li>Haggis (for the adventurous)</li>
+        <li>Cranachan (traditional Scottish dessert)</li>
+      </ul>
+    </div>
+    
+    <h2 id="notes">📝 Weather Contingency</h2>
+    <div class="note">
+      <p><strong>If weather is poor, consider these indoor alternatives:</strong></p>
+      <ul>
+        <li>Extended visit to Dunvegan Castle interior</li>
+        <li>Talisker Distillery tour (if available)</li>
+        <li>Additional time at Staffin Dinosaur Museum</li>
+        <li>More time in cafés and restaurants</li>
+        <li>Aros Centre in Portree (if open)</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+      
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+            this.querySelector('span').innerHTML = "⬇️";
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            this.querySelector('span').innerHTML = "⬆️";
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
