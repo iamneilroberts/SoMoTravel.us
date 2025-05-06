@@ -237,6 +237,49 @@
             vertical-align: middle;
         }
         
+        .card-price {
+            background-color: #f0f7ff;
+            border-left: 4px solid #2980b9;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .price-title {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px dotted #ddd;
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        
+        .price-label {
+            flex: 1;
+        }
+        
+        .price-value {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .price-total {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 2px solid #ddd;
+        }
+        
         .footer {
             text-align: center;
             margin: 30px 0 20px;
@@ -265,6 +308,11 @@
     </header>
     
     <div class="container">
+        <div class="summary-box">
+            <h3>TRIP OVERVIEW</h3>
+            <p>This itinerary has been carefully designed to showcase the best of Niagara Falls and surrounding areas. Your package includes a balanced mix of iconic attractions and selected local experiences to provide both memorable sightseeing opportunities and authentic regional highlights.</p>
+        </div>
+    
         <div class="card">
             <h2>TRIP OVERVIEW</h2>
             <p><strong>Travel Dates:</strong> Sunday, July 13 - Wednesday, July 16, 2025</p>
@@ -544,6 +592,62 @@
         </div>
         
         <div class="card">
+            <h2>VACATION PACKAGE PRICING</h2>
+            
+            <div class="card-price">
+                <div class="price-title">TRANSPORTATION & LODGING</div>
+                <div class="price-item">
+                    <div class="price-label">Flights & Hotel Package (4 people)</div>
+                    <div class="price-value">$3,356.05</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Alamo Intermediate SUV</div>
+                    <div class="price-value">$399.37</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Travel Protection Plan</div>
+                    <div class="price-value">$116.00</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Promotion (MAY25A)</div>
+                    <div class="price-value">-$27.84</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Tours and Excursions</div>
+                    <div class="price-value">$515.37</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Pay in Destination</div>
+                    <div class="price-value">$182.75</div>
+                </div>
+                <div class="price-total">
+                    <div class="price-label">TOTAL PACKAGE PRICE</div>
+                    <div class="price-value">$4,026.33</div>
+                </div>
+            </div>
+            
+            <div class="card-price">
+                <div class="price-title">ACTIVITY PRICING (PER PERSON)</div>
+                <div class="price-item">
+                    <div class="price-label">Best of Niagara Falls Canada Small Group Tour</div>
+                    <div class="price-value">CAD $150-175</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Whirlpool Aero Car Experience</div>
+                    <div class="price-value">CAD $18-20</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Est. Activity Cost Per Adult</div>
+                    <div class="price-value">CAD $168-195</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Est. Activity Cost Per Child</div>
+                    <div class="price-value">CAD $107-125</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
             <h2>DINING RECOMMENDATIONS</h2>
             
             <h3>BREAKFAST OPTIONS</h3>
@@ -648,4 +752,52 @@
                 <a href="https://www.stcatharinesmuseum.ca/" target="_blank">Visit Website</a></li>
                 
                 <li>Happy Rolph's Animal Farm<br>
-                <a href="https://www.stcatharines.ca/en/happy-rolph-s.aspx"
+                <a href="https://www.stcatharines.ca/en/happy-rolph-s.aspx" target="_blank">Visit Website</a></li>
+                
+                <li>Niagara Parks Botanical Gardens<br>
+                <a href="https://www.niagaraparks.com/visit/attractions/botanical-gardens/" target="_blank">Visit Website</a></li>
+                
+                <li>Lakeside Park Beach<br>
+                <a href="https://www.stcatharines.ca/en/lakeside-park.aspx" target="_blank">Visit Website</a></li>
+            </ul>
+            
+            <h3>BUDGET-FRIENDLY OPTIONS</h3>
+            <ul>
+                <li>Lakeside Park Carousel (CAD $0.05 per ride)<br>
+                <a href="https://stcatharines.ca/en/playin/LakesideParkCarousel.asp" target="_blank">Visit Website</a></li>
+                
+                <li>Whirlpool Aero Car (CAD $18-20 per adult, CAD $12-15 per child)<br>
+                <a href="https://www.niagaraparks.com/visit/attractions/whirlpool-aero-car" target="_blank">Visit Website</a></li>
+                
+                <li>White Water Walk (CAD $17 per adult, CAD $11 per child)<br>
+                <a href="https://www.niagaraparks.com/visit/attractions/white-water-walk/" target="_blank">Visit Website</a></li>
+            </ul>
+        </div>
+        
+        <div class="emergency">
+            <h3>EMERGENCY CONTACTS</h3>
+            <ul class="contact-list">
+                <li>Emergency Services: 911</li>
+                <li>Niagara Falls General Hospital: +1 (905) 378-4647</li>
+                <li>Non-Emergency Police: +1 (905) 688-4111</li>
+                <li>Kim's Travel Service: (555) 123-4567</li>
+            </ul>
+        </div>
+        
+        <div class="summary-box">
+            <h3>KEY TAKEAWAYS</h3>
+            <ul>
+                <li>Your all-inclusive package covers flights, hotel, and car rental for optimal convenience</li>
+                <li>The small group tour offers the most comprehensive introduction to the falls</li>
+                <li>St. Catharines provides a charming day trip away from tourist crowds</li>
+                <li>Historical attractions like the Whirlpool Aero Car and five-cent carousel provide unique experiences</li>
+                <li>July offers ideal weather, evening illuminations, and possible fireworks displays</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>Created by Kim's Travel Service | Last Updated: May 2025</p>
+        </div>
+    </div>
+</body>
+</html>
