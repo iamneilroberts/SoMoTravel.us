@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniels Family Niagara Falls Guide</title>
+    <style>
+        :root {
+            --primary-color: #2c6eb5;
+            --accent-color: #3498db;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --header-color: #1a4c84;
+            --highlight-color: #8cc3e6;
+            --border-color: #d1e6f7;
+            --card-bg: #ffffff;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding: 0;
+            margin: 0;
+            max-width: 100%;
+        }
+        
+        .container {
+            width: 100%;
+            padding: 10px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--header-color));
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            margin-bottom: 20px;
+            border-radius: 0 0 15px 15px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            color: var(--header-color);
+            margin: 25px 0 15px 0;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--highlight-color);
+            padding-bottom: 8px;
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            margin: 20px 0 10px 0;
+            font-size: 1.3rem;
+        }
+        
+        h4 {
+            color: var(--primary-color);
+            margin: 15px 0 8px 0;
+            font-size: 1.1rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .item {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .day-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+        
+        .time-item {
+            display: flex;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        .time {
+            flex: 0 0 80px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .detail {
+            flex: 1;
+        }
+        
+        .budget-friendly {
+            background-color: #e8f4fd;
+            border-left: 4px solid #2ecc71;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .hidden-gem {
+            background-color: #fdf2e9;
+            border-left: 4px solid #e67e22;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .hidden-gem h4 {
+            color: #d35400;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hidden-gem h4::before {
+            content: "💎";
+            margin-right: 8px;
+        }
+        
+        .emergency {
+            background-color: #fdedec;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .emergency h3 {
+            color: #c0392b;
+            margin-top: 0;
+        }
+        
+        .contact-list {
+            list-style: none;
+        }
+        
+        .contact-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-list li::before {
+            content: "📞";
+            margin-right: 8px;
+        }
+        
+        .meal-type {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+        
+        .price {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .price::before {
+            content: "~";
+        }
+        
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
+        
+        .activity {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .activity-name {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .activity-cost {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        
+        .viator {
+            display: inline-block;
+            background-color: #ff5500;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+        
+        .card-price {
+            background-color: #f0f7ff;
+            border-left: 4px solid #2980b9;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .price-title {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px dotted #ddd;
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        
+        .price-label {
+            flex: 1;
+        }
+        
+        .price-value {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .price-total {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 2px solid #ddd;
+        }
+        
+        .footer {
+            text-align: center;
+            margin: 30px 0 20px;
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+        
+        .summary-box {
+            background-color: #eef8fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .summary-box h3 {
+            color: var(--header-color);
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DANIELS FAMILY NIAGARA FALLS</h1>
+        <p>July 13-16, 2025</p>
+    </header>
+    
+    <div class="container">
+        <div class="summary-box">
+            <h3>TRIP OVERVIEW</h3>
+            <p>This itinerary has been carefully designed to showcase the best of Niagara Falls and surrounding areas. Your package includes a balanced mix of iconic attractions and selected local experiences to provide both memorable sightseeing opportunities and authentic regional highlights.</p>
+        </div>
+    
+        <div class="card">
+            <h2>TRIP OVERVIEW</h2>
+            <p><strong>Travel Dates:</strong> Sunday, July 13 - Wednesday, July 16, 2025</p>
+            <p><strong>Accommodation:</strong> Sheraton Fallsview Hotel (3 nights)</p>
+            <p><strong>Transportation:</strong> Alamo Intermediate SUV</p>
+        </div>
+        
+        <div class="day-header">Sunday, Jul 13 Day 1</div>
+        <div class="card">
+            <h3>MORNING - TRAVEL DAY</h3>
+            
+            <div class="time-item">
+                <div class="time">7:39 AM</div>
+                <div class="detail">Depart Pensacola, FL (PNS)</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">10:26 AM</div>
+                <div class="detail">Arrive in Charlotte, NC (CLT)</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">11:16 AM</div>
+                <div class="detail">Depart Charlotte, NC (CLT)</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">12:57 PM</div>
+                <div class="detail">Arrive in Buffalo, NY (BUF)</div>
+            </div>
+            
+            <h3>AFTERNOON - BUFFALO TO NIAGARA FALLS</h3>
+            
+            <div class="time-item">
+                <div class="time">1:30 PM</div>
+                <div class="detail">Pick up rental SUV at Buffalo Airport ($399.37 included in package)</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">2:00 PM</div>
+                <div class="detail">
+                    Late lunch at Anchor Bar (original Buffalo wings) <span class="price">CAD $25-30 per person</span><br>
+                    <a href="https://www.anchorbar.com/" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">3:30 PM</div>
+                <div class="detail">
+                    Drive to Niagara Falls, Ontario<br>
+                    - Quick stop at Niagara Falls State Park (US side) for a preview<br>
+                    - Cross Rainbow Bridge to Canada (remember passports!)
+                </div>
+            </div>
+            
+            <h3>EVENING - CHECK-IN AND DINNER</h3>
+            
+            <div class="time-item">
+                <div class="time">5:00 PM</div>
+                <div class="detail">
+                    Check-in at Sheraton Fallsview Hotel ($9.95 CAD daily resort fee plus tax applies)<br>
+                    <a href="https://www.marriott.com/hotels/iagsi-sheraton-fallsview-hotel/" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">6:30 PM</div>
+                <div class="detail">
+                    Dinner at Massimo's Italian Fallsview Restaurant <span class="price">CAD $35-50 per person</span><br>
+                    <a href="https://www.massimos.ca/" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">8:00 PM</div>
+                <div class="detail">
+                    Evening stroll to see the illuminated falls (free)
+                </div>
+            </div>
+        </div>
+        
+        <div class="day-header">Monday, Jul 14 Day 2</div>
+        <div class="card">
+            <h3>MORNING</h3>
+            
+            <div class="time-item">
+                <div class="time">8:00 AM</div>
+                <div class="detail">
+                    Breakfast at Flying Saucer Restaurant <span class="price">CAD $15-20 per person</span><br>
+                    <a href="https://www.flyingsaucerrestaurant.com/" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <h3>MORNING & AFTERNOON - GROUP TOUR</h3>
+            
+            <div class="time-item">
+                <div class="time">9:00 AM</div>
+                <div class="detail">
+                    <strong>Best of Niagara Falls Canada Small Group Tour</strong> <span class="viator">VIATOR</span><br>
+                    - Duration: 5 hours<br>
+                    - Includes: Skylon Tower Observation Deck, Journey Behind the Falls, Hornblower Cruise<br>
+                    - Cost: CAD $150-175 per adult, CAD $95-110 per child<br>
+                    <a href="https://www.viator.com/tours/Niagara-Falls-and-Around/Best-of-Niagara-Falls-Tour-from-Niagara-Falls-Ontario/d23183-72837P1" target="_blank">Book Tour</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">2:00 PM</div>
+                <div class="detail">
+                    <strong>AFTERNOON ACTIVITIES OPTIONS:</strong><br>
+                    Choose from these exciting activities to fill your afternoon:
+                </div>
+            </div>
+            
+            <div class="activity">
+                <p class="activity-name">Whirlpool Jet Boat Tour <span class="viator">VIATOR</span></p>
+                <p>Experience a thrilling jet boat ride through the Niagara River whitewater rapids.</p>
+                <p>This exciting 45-60 minute adventure will get you wet and give you an adrenaline rush.</p>
+                <p class="activity-cost">Cost: CAD $75-85 per person</p>
+                <p><a href="https://www.whirlpooljet.com/" target="_blank">Book Experience</a></p>
+            </div>
+            
+            <div class="activity">
+                <p class="activity-name">Zipline to the Falls <span class="viator">VIATOR</span></p>
+                <p>Soar 67 meters above the Niagara River Gorge on a thrilling zipline ride.</p>
+                <p>Travel 670 meters at speeds of 70+ km/h toward the base of the Canadian Horseshoe Falls.</p>
+                <p class="activity-cost">Cost: CAD $65-75 per person</p>
+                <p><a href="https://www.niagaraparks.com/visit/attractions/wildplay-zipline-to-the-falls/" target="_blank">Book Experience</a></p>
+            </div>
+            
+            <div class="activity">
+                <p class="activity-name">Niagara Helicopter Tour <span class="viator">VIATOR</span></p>
+                <p>See Niagara Falls from a breathtaking aerial perspective on a 12-minute helicopter flight.</p>
+                <p>Capture incredible photos of all three falls from heights that few will ever experience.</p>
+                <p class="activity-cost">Cost: CAD $155-175 per person</p>
+                <p><a href="https://www.niagarahelicopters.com/" target="_blank">Book Experience</a></p>
+            </div>
+            
+            <div class="activity">
+                <p class="activity-name">Niagara Falls Adventure Pass <span class="viator">VIATOR</span></p>
+                <p>Get access to multiple attractions with one convenient pass (valid through Nov 2, 2025).</p>
+                <p>Includes Journey Behind the Falls, Niagara Parks Power Station + The Tunnel, White Water Walk, and choice of additional attraction.</p>
+                <p class="activity-cost">Cost: CAD $89-99 per person</p>
+                <p><a href="https://www.niagaraparks.com/visit-niagara-parks/plan-your-visit/deals-packages/" target="_blank">Book Experience</a></p>
+            </div>
+            
+            <div class="activity">
+                <p class="activity-name">Wine Tour & Tasting <span class="viator">VIATOR</span></p>
+                <p>Escape to Niagara-on-the-Lake for a premium wine tasting experience at local vineyards.</p>
+                <p>Sample award-winning wines including the region's famous ice wine.</p>
+                <p class="activity-cost">Cost: CAD $95-115 per person</p>
+                <p><a href="https://www.viator.com/tours/Niagara-Falls-and-Around/Niagara-Wine-Tour-and-Tastings/d773-3022P53" target="_blank">Book Experience</a></p>
+            </div>
+            
+            <h3>EVENING</h3>
+            
+            <div class="time-item">
+                <div class="time">6:30 PM</div>
+                <div class="detail">
+                    Dinner at Table Rock House Restaurant <span class="price">CAD $40-55 per person</span><br>
+                    <a href="https://www.niagaraparks.com/visit/dining/table-rock-house-restaurant/" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">8:00 PM</div>
+                <div class="detail">
+                    Niagara Falls Night Illumination and optional fireworks display (seasonal) - free<br>
+                    <a href="https://www.niagarafallstourism.com/illumination/" target="_blank">Illumination Schedule</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">9:30 PM</div>
+                <div class="detail">
+                    Dessert at Sweet Jesus ice cream on Clifton Hill <span class="price">CAD $8-12 per person</span><br>
+                    <a href="https://www.sweetjesus.com/" target="_blank">Visit Website</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="day-header">Tuesday, Jul 15 Day 3</div>
+        <div class="card">
+            <h3>OPTION A: URBAN ADVENTURE IN TORONTO</h3>
+            
+            <div class="time-item">
+                <div class="time">8:00 AM</div>
+                <div class="detail">
+                    Breakfast at your hotel or grab coffee and pastries from a local café
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">9:00 AM</div>
+                <div class="detail">Depart Niagara Falls for Toronto (1.5 hour drive)</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">10:30 AM</div>
+                <div class="detail">
+                    <strong>CN Tower Experience</strong> <span class="viator">VIATOR</span><br>
+                    - Includes admission to the observation deck with stunning city views<br>
+                    - Optional EdgeWalk for thrill-seekers (additional fee)<br>
+                    - Cost: CAD $40-45 per person<br>
+                    <a href="https://www.cntower.ca/plan-your-visit/tickets-and-hours/tickets" target="_blank">Book Experience</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">12:30 PM</div>
+                <div class="detail">
+                    <strong>Ripley's Aquarium of Canada</strong><br>
+                    - North America's longest underwater viewing tunnel<br>
+                    - Interactive touch pools with stingrays and sharks<br>
+                    - Cost: CAD $44-47 per adult<br>
+                    <a href="https://www.ripleys.com/attractions/ripleys-aquarium-of-canada" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <h3>AFTERNOON - DISTILLERY DISTRICT</h3>
+            
+            <div class="time-item">
+                <div class="time">2:30 PM</div>
+                <div class="detail">
+                    Lunch at El Catrin (authentic Mexican cuisine) <span class="price">CAD $25-35 per person</span><br>
+                    <a href="https://www.elcatrin.ca/" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">4:00 PM</div>
+                <div class="detail">
+                    Explore the historic Distillery District<br>
+                    - Victorian-era architecture and cobblestone streets<br>
+                    - Artisan shops, galleries, and boutiques<br>
+                    - Craft breweries and distilleries<br>
+                    <a href="https://www.thedistillerydistrict.com/" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">5:30 PM</div>
+                <div class="detail">
+                    <strong>Spirit of York Distillery Tour & Tasting</strong><br>
+                    - Craft gin and vodka tasting experience<br>
+                    - Learn about the distillation process<br>
+                    - Cost: CAD $20-25 per person<br>
+                    <a href="https://spiritofyork.com/" target="_blank">Book Experience</a>
+                </div>
+            </div>
+            
+            <h3>EVENING</h3>
+            
+            <div class="time-item">
+                <div class="time">7:00 PM</div>
+                <div class="detail">
+                    Dinner at Cluny Bistro (French cuisine) <span class="price">CAD $45-60 per person</span><br>
+                    <a href="https://www.clunybistro.com/" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">9:00 PM</div>
+                <div class="detail">Return to Niagara Falls (1.5 hour drive)</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3>OPTION B: SMALL TOWN CHARM & HIDDEN TREASURES</h3>
+            
+            <div class="time-item">
+                <div class="time">8:00 AM</div>
+                <div class="detail">
+                    Breakfast at Flour Mill Restaurant <span class="price">CAD $15-20 per person</span><br>
+                    <a href="https://oldestonemill.com/flour-mill-restaurant/" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">9:30 AM</div>
+                <div class="detail">Depart hotel for St. Catharines (25 min drive)</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">10:00 AM</div>
+                <div class="detail">
+                    St. Catharines Museum & Welland Canals Centre (free admission)<br>
+                    <a href="https://www.stcatharinesmuseum.ca/" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">11:30 AM</div>
+                <div class="detail">
+                    Watch ships navigate the Welland Canal at Lock 3 Viewing Platform (free)<br>
+                    <a href="https://www.stcatharines.ca/en/lock-3-complex.aspx" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">1:00 PM</div>
+                <div class="detail">
+                    Lunch at Murphy's Restaurant <span class="price">CAD $20-30 per person</span><br>
+                    <a href="https://murphysrestaurant.ca/" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">2:30 PM</div>
+                <div class="detail">
+                    Port Dalhousie beach time and attractions<br>
+                    - Lakeside Park Beach (free) - weather permitting<br>
+                    - Historic Lakeside Park Carousel rides (CAD $0.05 per ride)<br>
+                    - Lighthouse pier and harbor views<br>
+                    <a href="https://www.stcatharines.ca/en/lakeside-park.aspx" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">4:30 PM</div>
+                <div class="detail">
+                    Happy Rolph's Animal Farm (free)<br>
+                    - Family-friendly petting zoo with farm animals<br>
+                    - Bird sanctuary with over 40 species<br>
+                    - Children's playground and picnic areas<br>
+                    <a href="https://www.stcatharines.ca/en/happy-rolph-s.aspx" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">6:00 PM</div>
+                <div class="detail">Return to Niagara Falls</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">7:00 PM</div>
+                <div class="detail">
+                    Dinner at Skylon Tower Revolving Restaurant <span class="price">CAD $65-90 per person</span><br>
+                    <a href="https://www.skylon.com/dining/" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">9:00 PM</div>
+                <div class="detail">Evening stroll along the falls to see night illuminations</div>
+            </div>
+        </div>
+        
+        <div class="day-header">Wednesday, Jul 16 Day 4</div>
+        <div class="card">
+            <h3>MORNING - EXCURSION</h3>
+            
+            <div class="time-item">
+                <div class="time">8:00 AM</div>
+                <div class="detail">
+                    <strong>Whirlpool Aero Car Experience</strong> <span class="viator">VIATOR</span><br>
+                    - Duration: 45 minutes<br>
+                    - Experience the Niagara River from 200 feet above in a historic cable car<br>
+                    - Cost: CAD $18-20 per adult, CAD $12-15 per child<br>
+                    - Location: 3850 Niagara Parkway, 4.5 km north of the Falls<br>
+                    <a href="https://www.niagaraparks.com/visit/attractions/whirlpool-aero-car" target="_blank">Book Experience</a>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">9:30 AM</div>
+                <div class="detail">Return to hotel, check out and pack</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">10:30 AM</div>
+                <div class="detail">Depart for Buffalo Airport</div>
+            </div>
+            
+            <h3>AFTERNOON - RETURN TRIP</h3>
+            
+            <div class="time-item">
+                <div class="time">12:00 PM</div>
+                <div class="detail">Drop off rental car at Buffalo Airport</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">1:47 PM</div>
+                <div class="detail">Depart Buffalo, NY (BUF)</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">3:45 PM</div>
+                <div class="detail">Arrive in Charlotte, NC (CLT)</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">6:39 PM</div>
+                <div class="detail">Depart Charlotte, NC (CLT)</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">7:31 PM</div>
+                <div class="detail">Arrive in Pensacola, FL (PNS)</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>VACATION PACKAGE PRICING</h2>
+            
+            <div class="card-price">
+                <div class="price-title">TRANSPORTATION & LODGING</div>
+                <div class="price-item">
+                    <div class="price-label">Flights & Hotel Package (4 people)</div>
+                    <div class="price-value">$3,356.05</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Alamo Intermediate SUV</div>
+                    <div class="price-value">$399.37</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Travel Protection Plan</div>
+                    <div class="price-value">$116.00</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Promotion (MAY25A)</div>
+                    <div class="price-value">-$27.84</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Tours and Excursions</div>
+                    <div class="price-value">$515.37</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Pay in Destination</div>
+                    <div class="price-value">$182.75</div>
+                </div>
+                <div class="price-total">
+                    <div class="price-label">TOTAL PACKAGE PRICE</div>
+                    <div class="price-value">$4,026.33</div>
+                </div>
+            </div>
+            
+            <div class="card-price">
+                <div class="price-title">ACTIVITY PRICING (PER PERSON)</div>
+                <div class="price-item">
+                    <div class="price-label">Best of Niagara Falls Canada Small Group Tour</div>
+                    <div class="price-value">CAD $150-175</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Whirlpool Aero Car Experience</div>
+                    <div class="price-value">CAD $18-20</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Est. Activity Cost Per Adult</div>
+                    <div class="price-value">CAD $168-195</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-label">Est. Activity Cost Per Child</div>
+                    <div class="price-value">CAD $107-125</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>DINING RECOMMENDATIONS</h2>
+            
+            <h3>BREAKFAST OPTIONS</h3>
+            <ul>
+                <li><strong>Flying Saucer Restaurant</strong> (retro diner atmosphere) <span class="price">CAD $15-20 per person</span><br>
+                <a href="https://www.flyingsaucerrestaurant.com/" target="_blank">Visit Website</a></li>
+                
+                <li><strong>Flour Mill Restaurant</strong> (historic setting) <span class="price">CAD $15-20 per person</span><br>
+                <a href="https://oldestonemill.com/flour-mill-restaurant/" target="_blank">Visit Website</a></li>
+                
+                <li><strong>The Famous</strong> (local diner with all-day breakfast) <span class="price">CAD $12-18 per person</span></li>
+                
+                <li><strong>Country Fresh Donuts</strong> (local favorite for donuts) <span class="price">CAD $10-15 per person</span></li>
+            </ul>
+            
+            <h3>LUNCH OPTIONS</h3>
+            <ul>
+                <li><strong>Queen Victoria Place Restaurant</strong> (overlooking the falls) <span class="price">CAD $20-30 per person</span><br>
+                <a href="https://www.niagaraparks.com/visit/dining/queen-victoria-place-restaurant/" target="_blank">Visit Website</a></li>
+                
+                <li><strong>Weinkeller</strong> (farm-to-table restaurant) <span class="price">CAD $25-35 per person</span><br>
+                <a href="https://www.weinkeller.ca/" target="_blank">Visit Website</a></li>
+                
+                <li><strong>BeaverTails</strong> (Canadian pastry specialty) <span class="price">CAD $8-12 per person</span><br>
+                <a href="https://beavertails.com/" target="_blank">Visit Website</a></li>
+                
+                <li><strong>Kelsey's Original Roadhouse</strong> (casual dining) <span class="price">CAD $18-25 per person</span><br>
+                <a href="https://www.kelseys.ca/" target="_blank">Visit Website</a></li>
+                
+                <li><strong>Murphy's Restaurant</strong> (local favorite in St. Catharines) <span class="price">CAD $20-30 per person</span><br>
+                <a href="https://murphysrestaurant.ca/" target="_blank">Visit Website</a></li>
+            </ul>
+            
+            <h3>DINNER OPTIONS</h3>
+            <ul>
+                <li><strong>Massimo's Italian Fallsview Restaurant</strong> <span class="price">CAD $35-50 per person</span><br>
+                <a href="https://www.massimos.ca/" target="_blank">Visit Website</a></li>
+                
+                <li><strong>Skylon Tower Revolving Restaurant</strong> <span class="price">CAD $65-90 per person</span><br>
+                <a href="https://www.skylon.com/dining/" target="_blank">Visit Website</a></li>
+                
+                <li><strong>Boston Pizza</strong> (casual dining) <span class="price">CAD $25-35 per person</span><br>
+                <a href="https://bostonpizza.com/" target="_blank">Visit Website</a></li>
+                
+                <li><strong>Table Rock House Restaurant</strong> <span class="price">CAD $40-55 per person</span><br>
+                <a href="https://www.niagaraparks.com/visit/dining/table-rock-house-restaurant/" target="_blank">Visit Website</a></li>
+                
+                <li><strong>Elements on the Falls</strong> <span class="price">CAD $45-60 per person</span><br>
+                <a href="https://www.niagaraparks.com/visit/dining/elements-on-the-falls/" target="_blank">Visit Website</a></li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>PERSONALLY SELECTED TOURS & ACTIVITIES</h2>
+            
+            <div class="activity">
+                <p class="activity-name">Best of Niagara Falls Canada Small Group Tour <span class="viator">VIATOR</span></p>
+                <p>Date: July 14</p>
+                <p>Duration: 5 hours</p>
+                <p>Includes: Skylon Tower Observation Deck, Journey Behind the Falls, Hornblower Cruise</p>
+                <p class="activity-cost">Cost: CAD $150-175 per adult, CAD $95-110 per child</p>
+                <p><a href="https://www.viator.com/tours/Niagara-Falls-and-Around/Best-of-Niagara-Falls-Tour-from-Niagara-Falls-Ontario/d23183-72837P1" target="_blank">Book Tour</a></p>
+            </div>
+            
+            <div class="activity">
+                <p class="activity-name">Whirlpool Aero Car Experience <span class="viator">VIATOR</span></p>
+                <p>Date: July 16</p>
+                <p>Duration: 45 minutes</p>
+                <p>Experience the Niagara River from 200 feet above in a historic cable car</p>
+                <p class="activity-cost">Cost: CAD $18-20 per adult, CAD $12-15 per child</p>
+                <p><a href="https://www.niagaraparks.com/visit/attractions/whirlpool-aero-car" target="_blank">Book Experience</a></p>
+            </div>
+            
+            <p><strong>Estimated Activity Cost Per Adult:</strong> CAD $168-195</p>
+            <p><strong>Estimated Activity Cost Per Child:</strong> CAD $107-125</p>
+        </div>
+        
+        <div class="hidden-gem">
+            <h4>The Distillery District (Toronto)</h4>
+            <p>One of Toronto's most vibrant areas, the Distillery District is a pedestrian-only village of brick-lined streets and beautifully restored Victorian industrial buildings. This National Historic Site features distinctive art galleries, boutiques, and some of Toronto's best restaurants and cafes in a uniquely preserved setting.</p>
+            <p><a href="https://www.thedistillerydistrict.com/" target="_blank">Visit Website</a></p>
+        </div>
+        
+        <div class="hidden-gem">
+            <h4>Whirlpool Aero Car</h4>
+            <p>The antique cable car, operating since 1916, offers incredible photo opportunities with the swirling turquoise waters of the Niagara Whirlpool as your backdrop. Look for the marker showing the original water level from the last ice age – it's a fascinating perspective on the geological history of the area!</p>
+            <p><a href="https://www.niagaraparks.com/visit/attractions/whirlpool-aero-car" target="_blank">Visit Website</a></p>
+        </div>
+        
+        <h3>ALTERNATIVE ADDITIONS FOR YOUNG ADULTS</h3>
+            <div class="activity">
+                <p class="activity-name">Clifton Hill Nightlife</p>
+                <p>Hit the clubs and bars on Clifton Hill for a night out. Popular spots include Dragonfly Nightclub, Club Mardi Gras, and Spicy Olive Bar & Grill.</p>
+                <p>The Entertainment District in Niagara Falls offers trendy bars, live music venues, and dance clubs for those looking for nightlife.</p>
+            </div>
+            
+            <div class="activity">
+                <p class="activity-name">Casino Niagara</p>
+                <p>Try your luck at Casino Niagara with over 1,300 slot machines and 40 gaming tables.</p>
+                <p>Features Yuk Yuk's Comedy Club, live entertainment, and multiple dining options.</p>
+                <p><a href="https://www.casinoniagara.com/" target="_blank">Visit Website</a></p>
+            </div>
+            
+            <div class="activity">
+                <p class="activity-name">Niagara Brewing Company</p>
+                <p>Sample craft beers at this local brewery right on Clifton Hill.</p>
+                <p>Enjoy the rooftop patio with views of the surrounding entertainment district.</p>
+                <p><a href="https://niagarabrewingcompany.com/" target="_blank">Visit Website</a></p>
+            </div>
+        
+        <div class="card">
+            <h2>FREE & BUDGET-FRIENDLY ACTIVITIES</h2>
+            
+            <h3>FREE ATTRACTIONS</h3>
+            <ul>
+                <li>Niagara Falls Illumination (nightly light show)<br>
+                <a href="https://www.niagarafallstourism.com/illumination/" target="_blank">Illumination Schedule</a></li>
+                
+                <li>Fireworks over the Falls (seasonal; check schedule)<br>
+                <a href="https://www.niagarafallstourism.com/fireworks/" target="_blank">Fireworks Schedule</a></li>
+                
+                <li>St. Catharines Museum & Welland Canals Centre<br>
+                <a href="https://www.stcatharinesmuseum.ca/" target="_blank">Visit Website</a></li>
+                
+                <li>Happy Rolph's Animal Farm<br>
+                <a href="https://www.stcatharines.ca/en/happy-rolph-s.aspx" target="_blank">Visit Website</a></li>
+                
+                <li>Niagara Parks Botanical Gardens<br>
+                <a href="https://www.niagaraparks.com/visit/attractions/botanical-gardens/" target="_blank">Visit Website</a></li>
+                
+                <li>Lakeside Park Beach<br>
+                <a href="https://www.stcatharines.ca/en/lakeside-park.aspx" target="_blank">Visit Website</a></li>
+            </ul>
+            
+            <h3>BUDGET-FRIENDLY OPTIONS</h3>
+            <ul>
+                <li>Lakeside Park Carousel (CAD $0.05 per ride)<br>
+                <a href="https://stcatharines.ca/en/playin/LakesideParkCarousel.asp" target="_blank">Visit Website</a></li>
+                
+                <li>Whirlpool Aero Car (CAD $18-20 per adult, CAD $12-15 per child)<br>
+                <a href="https://www.niagaraparks.com/visit/attractions/whirlpool-aero-car" target="_blank">Visit Website</a></li>
+                
+                <li>White Water Walk (CAD $17 per adult, CAD $11 per child)<br>
+                <a href="https://www.niagaraparks.com/visit/attractions/white-water-walk/" target="_blank">Visit Website</a></li>
+            </ul>
+        </div>
+        
+        <div class="emergency">
+            <h3>EMERGENCY CONTACTS</h3>
+            <ul class="contact-list">
+                <li>Emergency Services: 911</li>
+                <li>Niagara Falls General Hospital: +1 (905) 378-4647</li>
+                <li>Non-Emergency Police: +1 (905) 688-4111</li>
+                <li>Kim's Travel Service: (555) 123-4567</li>
+            </ul>
+        </div>
+        
+        <div class="summary-box">
+            <h3>KEY TAKEAWAYS</h3>
+            <ul>
+                <li>Your all-inclusive package covers flights, hotel, and car rental for optimal convenience</li>
+                <li>The small group tour offers the most comprehensive introduction to the falls</li>
+                <li>St. Catharines provides a charming day trip away from tourist crowds</li>
+                <li>Historical attractions like the Whirlpool Aero Car and five-cent carousel provide unique experiences</li>
+                <li>July offers ideal weather, evening illuminations, and possible fireworks displays</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>Created by Kim's Travel Service | Last Updated: May 2025</p>
+        </div>
+    </div>
+</body>
+</html>
