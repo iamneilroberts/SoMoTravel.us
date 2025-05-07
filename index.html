@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kim's Gems - European Travel Specialist</title>
+    <title>Kim Henderson SOMO Travel</title>
     <style>
         :root {
-            --primary-color: #2E8B57;
-            --secondary-color: #1a5336;
-            --accent-color: #FFB74D;
+            /* CHANGED: Primary color from green to blue */
+            --primary-color: #007bff; /* Bright blue */
+            /* CHANGED: Secondary color from dark green to dark blue */
+            --secondary-color: #0056b3; /* Darker blue */
+            --accent-color: #FFB74D; /* Keeping the accent color as is */
             --background-color: #ffffff;
             --text-color: #333333;
             --border-color: #e0e0e0;
@@ -26,7 +28,8 @@
             font-size: 16px;
             line-height: 1.6;
             color: var(--text-color);
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f0 100%);
+            /* Adjusted background gradient slightly for blue tone */
+            background: linear-gradient(135deg, #eef2f7 0%, #dbe4ee 100%);
             min-height: 100vh;
         }
 
@@ -46,14 +49,14 @@
         }
 
         .logo {
-            color: var(--primary-color);
+            color: var(--primary-color); /* This will now be blue */
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
             font-weight: bold;
         }
 
         .subtitle {
-            color: var(--secondary-color);
+            color: var(--secondary-color); /* This will now be dark blue */
             font-size: 1.2rem;
             margin-bottom: 1rem;
         }
@@ -98,7 +101,7 @@
         }
 
         .trip-title {
-            color: var(--primary-color);
+            color: var(--primary-color); /* This will now be blue */
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
             font-weight: bold;
@@ -116,8 +119,9 @@
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 500;
-            background: #E8F5E9;
-            color: var(--primary-color);
+            /* CHANGED: Status tag colors from green to blue */
+            background: #cfe2ff; /* Light blue */
+            color: var(--secondary-color); /* Darker blue */
         }
 
         .add-trip {
@@ -132,8 +136,8 @@
         }
 
         .add-trip:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
+            border-color: var(--primary-color); /* This will now be blue */
+            color: var(--primary-color); /* This will now be blue */
         }
 
         .add-icon {
@@ -174,14 +178,12 @@
         </header>
 
         <main class="trips-grid">
-            <!-- Active Trip Example -->
             <a href="miller_ireland_mobile_proposal.html" class="trip-card">
                 <div class="trip-title">Miller Ireland Adventure</div>
                 <div class="trip-date">July 2025</div>
                 <div class="trip-status">Planning</div>
             </a>
 
-            <!-- Placeholder Trip Cards -->
             <a href="DavidsonSilverMoonCruise_mobileGuide.html" class="trip-card">
                 <div class="trip-title">Davidson Alaska Cruise</div>
                 <div class="trip-date">May 6-16, 2025</div>
@@ -204,34 +206,33 @@
                 <div class="trip-title">Chisolms Ireland and England Sept 2025</div>
                 <div class="trip-date">September 18-28, 2025</div>
                 <div class="trip-status">Planning</div>
-            </a>   
-            
+            </a>
+
             <a href="scotland-trip-itinerary.html" class="trip-card">
                 <div class="trip-title">Scotland 2025</div>
                 <div class="trip-date">April 20-29, 2025</div>
                 <div class="trip-status">Active</div>
-            </a>    
-            
+            </a>
+
             <a href="skye-trip-details.html" class="trip-card">
                 <div class="trip-title">Skye Details</div>
                 <div class="trip-date">April 25-27, 2025</div>
                 <div class="trip-status">Active</div>
-            </a>               
+            </a>
 
             <a href="Daniels_Niagara.html" class="trip-card">
                 <div class="trip-title">Daniels Niagara</div>
                 <div class="trip-date">July 13-16, 2025</div>
                 <div class="trip-status">Proposal</div>
-            </a>            
+            </a>
 
 
             <a href="OBrien_Sandals_mobile-guide.html" class="trip-card">
                 <div class="trip-title">O'Brien Sandals</div>
                 <div class="trip-date">May 25-29, 2025</div>
                 <div class="trip-status">Proposal</div>
-            </a>                 
-            
-            <!-- Add New Trip Card -->
+            </a>
+
             <a href="#" class="trip-card add-trip">
                 <div class="add-icon">+</div>
                 <div>Add New Trip</div>
