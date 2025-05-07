@@ -6,63 +6,30 @@
     <title>O'Briens' St. Lucia Vacation Guide</title>
     <style>
         :root {
-            --primary-color: #0074cc;
-            --secondary-color: #e78200;
-            --accent-color: #00a86b;
-            --text-color: #333;
+            --primary: #0074cc;
+            --secondary: #e78200;
+            --accent: #00a86b;
+            --text: #333;
             --light-text: #f8f8f8;
-            --background-color: #f9f9f9;
+            --bg: #f9f9f9;
             --card-bg: #fff;
             --card-shadow: 0 2px 5px rgba(0,0,0,0.1);
             --header-bg: linear-gradient(135deg, #0074cc, #0096cc);
-            --footer-bg: #333;
-            --footer-text: #f8f8f8;
-            --border-color: #e1e1e1;
+            --border: #e1e1e1;
         }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary-color: #2196f3;
-                --secondary-color: #ff9500;
-                --accent-color: #00c078;
-                --text-color: #f0f0f0;
-                --light-text: #f8f8f8;
-                --background-color: #121212;
-                --card-bg: #1e1e1e;
-                --card-shadow: 0 2px 5px rgba(0,0,0,0.3);
-                --header-bg: linear-gradient(135deg, #0074cc, #0045a5);
-                --footer-bg: #252525;
-                --footer-text: #f0f0f0;
-                --border-color: #333;
-            }
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
+            color: var(--text);
+            background-color: var(--bg);
             padding-bottom: 60px;
         }
-
         .container {
             width: 100%;
             max-width: 600px;
             margin: 0 auto;
-            padding: 0;
         }
-
         header {
             background: var(--header-bg);
             color: white;
@@ -72,17 +39,6 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 1.5rem;
         }
-
-        header h1 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
         .welcome-banner {
             background: url('https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60') center/cover;
             height: 180px;
@@ -92,85 +48,21 @@
             overflow: hidden;
             box-shadow: var(--card-shadow);
         }
-
         .welcome-banner::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.3);
         }
-
         .welcome-banner-content {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
+            bottom: 0; left: 0; width: 100%;
             padding: 1.5rem;
             color: white;
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
         }
-
-        .welcome-banner-content h2 {
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-        }
-
-        .welcome-banner-content p {
-            font-size: 1rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-        }
-
-        .collapsible {
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            cursor: pointer;
-            padding: 1rem;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: 0.4s;
-            border-radius: 8px;
-            box-shadow: var(--card-shadow);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-
-        .collapsible:after {
-            content: '+';
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-
-        .active:after {
-            content: '-';
-        }
-
-        .content {
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            background-color: var(--card-bg);
-            border-radius: 0 0 8px 8px;
-            margin-bottom: 1rem;
-        }
-
-        .content-inner {
-            padding: 1rem;
-            border-top: 1px solid var(--border-color);
-        }
-
         .section-title {
-            background-color: var(--primary-color);
+            background-color: var(--primary);
             color: white;
             padding: 0.8rem 1rem;
             font-size: 1.3rem;
@@ -178,11 +70,7 @@
             border-radius: 8px;
             box-shadow: var(--card-shadow);
         }
-
-        .section-container {
-            padding: 0 1rem;
-        }
-
+        .section-container { padding: 0 1rem; }
         .info-card {
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -190,272 +78,99 @@
             margin-bottom: 1rem;
             overflow: hidden;
         }
-
         .info-card-header {
-            background-color: var(--primary-color);
+            background-color: var(--primary);
             color: white;
             padding: 0.8rem 1rem;
             font-weight: bold;
         }
-
-        .info-card-content {
-            padding: 1rem;
-        }
-
+        .info-card-content { padding: 1rem; }
         .day-header {
-            background-color: var(--secondary-color);
+            background-color: var(--secondary);
             color: white;
             padding: 1rem;
             font-weight: bold;
             border-radius: 8px 8px 0 0;
         }
-
-        .day-content {
-            padding: 1rem;
-        }
-
-        ul {
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        ul li {
-            margin-bottom: 0.5rem;
-        }
-
+        .day-content { padding: 1rem; }
+        ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+        ul li { margin-bottom: 0.5rem; }
         a {
-            color: var(--primary-color);
+            color: var(--primary);
             text-decoration: none;
         }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
+        a:hover { text-decoration: underline; }
         .btn {
             display: inline-block;
-            background-color: var(--primary-color);
+            background-color: var(--primary);
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 4px;
             text-decoration: none;
             margin-top: 0.5rem;
-            transition: background-color 0.3s;
         }
-
         .btn:hover {
             background-color: #0062ad;
             text-decoration: none;
         }
-
-        .tag {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
         .alert {
             background-color: rgba(255, 149, 0, 0.1);
-            border-left: 3px solid var(--secondary-color);
+            border-left: 3px solid var(--secondary);
             padding: 0.8rem 1rem;
             margin-bottom: 1rem;
             border-radius: 4px;
         }
-
         .alert-title {
             font-weight: bold;
-            color: var(--secondary-color);
+            color: var(--secondary);
             margin-bottom: 0.3rem;
         }
-
-        .gem-box {
-            background-color: rgba(0, 168, 107, 0.1);
-            border: 1px solid var(--accent-color);
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .gem-title {
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .gem-title:before {
-            content: '💎';
-            margin-right: 0.5rem;
-        }
-
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: var(--footer-bg);
-            color: var(--footer-text);
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.8rem;
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
         .quick-nav {
             display: flex;
             overflow-x: auto;
             padding: 0.5rem 1rem;
-            margin-bottom: 1rem;
+            margin: 0 1rem 1rem;
             background-color: var(--card-bg);
             border-radius: 8px;
             box-shadow: var(--card-shadow);
-            margin: 0 1rem 1rem;
         }
-
         .quick-nav a {
             white-space: nowrap;
             margin-right: 1rem;
             padding: 0.3rem 0.8rem;
-            background-color: var(--primary-color);
+            background-color: var(--primary);
             color: white;
             border-radius: 20px;
             font-size: 0.9rem;
-            text-decoration: none;
         }
-
-        .quick-nav a:hover {
-            background-color: #0062ad;
-        }
-
-        /* Activity icons */
         .activity-icon {
             display: inline-block;
             width: 20px;
             text-align: center;
             margin-right: 0.5rem;
         }
-
-        /* Restaurant styling */
-        .restaurant {
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .restaurant:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .restaurant-name {
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .restaurant-details {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .restaurant-details {
-                color: #aaa;
-            }
-        }
-
-        /* Viator tour styling */
-        .tour-card {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-        }
-
-        .tour-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.8rem 1rem;
-            font-weight: bold;
-        }
-
-        .tour-body {
-            padding: 1rem;
-        }
-
-        .tour-footer {
-            padding: 0.8rem 1rem;
-            border-top: 1px solid var(--border-color);
-            text-align: right;
-        }
-
-        .tour-tag {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-left: 0.5rem;
-        }
-
-        .viator-tag {
-            display: inline-block;
-            background-color: #4a4a4a;
-            color: white;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
-
-        /* Travel details styling */
         .travel-detail {
             display: flex;
             padding: 0.8rem 0;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border);
         }
-
-        .travel-detail:last-child {
-            border-bottom: none;
-        }
-
+        .travel-detail:last-child { border-bottom: none; }
         .travel-detail-label {
             width: 40%;
             font-weight: bold;
         }
-
-        .travel-detail-value {
-            width: 60%;
-        }
-
-        /* Spa package styling */
+        .travel-detail-value { width: 60%; }
         .spa-package {
             background-color: rgba(0, 116, 204, 0.1);
             border-radius: 8px;
             padding: 1rem;
             margin-bottom: 1rem;
         }
-
         .spa-title {
             font-weight: bold;
-            color: var(--primary-color);
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
-
         .emergency-info {
             background-color: rgba(220, 53, 69, 0.1);
             border: 1px solid #dc3545;
@@ -463,16 +178,33 @@
             padding: 1rem;
             margin-bottom: 1rem;
         }
-
         .emergency-title {
             font-weight: bold;
             color: #dc3545;
             margin-bottom: 0.5rem;
         }
+        .important-notice {
+            background-color: rgba(255, 193, 7, 0.15);
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        .restaurant-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        .restaurant-details {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
     </style>
 </head>
 <body>
-            <div class="container">
+    <div class="container">
         <header>
             <h1>O'Briens' St. Lucia Vacation</h1>
             <p>May 25-29, 2025</p>
@@ -489,6 +221,13 @@
             <p><strong>Excursion Provider:</strong> Julian Boat Tours (+1 758-714-9927)</p>
         </div>
 
+        <div class="important-notice">
+            💻 ONLINE CHECK-IN AVAILABLE: May 21, 2025 (4 days before arrival)<br>
+            🍽️ RESTAURANT RESERVATIONS: Available May 11, 2025 (14 days before arrival)<br>
+            Don't miss these important dates to secure your preferences!<br>
+            <a href="https://checkin.sandals.com/?tabID=1" target="_blank" class="btn" style="margin-top: 10px;">Online Check-in Link</a>
+        </div>
+
         <div class="welcome-banner">
             <div class="welcome-banner-content">
                 <h2>Welcome to Paradise!</h2>
@@ -502,7 +241,6 @@
             <a href="#dining">Dining</a>
             <a href="#activities">Activities</a>
             <a href="#excursions">Excursions</a>
-            <a href="#kims-gems">Kim's Gems</a>
         </div>
 
         <h2 class="section-title" id="travel-info">Travel Information</h2>
@@ -613,20 +351,6 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="info-card">
-                <div class="info-card-header">Important Resort Information</div>
-                <div class="info-card-content">
-                    <ul>
-                        <li><strong>Online Check-in:</strong> Available 4 days prior to arrival</li>
-                        <li><strong>Restaurant Reservations:</strong> Can be made 14 days prior to arrival</li>
-                        <li><strong>Resort Restaurants:</strong> 12 at this resort + 16 at nearby Sandals resorts</li>
-                        <li><strong>Gratuities:</strong> Tips are already included in your package, but you can still tip Butlers and Spa Therapists if you wish</li>
-                    </ul>
-                    <p><a href="https://checkin.sandals.com/?tabID=1" target="_blank" class="btn">Online Check-in Link</a></p>
-                    <p><a href="https://www.sandals.com/grande-st-lucian/travel-checklist/" target="_blank" class="btn">Packing Checklist</a></p>
-                </div>
-            </div>
         </div>
 
         <h2 class="section-title" id="daily-itinerary">Daily Itinerary</h2>
@@ -642,6 +366,10 @@
                         <li><span class="activity-icon">🍽️</span> Evening free to explore resort and enjoy dinner</li>
                     </ul>
                     <div class="alert">
+                        <div class="alert-title">Upon Arrival at Resort</div>
+                        <p>Please ask the concierge to reserve a cabana for Tuesday ($130) and remind them about the delivery of cheese and sparkling wine to your room after 3:00 PM on Monday.</p>
+                    </div>
+                    <div class="alert">
                         <div class="alert-title">Day 1 Recommendation</div>
                         <p>Enjoy dinner at Bayside Restaurant for your first night with beautiful ocean views. Walk around the resort to get familiar with the layout.</p>
                     </div>
@@ -654,12 +382,16 @@
                     <ul>
                         <li><span class="activity-icon">🚢</span> <strong>All-Inclusive Land and Sea Excursion</strong> with Julian Boat Tours</li>
                         <li><span class="activity-icon">⛵</span> Visit Marigot Bay, The Pitons Mountains</li>
-                        <li><span class="activity-icon">🏊</span> Sugar Beach for swimming</li>
+                        <li><span class="activity-icon">🏖️</span> Sugar Beach for swimming</li>
                         <li><span class="activity-icon">♨️</span> La Soufriere Drive-In Volcano with mud bath and mineral pools</li>
                         <li><span class="activity-icon">💦</span> Visit Toraille Waterfall</li>
                         <li><span class="activity-icon">🍽️</span> Return to resort for dinner</li>
                     </ul>
                     <p><strong>Booking Reference:</strong> 1243227515</p>
+                    <div class="alert">
+                        <div class="alert-title">Meeting Point for Excursion</div>
+                        <p>Meet at Gordon's Restaurant Pier at 8:30 AM for your excursion pickup. Don't stress if they're running on "island time" - pickups sometimes happen closer to 9:00 AM! 🌴⏰</p>
+                    </div>
                     <div class="alert">
                         <div class="alert-title">Day 2 Recommendation</div>
                         <p>After your full-day excursion, try The Jerk Shack for authentic Caribbean flavors. A casual dining experience is perfect after a day of activities.</p>
@@ -681,12 +413,12 @@
                     <ul>
                         <li><span class="activity-icon">🧖‍♀️</span> Morning spa treatment: "Plan Your Escape" (150 min) at 10:30 AM for Cheryl</li>
                         <li><span class="activity-icon">🏖️</span> Afternoon free for resort activities</li>
-                        <li><span class="activity-icon">🏊</span> Consider water sports or poolside relaxation</li>
+                        <li><span class="activity-icon">🏊</span> Enjoy your reserved cabana by the pool ($130)</li>
                         <li><span class="activity-icon">🍽️</span> Evening dining and entertainment at resort</li>
                     </ul>
                     <div class="alert">
                         <div class="alert-title">Day 3 Recommendation</div>
-                        <p>Take advantage of the included water sports like snorkeling, paddleboarding, or kayaking in the afternoon. For dinner, make a reservation at Gordon's on the Pier for a romantic sunset dinner.</p>
+                        <p>Take advantage of the included water sports like paddleboarding or kayaking in the afternoon. For dinner, make a reservation at Gordon's on the Pier for a romantic sunset dinner.</p>
                     </div>
                 </div>
             </div>
@@ -714,13 +446,17 @@
                         <li><span class="activity-icon">🏨</span> Check-out of resort by 11:00 AM</li>
                         <li><span class="activity-icon">🏖️</span> Continue to enjoy resort amenities until departure</li>
                         <li><span class="activity-icon">🍽️</span> Consider Barefoot by the Sea for a final beachfront lunch</li>
-                        <li><span class="activity-icon">🚗</span> Private transfer to Hewanorra Airport (UVF) at 3:00 PM - 4:00 PM</li>
+                        <li><span class="activity-icon">🚗</span> Private transfer to Hewanorra Airport (UVF) at 12:30 PM</li>
                         <li><span class="activity-icon">✈️</span> Depart St. Lucia (UVF) at 03:26 PM on Delta Airlines flight #1785</li>
                         <li><span class="activity-icon">🛬</span> Arrive in Atlanta (ATL) at 08:22 PM</li>
                     </ul>
                     <div class="alert">
                         <div class="alert-title">Day 5 Recommendation</div>
-                        <p>After check-out, store your luggage with the front desk and enjoy your final hours at the resort. The main pool or beach is perfect for last-minute relaxation.</p>
+                        <p>After check-out at 11:00 AM, have your luggage stored with the front desk and enjoy a quick lunch at Barefoot by the Sea (opens at 11:00 AM). Consider using the pool closest to the main building until your 12:15 PM lobby meeting time.</p>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-title">Departure Reminder</div>
+                        <p>Your private transfer to the airport is scheduled for 12:30 PM. Plan to be in the lobby by 12:15 PM with your luggage. The transfer takes approximately 90 minutes to 2 hours, ensuring you'll arrive with plenty of time for your 3:26 PM flight.</p>
                     </div>
                 </div>
             </div>
@@ -728,41 +464,41 @@
 
         <h2 class="section-title" id="excursions">Confirmed Excursions</h2>
         <div class="section-container">
-            <div class="tour-card">
-                <div class="tour-header">
-                    All-Inclusive Land And Sea Excursion <span class="tour-tag">Monday, May 26</span>
-                </div>
-                <div class="tour-body">
+            <div class="info-card">
+                <div class="info-card-header">All-Inclusive Land And Sea Excursion - Monday, May 26</div>
+                <div class="info-card-content">
                     <p><strong>Provider:</strong> Julian Boat Tours</p>
                     <p><strong>Booking Reference:</strong> 1243227515</p>
                     <p><strong>Highlights:</strong></p>
                     <ul>
                         <li>Visit to Marigot Bay, with stunning views of the bay and marina</li>
                         <li>The Pitons Mountains - St. Lucia's iconic twin volcanic peaks</li>
-                        <li>Sugar Beach for snorkeling in crystal clear waters</li>
+                        <li>Sugar Beach for swimming in crystal clear waters</li>
                         <li>La Soufriere Drive-In Volcano (including the Mud Bath and Mineral Pools)</li>
                         <li>Toraille Waterfall - refreshing natural pool</li>
                     </ul>
-                    <p><strong>Included:</strong> Lunch, Snorkeling equipment, All fees and taxes</p>
+                    <p><strong>Included:</strong> Lunch, All fees and taxes</p>
                     <p><strong>Provider Contact:</strong> +17587149927</p>
-                </div>
-                <div class="tour-footer">
-                    <span class="viator-tag">Viator</span>
+                    <div class="alert">
+                        <div class="alert-title">Meeting Point</div>
+                        <p>Meet at Gordon's Restaurant Pier at 8:30 AM. Remember they operate on island time, so pickups might be closer to 9:00 AM!</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="spa-package">
-                <div class="spa-title">Spa Package - Plan Your Escape (150 min)</div>
-                <p><strong>Date:</strong> Tuesday, May 27, 2025</p>
-                <p><strong>Time:</strong> 10:30 AM</p>
-                <p><strong>Duration:</strong> 150 Minutes</p>
-                <p><strong>Location:</strong> Red Lane Spa</p>
-                <p><strong>Booking Reference:</strong> 898244</p>
-                <p><strong>Primary Participant:</strong> Cheryl O'Brien</p>
-                <p>Plan your therapeutic escape with any of our spa experience pathways. Once on property, our therapists will help you tailor your preferred journey using our customizable list of services.</p>
-                <div class="alert">
-                    <div class="alert-title">Spa Tip</div>
-                    <p>Please arrive 15-20 minutes prior to your appointment to discuss your preferences with the therapists and to complete any necessary paperwork.</p>
+            <div class="info-card">
+                <div class="info-card-header">Spa Package - Tuesday, May 27</div>
+                <div class="info-card-content">
+                    <p><strong>Package:</strong> Plan Your Escape (150 min)</p>
+                    <p><strong>Time:</strong> 10:30 AM</p>
+                    <p><strong>Location:</strong> Red Lane Spa</p>
+                    <p><strong>Booking Reference:</strong> 898244</p>
+                    <p><strong>Primary Participant:</strong> Cheryl O'Brien</p>
+                    <p>Plan your therapeutic escape with our spa experience pathways. Once on property, our therapists will help you tailor your preferred journey.</p>
+                    <div class="alert">
+                        <div class="alert-title">Spa Tip</div>
+                        <p>Please arrive 15-20 minutes prior to your appointment to discuss your preferences with the therapists and to complete any necessary paperwork.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -804,7 +540,6 @@
                         <li><strong>70's Party</strong> - Tuesdays</li>
                         <li><strong>White Night</strong> - Wednesdays (Special chocolate buffet - wear white)</li>
                         <li><strong>Live Music</strong> - Various venues throughout the resort</li>
-                        <li><strong>Talent Shows</strong> - Showcasing both staff and guest talents</li>
                     </ul>
                 </div>
             </div>
@@ -820,44 +555,16 @@
             <div class="info-card">
                 <div class="info-card-header">Resort Dining Highlights</div>
                 <div class="info-card-content">
-                    <div class="restaurant">
-                        <div class="restaurant-name">Gordon's on the Pier</div>
-                        <div class="restaurant-details">Over-water fine dining • Seafood & Steak • Reservations Required</div>
-                        <p>An exclusive dining experience on a pier over the water, specializing in seafood and steak. Make reservations early, especially for sunset dining. Perfect for a romantic dinner.</p>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <div class="restaurant-name">Bombay</div>
-                        <div class="restaurant-details">Indian Cuisine • Dinner Only</div>
-                        <p>Highly-rated Indian restaurant offering spicy and flavorful dishes. Popular menu items include Lamb Chop starter and Chicken Dhaba Curry. Make reservations early as this is one of the most popular restaurants.</p>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <div class="restaurant-name">Bayside Restaurant</div>
-                        <div class="restaurant-details">International Cuisine • Breakfast, Lunch & Dinner</div>
-                        <p>Serves buffet-style meals throughout the day and transforms into a French Brasserie in the evening. Great for breakfast with views of the main pool.</p>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <div class="restaurant-name">The Jerk Shack</div>
-                        <div class="restaurant-details">Caribbean • Lunch</div>
-                        <p>A casual favorite for lunch serving authentic Caribbean jerk chicken. A perfect stop after a morning of beach activities.</p>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <div class="restaurant-name">Soy Sushi Bar</div>
-                        <div class="restaurant-details">Japanese • Dinner Only</div>
-                        <p>Traditional sushi restaurant offering fresh sushi options for dinner in an intimate setting.</p>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <div class="restaurant-name">Kimonos</div>
-                        <div class="restaurant-details">Japanese Teppanyaki • Dinner Only</div>
-                        <p>Japanese Teppanyaki-style restaurant where chefs cook your meal right in front of you, providing both entertainment and delicious food.</p>
-                    </div>
-                    
-                    <div class="restaurant">
-                        <div class="restaurant-name">Olde London Pub</div>
-                        <div class="restaurant-details">English Pub • Lunch & Dinner • Open Late</div>
-                        <p>Located just off the lobby, a great spot for late-night drinks and classic English pub fare. One of the few dining venues open past 10 PM.</p>
-                    </div>
+                    <p><strong>Gordon's on the Pier</strong> - Over-water fine dining • Seafood & Steak • Reservations Required</p>
+                    <p><strong>Bombay</strong> - Indian Cuisine • Dinner Only</p>
+                    <p><strong>Bayside Restaurant</strong> - International Cuisine • Breakfast, Lunch & Dinner</p>
+                    <p><strong>The Jerk Shack</strong> - Caribbean • Lunch</p>
+                    <p><strong>Soy Sushi Bar</strong> - Japanese • Dinner Only</p>
+                    <p><strong>Kimonos</strong> - Japanese Teppanyaki • Dinner Only</p>
+                    <p><strong>Olde London Pub</strong> - English Pub • Lunch & Dinner • Open Late</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
