@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Austin Good's Ireland Tour</title>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #1b5e20;
+            --accent-color: #4caf50;
+            --light-color: #e8f5e9;
+            --dark-color: #1b5e20;
+            --text-color: #212121;
+            --light-text: #f5f5f5;
+            --border-radius: 8px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            padding-bottom: 50px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=1000');
+            height: 200px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .hero-text {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            width: 90%;
+        }
+        
+        .hero-text h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .trip-overview {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            margin: 20px 10px;
+        }
+        
+        .overview-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        @media (min-width: 768px) {
+            .overview-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .overview-item {
+            margin-bottom: 10px;
+        }
+        
+        .overview-label {
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+        
+        .accommodation-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            margin: 20px 10px;
+        }
+        
+        .accommodation-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .accommodation-list {
+            list-style-type: none;
+        }
+        
+        .accommodation-item {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .accommodation-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: var(--dark-color);
+        }
+        
+        .accommodation-details {
+            margin-top: 10px;
+        }
+        
+        .itinerary-container {
+            padding: 10px;
+        }
+        
+        .itinerary-day {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .day-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .day-header .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .day-header.collapsed .toggle-icon {
+            transform: rotate(-90deg);
+        }
+        
+        .day-content {
+            padding: 0 15px;
+            max-height: 2000px;
+            transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+            overflow: hidden;
+        }
+        
+        .day-content.collapsed {
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        
+        .day-description {
+            margin: 15px 0;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .day-notes {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #fff9c4;
+            border-left: 3px solid #fbc02d;
+            border-radius: 4px;
+        }
+        
+        .activity-list {
+            list-style-type: none;
+            margin-bottom: 15px;
+        }
+        
+        .activity {
+            border-bottom: 1px solid #eee;
+            padding: 12px 0;
+        }
+        
+        .activity:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-time {
+            font-weight: bold;
+            color: var(--dark-color);
+            margin-right: 5px;
+        }
+        
+        .activity-type {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            font-weight: bold;
+        }
+        
+        .activity-type-Sightseeing {
+            background-color: #bbdefb;
+            color: #0d47a1;
+        }
+        
+        .activity-type-Dining {
+            background-color: #ffecb3;
+            color: #ff6f00;
+        }
+        
+        .activity-type-Entertainment {
+            background-color: #e1bee7;
+            color: #6a1b9a;
+        }
+        
+        .activity-type-Transit {
+            background-color: #c8e6c9;
+            color: #1b5e20;
+        }
+        
+        .activity-type-Shopping {
+            background-color: #ffccbc;
+            color: #bf360c;
+        }
+        
+        .activity-type-Scenic {
+            background-color: #b3e5fc;
+            color: #01579b;
+        }
+        
+        .activity-title {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
+        .activity-description {
+            margin-top: 5px;
+        }
+        
+        .activity-location {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .activity-location::before {
+            content: "📍 ";
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 30px;
+        }
+        
+        .print-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        
+        @media print {
+            .print-button {
+                display: none;
+            }
+            
+            .day-content {
+                max-height: none !important;
+                padding: 15px !important;
+            }
+            
+            .itinerary-day {
+                break-inside: avoid;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Austin Good's Ireland Farm to Table & Music Tour</h1>
+            <p>November 1-11, 2025</p>
+        </div>
+    </div>
+    
+    <div class="trip-overview">
+        <h2 class="overview-title">Trip Overview</h2>
+        <div class="overview-grid">
+            <div>
+                <div class="overview-item">
+                    <span class="overview-label">Traveler:</span> Austin Good
+                </div>
+                <div class="overview-item">
+                    <span class="overview-label">Dates:</span> November 1-11, 2025 (10 days)
+                </div>
+                <div class="overview-item">
+                    <span class="overview-label">Status:</span> Planned
+                </div>
+            </div>
+            <div>
+                <div class="overview-item">
+                    <span class="overview-label">Main Interests:</span> Farm-to-table dining, traditional music venues, countryside accommodations
+                </div>
+                <div class="overview-item">
+                    <span class="overview-label">Flights:</span> Turkish Airlines TK132/TK1973 outbound on Nov 1-2, TK1978/TK31 return on Nov 11-12
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="accommodation-section">
+        <h2 class="accommodation-title">Accommodations</h2>
+        <ul class="accommodation-list">
+            <li class="accommodation-item">
+                <div class="accommodation-name">The Merry Ploughboy</div>
+                <div class="accommodation-location">Dublin</div>
+                <div class="accommodation-dates">November 2-4, 2025 (2 nights)</div>
+                <div class="accommodation-details">
+                    <p>Double Room, €145/night</p>
+                    <p>Features: Traditional Music, Restaurant, Free Parking</p>
+                    <p>Notes: Features traditional Irish music and quality food on the outskirts of Dublin</p>
+                </div>
+            </li>
+            <li class="accommodation-item">
+                <div class="accommodation-name">Ballymaloe House</div>
+                <div class="accommodation-location">Shanagarry, Cork</div>
+                <div class="accommodation-dates">November 4-8, 2025 (4 nights)</div>
+                <div class="accommodation-details">
+                    <p>Country House Room, €195/night</p>
+                    <p>Features: Farm to Table Restaurant, Organic Gardens, Cooking School</p>
+                    <p>Notes: World-renowned for its farm-to-table cuisine and 100-acre organic farm</p>
+                </div>
+            </li>
+            <li class="accommodation-item">
+                <div class="accommodation-name">Lough Bishop House</div>
+                <div class="accommodation-location">Collinstown, Westmeath</div>
+                <div class="accommodation-dates">November 8-11, 2025 (3 nights)</div>
+                <div class="accommodation-details">
+                    <p>Farm Stay, €135/night</p>
+                    <p>Features: Organic Farm, Home-cooked Meals, Irish Draught Horses</p>
+                    <p>Notes: Organic farm with excellent home-cooked food</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="itinerary-container">
+        <h2 class="overview-title">Daily Itinerary</h2>
+
+        <!-- Day 1 -->
+        <div class="itinerary-day">
+            <div class="day-header">
+                <span>Day 1: Nov 2 - Dublin & Surroundings</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="day-content">
+                <div class="day-description">Explore historic sites near Dublin including Rock of Dunamase and Powerscourt Waterfall</div>
+                <div class="day-notes">First full day in Ireland</div>
+                <ul class="activity-list">
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">09:00 - 11:30</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Rock of Dunamase</div>
+                        <div class="activity-description">Visit ancient fort with panoramic views</div>
+                        <div class="activity-location">Dunamase, Co. Laois</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">12:00 - 13:30</span>
+                            <span class="activity-type activity-type-Dining">Dining</span>
+                        </div>
+                        <div class="activity-title">Local Café Lunch</div>
+                        <div class="activity-description">Affordable Irish stew at a local café</div>
+                        <div class="activity-location">Portlaoise, Co. Laois</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">14:00 - 16:00</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Powerscourt Waterfall</div>
+                        <div class="activity-description">Visit Ireland's highest waterfall</div>
+                        <div class="activity-location">Powerscourt Estate, Co. Wicklow</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">20:00 - 22:30</span>
+                            <span class="activity-type activity-type-Entertainment">Entertainment</span>
+                        </div>
+                        <div class="activity-title">Traditional Music at The Cobblestone</div>
+                        <div class="activity-description">Authentic Irish music session</div>
+                        <div class="activity-location">Smithfield, Dublin</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="itinerary-day">
+            <div class="day-header">
+                <span>Day 2: Nov 3 - Wicklow Mountains</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="day-content">
+                <div class="day-description">Visit Glendalough monastic settlement and Trim Castle</div>
+                <div class="day-notes">Scenic drive through Wicklow Mountains</div>
+                <ul class="activity-list">
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">09:00 - 11:30</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Glendalough Monastic Settlement</div>
+                        <div class="activity-description">Explore ancient monastic ruins</div>
+                        <div class="activity-location">Glendalough, Co. Wicklow</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">12:00 - 13:30</span>
+                            <span class="activity-type activity-type-Dining">Dining</span>
+                        </div>
+                        <div class="activity-title">Picnic Lunch</div>
+                        <div class="activity-description">Picnic by Glenmacnass Waterfall</div>
+                        <div class="activity-location">Glenmacnass Valley, Co. Wicklow</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">14:30 - 16:30</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Trim Castle</div>
+                        <div class="activity-description">Visit largest Anglo-Norman castle in Ireland</div>
+                        <div class="activity-location">Trim, Co. Meath</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">20:00 - 22:30</span>
+                            <span class="activity-type activity-type-Entertainment">Entertainment</span>
+                        </div>
+                        <div class="activity-title">Traditional Music at Darkey Kelly's</div>
+                        <div class="activity-description">Atmospheric pub with nightly music sessions</div>
+                        <div class="activity-location">Dublin City</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="itinerary-day">
+            <div class="day-header">
+                <span>Day 3: Nov 4 - Dublin to Cork via Kilkenny</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="day-content">
+                <div class="day-description">Travel to Cork with stops at Kilfane Glen & Waterfall</div>
+                <div class="day-notes">Travel day to Ballymaloe House</div>
+                <ul class="activity-list">
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">09:00 - 10:30</span>
+                            <span class="activity-type activity-type-Transit">Transit</span>
+                        </div>
+                        <div class="activity-title">Drive to Kilkenny</div>
+                        <div class="activity-description">Scenic drive south from Dublin</div>
+                        <div class="activity-location">Dublin to Kilkenny</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">10:30 - 12:00</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Kilfane Glen & Waterfall</div>
+                        <div class="activity-description">Visit romantic 1790s garden with waterfall</div>
+                        <div class="activity-location">Thomastown, Co. Kilkenny</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">12:30 - 14:00</span>
+                            <span class="activity-type activity-type-Dining">Dining</span>
+                        </div>
+                        <div class="activity-title">Boxty Lunch</div>
+                        <div class="activity-description">Traditional potato pancakes at local café</div>
+                        <div class="activity-location">Thomastown, Co. Kilkenny</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">14:30 - 17:00</span>
+                            <span class="activity-type activity-type-Transit">Transit</span>
+                        </div>
+                        <div class="activity-title">Drive to Ballymaloe House</div>
+                        <div class="activity-description">Continue journey to Cork</div>
+                        <div class="activity-location">Kilkenny to Shanagarry, Co. Cork</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">19:00 - 21:00</span>
+                            <span class="activity-type activity-type-Dining">Dining</span>
+                        </div>
+                        <div class="activity-title">Dinner at Ballymaloe House</div>
+                        <div class="activity-description">Farm-to-table dinner at accommodation</div>
+                        <div class="activity-location">Shanagarry, Co. Cork</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="itinerary-day">
+            <div class="day-header">
+                <span>Day 4: Nov 5 - East Cork Exploration</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="day-content">
+                <div class="day-description">Visit Blarney Castle and explore Cork City</div>
+                <div class="day-notes">Focus on local food experiences</div>
+                <ul class="activity-list">
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">09:30 - 12:00</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Blarney Castle & Gardens</div>
+                        <div class="activity-description">Visit historic castle and kiss the Blarney Stone</div>
+                        <div class="activity-location">Blarney, Co. Cork</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">13:00 - 14:30</span>
+                            <span class="activity-type activity-type-Dining">Dining</span>
+                        </div>
+                        <div class="activity-title">Crawford Gallery Café</div>
+                        <div class="activity-description">Affordable lunch at gallery café</div>
+                        <div class="activity-location">Cork City</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">15:00 - 17:00</span>
+                            <span class="activity-type activity-type-Shopping">Shopping</span>
+                        </div>
+                        <div class="activity-title">English Market</div>
+                        <div class="activity-description">Explore historic market for local food products</div>
+                        <div class="activity-location">Cork City</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">20:00 - 22:30</span>
+                            <span class="activity-type activity-type-Entertainment">Entertainment</span>
+                        </div>
+                        <div class="activity-title">The Corner House</div>
+                        <div class="activity-description">Traditional music session at authentic pub</div>
+                        <div class="activity-location">Cork City</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="itinerary-day">
+            <div class="day-header">
+                <span>Day 5: Nov 6 - Ring of Kerry</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="day-content">
+                <div class="day-description">Drive the scenic Ring of Kerry with stops at Killarney National Park</div>
+                <div class="day-notes">One of Ireland's most famous scenic drives</div>
+                <ul class="activity-list">
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">09:00 - 10:30</span>
+                            <span class="activity-type activity-type-Transit">Transit</span>
+                        </div>
+                        <div class="activity-title">Drive to Killarney</div>
+                        <div class="activity-description">Travel from Cork to Killarney</div>
+                        <div class="activity-location">Cork to Killarney</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">10:30 - 12:00</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Killarney National Park</div>
+                        <div class="activity-description">Explore scenic national park</div>
+                        <div class="activity-location">Killarney, Co. Kerry</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">12:00 - 13:30</span>
+                            <span class="activity-type activity-type-Dining">Dining</span>
+                        </div>
+                        <div class="activity-title">Picnic Lunch</div>
+                        <div class="activity-description">Picnic by Torc Waterfall</div>
+                        <div class="activity-location">Torc Waterfall, Killarney</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">13:30 - 17:30</span>
+                            <span class="activity-type activity-type-Scenic">Scenic Drive</span>
+                        </div>
+                        <div class="activity-title">Ring of Kerry</div>
+                        <div class="activity-description">Drive part of the famous scenic route</div>
+                        <div class="activity-location">Ring of Kerry, Co. Kerry</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">20:00 - 22:30</span>
+                            <span class="activity-type activity-type-Entertainment">Entertainment</span>
+                        </div>
+                        <div class="activity-title">Courtney's Bar</div>
+                        <div class="activity-description">Traditional music session in Killarney</div>
+                        <div class="activity-location">Killarney, Co. Kerry</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 6 -->
+        <div class="itinerary-day">
+            <div class="day-header">
+                <span>Day 6: Nov 7 - Beara Peninsula</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="day-content">
+                <div class="day-description">Explore Gleninchaquin Park & Waterfall and Mare's Tail Waterfall</div>
+                <div class="day-notes">Less touristy than Ring of Kerry</div>
+                <ul class="activity-list">
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">09:00 - 10:30</span>
+                            <span class="activity-type activity-type-Transit">Transit</span>
+                        </div>
+                        <div class="activity-title">Drive to Beara Peninsula</div>
+                        <div class="activity-description">Travel from Killarney to Beara Peninsula</div>
+                        <div class="activity-location">Killarney to Beara</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">10:30 - 12:30</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Gleninchaquin Park & Waterfall</div>
+                        <div class="activity-description">Visit impressive 140m high waterfall</div>
+                        <div class="activity-location">Gleninchaquin, Co. Kerry</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">13:00 - 14:30</span>
+                            <span class="activity-type activity-type-Dining">Dining</span>
+                        </div>
+                        <div class="activity-title">O'Sullivan's Seafood</div>
+                        <div class="activity-description">Local seafood chowder</div>
+                        <div class="activity-location">Kenmare, Co. Kerry</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">15:00 - 17:00</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Mare's Tail Waterfall</div>
+                        <div class="activity-description">View Ireland's tallest waterfall</div>
+                        <div class="activity-location">Hungry Hill, Beara Peninsula</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">19:30 - 22:00</span>
+                            <span class="activity-type activity-type-Entertainment">Entertainment</span>
+                        </div>
+                        <div class="activity-title">The Olde Glen Bar</div>
+                        <div class="activity-description">Traditional Donegal-style music</div>
+                        <div class="activity-location">Kenmare, Co. Kerry</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="itinerary-day">
+            <div class="day-header">
+                <span>Day 7: Nov 8 - Cork to Galway via Cliffs of Moher</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="day-content">
+                <div class="day-description">Travel to Galway with stop at the Cliffs of Moher</div>
+                <div class="day-notes">Travel day to Lough Bishop House</div>
+                <ul class="activity-list">
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">08:30 - 11:30</span>
+                            <span class="activity-type activity-type-Transit">Transit</span>
+                        </div>
+                        <div class="activity-title">Drive to Cliffs of Moher</div>
+                        <div class="activity-description">Travel from Cork to the Cliffs of Moher</div>
+                        <div class="activity-location">Cork to Co. Clare</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">11:30 - 13:30</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Cliffs of Moher</div>
+                        <div class="activity-description">Visit stunning sea cliffs on Ireland's west coast</div>
+                        <div class="activity-location">Co. Clare</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">13:30 - 15:00</span>
+                            <span class="activity-type activity-type-Dining">Dining</span>
+                        </div>
+                        <div class="activity-title">Pub Lunch in Doolin</div>
+                        <div class="activity-description">Affordable lunch in traditional music village</div>
+                        <div class="activity-location">Doolin, Co. Clare</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">15:00 - 17:30</span>
+                            <span class="activity-type activity-type-Transit">Transit</span>
+                        </div>
+                        <div class="activity-title">Drive to Lough Bishop House</div>
+                        <div class="activity-description">Continue journey to Westmeath</div>
+                        <div class="activity-location">Co. Clare to Co. Westmeath</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">19:00 - 21:00</span>
+                            <span class="activity-type activity-type-Dining">Dining</span>
+                        </div>
+                        <div class="activity-title">Dinner at Accommodation</div>
+                        <div class="activity-description">Farm-to-table meal at Lough Bishop House</div>
+                        <div class="activity-location">Collinstown, Co. Westmeath</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 8 -->
+        <div class="itinerary-day">
+            <div class="day-header">
+                <span>Day 8: Nov 9 - Connemara National Park</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="day-content">
+                <div class="day-description">Visit Kylemore Abbey and Aasleagh Falls</div>
+                <div class="day-notes">Scenic drive through Connemara</div>
+                <ul class="activity-list">
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">09:00 - 10:30</span>
+                            <span class="activity-type activity-type-Transit">Transit</span>
+                        </div>
+                        <div class="activity-title">Drive to Kylemore Abbey</div>
+                        <div class="activity-description">Travel to Connemara</div>
+                        <div class="activity-location">Westmeath to Connemara</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">10:30 - 12:30</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Kylemore Abbey</div>
+                        <div class="activity-description">Visit Victorian abbey and walled garden</div>
+                        <div class="activity-location">Connemara, Co. Galway</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">12:30 - 14:00</span>
+                            <span class="activity-type activity-type-Dining">Dining</span>
+                        </div>
+                        <div class="activity-title">Picnic Lunch</div>
+                        <div class="activity-description">Picnic lunch at Aasleagh Falls</div>
+                        <div class="activity-location">Aasleagh Falls, Co. Galway</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">14:00 - 17:00</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Connemara National Park</div>
+                        <div class="activity-description">Explore scenic national park</div>
+                        <div class="activity-location">Connemara, Co. Galway</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">20:00 - 22:30</span>
+                            <span class="activity-type activity-type-Entertainment">Entertainment</span>
+                        </div>
+                        <div class="activity-title">Tigh Coili</div>
+                        <div class="activity-description">Traditional music at renowned Galway pub</div>
+                        <div class="activity-location">Galway City</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 9 -->
+        <div class="itinerary-day">
+            <div class="day-header">
+                <span>Day 9: Nov 10 - Aran Islands Day Trip</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="day-content">
+                <div class="day-description">Ferry to Inis Mór to visit Dún Aonghasa fort</div>
+                <div class="day-notes">Unique cultural experience</div>
+                <ul class="activity-list">
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">08:30 - 10:00</span>
+                            <span class="activity-type activity-type-Transit">Transit</span>
+                        </div>
+                        <div class="activity-title">Ferry to Inis Mór</div>
+                        <div class="activity-description">Take ferry from Rossaveal to largest Aran Island</div>
+                        <div class="activity-location">Rossaveal to Inis Mór</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">10:30 - 12:30</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Dún Aonghasa</div>
+                        <div class="activity-description">Visit prehistoric clifftop fort</div>
+                        <div class="activity-location">Inis Mór, Aran Islands</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">13:00 - 14:30</span>
+                            <span class="activity-type activity-type-Dining">Dining</span>
+                        </div>
+                        <div class="activity-title">Joe Watty's Bar</div>
+                        <div class="activity-description">Affordable meal at island pub</div>
+                        <div class="activity-location">Kilronan, Inis Mór</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">16:00 - 17:30</span>
+                            <span class="activity-type activity-type-Transit">Transit</span>
+                        </div>
+                        <div class="activity-title">Ferry to Mainland</div>
+                        <div class="activity-description">Return ferry to Rossaveal</div>
+                        <div class="activity-location">Inis Mór to Rossaveal</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">20:00 - 22:30</span>
+                            <span class="activity-type activity-type-Entertainment">Entertainment</span>
+                        </div>
+                        <div class="activity-title">The Crane Bar</div>
+                        <div class="activity-description">Traditional music session at authentic Galway pub</div>
+                        <div class="activity-location">Galway City</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 10 -->
+        <div class="itinerary-day">
+            <div class="day-header">
+                <span>Day 10: Nov 11 - Final Day</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="day-content">
+                <div class="day-description">Visit Clonmacnoise monastic site</div>
+                <div class="day-notes">Prepare for departure</div>
+                <ul class="activity-list">
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">09:30 - 12:00</span>
+                            <span class="activity-type activity-type-Sightseeing">Sightseeing</span>
+                        </div>
+                        <div class="activity-title">Clonmacnoise</div>
+                        <div class="activity-description">Visit ancient monastic site on the Shannon</div>
+                        <div class="activity-location">Shannonbridge, Co. Offaly</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">12:30 - 14:00</span>
+                            <span class="activity-type activity-type-Dining">Dining</span>
+                        </div>
+                        <div class="activity-title">Traditional Irish Stew</div>
+                        <div class="activity-description">Final authentic meal at local pub</div>
+                        <div class="activity-location">Shannonbridge, Co. Offaly</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">14:30 - 16:30</span>
+                            <span class="activity-type activity-type-Transit">Transit</span>
+                        </div>
+                        <div class="activity-title">Return to Accommodation</div>
+                        <div class="activity-description">Return to Lough Bishop House</div>
+                        <div class="activity-location">Shannonbridge to Collinstown</div>
+                    </li>
+                    <li class="activity">
+                        <div>
+                            <span class="activity-time">19:00 - 22:00</span>
+                            <span class="activity-type activity-type-Entertainment">Entertainment</span>
+                        </div>
+                        <div class="activity-title">House Music Session</div>
+                        <div class="activity-description">Final traditional music session at Lough Bishop House</div>
+                        <div class="activity-location">Collinstown, Co. Westmeath</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Safe travels and enjoy your Irish adventure!</p>
+        <p>Ireland Farm to Table & Music Tour - November 2025</p>
+    </footer>
+    
+    <button class="print-button" onclick="window.print()">🖨️</button>
+    
+    <script>
+        // Toggle day content visibility
+        document.querySelectorAll('.day-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                content.classList.toggle('collapsed');
+                this.classList.toggle('collapsed');
+            });
+        });
+    </script>
+</body>
+</html>
