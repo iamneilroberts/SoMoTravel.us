@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>European Adventure - London, Paris, Rome | Travel Guide</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 100%;
+            overflow-x: hidden;
+            padding-bottom: 50px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .trip-info {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        .reservation {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4ca1af;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .reservation-number {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .checklist {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin: 20px 0 10px;
+            color: #3498db;
+        }
+        .day-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .day-header {
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .day-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .day-date {
+            font-weight: normal;
+        }
+        .day-content {
+            padding: 20px;
+        }
+        .activity {
+            margin-bottom: 15px;
+            border-left: 3px solid #3498db;
+            padding-left: 15px;
+        }
+        .activity-time {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .activity-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .transport {
+            background-color: #e8f4f8;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .transport-title {
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+        .transport-details {
+            margin-bottom: 5px;
+        }
+        .accommodation {
+            background-color: #e8f8f5;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .accommodation-title {
+            font-weight: bold;
+            color: #16a085;
+            margin-bottom: 5px;
+        }
+        .hidden-gem {
+            background-color: #f9edf7;
+            border-left: 3px solid #8e44ad;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .hidden-gem-title {
+            color: #8e44ad;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .contact-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .contact-info h3 {
+            margin-top: 0;
+        }
+        .important-note {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .confirmation-box {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .link-button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .link-button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            .day-header {
+                flex-direction: column;
+            }
+            .day-title {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1>European Adventure</h1>
+            <div class="trip-info">London, Paris, Rome | May 23 - June 1, 2025</div>
+            <div class="trip-info">Welford Family (3 travelers)</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="reservation">
+            <div class="reservation-number">Master Reservation: H9E653AP</div>
+            <div>Package Price: $14,989.10 | Eurostar Rail: $540.00 | Pay in destination: $130.30</div>
+            <div>Total Trip Cost: $15,659.40 ($5,219.80 per person)</div>
+        </div>
+
+        <div class="section">
+            <h2>Pre-Trip Checklist</h2>
+            <div class="checklist">
+                <p><strong>Required Before Departure:</strong></p>
+                <ul>
+                    <li>Apply for UK ETA ($10 per person) at least 30 days before travel</li>
+                    <li>Apply for EU ETIAS ($7 per person) at least 30 days before travel</li>
+                    <li>Check passport validity (must be valid for at least 6 months beyond return date)</li>
+                    <li>Make restaurant reservations in advance (particularly for Paris)</li>
+                    <li>Notify credit card companies of travel plans</li>
+                    <li>Arrange for international data plan or purchase local SIM cards</li>
+                    <li>Download offline maps for London, Paris, and Rome</li>
+                    <li>Exchange some currency before departure (£, €)</li>
+                </ul>
+            </div>
+            
+            <div class="checklist">
+                <p><strong>Night-Before Checklist:</strong></p>
+                <ul>
+                    <li>Check flight status</li>
+                    <li>Complete online check-in for American Airlines (if available)</li>
+                    <li>Pack medications in carry-on luggage</li>
+                    <li>Ensure all electronics are charged</li>
+                    <li>Set alarm for departure day (leave for airport 3 hours before flight)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Important Travel Information</h2>
+            
+            <h3>Emergency Contacts</h3>
+            <ul>
+                <li><strong>European Emergency Number:</strong> 112 (works in all countries)</li>
+                <li><strong>UK Police (non-emergency):</strong> 101</li>
+                <li><strong>UK Medical (non-emergency):</strong> 111</li>
+                <li><strong>US Embassy London:</strong> +44 20 7499 9000</li>
+                <li><strong>US Embassy Paris:</strong> +33 1 43 12 22 22</li>
+                <li><strong>US Embassy Rome:</strong> +39 06 46741</li>
+            </ul>
+            
+            <h3>Local Customs & Etiquette</h3>
+            <div class="accommodation">
+                <p><strong>Tipping:</strong></p>
+                <ul>
+                    <li><strong>UK:</strong> 10-15% in restaurants (check if service charge is already included), £1-2 for taxis</li>
+                    <li><strong>France:</strong> Service charge is included by law. Leave small change for good service.</li>
+                    <li><strong>Italy:</strong> Service charge ("coperto") often included. Additional 5-10% for exceptional service.</li>
+                </ul>
+            </div>
+            
+            <div class="accommodation">
+                <p><strong>Transportation:</strong></p>
+                <ul>
+                    <li><strong>London:</strong> Oyster card or contactless payment for all public transit. Stand on right on escalators.</li>
+                    <li><strong>Paris:</strong> Metro tickets can be purchased in books of 10 ("carnet") for savings.</li>
+                    <li><strong>Rome:</strong> Validate bus/tram tickets before boarding. Taxis should be taken from official stands.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Daily Itinerary</h2>
+            
+            <!-- DAY 1 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-title">Day 1: DEPARTURE</div>
+                    <div class="day-date">Friday, May 23, 2025</div>
+                </div>
+                <div class="day-content">
+                    <p>Departure from Gulfport to London with overnight flight</p>
+                    
+                    <div class="transport">
+                        <div class="transport-title">Flight: American Airlines #5564</div>
+                        <div class="transport-details"><strong>Departure:</strong> Gulfport, Mississippi at 1:03 PM (13:03)</div>
+                        <div class="transport-details"><strong>Arrival:</strong> Charlotte, North Carolina at 3:58 PM (15:58)</div>
+                        <div class="transport-details"><strong>Confirmation:</strong> YAYCJK</div>
+                    </div>
+                    
+                    <div class="transport">
+                        <div class="transport-title">Flight: American Airlines #730</div>
+                        <div class="transport-details"><strong>Departure:</strong> Charlotte, North Carolina at 6:35 PM (18:35)</div>
+                        <div class="transport-details"><strong>Arrival:</strong> London Heathrow, United Kingdom at 7:40 AM (07:40) on May 24</div>
+                        <div class="transport-details"><strong>Confirmation:</strong> YAYCJK</div>
+                        <div class="transport-details"><strong>Notes:</strong> Overnight flight to London</div>
+                    </div>
+                    
+                    <div class="important-note">
+                        <p>Remember to set your watch forward 5 hours when you land in London.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DAY 2 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-title">Day 2: LONDON ARRIVAL</div>
+                    <div class="day-date">Saturday, May 24, 2025</div>
+                </div>
+                <div class="day-content">
+                    <p>Arrive London Heathrow, rest and acclimate</p>
+                    
+                    <div class="accommodation">
+                        <div class="accommodation-title">Great Scotland Yard by Hyatt</div>
+                        <div><strong>Check-in:</strong> Today (May 24)</div>
+                        <div><strong>Room Type:</strong> Two connecting rooms: 1 King and 2 Twin beds</div>
+                        <div><strong>Amenities:</strong> Inner courtyard view, 495 sq ft, 2 bathrooms</div>
+                        <div><strong>Rating:</strong> 5-Star</div>
+                        <div><strong>Confirmation:</strong> H9E653AP</div>
+                        <div><strong>Notes:</strong> In The Unbound Collection by Hyatt</div>
+                        <a href="https://www.hyatt.com/en-US/hotel/england-united-kingdom/great-scotland-yard/lhrub" class="link-button" target="_blank">Hotel Website</a>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-time">2:00 PM (14:00)</div>
+                        <div class="activity-title">Private Black Cab Tour of London</div>
+                        <div>Explore London with a knowledgeable driver in a classic black cab</div>
+                        <div><strong>Confirmation:</strong> 1229586437</div>
+                        <div><strong>Notes:</strong> Hotel pickup</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DAY 3 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-title">Day 3: LONDON</div>
+                    <div class="day-date">Sunday, May 25, 2025</div>
+                </div>
+                <div class="day-content">
+                    <p>Private tours, Tower of London, Borough Market, Thames River Cruise</p>
+                    
+                    <div class="accommodation">
+                        <div class="accommodation-title">Great Scotland Yard by Hyatt</div>
+                        <div><strong>Confirmation:</strong> H9E653AP</div>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-time">8:00 AM (08:00)</div>
+                        <div class="activity-title">VIP Tower of London / Crown Jewels Tour</div>
+                        <div>Skip-the-line access to the Tower of London and Crown Jewels</div>
+                        <div><strong>Notes:</strong> After this tour, ask about the timing for the included Thames boat ride.</div>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-time">2:00 PM (14:00)</div>
+                        <div class="activity-title">Borough Market Visit</div>
+                        <div>London's oldest food market with over 1,000 years of history</div>
+                    </div>
+                    
+                    <div class="hidden-gem">
+                        <div class="hidden-gem-title">HIDDEN GEM: Borough Market</div>
+                        <div>Perfect for a late lunch after Tower of London tour – just a scenic 10-minute walk across London Bridge. Best stalls: Neal's Yard Dairy for British cheese tasting, Bread Ahead for world-class donuts.</div>
+                        <div><strong>Local tip:</strong> Visit after 2PM when the tourist crowds thin out.</div>
+                        <a href="https://boroughmarket.org.uk/" class="link-button" target="_blank">Market Website</a>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Thames River Cruise</div>
+                        <div>Afternoon cruise on the River Thames</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DAY 4 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-title">Day 4: LONDON</div>
+                    <div class="day-date">Monday, May 26, 2025</div>
+                </div>
+                <div class="day-content">
+                    <p>Changing of the Guard Tour and British Museum</p>
+                    
+                    <div class="accommodation">
+                        <div class="accommodation-title">Great Scotland Yard by Hyatt</div>
+                        <div><strong>Confirmation:</strong> H9E653AP</div>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-time">9:55 AM (09:55)</div>
+                        <div class="activity-title">Changing of the Guard Tour</div>
+                        <div>Walking tour to see the famous Changing of the Guard ceremony</div>
+                        <div><strong>Location:</strong> Buckingham Palace, London</div>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">British Museum Speed Tour</div>
+                        <div>Afternoon guided tour of the highlights of the British Museum</div>
+                        <div><strong>Location:</strong> British Museum, London</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DAY 5 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-title">Day 5: LONDON TO PARIS</div>
+                    <div class="day-date">Tuesday, May 27, 2025</div>
+                </div>
+                <div class="day-content">
+                    <p>Eurostar to Paris, Kickstart Paris Tour</p>
+                    
+                    <div class="transport">
+                        <div class="transport-title">Train: Eurostar</div>
+                        <div class="transport-details"><strong>Departure:</strong> London at 10:24 AM (10:24)</div>
+                        <div class="transport-details"><strong>Arrival:</strong> Paris Gare du Nord, France at 1:47 PM (13:47)</div>
+                        <div class="transport-details"><strong>Confirmation:</strong> H9E653AP</div>
+                        <div class="transport-details"><strong>Details:</strong> Channel Tunnel (35 minutes underwater portion), Comfortable seats with power outlets and onboard café, Luggage allowance of two bags per person</div>
+                    </div>
+                    
+                    <div class="accommodation">
+                        <div class="accommodation-title">Elysees Union</div>
+                        <div><strong>Check-in:</strong> Today (May 27)</div>
+                        <div><strong>Room Type:</strong> Triple with Breakfast</div>
+                        <div><strong>Location:</strong> 16th District/Right Bank, Paris, France</div>
+                        <div><strong>Rating:</strong> 3-Star</div>
+                        <div><strong>Confirmation:</strong> H9E653AP</div>
+                        <div><strong>Notes:</strong> City Tax of 5.53€ per person per night</div>
+                        <a href="https://www.elysees-union.com/en/" class="link-button" target="_blank">Hotel Website</a>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-time">5:00 PM (17:00)</div>
+                        <div class="activity-title">Kickstart Paris Tour</div>
+                        <div>Introductory tour to get oriented to Paris</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DAY 6 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-title">Day 6: PARIS</div>
+                    <div class="day-date">Wednesday, May 28, 2025</div>
+                </div>
+                <div class="day-content">
+                    <p>Louvre Museum Tour, Fashion History Tour, CityPharma visit</p>
+                    
+                    <div class="accommodation">
+                        <div class="accommodation-title">Elysees Union</div>
+                        <div><strong>Confirmation:</strong> H9E653AP</div>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-time">10:00 AM (10:00)</div>
+                        <div class="activity-title">Louvre Museum Tour</div>
+                        <div>Skip-the-Line Private Guided Louvre Tour</div>
+                        <div><strong>Location:</strong> Louvre Museum, Paris</div>
+                        <div><strong>Notes:</strong> See the Mona Lisa, Venus de Milo, and other masterpieces with expert guide</div>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-time">2:30 PM (14:30)</div>
+                        <div class="activity-title">Fashion History Tour</div>
+                        <div>Private tour exploring Paris fashion history</div>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">CityPharma Visit</div>
+                        <div>Visit to famous French pharmacy for skincare and beauty products</div>
+                        <div><strong>Location:</strong> CityPharma, Paris</div>
+                        <div><strong>Notes:</strong> After Fashion History Tour, renowned French pharmacy for premium skincare and beauty products at great prices</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DAY 7 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-title">Day 7: PARIS TO ROME</div>
+                    <div class="day-date">Thursday, May 29, 2025</div>
+                </div>
+                <div class="day-content">
+                    <p>Flight to Rome, Rome Golf Cart Tour</p>
+                    
+                    <div class="transport">
+                        <div class="transport-title">Flight: Air France #1204</div>
+                        <div class="transport-details"><strong>Departure:</strong> Paris Charles De Gaulle, France at 6:55 AM (06:55)</div>
+                        <div class="transport-details"><strong>Arrival:</strong> Rome Fiumicino, Italy at 8:55 AM (08:55)</div>
+                        <div class="transport-details"><strong>Confirmation:</strong> 4XTJ5L</div>
+                        <div class="transport-details"><strong>Details:</strong> Business Class: Seats 01C, 03C, 01D</div>
+                    </div>
+                    
+                    <div class="accommodation">
+                        <div class="accommodation-title">Hotel Ariston</div>
+                        <div><strong>Check-in:</strong> Today (May 29)</div>
+                        <div><strong>Room Type:</strong> Deluxe Room with Breakfast</div>
+                        <div><strong>Rating:</strong> 4-Star</div>
+                        <div><strong>Confirmation:</strong> H9E653AP</div>
+                        <div><strong>Notes:</strong> City Tax of 7.50€ per person per day</div>
+                        <a href="https://www.hotelariston.it/en/" class="link-button" target="_blank">Hotel Website</a>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-time">3:00 PM (15:00)</div>
+                        <div class="activity-title">Rome Golf Cart Tour</div>
+                        <div>Orientation tour of Rome by golf cart</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DAY 8 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-title">Day 8: ROME</div>
+                    <div class="day-date">Friday, May 30, 2025</div>
+                </div>
+                <div class="day-content">
+                    <p>Vatican Museums Tour, Colosseum & Ancient Rome Tour</p>
+                    
+                    <div class="accommodation">
+                        <div class="accommodation-title">Hotel Ariston</div>
+                        <div><strong>Confirmation:</strong> H9E653AP</div>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-time">8:00 AM (08:00)</div>
+                        <div class="activity-title">Vatican Museums Tour</div>
+                        <div>Skip-the-line guided tour of Vatican Museums & Sistine Chapel</div>
+                        <div><strong>Location:</strong> Vatican City, Rome</div>
+                        <div><strong>Notes:</strong> Early morning tour to avoid crowds; one of the largest museum collections in the world</div>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-time">3:15 PM (15:15)</div>
+                        <div class="activity-title">Colosseum & Ancient Rome Tour</div>
+                        <div>Guided tour of the Colosseum and Ancient Rome sites</div>
+                        <div><strong>Location:</strong> Colosseum, Rome</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DAY 9 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-title">Day 9: ROME/POMPEII</div>
+                    <div class="day-date">Saturday, May 31, 2025</div>
+                </div>
+                <div class="day-content">
+                    <p>Full-day Pompeii via High Speed Rail</p>
+                    
+                    <div class="accommodation">
+                        <div class="accommodation-title">Hotel Ariston</div>
+                        <div><strong>Confirmation:</strong> H9E653AP</div>
+                    </div>
+                    
+                    <div class="transport">
+                        <div class="transport-title">Train: Trenitalia</div>
+                        <div class="transport-details"><strong>Departure:</strong> Rome Termini Station at 8:00 AM (08:00)</div>
+                        <div class="transport-details"><strong>Return:</strong> Approximately 5:00 PM (17:00)</div>
+                        <div class="transport-details"><strong>Destination:</strong> Naples/Pompeii</div>
+                        <div class="transport-details"><strong>Confirmation:</strong> H9E653AP</div>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-time">8:00 AM - 5:00 PM (08:00-17:00)</div>
+                        <div class="activity-title">Pompeii Day Trip</div>
+                        <div>Full-day tour to Pompeii via High Speed Rail</div>
+                        <div><strong>Notes:</strong> Meet at Rome Termini Station 30 minutes before departure</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DAY 10 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-title">Day 10: DEPARTURE</div>
+                    <div class="day-date">Sunday, June 1, 2025</div>
+                </div>
+                <div class="day-content">
+                    <p>Return flights from Rome to Gulfport</p>
+                    
+                    <div class="transport">
+                        <div class="transport-title">Transfer: Hotel to Airport</div>
+                        <div class="transport-details"><strong>Departure:</strong> Hotel Ariston at 7:00 AM (07:00)</div>
+                        <div class="transport-details"><strong>Destination:</strong> Rome Fiumicino Airport</div>
+                    </div>
+                    
+                    <div class="transport">
+                        <div class="transport-title">Flight: American Airlines #239</div>
+                        <div class="transport-details"><strong>Departure:</strong> Rome Fiumicino, Italy at 10:00 AM (10:00)</div>
+                        <div class="transport-details"><strong>Arrival:</strong> Dallas/Fort Worth, Texas at 3:00 PM (15:00)</div>
+                        <div class="transport-details"><strong>Confirmation:</strong> YAYCJK</div>
+                    </div>
+                    
+                    <div class="transport">
+                        <div class="transport-title">Flight: American Airlines #5324</div>
+                        <div class="transport-details"><strong>Departure:</strong> Dallas/Fort Worth, Texas at 9:21 PM (21:21)</div>
+                        <div class="transport-details"><strong>Arrival:</strong> Gulfport, Mississippi at 11:03 PM (23:03)</div>
+                        <div class="transport-details"><strong>Confirmation:</strong> YAYCJK</div>
+                    </div>
+                    
+                    <div class="important-note">
+                        <p>Remember to set your watch back 7 hours when you arrive in the United States.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p>Kim Henderson, SOMO Travel Specialists</p>
+            <p>Phone: 251-508-6921</p>
+            <p>Email: kim.henderson@cruiseplanners.com</p>
+        </div>
+    </div>
+</body>
+</html>
