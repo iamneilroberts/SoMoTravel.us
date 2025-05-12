@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chisholm European Adventure - Dublin, London & Stoneleigh</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #0056b3;
+            --accent-color: #FFB74D;
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+            --light-text: #6c757d;
+            --border-color: #dee2e6;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        .header h2 {
+            color: var(--secondary-color);
+            font-weight: 400;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .header .dates {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+
+        .header .status {
+            display: inline-block;
+            background-color: #cfe2ff;
+            color: var(--secondary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .trip-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            font-size: 1.3rem;
+        }
+
+        .info-card ul {
+            list-style-position: inside;
+            margin-left: 10px;
+        }
+
+        .info-card li {
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            line-height: 1.6;
+        }
+
+        .itinerary {
+            margin-top: 40px;
+        }
+
+        .itinerary h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .day {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .day-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            font-weight: 500;
+        }
+
+        .day-content {
+            padding: 20px;
+        }
+
+        .day-content h4 {
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+        }
+
+        .activity {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .activity:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .activity-time {
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .activity-title {
+            font-weight: 500;
+        }
+
+        .activity-location {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .accommodation, .transportation {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .accommodation {
+            background-color: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid var(--success-color);
+        }
+
+        .transportation {
+            background-color: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid var(--warning-color);
+        }
+
+        .cost-details {
+            margin-top: 40px;
+            background-color: var(--light-bg);
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .cost-details h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        .total-row td {
+            font-weight: bold;
+            border-top: 2px solid var(--primary-color);
+        }
+
+        .notes {
+            margin-top: 40px;
+        }
+
+        .notes h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .notes p {
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+            color: var(--light-text);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .trip-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>European Adventure Proposal</h1>
+            <h2>Dublin, London & Stoneleigh</h2>
+            <div class="dates">September 18-28, 2025</div>
+            <div class="status">Confirmed</div>
+        </header>
+
+        <section class="trip-info">
+            <div class="info-card">
+                <h3>Trip Overview</h3>
+                <p>An 11-day European adventure combining city exploration with professional activities for farrier Hank Chisholm and his wife Stephanie.</p>
+                <ul>
+                    <li><strong>Travelers:</strong> Hank & Stephanie Chisholm</li>
+                    <li><strong>Duration:</strong> 11 days / 10 nights</li>
+                    <li><strong>Destinations:</strong> Dublin (Ireland), London & Stoneleigh (England)</li>
+                    <li><strong>Total Cost:</strong> $6,864.19 USD</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Accommodation Details</h3>
+                <ul>
+                    <li><strong>Dublin (3 nights):</strong> Riu Plaza The Gresham Dublin</li>
+                    <li><strong>London (1 night):</strong> The Tower Hotel London</li>
+                    <li><strong>Stoneleigh (5 nights):</strong> Staying with friends</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Transportation Details</h3>
+                <ul>
+                    <li><strong>Outbound:</strong> United Airlines - Mobile (MOB) to Dublin (DUB)</li>
+                    <li><strong>Internal:</strong> Aer Lingus - Dublin to London Heathrow</li>
+                    <li><strong>Transfer:</strong> Train from London to Coventry</li>
+                    <li><strong>Return:</strong> Lufthansa/United - Birmingham (BHX) to Mobile (MOB)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="itinerary">
+            <h2>Day-by-Day Itinerary</h2>
+
+            <div class="day">
+                <div class="day-header">Day 0: Wednesday, September 18, 2025 - DEPARTURE DAY</div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">12:55 PM:</span>
+                        <span class="activity-title">Depart from Mobile (MOB)</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-title">Overnight Flight</span>
+                    </div>
+                    <div class="transportation">
+                        <strong>Transportation:</strong> United Airlines Mobile (MOB) to Dublin (DUB)
+                    </div>
+                </div>
+            </div>
+
+            <div class="day">
+                <div class="day-header">Day 1: Thursday, September 19, 2025 - DUBLIN ARRIVAL</div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">07:10 AM - 09:00 AM:</span>
+                        <span class="activity-title">Arrive at Dublin Airport</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">11:30 AM - 12:30 PM:</span>
+                        <span class="activity-title">Hotel Check-in or Luggage Drop</span>
+                        <div class="activity-location">The Riu Plaza The Gresham Dublin</div>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">01:00 PM - 02:30 PM:</span>
+                        <span class="activity-title">Lunch at The Pepper Pot</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">02:30 PM - 04:30 PM:</span>
+                        <span class="activity-title">Original Dublin Walking Tour</span>
+                        <div class="activity-location">Dublin City Center</div>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">05:00 PM - 07:00 PM:</span>
+                        <span class="activity-title">Rest at Hotel</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">07:00 PM - 09:00 PM:</span>
+                        <span class="activity-title">Dinner at Darkey Kelly's</span>
+                        <div class="activity-location">Traditional Irish pub with live music</div>
+                    </div>
+                    <div class="accommodation">
+                        <strong>Accommodation:</strong> Riu Plaza The Gresham Dublin
+                    </div>
+                </div>
+            </div>
+
+            <div class="day">
+                <div class="day-header">Day 2: Friday, September 20, 2025 - BOYNE VALLEY SMALL GROUP TOUR</div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">07:30 AM - 08:30 AM:</span>
+                        <span class="activity-title">Breakfast at hotel</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">08:30 AM - 09:00 AM:</span>
+                        <span class="activity-title">Meet in the hotel lobby for pickup</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">09:00 AM - 05:30 PM:</span>
+                        <span class="activity-title">Day Trip from Dublin: New Grange, Knowth, Trim Castle and the Hill of Tara</span>
+                        <div class="activity-location">Boyne Valley</div>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">07:30 PM - 09:30 PM:</span>
+                        <span class="activity-title">Dinner at The Church Café Bar & Restaurant</span>
+                    </div>
+                    <div class="accommodation">
+                        <strong>Accommodation:</strong> Riu Plaza The Gresham Dublin
+                    </div>
+                </div>
+            </div>
+
+            <div class="day">
+                <div class="day-header">Day 3: Saturday, September 21, 2025 - PRIVATE HORSE LOVERS TOUR & WICKLOW MOUNTAINS</div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">07:30 AM - 08:30 AM:</span>
+                        <span class="activity-title">Breakfast at Queen of Tarts</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">08:30 AM - 09:00 AM:</span>
+                        <span class="activity-title">Meet in the hotel lobby for pickup</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">09:00 AM - 12:00 PM:</span>
+                        <span class="activity-title">Visit to Irish National Stud & Gardens</span>
+                        <div class="activity-location">Customized experience for Hank's professional interests</div>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">01:00 PM - 02:00 PM:</span>
+                        <span class="activity-title">Lunch at a local recommended spot</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">02:00 PM - 04:30 PM:</span>
+                        <span class="activity-title">Wicklow Mountains and Glendalough Tour</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">04:30 PM - 06:30 PM:</span>
+                        <span class="activity-title">Return to Dublin</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">08:00 PM - 10:00 PM:</span>
+                        <span class="activity-title">Dinner at The Brazen Head</span>
+                        <div class="activity-location">Ireland's oldest pub, dating to 1198</div>
+                    </div>
+                    <div class="accommodation">
+                        <strong>Accommodation:</strong> Riu Plaza The Gresham Dublin
+                    </div>
+                </div>
+            </div>
+
+            <div class="day">
+                <div class="day-header">Day 4: Sunday, September 22, 2025 - DUBLIN TO LONDON</div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">07:00 AM - 08:00 AM:</span>
+                        <span class="activity-title">Breakfast at Bewley's Grafton Street</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">08:00 AM - 09:00 AM:</span>
+                        <span class="activity-title">Check-out from Dublin hotel</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">12:00 PM - 01:25 PM:</span>
+                        <span class="activity-title">Flight to London</span>
+                        <div class="activity-location">Dublin Airport to London Heathrow</div>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">01:30 PM - 03:00 PM:</span>
+                        <span class="activity-title">Transfer to hotel</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">03:00 PM - 03:30 PM:</span>
+                        <span class="activity-title">Check-in at The Tower Hotel London</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">04:00 PM - 05:30 PM:</span>
+                        <span class="activity-title">Thames River Cruise</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">05:30 PM - 07:30 PM:</span>
+                        <span class="activity-title">South Bank Walking Exploration</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">08:00 PM - 10:00 PM:</span>
+                        <span class="activity-title">Dinner at The Anchor & Hope</span>
+                    </div>
+                    <div class="transportation">
+                        <strong>Transportation:</strong> Aer Lingus Dublin (DUB) to London Heathrow (LHR)
+                    </div>
+                    <div class="accommodation">
+                        <strong>Accommodation:</strong> The Tower Hotel London
+                    </div>
+                </div>
+            </div>
+
+            <div class="day">
+                <div class="day-header">Day 5: Monday, September 23, 2025 - LONDON BLACK CAB TOUR & TOWER OF LONDON</div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">07:00 AM - 08:30 AM:</span>
+                        <span class="activity-title">Breakfast at Kaffeine</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">08:30 AM - 10:30 AM:</span>
+                        <span class="activity-title">Private Tour: Black Taxi Tour of London</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">11:30 AM - 02:30 PM:</span>
+                        <span class="activity-title">Beefeaters VIP Tower of London Tour Plus Thames River Cruise</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">03:00 PM - 04:00 PM:</span>
+                        <span class="activity-title">Return to hotel, collect luggage, and check-out</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">04:30 PM - 06:30 PM:</span>
+                        <span class="activity-title">Train from London Euston Station to Coventry Station</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">07:00 PM - 07:30 PM:</span>
+                        <span class="activity-title">Met by friends for transport at Coventry Station</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">09:00 PM - 10:30 PM:</span>
+                        <span class="activity-title">Dinner with friends</span>
+                        <div class="activity-location">Stoneleigh area</div>
+                    </div>
+                    <div class="transportation">
+                        <strong>Transportation:</strong> Train from London Euston Station to Coventry Station
+                    </div>
+                    <div class="accommodation">
+                        <strong>Accommodation:</strong> Friends' Home in Stoneleigh area
+                    </div>
+                </div>
+            </div>
+
+            <div class="day">
+                <div class="day-header">Days 6-9: Tuesday-Friday, September 24-27, 2025 - STONELEIGH WORK DAYS</div>
+                <div class="day-content">
+                    <h4>Daily Schedule</h4>
+                    <div class="activity">
+                        <span class="activity-time">09:00 AM - 05:00 PM:</span>
+                        <span class="activity-title">Farrier-related work activities</span>
+                        <div class="activity-location">Stoneleigh area</div>
+                    </div>
+                    <h4>Evening Activities</h4>
+                    <div class="activity">
+                        <span class="activity-title">Day 6 (Sep 24):</span> Dinner at The Cottage Inn
+                    </div>
+                    <div class="activity">
+                        <span class="activity-title">Day 7 (Sep 25):</span> Visit to Warwick Castle & Dinner at The Queen & Castle
+                    </div>
+                    <div class="activity">
+                        <span class="activity-title">Day 8 (Sep 26):</span> Visit to Kenilworth Castle & Dinner at The Red Lion
+                    </div>
+                    <div class="activity">
+                        <span class="activity-title">Day 9 (Sep 27):</span> Visit to Stratford-upon-Avon & Dinner at Farmers Fayre Farm Shop & Cafe
+                    </div>
+                    <div class="accommodation">
+                        <strong>Accommodation:</strong> Friends' Home in Stoneleigh area
+                    </div>
+                </div>
+            </div>
+
+            <div class="day">
+                <div class="day-header">Day 10: Saturday, September 28, 2025 - DEPARTURE DAY</div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">07:00 AM - 07:30 AM:</span>
+                        <span class="activity-title">Breakfast with friends</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">07:30 AM - 08:30 AM:</span>
+                        <span class="activity-title">Friends drive you to Birmingham Airport</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">09:35 AM - 07:10 PM:</span>
+                        <span class="activity-title">Depart Birmingham Airport to Mobile</span>
+                    </div>
+                    <div class="transportation">
+                        <strong>Transportation:</strong> Lufthansa/United Airlines Birmingham (BHX) to Mobile (MOB)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cost-details">
+            <h2>Cost Breakdown</h2>
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Cost (USD)</th>
+                </tr>
+                <tr>
+                    <td>International Flights</td>
+                    <td>$2,854.00</td>
+                </tr>
+                <tr>
+                    <td>Dublin-London Flight</td>
+                    <td>$326.20</td>
+                </tr>
+                <tr>
+                    <td>Accommodations (4 nights)</td>
+                    <td>$1,240.00</td>
+                </tr>
+                <tr>
+                    <td>Tours & Activities</td>
+                    <td>$1,475.40</td>
+                </tr>
+                <tr>
+                    <td>Transportation</td>
+                    <td>$560.59</td>
+                </tr>
+                <tr>
+                    <td>Meals (estimated)</td>
+                    <td>$408.00</td>
+                </tr>
+                <tr class="total-row">
+                    <td>Total Cost</td>
+                    <td>$6,864.19</td>
+                </tr>
+            </table>
+
+            <h3>Payment Schedule</h3>
+            <table>
+                <tr>
+                    <th>Payment</th>
+                    <th>Amount (USD)</th>
+                    <th>Due Date</th>
+                </tr>
+                <tr>
+                    <td>Deposit</td>
+                    <td>$1,716.05 (25%)</td>
+                    <td>Upon acceptance of proposal</td>
+                </tr>
+                <tr>
+                    <td>Final Payment</td>
+                    <td>$5,148.14 (75%)</td>
+                    <td>July 20, 2025 (60 days before departure)</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="notes">
+            <h2>Additional Information</h2>
+            <p><strong>Travel Insurance:</strong> We strongly recommend purchasing comprehensive travel insurance to protect your investment. A policy covering trip cancellation, medical emergencies, and baggage loss would cost approximately $345-425 depending on coverage levels selected.</p>
+            
+            <p><strong>Passport Requirements:</strong> Please ensure your passports are valid for at least six months beyond your return date (until March 28, 2026).</p>
+            
+            <p><strong>Weather:</strong> Dublin (September): Average temperatures 50-62°F (10-17°C), with some rainfall likely. London/Stoneleigh (September): Average temperatures 54-66°F (12-19°C), variable conditions.</p>
+            
+            <p><strong>Custom Aspects of This Itinerary:</strong></p>
+            <ul>
+                <li>Equestrian experiences in Ireland's National Stud tailored to Hank's professional interests</li>
+                <li>Schedule accommodating professional work days in Stoneleigh</li>
+                <li>Balance of guided tours and independent exploration</li>
+                <li>Mix of historic sites, cultural experiences, and natural beauty</li>
+                <li>Specially selected restaurants featuring authentic local cuisine</li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <p>For any questions or adjustments to this itinerary, please contact your travel advisor.</p>
+        </footer>
+    </div>
+</body>
+</html>
