@@ -123,6 +123,28 @@
             background: #cfe2ff; /* Light blue */
             color: var(--secondary-color); /* Darker blue */
         }
+        
+        .featured-card {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e1ecf9 100%);
+            border: 2px solid var(--primary-color);
+            position: relative;
+        }
+        
+        .featured-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 1;
+        }
 
         .add-trip {
             border: 2px dashed var(--border-color);
@@ -178,6 +200,15 @@
         </header>
 
         <main class="trips-grid">
+            <!-- New Featured Trip Card -->
+            <a href="daniels-niagara-falls-proposal.html" class="trip-card featured-card">
+                <div class="featured-tag">NEW</div>
+                <div class="trip-title">Daniels Family Niagara Falls Vacation</div>
+                <div class="trip-date">July 13-15, 2025</div>
+                <div class="trip-status">Client Proposal</div>
+                <p style="margin-top: 10px;">Experience the best of Niagara Falls with this 3-day family vacation featuring falls experience tours, scenic drives, and exploration of surrounding areas including Niagara-on-the-Lake.</p>
+            </a>
+        
             <a href="ChisholmEuropeanAdventure2025.html" class="trip-card">
                 <div class="trip-title">Chisholm European Adventure Proposal</div>
                 <div class="trip-date">September 18-28, 2025</div>
