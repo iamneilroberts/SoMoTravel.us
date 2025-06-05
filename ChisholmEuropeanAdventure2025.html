@@ -3,651 +3,611 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>European Adventure: Dublin, London & Stoneleigh - Travel Proposal</title>
+    <title>🏰 European Adventure: Dublin, London & Stoneleigh</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #e8e8e8;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
+            background-color: #f8f9fa;
         }
         
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: rgba(20, 20, 30, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #2c5aa0 0%, #1e3a8a 100%);
-            padding: 40px;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.06)"/></svg>');
-            pointer-events: none;
-        }
-        
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-            background: rgba(30, 30, 45, 0.7);
-            border-radius: 12px;
+            background: white;
             padding: 30px;
-            border: 1px solid rgba(79, 172, 254, 0.2);
-            transition: all 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
-        .section:hover {
-            border-color: rgba(79, 172, 254, 0.4);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.1);
-        }
-        
-        .section h2 {
-            color: #4facfe;
-            font-size: 1.8em;
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
         }
         
-        .section h3 {
-            color: #7dd3fc;
-            font-size: 1.3em;
-            margin: 25px 0 15px 0;
-        }
-        
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(125, 211, 252, 0.05) 100%);
-            border: 1px solid rgba(79, 172, 254, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 15px 0;
-        }
-        
-        .itinerary-day {
-            background: rgba(40, 40, 60, 0.5);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 15px 0;
-            border-left: 4px solid #4facfe;
-        }
-        
-        .itinerary-day h4 {
-            color: #4facfe;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-        
-        .activity {
-            margin: 10px 0;
-            padding-left: 15px;
-        }
-        
-        .activity strong {
-            color: #7dd3fc;
-        }
-        
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: rgba(30, 30, 45, 0.8);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .pricing-table th {
-            background: linear-gradient(135deg, #2c5aa0 0%, #1e3a8a 100%);
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        .pricing-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(79, 172, 254, 0.1);
-        }
-        
-        .pricing-table tr:hover {
-            background: rgba(79, 172, 254, 0.05);
-        }
-        
-        .total-row {
-            background: rgba(79, 172, 254, 0.1) !important;
-            font-weight: bold;
-            color: #4facfe;
-        }
-        
-        .accommodation-card {
-            background: rgba(40, 40, 60, 0.5);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 15px 0;
-            border: 1px solid rgba(79, 172, 254, 0.2);
-        }
-        
-        .accommodation-card h4 {
-            color: #4facfe;
-            margin-bottom: 10px;
-        }
-        
-        .gem-box {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 193, 7, 0.05) 100%);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .gem-box h4 {
-            color: #ffd700;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .restaurant-card {
-            background: rgba(40, 40, 60, 0.5);
-            border-radius: 8px;
-            padding: 15px;
-            margin: 10px 0;
-            border-left: 3px solid #7dd3fc;
-        }
-        
-        .restaurant-card h4 {
-            color: #7dd3fc;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-        
-        .restaurant-card .historic-note {
-            color: #ffd700;
-            font-style: italic;
-            font-size: 0.9em;
-            margin-bottom: 5px;
-        }
-        
-        .contact-info {
-            background: linear-gradient(135deg, #1e3a8a 0%, #2c5aa0 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
+        h2 {
+            color: #e74c3c;
+            font-size: 1.4em;
             margin-top: 30px;
-        }
-        
-        .contact-info h3 {
-            color: white;
             margin-bottom: 15px;
         }
         
-        a {
-            color: #4facfe;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        a:hover {
-            color: #7dd3fc;
-            text-decoration: underline;
-        }
-        
-        .icon {
+        h3 {
+            color: #2980b9;
             font-size: 1.2em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        h4 {
+            color: #27ae60;
+            font-size: 1.1em;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .highlight-section {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .gem-box {
+            background: #fff9e6;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .gem-box h3 {
+            color: #e67e22;
+            margin-top: 0;
+        }
+        
+        .transportation-box {
+            background: #f0f8f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .option-detail {
+            background: white;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+            border: 1px solid #bdc3c7;
+        }
+        
+        .flight-details {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #2980b9;
         }
         
         ul {
+            margin: 10px 0;
             padding-left: 20px;
         }
         
         li {
-            margin: 8px 0;
+            margin: 5px 0;
         }
         
-        @media (max-width: 768px) {
-            .container {
-                margin: 10px;
-                border-radius: 10px;
-            }
-            
-            .header {
-                padding: 30px 20px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .content {
-                padding: 20px;
-            }
-            
-            .section {
-                padding: 20px;
-            }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #34495e;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-section {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .contact-section h2 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .contact-section a {
+            color: #3498db;
+        }
+        
+        .day-header {
+            background: #34495e;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+        
+        .activity-section {
+            margin-left: 15px;
+            margin-bottom: 20px;
+        }
+        
+        strong {
+            color: #2c3e50;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>🏰 European Adventure: Dublin, London & Stoneleigh</h1>
-            <p>A Customized Journey Through Ireland & England<br>
-            <strong>September 18-28, 2025 • 11 Days</strong><br>
-            Prepared for Hank & Stephanie Chisholm</p>
-        </div>
+        <h1>🏰 European Adventure: Dublin, London & Stoneleigh</h1>
         
-        <div class="content">
-            <div class="section">
-                <h2><span class="icon">✈️</span> Trip Overview</h2>
-                <p>Experience the rich cultural heritage of Ireland and England with this carefully crafted journey designed specifically for your interests in equestrian experiences and historic sites. This 11-day adventure combines leisure travel with Hank's professional engagement in Stoneleigh, featuring authentic local experiences, historic castles, and the Irish National Stud.</p>
+        <div class="highlight-section">
+            <h2>✈️ Trip Overview</h2>
+            <p>Experience the rich cultural heritage of Ireland and England with this carefully crafted journey designed specifically for your interests in equestrian experiences and historic sites. This 11-day adventure combines leisure travel with Hank's professional engagement in Stoneleigh, featuring authentic local experiences and the Irish National Stud.</p>
+            
+            <h3>Trip Highlights</h3>
+            <ul>
+                <li>Irish National Stud & Gardens: Guided tour of Ireland's premier horse breeding facility with Living Legends retired racehorses</li>
+                <li>Howth Cliff Walk & Cruise: Spectacular coastal scenery with boat tour options</li>
+                <li>London Luxury: Stay at Great Scotland Yard Hyatt with VIP Tower of London tour</li>
+                <li>Professional Component: Stoneleigh work engagement with nearby equestrian sites</li>
+                <li>Flexible Transportation: Multiple options for each destination to suit your budget and preferences</li>
+                <li>Historic Dining: Authentic experiences at Ireland's oldest pub and London's finest historic establishments</li>
+            </ul>
+        </div>
+
+        <div class="flight-details">
+            <h2>✈️ Flight Details</h2>
+            <ul>
+                <li><strong>Route:</strong> Round-trip flights Mobile ↔ Dublin ↔ London ↔ Birmingham</li>
+                <li><strong>Departure:</strong> Thursday, September 18, 2025</li>
+                <li><strong>Return:</strong> Sunday, September 28, 2025</li>
+                <li><strong>Booking:</strong> Multi-city routing through Apple Vacations</li>
+                <li><strong>Note:</strong> Specific flight times and carriers to be confirmed upon booking</li>
+            </ul>
+        </div>
+
+        <h2>🗓️ Detailed Itinerary</h2>
+        
+        <div class="day-header">Thursday, Sep 18 - Day 1: Departure Day</div>
+        <div class="activity-section">
+            <ul>
+                <li>Departure from Mobile Regional Airport</li>
+                <li>International connecting flights to Dublin</li>
+                <li>Overnight flight with meal service</li>
+            </ul>
+        </div>
+
+        <div class="day-header">Friday, Sep 19 - Day 2: Dublin Arrival</div>
+        <div class="activity-section">
+            <ul>
+                <li>Morning arrival at Dublin Airport</li>
+                <li>Airport transfer to Riu Plaza The Gresham Dublin</li>
+                <li>Hotel check-in (3:00 PM standard, early check-in available)</li>
+            </ul>
+            
+            <h4>🚶‍♂️ Evening Walking Sightseeing</h4>
+            <p><strong>Dublin City Center Orientation Walk</strong></p>
+            <ul>
+                <li>O'Connell Street to Trinity College (15 minutes)</li>
+                <li>Temple Bar area exploration</li>
+                <li>Historic Dublin Castle grounds (exterior viewing)</li>
+                <li>Christ Church Cathedral (exterior viewing)</li>
+                <li>Return via Dame Street and Grafton Street</li>
+            </ul>
+            
+            <h4>🍽️ Evening Dining Recommendation</h4>
+            <p><strong>The Brazen Head</strong><br>
+            <strong>Location:</strong> 20 Lower Bridge Street (10-minute walk from hotel)<br>
+            <strong>Historic Significance:</strong> Ireland's oldest pub, revolutionary hub where Robert Emmet planned the 1803 uprising<br>
+            <strong>Specialties:</strong> Traditional Irish stew, fish & chips, live music<br>
+            <strong>Atmosphere:</strong> Authentic Irish pub experience with traditional music<br>
+            <strong>Website:</strong> <a href="https://brazenhead.com/">brazenhead.com</a></p>
+        </div>
+
+        <div class="gem-box">
+            <h3>💎 Kim's Hidden Gem - Dublin</h3>
+            <p><strong>3FE (Third Floor Espresso)</strong> - This local favorite was started by a former investment banker who followed his passion for coffee. They roast their own beans and serve some of the best filter coffee and espresso in Ireland with a simple but delicious breakfast menu.</p>
+            <p><strong>Address:</strong> 32-34 Grand Canal Street Lower, Dublin 2<br>
+            <strong>Website:</strong> <a href="https://3fe.com/">3fe.com</a></p>
+        </div>
+
+        <div class="day-header">Saturday, Sep 20 - Day 3: Irish National Stud Tour</div>
+        <div class="activity-section">
+            <div class="transportation-box">
+                <h4>🚗 Transportation Options to Irish National Stud</h4>
                 
-                <div class="highlight-box">
-                    <h3>Trip Highlights</h3>
+                <div class="option-detail">
+                    <h5>Option 1: Train + Taxi (Most Economical)</h5>
                     <ul>
-                        <li><strong>Irish National Stud & Gardens:</strong> Guided tour of Ireland's premier horse breeding facility with Living Legends retired racehorses</li>
-                        <li><strong>Howth Cliff Walk & Cruise:</strong> Spectacular coastal scenery with 45-minute boat tour</li>
-                        <li><strong>Historic Castles:</strong> Kilkea Castle, Burtown House, and optional Russborough House</li>
-                        <li><strong>London Luxury:</strong> Stay at Great Scotland Yard Hyatt with VIP Tower of London tour</li>
-                        <li><strong>Professional Component:</strong> Stoneleigh work engagement with nearby equestrian sites</li>
-                        <li><strong>Self-Drive Ireland:</strong> Freedom to explore Ireland's countryside at your own pace</li>
-                        <li><strong>Historic Dining:</strong> Authentic experiences at Ireland's oldest pub and London's finest historic establishments</li>
+                        <li><strong>Cost:</strong> $40 total per person round trip</li>
+                        <li><strong>Dublin to Heuston Station:</strong> 11-minute taxi ride</li>
+                        <li><strong>Train departure times:</strong> Every hour from 7:00 AM to 10:00 PM</li>
+                        <li><strong>Dublin Heuston to Kildare:</strong> 35-minute direct train journey</li>
+                        <li><strong>Train cost:</strong> $20 each way per person</li>
+                        <li><strong>Kildare Station to National Stud:</strong> 10-minute taxi ride</li>
+                        <li><strong>Taxi cost:</strong> $10 each way</li>
+                        <li><strong>Best for:</strong> Budget-conscious travelers who enjoy local transport</li>
                     </ul>
                 </div>
                 
-                <div class="gem-box">
-                    <h4>💎 Kim's Hidden Gem - Dublin</h4>
-                    <p><strong>3FE (Third Floor Espresso)</strong> - This local favorite was started by a former investment banker who followed his passion for coffee. They roast their own beans and serve some of the best filter coffee and espresso in Ireland with a simple but delicious breakfast menu.</p>
-                    <p><strong>Address:</strong> 32-34 Grand Canal Street Lower, Dublin 2<br>
-                    <strong>Website:</strong> <a href="https://3fe.com/" target="_blank">3fe.com</a></p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2><span class="icon">🗓️</span> Detailed Itinerary</h2>
-                
-                <div class="itinerary-day">
-                    <h4>Thursday, Sep 18 - Day 1: Departure Day</h4>
-                    <div class="activity"><strong>12:40 PM:</strong> Depart Mobile, AL → Washington DC</div>
-                    <div class="activity"><strong>7:05 PM:</strong> Depart Washington DC → Dublin (overnight flight)</div>
-                </div>
-                
-                <div class="itinerary-day">
-                    <h4>Friday, Sep 19 - Day 2: Dublin Arrival</h4>
-                    <div class="activity"><strong>7:10 AM:</strong> Arrive Dublin Airport</div>
-                    <div class="activity"><strong>7:45 AM:</strong> Pick up rental car</div>
-                    <div class="activity"><strong>11:30 AM:</strong> Check-in at Riu Plaza The Gresham Dublin</div>
-                    <div class="activity"><strong>Afternoon:</strong> Self-guided Dublin walking tour</div>
-                    <div class="activity"><strong>Evening:</strong> Dinner at Darkey Kelly's - Traditional Irish pub</div>
-                    <div class="activity"><strong>Alternative:</strong> The Brazen Head (Ireland's oldest pub, est. 1198)</div>
-                </div>
-                
-                <div class="itinerary-day">
-                    <h4>Saturday, Sep 20 - Day 3: Irish National Stud & Castle Tour</h4>
-                    <div class="activity"><strong>9:30 AM:</strong> Irish National Stud & Gardens - Guided tour, Living Legends horses, Japanese Gardens</div>
-                    <div class="activity"><strong>Afternoon:</strong> Countryside castle loop - Kilkea Castle, Burtown House & Gardens</div>
-                    <div class="activity"><strong>Optional:</strong> Russborough House (Palladian mansion)</div>
-                    <div class="activity"><strong>Evening:</strong> Dinner at The Church Café (restored 18th-century church)</div>
-                    <div class="activity"><strong>Alternative:</strong> Chapter One by Mickael Viljanen (Michelin-starred)</div>
-                </div>
-                
-                <div class="itinerary-day">
-                    <h4>Sunday, Sep 21 - Day 4: Howth Cliff Walk & Coastal Tour</h4>
-                    <div class="activity"><strong>10:00 AM:</strong> Howth Cliff Walk (6km Green Loop) with spectacular coastal views</div>
-                    <div class="activity"><strong>2:30 PM:</strong> Howth Cliff Cruise (45-minute boat tour) - View cliffs from the sea</div>
-                    <div class="activity"><strong>Optional:</strong> Bull Island Nature Reserve or Malahide Castle</div>
-                    <div class="activity"><strong>Evening:</strong> Dinner at The Brazen Head (Ireland's oldest pub, est. 1198)</div>
-                </div>
-                
-                <div class="itinerary-day">
-                    <h4>Monday, Sep 22 - Day 5: Dublin to London</h4>
-                    <div class="activity"><strong>10:00 AM:</strong> Return rental car at Dublin Airport</div>
-                    <div class="activity"><strong>11:05 AM:</strong> Flight to London Heathrow</div>
-                    <div class="activity"><strong>2:30 PM:</strong> Check-in at Great Scotland Yard Hyatt (5-star luxury)</div>
-                    <div class="activity"><strong>3:30 PM:</strong> Thames River Cruise past major London landmarks</div>
-                    <div class="activity"><strong>Evening:</strong> Dinner options near hotel - The Old Shades (Grade II listed, 1898) or The Clarence Whitehall</div>
-                </div>
-                
-                <div class="itinerary-day">
-                    <h4>Tuesday, Sep 23 - Day 6: London Highlights & Travel to Stoneleigh</h4>
-                    <div class="activity"><strong>8:30 AM:</strong> Private Black Taxi Tour of London (2 hours)</div>
-                    <div class="activity"><strong>11:30 AM:</strong> VIP Beefeater Tower of London Tour with Crown Jewels</div>
-                    <div class="activity"><strong>4:30 PM:</strong> Train from London Euston to Coventry</div>
-                    <div class="activity"><strong>7:30 PM:</strong> Arrive in Stoneleigh area</div>
-                </div>
-                
-                <div class="itinerary-day">
-                    <h4>Wednesday-Saturday, Sep 24-27 - Days 7-10: Stoneleigh Work Days</h4>
-                    <div class="activity"><strong>Daytime:</strong> Farrier-related work activities as scheduled</div>
-                    <div class="activity"><strong>Evening Options:</strong> Warwick Castle, Kenilworth Castle, Stratford-upon-Avon</div>
-                    <div class="activity"><strong>Dining:</strong> Local pubs including The Cottage Inn, The Queen & Castle, The Red Lion</div>
-                </div>
-                
-                <div class="itinerary-day">
-                    <h4>Sunday, Sep 28 - Day 11: Departure</h4>
-                    <div class="activity"><strong>9:35 AM:</strong> Depart Birmingham → Frankfurt → Washington DC</div>
-                    <div class="activity"><strong>7:31 PM:</strong> Arrive Mobile, AL</div>
-                </div>
-                
-                <div class="gem-box">
-                    <h4>💎 Kim's Hidden Gem - London</h4>
-                    <p><strong>The Old Shades</strong> - A Grade II listed pub built in 1898, just 2 minutes from your hotel on Whitehall. This traditional British pub has been serving Londoners for over 125 years and offers the perfect authentic pub experience with their famous fish & chips and homemade pies.</p>
-                    <p><strong>Address:</strong> Whitehall, just off Trafalgar Square<br>
-                    <strong>Website:</strong> <a href="https://www.oldshades.co.uk/" target="_blank">oldshades.co.uk</a></p>
-                </div>
-                
-                <div class="gem-box">
-                    <h4>💎 Kim's Hidden Gem - Stoneleigh</h4>
-                    <p><strong>The British Horse Society Headquarters</strong> at Stoneleigh Park - As a farrier and avid rider, you'll appreciate visiting the home of the UK's largest equine charity. The grounds are beautiful, and they sometimes offer tours when arranged in advance.</p>
-                    <p><strong>Address:</strong> Abbey Park, Stareton, Kenilworth, Warwickshire CV8 2XZ<br>
-                    <strong>Website:</strong> <a href="https://www.bhs.org.uk/" target="_blank">bhs.org.uk</a></p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2><span class="icon">🏨</span> Luxury Accommodations</h2>
-                
-                <div class="accommodation-card">
-                    <h4>Riu Plaza The Gresham Dublin (September 19-22)</h4>
-                    <p><strong>Room:</strong> Deluxe Superior King with Bed & Breakfast<br>
-                    <strong>Location:</strong> O'Connell Street, heart of Dublin<br>
-                    <strong>Rating:</strong> 4-star hotel<br>
-                    <strong>Historic Significance:</strong> Founded in 1817, current structure completed in 1927<br>
-                    <strong>Amenities:</strong> Free Wi-Fi, restaurant, bar, central location</p>
-                </div>
-                
-                <div class="accommodation-card">
-                    <h4>Great Scotland Yard, Hyatt Unbound Collection (September 22-23)</h4>
-                    <p><strong>Room:</strong> King Bed ADA Accessible (279 sq ft)<br>
-                    <strong>Location:</strong> Westminster, historic London<br>
-                    <strong>Rating:</strong> 5-star luxury hotel<br>
-                    <strong>Historic Significance:</strong> Grade II listed building in 1820's Edwardian and Victorian architecture<br>
-                    <strong>Amenities:</strong> Historic building, premium location, luxury service, Michelin-starred restaurant</p>
-                </div>
-                
-                <div class="accommodation-card">
-                    <h4>Stoneleigh Area (September 23-28)</h4>
-                    <p><strong>Arrangement:</strong> Accommodation arranged separately (outside package)<br>
-                    <strong>Duration:</strong> 5 nights<br>
-                    <strong>Location:</strong> Warwickshire countryside near work site</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2><span class="icon">🍽️</span> Historic Dining Experiences</h2>
-                
-                <h3>Dublin's Historic Culinary Heritage</h3>
-                
-                <div class="restaurant-card">
-                    <h4>The Brazen Head</h4>
-                    <div class="historic-note">Ireland's oldest pub - Established 1198</div>
-                    <p><strong>Location:</strong> 20 Lower Bridge Street (10-minute walk from hotel)<br>
-                    <strong>Historic Significance:</strong> Revolutionary hub where Robert Emmet planned the 1803 uprising<br>
-                    <strong>Specialties:</strong> Traditional Irish stew, fish & chips, live music<br>
-                    <strong>Website:</strong> <a href="https://brazenhead.com/" target="_blank">brazenhead.com</a></p>
-                </div>
-                
-                <div class="restaurant-card">
-                    <h4>Chapter One by Mickael Viljanen</h4>
-                    <div class="historic-note">Michelin-starred excellence</div>
-                    <p><strong>Location:</strong> 5-minute walk from hotel<br>
-                    <strong>Cuisine:</strong> Contemporary fine dining with Irish influences<br>
-                    <strong>Perfect for:</strong> Special occasion dining</p>
-                </div>
-                
-                <div class="restaurant-card">
-                    <h4>The Church Café Bar & Restaurant</h4>
-                    <div class="historic-note">Restored 18th-century church</div>
-                    <p><strong>Location:</strong> Junction of Mary St & Jervis St, Dublin 1<br>
-                    <strong>Unique Feature:</strong> Dining in a beautifully restored historic church<br>
-                    <strong>Website:</strong> <a href="https://www.thechurch.ie/" target="_blank">thechurch.ie</a></p>
-                </div>
-                
-                <h3>London's Historic Pub Culture</h3>
-                
-                <div class="restaurant-card">
-                    <h4>The Old Shades</h4>
-                    <div class="historic-note">Grade II listed pub - Built 1898</div>
-                    <p><strong>Location:</strong> Whitehall, 2-minute walk from hotel<br>
-                    <strong>Historic Significance:</strong> Serving London for over 125 years<br>
-                    <strong>Specialties:</strong> Beer-battered fish & chips, homemade pies, Sunday roasts<br>
-                    <strong>Website:</strong> <a href="https://www.oldshades.co.uk/" target="_blank">oldshades.co.uk</a></p>
-                </div>
-                
-                <div class="restaurant-card">
-                    <h4>The Clarence Whitehall</h4>
-                    <div class="historic-note">Traditional British pub with historic charm</div>
-                    <p><strong>Location:</strong> Whitehall, 3-minute walk from hotel<br>
-                    <strong>Atmosphere:</strong> Elegant traditional pub with proper real ales<br>
-                    <strong>Specialties:</strong> Fish & chips, homemade pies, West Country beef<br>
-                    <strong>Website:</strong> <a href="https://www.theclarencewhitehall.com/" target="_blank">theclarencewhitehall.com</a></p>
-                </div>
-                
-                <div class="restaurant-card">
-                    <h4>The Admiralty Pub</h4>
-                    <div class="historic-note">Naval heritage theme - HMS Victory atmosphere</div>
-                    <p><strong>Location:</strong> Trafalgar Square area, 5-minute walk<br>
-                    <strong>Unique Feature:</strong> Maritime decor reflecting Britain's naval heritage<br>
-                    <strong>Specialties:</strong> Traditional British pies, Admiral's Mule cocktail</p>
-                </div>
-                
-                <div class="restaurant-card">
-                    <h4>Sherlock Holmes Pub</h4>
-                    <div class="historic-note">Literary heritage with original memorabilia</div>
-                    <p><strong>Location:</strong> 8-minute walk from hotel<br>
-                    <strong>Theme:</strong> Dedicated to the famous detective<br>
-                    <strong>Specialties:</strong> Sherlock Burger, traditional pies, literary atmosphere</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2><span class="icon">🎯</span> Personally Selected Tours & Activities</h2>
-                
-                <h3>Ireland Experiences</h3>
-                <ul>
-                    <li><strong>Irish National Stud & Gardens:</strong> Guided tour with Living Legends horses ($15 per person)</li>
-                    <li><strong>Howth Cliff Cruise:</strong> 45-minute coastal boat tour ($33 per person)</li>
-                    <li><strong><a href="https://www.viator.com/en-IE/tours/Dublin/Howth-Cliff-Cruises/d503-307492P1" target="_blank">Book Howth Cruise</a></strong></li>
-                </ul>
-                
-                <h3>London Premium Tours</h3>
-                <ul>
-                    <li><strong>Private Black Taxi Tour:</strong> 2-hour customized London tour ($225 total for group)</li>
-                    <li><strong>VIP Beefeater Tower of London:</strong> Skip-the-line with Crown Jewels ($110 per person)</li>
-                    <li><strong>Thames River Cruise:</strong> Scenic city tour by boat ($25 per person)</li>
-                    <li><strong><a href="https://www.viator.com/tours/London/Private-Tour-Black-Taxi-Tour-of-London/d737-2496LONSIGHT" target="_blank">Book Black Taxi Tour</a></strong></li>
-                    <li><strong><a href="https://www.viator.com/en-GB/tours/London/VIP-Beefeater-Meeting-Tower-of-London-and-Crown-Jewels-3-Hour-Highlights-Tour/d737-8606P20" target="_blank">Book Tower of London Tour</a></strong></li>
-                    <li><strong><a href="https://www.viator.com/tours/London/London-Eye-River-Cruise/d737-2988P12" target="_blank">Book Thames Cruise</a></strong></li>
-                </ul>
-                
-                <h3>Transportation</h3>
-                <ul>
-                    <li><strong>Ireland Rental Car:</strong> Enterprise Compact, 3 days (insurance not included)</li>
-                    <li><strong>London to Coventry Train:</strong> First-class rail travel ($38 per person)</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2><span class="icon">💰</span> Investment Summary</h2>
-                
-                <table class="pricing-table">
-                    <thead>
-                        <tr>
-                            <th>Package Component</th>
-                            <th>Cost</th>
-                            <th>Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Air & Hotel Package</td>
-                            <td>$4,897.04</td>
-                            <td>$2,448.52 per person</td>
-                        </tr>
-                        <tr>
-                            <td>Rental Car Option</td>
-                            <td>$240.32</td>
-                            <td>Enterprise Compact Car, 3 days (insurance not included)</td>
-                        </tr>
-                        <tr class="total-row">
-                            <td><strong>Total Air, Hotel, and Car Package Price</strong></td>
-                            <td><strong>$5,137.36</strong></td>
-                            <td>Apple Vacations total</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <h3>Suggested Tours and Excursions</h3>
-                <table class="pricing-table">
-                    <tbody>
-                        <tr>
-                            <td>Black Taxi Tour of London</td>
-                            <td>$225</td>
-                            <td>Private tour, flat rate for up to 5 passengers</td>
-                        </tr>
-                        <tr>
-                            <td>Beefeaters VIP Tower of London</td>
-                            <td>$220</td>
-                            <td>$110 per person</td>
-                        </tr>
-                        <tr>
-                            <td>Thames River Cruise</td>
-                            <td>$50</td>
-                            <td>$25 per person</td>
-                        </tr>
-                        <tr>
-                            <td>Irish National Stud Entry</td>
-                            <td>$30</td>
-                            <td>$15 per person</td>
-                        </tr>
-                        <tr>
-                            <td>Howth Cliff Cruise (Viator)</td>
-                            <td>$66</td>
-                            <td>$33 per person</td>
-                        </tr>
-                        <tr>
-                            <td>London to Coventry Train</td>
-                            <td>$76</td>
-                            <td>$38 per person</td>
-                        </tr>
-                        <tr class="total-row">
-                            <td><strong>Total Additional</strong></td>
-                            <td><strong>$667</strong></td>
-                            <td></td>
-                        </tr>
-                        <tr class="total-row">
-                            <td><strong>TOTAL</strong></td>
-                            <td><strong>$5,804</strong></td>
-                            <td>Package + Tours & Excursions</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="section">
-                <h2><span class="icon">💳</span> Payment Schedule</h2>
-                
-                <div class="highlight-box">
-                    <h3>Apple Vacations Package ($5,137.36)</h3>
+                <div class="option-detail">
+                    <h5>Option 2: Direct Taxi (Convenient)</h5>
                     <ul>
-                        <li><strong>Deposit Due:</strong> $3,713.71 (Due: June 2, 2025)</li>
-                        <li><strong>Final Payment Due:</strong> $5,137.36 (Due: August 4, 2025)</li>
+                        <li><strong>Cost:</strong> $80-120 each way</li>
+                        <li><strong>Route:</strong> Direct from Dublin hotel to National Stud</li>
+                        <li><strong>Duration:</strong> Approximately 1 hour</li>
+                        <li><strong>Best for:</strong> Convenience and door-to-door service</li>
                     </ul>
-                    
-                    <h3>Tours & Excursions ($667)</h3>
-                    <p>Tours and excursions are paid directly to vendors or can be arranged through Kim. Payment is typically required at time of booking or on the day of service.</p>
-                    
-                    <h3>Travel Insurance</h3>
-                    <p>Travel insurance is highly recommended and typically costs approximately 10% of the total package price. Kim can provide quotes from multiple carriers.</p>
+                </div>
+                
+                <div class="option-detail">
+                    <h5>Option 3: Private Car Service (Premium)</h5>
+                    <ul>
+                        <li><strong>2 hours:</strong> $161</li>
+                        <li><strong>4 hours:</strong> $317</li>
+                        <li><strong>6 hours:</strong> $472</li>
+                        <li><strong>Includes:</strong> Professional driver, comfort, flexibility for additional stops</li>
+                        <li><strong>Best for:</strong> Luxury experience with flexibility to explore the area</li>
+                    </ul>
                 </div>
             </div>
+            
+            <h4>🐎 Irish National Stud & Gardens</h4>
+            <ul>
+                <li>Guided tour of Ireland's premier horse breeding facility</li>
+                <li>Living Legends retired racehorses experience</li>
+                <li>Japanese Gardens and St. Fiachra's Garden</li>
+                <li><strong>Entry fee:</strong> $15 per person</li>
+            </ul>
+            
+            <h4>🍽️ Dublin Evening Dining Options</h4>
+            <p><strong>Chapter One by Mickael Viljanen</strong><br>
+            Location: 5-minute walk from hotel<br>
+            Cuisine: Contemporary fine dining with Irish influences<br>
+            Perfect for: Special occasion dining</p>
+            
+            <p><strong>The Church Café Bar & Restaurant</strong><br>
+            Location: Junction of Mary St & Jervis St, Dublin 1<br>
+            Unique Feature: Dining in a beautifully restored historic church<br>
+            Website: <a href="https://www.thechurch.ie/">thechurch.ie</a></p>
+        </div>
 
-            <div class="section">
-                <h2><span class="icon">📋</span> What's Included</h2>
+        <div class="day-header">Sunday, Sep 21 - Day 4: Howth Cliff Walk & Coastal Tour</div>
+        <div class="activity-section">
+            <div class="transportation-box">
+                <h4>🚂 Transportation Options to Howth</h4>
                 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                    <div>
-                        <h3>✅ Package Includes</h3>
-                        <ul>
-                            <li>Round-trip flights Mobile ↔ Dublin ↔ London ↔ Birmingham</li>
-                            <li>3 nights Dublin luxury hotel with breakfast</li>
-                            <li>1 night London 5-star hotel</li>
-                            <li>3-day rental car in Ireland (insurance not included)</li>
-                            <li>Professional travel planning and support</li>
-                        </ul>
-                        <p style="margin-top: 15px; font-style: italic; color: #ffd700;"><strong>Note:</strong> Destination charges applicable upon check-in including taxes, hotel fees, and/or resort fees.</p>
-                    </div>
-                    <div>
-                        <h3>📋 Not Included</h3>
-                        <ul>
-                            <li>Stoneleigh accommodation (arranged separately)</li>
-                            <li>Tours and excursions (optional add-ons)</li>
-                            <li>Meals (except Dublin breakfast)</li>
-                            <li>Travel insurance</li>
-                            <li>Personal expenses</li>
-                            <li>Gratuities</li>
-                        </ul>
-                    </div>
+                <div class="option-detail">
+                    <h5>Option 1: Train (Recommended)</h5>
+                    <ul>
+                        <li><strong>Cost:</strong> $15 each way per person</li>
+                        <li><strong>Duration:</strong> 45 minutes direct from Dublin</li>
+                        <li><strong>From Hotel:</strong> 15-minute walk to train station OR 3-minute taxi ride</li>
+                        <li><strong>Arrival:</strong> Train ends at the harbor in Howth (perfect for tours!)</li>
+                        <li><strong>Best for:</strong> Scenic journey and arrives right where you need to be</li>
+                    </ul>
+                </div>
+                
+                <div class="option-detail">
+                    <h5>Option 2: Taxi (Direct)</h5>
+                    <ul>
+                        <li><strong>Cost:</strong> $80-100 one way</li>
+                        <li><strong>Duration:</strong> Approximately 30-40 minutes depending on traffic</li>
+                    </ul>
+                </div>
+                
+                <div class="option-detail">
+                    <h5>Option 3: Private Car Service (Premium)</h5>
+                    <ul>
+                        <li><strong>2 hours:</strong> $161</li>
+                        <li><strong>4 hours:</strong> $317</li>
+                        <li><strong>6 hours:</strong> $472</li>
+                        <li><strong>Best for:</strong> Full day excursion with driver waiting</li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="contact-info">
-                <h3>Ready to Begin Your European Adventure?</h3>
-                <p><strong>Kim Henderson</strong><br>
-                Cruise & Tour Specialist<br>
-                📞 <a href="tel:251-289-1505" style="color: white;">251-289-1505</a><br>
-                ✉️ <a href="mailto:kim.henderson@cruiseplanners.com" style="color: white;">kim.henderson@cruiseplanners.com</a><br>
-                🌐 <a href="https://www.somotravelspecialist.com" style="color: white;">www.somotravelspecialist.com</a></p>
-                
-                <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
-                    Contact Kim to secure your deposit and begin this unforgettable journey through Ireland and England. 
-                    Payment plans available • Expert guidance every step of the way
-                </p>
+            
+            <h4>⛵ Howth Excursion Choices</h4>
+            
+            <div class="option-detail">
+                <h5>Ireland's Eye Tour</h5>
+                <ul>
+                    <li><strong>Experience:</strong> Dedicated boat tour to Ireland's Eye island</li>
+                    <li><strong>Link:</strong> <a href="https://www.viator.com/tours/Dublin/Irelands-Eye-Tour/d503-307492P3?pid=P00005400&uid=U00232400&mcid=58086&currency=USD">Book Ireland's Eye Tour</a></li>
+                    <li><strong>Best for:</strong> Island exploration and wildlife viewing</li>
+                </ul>
             </div>
+            
+            <div class="option-detail">
+                <h5>Craft Beer and Seafood Trail with Local</h5>
+                <ul>
+                    <li><strong>Times:</strong> 12pm or 3pm tours available</li>
+                    <li><strong>Combination:</strong> Could book Ireland's Eye tour earlier in the day</li>
+                    <li><strong>Link:</strong> <a href="https://www.viator.com/tours/Dublin/Craft-Beer-and-Seafood-Trail-with-a-Local/d503-89490P2?pid=P00005400&uid=U00232400&mcid=58086&currency=USD">Book Beer & Seafood Trail</a></li>
+                    <li><strong>Best for:</strong> Culinary experience and local culture</li>
+                </ul>
+            </div>
+            
+            <h4>🚶‍♂️ Howth Cliff Walk</h4>
+            <ul>
+                <li>Self-guided cliff walk with spectacular coastal views</li>
+                <li><strong>Duration:</strong> 2-3 hours for full loop</li>
+                <li><strong>Difficulty:</strong> Moderate with some steep sections</li>
+                <li><strong>Highlights:</strong> Ireland's Eye views, lighthouse, coastal wildlife</li>
+            </ul>
+        </div>
+
+        <div class="day-header">Monday, Sep 22 - Day 5: Dublin to London</div>
+        <div class="activity-section">
+            <ul>
+                <li>Hotel check-out from Riu Plaza The Gresham Dublin</li>
+                <li>Morning departure to Dublin Airport</li>
+                <li>Flight: Dublin to London (specific times TBC)</li>
+                <li>Arrival: London Heathrow/Gatwick</li>
+                <li>Transfer to Great Scotland Yard, Hyatt Unbound Collection</li>
+                <li>Hotel check-in: Westminster location</li>
+            </ul>
+            
+            <h4>🏨 Great Scotland Yard, Hyatt Unbound Collection</h4>
+            <ul>
+                <li><strong>Room:</strong> King Bed ADA Accessible (279 sq ft)</li>
+                <li><strong>Location:</strong> Westminster, historic London</li>
+                <li><strong>Rating:</strong> 5-star luxury hotel</li>
+                <li><strong>Historic Significance:</strong> Grade II listed building in 1820's Edwardian and Victorian architecture</li>
+                <li><strong>Amenities:</strong> Historic building, premium location, luxury service, Michelin-starred restaurant</li>
+            </ul>
+        </div>
+
+        <div class="gem-box">
+            <h3>💎 Kim's Hidden Gem - London</h3>
+            <p><strong>The Old Shades</strong> - A Grade II listed pub built in 1898, just 2 minutes from your hotel on Whitehall. This traditional British pub has been serving Londoners for over 125 years and offers the perfect authentic pub experience with their famous fish & chips and homemade pies.</p>
+            <p><strong>Address:</strong> Whitehall, just off Trafalgar Square<br>
+            <strong>Website:</strong> <a href="https://www.oldshades.co.uk/">oldshades.co.uk</a></p>
+        </div>
+
+        <div class="activity-section">
+            <h4>🍽️ London Evening Dining Options</h4>
+            <p><strong>The Old Shades</strong><br>
+            Location: Whitehall, 2-minute walk from hotel<br>
+            Historic Significance: Serving London for over 125 years<br>
+            Specialties: Beer-battered fish & chips, homemade pies, Sunday roasts<br>
+            Website: <a href="https://www.oldshades.co.uk/">oldshades.co.uk</a></p>
+            
+            <p><strong>The Clarence Whitehall</strong><br>
+            Location: Whitehall, 3-minute walk from hotel<br>
+            Atmosphere: Elegant traditional pub with proper real ales<br>
+            Specialties: Fish & chips, homemade pies, West Country beef<br>
+            Website: <a href="https://www.theclarencewhitehall.com/">theclarencewhitehall.com</a></p>
+        </div>
+
+        <div class="day-header">Tuesday, Sep 23 - Day 6: London Highlights & Travel to Stoneleigh</div>
+        <div class="activity-section">
+            <h4>🎯 London Premium Tours</h4>
+            
+            <div class="option-detail">
+                <h5>Private Black Taxi Tour</h5>
+                <ul>
+                    <li><strong>Duration:</strong> 2-hour customized London tour</li>
+                    <li><strong>Cost:</strong> $225 total for group (flat rate for up to 5 passengers)</li>
+                    <li><strong>Highlights:</strong> Westminster, Buckingham Palace, Tower Bridge, St. Paul's Cathedral</li>
+                    <li><strong>Book:</strong> <a href="https://www.viator.com/tours/London/Private-Tour-Black-Taxi-Tour-of-London/d737-2496LONSIGHT">Black Taxi Tour</a></li>
+                </ul>
+            </div>
+            
+            <div class="option-detail">
+                <h5>VIP Beefeater Tower of London</h5>
+                <ul>
+                    <li><strong>Experience:</strong> Skip-the-line with Crown Jewels access</li>
+                    <li><strong>Duration:</strong> 3 hours with expert Beefeater guide</li>
+                    <li><strong>Cost:</strong> $110 per person</li>
+                    <li><strong>Highlights:</strong> Crown Jewels, White Tower, Beefeater tales</li>
+                    <li><strong>Book:</strong> <a href="https://www.viator.com/en-GB/tours/London/VIP-Beefeater-Meeting-Tower-of-London-and-Crown-Jewels-3-Hour-Highlights-Tour/d737-8606P20">Tower of London Tour</a></li>
+                </ul>
+            </div>
+            
+            <div class="option-detail">
+                <h5>Thames River Cruise</h5>
+                <ul>
+                    <li><strong>Experience:</strong> Scenic city tour by boat</li>
+                    <li><strong>Duration:</strong> 1 hour</li>
+                    <li><strong>Cost:</strong> $25 per person</li>
+                    <li><strong>Route:</strong> Westminster to Tower Bridge</li>
+                    <li><strong>Book:</strong> <a href="https://www.viator.com/tours/London/London-Eye-River-Cruise/d737-2988P12">Thames Cruise</a></li>
+                </ul>
+            </div>
+            
+            <h4>🍽️ London Additional Dining Options</h4>
+            <p><strong>The Admiralty Pub</strong><br>
+            Location: Trafalgar Square area, 5-minute walk<br>
+            Unique Feature: Maritime decor reflecting Britain's naval heritage<br>
+            Specialties: Traditional British pies, Admiral's Mule cocktail</p>
+            
+            <p><strong>Sherlock Holmes Pub</strong><br>
+            Location: 8-minute walk from hotel<br>
+            Theme: Dedicated to the famous detective<br>
+            Specialties: Sherlock Burger, traditional pies, literary atmosphere</p>
+            
+            <h4>🚂 Travel to Stoneleigh</h4>
+            <ul>
+                <li><strong>London to Coventry Train:</strong> Standard rail travel ($38 per person)</li>
+                <li>Transfer to Stoneleigh accommodation</li>
+            </ul>
+        </div>
+
+        <div class="gem-box">
+            <h3>💎 Kim's Hidden Gem - Stoneleigh</h3>
+            <p><strong>The British Horse Society Headquarters at Stoneleigh Park</strong> - As a farrier and avid rider, you'll appreciate visiting the home of the UK's largest equine charity. The grounds are beautiful, and they sometimes offer tours when arranged in advance.</p>
+            <p><strong>Address:</strong> Abbey Park, Stareton, Kenilworth, Warwickshire CV8 2XZ<br>
+            <strong>Website:</strong> <a href="https://www.bhs.org.uk/">bhs.org.uk</a></p>
+        </div>
+
+        <div class="activity-section">
+            <h4>🏨 Stoneleigh Area Accommodation (September 23-28)</h4>
+            <ul>
+                <li><strong>Arrangement:</strong> Accommodation arranged separately (outside package)</li>
+                <li><strong>Duration:</strong> 5 nights</li>
+                <li><strong>Location:</strong> Warwickshire countryside near work site</li>
+            </ul>
+        </div>
+
+        <div class="day-header">Wednesday-Saturday, Sep 24-27 - Days 7-10: Stoneleigh Work Days</div>
+        <div class="activity-section">
+            <ul>
+                <li>Professional engagement activities</li>
+                <li>Nearby equestrian sites exploration opportunities</li>
+            </ul>
+        </div>
+
+        <div class="day-header">Sunday, Sep 28 - Day 11: Departure</div>
+        <div class="activity-section">
+            <ul>
+                <li>Travel from Stoneleigh area to Birmingham Airport</li>
+                <li>Return flights: Birmingham to Mobile via connecting cities</li>
+            </ul>
+        </div>
+
+        <h2>💰 Investment Summary</h2>
+        <table>
+            <tr>
+                <th>Package Component</th>
+                <th>Cost</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td><strong>Air & Hotel Package</strong></td>
+                <td><strong>$4,897.04</strong></td>
+                <td><strong>$2,448.52 per person</strong></td>
+            </tr>
+        </table>
+
+        <h3>Suggested Tours and Excursions</h3>
+        <table>
+            <tr>
+                <th>Activity</th>
+                <th>Cost</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>Black Taxi Tour of London</td>
+                <td>$225</td>
+                <td>Private tour, flat rate for up to 5 passengers</td>
+            </tr>
+            <tr>
+                <td>Beefeaters VIP Tower of London</td>
+                <td>$220</td>
+                <td>$110 per person</td>
+            </tr>
+            <tr>
+                <td>Thames River Cruise</td>
+                <td>$50</td>
+                <td>$25 per person</td>
+            </tr>
+            <tr>
+                <td>Irish National Stud Entry</td>
+                <td>$30</td>
+                <td>$15 per person</td>
+            </tr>
+            <tr>
+                <td>Howth Excursions (Various Options)</td>
+                <td>Varies</td>
+                <td>See excursion choices above</td>
+            </tr>
+            <tr>
+                <td>London to Coventry Train</td>
+                <td>$76</td>
+                <td>$38 per person</td>
+            </tr>
+            <tr>
+                <td><strong>Total Additional</strong></td>
+                <td><strong>~$601+</strong></td>
+                <td><strong>Excluding transport choices</strong></td>
+            </tr>
+        </table>
+
+        <h2>💳 Payment Schedule</h2>
+        <div class="highlight-section">
+            <p><em><strong>Disclaimer:</strong> Travel prices fluctuate closer to departure date, so exact total is determined once deposit is made.</em></p>
+            
+            <h3>Apple Vacations Package ($4,897.04)</h3>
+            <ul>
+                <li><strong>Deposit Due:</strong> $3,473.39 (Due: June 2, 2025)</li>
+                <li><strong>Final Payment Due:</strong> $4,897.04 (Due: August 4, 2025)</li>
+            </ul>
+            
+            <h3>Tours & Excursions</h3>
+            <p>Tours and excursions are paid directly to vendors or can be arranged through Kim. Payment is typically required at time of booking or on the day of service.</p>
+            
+            <h3>Travel Insurance</h3>
+            <p>Travel insurance is highly recommended. <a href="https://drive.google.com/file/d/1KyJm9ZmU_voK0NEK6j9R3wd57oC_mx5A/view">Allianz Worldwide Travel Insurance with coverage information</a>. Price will be determined by cost of the trip and traveler age. Kim can provide quotes from multiple carriers.</p>
+        </div>
+
+        <h2>📋 What's Included</h2>
+        <h3>✅ Package Includes</h3>
+        <ul>
+            <li>Round-trip flights Mobile ↔ Dublin ↔ London ↔ Birmingham</li>
+            <li>3 nights Dublin luxury hotel with breakfast</li>
+            <li>1 night London 5-star hotel</li>
+            <li>Professional travel planning and support</li>
+        </ul>
+        <p><em>Note: Destination charges applicable upon check-in including taxes, hotel fees, and/or resort fees.</em></p>
+
+        <h3>📋 Not Included</h3>
+        <ul>
+            <li>Stoneleigh accommodation (arranged separately)</li>
+            <li>Local transportation (multiple options provided above)</li>
+            <li>Tours and excursions (optional add-ons)</li>
+            <li>Meals (except Dublin breakfast)</li>
+            <li>Travel insurance</li>
+            <li>Personal expenses</li>
+            <li>Gratuities</li>
+        </ul>
+
+        <div class="contact-section">
+            <h2>Ready to Begin Your European Adventure?</h2>
+            <h3>Kim Henderson</h3>
+            <p><strong>Cruise & Tour Specialist</strong></p>
+            <p>📞 <a href="tel:251-289-1505">251-289-1505</a></p>
+            <p>✉️ <a href="mailto:kim@somotravel.us">kim@somotravel.us</a></p>
+            <p>🌐 <a href="https://www.somotravelspecialist.com">www.somotravelspecialist.com</a></p>
+            <p><em>Contact Kim to secure your deposit and begin this unforgettable journey through Ireland and England.<br>
+            Payment plans available • Expert guidance every step of the way</em></p>
         </div>
     </div>
 </body>
