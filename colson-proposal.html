@@ -3,735 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scott Colson - Dublin & London Travel Proposal (Updated)</title>
+    <title>San Francisco & Monterey Bay Anniversary Celebration 2025</title>
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --light-accent: #e8f4fc;
-            --text-color: #333;
-            --light-gray: #f5f5f5;
-            --border-color: #ddd;
-        }
-        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-        }
-        
-        .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
+            color: #333;
+            background: #fff;
         }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px 0;
-            margin-bottom: 30px;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        
-        h1 {
-            color: var(--primary-color);
-            margin-top: 0;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-        }
-        
-        h2 {
-            color: var(--primary-color);
-            margin-top: 30px;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 10px;
-        }
-        
-        h3 {
-            color: var(--primary-color);
-            margin-top: 25px;
-        }
-        
+        h1 { color: #1e40af; font-size: 2.2em; margin-bottom: 0.5em; }
+        h2 { color: #1e40af; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5em; margin-top: 2em; }
+        h3 { color: #374151; margin-top: 1.5em; }
         .highlight-box {
-            background-color: var(--light-accent);
-            border-left: 4px solid var(--accent-color);
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 4px 4px 0;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
         }
-        
-        .flight-card {
-            background-color: var(--light-gray);
-            border-radius: 8px;
-            margin-bottom: 20px;
-            padding: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        .gem-box {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-left: 4px solid #10b981;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
         }
-        
-        .flight-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0;
-        }
-        
-        .flight-route {
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-        }
-        
-        .flight-route svg {
-            margin: 0 15px;
-        }
-        
-        .flight-time {
-            text-align: center;
-            min-width: 80px;
-        }
-        
-        .flight-date {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .flight-airline {
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .location {
-            text-align: center;
-        }
-        
-        .location .city {
-            font-weight: bold;
-        }
-        
-        .location .airport {
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .accommodation-card {
-            display: flex;
-            background-color: var(--light-gray);
-            border-radius: 8px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .accommodation-image {
-            width: 200px;
-            background-color: #ccc;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .accommodation-details {
-            padding: 15px;
-            flex-grow: 1;
-        }
-        
-        .accommodation-name {
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 18px;
+        .gem-box h4 {
+            color: #047857;
             margin-top: 0;
         }
-        
-        .accommodation-rating {
-            color: #f39c12;
-            margin-bottom: 10px;
+        .hotel-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #0ea5e9;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
         }
-        
-        .accommodation-dates {
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .accommodation-amenities {
-            font-size: 14px;
-        }
-        
-        .price-summary {
-            background-color: var(--light-gray);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 30px 0;
-        }
-        
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .price-row:last-child {
-            border-bottom: none;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        
-        .coordination-box {
-            background-color: var(--light-accent);
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-            border: 1px solid var(--accent-color);
-        }
-        
-        .coordination-box h3 {
+        .hotel-box h4 {
+            color: #0369a1;
             margin-top: 0;
-            color: var(--accent-color);
         }
-        
-        .itinerary-day {
-            margin-bottom: 30px;
-            border-left: 2px solid var(--accent-color);
-            padding-left: 20px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        
-        .itinerary-date {
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: left;
         }
-        
-        .itinerary-activity {
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed var(--border-color);
-        }
-        
-        .itinerary-activity:last-child {
-            border-bottom: none;
-        }
-        
-        .activity-time {
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-        
-        footer {
-            background-color: var(--primary-color);
+        th {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
             color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
+            font-weight: 600;
         }
-        
-        .payment-schedule {
-            margin-top: 20px;
+        tr:nth-child(even) {
+            background: #f9fafb;
         }
-        
-        .payment-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        /* Kim's Gems Section */
-        .kims-gems {
-            background-color: #fff8e1;
-            border: 2px solid #ffd54f;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 30px 0;
-        }
-        
-        .gems-title {
-            color: #ff8f00;
-            font-size: 1.5rem;
-            margin-top: 0;
-            margin-bottom: 15px;
-            border-bottom: 2px dashed #ffd54f;
-            padding-bottom: 10px;
-        }
-        
-        .gem-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px dotted #ffd54f;
-        }
-        
-        .gem-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .gem-title {
-            font-weight: bold;
-            color: #e65100;
-            margin-bottom: 5px;
-        }
-        
-        .gem-description {
-            font-size: 14px;
-        }
-        
-        .gem-tag {
+        .button {
             display: inline-block;
-            background-color: #fff3e0;
-            color: #e65100;
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            margin-right: 5px;
-            border: 1px solid #ffcc80;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            margin: 0.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s;
         }
-        
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .flight-details {
-                flex-direction: column;
-            }
-            
-            .flight-route {
-                margin: 10px 0;
-            }
-            
-            .accommodation-card {
-                flex-direction: column;
-            }
-            
-            .accommodation-image {
-                width: 100%;
-                height: 150px;
-            }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .contact-section {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .contact-section h2 {
+            color: white;
+            border-bottom: none;
+            margin-top: 0;
+        }
+        .emoji { font-size: 1.2em; }
+        .included { color: #059669; }
+        .not-included { color: #dc2626; }
+        ul { padding-left: 1.5rem; }
+        li { margin: 0.5rem 0; }
+        .romantic-highlight {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+            border-left: 4px solid #ec4899;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .romantic-highlight h4 {
+            color: #be185d;
+            margin-top: 0;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">So-Mo Travel</div>
-            <div>Customized Travel Experiences</div>
-        </div>
-    </header>
+    <h1><span class="emoji">🌉</span> San Francisco & Monterey Bay Anniversary Celebration</h1>
     
-    <div class="container">
-        <h1>Scott Colson - Dublin & London Travel Proposal (Updated)</h1>
+    <div class="highlight-box">
+        <h3><span class="emoji">✈️</span> Trip Overview</h3>
+        <p>Celebrate your 20th wedding anniversary and 50th birthday with this romantic California coastal adventure. This carefully crafted 8-day journey combines San Francisco's vibrant culture with the breathtaking beauty of Monterey Bay and Big Sur, featuring luxury accommodations, iconic attractions, and milestone celebration dining experiences.</p>
         
-        <div class="highlight-box">
-            <h3>Join the Chisolm Family in Europe!</h3>
-            <p>This custom itinerary allows you to join your friends while maintaining your own travel schedule. We've coordinated your accommodations and activities to maximize time together while giving you flexibility for personal exploration.</p>
-        </div>
-        
-        <h2>Trip Overview</h2>
-        <p><strong>Travel Dates:</strong> September 18-24, 2025</p>
-        <p><strong>Destinations:</strong> Dublin, Ireland and London, England</p>
-        <p><strong>Price:</strong> $8,363.87 (includes all taxes & fees)</p>
-        
-        <div class="coordination-box">
-            <h3>Coordination with Chisolm Family</h3>
-            <p>Your trip aligns with the Chisolm family's European Adventure from September 18-28. You'll join them for:</p>
-            <ul>
-                <li><strong>Dublin (Sep 19-22):</strong> Staying at the same hotel for easy coordination</li>
-                <li><strong>London (Sep 22-23):</strong> At different hotels but coordinated activities</li>
-            </ul>
-        </div>
-        
-        <h2>Flight Itinerary</h2>
-        
-        <h3>Outbound Journey: Thursday, September 18, 2025</h3>
-        <div class="flight-card">
-            <div class="flight-date">Leg 1: September 18, 2025</div>
-            <div class="flight-airline">American Airlines #5927 (operated by Piedmont Airlines as American Eagle) - Coach (H)</div>
-            <div class="flight-details">
-                <div class="flight-time">
-                    <div>10:55 AM</div>
-                </div>
-                <div class="location">
-                    <div class="city">Jackson</div>
-                    <div class="airport">JAN</div>
-                </div>
-                <div class="flight-route">
-                    <svg height="24" width="100" viewBox="0 0 100 24">
-                        <line x1="0" y1="12" x2="80" y2="12" stroke="#3498db" stroke-width="2" />
-                        <polygon points="80,12 75,8 75,16" fill="#3498db" />
-                    </svg>
-                </div>
-                <div class="location">
-                    <div class="city">Charlotte</div>
-                    <div class="airport">CLT</div>
-                </div>
-                <div class="flight-time">
-                    <div>1:55 PM</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="flight-card">
-            <div class="flight-date">Leg 2: September 18-19, 2025</div>
-            <div class="flight-airline">American Airlines #724 - Premium Economy (P)</div>
-            <div class="flight-details">
-                <div class="flight-time">
-                    <div>4:40 PM</div>
-                </div>
-                <div class="location">
-                    <div class="city">Charlotte</div>
-                    <div class="airport">CLT</div>
-                </div>
-                <div class="flight-route">
-                    <svg height="24" width="100" viewBox="0 0 100 24">
-                        <line x1="0" y1="12" x2="80" y2="12" stroke="#3498db" stroke-width="2" />
-                        <polygon points="80,12 75,8 75,16" fill="#3498db" />
-                    </svg>
-                </div>
-                <div class="location">
-                    <div class="city">Dublin</div>
-                    <div class="airport">DUB</div>
-                </div>
-                <div class="flight-time">
-                    <div>5:30 AM</div>
-                    <div style="font-size: 12px; color: #e74c3c;">(Next Day)</div>
-                </div>
-            </div>
-        </div>
-        
-        <h3>Dublin to London: Monday, September 22, 2025</h3>
-        <div class="flight-card">
-            <div class="flight-date">September 22, 2025</div>
-            <div class="flight-airline">Aer Lingus #162 - Coach (P)</div>
-            <div class="flight-details">
-                <div class="flight-time">
-                    <div>11:15 AM</div>
-                </div>
-                <div class="location">
-                    <div class="city">Dublin</div>
-                    <div class="airport">DUB</div>
-                </div>
-                <div class="flight-route">
-                    <svg height="24" width="100" viewBox="0 0 100 24">
-                        <line x1="0" y1="12" x2="80" y2="12" stroke="#3498db" stroke-width="2" />
-                        <polygon points="80,12 75,8 75,16" fill="#3498db" />
-                    </svg>
-                </div>
-                <div class="location">
-                    <div class="city">London</div>
-                    <div class="airport">LHR</div>
-                </div>
-                <div class="flight-time">
-                    <div>12:40 PM</div>
-                </div>
-            </div>
-        </div>
-        
-        <h3>Return Journey: Wednesday, September 24, 2025</h3>
-        <div class="flight-card">
-            <div class="flight-date">Leg 1: September 24, 2025</div>
-            <div class="flight-airline">American Airlines #51 - Premium Economy (P)</div>
-            <div class="flight-details">
-                <div class="flight-time">
-                    <div>8:20 AM</div>
-                </div>
-                <div class="location">
-                    <div class="city">London</div>
-                    <div class="airport">LHR</div>
-                </div>
-                <div class="flight-route">
-                    <svg height="24" width="100" viewBox="0 0 100 24">
-                        <line x1="0" y1="12" x2="80" y2="12" stroke="#3498db" stroke-width="2" />
-                        <polygon points="80,12 75,8 75,16" fill="#3498db" />
-                    </svg>
-                </div>
-                <div class="location">
-                    <div class="city">Dallas</div>
-                    <div class="airport">DFW</div>
-                </div>
-                <div class="flight-time">
-                    <div>12:25 PM</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="flight-card">
-            <div class="flight-date">Leg 2: September 24, 2025</div>
-            <div class="flight-airline">American Airlines #6411 (operated by SkyWest Airlines as American Eagle) - Coach (H)</div>
-            <div class="flight-details">
-                <div class="flight-time">
-                    <div>2:50 PM</div>
-                </div>
-                <div class="location">
-                    <div class="city">Dallas</div>
-                    <div class="airport">DFW</div>
-                </div>
-                <div class="flight-route">
-                    <svg height="24" width="100" viewBox="0 0 100 24">
-                        <line x1="0" y1="12" x2="80" y2="12" stroke="#3498db" stroke-width="2" />
-                        <polygon points="80,12 75,8 75,16" fill="#3498db" />
-                    </svg>
-                </div>
-                <div class="location">
-                    <div class="city">Jackson</div>
-                    <div class="airport">JAN</div>
-                </div>
-                <div class="flight-time">
-                    <div>4:21 PM</div>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Accommodations</h2>
-        
-        <div class="accommodation-card">
-            <div class="accommodation-image" style="background-image: url('/api/placeholder/200/150');"></div>
-            <div class="accommodation-details">
-                <h3 class="accommodation-name">Riu Plaza The Gresham Dublin</h3>
-                <div class="accommodation-rating">★★★★</div>
-                <div class="accommodation-dates">September 19-22, 2025 (3 nights)</div>
-                <div class="accommodation-amenities">
-                    <p><strong>Room Type:</strong> Deluxe Superior King - Bed & Breakfast</p>
-                    <p><strong>Coordination Note:</strong> Same hotel as the Chisolm family for easy meeting and joint activities</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="accommodation-card">
-            <div class="accommodation-image" style="background-image: url('/api/placeholder/200/150');"></div>
-            <div class="accommodation-details">
-                <h3 class="accommodation-name">The Royal Horseguards Hotel</h3>
-                <div class="accommodation-rating">★★★★★</div>
-                <div class="accommodation-dates">September 22-24, 2025 (2 nights)</div>
-                <div class="accommodation-amenities">
-                    <p><strong>Room Type:</strong> Standard Double Room, 1 Double Bed - Free WiFi</p>
-                    <p><strong>Coordination Note:</strong> Different from Chisolm's hotel (Tower Hotel London) - coordination will be needed for shared activities</p>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Car Rental</h2>
-        <div class="flight-card">
-            <div class="flight-date">September 19-21, 2025</div>
-            <div class="flight-airline">Enterprise - Intermediate Sport Utility Vehicle (SUV)</div>
-            <div class="flight-details">
-                <div class="flight-time">
-                    <div>Pick-up</div>
-                    <div>6:00 AM</div>
-                </div>
-                <div class="location">
-                    <div class="city">Dublin Airport</div>
-                </div>
-                <div class="flight-route">
-                    <svg height="24" width="100" viewBox="0 0 100 24">
-                        <line x1="0" y1="12" x2="80" y2="12" stroke="#3498db" stroke-width="2" />
-                        <polygon points="80,12 75,8 75,16" fill="#3498db" />
-                    </svg>
-                </div>
-                <div class="location">
-                    <div class="city">Dublin Airport</div>
-                </div>
-                <div class="flight-time">
-                    <div>Drop-off</div>
-                    <div>10:15 AM</div>
-                </div>
-            </div>
-            <p><strong>Cost:</strong> $299.30 (taxes included)</p>
-        </div>
-        
-        <!-- NEW SECTION: Kim's Gems -->
-        <div class="kims-gems">
-            <h3 class="gems-title">🔹 Kim's Gems: Exclusive Local Experiences 🔹</h3>
-            
-            <div class="gem-item">
-                <div class="gem-title">Secret Garden at Chester Beatty Library</div>
-                <p class="gem-description">Escape the Dublin crowds at this hidden rooftop garden with stunning views of Dublin Castle. The library itself houses an incredible collection of ancient manuscripts and is completely free to visit.</p>
-                <span class="gem-tag">FREE ATTRACTION</span>
-                <span class="gem-tag">HIDDEN SPOT</span>
-            </div>
-            
-            <div class="gem-item">
-                <div class="gem-title">Dun Laoghaire Coastal Walk & James Joyce Tower</div>
-                <p class="gem-description">Take advantage of your rental car for a beautiful coastal drive to Dun Laoghaire, just 30 minutes from Dublin. Walk the pier for spectacular views of Dublin Bay and visit the James Joyce Tower in nearby Sandycove (featured in Ulysses).</p>
-                <span class="gem-tag">SCENIC DRIVE</span>
-                <span class="gem-tag">LOCAL FAVORITE</span>
-            </div>
-            
-            <div class="gem-item">
-                <div class="gem-title">Hidden London: Postman's Park</div>
-                <p class="gem-description">Near St. Paul's Cathedral lies this serene little park with a unique memorial - the Watts Memorial to Heroic Self-Sacrifice, commemorating ordinary people who died saving others. A moving and quiet spot to reflect away from London's crowds.</p>
-                <span class="gem-tag">FREE ATTRACTION</span>
-                <span class="gem-tag">HISTORICAL</span>
-            </div>
-            
-            <div class="gem-item">
-                <div class="gem-title">Borough Market Food Experience</div>
-                <p class="gem-description">London's oldest food market is perfect for lunch during your London stay. Skip expensive restaurants and create your own gourmet meal from the market's incredible vendors. Don't miss the free food samples throughout!</p>
-                <span class="gem-tag">LOCAL FOOD</span>
-                <span class="gem-tag">BUDGET-FRIENDLY</span>
-            </div>
-        </div>
-
-        <!-- Viator Tour Recommendations -->
-        <h2>Recommended Experiences</h2>
-        
-        <div class="flight-card">
-            <h3>Dublin: Original Dublin Walking Tour</h3>
-            <p>Explore Dublin's historic quarter on an entertaining 2-hour guided walk that reveals the city's history, legends, and unique culture. Perfect for your first day to get oriented!</p>
-            <p><strong>Duration:</strong> 2 hours</p>
-            <p><strong>Price:</strong> From $21.66 per person</p>
-            <p><a href="https://www.viator.com/tours/Dublin/Original-Dublin-Walking-Tour/d503-344886P3?pid=P00005400&uid=U00232400&mcid=58086&currency=USD" target="_blank">View Tour Details & Book</a></p>
-        </div>
-
-        <div class="flight-card">
-            <h3>Dublin: Cliffs of Moher, Wild Atlantic Way and Galway Tour</h3>
-            <p>A breathtaking full-day tour to Ireland's dramatic west coast, featuring the Cliffs of Moher, Galway City, and scenic Wild Atlantic Way. Perfect use of your SUV rental for a day trip from Dublin.</p>
-            <p><strong>Duration:</strong> 12 hours</p>
-            <p><strong>Price:</strong> From $83.82 per person</p>
-            <p><a href="https://www.viator.com/tours/Dublin/Cliffs-of-Moher-Tour-Including-Wild-Atlantic-Way-and-Galway-City-from-Dublin/d503-5300P16?pid=P00005400&uid=U00232400&mcid=58086&currency=USD" target="_blank">View Tour Details & Book</a></p>
-        </div>
-
-        <div class="flight-card">
-            <h3>London: Westminster to Tower of London Tour with Thames Cruise</h3>
-            <p>Experience London's most iconic landmarks on this comprehensive walking tour, ending with a relaxing Thames River cruise. Perfect for your first day in London!</p>
-            <p><strong>Duration:</strong> 5 hours</p>
-            <p><strong>Price:</strong> From $94.72 per person</p>
-            <p><a href="https://www.viator.com/tours/London/Westminster-Walking-Tour-and-Westminster-Abbey-Visit/d503-134792P12?pid=P00005400&uid=U00232400&mcid=58086&currency=USD" target="_blank">View Tour Details & Book</a></p>
-        </div>
-        
-        <h2>Day-by-Day Coordination with Chisolm Family</h2>
-        
-        <div class="itinerary-day">
-            <div class="itinerary-date">Thursday, September 18: DEPARTURE DAY</div>
-            <div class="itinerary-activity">
-                <p>• Flights from Jackson (JAN) to Dublin (DUB) via Charlotte (CLT)</p>
-                <p>• Chisolms will be flying from Mobile (MOB) to Dublin (DUB)</p>
-            </div>
-        </div>
-        
-        <div class="itinerary-day">
-            <div class="itinerary-date">Friday, September 19: DUBLIN ARRIVAL</div>
-            <div class="itinerary-activity">
-                <p><span class="activity-time">5:30 AM:</span> Arrive Dublin, collect luggage</p>
-                <p><span class="activity-time">6:00 AM:</span> Pick up rental SUV at Dublin Airport</p>
-                <p><span class="activity-time">Morning:</span> Hotel check-in at Riu Plaza The Gresham Dublin (same as Chisolms)</p>
-                <p><span class="activity-time">Afternoon:</span> Opportunity to join Chisolms for Original Dublin Walking Tour (2:30-4:30 PM)</p>
-                <p><span class="activity-time">Evening:</span> Potential group dinner at Darkey Kelly's (7:00-9:00 PM)</p>
-            </div>
-        </div>
-        
-        <div class="itinerary-day">
-            <div class="itinerary-date">Saturday, September 20: DUBLIN DAY 2</div>
-            <div class="itinerary-activity">
-                <p><span class="activity-time">Full day:</span> Options with your SUV rental:</p>
-                <ul>
-                    <li>Join Chisolms for their scheduled Boyne Valley Small Group Tour (9:00 AM-5:30 PM)</li>
-                    <li>OR Use SUV for independent exploration</li>
-                </ul>
-                <p><span class="activity-time">Evening:</span> Potential group dinner at The Church Café (7:30-9:30 PM)</p>
-            </div>
-        </div>
-        
-        <div class="itinerary-day">
-            <div class="itinerary-date">Sunday, September 21: DUBLIN DAY 3</div>
-            <div class="itinerary-activity">
-                <p><span class="activity-time">Morning:</span> Last chance to use SUV before 10:15 AM return</p>
-                <p><span class="activity-time">Full day:</span> Option to join Chisolms for their Horse Lovers Tour & Wicklow Mountains experience</p>
-                <p><span class="activity-time">Evening:</span> Potential group dinner at The Brazen Head (8:00-10:00 PM)</p>
-            </div>
-        </div>
-        
-        <div class="itinerary-day">
-            <div class="itinerary-date">Monday, September 22: DUBLIN TO LONDON</div>
-            <div class="itinerary-activity">
-                <p><span class="activity-time">Morning:</span> Check out from Dublin hotel</p>
-                <p><span class="activity-time">11:15 AM:</span> Flight to London Heathrow</p>
-                <p><span class="activity-time">12:40 PM:</span> Arrive London, transfer to Royal Horseguards Hotel</p>
-                <p><span class="activity-time">Afternoon:</span> Opportunity to join Chisolms for Thames River Cruise (4:00-5:30 PM)</p>
-                <p><span class="activity-time">Evening:</span> Potential group dinner at The Anchor & Hope (8:00-10:00 PM)</p>
-            </div>
-        </div>
-        
-        <div class="itinerary-day">
-            <div class="itinerary-date">Tuesday, September 23: LONDON ACTIVITIES</div>
-            <div class="itinerary-activity">
-                <p><span class="activity-time">Morning:</span> Option to join Chisolms for Black Taxi Tour (8:30-10:30 AM)</p>
-                <p><span class="activity-time">Midday:</span> Option to join Chisolms for Tower of London Tour (11:30 AM-2:30 PM)</p>
-                <p><span class="activity-time">Afternoon/Evening:</span> Independent exploration of London as Chisolms depart for Stoneleigh</p>
-            </div>
-        </div>
-        
-        <div class="itinerary-day">
-            <div class="itinerary-date">Wednesday, September 24: DEPARTURE DAY</div>
-            <div class="itinerary-activity">
-                <p><span class="activity-time">Early morning:</span> Check out from hotel</p>
-                <p><span class="activity-time">8:20 AM:</span> Flight from London Heathrow to Dallas/Fort Worth</p>
-                <p><span class="activity-time">2:50 PM:</span> Connection in Dallas to Jackson, MS</p>
-                <p><span class="activity-time">4:21 PM:</span> Arrive Jackson, MS</p>
-            </div>
-        </div>
-        
-        <h2>Pricing & Payment</h2>
-        
-        <div class="price-summary">
-            <div class="price-row">
-                <div>Package Base Cost (Flights, Hotels, Car Rental)</div>
-                <div>$8,314.57</div>
-            </div>
-            <div class="price-row">
-                <div>Enterprise SUV Rental</div>
-                <div>$299.30</div>
-            </div>
-            <div class="price-row">
-                <div>Promotion (MAY25B)</div>
-                <div>-$250.00</div>
-            </div>
-            <div class="price-row">
-                <div>Total Price (includes taxes & fees)</div>
-                <div>$8,363.87</div>
-            </div>
-        </div>
-        
-        <div class="payment-schedule">
-            <h3>Payment Schedule</h3>
-            <div class="payment-row">
-                <div>Deposit Due on May 18, 2025</div>
-                <div>$5,866.82</div>
-            </div>
-            <div class="payment-row">
-                <div>Final Payment Due on August 4, 2025</div>
-                <div>$8,363.87</div>
-            </div>
-        </div>
-        
-        <div class="highlight-box">
-            <h3>Additional Information</h3>
-            <p><strong>Travel Insurance:</strong> We strongly recommend purchasing comprehensive travel insurance to protect your investment.</p>
-            <p><strong>Passport Requirements:</strong> A valid passport with at least 6 months validity beyond your return date is required.</p>
-            <p><strong>Baggage Fees:</strong> Additional baggage charges may apply for all flights. Please check with the airlines directly.</p>
-            <p><strong>Special Requests:</strong> Any special requests should be communicated as soon as possible to ensure proper arrangements.</p>
-        </div>
+        <h4>Trip Highlights</h4>
+        <ul>
+            <li><strong>Alcatraz Island Tour:</strong> Historic prison with audio tour and bay views</li>
+            <li><strong>Cable Car Museum:</strong> FREE admission to see the working powerhouse and historic cars</li>
+            <li><strong>Grateful Dead Territory:</strong> Explore Haight-Ashbury and local jam music scene</li>
+            <li><strong>Muir Woods & Sausalito:</strong> Ancient redwoods and charming waterfront town</li>
+            <li><strong>Big Sur Coastal Drive:</strong> McWay Falls, Bixby Bridge, and dramatic coastline</li>
+            <li><strong>Monterey & Carmel:</strong> Romantic seaside villages with world-class dining</li>
+            <li><strong>Giants Baseball Game:</strong> Oracle Park experience with bay views</li>
+            <li><strong>Anniversary Dining:</strong> Michelin-starred restaurants and waterfront celebrations</li>
+        </ul>
     </div>
+
+    <h2><span class="emoji">🗓️</span> Detailed Itinerary</h2>
     
-    <footer>
-        <div class="container">
-            <p>Prepared by Kim Henderson | So-Mo Travel | Your Customized Travel Experience</p>
-            <p>Questions? Contact me at (251) 508-6921 or kim.henderson@cruiseplanners.com</p>
-        </div>
-    </footer>
+    <h3>Saturday, August 9 - Day 1: San Francisco Arrival</h3>
+    <ul>
+        <li><strong>Early AM:</strong> Mobile (MOB) → San Francisco (SFO)</li>
+        <li><strong>Afternoon:</strong> Check-in at luxury waterfront hotel</li>
+        <li><strong>Evening:</strong> Welcome dinner at Scoma's Restaurant (2-minute walk)</li>
+        <li><strong>Romantic stroll:</strong> Pier 39 with sea lions and street performers</li>
+    </ul>
+
+    <div class="gem-box">
+        <h4><span class="emoji">💎</span> Kim's Hidden Gem - San Francisco</h4>
+        <p><strong>Ghirardelli Chocolate Experience</strong> - Just 8 minutes from your Fisherman's Wharf hotel, this is home to North America's largest flowing chocolate wall and the legendary Hot Fudge Sundae made with handmade hot fudge prepared fresh daily. The perfect romantic dessert destination for your anniversary celebration.</p>
+        <p><strong>Address:</strong> Ghirardelli Square, 900 North Point Street<br>
+        <strong>Website:</strong> <a href="https://www.ghirardelli.com/stores/sf-experience">ghirardelli.com/stores/sf-experience</a></p>
+    </div>
+
+    <h3>Sunday, August 10 - Day 2: Alcatraz & City Exploration</h3>
+    <ul>
+        <li><strong>9:00 AM:</strong> Alcatraz Island Tour with audio guide</li>
+        <li><strong>Lunch:</strong> Boudin Bakery Café sourdough bread bowls</li>
+        <li><strong>2:00 PM:</strong> Cable Car ride to Union Square</li>
+        <li><strong>3:30 PM:</strong> Cable Car Museum (FREE) - see working powerhouse</li>
+        <li><strong>Evening:</strong> House of Prime Rib dinner</li>
+    </ul>
+
+    <h3>Monday, August 11 - Day 3: Redwoods & Grateful Dead Territory</h3>
+    <ul>
+        <li><strong>8:00 AM:</strong> Tom's California Redwoods Tour (Muir Woods & Sausalito)</li>
+        <li><strong>4:00 PM:</strong> Grateful Dead exploration: Golden Gate Park, Haight-Ashbury</li>
+        <li><strong>Evening:</strong> Local jam music venues and Dead-friendly scene</li>
+    </ul>
+
+    <h3>Tuesday, August 12 - Day 4: San Francisco Free Day</h3>
+    <ul>
+        <li><strong>Morning:</strong> Leisure time or additional San Francisco exploration</li>
+        <li><strong>Afternoon:</strong> Shopping, museums, or relaxation</li>
+        <li><strong>Evening:</strong> Final San Francisco dinner</li>
+    </ul>
+
+    <h3>Wednesday, August 13 - Day 5: Journey to Monterey</h3>
+    <ul>
+        <li><strong>8:00 AM:</strong> Check out of San Francisco hotel</li>
+        <li><strong>10:00 AM:</strong> Pick up rental car, drive to Monterey via Highway 1</li>
+        <li><strong>Scenic stops:</strong> Half Moon Bay, Santa Cruz, Capitola</li>
+        <li><strong>Check-in at romantic inn</strong></li>
+        <li><strong>Evening:</strong> 20th Anniversary Celebration at Aubergine (Michelin-starred)</li>
+    </ul>
+
+    <div class="romantic-highlight">
+        <h4><span class="emoji">💕</span> 50th Birthday & 20th Anniversary Celebration</h4>
+        <p>Your milestone evening begins with a golden hour sunset walk hand-in-hand on Carmel Beach, followed by an intimate dinner at Aubergine, the most romantic Michelin-starred restaurant in Carmel. Request the fireside table and enjoy wine pairings with local Monterey Peninsula wines - the perfect toast to 20 beautiful years together.</p>
+        <p><strong>Reservation:</strong> <a href="https://www.opentable.com/r/aubergine-at-lauberge-carmel" class="button">Book Aubergine</a></p>
+    </div>
+
+    <h3>Thursday, August 14 - Day 6: Monterey & Big Sur</h3>
+    <ul>
+        <li><strong>Morning:</strong> Cannery Row & authentic Fisherman's Wharf exploration</li>
+        <li><strong>Afternoon:</strong> Big Sur drive: McWay Falls, Bixby Creek Bridge</li>
+        <li><strong>Evening:</strong> Romantic Carmel Beach walk and European dining</li>
+    </ul>
+
+    <h3>Friday, August 15 - Day 7: Return to San Francisco</h3>
+    <ul>
+        <li><strong>Morning:</strong> Scenic Big Sur return drive via Nepenthe</li>
+        <li><strong>5:00 PM:</strong> Return rental car, check-in near Oracle Park</li>
+        <li><strong>9:15 PM:</strong> Tampa Bay Rays vs San Francisco Giants baseball game</li>
+    </ul>
+
+    <h3>Saturday, August 16 - Day 8: Departure</h3>
+    <ul>
+        <li><strong>Morning:</strong> Final San Francisco exploration</li>
+        <li><strong>Afternoon:</strong> San Francisco (SFO) → Mobile (MOB)</li>
+    </ul>
+
+    <div class="gem-box">
+        <h4><span class="emoji">💎</span> Kim's Hidden Gem - Monterey</h4>
+        <p><strong>Fisherman's Wharf, Monterey</strong> - Skip the tourist traps and dine where the locals go. This authentic working wharf features family-owned restaurants serving the day's fresh catch. Try Paluca Trattoria for Italian or Sandbar & Grill for incredible seafood with harbor views.</p>
+        <p><strong>Address:</strong> 1 Old Fisherman's Wharf, Monterey<br>
+        <strong>Perfect for:</strong> Authentic local atmosphere away from crowds</p>
+    </div>
+
+    <div class="gem-box">
+        <h4><span class="emoji">💎</span> Kim's Hidden Gem - Big Sur</h4>
+        <p><strong>Nepenthe Restaurant</strong> - This legendary clifftop restaurant offers the most romantic breakfast setting on the California coast. Perched 800 feet above the Pacific, it's where celebrities and locals have gathered since 1949 for epic ocean views and unforgettable memories. Perfect for your anniversary morning.</p>
+        <p><strong>Address:</strong> 48510 Highway 1, Big Sur<br>
+        <strong>Website:</strong> <a href="https://nepenthe.com">nepenthe.com</a></p>
+    </div>
+
+    <h2><span class="emoji">🍽️</span> Signature Dining Experiences</h2>
+
+    <div class="hotel-box">
+        <h4>San Francisco Culinary Highlights</h4>
+        
+        <p><strong><a href="https://www.opentable.com/scomas-fishermans-wharf" class="button">Scoma's Restaurant</a></strong> - Waterfront seafood (2-minute walk from hotel)<br>
+        <strong>Specialties:</strong> Fresh Dungeness crab, cioppino, bay views</p>
+        
+        <p><strong><a href="https://www.opentable.com/house-of-prime-rib" class="button">House of Prime Rib</a></strong> - Traditional SF institution since 1949<br>
+        <strong>Specialties:</strong> Prime rib cart service, classic cocktails<br>
+        <em>Note: Reservations open 1 year in advance and fill quickly</em></p>
+        
+        <p><strong>Boudin Bakery Café</strong> - Famous sourdough since 1849<br>
+        <strong>Location:</strong> Pier 39, Fisherman's Wharf<br>
+        <strong>Perfect for:</strong> Lunch with sourdough bread bowls</p>
+    </div>
+
+    <div class="hotel-box">
+        <h4>Monterey & Carmel Fine Dining</h4>
+        
+        <p><strong><a href="https://www.opentable.com/r/aubergine-at-lauberge-carmel" class="button">Aubergine</a></strong> - Michelin 2-star anniversary celebration<br>
+        <strong>Location:</strong> L'Auberge Carmel<br>
+        <strong>Perfect for:</strong> Milestone celebration, fireside seating</p>
+        
+        <p><strong><a href="https://www.opentable.com/r/casanova-restaurant-carmel" class="button">Casanova Restaurant</a></strong> - European charm in Carmel<br>
+        <strong>Atmosphere:</strong> Romantic courtyard, intimate dining</p>
+        
+        <p><strong><a href="https://nepenthe.com/reservations/" class="button">Nepenthe Restaurant</a></strong> - Legendary Big Sur clifftop dining<br>
+        <strong>Views:</strong> 800 feet above Pacific Ocean<br>
+        <strong>Perfect for:</strong> Anniversary breakfast with epic views</p>
+        
+        <p><strong>Fisherman's Wharf, Monterey</strong> - Authentic local dining<br>
+        <strong>Recommended:</strong> Paluca Trattoria (Italian), Sandbar & Grill (seafood)<br>
+        <strong>Atmosphere:</strong> Working wharf, family-owned restaurants</p>
+    </div>
+
+    <div class="hotel-box">
+        <h4>Luxury Alternative: 1 Hotel San Francisco</h4>
+        <p><strong>Room:</strong> Bay View King with Sustainable Luxury<br>
+        <strong>Location:</strong> The Embarcadero, downtown waterfront<br>
+        <strong>Rating:</strong> MICHELIN Key awarded, LEED Gold Certified<br>
+        <strong>Amenities:</strong> Complimentary Audi e-tron service, Bamford Spa, rooftop garden<br>
+        <strong>Website:</strong> <a href="https://www.1hotels.com/san-francisco">1hotels.com/san-francisco</a></p>
+    </div>
+
+    <div class="hotel-box">
+        <h4>Monterey: Old Monterey Inn (August 13-15)</h4>
+        <p><strong>Room:</strong> Garden Cottage with Private Jacuzzi<br>
+        <strong>Location:</strong> Historic English Tudor mansion (1929)<br>
+        <strong>Rating:</strong> AAA 4 Diamond, Conde Nast Gold List<br>
+        <strong>Romance Factor:</strong> Two-person jacuzzi, fireplace, lush gardens<br>
+        <strong>Amenities:</strong> Gourmet breakfast, evening wine reception<br>
+        <strong>Website:</strong> <a href="https://www.oldmontereyinn.com">oldmontereyinn.com</a></p>
+    </div>
+
+    <div class="hotel-box">
+        <h4>Luxury Alternative: Post Ranch Inn, Big Sur</h4>
+        <p><strong>Room:</strong> Tree House with Pacific Ocean Views<br>
+        <strong>Location:</strong> 1000 feet above Pacific Ocean, Big Sur<br>
+        <strong>Rating:</strong> MICHELIN Three-Key (only 11 US hotels), Adults-only<br>
+        <strong>Romance Factor:</strong> Private hot tubs, infinity pools, ultimate seclusion<br>
+        <strong>Amenities:</strong> Sierra Mar restaurant, world-class spa<br>
+        <strong>Website:</strong> <a href="https://www.postranchinn.com">postranchinn.com</a></p>
+    </div>
+
+    <div class="hotel-box">
+        <h4>San Francisco: Hotel Via, Oracle Park (August 15-16)</h4>
+        <p><strong>Room:</strong> King with Bay Views<br>
+        <strong>Location:</strong> Directly across from Oracle Park<br>
+        <strong>Perfect for:</strong> Giants game, rooftop celebration<br>
+        <strong>Website:</strong> <a href="https://www.hotelviasf.com">hotelviasf.com</a></p>
+    </div>
+
+    <h2><span class="emoji">🎯</span> Personally Selected Tours & Activities</h2>
+
+    <h3>San Francisco Experiences</h3>
+    <ul>
+        <li><strong>Alcatraz Island Tour:</strong> Early entry with audio guide ($45 per person)</li>
+        <li><strong>Tom's California Redwoods Tour:</strong> Muir Woods & Sausalito ($150 per person)</li>
+        <li><strong>Cable Car Museum:</strong> FREE admission to working powerhouse</li>
+        <li><strong>San Francisco Bay Cruise:</strong> Golden Gate Bridge views ($35 per person)<br>
+            <a href="https://www.viator.com/tours/San-Francisco/San-Francisco-Bay-Boat-Excursion/d651-7165P1" class="button">Book Bay Cruise</a></li>
+    </ul>
+
+    <h3>Monterey & Big Sur Adventures</h3>
+    <ul>
+        <li><strong>Scenic Highway 1 Drive:</strong> McWay Falls, Bixby Bridge, Point Sur</li>
+        <li><strong>Cannery Row Exploration:</strong> Historic sardine district</li>
+        <li><strong>Carmel Beach Walks:</strong> White sand and dramatic cypress trees</li>
+        <li><strong>Big Sur Photography Tour:</strong> Professional coastal landscapes (Optional)</li>
+    </ul>
+
+    <h3>Transportation</h3>
+    <ul>
+        <li><strong>Hertz Rental Car:</strong> Compact, 2 days August 13-15</li>
+        <li><strong>Route:</strong> San Francisco → Monterey via scenic Highway 1</li>
+        <li><strong>Giants Game:</strong> Walking distance from Hotel Via</li>
+    </ul>
+
+    <h2><span class="emoji">💰</span> Investment Summary</h2>
+
+    <table>
+        <tr>
+            <th>Package Component</th>
+            <th>Cost</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td><strong>Hotels (7 nights total)</strong></td>
+            <td>$2,800-3,800</td>
+            <td>SF Argonaut (4 nights) + Monterey Inn (2 nights) + SF Via (1 night)</td>
+        </tr>
+        <tr>
+            <td><strong>Rental Car</strong></td>
+            <td>$350</td>
+            <td>Hertz Compact, 2 days August 13-15 (insurance not included)</td>
+        </tr>
+        <tr>
+            <td><strong>Flights</strong></td>
+            <td>$1,400</td>
+            <td>$700 per person roundtrip Mobile ↔ San Francisco</td>
+        </tr>
+        <tr>
+            <td><strong>Tours & Attractions</strong></td>
+            <td>$800-1,200</td>
+            <td>Alcatraz, Redwoods Tour, Cable Car Museum (FREE), Bay Cruise</td>
+        </tr>
+        <tr>
+            <td colspan="2"><strong>Total Package Price</strong></td>
+            <td><strong>$5,350-6,550</strong></td>
+        </tr>
+    </table>
+
+    <h3>Suggested Tours and Excursions</h3>
+    <table>
+        <tr>
+            <th>Experience</th>
+            <th>Cost</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>Tom's Redwoods & Sausalito Tour</td>
+            <td>$300</td>
+            <td>$150 per person, 4-hour guided tour</td>
+        </tr>
+        <tr>
+            <td>Alcatraz Island Tour</td>
+            <td>$90</td>
+            <td>$45 per person, includes ferry and audio guide</td>
+        </tr>
+        <tr>
+            <td>San Francisco Bay Cruise</td>
+            <td>$70</td>
+            <td>$35 per person, Golden Gate Bridge views</td>
+        </tr>
+        <tr>
+            <td>Cable Car Museum</td>
+            <td>FREE</td>
+            <td>Working powerhouse and historic cars</td>
+        </tr>
+        <tr>
+            <td><strong>Total Additional</strong></td>
+            <td><strong>$460</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="2"><strong>TOTAL WITH TOURS</strong></td>
+            <td><strong>$5,810-7,010</strong></td>
+        </tr>
+    </table>
+
+    <h2><span class="emoji">💳</span> Payment Schedule</h2>
+
+    <div class="highlight-box">
+        <h4>Core Package ($5,350-7,010)</h4>
+        <ul>
+            <li><strong>Note:</strong> Less than 60 days before departure, payment in full will be required</li>
+            <li><strong>No deposit required</strong> for advance booking</li>
+        </ul>
+        
+        <h4>Tours & Excursions ($460)</h4>
+        <p>Tours and excursions are paid directly to vendors or can be arranged through Kim. Payment is typically required at time of booking or on the day of service.</p>
+        
+        <h4>Travel Insurance</h4>
+        <p>Travel insurance is highly recommended and typically costs approximately 10% of the total package price. Kim can provide quotes from multiple carriers.</p>
+    </div>
+
+    <h2><span class="emoji">📋</span> What's Included</h2>
+
+    <h3><span class="included">✅</span> Package Includes</h3>
+    <ul>
+        <li>Round-trip flights Mobile ↔ San Francisco</li>
+        <li>7 nights luxury accommodations (4 SF + 2 Monterey + 1 SF)</li>
+        <li>2-day rental car with unlimited mileage</li>
+        <li>Professional travel planning and support</li>
+        <li>Detailed itinerary with romantic experiences</li>
+        <li>Anniversary celebration recommendations</li>
+    </ul>
+
+    <h3><span class="not-included">📋</span> Not Included</h3>
+    <ul>
+        <li>Tours and excursions (optional add-ons)</li>
+        <li>Meals and dining experiences</li>
+        <li>Rental car insurance</li>
+        <li>Travel insurance</li>
+        <li>Personal expenses and shopping</li>
+        <li>Gratuities and tips</li>
+        <li>Airport transfers</li>
+    </ul>
+
+    <div class="contact-section">
+        <h2>Ready to Begin Your Anniversary Adventure?</h2>
+        <p><strong>Kim Henderson</strong><br>
+        Cruise & Tour Specialist</p>
+        <p><strong>📞 <a href="tel:251-289-1505" style="color: white;">251-289-1505</a></strong><br>
+        <strong>✉️ <a href="mailto:kim@somotravel.us" style="color: white;">kim@somotravel.us</a></strong><br>
+        <strong>🌐 <a href="https://www.somotravelspecialist.com" style="color: white;">www.somotravelspecialist.com</a></strong></p>
+        
+        <p style="margin-top: 2rem; font-size: 1.1em;">Contact Kim to secure your reservation and begin this unforgettable celebration of your love story.<br>
+        <em>Payment plans available • Expert guidance every step of the way</em></p>
+    </div>
 </body>
 </html>
