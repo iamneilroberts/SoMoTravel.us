@@ -17,6 +17,7 @@
         h1 { color: #1e40af; font-size: 2.2em; margin-bottom: 0.5em; }
         h2 { color: #1e40af; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5em; margin-top: 2em; }
         h3 { color: #374151; margin-top: 1.5em; }
+        h4 { color: #374151; margin-top: 1.2em; }
         .highlight-box {
             background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
             border-left: 4px solid #f59e0b;
@@ -44,6 +45,17 @@
         }
         .hotel-box h4 {
             color: #0369a1;
+            margin-top: 0;
+        }
+        .romantic-highlight {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+            border-left: 4px solid #ec4899;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .romantic-highlight h4 {
+            color: #be185d;
             margin-top: 0;
         }
         table {
@@ -99,17 +111,9 @@
         .not-included { color: #dc2626; }
         ul { padding-left: 1.5rem; }
         li { margin: 0.5rem 0; }
-        .romantic-highlight {
-            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
-            border-left: 4px solid #ec4899;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .romantic-highlight h4 {
-            color: #be185d;
-            margin-top: 0;
-        }
+        a { color: #1e40af; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .contact-section a { color: white; }
     </style>
 </head>
 <body>
@@ -141,6 +145,24 @@
         <li><strong>Evening:</strong> Welcome dinner at Scoma's Restaurant (2-minute walk)</li>
         <li><strong>Romantic stroll:</strong> Pier 39 with sea lions and street performers</li>
     </ul>
+
+    <div class="hotel-box">
+        <h4><span class="emoji">🏨</span> San Francisco Hotel Options (August 9-13)</h4>
+        
+        <p><strong>Mid-Luxury Option: Argonaut Hotel, Fisherman's Wharf</strong><br>
+        <strong>Room:</strong> Deluxe King with Golden Gate Bridge Views<br>
+        <strong>Location:</strong> Historic Fisherman's Wharf in 1907 warehouse<br>
+        <strong>Rating:</strong> AAA Four Diamond nautical-themed boutique<br>
+        <strong>Amenities:</strong> Harbor views, exposed brick, Blue Mermaid Restaurant<br>
+        <strong>Website:</strong> <a href="https://www.argonauthotel.com">argonauthotel.com</a></p>
+        
+        <p><strong>Luxury Alternative: 1 Hotel San Francisco</strong><br>
+        <strong>Room:</strong> Bay View King with Sustainable Luxury<br>
+        <strong>Location:</strong> The Embarcadero, downtown waterfront<br>
+        <strong>Rating:</strong> MICHELIN Key awarded, LEED Gold Certified<br>
+        <strong>Amenities:</strong> Complimentary Audi e-tron service, Bamford Spa, rooftop garden<br>
+        <strong>Website:</strong> <a href="https://www.1hotels.com/san-francisco">1hotels.com/san-francisco</a></p>
+    </div>
 
     <div class="gem-box">
         <h4><span class="emoji">💎</span> Kim's Hidden Gem - San Francisco</h4>
@@ -181,10 +203,30 @@
         <li><strong>Evening:</strong> 20th Anniversary Celebration at Aubergine (Michelin-starred)</li>
     </ul>
 
+    <div class="hotel-box">
+        <h4><span class="emoji">🏨</span> Monterey Hotel Options (August 13-15)</h4>
+        
+        <p><strong>Mid-Luxury Option: Old Monterey Inn</strong><br>
+        <strong>Room:</strong> Garden Cottage with Private Jacuzzi<br>
+        <strong>Location:</strong> Historic English Tudor mansion (1929)<br>
+        <strong>Rating:</strong> AAA 4 Diamond, Conde Nast Gold List<br>
+        <strong>Romance Factor:</strong> Two-person jacuzzi, fireplace, lush gardens<br>
+        <strong>Amenities:</strong> Gourmet breakfast, evening wine reception<br>
+        <strong>Website:</strong> <a href="https://www.oldmontereyinn.com">oldmontereyinn.com</a></p>
+        
+        <p><strong>Luxury Alternative: Post Ranch Inn, Big Sur</strong><br>
+        <strong>Room:</strong> Tree House with Pacific Ocean Views<br>
+        <strong>Location:</strong> 1000 feet above Pacific Ocean, Big Sur<br>
+        <strong>Rating:</strong> MICHELIN Three-Key (only 11 US hotels), Adults-only<br>
+        <strong>Romance Factor:</strong> Private hot tubs, infinity pools, ultimate seclusion<br>
+        <strong>Amenities:</strong> Sierra Mar restaurant, world-class spa<br>
+        <strong>Website:</strong> <a href="https://www.postranchinn.com">postranchinn.com</a></p>
+    </div>
+
     <div class="romantic-highlight">
         <h4><span class="emoji">💕</span> 50th Birthday & 20th Anniversary Celebration</h4>
         <p>Your milestone evening begins with a golden hour sunset walk hand-in-hand on Carmel Beach, followed by an intimate dinner at Aubergine, the most romantic Michelin-starred restaurant in Carmel. Request the fireside table and enjoy wine pairings with local Monterey Peninsula wines - the perfect toast to 20 beautiful years together.</p>
-        <p><strong>Reservation:</strong> <a href="https://www.opentable.com/r/aubergine-at-lauberge-carmel" class="button">Book Aubergine</a></p>
+        <p><strong>Reservation:</strong> <a href="https://guide.michelin.com/us/en/california/carmel-by-the-sea/restaurant/aubergine" class="button">Book Aubergine</a></p>
     </div>
 
     <h3>Thursday, August 14 - Day 6: Monterey & Big Sur</h3>
@@ -194,25 +236,19 @@
         <li><strong>Evening:</strong> Romantic Carmel Beach walk and European dining</li>
     </ul>
 
-    <h3>Friday, August 15 - Day 7: Return to San Francisco</h3>
-    <ul>
-        <li><strong>Morning:</strong> Scenic Big Sur return drive via Nepenthe</li>
-        <li><strong>5:00 PM:</strong> Return rental car, check-in near Oracle Park</li>
-        <li><strong>9:15 PM:</strong> Tampa Bay Rays vs San Francisco Giants baseball game</li>
-    </ul>
-
-    <h3>Saturday, August 16 - Day 8: Departure</h3>
-    <ul>
-        <li><strong>Morning:</strong> Final San Francisco exploration</li>
-        <li><strong>Afternoon:</strong> San Francisco (SFO) → Mobile (MOB)</li>
-    </ul>
-
     <div class="gem-box">
         <h4><span class="emoji">💎</span> Kim's Hidden Gem - Monterey</h4>
         <p><strong>Fisherman's Wharf, Monterey</strong> - Skip the tourist traps and dine where the locals go. This authentic working wharf features family-owned restaurants serving the day's fresh catch. Try Paluca Trattoria for Italian or Sandbar & Grill for incredible seafood with harbor views.</p>
         <p><strong>Address:</strong> 1 Old Fisherman's Wharf, Monterey<br>
         <strong>Perfect for:</strong> Authentic local atmosphere away from crowds</p>
     </div>
+
+    <h3>Friday, August 15 - Day 7: Return to San Francisco</h3>
+    <ul>
+        <li><strong>Morning:</strong> Scenic Big Sur return drive via Nepenthe</li>
+        <li><strong>5:00 PM:</strong> Return rental car, check-in near Oracle Park</li>
+        <li><strong>9:15 PM:</strong> Tampa Bay Rays vs San Francisco Giants baseball game</li>
+    </ul>
 
     <div class="gem-box">
         <h4><span class="emoji">💎</span> Kim's Hidden Gem - Big Sur</h4>
@@ -221,15 +257,31 @@
         <strong>Website:</strong> <a href="https://nepenthe.com">nepenthe.com</a></p>
     </div>
 
+    <div class="hotel-box">
+        <h4><span class="emoji">🏨</span> San Francisco Hotel Option (August 15-16)</h4>
+        
+        <p><strong>Hotel Via, Oracle Park</strong><br>
+        <strong>Room:</strong> King with Bay Views<br>
+        <strong>Location:</strong> Directly across from Oracle Park<br>
+        <strong>Perfect for:</strong> Giants game, rooftop celebration<br>
+        <strong>Website:</strong> <a href="https://www.hotelviasf.com">hotelviasf.com</a></p>
+    </div>
+
+    <h3>Saturday, August 16 - Day 8: Departure</h3>
+    <ul>
+        <li><strong>Morning:</strong> Final San Francisco exploration</li>
+        <li><strong>Afternoon:</strong> San Francisco (SFO) → Mobile (MOB)</li>
+    </ul>
+
     <h2><span class="emoji">🍽️</span> Signature Dining Experiences</h2>
 
     <div class="hotel-box">
         <h4>San Francisco Culinary Highlights</h4>
         
-        <p><strong><a href="https://www.opentable.com/scomas-fishermans-wharf" class="button">Scoma's Restaurant</a></strong> - Waterfront seafood (2-minute walk from hotel)<br>
+        <p><strong><a href="https://www.tripadvisor.com/Restaurant_Review-g60713-d372212-Reviews-Scoma_s_Restaurant-San_Francisco_California.html" class="button">Scoma's Restaurant</a></strong> - Waterfront seafood (2-minute walk from hotel)<br>
         <strong>Specialties:</strong> Fresh Dungeness crab, cioppino, bay views</p>
         
-        <p><strong><a href="https://www.opentable.com/house-of-prime-rib" class="button">House of Prime Rib</a></strong> - Traditional SF institution since 1949<br>
+        <p><strong><a href="https://www.tripadvisor.com/Restaurant_Review-g60713-d370409-Reviews-House_of_Prime_Rib-San_Francisco_California.html" class="button">House of Prime Rib</a></strong> - Traditional SF institution since 1949<br>
         <strong>Specialties:</strong> Prime rib cart service, classic cocktails<br>
         <em>Note: Reservations open 1 year in advance and fill quickly</em></p>
         
@@ -241,14 +293,14 @@
     <div class="hotel-box">
         <h4>Monterey & Carmel Fine Dining</h4>
         
-        <p><strong><a href="https://www.opentable.com/r/aubergine-at-lauberge-carmel" class="button">Aubergine</a></strong> - Michelin 2-star anniversary celebration<br>
+        <p><strong><a href="https://guide.michelin.com/us/en/california/carmel-by-the-sea/restaurant/aubergine" class="button">Aubergine</a></strong> - Michelin 2-star anniversary celebration<br>
         <strong>Location:</strong> L'Auberge Carmel<br>
         <strong>Perfect for:</strong> Milestone celebration, fireside seating</p>
         
         <p><strong><a href="https://www.opentable.com/r/casanova-restaurant-carmel" class="button">Casanova Restaurant</a></strong> - European charm in Carmel<br>
         <strong>Atmosphere:</strong> Romantic courtyard, intimate dining</p>
         
-        <p><strong><a href="https://nepenthe.com/reservations/" class="button">Nepenthe Restaurant</a></strong> - Legendary Big Sur clifftop dining<br>
+        <p><strong><a href="https://nepenthe.com/" class="button">Nepenthe Restaurant</a></strong> - Legendary Big Sur clifftop dining<br>
         <strong>Views:</strong> 800 feet above Pacific Ocean<br>
         <strong>Perfect for:</strong> Anniversary breakfast with epic views</p>
         
@@ -257,50 +309,13 @@
         <strong>Atmosphere:</strong> Working wharf, family-owned restaurants</p>
     </div>
 
-    <div class="hotel-box">
-        <h4>Luxury Alternative: 1 Hotel San Francisco</h4>
-        <p><strong>Room:</strong> Bay View King with Sustainable Luxury<br>
-        <strong>Location:</strong> The Embarcadero, downtown waterfront<br>
-        <strong>Rating:</strong> MICHELIN Key awarded, LEED Gold Certified<br>
-        <strong>Amenities:</strong> Complimentary Audi e-tron service, Bamford Spa, rooftop garden<br>
-        <strong>Website:</strong> <a href="https://www.1hotels.com/san-francisco">1hotels.com/san-francisco</a></p>
-    </div>
-
-    <div class="hotel-box">
-        <h4>Monterey: Old Monterey Inn (August 13-15)</h4>
-        <p><strong>Room:</strong> Garden Cottage with Private Jacuzzi<br>
-        <strong>Location:</strong> Historic English Tudor mansion (1929)<br>
-        <strong>Rating:</strong> AAA 4 Diamond, Conde Nast Gold List<br>
-        <strong>Romance Factor:</strong> Two-person jacuzzi, fireplace, lush gardens<br>
-        <strong>Amenities:</strong> Gourmet breakfast, evening wine reception<br>
-        <strong>Website:</strong> <a href="https://www.oldmontereyinn.com">oldmontereyinn.com</a></p>
-    </div>
-
-    <div class="hotel-box">
-        <h4>Luxury Alternative: Post Ranch Inn, Big Sur</h4>
-        <p><strong>Room:</strong> Tree House with Pacific Ocean Views<br>
-        <strong>Location:</strong> 1000 feet above Pacific Ocean, Big Sur<br>
-        <strong>Rating:</strong> MICHELIN Three-Key (only 11 US hotels), Adults-only<br>
-        <strong>Romance Factor:</strong> Private hot tubs, infinity pools, ultimate seclusion<br>
-        <strong>Amenities:</strong> Sierra Mar restaurant, world-class spa<br>
-        <strong>Website:</strong> <a href="https://www.postranchinn.com">postranchinn.com</a></p>
-    </div>
-
-    <div class="hotel-box">
-        <h4>San Francisco: Hotel Via, Oracle Park (August 15-16)</h4>
-        <p><strong>Room:</strong> King with Bay Views<br>
-        <strong>Location:</strong> Directly across from Oracle Park<br>
-        <strong>Perfect for:</strong> Giants game, rooftop celebration<br>
-        <strong>Website:</strong> <a href="https://www.hotelviasf.com">hotelviasf.com</a></p>
-    </div>
-
     <h2><span class="emoji">🎯</span> Personally Selected Tours & Activities</h2>
 
     <h3>San Francisco Experiences</h3>
     <ul>
-        <li><strong>Alcatraz Island Tour:</strong> Early entry with audio guide ($45 per person)</li>
-        <li><strong>Tom's California Redwoods Tour:</strong> Muir Woods & Sausalito ($150 per person)</li>
-        <li><strong>Cable Car Museum:</strong> FREE admission to working powerhouse</li>
+        <li><strong><a href="https://www.cityexperiences.com/san-francisco/city-cruises/alcatraz/tour-options/alcatraz-day-tour/" class="button">Alcatraz Island Tour</a>:</strong> Early entry with audio guide ($45 per person)</li>
+        <li><strong><a href="https://graylineofsanfrancisco.com/tours/muir-woods-sausalito-tour/" class="button">Tom's California Redwoods Tour</a>:</strong> Muir Woods & Sausalito ($150 per person)</li>
+        <li><strong><a href="https://www.cablecarmuseum.org/" class="button">Cable Car Museum</a>:</strong> FREE admission to working powerhouse</li>
     </ul>
 
     <h3>Viator Tour Options</h3>
@@ -444,13 +459,12 @@
     <div class="contact-section">
         <h2>Ready to Begin Your Anniversary Adventure?</h2>
         <p><strong>Kim Henderson</strong><br>
-        Cruise & Tour Specialist</p>
-        <p><strong>📞 <a href="tel:251-289-1505" style="color: white;">251-289-1505</a></strong><br>
-        <strong>✉️ <a href="mailto:kim@somotravel.us" style="color: white;">kim@somotravel.us</a></strong><br>
-        <strong>🌐 <a href="https://www.somotravelspecialist.com" style="color: white;">www.somotravelspecialist.com</a></strong></p>
+        Cruise and Custom Vacation Specialist</p>
+        <p><strong>📞 <a href="tel:251-508-6921" style="color: white;">251-508-6921</a></strong><br>
+        <strong>✉️ <a href="mailto:kim.henderson@cruiseplanners.com" style="color: white;">kim.henderson@cruiseplanners.com</a></strong></p>
         
         <p style="margin-top: 2rem; font-size: 1.1em;">Contact Kim to secure your reservation and begin this unforgettable celebration of your love story.<br>
-        <em>Payment plans available • Expert guidance every step of the way</em></p>
+        <em>Expert guidance every step of the way</em></p>
     </div>
 </body>
 </html>
