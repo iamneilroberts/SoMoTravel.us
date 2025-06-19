@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jason & Jenn's July 4th Punta Cana Getaway</title>
+    <title>🏖️ Jason & Jenn's Punta Cana Getaway | JOIA Bávaro by Iberostar</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,7 @@
         }
         
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -26,648 +26,575 @@
         }
         
         .header {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-            color: #333;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
             text-align: center;
-            padding: 40px 20px;
-            border-radius: 15px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
         .header h1 {
-            font-size: 3rem;
+            font-size: 2.5em;
+            color: #2c3e50;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            background: linear-gradient(45deg, #3498db, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .header .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.8;
-            margin-bottom: 15px;
-        }
-        
-        .dates {
-            background: rgba(255,255,255,0.2);
-            padding: 15px;
-            border-radius: 10px;
-            display: inline-block;
-            font-size: 1.1rem;
-            font-weight: bold;
-        }
-        
-        .resort-card {
-            background: rgba(255,255,255,0.95);
-            margin: 25px 0;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .resort-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-        
-        .resort-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            font-size: 1.3em;
+            color: #7f8c8d;
             margin-bottom: 20px;
-            flex-wrap: wrap;
         }
         
-        .resort-title {
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        
-        .resort-rating {
-            color: #f39c12;
-            font-size: 1.1rem;
-        }
-        
-        .price-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 25px;
-            font-size: 1.4rem;
-            font-weight: bold;
-            text-align: center;
-            min-width: 200px;
-        }
-        
-        .best-value {
-            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
-        }
-        
-        .premium {
-            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
-        }
-        
-        .resort-details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 25px;
-        }
-        
-        .features, .excursions {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        
-        .features h4, .excursions h4 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
-        }
-        
-        .features ul, .excursions ul {
-            list-style: none;
-        }
-        
-        .features li, .excursions li {
-            padding: 8px 0;
-            border-bottom: 1px solid #ecf0f1;
-        }
-        
-        .features li:before {
-            content: "🏖️ ";
-            margin-right: 8px;
-        }
-        
-        .excursions li:before {
-            content: "🤿 ";
-            margin-right: 8px;
-        }
-        
-        .perks {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        
-        .perks h4 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .perks-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .perk-item {
-            background: rgba(255,255,255,0.7);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-        
-        .reviews-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .reviews-btn {
-            background: #3498db;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            display: inline-block;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-        
-        .reviews-btn:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-        }
-        
-        .summary {
-            background: rgba(255,255,255,0.95);
-            padding: 40px;
-            border-radius: 15px;
-            margin: 40px 0;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .summary h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-        }
-        
-        .cost-breakdown {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .cost-option {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            border: 3px solid transparent;
-            transition: all 0.3s ease;
-        }
-        
-        .cost-option:hover {
-            border-color: #3498db;
-            transform: translateY(-3px);
-        }
-        
-        .cost-option.recommended {
-            border-color: #e74c3c;
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-        }
-        
-        .cost-title {
-            font-size: 1.4rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .cost-price {
-            font-size: 2rem;
-            color: #e74c3c;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        
-        .footer {
-            background: rgba(44, 62, 80, 0.9);
-            color: white;
-            text-align: center;
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 40px;
-        }
-        
-        .footer h3 {
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-        }
-        
-        .cta-button {
-            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+        .dates-banner {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
             color: white;
             padding: 15px 30px;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-            text-decoration: none;
+            border-radius: 50px;
             display: inline-block;
-            margin: 10px;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
+            font-size: 1.1em;
+            font-weight: 600;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .card h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        
+        .resort-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .resort-image {
+            background: linear-gradient(45deg, #56ab2f, #a8e6cf);
+            height: 200px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .price-highlight {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+            box-shadow: 0 15px 30px rgba(231, 76, 60, 0.3);
+        }
+        
+        .price-highlight .amount {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-item {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 5px solid #3498db;
+        }
+        
+        .feature-item .emoji {
+            font-size: 2.5em;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .excursion-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .excursion-item {
+            background: linear-gradient(45deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(116, 185, 255, 0.3);
+        }
+        
+        .excursion-item h4 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .flight-info {
+            background: linear-gradient(45deg, #6c5ce7, #a29bfe);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .flight-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .checklist-item {
+            background: #d5f4e6;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #27ae60;
+            display: flex;
+            align-items: center;
+        }
+        
+        .checklist-item .check {
+            color: #27ae60;
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(45deg, #ff7675, #fd79a8);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 20px 40px rgba(255, 118, 117, 0.3);
+        }
+        
+        .cta-section h2 {
+            border: none;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .button {
+            background: linear-gradient(45px, #00b894, #00a085);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            box-shadow: 0 10px 20px rgba(0, 184, 148, 0.3);
+        }
+        
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 184, 148, 0.4);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(45deg, #ffeaa7, #fdcb6e);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #e17055;
+        }
+        
+        .emoji-large {
+            font-size: 3em;
+            display: inline-block;
+            margin: 0 10px;
+        }
+        
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .resort-details {
+            .resort-grid {
                 grid-template-columns: 1fr;
             }
             
-            .resort-header {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flight-row {
+                flex-direction: column;
                 text-align: center;
             }
-            
-            .cost-breakdown {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .badge {
-            background: #e74c3c;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-        
-        .location {
-            color: #7f8c8d;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header Section -->
         <div class="header">
-            <h1>🏖️ Jason & Jenn's July 4th Getaway 🇺🇸</h1>
-            <div class="subtitle">Top 5 Available Adult All-Inclusive Resorts in Punta Cana, Dominican Republic</div>
-            <div class="dates">📅 July 2-6, 2025 | 4 Nights • 5 Days</div>
+            <h1>🏖️ Jason & Jenn's JOIA Bávaro Getaway 🌴</h1>
+            <p class="subtitle">Your Ultimate Luxury Escape to Paradise</p>
+            <div class="dates-banner">
+                📅 July 2-6, 2025 • Upper Floor Suite Experience ✨
+            </div>
         </div>
 
-        <!-- Resort 1: Melia Punta Cana -->
-        <div class="resort-card">
-            <div class="resort-header">
+        <!-- Resort Overview -->
+        <div class="card">
+            <h2>🏆 JOIA Bávaro by Iberostar - Your Chosen Resort</h2>
+            <div class="resort-grid">
                 <div>
-                    <h2 class="resort-title">🏆 Melia Punta Cana Beach Resort</h2>
-                    <div class="location">📍 Punta Cana Beach</div>
-                    <div class="resort-rating">⭐⭐⭐⭐⭐ 4.4/5</div>
+                    <div class="resort-image">🏨</div>
+                    <div class="price-highlight">
+                        <span class="amount">$4,993.28</span>
+                        <span>Complete Package with Flights ✈️</span>
+                    </div>
                 </div>
-                <div class="price-tag best-value">
-                    💰 $4,228.74<br>
-                    <small>BEST VALUE</small>
-                </div>
-            </div>
-            
-            <div class="perks">
-                <h4>🎁 Included Perks</h4>
-                <div class="perks-list">
-                    <span class="perk-item">$150 Resort Credit</span>
-                    <span class="perk-item">Premium Room Tropical Palms</span>
-                    <span class="perk-item">Adults-Only Environment</span>
-                    <span class="perk-item">Spanish Luxury Hospitality</span>
-                </div>
-            </div>
-            
-            <div class="resort-details">
-                <div class="features">
-                    <h4>🏖️ Resort Features</h4>
-                    <ul>
-                        <li>Elegant adults-only all-inclusive resort</li>
-                        <li>Premium Room Tropical Palms category</li>
-                        <li>Beachfront location on beautiful Punta Cana Beach</li>
-                        <li>Renowned Melia hospitality with Spanish elegance</li>
-                        <li>20 minutes from Punta Cana International Airport</li>
-                    </ul>
-                </div>
-                <div class="excursions">
-                    <h4>🤿 Recommended Water Adventures</h4>
-                    <ul>
-                        <li>Saona Island VIP Snorkeling Tour ($120-150)</li>
-                        <li>Advanced Drift Diving ($150-220)</li>
-                        <li>Catalina Island Snorkeling ($85-120)</li>
-                        <li>Marinarium Stingray Snorkeling ($75-95)</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="reviews-link">
-                <a href="https://www.tripadvisor.com/Hotel_Review-g3176298-d14838260-Reviews-Melia_Punta_Cana_Beach-Bavaro_Punta_Cana_La_Altagracia_Province_Dominican_Republic.html" target="_blank" class="reviews-btn">📊 Read TripAdvisor Reviews</a>
-            </div>
-        </div>
-
-        <!-- Resort 2: JOIA Bavaro -->
-        <div class="resort-card">
-            <div class="resort-header">
                 <div>
-                    <h2 class="resort-title">🏆 JOIA Bávaro by Iberostar</h2>
-                    <div class="location">📍 Bavaro Beach, Arena Gorda</div>
-                    <div class="resort-rating">⭐⭐⭐⭐⭐ 4.8/5</div>
-                </div>
-                <div class="price-tag premium">
-                    💰 $5,257.64<br>
-                    <small>BUTLER SUITE</small>
-                </div>
-            </div>
-            
-            <div class="perks">
-                <h4>🎁 Included Perks</h4>
-                <div class="perks-list">
-                    <span class="perk-item">$600 Resort Credits</span>
-                    <span class="perk-item">24/7 Butler Service</span>
-                    <span class="perk-item">Ocean View Butler Suite</span>
-                    <span class="perk-item">World-Class Golf Course</span>
-                </div>
-            </div>
-            
-            <div class="resort-details">
-                <div class="features">
-                    <h4>🏖️ Resort Features</h4>
-                    <ul>
-                        <li>One of the world's best adults-only resorts</li>
-                        <li>272 suites including oceanfront options</li>
-                        <li>7 on-site restaurants with global cuisine</li>
-                        <li>P.B. Dye designed 18-hole golf course</li>
-                        <li>Personal butler service included</li>
-                    </ul>
-                </div>
-                <div class="excursions">
-                    <h4>🤿 Recommended Water Adventures</h4>
-                    <ul>
-                        <li>Marinarium Snorkeling with Stingrays ($75-95)</li>
-                        <li>Advanced Deep Reef Diving ($110-150)</li>
-                        <li>Catamaran Snorkeling & Party Cruise ($75-95)</li>
-                        <li>Bavaro Reef Glass Bottom Boat ($45-65)</li>
+                    <h3>🌟 What's Included:</h3>
+                    <ul style="font-size: 1.1em; margin: 15px 0;">
+                        <li>✈️ Round-trip flights Mobile ↔ Punta Cana</li>
+                        <li>🏨 4 nights Upper Floor Suite</li>
+                        <li>🍽️ All meals, drinks, and resort amenities</li>
+                        <li>💳 $600 resort credits</li>
+                        <li>🌅 Elevated views and premium location</li>
+                        <li>🚐 Airport transfers with Amstar</li>
                     </ul>
                 </div>
             </div>
             
-            <div class="reviews-link">
-                <a href="https://www.tripadvisor.com/Hotel_Review-g3176298-d1233228-Reviews-JOIA_Bavaro_by_Iberostar-Bavaro_Punta_Cana_La_Altagracia_Province_Dominican_Republic.html" target="_blank" class="reviews-btn">📊 Read TripAdvisor Reviews</a>
+            <div class="highlight-box">
+                <strong>🎯 Resort Highlights:</strong> One of the world's best All-inclusive hotels on beautiful Bavaro Beach, featuring 7 restaurants, P.B. Dye championship golf course, and luxurious suites with Caribbean décor!
             </div>
         </div>
 
-        <!-- Resort 3: Bahia Principe -->
-        <div class="resort-card">
-            <div class="resort-header">
-                <div>
-                    <h2 class="resort-title">🏆 Bahia Principe Luxury Ambar</h2>
-                    <div class="location">📍 Punta Cana Beach</div>
-                    <div class="resort-rating">⭐⭐⭐⭐⭐ 4.6/5</div>
+        <!-- Flight Information -->
+        <div class="card">
+            <h2>✈️ Your Confirmed Flight Details</h2>
+            <div class="flight-info">
+                <h3>🛫 Outbound - Wednesday, July 2, 2025</h3>
+                <div class="flight-row">
+                    <span>🕐 5:25 AM Mobile (MOB)</span>
+                    <span>➡️</span>
+                    <span>🕗 8:18 AM Charlotte (CLT)</span>
+                    <span>Seats: 14B, 14C ✅</span>
                 </div>
-                <div class="price-tag">
-                    💰 $4,455.54<br>
-                    <small>COMPLEX ACCESS</small>
-                </div>
-            </div>
-            
-            <div class="perks">
-                <h4>🎁 Included Perks</h4>
-                <div class="perks-list">
-                    <span class="perk-item">Largest Resort Complex Access</span>
-                    <span class="perk-item">Bahia Principe Village</span>
-                    <span class="perk-item">Junior Suite Deluxe Corner</span>
-                    <span class="perk-item">Multiple Resort Facilities</span>
-                </div>
-            </div>
-            
-            <div class="resort-details">
-                <div class="features">
-                    <h4>🏖️ Resort Features</h4>
-                    <ul>
-                        <li>Adults-only within largest DR resort complex</li>
-                        <li>Access to multiple Bahia Principe resorts</li>
-                        <li>Bahia Principe Village shopping & entertainment</li>
-                        <li>Junior Suite Deluxe Corner accommodations</li>
-                        <li>20 minutes from airport</li>
-                    </ul>
-                </div>
-                <div class="excursions">
-                    <h4>🤿 Recommended Water Adventures</h4>
-                    <ul>
-                        <li>Coral Garden Snorkeling Tour ($65-85)</li>
-                        <li>Catalina Island Snorkeling & Beach ($85-120)</li>
-                        <li>Saona Island Tour ($85-120)</li>
-                        <li>Night Diving Adventure ($120-180)</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="reviews-link">
-                <a href="https://www.tripadvisor.com/Hotel_Review-g147293-d1199681-Reviews-Bahia_Principe_Luxury_Ambar_Adults_Only_All_Inclusive-Punta_Cana_La_Altagracia_Provinc.html" target="_blank" class="reviews-btn">📊 Read TripAdvisor Reviews</a>
-            </div>
-        </div>
-
-        <!-- Resort 4: Breathless -->
-        <div class="resort-card">
-            <div class="resort-header">
-                <div>
-                    <h2 class="resort-title">🏆 Breathless Punta Cana Resort & Spa</h2>
-                    <div class="location">📍 Uvero Alto</div>
-                    <div class="resort-rating">⭐⭐⭐⭐⭐ 4.5/5</div>
-                </div>
-                <div class="price-tag">
-                    💰 $4,560.88<br>
-                    <small>PARTY VIBE</small>
-                </div>
-            </div>
-            
-            <div class="perks">
-                <h4>🎁 Included Perks</h4>
-                <div class="perks-list">
-                    <span class="perk-item">Daily Sparkling Wine Breakfast</span>
-                    <span class="perk-item">25% Spa Discount</span>
-                    <span class="perk-item">$200 Resort Coupons</span>
-                    <span class="perk-item">Unlimited-Luxury™</span>
-                </div>
-            </div>
-            
-            <div class="resort-details">
-                <div class="features">
-                    <h4>🏖️ Resort Features</h4>
-                    <ul>
-                        <li>750 ultra-contemporary suites</li>
-                        <li>9 restaurants and 8 bars</li>
-                        <li>Multi-level Freestyle Pool with live DJ</li>
-                        <li>Vibrant party atmosphere & nightlife</li>
-                        <li>40 minutes from airport</li>
-                    </ul>
-                </div>
-                <div class="excursions">
-                    <h4>🤿 Recommended Water Adventures</h4>
-                    <ul>
-                        <li>Hoyo Azul Cenote Snorkeling ($75-95)</li>
-                        <li>Technical Wreck Diving ($110-150)</li>
-                        <li>Party Boat & Snorkeling ($85-110)</li>
-                        <li>Underwater Cave Snorkeling ($65-85)</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="reviews-link">
-                <a href="https://www.tripadvisor.com/Hotel_Review-g147293-d4459010-Reviews-Breathless_Punta_Cana_Resort_Spa-Punta_Cana_La_Altagracia_Province_Dominican_Republic.html" target="_blank" class="reviews-btn">📊 Read TripAdvisor Reviews</a>
-            </div>
-        </div>
-
-        <!-- Resort 5: Secrets Royal Beach -->
-        <div class="resort-card">
-            <div class="resort-header">
-                <div>
-                    <h2 class="resort-title">🏆 Secrets Royal Beach Punta Cana</h2>
-                    <div class="location">📍 Punta Cana Beach</div>
-                    <div class="resort-rating">⭐⭐⭐⭐⭐ 4.7/5</div>
-                </div>
-                <div class="price-tag">
-                    💰 $4,590.72<br>
-                    <small>ROMANTIC LUXURY</small>
-                </div>
-            </div>
-            
-            <div class="perks">
-                <h4>🎁 Included Perks</h4>
-                <div class="perks-list">
-                    <span class="perk-item">Daily Sparkling Wine Breakfast</span>
-                    <span class="perk-item">25% Spa Discount</span>
-                    <span class="perk-item">$200 Resort Coupons</span>
-                    <span class="perk-item">Unlimited-Luxury® Experience</span>
-                </div>
-            </div>
-            
-            <div class="resort-details">
-                <div class="features">
-                    <h4>🏖️ Resort Features</h4>
-                    <ul>
-                        <li>700 yards of palm-studded white sand beach</li>
-                        <li>AAA Four Diamond all-inclusive resort</li>
-                        <li>Multiple à la carte dining options</li>
-                        <li>Sophisticated romantic atmosphere</li>
-                        <li>25 minutes from airport</li>
-                    </ul>
-                </div>
-                <div class="excursions">
-                    <h4>🤿 Recommended Water Adventures</h4>
-                    <ul>
-                        <li>Bavaro Reef Snorkeling Tour ($65-85)</li>
-                        <li>Catalina Island Snorkeling & Beach ($85-120)</li>
-                        <li>Saona Island Tour ($85-120)</li>
-                        <li>Advanced Wreck Diving Adventure ($120-180)</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="reviews-link">
-                <a href="https://www.tripadvisor.com/Hotel_Review-g147293-d1604057-Reviews-Secrets_Royal_Beach_Punta_Cana-Punta_Cana_La_Altagracia_Province_Dominican_Republic.html" target="_blank" class="reviews-btn">📊 Read TripAdvisor Reviews</a>
-            </div>
-        </div>
-
-        <!-- Summary Section -->
-        <div class="summary">
-            <h2>💰 Total Trip Investment Summary</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 30px; color: #7f8c8d;">
-                All packages include round-trip flights from Mobile, Alabama + 4 nights luxury accommodation
-            </p>
-            
-            <div class="cost-breakdown">
-                <div class="cost-option recommended">
-                    <div class="cost-title">🏆 Best Value Choice</div>
-                    <div class="cost-price">$4,828</div>
-                    <div>Melia Punta Cana + 2-3 Excursions<br>
-                    <strong>Spanish luxury at unbeatable price</strong></div>
+                <div class="flight-row">
+                    <span>🕙 10:30 AM Charlotte (CLT)</span>
+                    <span>➡️</span>
+                    <span>🕑 2:00 PM Punta Cana (PUJ)</span>
+                    <span>Seats: 34A, 34B ✅</span>
                 </div>
                 
-                <div class="cost-option">
-                    <div class="cost-title">🎉 Party & Romance</div>
-                    <div class="cost-price">$5,190-$5,290</div>
-                    <div>Breathless or Secrets + Excursions<br>
-                    <strong>Perfect blend of fun & luxury</strong></div>
+                <h3>🛬 Return - Sunday, July 6, 2025</h3>
+                <div class="flight-row">
+                    <span>🕒 3:05 PM Punta Cana (PUJ)</span>
+                    <span>➡️</span>
+                    <span>🕕 6:55 PM Charlotte (CLT)</span>
+                    <span>Seats: 34A, 34B ✅</span>
+                </div>
+                <div class="flight-row">
+                    <span>🕗 8:39 PM Charlotte (CLT)</span>
+                    <span>➡️</span>
+                    <span>🕘 9:45 PM Mobile (MOB)</span>
+                    <span>Seats: 15B, 15C ✅</span>
                 </div>
                 
-                <div class="cost-option">
-                    <div class="cost-title">👨‍💼 Ultimate Butler Experience</div>
-                    <div class="cost-price">$5,857</div>
-                    <div>JOIA Butler Suite + Credits<br>
-                    <strong>World-class personalized service</strong></div>
-                </div>
+                <p style="text-align: center; margin-top: 20px; font-size: 1.1em;">
+                    <strong>Confirmation Number: DEFJZG 📋</strong>
+                </p>
             </div>
         </div>
 
-        <!-- Popular Water Adventures -->
-        <div class="resort-card">
-            <h2 style="text-align: center; color: #2c3e50; margin-bottom: 30px;">🤿 Must-Do Water Adventures for Experienced Divers</h2>
+        <!-- Check-In Strategy -->
+        <div class="card">
+            <h2>🏨 Your Arrival Strategy</h2>
             
-            <div class="resort-details">
-                <div class="excursions">
-                    <h4>🏝️ Snorkeling Adventures</h4>
-                    <ul style="list-style: none;">
-                        <li style="padding: 10px 0; border-bottom: 1px solid #ecf0f1;">
-                            <strong>🌊 Saona Island Full Day Snorkeling Tour</strong> - $85-150<br>
-                            <small>Catamaran transportation, multiple reef stops, natural pools with starfish, beach BBQ lunch</small>
-                        </li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #ecf0f1;">
-                            <strong>🐠 Marinarium Snorkeling Adventure</strong> - $75-120<br>
-                            <small>Swimming with nurse sharks & stingrays, glass-bottom catamaran, open-water aquarium</small>
-                        </li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #ecf0f1;">
-                            <strong>🏖️ Catalina Island Snorkeling & Beach Day</strong> - $85-135<br>
-                            <small>Pristine coral gardens, secluded beaches, traditional Dominican lunch</small>
-                        </li>
-                    </ul>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="emoji">🌐</span>
+                    <h4>Online Pre-Check-In</h4>
+                    <p>Complete 1 week before at webcheckin.iberostar.com for faster arrival!</p>
                 </div>
-                <div class="excursions">
-                    <h4>⚓ Advanced Diving Experiences</h4>
-                    <ul style="list-style: none;">
-                        <li style="padding: 10px 0; border-bottom: 1px solid #ecf0f1;">
-                            <strong>🚢 Advanced Wreck Diving Excursion</strong> - $150-300<br>
-                            <small>Historic shipwreck exploration, deep water sites, professional dive master guide</small>
-                        </li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #ecf0f1;">
-                            <strong>🌙 Night Diving Adventure</strong> - $120-180<br>
-                            <small>Explore nocturnal marine life, different reef experience after dark, underwater flashlights</small>
-                        </li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #ecf0f1;">
-                            <strong>🌊 Advanced Drift Diving</strong> - $150-220<br>
-                            <small>Challenging current dives, deep reef formations, for experienced divers only</small>
-                        </li>
-                    </ul>
+                <div class="feature-item">
+                    <span class="emoji">⬆️</span>
+                    <h4>Request Upgrade</h4>
+                    <p>Ask about Ocean View Butler Suite, Swim-Out Suite, or Presidential Suite</p>
+                </div>
+                <div class="feature-item">
+                    <span class="emoji">🏌️</span>
+                    <h4>Unlimited Golf Package</h4>
+                    <p>Book P.B. Dye Championship Course package ($200-300)</p>
+                </div>
+                <div class="feature-item">
+                    <span class="emoji">🗺️</span>
+                    <h4>Plan Excursions</h4>
+                    <p>Meet with concierge to book diving & snorkeling adventures</p>
                 </div>
             </div>
         </div>
 
-        <!-- Footer Call to Action -->
-        <div class="footer">
-            <h3>🌴 Ready for Your July 4th Paradise Escape? 🇺🇸</h3>
-            <p style="margin-bottom: 25px; font-size: 1.1rem;">
-                Book now for the perfect blend of Independence Day celebration and Caribbean luxury!
+        <!-- Recommended Excursions -->
+        <div class="card">
+            <h2>🤿 Recommended Water Adventures</h2>
+            <p style="font-size: 1.1em; margin-bottom: 20px;">
+                <strong>Perfect for experienced divers like you!</strong> 🌊
             </p>
-            <a href="#" class="cta-button">🏖️ Book Your Dream Getaway</a>
-            <a href="#" class="cta-button">📞 Speak with Travel Expert</a>
-            <div style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
-                <p>🎯 All prices include flights from Mobile, Alabama + luxury accommodation + taxes & fees</p>
-                <p>🤿 Perfect for experienced divers seeking underwater adventures</p>
-                <p>💑 Adults-only resorts for romantic couple getaways</p>
+            
+            <div class="excursion-list">
+                <div class="excursion-item">
+                    <h4>🐠 Marinarium Snorkeling with Stingrays</h4>
+                    <p>$75-95 per person</p>
+                    <small>Swimming with nurse sharks & stingrays</small>
+                </div>
+                <div class="excursion-item">
+                    <h4>🏊‍♂️ Advanced Deep Reef Diving</h4>
+                    <p>$110-150 per person</p>
+                    <small>Deep water coral formations</small>
+                </div>
+                <div class="excursion-item">
+                    <h4>🚢 Technical Wreck Diving</h4>
+                    <p>$150-180 per person</p>
+                    <small>Historic shipwreck exploration</small>
+                </div>
+                <div class="excursion-item">
+                    <h4>🏝️ Saona Island VIP Tour</h4>
+                    <p>$120-150 per person</p>
+                    <small>Premium catamaran with reef stops</small>
+                </div>
             </div>
+            
+            <div class="highlight-box">
+                <strong>💳 Use Your $600 Resort Credits:</strong> Golf package ($200-300) + Diving excursions ($300-400) + Spa treatments ($200-300) + Premium dining ($100-150)
+            </div>
+        </div>
+
+        <!-- Airport Transfer -->
+        <div class="card">
+            <h2>🚐 Airport Transfer with Amstar</h2>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="emoji">🛬</span>
+                    <h4>Arrival (July 2)</h4>
+                    <p>Look for Amstar reps in BLUE SHIRTS outside terminal</p>
+                </div>
+                <div class="feature-item">
+                    <span class="emoji">📋</span>
+                    <h4>Required Form</h4>
+                    <p>Complete Dominican entry form 48-72 hours before arrival</p>
+                </div>
+                <div class="feature-item">
+                    <span class="emoji">✅</span>
+                    <h4>July 3 - Reconfirm</h4>
+                    <p>Visit Amstar rep at hotel to confirm return transfer</p>
+                </div>
+                <div class="feature-item">
+                    <span class="emoji">🛫</span>
+                    <h4>Departure (July 6)</h4>
+                    <p>Be ready 15 minutes before scheduled pickup time</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Packing Essentials -->
+        <div class="card">
+            <h2>🎒 Essential Packing Checklist</h2>
+            
+            <div class="checklist">
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>3-4 swimsuits (high humidity = slow drying)</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Reef-safe sunscreen SPF 30+</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Diving certification cards</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Waterproof phone case & underwater camera</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Casual elegant attire for resort restaurants</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>Prescription medications + extras</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>DEET insect repellent</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">✅</span>
+                    <span>US cash for tips ($1s and $5s)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pre-Departure Timeline -->
+        <div class="card">
+            <h2>📅 Pre-Departure Timeline</h2>
+            
+            <div style="display: grid; gap: 20px;">
+                <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; border-left: 5px solid #27ae60;">
+                    <h4>📝 2 Weeks Before:</h4>
+                    <p>✅ Confirm passport validity • ✅ Notify banks of travel • ✅ Purchase travel insurance • ✅ Book diving excursions</p>
+                </div>
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; border-left: 5px solid #2196f3;">
+                    <h4>🌐 1 Week Before:</h4>
+                    <p>✅ Flight check-in • ✅ Dominican Republic entry form • ✅ JOIA Bávaro online check-in • ✅ Review Amstar airport map</p>
+                </div>
+                <div style="background: #fff3e0; padding: 20px; border-radius: 10px; border-left: 5px solid #ff9800;">
+                    <h4>🎒 Day Before:</h4>
+                    <p>✅ Pack carry-on essentials • ✅ Arrange airport parking • ✅ Charge devices • ✅ Save Amstar contact info</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Budget Summary -->
+        <div class="card">
+            <h2>💰 Total Budget Summary</h2>
+            
+            <div class="price-highlight">
+                <span class="amount">$5,753 - $6,173</span>
+                <span>Total Estimated Trip Cost</span>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
+                    <h4>✈️ Package Cost</h4>
+                    <p style="font-size: 1.5em; color: #27ae60; font-weight: bold;">$4,993.28</p>
+                    <small>Flights + Resort + Credits</small>
+                </div>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
+                    <h4>🤿 Excursions</h4>
+                    <p style="font-size: 1.5em; color: #3498db; font-weight: bold;">$400-600</p>
+                    <small>2-3 Diving/Snorkeling Tours</small>
+                </div>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
+                    <h4>💡 Extras</h4>
+                    <p style="font-size: 1.5em; color: #e74c3c; font-weight: bold;">$360-580</p>
+                    <small>Tips, Shopping, Parking</small>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 20px; font-size: 1.1em; color: #27ae60;">
+                <strong>💳 Your $600 resort credits can cover most excursions!</strong>
+            </p>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2>🌴 Ready for Paradise? 🌊</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">
+                Everything is set for your amazing July 4th celebration in Punta Cana! 
+                <span class="emoji-large">🎆</span>
+                <span class="emoji-large">🏖️</span>
+                <span class="emoji-large">🥂</span>
+            </p>
+            
+            <div>
+                <a href="https://webcheckin.iberostar.com/landing/en" class="button" target="_blank">
+                    🌐 Complete Online Check-In
+                </a>
+                <a href="https://eticket.migracion.gob.do/" class="button" target="_blank">
+                    📋 Dominican Republic Entry Form
+                </a>
+                <a href="https://www.tripadvisor.com/Hotel_Review-g3176298-d1233228-Reviews-JOIA_Bavaro_by_Iberostar-Bavaro_Punta_Cana_La_Altagracia_Province_Dominican_Republic.html" class="button" target="_blank">
+                    ⭐ Read Resort Reviews
+                </a>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 1.3em;">
+                <strong>¡Que disfruten sus vacaciones! 🇩🇴</strong><br>
+                <em>Safe travels, Jason & Jenn! 🌟</em>
+            </p>
         </div>
     </div>
+
+    <script>
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate cards on scroll
+            const cards = document.querySelectorAll('.card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // Add click animations to buttons
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-3px)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
