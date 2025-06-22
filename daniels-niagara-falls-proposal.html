@@ -1,612 +1,781 @@
-<!DOCTYPE html>
+            <div class="section-title">💳 Payment Information</div><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniels Family Niagara Falls Vacation Proposal</title>
+    <title>Daniels Niagara Family Vacation</title>
     <style>
-        :root {
-            --primary: #1a5276;
-            --secondary: #2874A6;
-            --accent: #5499C7;
-            --text: #333;
-            --light-text: #f8f9fa;
-            --background: #f8f9fa;
-            --card-bg: #ffffff;
-            --border: #dee2e6;
-            --highlight: #D4AF37;
-            --muted: #6c757d;
-        }
-        
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary: #2874A6;
-                --secondary: #3498DB;
-                --accent: #5DADE2;
-                --text: #f8f9fa;
-                --light-text: #f8f9fa;
-                --background: #212529;
-                --card-bg: #343a40;
-                --border: #495057;
-                --highlight: #F9BF3B;
-                --muted: #adb5bd;
-            }
-        }
-        
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--text);
-            background-color: var(--background);
-            max-width: 1200px;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
         
-        .proposal-header {
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
             text-align: center;
-            padding: 30px 0;
-            border-bottom: 2px solid var(--accent);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 30px;
+            background: #fafbfc;
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d6eaf8 100%);
+            padding: 20px;
+            border-radius: 8px;
             margin-bottom: 30px;
+            border-left: 4px solid #3498db;
+            color: #2c3e50;
         }
         
-        .logo {
-            max-width: 200px;
-            margin-bottom: 20px;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin: 30px 0 15px 0;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        h3 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin: 20px 0 10px 0;
-        }
-        
-        h4 {
-            font-size: 1.2rem;
-            color: var(--accent);
-            margin: 15px 0 10px 0;
-        }
-        
-        p {
-            margin-bottom: 16px;
-        }
-        
-        .highlight {
-            color: var(--highlight);
-            font-weight: bold;
-        }
-        
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
+        .day-section {
+            margin: 40px 0;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 30px;
+            background: white;
             border-radius: 8px;
             padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         
-        .card-header {
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 15px;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .day-section:last-child {
+            border-bottom: none;
         }
         
-        .card-header h3 {
-            margin: 0;
-        }
-        
-        .day-header {
-            background-color: var(--primary);
-            color: var(--light-text);
-            padding: 10px 15px;
-            border-radius: 6px;
-            margin: 20px 0 15px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .day-number {
-            font-size: 1.2rem;
-            font-weight: bold;
-            background-color: var(--accent);
-            color: var(--light-text);
-            padding: 5px 10px;
-            border-radius: 50%;
-            margin-left: 10px;
-        }
-        
-        .itinerary-item {
-            padding: 15px;
-            border-left: 3px solid var(--accent);
-            margin-bottom: 15px;
-            background-color: var(--card-bg);
-        }
-        
-        .itinerary-item:nth-child(odd) {
-            border-left-color: var(--primary);
-        }
-        
-        .itinerary-time {
-            font-weight: bold;
-            color: var(--primary);
-        }
-        
-        .price-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        
-        .price-table th, .price-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .price-table th {
-            background-color: var(--primary);
-            color: var(--light-text);
-        }
-        
-        .price-table tr:nth-child(even) {
-            background-color: rgba(0,0,0,0.02);
-        }
-        
-        .price-total {
-            font-weight: bold;
-            font-size: 1.1rem;
-            background-color: var(--primary);
-            color: var(--light-text);
-        }
-        
-        .section-divider {
-            height: 2px;
-            background-color: var(--accent);
-            margin: 40px 0;
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-        }
-        
-        .agent-info {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .agent-contact {
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
-        
-        .hidden-gem {
-            border: 1px dashed var(--highlight);
-            padding: 15px;
+        .day-title {
+            font-size: 1.8em;
+            color: #2980b9;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: linear-gradient(90deg, #ebf3fd 0%, #d6eaf8 100%);
             border-radius: 8px;
-            margin: 20px 0;
-            background-color: rgba(212, 175, 55, 0.05);
+            border-left: 5px solid #3498db;
         }
         
-        .hidden-gem h4 {
-            color: var(--highlight);
+        .time-entry {
+            display: flex;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .time {
+            font-weight: bold;
+            color: #27ae60;
+            min-width: 120px;
+            font-size: 1.1em;
+        }
+        
+        .activity {
+            flex: 1;
+        }
+        
+        .activity-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .activity-desc {
+            color: #5a6c7d;
+            margin-bottom: 8px;
+        }
+        
+        .activity a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .activity a:hover {
+            text-decoration: underline;
+            color: #2980b9;
+        }
+        
+        .gem-section {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffeaa7 100%);
+            border: 2px solid #fdcb6e;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .gem-title {
+            color: #e17055;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
         
+        .gem-content {
+            color: #2d3436;
+        }
+        
+        .confirmation-section {
+            background: linear-gradient(135deg, #d5f4e6 0%, #a7f3d0 100%);
+            border: 2px solid #4ade80;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .confirmation-title {
+            color: #166534;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .confirmation-details {
+            color: #1f2937;
+            line-height: 1.8;
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .pricing-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .pricing-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+            color: #2c3e50;
+        }
+        
+        .pricing-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .pricing-table tr:hover {
+            background: #e8f4f8;
+        }
+        
+        .total-row {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%) !important;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .total-row td {
+            border-bottom: none;
+        }
+        
+        .viator-tag {
+            background: linear-gradient(135deg, #e17055 0%, #d63031 100%);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            color: #2980b9;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ebf3fd;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #fff8dc 0%, #ffeaa7 100%);
+            border: 1px solid #fdcb6e;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #2d3436;
+        }
+        
+        .urgent {
+            background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);
+            border-color: #d63031;
+            color: white;
+        }
+        
         @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            .day-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .day-number {
-                margin: 5px 0 0 0;
-            }
+            body { padding: 10px; }
+            .container { border-radius: 0; }
+            .header h1 { font-size: 2em; }
+            .time-entry { flex-direction: column; }
+            .time { min-width: auto; margin-bottom: 10px; }
+            .pricing-table { font-size: 0.9em; }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #121212; }
+            .container { background: #1e1e1e; color: #e0e0e0; }
+            .time-entry { background: #2a2a2a; }
+            .pricing-table td { border-bottom-color: #444; }
+            .pricing-table tr:nth-child(even) { background: #2a2a2a; }
+            .intro { background: #1a2733; }
+            .confirmation-section { background: #1a2e1a; }
+            .gem-section { background: #2e2a1a; }
         }
     </style>
 </head>
 <body>
-    <div class="proposal-header">
-        <h1>Daniels Family Niagara Falls Vacation</h1>
-        <p>July 13-15, 2025 | Custom Travel Proposal</p>
-    </div>
-    
-    <div class="card">
-        <div class="card-header">
-            <h3>Trip Overview</h3>
+    <div class="container">
+        <div class="header">
+            <h1>🌊 Niagara Falls Family Vacation</h1>
+            <p>July 13-15, 2025 | Confirmed Travel Package</p>
         </div>
-        <p>Experience the best of Niagara Falls with this 3-day family vacation featuring falls experience tours, scenic drives, and exploration of surrounding areas. Your package includes flights from Pensacola to Buffalo via Atlanta, accommodations at the Sheraton Fallsview Hotel, and an Alamo SUV rental to give you the freedom to explore at your own pace.</p>
-        
-        <h4>Highlights:</h4>
-        <ul>
-            <li>Experience the magnificent Niagara Falls from both Canadian and US perspectives</li>
-            <li>Enjoy a comprehensive guided tour including Skylon Tower, Journey Behind the Falls, and Hornblower Cruise</li>
-            <li>Witness the spectacular illumination and fireworks displays</li>
-            <li>Explore the charming heritage district of Niagara-on-the-Lake</li>
-            <li>Take a scenic drive with stops at iconic landmarks along the Niagara River</li>
-        </ul>
-    </div>
-    
-    <h2>Detailed Itinerary</h2>
-    
-    <div class="day-header">
-        <span>Sunday, July 13, 2025</span>
-        <span class="day-number">1</span>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">6:00 AM - 11:02 AM</p>
-        <p><strong>Flights from Pensacola to Buffalo</strong></p>
-        <ul>
-            <li>Delta #3019: Depart PNS 6:00 AM - Arrive ATL 8:15 AM</li>
-            <li>Delta #1384: Depart ATL 9:05 AM - Arrive BUF 11:02 AM</li>
-        </ul>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">11:45 AM</p>
-        <p><strong>Pickup Alamo SUV at Buffalo Airport</strong></p>
-        <p>Your Standard Sport Utility Vehicle will be ready for pickup. All taxes are included in your package.</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">1:00 PM</p>
-        <p><strong>Lunch at <a href="https://www.anchorbar.com/" target="_blank">Anchor Bar</a></strong></p>
-        <p>Enjoy lunch at the home of the original Buffalo wings before heading to Niagara Falls.</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">2:30 PM - 5:00 PM</p>
-        <p><strong>Drive to Niagara Falls, check-in at <a href="https://www.marriott.com/en-us/hotels/iagsi-sheraton-fallsview-hotel/overview/" target="_blank">Sheraton Fallsview Hotel</a></strong></p>
-        <p>Enjoy the scenic drive to Niagara Falls (approximately 30 miles). Upon arrival, check into your American Fallsview room with two queen beds.</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">6:30 PM</p>
-        <p><strong>Dinner at <a href="https://www.massimositaliancuisine.com/" target="_blank">Massimo's Italian Restaurant</a></strong></p>
-        <p>Savor authentic Italian cuisine at this family-friendly restaurant known for their homemade pasta and wood-fired pizzas.</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">8:00 PM</p>
-        <p><strong>Evening Illuminated Falls Walk</strong></p>
-        <p>Experience the magic of Niagara Falls at night with a leisurely stroll along the promenade. The falls are illuminated with colorful lights, creating a spectacular display.</p>
-    </div>
-    
-    <div class="day-header">
-        <span>Monday, July 14, 2025</span>
-        <span class="day-number">2</span>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">8:00 AM</p>
-        <p><strong>Breakfast at <a href="https://www.flyingsaucerontario.com/" target="_blank">Flying Saucer Restaurant</a></strong></p>
-        <p>Start your day with a hearty breakfast at this popular local diner known for their generous portions and diverse menu.</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">9:00 AM - 2:00 PM</p>
-        <p><strong>Best of Niagara Falls Canada Small Group Tour</strong></p>
-        <p>Experience the best of Niagara Falls with this comprehensive tour including:</p>
-        <ul>
-            <li><a href="https://www.skylon.com/" target="_blank">Skylon Tower</a> - Ascend 775 feet for panoramic views of the falls and surrounding region</li>
-            <li><a href="https://www.niagaraparks.com/visit/attractions/journey-behind-the-falls/" target="_blank">Journey Behind the Falls</a> - Descend 125 feet through bedrock to tunnels that lead to observation decks behind the falls</li>
-            <li><a href="https://www.niagaracruises.com/" target="_blank">Hornblower Niagara Cruises</a> - Get up close to the falls on this iconic boat tour (rainwear provided)</li>
-        </ul>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">2:00 PM - 5:00 PM</p>
-        <p><strong>Optional Activities (Choose One):</strong></p>
-        <ul>
-            <li><a href="https://www.whirlpooljet.com/" target="_blank">Whirlpool Jet Boat Tours</a> - Experience the thrill of jet boating in the Niagara River rapids (additional cost: $110 per person)</li>
-            <li><a href="https://www.wildplay.com/niagara-falls/" target="_blank">WildPlay Zipline to the Falls</a> - Soar high above the falls with four parallel ziplines (additional cost: $65 per person)</li>
-        </ul>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">6:30 PM</p>
-        <p><strong>Dinner at <a href="https://www.niagaraparks.com/visit/culinary/table-rock-house-restaurant/" target="_blank">Table Rock House Restaurant</a></strong></p>
-        <p>Enjoy dinner at this signature restaurant located at the brink of the Horseshoe Falls, offering spectacular views and locally-sourced cuisine.</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">8:00 PM</p>
-        <p><strong>Night Illumination & Fireworks</strong></p>
-        <p>Witness the falls transformed by a rainbow of colored lights. On this night, you'll also enjoy the special fireworks display over the falls (weather permitting).</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">9:30 PM</p>
-        <p><strong>Dessert at <a href="https://www.sweetjesus.com/" target="_blank">Sweet Jesus</a></strong></p>
-        <p>Cap off your evening with unique soft-serve ice cream creations at this popular dessert spot.</p>
-    </div>
-    
-    <div class="day-header">
-        <span>Tuesday, July 15, 2025</span>
-        <span class="day-number">3</span>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">7:30 AM</p>
-        <p><strong>Breakfast & Hotel Checkout</strong></p>
-        <p>Enjoy breakfast at the hotel or a nearby cafe before checking out of your room.</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">8:30 AM - 9:45 AM</p>
-        <p><strong>Visit <a href="https://www.niagaraonthelake.com/" target="_blank">Niagara-on-the-Lake Heritage District</a></strong></p>
-        <p>Explore this charming 19th-century town known for its quaint shops, beautiful architecture, and historic sites. Enjoy a quick coffee at <a href="https://balzacs.com/" target="_blank">Balzac's Coffee</a>.</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">10:00 AM - 10:20 AM</p>
-        <p><strong>Visit the <a href="https://www.niagaraparks.com/visit/attractions/floral-clock/" target="_blank">Floral Clock</a></strong></p>
-        <p>See one of the world's largest floral clocks, featuring up to 16,000 carpet bedding plants and annuals.</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">10:35 AM - 11:15 AM</p>
-        <p><strong>Explore <a href="https://www.niagaraparks.com/visit/attractions/queenston-heights/" target="_blank">Queenston Heights Park</a></strong></p>
-        <p>Visit this historic battlefield from the War of 1812 and enjoy the beautiful parkland and monuments.</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">11:30 AM</p>
-        <p><strong>US Border Crossing</strong></p>
-        <p>Return to the US via the Lewiston-Queenston Bridge. Remember to have passports ready for all travelers.</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">11:45 AM - 12:15 PM</p>
-        <p><strong>Visit <a href="https://www.niagarafallsusa.com/towns-and-villages/lewiston/" target="_blank">Lewiston, NY</a></strong></p>
-        <p>Explore this historic village and stop for a treat at <a href="https://www.hibbardscustard.com/" target="_blank">Hibbard's Original Frozen Custard</a>.</p>
-    </div>
-    
-    <div class="hidden-gem">
-        <h4>💎 Kim's Hidden Gem</h4>
-        <p>Don't miss <a href="https://www.hibbardscustard.com/" target="_blank">Hibbard's Original Frozen Custard</a> in Lewiston! This family-owned shop has been serving homemade frozen custard since 1939. Their signature flavors change daily, but the vanilla and chocolate are always available and absolutely worth trying. It's a perfect sweet treat to end your Niagara adventure before heading to the airport.</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">2:30 PM</p>
-        <p><strong>Return Rental Car at Buffalo Airport</strong></p>
-        <p>Return your Alamo rental car at the Buffalo Niagara International Airport.</p>
-    </div>
-    
-    <div class="itinerary-item">
-        <p class="itinerary-time">5:03 PM - 8:30 PM</p>
-        <p><strong>Flights from Buffalo to Pensacola</strong></p>
-        <ul>
-            <li>Delta #2266: Depart BUF 5:03 PM - Arrive ATL 7:14 PM</li>
-            <li>Delta #3021: Depart ATL 8:19 PM - Arrive PNS 8:30 PM</li>
-        </ul>
-    </div>
-    
-    <h2>Pricing Details</h2>
-    
-    <h3>Transportation & Lodging</h3>
-    <div class="card">
-        <table class="price-table">
-            <tr>
-                <th>Item</th>
-                <th>Details</th>
-                <th>Cost</th>
-            </tr>
-            <tr>
-                <td>Round-trip Flights</td>
-                <td>Delta Airlines, 3 passengers<br>PNS → BUF (via ATL) & BUF → PNS (via ATL)</td>
-                <td>Included in base price</td>
-            </tr>
-            <tr>
-                <td>Hotel Accommodations</td>
-                <td>Sheraton Fallsview Hotel (2 nights)<br>American Fallsview Room, Two Queen Beds</td>
-                <td>Included in base price</td>
-            </tr>
-            <tr>
-                <td>Rental Vehicle</td>
-                <td>Alamo Standard SUV (3 days)<br>All taxes included</td>
-                <td>Included in base price</td>
-            </tr>
-            <tr>
-                <td colspan="2"><strong>Base Package Price</strong></td>
-                <td>$2,627.95</td>
-            </tr>
-        </table>
-    </div>
-    
-    <h3>Personally Selected Tours & Activities</h3>
-    <div class="card">
-        <table class="price-table">
-            <tr>
-                <th>Activity</th>
-                <th>Date</th>
-                <th>Cost Per Person</th>
-                <th>Total (3 people)</th>
-            </tr>
-            <tr>
-                <td>Best of Niagara Falls Canada Small Group Tour</td>
-                <td>July 14, 2025</td>
-                <td>$105.78</td>
-                <td>$317.35</td>
-            </tr>
-            <tr>
-                <td>Optional: Whirlpool Jet Boat Tours</td>
-                <td>July 14, 2025</td>
-                <td>$110.00</td>
-                <td>$330.00 (not included)</td>
-            </tr>
-            <tr>
-                <td>Optional: WildPlay Zipline to the Falls</td>
-                <td>July 14, 2025</td>
-                <td>$65.00</td>
-                <td>$195.00 (not included)</td>
-            </tr>
-        </table>
-        <p><small>* Optional activities can be added to your package upon request. Prices are subject to change.</small></p>
-    </div>
-    
-    <h3>Recommended Dining & Optional Activities (Client to arrange)</h3>
-    <div class="card">
-        <p>The following dining options and activities are suggestions and are not included in the package price. Reservations and payments should be arranged directly by you:</p>
-        
-        <h4>Recommended Restaurants:</h4>
-        <ul>
-            <li><a href="https://www.anchorbar.com/" target="_blank">Anchor Bar</a> - Home of the original Buffalo wings</li>
-            <li><a href="https://www.massimositaliancuisine.com/" target="_blank">Massimo's Italian Restaurant</a> - Authentic Italian cuisine</li>
-            <li><a href="https://www.flyingsaucerontario.com/" target="_blank">Flying Saucer Restaurant</a> - Popular local breakfast spot</li>
-            <li><a href="https://www.niagaraparks.com/visit/culinary/table-rock-house-restaurant/" target="_blank">Table Rock House Restaurant</a> - Dining with falls views</li>
-            <li><a href="https://www.sweetjesus.com/" target="_blank">Sweet Jesus</a> - Creative ice cream desserts</li>
-            <li><a href="https://balzacs.com/" target="_blank">Balzac's Coffee</a> - Charming coffee shop in Niagara-on-the-Lake</li>
-            <li><a href="https://www.hibbardscustard.com/" target="_blank">Hibbard's Original Frozen Custard</a> - Classic frozen custard since 1939</li>
-        </ul>
-    </div>
-    
-    <h3>Total Package Pricing</h3>
-    <div class="card">
-        <table class="price-table">
-            <tr>
-                <td>Base Package Price</td>
-                <td>$2,627.95</td>
-            </tr>
-            <tr>
-                <td>Adult Base Price (3 travelers)</td>
-                <td>$875.98</td>
-            </tr>
-            <tr>
-                <td>Included Tours & Activities</td>
-                <td>$317.35</td>
-            </tr>
-            <tr>
-                <td>Promotion (MAY25A)</td>
-                <td>-$19.89</td>
-            </tr>
-            <tr>
-                <td>Pay to Apple Vacations</td>
-                <td>$2,925.41 (or from USD $136/mo)</td>
-            </tr>
-            <tr>
-                <td>Pay in Destination</td>
-                <td>$75.65</td>
-            </tr>
-            <tr class="price-total">
-                <td>Total Package Price</td>
-                <td>$3,001.06 USD</td>
-            </tr>
-            <tr>
-                <td>Price Per Person</td>
-                <td>$1,000.35 USD</td>
-            </tr>
-        </table>
-    </div>
-    
-    <h3>Payment Schedule</h3>
-    <div class="card">
-        <table class="price-table">
-            <tr>
-                <td>Total Trip Cost</td>
-                <td>$3,001.06</td>
-            </tr>
-            <tr>
-                <td>Deposit Due (25%)</td>
-                <td>$750.27</td>
-            </tr>
-            <tr>
-                <td>Due Date for Deposit</td>
-                <td>Upon booking confirmation</td>
-            </tr>
-            <tr>
-                <td>Remaining Balance</td>
-                <td>$2,250.79</td>
-            </tr>
-            <tr>
-                <td>Final Payment Due</td>
-                <td>June 13, 2025 (30 days before departure)</td>
-            </tr>
-        </table>
-        
-        <p><small>* Payment can be made via credit card, bank transfer, or check. Monthly payment plans are available upon request.</small></p>
-    </div>
-    
-    <h3>Travel Insurance</h3>
-    <div class="card">
-        <p>We strongly recommend purchasing travel insurance to protect your investment and provide peace of mind. Travel insurance typically costs approximately 10% of the total package price.</p>
-        
-        <p>Coverage options include:</p>
-        <ul>
-            <li>Trip cancellation/interruption protection</li>
-            <li>Emergency medical coverage</li>
-            <li>Baggage protection</li>
-            <li>Travel delay benefits</li>
-        </ul>
-        
-        <p>Please ask for a personalized quote based on your specific needs and preferences.</p>
-    </div>
-    
-    <div class="section-divider"></div>
-    
-    <h3>Important Notes</h3>
-    <div class="card">
-        <ul>
-            <li>A valid passport is required for all travelers crossing the US-Canada border.</li>
-            <li>All prices are quoted in USD and are subject to change until booking is confirmed.</li>
-            <li>Optional activities are not included in the package price and can be added upon request.</li>
-            <li>Dining recommendations are suggestions only and not included in the package price.</li>
-            <li>Weather conditions may affect some activities. Alternative arrangements will be made if necessary.</li>
-            <li>Cancellation policy: Full refund available up to 45 days before departure; 50% refund 44-30 days before departure; no refund less than 30 days before departure.</li>
-        </ul>
-    </div>
-    
-    <div class="footer">
-        <p>This proposal is valid for 14 days from the date of issue. Please contact us with any questions or to confirm your booking.</p>
-        
-        <div class="agent-info">
-            <h4>Your Travel Specialist</h4>
-            <p>Kim Henderson</p>
-            <p class="agent-contact">Somo Travel<br>251-508-6921</p>
+
+        <div class="content">
+            <div class="intro">
+                Experience the best of Niagara Falls with this 3-day family vacation featuring falls experience tours, scenic drives, and exploration of surrounding areas. Your package includes confirmed flights from Pensacola to Buffalo via Atlanta, accommodations at the Sheraton Fallsview Hotel, and curated activities to give you the ultimate Niagara experience.
+            </div>
+
+            <div class="confirmation-section">
+                <div class="confirmation-title">✅ CONFIRMED RESERVATIONS</div>
+                <div class="confirmation-details">
+                    <strong>✈️ Flights:</strong> Delta Airlines Confirmation #HSKGPM<br>
+                    <strong>🏨 Hotel:</strong> Sheraton Fallsview - American Fallsview Two Queen Room<br>
+                    <strong>📍 Address:</strong> 6755 Fallsview Boulevard, Niagara Falls, ON L2G 3W7, Canada<br>
+                    <strong>🚗 Rental Car:</strong> Enterprise Compact SUV - Driver: Stephen Daniels<br>
+                    <strong>🎯 Booked Tour:</strong> Best of Niagara Falls Canada Small Group Boat and Behind Falls (9:00 AM Monday 7/14)<br>
+                    <strong>💰 Total Package:</strong> $3,519.66 for 3 passengers<br>
+                    <strong>✅ Status:</strong> All flights, accommodations, rental car, and tour confirmed<br>
+                    <strong>🌐 Hotel Website:</strong> <a href="https://www.marriott.com/en-us/hotels/iagsi-sheraton-fallsview-hotel/overview/" style="color: #166534;">marriott.com/sheraton-fallsview</a>
+                </div>
+            </div>
+
+            <div class="day-section">
+                <div class="day-title">Sunday, Jul 13 Day 1 - Arrival & First Views</div>
+                
+                <div class="time-entry">
+                    <div class="time">6:00 AM - 11:02 AM</div>
+                    <div class="activity">
+                        <div class="activity-title">Confirmed Flights from Pensacola to Buffalo</div>
+                        <div class="activity-desc">
+                            <strong>⚠️ Check-in online 24 hours prior to departure</strong><br>
+                            <strong>Flight 1:</strong> Delta 3019 - PNS to ATL (6:00-8:15 AM) - Seats 24D, 24E, 24F ✅<br>
+                            <strong>Flight 2:</strong> Delta 1384 - ATL to BUF (9:05-11:02 AM) - Seats 24A, 24C, 24B ✅<br>
+                            Confirmation: HSKGPM
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">11:45 AM</div>
+                    <div class="activity">
+                        <div class="activity-title">✅ Pickup Enterprise Rental Car</div>
+                        <div class="activity-desc">
+                            <strong>Enterprise Compact SUV (taxes included)</strong><br>
+                            Driver: Stephen Daniels<br>
+                            Location: Buffalo Niagara International Airport<br>
+                            <a href="https://www.enterprise.com/en/car-rental/locations/us/ny/buffalo-airport-buf.html">Enterprise Airport Location</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">12:15 PM</div>
+                    <div class="activity">
+                        <div class="activity-title">Drive to Niagara Falls</div>
+                        <div class="activity-desc">
+                            Scenic 30-minute drive to Niagara Falls in your rental SUV. 
+                            <a href="https://maps.google.com">Get Directions</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <strong>💡 Important Notes:</strong>
+                    <ul>
+                        <li><strong>⚠️ Check-in online 24 hours prior to all flight departures</strong></li>
+                        <li><strong>🛂 Bring passports for Canada border crossing - required for ALL travelers</strong></li>
+                        <li>Resort charge of $9.95 CAD per room/night (plus tax) due directly to hotel at checkout</li>
+                        <li>All flight seats are confirmed and assigned</li>
+                        <li>Enterprise SUV confirmed for Stephen Daniels - bring driver's license</li>
+                        <li>Only the "Best of Niagara Falls Canada Small Group Tour" is confirmed and booked</li>
+                        <li>Refundable Delta Main fares selected for flexibility</li>
+                    </ul>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">1:00 PM</div>
+                    <div class="activity">
+                        <div class="activity-title">Check-in at Sheraton Fallsview Hotel</div>
+                        <div class="activity-desc">
+                            <strong>Address:</strong> 6755 Fallsview Boulevard, Niagara Falls, ON L2G 3W7, Canada<br>
+                            American Fallsview Two Queen room with mini fridge and coffee maker. Amazing falls views from your room!<br>
+                            <a href="https://www.marriott.com/en-us/hotels/iagsi-sheraton-fallsview-hotel/overview/">Hotel Website</a> | 
+                            <a href="https://maps.google.com/maps?q=6755+Fallsview+Boulevard+Niagara+Falls+ON">Get Directions</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">2:00 PM</div>
+                    <div class="activity">
+                        <div class="activity-title">Lunch at Anchor Bar</div>
+                        <div class="activity-desc">
+                            Experience the birthplace of Buffalo wings! Try their famous original wing sauce.<br>
+                            <a href="https://www.anchorbar.com/">Menu & Location</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">4:00 PM</div>
+                    <div class="activity">
+                        <div class="activity-title">SUGGESTED: Maid of the Mist Boat Tour <span class="viator-tag">Viator</span></div>
+                        <div class="activity-desc">
+                            Get up close to the thundering falls! Classic boat experience that puts you right in the mist.<br>
+                            <em>Optional activity - book separately if interested</em><br>
+                            <a href="https://www.viator.com/tours/Niagara-Falls-and-Around/Maid-of-the-Mist-Boat-Tour/d795-2226MAID">Book Tour</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">6:30 PM</div>
+                    <div class="activity">
+                        <div class="activity-title">Dinner at Massimo's Italian Restaurant</div>
+                        <div class="activity-desc">
+                            Savor authentic Italian cuisine at this family-friendly restaurant known for homemade pasta and wood-fired pizzas.<br>
+                            <a href="https://www.massimositaliancuisine.com/">Make Reservation</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">8:00 PM</div>
+                    <div class="activity">
+                        <div class="activity-title">Evening Illuminated Falls Walk</div>
+                        <div class="activity-desc">
+                            Experience the magic of Niagara Falls at night with the colorful illumination light show.<br>
+                            <a href="https://www.niagaraparks.com/visit/attractions/illumination">Light Show Schedule</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-section">
+                <div class="day-title">Monday, Jul 14 Day 2 - Adventure & Exploration</div>
+
+                <div class="time-entry">
+                    <div class="time">8:00 AM</div>
+                    <div class="activity">
+                        <div class="activity-title">Breakfast at Flying Saucer Restaurant</div>
+                        <div class="activity-desc">
+                            Start your day with a hearty breakfast at this popular local diner known for generous portions.<br>
+                            <a href="https://www.flyingsaucerontario.com/">Restaurant Info</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">9:00 AM</div>
+                    <div class="activity">
+                        <div class="activity-title">✅ CONFIRMED: Best of Niagara Falls Canada Small Group Boat and Behind Falls <span class="viator-tag">Viator</span></div>
+                        <div class="activity-desc">
+                            <strong>Date: Monday, July 14, 2025</strong><br>
+                            <strong>Hotel pickup included!</strong> Comprehensive tour including Maid of the Mist boat ride and Journey Behind the Falls experience. This is your confirmed booked excursion.<br>
+                            <a href="https://www.viator.com/tours/Niagara-Falls-and-Around/Best-of-Niagara-Falls-Canada-Small-Group-Tour/d795-5449BEST">Tour Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">11:00 AM</div>
+                    <div class="activity">
+                        <div class="activity-title">SUGGESTED: Whirlpool Aero Car</div>
+                        <div class="activity-desc">
+                            Suspended cable car ride over the Niagara Whirlpool rapids for incredible views. Historic cable car from 1916!<br>
+                            <strong>Adult: $19 CAD | Child (3-12): $12.50 CAD</strong><br>
+                            <em>Optional activity - book separately if interested</em><br>
+                            <a href="https://www.niagaraparks.com/visit/attractions/whirlpool-aero-car">Buy Tickets Online</a> | 
+                            <a href="https://www.niagaraparks.com/visit/attractions/whirlpool-aero-car">Attraction Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">1:00 PM</div>
+                    <div class="activity">
+                        <div class="activity-title">SUGGESTED: Lunch at Table Rock House Restaurant</div>
+                        <div class="activity-desc">
+                            Dine at the brink of Horseshoe Falls with spectacular views and locally-sourced cuisine.<br>
+                            <a href="https://www.niagaraparks.com/visit/culinary/table-rock-house-restaurant/">Make Reservation</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">3:00 PM</div>
+                    <div class="activity">
+                        <div class="activity-title">SUGGESTED: Niagara Falls Helicopter Tour <span class="viator-tag">Viator</span></div>
+                        <div class="activity-desc">
+                            12-minute aerial tour for breathtaking photos and videos from above the falls.<br>
+                            <em>Optional activity - book separately if interested</em><br>
+                            <a href="https://www.viator.com/tours/Niagara-Falls-and-Around/Niagara-Falls-Helicopter-Tour/d795-3731HELI">Book Flight</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">5:00 PM</div>
+                    <div class="activity">
+                        <div class="activity-title">SUGGESTED: Butterfly Conservatory</div>
+                        <div class="activity-desc">
+                            Tropical paradise with over 2,000 butterflies from around the world.<br>
+                            <a href="https://www.niagaraparks.com/visit/attractions/butterfly-conservatory">Visit Info</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">8:00 PM</div>
+                    <div class="activity">
+                        <div class="activity-title">Night Illumination & Fireworks</div>
+                        <div class="activity-desc">
+                            Special fireworks display over the falls (weather permitting) at 10 PM.<br>
+                            <a href="https://www.niagaraparks.com/events/fireworks">Fireworks Schedule</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gem-section">
+                    <div class="gem-title">💎 Kim's Hidden Gem</div>
+                    <div class="gem-content">
+                        Don't miss <strong>Hibbard's Original Frozen Custard</strong> in nearby Lewiston! This family-owned shop has been serving homemade frozen custard since 1939. Their signature flavors change daily, but the vanilla and chocolate are always available and absolutely worth trying. It's a perfect sweet treat and a local favorite that most tourists never discover!<br>
+                        <a href="https://www.hibbardscustard.com">Hibbard's Custard</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-section">
+                <div class="day-title">Tuesday, Jul 15 Day 3 - Final Views & Departure</div>
+
+                <div class="time-entry">
+                    <div class="time">8:00 AM</div>
+                    <div class="activity">
+                        <div class="activity-title">Breakfast & Hotel Checkout</div>
+                        <div class="activity-desc">
+                            Final breakfast with falls views before checking out. Resort charge of $9.95 CAD per night (plus tax) due at checkout.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">9:00 AM</div>
+                    <div class="activity">
+                        <div class="activity-title">Visit Niagara-on-the-Lake Heritage District</div>
+                        <div class="activity-desc">
+                            Explore this charming 19th-century town with quaint shops and beautiful architecture.<br>
+                            <a href="https://www.niagaraonthelake.com/">Town Guide</a> | 
+                            <a href="https://balzacs.com/">Balzac's Coffee</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">10:30 AM</div>
+                    <div class="activity">
+                        <div class="activity-title">Visit the Floral Clock</div>
+                        <div class="activity-desc">
+                            See one of the world's largest floral clocks with up to 16,000 plants.<br>
+                            <a href="https://www.niagaraparks.com/visit/attractions/floral-clock/">Attraction Info</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">11:00 AM</div>
+                    <div class="activity">
+                        <div class="activity-title">Queenston Heights Park</div>
+                        <div class="activity-desc">
+                            Historic battlefield from War of 1812 with beautiful parkland and monuments.<br>
+                            <a href="https://www.niagaraparks.com/visit/attractions/queenston-heights/">Park Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">12:00 PM</div>
+                    <div class="activity">
+                        <div class="activity-title">Final Falls Photo Stop</div>
+                        <div class="activity-desc">
+                            Perfect waterfall photo opportunity at Table Rock for Kim's waterfall collection! 📸
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">4:00 PM</div>
+                    <div class="activity">
+                        <div class="activity-title">✅ Return Enterprise Rental Car</div>
+                        <div class="activity-desc">
+                            Return SUV at Buffalo Niagara International Airport. Allow extra time for car return and airport check-in.<br>
+                            <a href="https://www.enterprise.com/en/car-rental/locations/us/ny/buffalo-airport-buf.html">Return Location</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-entry">
+                    <div class="time">5:03 PM - 8:30 PM</div>
+                    <div class="activity">
+                        <div class="activity-title">Confirmed Return Flights to Pensacola</div>
+                        <div class="activity-desc">
+                            <strong>⚠️ Check-in online 24 hours prior to departure</strong><br>
+                            <strong>Flight 1:</strong> Delta 2266 - BUF to ATL (5:03-7:14 PM) - Seats 25F, 25E, 25D ✅<br>
+                            <strong>Flight 2:</strong> Delta 3021 - ATL to PNS (8:19-8:30 PM) - Seats 32A, 32C, 32B ✅<br>
+                            Confirmation: HSKGPM
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">💰 Package Pricing Breakdown</div>
+
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Details</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Round-trip Flights</td>
+                        <td>Delta Airlines, 3 passengers<br>PNS → BUF (via ATL) & BUF → PNS (via ATL)<br>Confirmation: HSKGPM</td>
+                        <td>Included in base price</td>
+                    </tr>
+                    <tr>
+                        <td>Hotel Accommodations</td>
+                        <td>Sheraton Fallsview Hotel (2 nights)<br>6755 Fallsview Boulevard, Niagara Falls, ON<br>American Fallsview Room, Two Queen Beds</td>
+                        <td>Included in base price</td>
+                    </tr>
+                    <tr>
+                        <td>Rental Vehicle</td>
+                        <td>Enterprise Compact SUV (3 days)<br>Driver: Stephen Daniels<br>All taxes included</td>
+                        <td>Included in base price</td>
+                    </tr>
+                    <tr>
+                        <td>Travel Protection Plus</td>
+                        <td>Full Coverage - All Destinations<br>Cancel for Any Reason + Price Guarantee</td>
+                        <td>$419.97 ✅ PURCHASED</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="2"><strong>Total Package + Protection</strong></td>
+                        <td><strong>$3,939.63</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="section-title">🎯 Recommended Tours & Activities</div>
+            <p><em>The following activities are suggestions and can be booked separately. Only the "Best of Niagara Falls Canada Small Group Tour" is confirmed and included.</em></p>
+
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Activity</th>
+                        <th>Date</th>
+                        <th>Cost Per Person</th>
+                        <th>Total (3 people)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Best of Niagara Falls Canada Small Group Tour <span class="viator-tag">Viator</span></td>
+                        <td>July 14, 2025 (Monday)</td>
+                        <td>$105.78</td>
+                        <td>$317.35 ✅ BOOKED</td>
+                    </tr>
+                    <tr>
+                        <td>Maid of the Mist Boat Tour <span class="viator-tag">Viator</span> (if not doing group tour)</td>
+                        <td>Optional</td>
+                        <td>$28.50</td>
+                        <td>$85.50 (suggestion)</td>
+                    </tr>
+                    <tr>
+                        <td>Niagara Falls Helicopter Tour <span class="viator-tag">Viator</span></td>
+                        <td>Optional</td>
+                        <td>$165.00</td>
+                        <td>$495.00 (suggestion)</td>
+                    </tr>
+                    <tr>
+                        <td>Whirlpool Aero Car</td>
+                        <td>Optional</td>
+                        <td>$19.00 CAD ($14 USD)</td>
+                        <td>$57.00 CAD (suggestion)</td>
+                    </tr>
+                    <tr>
+                        <td>Butterfly Conservatory</td>
+                        <td>Optional</td>
+                        <td>$18.00</td>
+                        <td>$54.00 (suggestion)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="section-title">🚗 Canada Border Crossing Checklist</div>
+            <div class="tip-box">
+                <strong>📋 Required Documents for ALL Travelers:</strong>
+                <ul>
+                    <li><strong>✅ Valid Passport</strong> - Required for all travelers (including children)</li>
+                    <li><strong>✅ Enhanced Driver's License</strong> - Alternative to passport for US citizens</li>
+                    <li><strong>✅ Rental Car Documentation</strong> - Stephen Daniels must present driver's license and rental agreement</li>
+                </ul>
+                
+                <strong>💰 What to Declare:</strong>
+                <ul>
+                    <li>Currency over $10,000 CAD</li>
+                    <li>Alcohol/tobacco purchases</li>
+                    <li>Any food items</li>
+                </ul>
+                
+                <strong>⚡ Quick Tips:</strong>
+                <ul>
+                    <li>Have documents ready for all passengers</li>
+                    <li>State purpose of visit: "Tourism/sightseeing"</li>
+                    <li>Expected length of stay: "2 days"</li>
+                    <li>Keep receipts for any purchases to show at US border on return</li>
+                </ul>
+            </div>
+
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Payment Details</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total Trip Cost (including protection)</td>
+                        <td>$3,939.63</td>
+                    </tr>
+                    <tr>
+                        <td>Base Package Cost</td>
+                        <td>$3,519.66</td>
+                    </tr>
+                    <tr>
+                        <td>Travel Protection Plus</td>
+                        <td>$419.97</td>
+                    </tr>
+                    <tr>
+                        <td>Price Per Person (total)</td>
+                        <td>$1,313.21</td>
+                    </tr>
+                    <tr>
+                        <td>Deposit Due (25% of total)</td>
+                        <td>$984.91</td>
+                    </tr>
+                    <tr>
+                        <td>Final Payment Due</td>
+                        <td>$2,954.72</td>
+                    </tr>
+                    <tr>
+                        <td>Final Payment Date</td>
+                        <td>June 13, 2025 (30 days before departure)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tip-box">
+                <strong>💡 Important Notes:</strong>
+                <ul>
+                    <li><strong>⚠️ Check-in online 24 hours prior to all flight departures</strong></li>
+                    <li><strong>🛂 Bring passports for Canada border crossing - required for ALL travelers</strong></li>
+                    <li>Resort charge of $9.95 CAD per room/night (plus tax) due directly to hotel at checkout</li>
+                    <li>All flight seats are confirmed and assigned</li>
+                    <li>Enterprise SUV confirmed for Stephen Daniels - bring driver's license</li>
+                    <li>Only the "Best of Niagara Falls Canada Small Group Tour" is confirmed and booked</li>
+                    <li>Refundable Delta Main fares selected for flexibility</li>
+                </ul>
+            </div>
+
+            <div class="section-title">🛡️ Travel Protection Plus - PURCHASED ✅</div>
+            <div class="confirmation-section">
+                <div class="confirmation-title">✅ TRAVEL PROTECTION PLUS CONFIRMED</div>
+                <div class="confirmation-details">
+                    <strong>Coverage Type:</strong> Travel Protection Plus - Full Travel Credit, All Destinations<br>
+                    <strong>Redemption:</strong> Visit Tripmate.com/wpGR430 for claims and refunds
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <strong>🛡️ Your Coverage Includes:</strong>
+                <ul>
+                    <li><strong>✅ Cancel for ANY Reason</strong> - Get full refund in travel credit form (less protection cost)</li>
+                    <li><strong>✅ Price Guarantee</strong> - Lowest price guarantee on your vacation package</li>
+                    <li><strong>✅ Post-Departure Travel Protection Benefits</strong> - Coverage while traveling</li>
+                    <li><strong>✅ Hurricane Travel Credit</strong> - No need to worry about weather disruptions</li>
+                    <li><strong>✅ No Change Fees</strong> - Avoid fees that could quickly add up</li>
+                    <li><strong>✅ Non-Insurance Services</strong> - Additional travel assistance</li>
+                </ul>
+                
+                <strong>⚠️ Important Coverage Notes:</strong>
+                <ul>
+                    <li>"No Show" situations and denied boarding are NOT covered</li>
+                    <li>Non-refundable hotel rates are NOT covered</li>
+                    <li>Any non-refundable deposit fees are NOT covered</li>
+                    <li>Air not purchased from Apple Vacations is NOT covered</li>
+                    <li>No name changes or substitutions allowed on protection plans</li>
+                </ul>
+                
+                <strong>📞 To File Claims:</strong> Visit Tripmate.com/wpGR430 or refer to "How to File" section under Travel Protection for complete information.
+            </div>
+
+            <div class="tip-box urgent">
+                <strong>🚨 Action Required:</strong> Your Travel Protection Plus is confirmed and paid. Keep your Tripmate.com/wpGR430 reference for any claims or cancellations.
+            </div>
         </div>
     </div>
 </body>
