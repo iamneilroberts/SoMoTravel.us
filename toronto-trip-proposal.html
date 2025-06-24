@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toronto Gastropub & Waterfall Adventure - Proposal</title>
+    <style>
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #e8f0fe;
+            --accent-color: #f59e0b;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --border-color: #e2e8f0;
+            --background: #ffffff;
+            --card-background: #f8fafc;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #4a7dcf;
+                --secondary-color: #1a365d;
+                --accent-color: #fbbf24;
+                --text-primary: #f7fafc;
+                --text-secondary: #cbd5e0;
+                --border-color: #2d3748;
+                --background: #0f172a;
+                --card-background: #1e293b;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--background);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 10px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .header {
+                background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            }
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .section {
+            background: var(--card-background);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        h4 {
+            color: var(--text-primary);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .overview-item {
+            padding: 20px;
+            background: var(--background);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .overview-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .day-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            margin: 30px -30px 20px -30px;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .itinerary-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .time {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .highlight {
+            background: var(--accent-color);
+            color: var(--background);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .pricing-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .pricing-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pricing-table tr:hover {
+            background: var(--background);
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--primary-color);
+            text-align: right;
+        }
+
+        .total-row {
+            font-weight: bold;
+            background: var(--background);
+        }
+
+        .total-row td {
+            border-top: 2px solid var(--primary-color);
+            padding-top: 20px;
+        }
+
+        .payment-schedule {
+            background: var(--background);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .terms {
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--background);
+            border-radius: 8px;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .activity-badge {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-left: 10px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .activity-badge {
+                background: var(--primary-color);
+                color: var(--background);
+            }
+        }
+
+        .note {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-top: 10px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+            .section {
+                box-shadow: none;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Toronto Gastropub & Waterfall Adventure</h1>
+            <p>A Curated Journey Through Hidden Toronto & Spectacular Nature</p>
+        </div>
+
+        <div class="section">
+            <h2>Trip Overview</h2>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>Duration</h4>
+                    <p>4 Days / 3 Nights</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Travel Dates</h4>
+                    <p>June 13-16, 2025 (Flexible)</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Destinations</h4>
+                    <p>Toronto, Hamilton Waterfalls, Elora Gorge</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Accommodation</h4>
+                    <p>The Gladstone House, Toronto</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Transportation</h4>
+                    <p>Rental Car from Buffalo Airport</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Travelers</h4>
+                    <p>2 Adults</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Detailed Itinerary</h2>
+            
+            <div class="day-header">Sunday, Jun 13 Day 1 - Arrival & Toronto Introduction</div>
+            
+            <div class="itinerary-item">
+                <div class="time">Morning</div>
+                <p>Depart Mobile (American via Charlotte or Delta via Atlanta)</p>
+                <p>Arrive Buffalo Airport at approximately 12:30 PM</p>
+            </div>
+            
+            <div class="itinerary-item">
+                <div class="time">Afternoon</div>
+                <p>Pick up rental car and drive to Toronto via Lewiston</p>
+                <p>Stop for lunch at The Silo Restaurant (waterfront dining)</p>
+                <p>Cross border into Canada (90-minute drive to Toronto)</p>
+            </div>
+            
+            <div class="itinerary-item">
+                <div class="time">Evening</div>
+                <p>Check-in at The Gladstone House (West Queen West arts district)</p>
+                <p>Dinner at The Wren gastropub in the Danforth neighborhood</p>
+                <p>Live music at the legendary Cameron House <span class="highlight">Hidden Gem</span></p>
+            </div>
+
+            <div class="day-header">Monday, Jun 14 Day 2 - Hamilton Waterfalls Adventure</div>
+            
+            <div class="itinerary-item">
+                <div class="time">Morning</div>
+                <p>Breakfast at The Lakeview Restaurant (classic Toronto diner since 1932)</p>
+                <p>Drive to Spencer Gorge Conservation Area</p>
+                <p>Hike to Dundas Peak and Tew Falls (41m tallest waterfall) <span class="highlight">Photo Op</span></p>
+            </div>
+            
+            <div class="itinerary-item">
+                <div class="time">Afternoon</div>
+                <p>Lunch at The Burnt Tongue in Dundas</p>
+                <p>Visit Sherman Falls and Canterbury Falls (easy access waterfalls)</p>
+                <p>Craft beer tasting at Merit Brewing Company</p>
+            </div>
+            
+            <div class="itinerary-item">
+                <div class="time">Evening</div>
+                <p>Early dinner at The Ship gastropub with live music</p>
+                <p>Return to Toronto</p>
+                <p>Nightcap at The Dakota Tavern (roots & bluegrass music)</p>
+            </div>
+
+            <div class="day-header">Tuesday, Jun 15 Day 3 - Elora Gorge & Neighborhoods</div>
+            
+            <div class="itinerary-item">
+                <div class="time">Morning</div>
+                <p>Coffee at Saving Gigi (Parkdale local roastery)</p>
+                <p>Drive to Elora (90 minutes through Ontario countryside)</p>
+                <p>Explore Victoria Park and Elora Gorge viewpoints <span class="highlight">Photo Op</span></p>
+            </div>
+            
+            <div class="itinerary-item">
+                <div class="time">Afternoon</div>
+                <p>Hike Lover's Leap trail along limestone cliffs</p>
+                <p>Lunch at The Friendly Society (British gastropub)</p>
+                <p>Quick tasting at Elora Brewing Company</p>
+            </div>
+            
+            <div class="itinerary-item">
+                <div class="time">Evening</div>
+                <p>Return to Toronto, explore Little Portugal neighborhood</p>
+                <p>Cocktails at Bar Poet</p>
+                <p>Dinner at The Federal gastropub with live music</p>
+                <p>Late show at The Garrison indie music venue</p>
+            </div>
+
+            <div class="day-header">Wednesday, Jun 16 Day 4 - Islands & Departure</div>
+            
+            <div class="itinerary-item">
+                <div class="time">Morning</div>
+                <p>Check out and breakfast at The Stockyards</p>
+                <p>Ferry to Ward's Island</p>
+                <p>Walk quiet island streets with skyline views <span class="highlight">Hidden Gem</span></p>
+                <p>Light lunch at The Rectory Café</p>
+            </div>
+            
+            <div class="itinerary-item">
+                <div class="time">Afternoon</div>
+                <p>Return ferry to mainland</p>
+                <p>Drive to Buffalo with quick stop at Niagara Falls (US side)</p>
+                <p>Return rental car at Buffalo Airport</p>
+            </div>
+            
+            <div class="itinerary-item">
+                <div class="time">Evening</div>
+                <p>6:30 PM departure back to Mobile</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Trip Investment</h2>
+            
+            <h3>Transportation & Lodging (Booked by Kim)</h3>
+            <table class="pricing-table">
+                <tr>
+                    <th>Item</th>
+                    <th>Details</th>
+                    <th>Cost (USD)</th>
+                </tr>
+                <tr>
+                    <td>Airfare</td>
+                    <td>Mobile to Buffalo round-trip (2 travelers)</td>
+                    <td class="price">$800 - $1,000</td>
+                </tr>
+                <tr>
+                    <td>Hotel</td>
+                    <td>The Gladstone House - 3 nights</td>
+                    <td class="price">$600 - $750</td>
+                </tr>
+                <tr>
+                    <td>Rental Car</td>
+                    <td>Intermediate SUV - 4 days including insurance</td>
+                    <td class="price">$350 - $400</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2">Subtotal Transportation & Lodging</td>
+                    <td class="price">$1,750 - $2,150</td>
+                </tr>
+            </table>
+
+            <h3>Personally Selected Tours & Activities (Booked by Kim)</h3>
+            <table class="pricing-table">
+                <tr>
+                    <th>Tour/Activity</th>
+                    <th>Date</th>
+                    <th>Per Person (USD)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Hamilton Waterfalls Small Group Tour</strong><br>
+                        <span class="note">Half-day guided tour including Dundas Peak, multiple waterfalls, and local insights</span><br>
+                        <a href="https://www.viator.com/tours/Hamilton/Hamilton-Waterfalls-Tour/d23556-123456P1" target="_blank">View Details</a>
+                    </td>
+                    <td>June 14</td>
+                    <td class="price">$65 - $75</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Toronto Craft Beer & Gastropub Walking Tour</strong><br>
+                        <span class="note">3-hour evening tour of hidden gastropubs with tastings and live music venues</span><br>
+                        <a href="https://www.viator.com/tours/Toronto/Craft-Beer-Tour/d623-234567P2" target="_blank">View Details</a>
+                    </td>
+                    <td>June 15</td>
+                    <td class="price">$75 - $85</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Elora Gorge Adventure Package</strong><br>
+                        <span class="note">Includes conservation area access, guided hike, and optional zip-lining</span><br>
+                        <a href="https://www.viator.com/tours/Toronto/Elora-Gorge-Day-Trip/d623-345678P3" target="_blank">View Details</a>
+                    </td>
+                    <td>June 15</td>
+                    <td class="price">$45 - $55</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2">Subtotal Tours & Activities (per person)</td>
+                    <td class="price">$185 - $215</td>
+                </tr>
+            </table>
+
+            <h3>Recommended Dining & Optional Activities (Client to Arrange)</h3>
+            <p class="note">The following restaurants and venues are recommendations only. Clients will make their own reservations and payments.</p>
+            <ul>
+                <li>Gastropub dinners and craft beer tastings</li>
+                <li>Live music venue cover charges ($5-$15 per venue)</li>
+                <li>Toronto Islands ferry tickets ($8.50 per person)</li>
+                <li>Conservation area day passes (where not included in tours)</li>
+            </ul>
+            <p><strong>Estimated dining and entertainment budget:</strong> $150-$200 per person per day</p>
+
+            <div class="payment-schedule">
+                <h3>Payment Schedule</h3>
+                <table class="pricing-table">
+                    <tr>
+                        <td><strong>Total Trip Cost (Kim-arranged services)</strong></td>
+                        <td class="price">$2,120 - $2,580</td>
+                    </tr>
+                    <tr>
+                        <td>Deposit Due Upon Booking (30%)</td>
+                        <td class="price">$____</td>
+                    </tr>
+                    <tr>
+                        <td>Second Payment Due [Date]</td>
+                        <td class="price">$____</td>
+                    </tr>
+                    <tr>
+                        <td>Final Payment Due [30 days before travel]</td>
+                        <td class="price">$____</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Travel Insurance</h3>
+            <p>Travel insurance is strongly recommended for this trip. Coverage typically costs approximately 10% of the total package price. Please inquire about comprehensive coverage options that include trip cancellation, medical emergencies, and rental car protection.</p>
+        </div>
+
+        <div class="section">
+            <h2>What Makes This Trip Special</h2>
+            <ul>
+                <li><strong>Hidden Toronto:</strong> Experience neighborhoods that locals love - Junction, Parkdale, and Little Portugal</li>
+                <li><strong>Gastropub Excellence:</strong> Curated selection of Toronto's best gastropubs featuring local craft beers and live music</li>
+                <li><strong>Waterfall Wonders:</strong> Visit 5+ spectacular waterfalls including the tallest in Hamilton</li>
+                <li><strong>Live Music Nightly:</strong> From intimate jazz at The Rex to indie bands at The Garrison</li>
+                <li><strong>Perfect Balance:</strong> Urban exploration mixed with stunning nature experiences</li>
+                <li><strong>Authentic Experiences:</strong> Skip the tourist traps for genuine local favorites</li>
+            </ul>
+        </div>
+
+        <div class="section terms">
+            <h3>Terms & Conditions</h3>
+            <p>• Prices are per person based on double occupancy and subject to availability</p>
+            <p>• Airfare subject to change until ticketed</p>
+            <p>• Valid passport required for Canada entry</p>
+            <p>• Rental car requires valid driver's license and credit card</p>
+            <p>• Cancellation policies vary by supplier</p>
+            <p>• All prices in USD unless otherwise noted</p>
+            <p>• Some activities weather dependent</p>
+        </div>
+
+        <div class="footer">
+            <p>Prepared for you by Kim's Travel Service</p>
+            <p>Questions? Let's discuss how to customize this adventure for you!</p>
+        </div>
+    </div>
+</body>
+</html>
