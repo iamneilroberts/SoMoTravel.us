@@ -82,10 +82,30 @@
         }
         
         .highlight {
-            background-color: #f0f8ff;
-            padding: 15px;
-            border-left: 4px solid var(--accent);
-            margin: 15px 0;
+            background: #f0f8ff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+        }
+        
+        .highlight h3 {
+            color: var(--primary);
+            margin-top: 0;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .highlight {
+                background-color: #f0f8ff;
+                color: #333;
+            }
+            .highlight h3 {
+                color: var(--primary);
+            }
         }
         
         .day-header {
@@ -103,16 +123,39 @@
         }
         
         .price-box {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border: 2px solid var(--secondary);
-            border-radius: 5px;
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+        }
+        
+        .price-box h3 {
+            color: var(--primary);
+            margin-top: 0;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .price-box ul {
             margin: 10px 0;
+        }
+        
+        .price-box .total-price {
+            border-top: 2px solid var(--secondary);
+            padding-top: 15px;
+            margin-top: 15px;
         }
         
         @media (prefers-color-scheme: dark) {
             .price-box {
-                background-color: #2a2a2a;
+                background-color: #f8f9fa;
+                color: #333;
+            }
+            .price-box h3 {
+                color: var(--primary);
             }
         }
         
@@ -134,8 +177,8 @@
         
         @media (prefers-color-scheme: dark) {
             .kim-gem {
-                background: linear-gradient(135deg, #1a2a3a 0%, #2a3a4a 100%);
-                border-color: #4a6a8a;
+                background: linear-gradient(135deg, rgba(151, 188, 98, 0.15) 0%, rgba(151, 188, 98, 0.1) 100%);
+                border-color: var(--secondary);
             }
         }
         
@@ -376,7 +419,7 @@
             <li>Airport transfers: $35-45</li>
             <li>Tours and excursions: $495-695</li>
         </ul>
-        <p class="total-price">Grand Total: $4,030-4,240 per person</p>
+        <p class="total-price"><strong>Grand Total: $4,030-4,240 per person</strong></p>
     </div>
     
     <div class="highlight">
