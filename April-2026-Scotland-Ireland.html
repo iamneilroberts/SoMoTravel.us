@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scotland & Ireland Journey - April 2026</title>
+    <style>
+        :root {
+            --primary: #2c5f2d;
+            --secondary: #97bc62;
+            --accent: #4a90e2;
+            --bg-light: #f8f9fa;
+            --bg-dark: #1a1a1a;
+            --text-light: #333;
+            --text-dark: #e0e0e0;
+            --border: #dee2e6;
+            --border-dark: #444;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: var(--bg-dark);
+                color: var(--text-dark);
+            }
+            .card {
+                background-color: #2a2a2a;
+                border-color: var(--border-dark);
+            }
+            .highlight {
+                background-color: #3a3a3a;
+            }
+            h1, h2, h3 {
+                color: var(--secondary);
+            }
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--secondary);
+            padding-left: 10px;
+        }
+        
+        h3 {
+            color: var(--accent);
+            margin-top: 25px;
+        }
+        
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .highlight {
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-left: 4px solid var(--accent);
+            margin: 15px 0;
+        }
+        
+        .day-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            margin: 20px -20px 15px -20px;
+            font-weight: bold;
+        }
+        
+        .activity {
+            margin: 15px 0;
+            padding-left: 20px;
+            border-left: 2px solid var(--secondary);
+        }
+        
+        .price-box {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 2px solid var(--secondary);
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .price-box {
+                background-color: #2a2a2a;
+            }
+        }
+        
+        .total-price {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--primary);
+            text-align: right;
+            margin-top: 20px;
+        }
+        
+        .kim-gem {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #b3d9ff;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .kim-gem {
+                background: linear-gradient(135deg, #1a2a3a 0%, #2a3a4a 100%);
+                border-color: #4a6a8a;
+            }
+        }
+        
+        .kim-gem h4 {
+            color: var(--accent);
+            margin: 0 0 10px 0;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border);
+            text-align: center;
+            color: #666;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🏰 Scotland & Ireland Journey 🍀</h1>
+    <p style="font-size: 1.1em; font-style: italic;">Experience the best of Scotland and Ireland at a relaxed pace, from Edinburgh's majestic castle and Royal Mile to Ireland's dramatic Cliffs of Moher and ancient Burren landscapes. This thoughtfully crafted journey avoids tourist traps and large bus tours, instead featuring intimate small-group experiences (maximum 16 guests), scenic train rides along the Scottish coast, and authentic encounters with local culture. Discover historic castles, charming seaside villages, mystical ancient sites, and breathtaking coastal vistas, all while enjoying the comfort of superior centrally-located hotels within walking distance of major attractions. With no driving required and expert local guides who share insider stories and hidden gems, this is Celtic travel as it should be – genuine, comfortable, and unforgettable.</p>
+    
+    <div class="highlight">
+        <p><strong>Travel Dates:</strong> April 6-17, 2026 (11 nights)</p>
+        <p><strong>Travelers:</strong> Three ladies ready to explore the Celtic lands</p>
+    </div>
+    
+    <h2>Trip Overview</h2>
+    <div class="overview-grid">
+        <div class="card">
+            <h3>🏴 Edinburgh, Scotland</h3>
+            <p><strong>5 Nights</strong> (April 7-12)</p>
+            <p>Scotland's enchanting capital offers the perfect blend of history and comfort. Unlike sprawling London, Edinburgh's compact city center means castle, shops, and restaurants are all within easy walking distance. The medieval Royal Mile provides level walking with frequent benches, charming tea rooms, and centuries of stories at every turn.</p>
+            <p><strong>Your Hotel:</strong> Leonardo Royal Hotel Edinburgh</p>
+            <p>Walking distance to Royal Mile</p>
+        </div>
+        <div class="card">
+            <h3>🇮🇪 Limerick, Ireland</h3>
+            <p><strong>5 Nights</strong> (April 12-17)</p>
+            <p>While Dublin bustles with crowds and Galway overflows with tourists, Limerick offers authentic Irish charm without the chaos. This riverside gem puts you just 30 minutes from the Cliffs of Moher and serves as the perfect base for exploring County Clare's natural wonders. With a compact medieval quarter, friendly locals, and far fewer tour buses, you'll experience the "real" Ireland that many visitors miss.</p>
+            <p><strong>Your Hotel:</strong> Limerick Strand Hotel</p>
+            <p>10-minute walk to King John's Castle</p>
+        </div>
+    </div>
+    
+    <h2>Detailed Itinerary</h2>
+    
+    <div class="card">
+        <div class="day-header">Sunday, Apr 6 Day 1 - Departure Day</div>
+        <div class="activity">
+            <p><strong>🛫 International Travel Day</strong></p>
+            <p>Depart Mobile via Dallas and London to Edinburgh</p>
+            <p>Overnight flight - rest well for your Scottish adventure!</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="day-header">Monday, Apr 7 Day 2 - Welcome to Scotland!</div>
+        <div class="activity">
+            <p><strong>Arrival in Edinburgh:</strong> 4:40 PM</p>
+            <p><strong>Evening Activity:</strong> Gentle stroll along the historic Royal Mile</p>
+            <p><strong>Suggested Dinner:</strong> The Witchery by the Castle (atmospheric Scottish dining)</p>
+            <p>Early rest to adjust to time change</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="day-header">Tuesday, Apr 8 Day 3 - Edinburgh City Discovery</div>
+        <div class="activity">
+            <p><strong>Morning:</strong> Edinburgh Castle visit - <a href="https://www.edinburghcastle.scot" target="_blank">www.edinburghcastle.scot</a></p>
+            <p><strong>Afternoon Options:</strong></p>
+            <ul>
+                <li>Hop-on Hop-off Bus Tour (perfect for seniors) - <a href="https://www.viator.com/tours/Edinburgh/City-Sightseeing-Edinburgh-Hop-On-Hop-Off-Tour/d739-2065EDI" target="_blank">Book Tour</a>
+                    <br><em>24-hour ticket with 14 stops including castle, palace, and gardens. Full circuit takes 60 minutes with live commentary.</em></li>
+                <li>Small Group City Tour with Rabbies - <a href="https://www.rabbies.com/en-us/tours/scotland/from-edinburgh/day-tours" target="_blank">View Options</a>
+                    <br><em>Maximum 16 passengers in comfortable mini-coaches. Expert local guides share history and stories. Multiple bathroom stops.</em></li>
+            </ul>
+            <p><strong>Evening:</strong> Traditional Scottish dinner with entertainment at The Spirit of Scotland Show - <a href="https://www.thespiritofscotlandshow.com" target="_blank">www.thespiritofscotlandshow.com</a> (includes 4-course meal and Celtic music)</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="day-header">Wednesday, Apr 9 Day 4 - Seaside Excursion</div>
+        <div class="activity">
+            <p><strong>Day Trip to North Berwick</strong> (30-minute scenic train ride)</p>
+            <ul>
+                <li>Scottish Seabird Centre - observe puffins and seals</li>
+                <li>Leisurely promenade walk along the beach</li>
+                <li>Charming seaside lunch at The Ship Inn</li>
+            </ul>
+            <p><strong>Return:</strong> Late afternoon for rest at hotel</p>
+            <p><strong>Dinner Suggestion:</strong> The Scran & Scallie - <a href="https://scranandscallie.com" target="_blank">scranandscallie.com</a> (Tom Kitchin's gastropub, comfort food, 10-min taxi)</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="day-header">Thursday, Apr 10 Day 5 - Mystery & Gardens</div>
+        <div class="activity">
+            <p><strong>Morning:</strong> Rosslyn Chapel Tour (Da Vinci Code chapel)</p>
+            <p>Half-day tour options with Rabbies - <a href="https://www.rabbies.com/en-us/tours/scotland/from-edinburgh" target="_blank">Book Tour</a>
+                <br><em>Visit the ornate 15th-century chapel featured in The Da Vinci Code. Includes transport and guided tour explaining the mysterious carvings and Templar connections.</em></p>
+            <p><strong>Afternoon:</strong> Princes Street Gardens stroll and afternoon tea</p>
+            <p><strong>Optional:</strong> Old Town Walking Tour - <a href="https://www.viator.com/tours/Edinburgh/Free-Walking-Tour/d739-69714P7" target="_blank">Join Tour</a></p>
+            <p><strong>Dinner Suggestion:</strong> The Dome - <a href="https://www.thedomeedinburgh.com" target="_blank">www.thedomeedinburgh.com</a> (elegant Georgian setting, early bird menu 5-6:30pm)</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="day-header">Friday, Apr 11 Day 6 - Scottish Highlands Taste</div>
+        <div class="activity">
+            <p><strong>Option 1:</strong> Train to Stirling Castle (50 minutes, flat castle grounds)</p>
+            <p><strong>Option 2:</strong> Loch Lomond Day Tour (scenic drive, photo stops)</p>
+            <p>Small group tours available - <a href="https://www.viator.com/Edinburgh-tours/Full-day-Tours/d739-g12-c94" target="_blank">View Options</a></p>
+            <p><strong>Evening:</strong> Farewell Scottish dinner at The Ivy on the Square - <a href="https://www.theivyedinburgh.com" target="_blank">www.theivyedinburgh.com</a> (sophisticated dining, theatre menu available)</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="day-header">Saturday, Apr 12 Day 7 - Journey to Ireland</div>
+        <div class="activity">
+            <p><strong>Morning:</strong> Depart Edinburgh 10:05 AM</p>
+            <p><strong>Afternoon:</strong> Arrive Shannon Airport 4:05 PM</p>
+            <p><strong>Car Rental:</strong> Pick up at 4:45 PM (compact car)</p>
+            <p><strong>Drive:</strong> 30 minutes to Limerick Strand Hotel</p>
+            <p><strong>Evening:</strong> Rest and riverside dinner at hotel</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="day-header">Sunday, Apr 13 Day 8 - Cliffs of Moher Spectacular</div>
+        <div class="activity">
+            <p><strong>Full Day Tour Options (no driving required!):</strong></p>
+            <ul>
+                <li>Paddywagon Tours from Limerick - <a href="https://www.paddywagontours.com/CLIFFS-OF-MOHER-Day-Tour-From-Limerick" target="_blank">Book Tour</a>
+                    <br><em>Includes admission to Cliffs visitor center, Atlantic Edge exhibition, and stops at charming villages. Professional driver-guide shares local legends.</em></li>
+                <li>Viator Small Group Tour - <a href="https://www.viator.com/tours/Limerick/Cliffs-of-Moher-Full-Day-Tour-from-Limerick/d23186-8962P16" target="_blank">Book Tour</a>
+                    <br><em>Maximum 15 guests. Includes 2 hours at the Cliffs, Doolin village stop, and optional cliff-edge walk for those comfortable with heights.</em></li>
+            </ul>
+            <p><strong>Includes:</strong> Cliffs viewing, visitor center, optional boat cruise</p>
+            <p><strong>Duration:</strong> 8 hours with comfort stops</p>
+            <p><strong>Evening:</strong> After tour dinner at The Cornstore - <a href="https://www.cornstore.ie" target="_blank">www.cornstore.ie</a> (steaks and seafood in converted warehouse, 5-min walk from hotel)</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="day-header">Monday, Apr 14 Day 9 - Ancient Burren Landscape</div>
+        <div class="activity">
+            <p><strong>The Burren & Ancient Sites Tour</strong></p>
+            <p>Kennedy & Carr Tours - <a href="https://www.kennedycarr.com/tours/day-tours/day-tours-from-limerick/cliffs-of-moher" target="_blank">Book Tour</a></p>
+            <ul>
+                <li>Poulnabrone Dolmen (5,000-year-old portal tomb)</li>
+                <li>Kilfenora Cathedral and Celtic crosses</li>
+                <li>Unique limestone landscape</li>
+                <li>Traditional Irish lunch included</li>
+            </ul>
+            <p><strong>Evening:</strong> Dinner at The French Table - <a href="https://www.thefrenchtable.ie" target="_blank">www.thefrenchtable.ie</a> (intimate bistro, early bird 5-7pm)</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="day-header">Tuesday, Apr 15 Day 10 - Aran Islands Adventure</div>
+        <div class="activity">
+            <p><strong>Aran Islands & Cliffs Combo Tour</strong></p>
+            <p>Full day tour - <a href="https://www.viator.com/tours/Limerick/Aran-Islands-and-Cliffs-of-Moher-from-Limerick/d23186-8623P7" target="_blank">Book Tour</a>
+                <br><em>Ferry crossing to Ireland's most authentic Gaelic-speaking island. See ancient stone forts, traditional thatched cottages, and stunning coastal views. Includes return ferry and bus transfers.</em></p>
+            <ul>
+                <li>Ferry to Inisheer (smallest Aran Island)</li>
+                <li>Traditional island culture experience</li>
+                <li>Ancient stone fort visit (accessible paths)</li>
+            </ul>
+            <p><strong>Weather Alternative:</strong> Bunratty Castle & Folk Park (covered areas)</p>
+            <p><strong>Evening:</strong> Traditional Irish meal at Durty Nelly's - <a href="https://www.durtynellys.ie" target="_blank">www.durtynellys.ie</a> (historic 1620 pub, 20-min drive)</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="day-header">Wednesday, Apr 16 Day 11 - Limerick Local Treasures</div>
+        <div class="activity">
+            <p><strong>Morning:</strong> King John's Castle (5-minute walk from hotel)</p>
+            <p><strong>Lunch:</strong> House Limerick - <a href="https://www.houselimerick.ie" target="_blank">www.houselimerick.ie</a></p>
+            <p><strong>Afternoon:</strong> Hunt Museum & River Shannon boardwalk</p>
+            <p><strong>Evening:</strong> Farewell dinner at hotel's River Restaurant</p>
+            <p>Early packing for morning departure</p>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="day-header">Thursday, Apr 17 Day 12 - Homeward Bound</div>
+        <div class="activity">
+            <p><strong>Early Morning:</strong> Return rental car by 6:30 AM</p>
+            <p><strong>Departure:</strong> Shannon Airport 7:40 AM</p>
+            <p>Travel via London, Philadelphia, and Charlotte</p>
+            <p><strong>Arrival Mobile:</strong> Same day (with time change)</p>
+        </div>
+    </div>
+    
+    <div class="kim-gem">
+        <h4>💎 Specially selected for you by Somo Travel's experts</h4>
+        <p><strong>Edinburgh:</strong> Start your mornings at Deacon's House Cafe on Brodie's Close (off Royal Mile) - their traditional Scottish breakfast with homemade oatcakes is divine! <a href="https://www.deaconshouse.co.uk" target="_blank">www.deaconshouse.co.uk</a></p>
+        <p><strong>Limerick:</strong> Don't miss the Saturday morning Milk Market (if you're there on the 11th) - Ireland's best farmer's market with local crafts and treats. Perfect for gifts! <a href="https://www.milkmarketlimerick.ie" target="_blank">www.milkmarketlimerick.ie</a></p>
+        <p><strong>Waterfall Photo Op:</strong> In Edinburgh, ask your Rosslyn Chapel tour guide about the hidden Roslin Glen waterfalls - just a 10-minute flat walk from the chapel parking lot. Send SomoTravel a photo! 📸</p>
+    </div>
+    
+    <h2>Investment Details</h2>
+    
+    <div class="price-box">
+        <h3>Trip Package Pricing</h3>
+        <p><strong>Per Person:</strong></p>
+        <ul>
+            <li>Package (airfare and hotels): $3,500</li>
+            <li>Airport transfers: $35-45</li>
+            <li>Tours and excursions: $495-695</li>
+        </ul>
+        <p class="total-price">Grand Total: $4,030-4,240 per person</p>
+    </div>
+    
+    <div class="highlight">
+        <h3>Total Trip Investment</h3>
+        <p><strong>For Three Travelers:</strong> $12,090-12,720</p>
+        <p><em>This includes all transportation, accommodations, and planned activities</em></p>
+    </div>
+    
+    <div class="price-box">
+        <h3>Travel Insurance</h3>
+        <p>Comprehensive travel insurance is strongly recommended for international travel.</p>
+        <p><strong>Estimated Cost:</strong> Travel insurance typically costs approximately 10% of the total package price</p>
+        <p><em>Coverage includes trip cancellation, medical emergencies, and travel delays</em></p>
+        <p><em>Price to be determined based on your specific needs and chosen coverage level</em></p>
+    </div>
+    
+    <div class="footer">
+        <p>Prepared with care by SomoTravel</p>
+        <p>Questions? Let's make this journey perfect for you!</p>
+    </div>
+</body>
+</html>
