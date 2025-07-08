@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graham Travel Itinerary - Ruidoso Cabin Trip</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .header h2 {
+            font-size: 1.5em;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .reminder-banner {
+            background: #e74c3c;
+            color: white;
+            padding: 20px 30px;
+            font-weight: 500;
+        }
+        
+        .reminder-banner .reminder-item {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .reminder-banner .icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .section-header {
+            background: #34495e;
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.3em;
+            font-weight: 500;
+        }
+        
+        .section-content {
+            padding: 20px;
+        }
+        
+        .traveler-section {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            margin-bottom: 30px;
+        }
+        
+        .flight-container {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .flight-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .flight-route {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .confirmation-code {
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .flight-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .detail-label {
+            font-size: 0.85em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .detail-value {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-top: 2px;
+        }
+        
+        .connection-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            text-align: center;
+            color: #856404;
+        }
+        
+        .seat-info {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .rental-section, .cabin-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .info-box {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .info-box h4 {
+            color: #34495e;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .summary-section {
+            background: #ecf0f1;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .summary-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .summary-value {
+            font-size: 2em;
+            font-weight: 600;
+            color: #3498db;
+        }
+        
+        .summary-label {
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .checklist {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .checklist-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #3498db;
+            border-radius: 4px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Graham Travel Itinerary</h1>
+            <h2>Ruidoso, NM Cabin Trip • July 13-19, 2025</h2>
+        </div>
+        
+        <div class="reminder-banner">
+            <div class="reminder-item">
+                <span class="icon">⏰</span>
+                <span><strong>Saturday, July 12</strong> - Check in for Sunday morning flight (24 hours before 5:19 AM departure)</span>
+            </div>
+            <div class="reminder-item">
+                <span class="icon">⏰</span>
+                <span><strong>Friday, July 18</strong> - Check in for Saturday morning return flight (24 hours before 11:30 AM departure)</span>
+            </div>
+            <div class="reminder-item">
+                <span class="icon">⚠️</span>
+                <span><strong>JANSON GRAHAM:</strong> Verify Katie's service dog requirements for return flights from ABQ when checking in</span>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Traveler 1 Section -->
+            <div class="section traveler-section">
+                <div class="section-header">TRAVELER 1: JANSON ROBINSON GRAHAM</div>
+                <div class="section-content">
+                    <!-- Outbound Flights -->
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">OUTBOUND - Sunday, July 13, 2025</h3>
+                    
+                    <div class="flight-container">
+                        <div class="flight-header">
+                            <div class="flight-route">Flight 1: MOB → DFW</div>
+                            <div class="confirmation-code">EQBVVI</div>
+                        </div>
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Flight Number</span>
+                                <span class="detail-value">AA 5195</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Class</span>
+                                <span class="detail-value">Basic Economy</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Departure</span>
+                                <span class="detail-value">5:19 AM (Mobile)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Arrival</span>
+                                <span class="detail-value">7:14 AM (Dallas/Fort Worth)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Duration</span>
+                                <span class="detail-value">1h 55m</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Operated By</span>
+                                <span class="detail-value">PSA Airlines as American Eagle</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="connection-info">
+                        <strong>Connection Time: 1h 43m at DFW</strong>
+                    </div>
+                    
+                    <div class="flight-container">
+                        <div class="flight-header">
+                            <div class="flight-route">Flight 2: DFW → ABQ</div>
+                            <div class="confirmation-code">EQBVVI</div>
+                        </div>
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Flight Number</span>
+                                <span class="detail-value">AA 928</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Class</span>
+                                <span class="detail-value">Basic Economy</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Departure</span>
+                                <span class="detail-value">8:57 AM (Dallas)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Arrival</span>
+                                <span class="detail-value">9:47 AM (Albuquerque)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Duration</span>
+                                <span class="detail-value">1h 50m</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Return Flights -->
+                    <h3 style="color: #2c3e50; margin: 30px 0 20px;">RETURN - Saturday, July 19, 2025</h3>
+                    
+                    <div class="flight-container">
+                        <div class="flight-header">
+                            <div class="flight-route">Flight 1: ABQ → DFW</div>
+                            <div class="confirmation-code">EQBVVI</div>
+                        </div>
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Flight Number</span>
+                                <span class="detail-value">AA 3535</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Class</span>
+                                <span class="detail-value">Coach</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Aircraft</span>
+                                <span class="detail-value">E75</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Departure</span>
+                                <span class="detail-value">11:30 AM (Albuquerque)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Arrival</span>
+                                <span class="detail-value">2:21 PM (Dallas/Fort Worth)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Operated By</span>
+                                <span class="detail-value">Envoy Air as American Eagle</span>
+                            </div>
+                        </div>
+                        <div class="seat-info">
+                            <strong>Seat 18A</strong> (Confirmed - Paid)
+                        </div>
+                    </div>
+                    
+                    <div class="connection-info">
+                        <strong>Connection Time: 1h 28m at DFW</strong>
+                    </div>
+                    
+                    <div class="flight-container">
+                        <div class="flight-header">
+                            <div class="flight-route">Flight 2: DFW → MOB</div>
+                            <div class="confirmation-code">EQBVVI</div>
+                        </div>
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Flight Number</span>
+                                <span class="detail-value">AA 3678</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Class</span>
+                                <span class="detail-value">Coach</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Aircraft</span>
+                                <span class="detail-value">E75</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Departure</span>
+                                <span class="detail-value">3:49 PM (Dallas)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Arrival</span>
+                                <span class="detail-value">5:31 PM (Mobile)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Operated By</span>
+                                <span class="detail-value">Envoy Air as American Eagle</span>
+                            </div>
+                        </div>
+                        <div class="seat-info">
+                            <strong>Seat 17F</strong> (Confirmed - Paid)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Traveler 2 Section -->
+            <div class="section traveler-section">
+                <div class="section-header">TRAVELER 2: JANSON GRAHAM</div>
+                <div class="section-content">
+                    <!-- Outbound Flights -->
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">OUTBOUND - Sunday, July 13, 2025</h3>
+                    
+                    <div class="flight-container">
+                        <div class="flight-header">
+                            <div class="flight-route">Flight 1: MOB → DFW</div>
+                            <div class="confirmation-code">QYPMOS</div>
+                        </div>
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Flight Number</span>
+                                <span class="detail-value">AA 5195</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Departure</span>
+                                <span class="detail-value">5:19 AM (Mobile)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Arrival</span>
+                                <span class="detail-value">7:14 AM (Dallas/Fort Worth)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Seats</span>
+                                <span class="detail-value">Paid Seats Selected</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="connection-info">
+                        <strong>Connection Time: 1h 43m at DFW</strong>
+                    </div>
+                    
+                    <div class="flight-container">
+                        <div class="flight-header">
+                            <div class="flight-route">Flight 2: DFW → ABQ</div>
+                            <div class="confirmation-code">QYPMOS</div>
+                        </div>
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Flight Number</span>
+                                <span class="detail-value">AA 928</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Class</span>
+                                <span class="detail-value">Coach</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Aircraft</span>
+                                <span class="detail-value">738 (Boeing 737-800)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Departure</span>
+                                <span class="detail-value">8:57 AM (Dallas)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Arrival</span>
+                                <span class="detail-value">9:47 AM (Albuquerque)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Return Flights -->
+                    <h3 style="color: #2c3e50; margin: 30px 0 20px;">RETURN - Saturday, July 19, 2025</h3>
+                    
+                    <div class="flight-container">
+                        <div class="flight-header">
+                            <div class="flight-route">Flight 1: ABQ → DFW</div>
+                            <div class="confirmation-code">QQXCEY</div>
+                        </div>
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Flight Number</span>
+                                <span class="detail-value">AA 3535</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Class</span>
+                                <span class="detail-value">First Class</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Departure</span>
+                                <span class="detail-value">11:30 AM (Albuquerque)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Arrival</span>
+                                <span class="detail-value">2:21 PM (Dallas/Fort Worth)</span>
+                            </div>
+                        </div>
+                        <div class="seat-info">
+                            <strong>Seats 1D, 1F</strong> (Confirmed)
+                        </div>
+                    </div>
+                    
+                    <div class="connection-info">
+                        <strong>Connection Time: 1h 28m at DFW</strong>
+                    </div>
+                    
+                    <div class="flight-container">
+                        <div class="flight-header">
+                            <div class="flight-route">Flight 2: DFW → MOB</div>
+                            <div class="confirmation-code">QQXCEY</div>
+                        </div>
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Flight Number</span>
+                                <span class="detail-value">AA 3678</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Class</span>
+                                <span class="detail-value">First Class</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Aircraft</span>
+                                <span class="detail-value">E75</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Departure</span>
+                                <span class="detail-value">3:49 PM (Dallas)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Arrival</span>
+                                <span class="detail-value">5:31 PM (Mobile)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Operated By</span>
+                                <span class="detail-value">Envoy Air as American Eagle</span>
+                            </div>
+                        </div>
+                        <div class="seat-info">
+                            <strong>Seats 1D, 1F</strong> (Confirmed)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car Rental Section -->
+            <div class="section">
+                <div class="section-header">CAR RENTAL</div>
+                <div class="section-content rental-section">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="color: #2c3e50; margin: 0;">Midsize SUV</h3>
+                        <div class="confirmation-code">1674281527</div>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-box">
+                            <h4>Pickup Details</h4>
+                            <p><strong>Date:</strong> Sunday, July 13</p>
+                            <p><strong>Location:</strong> Albuquerque Airport (ABQ)</p>
+                            <p><strong>Reserved for:</strong> Janson Graham</p>
+                        </div>
+                        <div class="info-box">
+                            <h4>Return Details</h4>
+                            <p><strong>Date:</strong> Saturday, July 19</p>
+                            <p><strong>Location:</strong> Albuquerque Airport (ABQ)</p>
+                            <p><strong>Cost:</strong> $376.62 (pay at counter)</p>
+                        </div>
+                        <div class="info-box">
+                            <h4>Vehicle Features</h4>
+                            <p>✓ Automatic Transmission</p>
+                            <p>✓ Air Conditioning</p>
+                            <p>✓ Unlimited Mileage</p>
+                            <p><strong>Fuel Policy:</strong> Full-to-Full</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Accommodation Section -->
+            <div class="section">
+                <div class="section-header">ACCOMMODATION</div>
+                <div class="section-content cabin-section">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="color: #2c3e50; margin: 0;">Hummingbird Cabins - Lincoln Log Cabin</h3>
+                        <div class="confirmation-code">114765</div>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-box">
+                            <h4>Stay Details</h4>
+                            <p><strong>Check-in:</strong> Sunday, July 13, 2025</p>
+                            <p><strong>Check-out:</strong> Saturday, July 19, 2025</p>
+                            <p><strong>Duration:</strong> 6 nights</p>
+                        </div>
+                        <div class="info-box">
+                            <h4>Property Address</h4>
+                            <p>202 East View Dr.</p>
+                            <p>Ruidoso, NM</p>
+                        </div>
+                        <div class="info-box">
+                            <h4>Contact Information</h4>
+                            <p><strong>Phone:</strong> 1-866-505-3555</p>
+                            <p><strong>Alt Phone:</strong> 575-258-3555</p>
+                            <p><strong>Email:</strong> info@hbcabins.com</p>
+                            <p><strong>Office:</strong> 1204 Mechem Suite 15</p>
+                        </div>
+                        <div class="info-box">
+                            <h4>Fees</h4>
+                            <p><strong>Security Deposit:</strong> $206.50</p>
+                            <p><strong>Pet Fee:</strong> $50.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pre-Trip Checklist -->
+            <div class="checklist" style="margin-top: 40px;">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">PRE-TRIP CHECKLIST</h3>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Check in for outbound flight (July 12)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Pack pet supplies and documentation</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Check weather forecast for Ruidoso</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <span>Check in for return flight (July 18)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
