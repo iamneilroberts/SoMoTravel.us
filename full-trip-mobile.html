@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    :root {
+        --text-primary: #2d3748;
+        --text-secondary: #4a5568;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f7fafc;
+        --accent: #2c5282;
+        --border: #e2e8f0;
+        --alert: #feebc8;
+        --alert-text: #744210;
+        --success: #c6f6d5;
+        --success-text: #276749;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --text-primary: #f7fafc;
+            --text-secondary: #e2e8f0;
+            --bg-primary: #1a202c;
+            --bg-secondary: #2d3748;
+            --accent: #90cdf4;
+            --border: #4a5568;
+            --alert: #744210;
+            --alert-text: #feebc8;
+            --success: #276749;
+            --success-text: #c6f6d5;
+        }
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 16px;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+    }
+
+    .header {
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid var(--border);
+    }
+
+    .collapsible {
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .active, .collapsible:hover {
+        background-color: var(--accent);
+        color: var(--bg-primary);
+    }
+
+    .content {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: var(--bg-primary);
+        margin-bottom: 16px;
+    }
+
+    .day-content {
+        border-left: 4px solid var(--accent);
+        padding-left: 16px;
+        margin: 16px 0;
+    }
+
+    .alert {
+        background-color: var(--alert);
+        color: var(--alert-text);
+        padding: 12px;
+        border-radius: 8px;
+        margin: 8px 0;
+    }
+
+    .success {
+        background-color: var(--success);
+        color: var(--success-text);
+        padding: 12px;
+        border-radius: 8px;
+        margin: 8px 0;
+    }
+
+    .time {
+        font-weight: bold;
+        color: var(--accent);
+    }
+
+    .map-link {
+        display: inline-block;
+        background-color: var(--accent);
+        color: var(--bg-primary);
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        margin: 8px 0;
+    }
+
+    .accommodation {
+        background-color: var(--bg-secondary);
+        padding: 15px;
+        border-radius: 8px;
+        margin: 10px 0;
+    }
+
+    .tip {
+        font-style: italic;
+        border-left: 2px solid var(--accent);
+        padding-left: 10px;
+        margin: 10px 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Complete Trip Guide</h1>
+    <h2>Sara & Darren's 25th Anniversary</h2>
+    <p>October 5-15, 2025</p>
+</div>
+
+<button class="collapsible">Emergency & Essential Info ▼</button>
+<div class="content">
+    <div class="alert">
+        <strong>Emergency Numbers:</strong><br>
+        Emergency Services: 999<br>
+        Police (non-emergency): 101<br>
+        US Embassy: +44 20 7499 9000
+    </div>
+
+    <div class="success">
+        <strong>Trip Manager Contact:</strong><br>
+        24/7 Support: [Insert Number]<br>
+        WhatsApp: [Insert Number]
+    </div>
+
+    <h3>Key Information:</h3>
+    <ul>
+        <li>Travel Insurance Policy: [Insert Number]</li>
+        <li>Car Rental Reference: [Insert Number]</li>
+        <li>Booking References in confirmation emails</li>
+        <li>Keep passport copies separate from originals</li>
+    </ul>
+
+    <div class="tip">
+        Download these apps:
+        <ul>
+            <li>WhatsApp for communication</li>
+            <li>Google Maps (download offline maps)</li>
+            <li>National Rail app for train times</li>
+            <li>Weather app of choice</li>
+        </ul>
+    </div>
+</div>
+
+<button class="collapsible">Travel Documents & Transport ▼</button>
+<div class="content">
+    <h3>Flights:</h3>
+    <div class="alert">
+        <strong>Outbound: October 5-6 (DL9447)</strong><br>
+        IAD 5:25 PM → AMS 7:25 AM → BRS 9:05 AM
+    </div>
+    <div class="alert">
+        <strong>Return: October 15 (KL1076)</strong><br>
+        BRS 9:20 AM → AMS 11:45 AM → IAD 3:35 PM
+    </div>
+
+    <h3>Car Rental:</h3>
+    <div class="success">
+        Mid-size SUV with insurance included<br>
+        Pickup: October 6, 9:30 AM (Bristol Airport)<br>
+        Return: October 15, 7:00 AM
+    </div>
+
+    <div class="tip">
+        <strong>Driving Tips:</strong>
+        <ul>
+            <li>Drive on the left</li>
+            <li>Roundabouts: give way to the right</li>
+            <li>Most cars are manual transmission</li>
+            <li>Park in the direction of traffic</li>
+        </ul>
+    </div>
+</div>
+
+<button class="collapsible">Accommodations Overview ▼</button>
+<div class="content">
+    <div class="accommodation">
+        <h3>Bath: The Francis Hotel</h3>
+        October 6-10 (4 nights)<br>
+        Queen Square, Bath BA1 2HH<br>
+        <a href="https://maps.google.com/?q=Francis+Hotel+Bath" class="map-link">Map Location</a>
+        <div class="tip">
+            Located in historic Queen Square<br>
+            Parking available (£20/day)<br>
+            Walking distance to all attractions
+        </div>
+    </div>
+
+    <div class="accommodation">
+        <h3>Cotswolds: Selected Cottage</h3>
+        October 10-15 (5 nights)<br>
+        [Address to be confirmed]<br>
+        <div class="tip">
+            Free parking included<br>
+            Kitchen facilities available<br>
+            Local village amenities nearby
+        </div>
+    </div>
+</div>
+
+<button class="collapsible">Days 1-2: Travel & Bath Arrival ▼</button>
+<div class="content">
+    <div class="day-content">
+        <h3>Sunday, October 5</h3>
+        <span class="time">3:25 PM:</span> Arrive at IAD<br>
+        <span class="time">5:25 PM:</span> Departure
+
+        <h3>Monday, October 6</h3>
+        <span class="time">9:05 AM:</span> Arrive Bristol Airport<br>
+        <span class="time">9:30 AM:</span> Car rental pickup<br>
+        <span class="time">10:30 AM:</span> Arrive Bath<br>
+        <span class="time">1:00 PM:</span> Orientation walk<br>
+        <span class="time">3:00 PM:</span> Roman Baths<br>
+        <span class="time">5:00 PM:</span> Bath Abbey Evensong
+
+        <div class="tip">
+            <strong>First Day Tips:</strong>
+            <ul>
+                <li>Stay awake until local evening</li>
+                <li>Light walking to adjust to time zone</li>
+                <li>Roman Baths less crowded in late afternoon</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<button class="collapsible">Days 3-5: Bath Explorations ▼</button>
+<div class="content">
+    <div class="day-content">
+        <h3>Tuesday, October 7: Jane Austen's Bath</h3>
+        <span class="time">10:00 AM:</span> Jane Austen Walking Tour<br>
+        <span class="time">2:00 PM:</span> Shopping on Milsom Street<br>
+        <span class="time">7:00 PM:</span> Dinner at The Pump Room
+
+        <h3>Wednesday, October 8: Wells & Glastonbury</h3>
+        <span class="time">9:00 AM:</span> Depart for Wells<br>
+        <span class="time">10:00 AM:</span> Wells Cathedral<br>
+        <span class="time">2:00 PM:</span> Glastonbury Abbey
+
+        <h3>Thursday, October 9: London Day Trip</h3>
+        <span class="time">8:30 AM:</span> Train to London<br>
+        <span class="time">10:30 AM:</span> Tower of London<br>
+        <span class="time">1:30 PM:</span> Thames River Cruise<br>
+        <span class="time">3:30 PM:</span> Optional British Museum<br>
+        <span class="time">7:00 PM:</span> Return train
+
+        <div class="tip">
+            <strong>London Day Tips:</strong>
+            <ul>
+                <li>Book train tickets in advance</li>
+                <li>Use contactless payment for tube</li>
+                <li>Tower tickets online to skip queue</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<button class="collapsible">Days 6-8: Cotswolds Begin ▼</button>
+<div class="content">
+    <div class="day-content">
+        <h3>Friday, October 10: Transfer Day</h3>
+        <span class="time">Morning:</span> Bath Fashion Museum<br>
+        <span class="time">Afternoon:</span> Drive to Cotswolds<br>
+        <span class="time">Evening:</span> Village orientation
+
+        <h3>Saturday, October 11: Villages Tour</h3>
+        <span class="time">9:30 AM:</span> Hidden Villages Tour<br>
+        <span class="time">Evening:</span> Local pub dinner
+
+        <h3>Sunday, October 12: Oxford Day</h3>
+        <span class="time">Morning:</span> Drive to Oxford<br>
+        <span class="time">Afternoon:</span> Christ Church<br>
+        <span class="time">Evening:</span> Magdalen College Evensong
+
+        <div class="tip">
+            <strong>Oxford Parking Tip:</strong><br>
+            Use Park & Ride - much easier than city parking
+        </div>
+    </div>
+</div>
+
+<button class="collapsible">Days 9-11: Cotswolds & Departure ▼</button>
+<div class="content">
+    <div class="day-content">
+        <h3>Monday, October 13: Sudeley Castle</h3>
+        <span class="time">10:00 AM:</span> Castle Tour<br>
+        <span class="time">Afternoon:</span> Tea at Huffkins<br>
+        <span class="time">Evening:</span> Traditional music
+
+        <h3>Tuesday, October 14: Final Day</h3>
+        <span class="time">Morning:</span> Broadway Tower<br>
+        <span class="time">Afternoon:</span> Hidcote Gardens<br>
+        <span class="time">Evening:</span> Farewell dinner
+
+        <h3>Wednesday, October 15: Departure</h3>
+        <span class="time">7:00 AM:</span> Return rental car<br>
+        <span class="time">9:20 AM:</span> Departure flight
+
+        <div class="tip">
+            <strong>Departure Morning:</strong><br>
+            Allow 45 minutes to return car and reach terminal
+        </div>
+    </div>
+</div>
+
+<button class="collapsible">Local Tips & Customs ▼</button>
+<div class="content">
+    <div class="tip">
+        <strong>General Tips:</strong>
+        <ul>
+            <li>Tipping: 10-15% in restaurants</li>
+            <li>Reservations recommended for dinner</li>
+            <li>Shops often close by 5:30 PM</li>
+            <li>Sunday trading hours shorter</li>
+            <li>"Cheers" means both "thanks" and "goodbye"</li>
+        </ul>
+    </div>
+
+    <div class="tip">
+        <strong>Weather Preparation:</strong>
+        <ul>
+            <li>October can be cool and wet</li>
+            <li>Layers recommended</li>
+            <li>Umbrella or rain jacket essential</li>
+            <li>Comfortable walking shoes</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+            content.style.maxHeight = null;
+            this.innerHTML = this.innerHTML.replace("▲", "▼");
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            this.innerHTML = this.innerHTML.replace("▼", "▲");
+        }
+    });
+}
+
+// Open Emergency Info by default
+document.getElementsByClassName("collapsible")[0].click();
+</script>
+
+</body>
+</html>
