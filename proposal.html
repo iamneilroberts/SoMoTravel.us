@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    :root {
+        --text-primary: #2d3748;
+        --text-secondary: #4a5568;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f7fafc;
+        --accent: #2c5282;
+        --border: #e2e8f0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --text-primary: #f7fafc;
+            --text-secondary: #e2e8f0;
+            --bg-primary: #1a202c;
+            --bg-secondary: #2d3748;
+            --accent: #90cdf4;
+            --border: #4a5568;
+        }
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px;
+        line-height: 1.6;
+        color: var(--text-primary);
+        background-color: var(--bg-primary);
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--border);
+    }
+
+    .section {
+        margin: 30px 0;
+        padding: 20px;
+        background-color: var(--bg-secondary);
+        border-radius: 8px;
+    }
+
+    .highlight {
+        border-left: 4px solid var(--accent);
+        padding-left: 20px;
+        margin: 20px 0;
+    }
+
+    .price-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    .price-table th, .price-table td {
+        padding: 12px;
+        border: 1px solid var(--border);
+        text-align: left;
+    }
+
+    .price-table th {
+        background-color: var(--bg-secondary);
+    }
+
+    .itinerary-day {
+        margin: 20px 0;
+        padding: 20px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+    }
+
+    .signature {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 2px solid var(--border);
+    }
+
+    h1, h2, h3 {
+        color: var(--text-primary);
+    }
+
+    .contact-info {
+        font-style: italic;
+        color: var(--text-secondary);
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Travel Proposal</h1>
+    <h2>Sara & Darren's 25th Anniversary Journey</h2>
+    <h3>Literary Heritage Tour of Bath & The Cotswolds</h3>
+    <p>October 5-15, 2025</p>
+</div>
+
+<div class="section">
+    <h2>Journey Overview</h2>
+    <div class="highlight">
+        <p>A personally crafted 10-day exploration of England's literary and ecclesiastical heritage, designed specifically for your 25th anniversary celebration. This journey combines Jane Austen's Bath with the timeless beauty of the Cotswolds, featuring carefully selected accommodations, private guided experiences, and opportunities for both cultural immersion and peaceful reflection.</p>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Travel Arrangements</h2>
+    
+    <h3>Flight Details</h3>
+    <p><strong>Outbound:</strong> October 5-6 (DL9447)<br>
+    IAD 5:25 PM → AMS 7:25 AM → BRS 9:05 AM</p>
+    
+    <p><strong>Return:</strong> October 15 (KL1076)<br>
+    BRS 9:20 AM → AMS 11:45 AM → IAD 3:35 PM</p>
+
+    <h3>Ground Transportation</h3>
+    <p>Mid-size SUV with comprehensive insurance<br>
+    Pickup: October 6, 9:30 AM (Bristol Airport)<br>
+    Return: October 15, 7:00 AM</p>
+</div>
+
+<div class="section">
+    <h2>Accommodations</h2>
+    
+    <h3>Bath (October 6-10)</h3>
+    <div class="highlight">
+        <p><strong>The Francis Hotel</strong><br>
+        Queen Square, Bath BA1 2HH<br>
+        A luxury boutique hotel in the heart of Georgian Bath, walking distance to all major attractions</p>
+    </div>
+
+    <h3>Cotswolds (October 10-15)</h3>
+    <div class="highlight">
+        <p>Selected cottage options:</p>
+        <ul>
+            <li><strong>Honeysuckle Cottage - Chipping Campden</strong><br>
+            Historic charm with modern comforts, ideal village location</li>
+            <li><strong>The Old Bakery - Stow-on-the-Wold</strong><br>
+            Character property in market town setting</li>
+            <li><strong>Lavender Cottage - Broadway</strong><br>
+            Classic Cotswold cottage with contemporary amenities</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Featured Experiences</h2>
+    <ul>
+        <li>Private Jane Austen-themed walking tour of Bath</li>
+        <li>Evensong services at historic cathedrals</li>
+        <li>Guided tour of Wells Cathedral and Glastonbury</li>
+        <li>London literary day trip</li>
+        <li>Hidden Cotswolds villages tour</li>
+        <li>Private Sudeley Castle experience</li>
+        <li>Traditional music evening</li>
+        <li>Carefully selected tea rooms and historic dining venues</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Package Investment</h2>
+    <table class="price-table">
+        <tr>
+            <th>Package Component</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td><strong>Land Package (per couple)</strong></td>
+            <td>£5,400 ($6,750 USD)</td>
+        </tr>
+        <tr>
+            <td><strong>Air Package (per couple)</strong></td>
+            <td>$1,600 USD</td>
+        </tr>
+    </table>
+
+    <div class="highlight">
+        <h3>Complete Anniversary Package Includes:</h3>
+        <ul>
+            <li>9 nights luxury accommodation (4 Bath, 5 Cotswolds)</li>
+            <li>Mid-size SUV rental with comprehensive insurance</li>
+            <li>4 private guided experiences</li>
+            <li>All attraction entries and cathedral donations</li>
+            <li>London day trip rail tickets</li>
+            <li>24/7 local support</li>
+            <li>All taxes and fees</li>
+        </ul>
+        <p><strong>Total Package Investment: $8,350 USD</strong><br>
+        (£5,400 land package + $1,600 flights)</p>
+    </div>
+    
+    <div class="highlight">
+        <h3>Payment Schedule:</h3>
+        <ul>
+            <li>Initial Deposit: $2,500 (due upon booking)</li>
+            <li>Second Payment: $2,925 (due by June 1, 2025)</li>
+            <li>Final Payment: $2,925 (due by August 1, 2025)</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Next Steps</h2>
+    <ol>
+        <li>Review and select preferred Cotswolds cottage</li>
+        <li>Confirm tour selections and timing preferences</li>
+        <li>Authorize accommodation deposits</li>
+        <li>Review and confirm day-by-day itinerary details</li>
+    </ol>
+</div>
+
+<div class="signature">
+    <p>Prepared with care for Sara & Darren's special celebration</p>
+    <p class="contact-info">
+        Please contact us with any questions or requests for modifications.<br>
+        Reference: SD102025-BAT
+    </p>
+</div>
+
+</body>
+</html>
