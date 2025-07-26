@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    :root {
+        --text-primary: #2d3748;
+        --text-secondary: #4a5568;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f7fafc;
+        --accent: #2c5282;
+        --border: #e2e8f0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --text-primary: #f7fafc;
+            --text-secondary: #e2e8f0;
+            --bg-primary: #1a202c;
+            --bg-secondary: #2d3748;
+            --accent: #90cdf4;
+            --border: #4a5568;
+        }
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 16px;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+    }
+
+    .collapsible {
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .active, .collapsible:hover {
+        background-color: var(--accent);
+        color: var(--bg-primary);
+    }
+
+    .content {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: var(--bg-primary);
+        margin-bottom: 16px;
+    }
+
+    .alert {
+        background-color: #feebc8;
+        color: #744210;
+        padding: 12px;
+        border-radius: 8px;
+        margin: 8px 0;
+    }
+
+    .location {
+        margin: 12px 0;
+        padding: 12px;
+        border-left: 4px solid var(--accent);
+    }
+
+    .map-link {
+        display: inline-block;
+        background-color: var(--accent);
+        color: var(--bg-primary);
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        margin: 8px 0;
+    }
+
+    .time {
+        font-weight: bold;
+        color: var(--accent);
+    }
+
+    .transport-info {
+        background-color: var(--bg-secondary);
+        padding: 12px;
+        border-radius: 8px;
+        margin: 8px 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>London Day Trip Guide</h1>
+    <p>Thursday, October 9, 2025</p>
+</div>
+
+<button class="collapsible">Essential Information ▼</button>
+<div class="content">
+    <div class="alert">
+        <strong>Emergency Contacts:</strong><br>
+        Emergency Services: 999<br>
+        British Transport Police: 0800 40 50 40<br>
+        US Embassy: +44 20 7499 9000
+    </div>
+    
+    <div class="transport-info">
+        <strong>Train Details:</strong><br>
+        Bath Spa to London Paddington<br>
+        Outbound: 8:30 AM (arrives 10:00 AM)<br>
+        Return: 7:00 PM (arrives 8:30 PM)<br>
+        Platform information available on departure boards
+    </div>
+    
+    <p><strong>Weather:</strong> Check forecast morning of travel<br>
+    <strong>Dress Code:</strong> Casual, comfortable walking shoes<br>
+    <strong>Currency:</strong> British Pound (£)</p>
+</div>
+
+<button class="collapsible">Morning: Tower of London ▼</button>
+<div class="content">
+    <div class="location">
+        <h3>Tower of London</h3>
+        <p>St Katharine's & Wapping, London EC3N 4AB</p>
+        <a href="https://maps.google.com/?q=Tower+of+London" class="map-link">Open in Maps</a>
+        
+        <p><span class="time">10:30 AM - 1:00 PM</span></p>
+        
+        <p><strong>Key Features:</strong></p>
+        <ul>
+            <li>Crown Jewels (go here first to avoid lines)</li>
+            <li>White Tower - Medieval Palace</li>
+            <li>Yeoman Warder tour (free, 60 mins)</li>
+            <li>Medieval Chapel Royal of St Peter ad Vincula</li>
+        </ul>
+        
+        <p><strong>Tips:</strong></p>
+        <ul>
+            <li>Book tickets online in advance (£29.90 per person)</li>
+            <li>Join first Yeoman Warder tour at 10:45 AM</li>
+            <li>Cafe on premises for lunch</li>
+            <li>Gift shop near exit</li>
+        </ul>
+    </div>
+</div>
+
+<button class="collapsible">Afternoon: Thames River Cruise ▼</button>
+<div class="content">
+    <div class="location">
+        <h3>City Cruises - Tower Pier</h3>
+        <p><span class="time">1:30 PM - 3:00 PM</span></p>
+        
+        <p><strong>Route Details:</strong></p>
+        <ul>
+            <li>Tower Pier to Westminster Pier</li>
+            <li>Pass under Tower Bridge</li>
+            <li>Views of Shakespeare's Globe</li>
+            <li>Houses of Parliament</li>
+            <li>London Eye</li>
+        </ul>
+        
+        <p><strong>Tips:</strong></p>
+        <ul>
+            <li>Book one-way ticket (£14.50 per person)</li>
+            <li>Covered and open-air seating available</li>
+            <li>Snacks and drinks available onboard</li>
+            <li>Best photos from open-air upper deck</li>
+        </ul>
+    </div>
+</div>
+
+<button class="collapsible">Optional: British Museum Speed Tour ▼</button>
+<div class="content">
+    <div class="location">
+        <h3>British Museum</h3>
+        <p>Great Russell St, Bloomsbury, London WC1B 3DG</p>
+        <a href="https://maps.google.com/?q=British+Museum" class="map-link">Open in Maps</a>
+        
+        <p><span class="time">3:30 PM - 5:00 PM</span></p>
+        
+        <p><strong>90-Minute Highlights:</strong></p>
+        <ul>
+            <li>Rosetta Stone (Room 4)</li>
+            <li>Egyptian Mummies (Room 62-63)</li>
+            <li>Parthenon Sculptures (Room 18)</li>
+            <li>Lewis Chessmen (Room 40)</li>
+            <li>Assyrian Lion Hunt (Room 10)</li>
+        </ul>
+        
+        <p><strong>Tips:</strong></p>
+        <ul>
+            <li>Free admission</li>
+            <li>Use Great Court entrance (shortest queues)</li>
+            <li>Free map available at information desk</li>
+            <li>Cafe and gift shop in Great Court</li>
+            <li>Bag check required for large bags</li>
+        </ul>
+    </div>
+</div>
+
+<button class="collapsible">Dining Options ▼</button>
+<div class="content">
+    <div class="location">
+        <h3>Lunch Option</h3>
+        <p><strong>Tower of London Cafe</strong><br>
+        Historic setting with castle views<br>
+        Sandwiches, soups, light meals<br>
+        £12-18 per person</p>
+        
+        <h3>Alternative Lunch</h3>
+        <p><strong>St. Katharine Docks</strong><br>
+        5-minute walk from Tower<br>
+        Multiple waterside restaurants<br>
+        £15-25 per person</p>
+        
+        <h3>Dinner Option</h3>
+        <p><strong>The Swan at Shakespeare's Globe</strong><br>
+        21 New Globe Walk, Bankside<br>
+        British seasonal menu<br>
+        River views<br>
+        £25-35 per person</p>
+    </div>
+</div>
+
+<button class="collapsible">Transport Tips ▼</button>
+<div class="content">
+    <div class="transport-info">
+        <h3>Getting Around:</h3>
+        <ul>
+            <li>Tower Hill Underground for Tower of London</li>
+            <li>Tottenham Court Road for British Museum</li>
+            <li>River boat from Tower Pier</li>
+        </ul>
+        
+        <h3>Tips:</h3>
+        <ul>
+            <li>Use contactless payment card for best fare</li>
+            <li>Download CityMapper app for routes</li>
+            <li>Allow extra time during rush hour (4:30-6:30 PM)</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+            content.style.maxHeight = null;
+            this.innerHTML = this.innerHTML.replace("▲", "▼");
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            this.innerHTML = this.innerHTML.replace("▼", "▲");
+        }
+    });
+}
+
+// Open Essential Information by default
+document.getElementsByClassName("collapsible")[0].click();
+</script>
+
+</body>
+</html>
