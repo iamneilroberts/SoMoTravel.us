@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ireland Loop - Travel Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c5f2d 0%, #4a8c4e 100%);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: #fff;
+            position: fixed;
+            top: 80px;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0.5rem;
+            white-space: nowrap;
+        }
+
+        nav li {
+            margin-right: 1rem;
+        }
+
+        nav a {
+            color: #2c5f2d;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            border-radius: 20px;
+            background: #e8f5e9;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        nav a:active, nav a:hover {
+            background: #2c5f2d;
+            color: white;
+        }
+
+        main {
+            margin-top: 130px;
+            padding: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: #2c5f2d;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e8f5e9;
+        }
+
+        h3 {
+            color: #4a8c4e;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+
+        h4 {
+            color: #666;
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+
+        .tip {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .tip-title {
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 0.5rem;
+        }
+
+        .schedule {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+
+        .time {
+            font-weight: bold;
+            color: #2c5f2d;
+            min-width: 100px;
+        }
+
+        .ferry-option {
+            background: #f0f7ff;
+            border: 1px solid #b3d9ff;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 5px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2c5f2d;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background: #4a8c4e;
+            transform: translateY(-3px);
+        }
+
+        strong {
+            color: #2c5f2d;
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.3rem;
+            }
+            
+            header p {
+                font-size: 0.9rem;
+            }
+            
+            nav {
+                top: 70px;
+            }
+            
+            main {
+                margin-top: 120px;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ireland Loop Travel Guide</h1>
+        <p>Bain sult as! (Have fun!)</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#northern">Northern Coast</a></li>
+            <li><a href="#dublin">Dublin</a></li>
+            <li><a href="#howth">Howth</a></li>
+            <li><a href="#cork">Cork</a></li>
+            <li><a href="#limerick">Limerick</a></li>
+            <li><a href="#aran">Aran Islands</a></li>
+            <li><a href="#galway">Galway</a></li>
+            <li><a href="#tips">Travel Tips</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="overview" class="section">
+            <h2>Route Overview</h2>
+            <p>A complete loop around Ireland visiting major cities, coastal attractions, and cultural sites.</p>
+            
+            <div class="tip">
+                <div class="tip-title">Suggested Timeline</div>
+                <ul>
+                    <li><strong>Minimum:</strong> 10-14 days for full loop</li>
+                    <li><strong>Comfortable:</strong> 3 weeks for relaxed pace</li>
+                    <li><strong>By Section:</strong> 2-4 days per major region</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="northern" class="section">
+            <h2>Northern Coast</h2>
+            
+            <h3>Giant's Causeway</h3>
+            <ul>
+                <li>UNESCO World Heritage site</li>
+                <li>Unique hexagonal basalt columns</li>
+                <li>Best visited early morning or late afternoon</li>
+            </ul>
+
+            <h3>Carrick-a-Rede Rope Bridge</h3>
+            <ul>
+                <li>Thrilling rope bridge experience</li>
+                <li>Stunning coastal views</li>
+                <li>Book tickets in advance for summer</li>
+            </ul>
+
+            <h3>Dark Hedges</h3>
+            <ul>
+                <li>Game of Thrones filming location</li>
+                <li>Iconic beech tree tunnel</li>
+                <li>Visit early morning for photos</li>
+            </ul>
+        </section>
+
+        <section id="dublin" class="section">
+            <h2>Dublin - One Day Itinerary</h2>
+            
+            <div class="schedule">
+                <h3>Daily Schedule</h3>
+                <div class="schedule-item">
+                    <span class="time">9:00 AM</span>
+                    <span>Trinity College & Book of Kells</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="time">12:00 PM</span>
+                    <span>Dublin Castle</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="time">1:00 PM</span>
+                    <span>Lunch at Temple Bar</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="time">2:30 PM</span>
+                    <span>Guinness Storehouse OR Kilmainham Gaol</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="time">5:00 PM</span>
+                    <span>St. Stephen's Green & Grafton Street</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="time">6:30 PM</span>
+                    <span>Dinner & Traditional Music</span>
+                </div>
+            </div>
+
+            <h3>Key Attractions</h3>
+            <h4>Trinity College & Book of Kells</h4>
+            <ul>
+                <li>Book online in advance (<strong>€26</strong> adults)</li>
+                <li>Allow 1.5 hours for full experience</li>
+                <li>9th-century illuminated manuscript</li>
+                <li>Stunning Long Room Library</li>
+            </ul>
+
+            <h4>Dining Options</h4>
+            <ul>
+                <li><strong>Gallagher's Boxty House</strong> - Traditional Irish boxty</li>
+                <li><strong>The Brazen Head</strong> - Ireland's oldest pub (1198)</li>
+                <li><strong>Chapter One</strong> - Michelin-starred dining</li>
+                <li><strong>The Winding Stair</strong> - Riverside location</li>
+            </ul>
+        </section>
+
+        <section id="howth" class="section">
+            <h2>Howth (Dublin Day Trip)</h2>
+            
+            <div class="tip">
+                <div class="tip-title">Getting There</div>
+                <p>Take the DART train from Dublin (30 minutes) - most comfortable and scenic option</p>
+            </div>
+
+            <h3>Cliff Walk</h3>
+            <ul>
+                <li>Spectacular coastal trail</li>
+                <li>Allow 2-3 hours for full loop</li>
+                <li>Multiple difficulty levels available</li>
+            </ul>
+
+            <h3>Top Seafood Restaurants</h3>
+            <ol>
+                <li><strong>King Sitric Seafood Bar</strong> - Fine seafood since 1971</li>
+                <li><strong>Aqua Restaurant</strong> - End of West Pier with harbor views</li>
+                <li><strong>Octopussy's Seafood Tapas</strong> - Fresh daily catch</li>
+                <li><strong>The Brass Monkey</strong> - Seafood tapas</li>
+                <li><strong>Beshoff Bros</strong> - Famous fish & chips</li>
+            </ol>
+        </section>
+
+        <section id="cork" class="section">
+            <h2>Cork City</h2>
+            
+            <h3>Must-Visit Attractions</h3>
+            <ul>
+                <li><strong>English Market</strong> - Historic market since 1788</li>
+                <li><strong>Blarney Castle</strong> - Kiss the famous stone (15 mins from city)</li>
+                <li><strong>Cork City Gaol</strong> - Victorian prison museum</li>
+                <li><strong>St. Fin Barre's Cathedral</strong> - Gothic architecture</li>
+                <li><strong>Nano Nagle Place</strong> - Restored convent and gardens</li>
+            </ul>
+
+            <h3>English Market Highlights</h3>
+            <ul>
+                <li><strong>Farmgate Café</strong> - Traditional dishes upstairs</li>
+                <li><strong>Alternative Bread Company</strong> - Artisan breads</li>
+                <li><strong>O'Flynn's Gourmet Sausages</strong> - Local specialties</li>
+            </ul>
+
+            <h3>Nearby Day Trips</h3>
+            <ul>
+                <li><strong>Kinsale</strong> (30 mins) - Historic port town</li>
+                <li><strong>Cobh</strong> - Titanic's last port of call</li>
+                <li><strong>Midleton</strong> - Jameson Distillery Experience</li>
+            </ul>
+        </section>
+
+        <section id="limerick" class="section">
+            <h2>Limerick</h2>
+            
+            <h3>Milk Market</h3>
+            <p>Historic farmer's market serving since 1852</p>
+            
+            <div class="schedule">
+                <h4>Market Schedule</h4>
+                <div class="schedule-item">
+                    <span class="time">Friday</span>
+                    <span>Outdoor café 11am-3pm</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="time">Saturday</span>
+                    <span>Famous Food Market 8am-3pm (main day)</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="time">Sunday</span>
+                    <span>Outdoor café 11am-3pm, regular fairs</span>
+                </div>
+            </div>
+
+            <h4>Notable Vendors</h4>
+            <ul>
+                <li><strong>Country Choice</strong> - Local produce</li>
+                <li><strong>Alternative Bread Company</strong> - Artisan breads</li>
+                <li><strong>Green Saffron</strong> - Spices and Indian food</li>
+                <li><strong>The Soupermarket</strong> - Fresh soups</li>
+                <li><strong>Bon-Appétit Crêperie</strong> - French crepes</li>
+            </ul>
+
+            <div class="tip">
+                <div class="tip-title">Location</div>
+                <p>Cornmarket Row, Limerick City<br>
+                Parking: Denmark Street and Michael Street car parks</p>
+            </div>
+        </section>
+
+        <section id="aran" class="section">
+            <h2>Aran Islands</h2>
+            
+            <h3>Ferry Options</h3>
+            
+            <div class="ferry-option">
+                <h4>From Doolin (County Clare)</h4>
+                <ul>
+                    <li>Doolin Ferry Co. - 15 min to Inis Oírr, 35 min to Inis Mór</li>
+                    <li>Can combine with Cliffs of Moher cruise</li>
+                    <li>March-November operation</li>
+                    <li>€18-45 return depending on island</li>
+                </ul>
+            </div>
+
+            <div class="ferry-option">
+                <h4>From Galway</h4>
+                <ul>
+                    <li>Aran Island Ferries</li>
+                    <li>Rossaveel (40 min) or Galway City (90 min)</li>
+                    <li>Year-round from Rossaveel</li>
+                    <li>Parking €7/day at Rossaveel</li>
+                </ul>
+            </div>
+
+            <h3>Which Island to Choose?</h3>
+            <ul>
+                <li><strong>Inis Mór</strong> (largest) - Most amenities, Dún Aonghasa fort</li>
+                <li><strong>Inis Meáin</strong> (middle) - Quietest, most traditional</li>
+                <li><strong>Inis Oírr</strong> (smallest) - Relaxed atmosphere, Plassey Shipwreck</li>
+            </ul>
+
+            <h3>On the Islands</h3>
+            <ul>
+                <li>Bike rental available at all ports</li>
+                <li>Minibus tours with local guides</li>
+                <li>Traditional pony & trap rides</li>
+                <li>Multiple restaurants in Kilronan (Inis Mór)</li>
+                <li>Aran Sweater Market for authentic knitwear</li>
+            </ul>
+        </section>
+
+        <section id="galway" class="section">
+            <h2>Galway City</h2>
+            
+            <h3>Attractions</h3>
+            <ul>
+                <li><strong>Latin Quarter</strong> - Medieval streets</li>
+                <li><strong>Spanish Arch</strong> - 16th century landmark</li>
+                <li><strong>Galway Cathedral</strong> - Impressive architecture</li>
+                <li><strong>Salthill Promenade</strong> - Seaside walk</li>
+            </ul>
+
+            <h3>Dining</h3>
+            <ul>
+                <li><strong>Kai Restaurant</strong> - Farm-to-table cuisine</li>
+                <li><strong>Ard Bia at Nimmos</strong> - Riverside location</li>
+                <li><strong>McDonagh's</strong> - Traditional fish & chips</li>
+                <li><strong>The Dough Bros</strong> - Award-winning pizza</li>
+            </ul>
+        </section>
+
+        <section id="tips" class="section">
+            <h2>Travel Tips</h2>
+            
+            <h3>Transportation</h3>
+            <ul>
+                <li>Rental car recommended for flexibility</li>
+                <li>Drive on the left side</li>
+                <li>Many narrow roads in rural areas</li>
+                <li>GPS essential for navigation</li>
+            </ul>
+
+            <h3>Weather</h3>
+            <ul>
+                <li>Pack layers and rain gear</li>
+                <li>Weather changes quickly</li>
+                <li>Summer (June-August) busiest season</li>
+            </ul>
+
+            <h3>Booking</h3>
+            <ul>
+                <li>Book accommodations in advance</li>
+                <li>Restaurant reservations recommended</li>
+                <li>Some attractions require advance tickets</li>
+            </ul>
+
+            <h3>Useful Irish Phrases</h3>
+            <ul>
+                <li><strong>Dia dhuit</strong> (DEE-ah gwit) - Hello</li>
+                <li><strong>Slán</strong> (slawn) - Goodbye</li>
+                <li><strong>Go raibh maith agat</strong> (guh rev mah a-gut) - Thank you</li>
+                <li><strong>Sláinte</strong> (SLAWN-che) - Cheers!</li>
+            </ul>
+        </section>
+    </main>
+
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
