@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Europe Travel Guide - Sept 18-28, 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            border-bottom: 3px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 20px 0 10px 0;
+            border-left: 5px solid #333;
+        }
+        
+        h3 {
+            margin: 15px 0 10px 0;
+            color: #333;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        
+        h4 {
+            margin: 10px 0 5px 0;
+            color: #555;
+        }
+        
+        .nav {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            border: 2px solid #000;
+            padding: 10px;
+            margin: 20px 0;
+            z-index: 100;
+        }
+        
+        .nav a {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            background: #f0f0f0;
+            color: #000;
+            text-decoration: none;
+            border: 1px solid #333;
+        }
+        
+        .nav a:hover {
+            background: #e0e0e0;
+        }
+        
+        .urgent {
+            border: 3px solid #ff0000;
+            background: #fff0f0;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .urgent h2 {
+            background: #ff0000;
+            color: #fff;
+            margin: -15px -15px 10px -15px;
+            padding: 10px 15px;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 10px;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #000;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        
+        .checkbox.checked::after {
+            content: '✓';
+            display: block;
+            text-align: center;
+            line-height: 16px;
+            font-weight: bold;
+        }
+        
+        .confirmation {
+            background: #e0e0e0;
+            padding: 2px 6px;
+            font-family: monospace;
+            font-weight: bold;
+            display: inline-block;
+            border: 1px solid #000;
+        }
+        
+        .flight-info, .hotel-info, .transport-info {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            background: #fafafa;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 3px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .tip {
+            background: #ffffcc;
+            border-left: 4px solid #ffcc00;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        
+        .contact-info {
+            background: #f5f5f5;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #999;
+        }
+        
+        a {
+            color: #0066cc;
+        }
+        
+        .button-link {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #0066cc;
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        
+        .button-link:hover {
+            background: #0052a3;
+        }
+        
+        strong {
+            font-weight: 600;
+        }
+        
+        .schedule-day {
+            background: #f9f9f9;
+            padding: 8px;
+            margin: 5px 0;
+            border-left: 3px solid #666;
+        }
+        
+        @media print {
+            .nav {
+                display: none;
+            }
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>European Adventure: Complete Travel Guide</h1>
+    <p><strong>Dublin → London → Stoneleigh</strong><br>
+    <strong>September 18-28, 2025</strong></p>
+    
+    <nav class="nav">
+        <a href="#urgent">🚨 Urgent</a>
+        <a href="#flights">✈️ Flights</a>
+        <a href="#hotels">🏨 Hotels</a>
+        <a href="#dublin-arrival">🛬 Arrival</a>
+        <a href="#dublin-transport">🚖 Dublin</a>
+        <a href="#london-transport">🚂 London</a>
+        <a href="#insurance">💳 Insurance</a>
+        <a href="#apps">📱 Apps</a>
+        <a href="#packing">📋 Packing</a>
+        <a href="#contacts">📞 Contacts</a>
+        <a href="#schedule">📅 Schedule</a>
+    </nav>
+    
+    <div class="urgent" id="urgent">
+        <h2>🚨 IMMEDIATE ACTION ITEMS</h2>
+        
+        <h3>Pre-Travel Requirements (Complete ASAP)</h3>
+        
+        <h4>✅ Passport & Documentation</h4>
+        <ul>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Visit United Travel-Ready Center to scan passports<br>
+            <strong>URL:</strong> <a href="https://www.united.com/en/us/travelreadycenter/">https://www.united.com/en/us/travelreadycenter/</a></li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Verify passports valid through March 2026 minimum</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Apply for UK ETA (Electronic Travel Authorization) - £10 per person<br>
+            <strong>Apply at:</strong> <a href="https://www.gov.uk/guidance/apply-for-an-electronic-travel-authorisation-eta">gov.uk/guidance/apply-for-an-electronic-travel-authorisation-eta</a><br>
+            <strong>Required as of January 8, 2025 for US citizens</strong><br>
+            <strong>Processing time:</strong> Usually instant to 3 days</li>
+        </ul>
+        
+        <h4>✅ Flight Actions</h4>
+        <ul>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Select meals for overnight flight Washington Dulles (IAD) → Dublin (DUB) (Sept 18)</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Select meals for long flight Frankfurt (FRA) → Washington Dulles (IAD) (Sept 28)</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Consider seat upgrades:
+                <ul>
+                    <li>IAD → DUB: Exit row 21 (starts at $34 pp)</li>
+                    <li>FRA → IAD: Premium seats for 9-hour flight</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h4>✅ Check-In Schedule (Set Phone Reminders)</h4>
+        <ul>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span><strong>Sept 17, 12:40 PM</strong> - Check in for Mobile → Dublin</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span><strong>Sept 20, 11:05 AM</strong> - FREE seat selection opens for BA flight</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span><strong>Sept 21, 11:05 AM</strong> - Check in for Dublin → London</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span><strong>Sept 27, 5:55 AM</strong> - Check in for Birmingham → Mobile</li>
+        </ul>
+        
+        <h4>✅ Dublin Transportation</h4>
+        <ul>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Purchase Leap Card at Dublin Airport (€5 + €20 credit)</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Download FreeNow app for taxi booking</li>
+        </ul>
+        
+        <h4>✅ Excursions</h4>
+        <ul>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Confirm 2 Viator tickets (pending - email sent 8/17)</li>
+        </ul>
+    </div>
+    
+    <h2 id="flights">✈️ FLIGHT DETAILS</h2>
+    
+    <h3>Outbound: September 18, 2025</h3>
+    
+    <div class="flight-info">
+        <h4>Mobile Regional Airport → Dublin Airport</h4>
+        <p><span class="confirmation">Confirmation: PC06G6</span> (United Airlines)</p>
+        
+        <p><strong>MOB → IAD (Washington Dulles International Airport)</strong></p>
+        <ul>
+            <li>Airline: United Airlines (operated by CommutAir as United Express)</li>
+            <li>Flight: UA4951</li>
+            <li>Time: 12:40 PM - 4:01 PM</li>
+            <li>Seats: <strong>10C/10D</strong></li>
+        </ul>
+        <div class="tip">
+            <strong>Departure Tip:</strong> Mobile Regional is a small airport - arrive 90 minutes before for international connections
+        </div>
+        
+        <p><strong>IAD → DUB (Dublin Airport)</strong> - Overnight Flight</p>
+        <ul>
+            <li>Airline: United Airlines</li>
+            <li>Flight: UA710</li>
+            <li>Time: 7:05 PM - 7:10 AM+1 (arrives Sept 19)</li>
+            <li>Seats: <strong>37C/37B</strong></li>
+            <li><strong>Layover:</strong> 3 hours 4 minutes in Washington Dulles</li>
+        </ul>
+        <div class="tip">
+            <strong>Connection Tips:</strong>
+            <ul>
+                <li>Follow signs for "International Departures"</li>
+                <li>Must go through additional security screening</li>
+                <li>Gates D1-D30 area for international flights</li>
+            </ul>
+            <strong>Remember: Select meals & consider exit row upgrade</strong>
+        </div>
+    </div>
+    
+    <div class="flight-info">
+        <h4>Dublin → London: September 22, 2025</h4>
+        <p><span class="confirmation">Confirmation: CFMTYP</span> (British Airways)</p>
+        
+        <p><strong>Dublin Airport (DUB) → London Heathrow (LHR)</strong></p>
+        <ul>
+            <li>Airline: British Airways</li>
+            <li>Flight: BA0825</li>
+            <li>Time: 11:05 AM - 12:35 PM</li>
+            <li>Duration: 1 hour 30 minutes</li>
+            <li>Class: Euro Traveller</li>
+            <li><strong>Terminal:</strong> Check-in at Terminal 2 in Dublin</li>
+            <li><strong>Arrival:</strong> Terminal 5 at Heathrow</li>
+        </ul>
+        <div class="tip">
+            <strong>FREE seat selection: Sept 20 at 11:05 AM</strong>
+        </div>
+    </div>
+    
+    <h3>Return: September 28, 2025</h3>
+    
+    <div class="flight-info">
+        <h4>Birmingham International Airport → Mobile Regional Airport</h4>
+        <p><span class="confirmation">Confirmation: PC06G6</span> (United Airlines)</p>
+        
+        <p><strong>BHX → FRA (Frankfurt Airport)</strong></p>
+        <ul>
+            <li>Airline: United Airlines (operated by Lufthansa)</li>
+            <li>Flight: UA8808</li>
+            <li>Time: 5:55 AM - 8:30 AM</li>
+            <li>Seats: <strong>15B/15C</strong></li>
+        </ul>
+        <div class="tip">
+            <strong>Early Morning Tip:</strong> Birmingham Airport opens at 4:00 AM
+        </div>
+        
+        <p><strong>FRA → IAD (Washington Dulles)</strong></p>
+        <ul>
+            <li>Airline: United Airlines (operated by Lufthansa)</li>
+            <li>Flight: UA8832</li>
+            <li>Time: 10:30 AM - 1:30 PM</li>
+            <li>Seats: <strong>31K/31H</strong></li>
+            <li><strong>Layover:</strong> 2 hours in Frankfurt</li>
+        </ul>
+        <div class="tip">
+            <strong>Connection Tip:</strong> Frankfurt is large - follow signs for Z gates (non-Schengen)<br>
+            <strong>Remember: Select meals & consider seat upgrade</strong>
+        </div>
+        
+        <p><strong>IAD → MOB (Mobile Regional)</strong></p>
+        <ul>
+            <li>Airline: United Airlines (operated by CommutAir)</li>
+            <li>Flight: UA4295</li>
+            <li>Time: 5:55 PM - 7:31 PM</li>
+            <li>Seats: <strong>10C/10D</strong></li>
+            <li><strong>Layover:</strong> 4 hours 25 minutes in Washington Dulles</li>
+        </ul>
+        <div class="tip">
+            <strong>Connection Tip:</strong> Must clear US customs & immigration, then re-check bags
+        </div>
+    </div>
+    
+    <h2 id="hotels">🏨 HOTEL ACCOMMODATIONS</h2>
+    
+    <div class="hotel-info">
+        <h3>Dublin: September 19-22, 2025</h3>
+        <h4>The Grafton Hotel (4/5 stars)</h4>
+        <ul>
+            <li>3 nights</li>
+            <li>Classic King Room with Free WiFi</li>
+            <li>Location: 31/32 Stephens Street Lower, Near St. Stephen's Green</li>
+            <li>Check-in: 3:00 PM (early check-in available)</li>
+            <li><strong>Website:</strong> <a href="https://www.thegrafton.ie/">https://www.thegrafton.ie/</a></li>
+            <li><strong>Phone:</strong> <a href="tel:+35316480010">+353 1 648 0010</a></li>
+        </ul>
+    </div>
+    
+    <div class="hotel-info">
+        <h3>London: September 22-23, 2025</h3>
+        <h4>Canopy by Hilton London City (4/5 stars)</h4>
+        <ul>
+            <li>1 night</li>
+            <li>Queen Room with evening tasting</li>
+            <li>Includes: Complimentary WiFi, Nespresso, fridge</li>
+            <li>Location: 11-15 Minories, Financial district (across from Aldgate Tube Station)</li>
+            <li><strong>Website:</strong> <a href="https://www.hilton.com/en/hotels/lonpypy-canopy-london-city/">https://www.hilton.com/en/hotels/lonpypy-canopy-london-city/</a></li>
+            <li><strong>Phone:</strong> <a href="tel:+442039883300">+44 20 3988 3300</a></li>
+            <li><strong>Note: Non-refundable rate</strong></li>
+        </ul>
+    </div>
+    
+    <div class="hotel-info">
+        <h3>Stoneleigh: September 23-28, 2025</h3>
+        <ul>
+            <li>Accommodation arranged separately</li>
+            <li>5 nights in Warwickshire countryside</li>
+        </ul>
+    </div>
+    
+    <h2 id="dublin-arrival">🛬 DUBLIN AIRPORT ARRIVAL GUIDE</h2>
+    
+    <h3>Immigration & Customs Process</h3>
+    <ol>
+        <li><strong>Disembark</strong> - Follow signs for "Arrivals"</li>
+        <li><strong>Immigration</strong> - Have passport ready, US citizens typically asked purpose of visit</li>
+        <li><strong>Baggage Claim</strong> - Monitors display carousel numbers</li>
+        <li><strong>Customs</strong> - Green channel (nothing to declare) or Red channel</li>
+        <li><strong>Arrivals Hall</strong> - Exit to public area</li>
+    </ol>
+    
+    <h3>Where to Buy Leap Card</h3>
+    <ul>
+        <li><strong>Terminal 1:</strong> WH Smith (newsagent)</li>
+        <li><strong>Terminal 2:</strong> Spar convenience store</li>
+        <li>Located AFTER customs, before exiting to arrivals hall</li>
+        <li>Cost: €5 deposit + add €20-30 credit</li>
+        <li>Alternative: Buy Leap Visitor Card for unlimited travel (1/3/7 days)</li>
+    </ul>
+    
+    <h3>Airport to Hotel Transportation</h3>
+    <ul>
+        <li><strong>Taxi:</strong> €25-30 to city center
+            <ul>
+                <li>Taxi rank outside arrivals</li>
+                <li>20-30 minutes depending on traffic</li>
+            </ul>
+        </li>
+        <li><strong>Aircoach:</strong> €7 per person (not recommended with heavy luggage)</li>
+        <li><strong>Airport Buses:</strong> Routes 16, 41, or 747 (€3.30 with Leap Card)</li>
+    </ul>
+    
+    <h2 id="dublin-transport">🚖 DUBLIN TRANSPORTATION</h2>
+    
+    <h3>To Irish National Stud (Saturday, Sept 20)</h3>
+    <h4>Recommended: Train + Taxi</h4>
+    <p><strong>Total Cost:</strong> ~€40 per person round trip</p>
+    
+    <ol>
+        <li><strong>Taxi to Heuston Station:</strong> €10-12 (15 min)
+            <ul>
+                <li>Book via FreeNow app or hail on street</li>
+            </ul>
+        </li>
+        <li><strong>Train to Kildare:</strong> €20 round trip (35 min, hourly service)
+            <ul>
+                <li>Irish Rail service</li>
+                <li>Recommend 9:00 or 10:00 AM departure</li>
+            </ul>
+        </li>
+        <li><strong>Taxi to National Stud:</strong> €10-12 (10 min)
+            <ul>
+                <li><strong>Important:</strong> Get driver's number for return!</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h3>To Howth (Sunday, Sept 21)</h3>
+    <h4>Recommended: Walk + DART</h4>
+    <p><strong>Total Cost:</strong> €7 round trip per person with Leap Card</p>
+    
+    <ol>
+        <li><strong>Walk to Pearse Station:</strong> 12 min from hotel
+            <ul>
+                <li>Exit hotel, head east on Nassau Street</li>
+                <li>Turn left on Pearse Street</li>
+            </ul>
+        </li>
+        <li><strong>DART to Howth:</strong> 30 min direct
+            <ul>
+                <li>Northbound platform</li>
+                <li>Arrives at harbor - perfect for cliff walk</li>
+                <li>Runs every 10-20 minutes</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h2 id="london-transport">🚂 LONDON/BIRMINGHAM TRANSPORTATION</h2>
+    
+    <h3>Heathrow to Birmingham (Sept 22)</h3>
+    <h4>Fastest Route: Elizabeth Line + Avanti West Coast</h4>
+    <p><strong>Total Time:</strong> 2 hours 15 minutes<br>
+    <strong>Total Cost:</strong> £45-95</p>
+    
+    <h4>Finding Elizabeth Line at Heathrow Terminal 5</h4>
+    <ul>
+        <li>Follow purple "Elizabeth Line" signs (not blue Piccadilly Line)</li>
+        <li>Same station as Heathrow Express</li>
+        <li>Down escalators from arrivals</li>
+        <li>5-minute walk from baggage claim</li>
+    </ul>
+    
+    <h4>Step-by-Step Journey</h4>
+    <ol>
+        <li><strong>Elizabeth Line from Heathrow Terminal 5 to Paddington</strong>
+            <ul>
+                <li>Cost: £12.80 (tap contactless card)</li>
+                <li>Duration: 30 minutes</li>
+                <li>Frequency: Every 6-10 minutes</li>
+            </ul>
+        </li>
+        <li><strong>Walk within Paddington Station</strong>
+            <ul>
+                <li>Follow signs for "National Rail"</li>
+                <li>3-5 minute walk to main concourse</li>
+            </ul>
+        </li>
+        <li><strong>Avanti West Coast from Paddington to Birmingham New Street</strong>
+            <ul>
+                <li>Duration: 1 hour 20 minutes</li>
+                <li>Book at: avantiwestcoast.co.uk</li>
+                <li>Look for NON-STOP services</li>
+                <li>Platforms usually 1-8</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h4>Suggested Timeline (Sept 22)</h4>
+    <ul>
+        <li>12:35 PM - Land at Heathrow</li>
+        <li>1:30 PM - Clear immigration/baggage</li>
+        <li>2:15 PM - Board Elizabeth Line</li>
+        <li>2:45 PM - Arrive Paddington</li>
+        <li>3:20 PM - Depart for Birmingham</li>
+        <li>4:40 PM - Arrive Birmingham New Street</li>
+    </ul>
+    
+    <h2 id="insurance">💳 TRAVEL INSURANCE</h2>
+    
+    <div class="contact-info">
+        <h3>Allianz Travel Insurance</h3>
+        <p><strong>Policy Number: EUSP2501140383</strong></p>
+        
+        <h4>Coverage</h4>
+        <ul>
+            <li>Trip Cancellation/Interruption: $2,439</li>
+            <li>Emergency Medical/Dental: $50,000</li>
+            <li>Emergency Transportation: $250,000</li>
+            <li>Baggage Coverage: $1,500</li>
+        </ul>
+        
+        <h4>Emergency Contacts</h4>
+        <ul>
+            <li><strong>US:</strong> 1-800-654-1908</li>
+            <li><strong>International:</strong> 1-804-281-5700 (Collect)</li>
+        </ul>
+    </div>
+    
+    <h2 id="apps">📱 ESSENTIAL APPS TO DOWNLOAD</h2>
+    
+    <ul>
+        <li><strong>United Airlines</strong> - Check-in and boarding passes</li>
+        <li><strong>British Airways</strong> - Check-in and seat selection</li>
+        <li><strong>FreeNow</strong> - Dublin taxi booking</li>
+        <li><strong>TFI Live</strong> - Dublin public transport real-time info</li>
+        <li><strong>Irish Rail</strong> - Train schedules to Kildare</li>
+        <li><strong>Trainline</strong> - UK train bookings</li>
+        <li><strong>UK ETA</strong> - For visa application</li>
+    </ul>
+    
+    <h2 id="packing">📋 PACKING REMINDERS</h2>
+    
+    <ul>
+        <li>Passports (valid through March 2026)</li>
+        <li>Printed copies of all confirmations</li>
+        <li>UK ETA confirmation</li>
+        <li>Power adapters (Type G for UK/Ireland)</li>
+        <li>Comfortable walking shoes for Howth</li>
+        <li>Rain jacket (September weather)</li>
+        <li>Credit cards (notify bank of travel)</li>
+        <li>Small Euro/Pound notes for tips</li>
+    </ul>
+    
+    <h2 id="contacts">📞 KEY CONTACTS</h2>
+    
+    <div class="contact-info">
+        <h3>Kim Henderson - Travel Agent</h3>
+        <ul>
+            <li>📞 <a href="tel:+12512891505">251-289-1505</a></li>
+            <li>✉️ <a href="mailto:kim.henderson@cruiseplanners.com">kim.henderson@cruiseplanners.com</a></li>
+        </ul>
+    </div>
+    
+    <div class="contact-info">
+        <h3>Hotels</h3>
+        <ul>
+            <li>The Grafton Hotel Dublin: <a href="tel:+35316480010">+353 1 648 0010</a></li>
+            <li>Canopy London City: <a href="tel:+442039883300">+44 20 3988 3300</a></li>
+        </ul>
+    </div>
+    
+    <div class="contact-info">
+        <h3>Airlines</h3>
+        <ul>
+            <li>United: <a href="tel:+18008648331">1-800-864-8331</a></li>
+            <li>British Airways: <a href="tel:+18002479297">1-800-247-9297</a></li>
+        </ul>
+    </div>
+    
+    <div class="contact-info">
+        <h3>Emergency Numbers</h3>
+        <ul>
+            <li>Ireland: 112 or 999</li>
+            <li>UK: 112 or 999</li>
+            <li>US Embassy Dublin: <a href="tel:+35316688777">+353 1 668 8777</a></li>
+            <li>US Embassy London: <a href="tel:+442074999000">+44 20 7499 9000</a></li>
+        </ul>
+    </div>
+    
+    <h2 id="schedule">📅 DAY-BY-DAY SUMMARY</h2>
+    
+    <div class="schedule-day">
+        <strong>Sept 17:</strong> Check in for Mobile flight online (opens 12:40 PM for Sept 18 departure)
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 18:</strong> Departure day - Mobile → Dublin
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 19:</strong> Arrive Dublin morning, check-in afternoon, evening walking tour & dinner at Brazen Head
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 20:</strong> Irish National Stud tour, FREE BA seat selection opens (11:05 AM)
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 21:</strong> Howth cliff walk & cruise, Check in for BA flight (11:05 AM)
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 22:</strong> Dublin → London → Birmingham travel day
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 23-27:</strong> Stoneleigh work engagement
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 27:</strong> Check in for return flights (5:55 AM)
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 28:</strong> Return travel - Birmingham → Mobile
+    </div>
+    
+    <hr style="margin: 30px 0;">
+    <p><em>Document last updated: August 17, 2025</em></p>
+    
+    <script>
+        // Save checkbox states to localStorage
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('checkbox')) {
+                const checkboxes = document.querySelectorAll('.checkbox');
+                const states = [];
+                checkboxes.forEach(cb => {
+                    states.push(cb.classList.contains('checked'));
+                });
+                localStorage.setItem('travelChecklistStates', JSON.stringify(states));
+            }
+        });
+        
+        // Load saved checkbox states
+        window.addEventListener('load', function() {
+            const savedStates = localStorage.getItem('travelChecklistStates');
+            if (savedStates) {
+                const states = JSON.parse(savedStates);
+                const checkboxes = document.querySelectorAll('.checkbox');
+                checkboxes.forEach((cb, index) => {
+                    if (states[index]) {
+                        cb.classList.add('checked');
+                    }
+                });
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
