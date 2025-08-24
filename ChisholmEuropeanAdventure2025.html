@@ -3,609 +3,694 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏰 European Adventure: Dublin, London & Stoneleigh</title>
+    <title>Europe Travel Guide - Sept 18-28, 2025</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f8f9fa;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         h1 {
-            color: #2c3e50;
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #3498db;
+            border-bottom: 3px solid #000;
             padding-bottom: 10px;
-        }
-        
-        h2 {
-            color: #e74c3c;
-            font-size: 1.4em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        
-        h3 {
-            color: #2980b9;
-            font-size: 1.2em;
-            margin-top: 25px;
             margin-bottom: 10px;
         }
         
+        h2 {
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 20px 0 10px 0;
+            border-left: 5px solid #333;
+        }
+        
+        h3 {
+            margin: 15px 0 10px 0;
+            color: #333;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        
         h4 {
-            color: #27ae60;
-            font-size: 1.1em;
-            margin-top: 20px;
-            margin-bottom: 8px;
+            margin: 10px 0 5px 0;
+            color: #555;
         }
         
-        .highlight-section {
-            background: #ecf0f1;
-            padding: 20px;
-            border-radius: 6px;
+        .nav {
+            background: #fff;
+            border: 2px solid #000;
+            padding: 10px;
             margin: 20px 0;
-            border-left: 4px solid #3498db;
         }
         
-        .gem-box {
-            background: #fff9e6;
+        .nav a {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            background: #f0f0f0;
+            color: #000;
+            text-decoration: none;
+            border: 1px solid #333;
+        }
+        
+        .nav a:hover {
+            background: #e0e0e0;
+        }
+        
+        .urgent {
+            border: 3px solid #ff0000;
+            background: #fff0f0;
             padding: 15px;
-            border-radius: 6px;
-            margin: 15px 0;
-            border-left: 4px solid #f39c12;
+            margin: 20px 0;
         }
         
-        .gem-box h3 {
-            color: #e67e22;
-            margin-top: 0;
+        .urgent h2 {
+            background: #ff0000;
+            color: #fff;
+            margin: -15px -15px 10px -15px;
+            padding: 10px 15px;
         }
         
-        .transportation-box {
-            background: #f0f8f0;
-            padding: 15px;
-            border-radius: 6px;
-            margin: 15px 0;
-            border-left: 4px solid #27ae60;
-        }
-        
-        .option-detail {
-            background: white;
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 4px;
-            border: 1px solid #bdc3c7;
-        }
-        
-        .flight-details {
-            background: #e8f4fd;
-            padding: 15px;
-            border-radius: 6px;
-            margin: 15px 0;
-            border-left: 4px solid #2980b9;
-        }
-        
-        ul {
-            margin: 10px 0;
-            padding-left: 20px;
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 10px;
         }
         
         li {
             margin: 5px 0;
         }
         
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #000;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+            cursor: pointer;
         }
         
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        th {
-            background-color: #34495e;
-            color: white;
+        .checkbox.checked::after {
+            content: '✓';
+            display: block;
+            text-align: center;
+            line-height: 16px;
             font-weight: bold;
         }
         
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
+        .confirmation {
+            background: #e0e0e0;
+            padding: 2px 6px;
+            font-family: monospace;
+            font-weight: bold;
+            display: inline-block;
+            border: 1px solid #000;
+        }
+        
+        .flight-info, .hotel-info, .transport-info {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            background: #fafafa;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 3px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .tip {
+            background: #ffffcc;
+            border-left: 4px solid #ffcc00;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        
+        .contact-info {
+            background: #f5f5f5;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #999;
         }
         
         a {
-            color: #3498db;
+            color: #0066cc;
+        }
+        
+        .button-link {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #0066cc;
+            color: white;
             text-decoration: none;
+            margin: 5px 0;
         }
         
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        .contact-section {
-            background: #2c3e50;
-            color: white;
-            padding: 20px;
-            border-radius: 6px;
-            text-align: center;
-            margin-top: 30px;
-        }
-        
-        .contact-section h2 {
-            color: white;
-            margin-top: 0;
-        }
-        
-        .contact-section a {
-            color: #3498db;
-        }
-        
-        .day-header {
-            background: #34495e;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 4px;
-            margin: 20px 0 10px 0;
-            font-weight: bold;
-        }
-        
-        .activity-section {
-            margin-left: 15px;
-            margin-bottom: 20px;
+        .button-link:hover {
+            background: #0052a3;
         }
         
         strong {
-            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .schedule-day {
+            background: #f9f9f9;
+            padding: 8px;
+            margin: 5px 0;
+            border-left: 3px solid #666;
+        }
+        
+        @media print {
+            .nav {
+                display: none;
+            }
+            body {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🏰 European Adventure: Dublin, London & Stoneleigh</h1>
+    <h1>European Adventure: Complete Travel Guide</h1>
+    <p><strong>Dublin → London → Stoneleigh</strong><br>
+    <strong>September 18-28, 2025</strong></p>
+    
+    <nav class="nav">
+        <a href="#urgent">🚨 Urgent</a>
+        <a href="#flights">✈️ Flights</a>
+        <a href="#hotels">🏨 Hotels</a>
+        <a href="#dublin-arrival">🛬 Arrival</a>
+        <a href="#dublin-transport">🚖 Dublin</a>
+        <a href="#london-transport">🚂 London</a>
+        <a href="#insurance">💳 Insurance</a>
+        <a href="#apps">📱 Apps</a>
+        <a href="#packing">📋 Packing</a>
+        <a href="#contacts">📞 Contacts</a>
+        <a href="#schedule">📅 Schedule</a>
+    </nav>
+    
+    <div class="urgent" id="urgent">
+        <h2>🚨 IMMEDIATE ACTION ITEMS</h2>
         
-        <div class="highlight-section">
-            <h2>✈️ Trip Overview</h2>
-            <p>Experience the rich cultural heritage of Ireland and England with this carefully crafted journey designed specifically for your interests in equestrian experiences and historic sites. This 11-day adventure combines leisure travel with Hank's professional engagement in Stoneleigh, featuring authentic local experiences and the Irish National Stud.</p>
-            
-            <h3>Trip Highlights</h3>
-            <ul>
-                <li>Irish National Stud & Gardens: Guided tour of Ireland's premier horse breeding facility with Living Legends retired racehorses</li>
-                <li>Howth Cliff Walk & Cruise: Spectacular coastal scenery with boat tour options</li>
-                <li>London Luxury: Stay at Great Scotland Yard Hyatt with VIP Tower of London tour</li>
-                <li>Professional Component: Stoneleigh work engagement with nearby equestrian sites</li>
-                <li>Flexible Transportation: Multiple options for each destination to suit your budget and preferences</li>
-                <li>Historic Dining: Authentic experiences at Ireland's oldest pub and London's finest historic establishments</li>
-            </ul>
-        </div>
-
-        <div class="flight-details">
-            <h2>✈️ Flight Details</h2>
-            <ul>
-                <li><strong>Route:</strong> Round-trip flights Mobile ↔ Dublin ↔ London ↔ Birmingham</li>
-                <li><strong>Departure:</strong> Thursday, September 18, 2025</li>
-                <li><strong>Return:</strong> Sunday, September 28, 2025</li>
-                <li><strong>Booking:</strong> Multi-city routing through Apple Vacations</li>
-                <li><strong>Note:</strong> Specific flight times and carriers to be confirmed upon booking</li>
-            </ul>
-        </div>
-
-        <h2>🗓️ Detailed Itinerary</h2>
+        <h3>Pre-Travel Requirements (Complete ASAP)</h3>
         
-        <div class="day-header">Thursday, Sep 18 - Day 1: Departure Day</div>
-        <div class="activity-section">
-            <ul>
-                <li>Departure from Mobile Regional Airport</li>
-                <li>International connecting flights to Dublin</li>
-                <li>Overnight flight with meal service</li>
-            </ul>
-        </div>
-
-        <div class="day-header">Friday, Sep 19 - Day 2: Dublin Arrival</div>
-        <div class="activity-section">
-            <ul>
-                <li>Morning arrival at Dublin Airport</li>
-                <li>Hotel check-in (3:00 PM standard, early check-in available)</li>
-            </ul>
-            
-            <h4>🚶‍♂️ Evening Walking Sightseeing</h4>
-            <p><strong>Dublin City Center Orientation Walk</strong></p>
-            <ul>
-                <li>O'Connell Street to Trinity College (15 minutes)</li>
-                <li>Temple Bar area exploration</li>
-                <li>Historic Dublin Castle grounds (exterior viewing)</li>
-                <li>Christ Church Cathedral (exterior viewing)</li>
-                <li>Return via Dame Street and Grafton Street</li>
-            </ul>
-            
-            <h4>🍽️ Evening Dining Recommendation</h4>
-            <p><strong>The Brazen Head</strong><br>
-            <strong>Location:</strong> 20 Lower Bridge Street (10-minute walk from hotel)<br>
-            <strong>Historic Significance:</strong> Ireland's oldest pub, revolutionary hub where Robert Emmet planned the 1803 uprising<br>
-            <strong>Specialties:</strong> Traditional Irish stew, fish & chips, live music<br>
-            <strong>Atmosphere:</strong> Authentic Irish pub experience with traditional music<br>
-            <strong>Website:</strong> <a href="https://brazenhead.com/">brazenhead.com</a></p>
-        </div>
-
-        <div class="gem-box">
-            <h3>💎 Kim's Hidden Gem - Dublin</h3>
-            <p><strong>3FE (Third Floor Espresso)</strong> - This local favorite was started by a former investment banker who followed his passion for coffee. They roast their own beans and serve some of the best filter coffee and espresso in Ireland with a simple but delicious breakfast menu.</p>
-            <p><strong>Address:</strong> 32-34 Grand Canal Street Lower, Dublin 2<br>
-            <strong>Website:</strong> <a href="https://3fe.com/">3fe.com</a></p>
-        </div>
-
-        <div class="day-header">Saturday, Sep 20 - Day 3: Irish National Stud Tour</div>
-        <div class="activity-section">
-            <div class="transportation-box">
-                <h4>🚗 Transportation Options to Irish National Stud</h4>
-                
-                <div class="option-detail">
-                    <h5>Option 1: Train + Taxi (Most Economical)</h5>
-                    <ul>
-                        <li><strong>Cost:</strong> $40 total per person round trip</li>
-                        <li><strong>Dublin to Heuston Station:</strong> 11-minute taxi ride</li>
-                        <li><strong>Train departure times:</strong> Every hour from 7:00 AM to 10:00 PM</li>
-                        <li><strong>Dublin Heuston to Kildare:</strong> 35-minute direct train journey</li>
-                        <li><strong>Train cost:</strong> $20 each way per person</li>
-                        <li><strong>Kildare Station to National Stud:</strong> 10-minute taxi ride</li>
-                        <li><strong>Taxi cost:</strong> $10 each way</li>
-                        <li><strong>Best for:</strong> Budget-conscious travelers who enjoy local transport</li>
-                    </ul>
-                </div>
-                
-                <div class="option-detail">
-                    <h5>Option 2: Direct Taxi (Convenient)</h5>
-                    <ul>
-                        <li><strong>Cost:</strong> $80-120 each way</li>
-                        <li><strong>Route:</strong> Direct from Dublin hotel to National Stud</li>
-                        <li><strong>Duration:</strong> Approximately 1 hour</li>
-                        <li><strong>Best for:</strong> Convenience and door-to-door service</li>
-                    </ul>
-                </div>
-                
-                <div class="option-detail">
-                    <h5>Option 3: Private Car Service (Premium)</h5>
-                    <ul>
-                        <li><strong>2 hours:</strong> $161</li>
-                        <li><strong>4 hours:</strong> $317</li>
-                        <li><strong>6 hours:</strong> $472</li>
-                        <li><strong>Includes:</strong> Professional driver, comfort, flexibility for additional stops</li>
-                        <li><strong>Best for:</strong> Luxury experience with flexibility to explore the area</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h4>🐎 Irish National Stud & Gardens</h4>
-            <ul>
-                <li>Guided tour of Ireland's premier horse breeding facility</li>
-                <li>Living Legends retired racehorses experience</li>
-                <li>Japanese Gardens and St. Fiachra's Garden</li>
-                <li><strong>Entry fee:</strong> $15 per person</li>
-            </ul>
-            
-            <h4>🍽️ Dublin Evening Dining Options</h4>
-            <p><strong>Chapter One by Mickael Viljanen</strong><br>
-            Location: 5-minute walk from hotel<br>
-            Cuisine: Contemporary fine dining with Irish influences<br>
-            Perfect for: Special occasion dining</p>
-            
-            <p><strong>The Church Café Bar & Restaurant</strong><br>
-            Location: Junction of Mary St & Jervis St, Dublin 1<br>
-            Unique Feature: Dining in a beautifully restored historic church<br>
-            Website: <a href="https://www.thechurch.ie/">thechurch.ie</a></p>
-        </div>
-
-        <div class="day-header">Sunday, Sep 21 - Day 4: Howth Cliff Walk & Coastal Tour</div>
-        <div class="activity-section">
-            <div class="transportation-box">
-                <h4>🚂 Transportation Options to Howth</h4>
-                
-                <div class="option-detail">
-                    <h5>Option 1: Train (Recommended)</h5>
-                    <ul>
-                        <li><strong>Cost:</strong> $15 each way per person</li>
-                        <li><strong>Duration:</strong> 45 minutes direct from Dublin</li>
-                        <li><strong>From Hotel:</strong> 15-minute walk to train station OR 3-minute taxi ride</li>
-                        <li><strong>Arrival:</strong> Train ends at the harbor in Howth (perfect for tours!)</li>
-                        <li><strong>Best for:</strong> Scenic journey and arrives right where you need to be</li>
-                    </ul>
-                </div>
-                
-                <div class="option-detail">
-                    <h5>Option 2: Taxi (Direct)</h5>
-                    <ul>
-                        <li><strong>Cost:</strong> $80-100 one way</li>
-                        <li><strong>Duration:</strong> Approximately 30-40 minutes depending on traffic</li>
-                    </ul>
-                </div>
-                
-                <div class="option-detail">
-                    <h5>Option 3: Private Car Service (Premium)</h5>
-                    <ul>
-                        <li><strong>2 hours:</strong> $161</li>
-                        <li><strong>4 hours:</strong> $317</li>
-                        <li><strong>6 hours:</strong> $472</li>
-                        <li><strong>Best for:</strong> Full day excursion with driver waiting</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h4>⛵ Howth Excursion Choices</h4>
-            
-            <div class="option-detail">
-                <h5>Ireland's Eye Tour</h5>
-                <ul>
-                    <li><strong>Experience:</strong> Dedicated boat tour to Ireland's Eye island</li>
-                    <li><strong>Link:</strong> <a href="https://www.viator.com/tours/Dublin/Irelands-Eye-Tour/d503-307492P3?pid=P00005400&uid=U00232400&mcid=58086&currency=USD">Book Ireland's Eye Tour</a></li>
-                    <li><strong>Best for:</strong> Island exploration and wildlife viewing</li>
-                </ul>
-            </div>
-            
-            <div class="option-detail">
-                <h5>Craft Beer and Seafood Trail with Local</h5>
-                <ul>
-                    <li><strong>Times:</strong> 12pm or 3pm tours available</li>
-                    <li><strong>Combination:</strong> Could book Ireland's Eye tour earlier in the day</li>
-                    <li><strong>Link:</strong> <a href="https://www.viator.com/tours/Dublin/Craft-Beer-and-Seafood-Trail-with-a-Local/d503-89490P2?pid=P00005400&uid=U00232400&mcid=58086&currency=USD">Book Beer & Seafood Trail</a></li>
-                    <li><strong>Best for:</strong> Culinary experience and local culture</li>
-                </ul>
-            </div>
-            
-            <h4>🚶‍♂️ Howth Cliff Walk</h4>
-            <ul>
-                <li>Self-guided cliff walk with spectacular coastal views</li>
-                <li><strong>Duration:</strong> 2-3 hours for full loop</li>
-                <li><strong>Difficulty:</strong> Moderate with some steep sections</li>
-                <li><strong>Highlights:</strong> Ireland's Eye views, lighthouse, coastal wildlife</li>
-            </ul>
-        </div>
-
-        <div class="day-header">Monday, Sep 22 - Day 5: Dublin to London</div>
-        <div class="activity-section">
-            <ul>
-                <li>Hotel check-out from Riu Plaza The Gresham Dublin</li>
-                <li>Morning departure to Dublin Airport</li>
-                <li>Flight: Dublin to London (specific times TBC)</li>
-                <li>Arrival: London Heathrow/Gatwick</li>
-                <li>Hotel check-in: Westminster location</li>
-            </ul>
-            
-            <h4>🏨 Great Scotland Yard, Hyatt Unbound Collection</h4>
-            <ul>
-                <li><strong>Room:</strong> King Bed ADA Accessible (279 sq ft)</li>
-                <li><strong>Location:</strong> Westminster, historic London</li>
-                <li><strong>Rating:</strong> 5-star luxury hotel</li>
-                <li><strong>Historic Significance:</strong> Grade II listed building in 1820's Edwardian and Victorian architecture</li>
-                <li><strong>Amenities:</strong> Historic building, premium location, luxury service, Michelin-starred restaurant</li>
-            </ul>
-        </div>
-
-        <div class="gem-box">
-            <h3>💎 Kim's Hidden Gem - London</h3>
-            <p><strong>The Old Shades</strong> - A Grade II listed pub built in 1898, just 2 minutes from your hotel on Whitehall. This traditional British pub has been serving Londoners for over 125 years and offers the perfect authentic pub experience with their famous fish & chips and homemade pies.</p>
-            <p><strong>Address:</strong> Whitehall, just off Trafalgar Square<br>
-            <strong>Website:</strong> <a href="https://www.oldshades.co.uk/">oldshades.co.uk</a></p>
-        </div>
-
-        <div class="activity-section">
-            <h4>🍽️ London Evening Dining Options</h4>
-            <p><strong>The Old Shades</strong><br>
-            Location: Whitehall, 2-minute walk from hotel<br>
-            Historic Significance: Serving London for over 125 years<br>
-            Specialties: Beer-battered fish & chips, homemade pies, Sunday roasts<br>
-            Website: <a href="https://www.oldshades.co.uk/">oldshades.co.uk</a></p>
-            
-            <p><strong>The Clarence Whitehall</strong><br>
-            Location: Whitehall, 3-minute walk from hotel<br>
-            Atmosphere: Elegant traditional pub with proper real ales<br>
-            Specialties: Fish & chips, homemade pies, West Country beef<br>
-            Website: <a href="https://www.theclarencewhitehall.com/">theclarencewhitehall.com</a></p>
-        </div>
-
-        <div class="day-header">Tuesday, Sep 23 - Day 6: London Highlights & Travel to Stoneleigh</div>
-        <div class="activity-section">
-            <h4>🎯 London Premium Tours</h4>
-            
-            <div class="option-detail">
-                <h5>Private Black Taxi Tour</h5>
-                <ul>
-                    <li><strong>Duration:</strong> 2-hour customized London tour</li>
-                    <li><strong>Cost:</strong> $225 total for group (flat rate for up to 5 passengers)</li>
-                    <li><strong>Highlights:</strong> Westminster, Buckingham Palace, Tower Bridge, St. Paul's Cathedral</li>
-                    <li><strong>Book:</strong> <a href="https://www.viator.com/tours/London/Private-Tour-Black-Taxi-Tour-of-London/d737-2496LONSIGHT">Black Taxi Tour</a></li>
-                </ul>
-            </div>
-            
-            <div class="option-detail">
-                <h5>VIP Beefeater Tower of London</h5>
-                <ul>
-                    <li><strong>Experience:</strong> Skip-the-line with Crown Jewels access</li>
-                    <li><strong>Duration:</strong> 3 hours with expert Beefeater guide</li>
-                    <li><strong>Cost:</strong> $110 per person</li>
-                    <li><strong>Highlights:</strong> Crown Jewels, White Tower, Beefeater tales</li>
-                    <li><strong>Book:</strong> <a href="https://www.viator.com/en-GB/tours/London/VIP-Beefeater-Meeting-Tower-of-London-and-Crown-Jewels-3-Hour-Highlights-Tour/d737-8606P20">Tower of London Tour</a></li>
-                </ul>
-            </div>
-            
-            <div class="option-detail">
-                <h5>Thames River Cruise</h5>
-                <ul>
-                    <li><strong>Experience:</strong> Scenic city tour by boat</li>
-                    <li><strong>Duration:</strong> 1 hour</li>
-                    <li><strong>Cost:</strong> $25 per person</li>
-                    <li><strong>Route:</strong> Westminster to Tower Bridge</li>
-                    <li><strong>Book:</strong> <a href="https://www.viator.com/tours/London/London-Eye-River-Cruise/d737-2988P12">Thames Cruise</a></li>
-                </ul>
-            </div>
-            
-            <h4>🍽️ London Additional Dining Options</h4>
-            <p><strong>The Admiralty Pub</strong><br>
-            Location: Trafalgar Square area, 5-minute walk<br>
-            Unique Feature: Maritime decor reflecting Britain's naval heritage<br>
-            Specialties: Traditional British pies, Admiral's Mule cocktail</p>
-            
-            <p><strong>Sherlock Holmes Pub</strong><br>
-            Location: 8-minute walk from hotel<br>
-            Theme: Dedicated to the famous detective<br>
-            Specialties: Sherlock Burger, traditional pies, literary atmosphere</p>
-            
-            <h4>🚂 Travel to Stoneleigh</h4>
-            <ul>
-                <li><strong>London to Coventry Train:</strong> Standard rail travel ($38 per person)</li>
-            </ul>
-        </div>
-
-        <div class="gem-box">
-            <h3>💎 Kim's Hidden Gem - Stoneleigh</h3>
-            <p><strong>The British Horse Society Headquarters at Stoneleigh Park</strong> - As a farrier and avid rider, you'll appreciate visiting the home of the UK's largest equine charity. The grounds are beautiful, and they sometimes offer tours when arranged in advance.</p>
-            <p><strong>Address:</strong> Abbey Park, Stareton, Kenilworth, Warwickshire CV8 2XZ<br>
-            <strong>Website:</strong> <a href="https://www.bhs.org.uk/">bhs.org.uk</a></p>
-        </div>
-
-        <div class="activity-section">
-            <h4>🏨 Stoneleigh Area Accommodation (September 23-28)</h4>
-            <ul>
-                <li><strong>Arrangement:</strong> Accommodation arranged separately (outside package)</li>
-                <li><strong>Duration:</strong> 5 nights</li>
-                <li><strong>Location:</strong> Warwickshire countryside near work site</li>
-            </ul>
-        </div>
-
-        <div class="day-header">Wednesday-Saturday, Sep 24-27 - Days 7-10: Stoneleigh Work Days</div>
-        <div class="activity-section">
-            <ul>
-                <li>Professional engagement activities</li>
-                <li>Nearby equestrian sites exploration opportunities</li>
-            </ul>
-        </div>
-
-        <div class="day-header">Sunday, Sep 28 - Day 11: Departure</div>
-        <div class="activity-section">
-            <ul>
-                <li>Travel from Stoneleigh area to Birmingham Airport</li>
-                <li>Return flights: Birmingham to Mobile via connecting cities</li>
-            </ul>
-        </div>
-
-        <h2>💰 Investment Summary</h2>
-        <table>
-            <tr>
-                <th>Package Component</th>
-                <th>Cost</th>
-                <th>Details</th>
-            </tr>
-            <tr>
-                <td><strong>Air & Hotel Package</strong></td>
-                <td><strong>$4,897.04</strong></td>
-                <td><strong>$2,448.52 per person</strong></td>
-            </tr>
-        </table>
-
-        <h3>Suggested Tours and Excursions</h3>
-        <table>
-            <tr>
-                <th>Activity</th>
-                <th>Cost</th>
-                <th>Details</th>
-            </tr>
-            <tr>
-                <td>Black Taxi Tour of London</td>
-                <td>$225</td>
-                <td>Private tour, flat rate for up to 5 passengers</td>
-            </tr>
-            <tr>
-                <td>Beefeaters VIP Tower of London</td>
-                <td>$220</td>
-                <td>$110 per person</td>
-            </tr>
-            <tr>
-                <td>Thames River Cruise</td>
-                <td>$50</td>
-                <td>$25 per person</td>
-            </tr>
-            <tr>
-                <td>Irish National Stud Entry</td>
-                <td>$30</td>
-                <td>$15 per person</td>
-            </tr>
-            <tr>
-                <td>Howth Excursions (Various Options)</td>
-                <td>Varies</td>
-                <td>See excursion choices above</td>
-            </tr>
-            <tr>
-                <td>London to Coventry Train</td>
-                <td>$76</td>
-                <td>$38 per person</td>
-            </tr>
-            <tr>
-                <td><strong>Total Additional</strong></td>
-                <td><strong>~$601+</strong></td>
-                <td><strong>Excluding transport choices</strong></td>
-            </tr>
-        </table>
-
-        <h2>💳 Payment Schedule</h2>
-        <div class="highlight-section">
-            <p><em><strong>Disclaimer:</strong> Travel prices fluctuate closer to departure date, so exact total is determined once deposit is made.</em></p>
-            
-            <h3>Apple Vacations Package ($4,897.04)</h3>
-            <ul>
-                <li><strong>Deposit Due:</strong> $3,473.39 (Due: June 2, 2025)</li>
-                <li><strong>Final Payment Due:</strong> $4,897.04 (Due: August 4, 2025)</li>
-            </ul>
-            
-            <h3>Tours & Excursions</h3>
-            <p>Tours and excursions are paid directly to vendors or can be arranged through Kim. Payment is typically required at time of booking or on the day of service.</p>
-            
-            <h3>Travel Insurance</h3>
-            <p>Travel insurance is highly recommended. <a href="https://drive.google.com/file/d/1KyJm9ZmU_voK0NEK6j9R3wd57oC_mx5A/view">Allianz Worldwide Travel Insurance with coverage information</a>. Price will be determined by cost of the trip and traveler age. Kim can provide quotes from multiple carriers.</p>
-        </div>
-
-        <h2>📋 What's Included</h2>
-        <h3>✅ Package Includes</h3>
+        <h4>✅ Passport & Documentation</h4>
         <ul>
-            <li>Round-trip flights Mobile ↔ Dublin ↔ London ↔ Birmingham</li>
-            <li>3 nights Dublin luxury hotel with breakfast</li>
-            <li>1 night London 5-star hotel</li>
-            <li>Professional travel planning and support</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Visit United Travel-Ready Center to scan passports<br>
+            <strong>URL:</strong> <a href="https://www.united.com/en/us/travelreadycenter/">https://www.united.com/en/us/travelreadycenter/</a></li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Verify passports valid through March 2026 minimum</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Apply for UK ETA (Electronic Travel Authorization) - £10 per person<br>
+            <strong>Apply at:</strong> <a href="https://www.gov.uk/guidance/apply-for-an-electronic-travel-authorisation-eta">gov.uk/guidance/apply-for-an-electronic-travel-authorisation-eta</a><br>
+            <strong>Required as of January 8, 2025 for US citizens</strong><br>
+            <strong>Processing time:</strong> Usually instant to 3 days</li>
         </ul>
-        <p><em>Note: Destination charges applicable upon check-in including taxes, hotel fees, and/or resort fees.</em></p>
-
-        <h3>📋 Not Included</h3>
+        
+        <h4>✅ Flight Actions</h4>
         <ul>
-            <li>Stoneleigh accommodation (arranged separately)</li>
-            <li>Local transportation (multiple options provided above)</li>
-            <li>Tours and excursions (optional add-ons)</li>
-            <li>Meals (except Dublin breakfast)</li>
-            <li>Travel insurance</li>
-            <li>Personal expenses</li>
-            <li>Gratuities</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Select meals for overnight flight Washington Dulles (IAD) → Dublin (DUB) (Sept 18)</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Select meals for long flight Frankfurt (FRA) → Washington Dulles (IAD) (Sept 28)</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Consider seat upgrades:
+                <ul>
+                    <li>IAD → DUB: Exit row 21 (starts at $34 pp)</li>
+                    <li>FRA → IAD: Premium seats for 9-hour flight</li>
+                </ul>
+            </li>
         </ul>
-
-        <div class="contact-section">
-            <h2>Ready to Begin Your European Adventure?</h2>
-            <h3>Kim Henderson</h3>
-            <p><strong>Cruise & Tour Specialist</strong></p>
-            <p>📞 <a href="tel:251-289-1505">251-289-1505</a></p>
-            <p>✉️ <a href="mailto:kim@somotravel.us">kim@somotravel.us</a></p>
-            <p>🌐 <a href="https://www.somotravelspecialist.com">www.somotravelspecialist.com</a></p>
-            <p><em>Contact Kim to secure your deposit and begin this unforgettable journey through Ireland and England.<br>
-            Payment plans available • Expert guidance every step of the way</em></p>
+        
+        <h4>✅ Check-In Schedule (Set Phone Reminders)</h4>
+        <ul>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span><strong>Sept 17, 12:40 PM</strong> - Check in for Mobile → Dublin</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span><strong>Sept 20, 11:05 AM</strong> - FREE seat selection opens for BA flight</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span><strong>Sept 21, 11:05 AM</strong> - Check in for Dublin → London</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span><strong>Sept 27, 5:55 AM</strong> - Check in for Birmingham → Mobile</li>
+        </ul>
+        
+        <h4>✅ Dublin Transportation</h4>
+        <ul>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Purchase Leap Card at Dublin Airport (€5 + €20 credit)</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Download FreeNow app for taxi booking</li>
+        </ul>
+        
+        <h4>✅ Excursions</h4>
+        <ul>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Confirm 2 Viator tickets (pending - email sent 8/17)</li>
+        </ul>
+    </div>
+    
+    <h2 id="flights">✈️ FLIGHT DETAILS</h2>
+    
+    <h3>Outbound: September 18, 2025</h3>
+    
+    <div class="flight-info">
+        <h4>Mobile Regional Airport → Dublin Airport</h4>
+        <p><span class="confirmation">Confirmation: PC06G6</span> (United Airlines)</p>
+        
+        <p><strong>MOB → IAD (Washington Dulles International Airport)</strong></p>
+        <ul>
+            <li>Airline: United Airlines (operated by CommutAir as United Express)</li>
+            <li>Flight: UA4951</li>
+            <li>Time: 12:40 PM - 4:01 PM</li>
+            <li>Seats: <strong>10C/10D</strong></li>
+        </ul>
+        <div class="tip">
+            <strong>Departure Tip:</strong> Mobile Regional is a small airport - arrive 90 minutes before for international connections
+        </div>
+        
+        <p><strong>IAD → DUB (Dublin Airport)</strong> - Overnight Flight</p>
+        <ul>
+            <li>Airline: United Airlines</li>
+            <li>Flight: UA710</li>
+            <li>Time: 7:05 PM - 7:10 AM+1 (arrives Sept 19)</li>
+            <li>Seats: <strong>37C/37B</strong></li>
+            <li><strong>Layover:</strong> 3 hours 4 minutes in Washington Dulles</li>
+        </ul>
+        <div class="tip">
+            <strong>Connection Tips:</strong>
+            <ul>
+                <li>Follow signs for "International Departures"</li>
+                <li>Must go through additional security screening</li>
+                <li>Gates D1-D30 area for international flights</li>
+            </ul>
+            <strong>Remember: Select meals & consider exit row upgrade</strong>
         </div>
     </div>
+    
+    <div class="flight-info">
+        <h4>Dublin → London: September 22, 2025</h4>
+        <p><span class="confirmation">Confirmation: CFMTYP</span> (British Airways)</p>
+        
+        <p><strong>Dublin Airport (DUB) → London Heathrow (LHR)</strong></p>
+        <ul>
+            <li>Airline: British Airways</li>
+            <li>Flight: BA0825</li>
+            <li>Time: 11:05 AM - 12:35 PM</li>
+            <li>Duration: 1 hour 30 minutes</li>
+            <li>Class: Euro Traveller</li>
+            <li><strong>Terminal:</strong> Check-in at Terminal 2 in Dublin</li>
+            <li><strong>Arrival:</strong> Terminal 5 at Heathrow</li>
+        </ul>
+        <div class="tip">
+            <strong>FREE seat selection: Sept 20 at 11:05 AM</strong>
+        </div>
+    </div>
+    
+    <h3>Return: September 28, 2025</h3>
+    
+    <div class="flight-info">
+        <h4>Birmingham International Airport → Mobile Regional Airport</h4>
+        <p><span class="confirmation">Confirmation: PC06G6</span> (United Airlines)</p>
+        
+        <p><strong>BHX → FRA (Frankfurt Airport)</strong></p>
+        <ul>
+            <li>Airline: United Airlines (operated by Lufthansa)</li>
+            <li>Flight: UA8808</li>
+            <li>Time: 5:55 AM - 8:30 AM</li>
+            <li>Seats: <strong>15B/15C</strong></li>
+        </ul>
+        <div class="tip">
+            <strong>Early Morning Tip:</strong> Birmingham Airport opens at 4:00 AM
+        </div>
+        
+        <p><strong>FRA → IAD (Washington Dulles)</strong></p>
+        <ul>
+            <li>Airline: United Airlines (operated by Lufthansa)</li>
+            <li>Flight: UA8832</li>
+            <li>Time: 10:30 AM - 1:30 PM</li>
+            <li>Seats: <strong>31K/31H</strong></li>
+            <li><strong>Layover:</strong> 2 hours in Frankfurt</li>
+        </ul>
+        <div class="tip">
+            <strong>Connection Tip:</strong> Frankfurt is large - follow signs for Z gates (non-Schengen)<br>
+            <strong>Remember: Select meals & consider seat upgrade</strong>
+        </div>
+        
+        <p><strong>IAD → MOB (Mobile Regional)</strong></p>
+        <ul>
+            <li>Airline: United Airlines (operated by CommutAir)</li>
+            <li>Flight: UA4295</li>
+            <li>Time: 5:55 PM - 7:31 PM</li>
+            <li>Seats: <strong>10C/10D</strong></li>
+            <li><strong>Layover:</strong> 4 hours 25 minutes in Washington Dulles</li>
+        </ul>
+        <div class="tip">
+            <strong>Connection Tip:</strong> Must clear US customs & immigration, then re-check bags
+        </div>
+    </div>
+    
+    <h2 id="hotels">🏨 HOTEL ACCOMMODATIONS</h2>
+    
+    <div class="hotel-info">
+        <h3>Dublin: September 19-22, 2025</h3>
+        <h4>The Grafton Hotel (4/5 stars)</h4>
+        <ul>
+            <li>3 nights</li>
+            <li>Classic King Room with Free WiFi</li>
+            <li>Location: 31/32 Stephens Street Lower, Near St. Stephen's Green</li>
+            <li>Check-in: 3:00 PM (early check-in available)</li>
+            <li><strong>Website:</strong> <a href="https://www.thegrafton.ie/">https://www.thegrafton.ie/</a></li>
+            <li><strong>Phone:</strong> <a href="tel:+35316480010">+353 1 648 0010</a></li>
+        </ul>
+    </div>
+    
+    <div class="hotel-info">
+        <h3>London: September 22-23, 2025</h3>
+        <h4>Canopy by Hilton London City (4/5 stars)</h4>
+        <ul>
+            <li>1 night</li>
+            <li>Queen Room with evening tasting</li>
+            <li>Includes: Complimentary WiFi, Nespresso, fridge</li>
+            <li>Location: 11-15 Minories, Financial district (across from Aldgate Tube Station)</li>
+            <li><strong>Website:</strong> <a href="https://www.hilton.com/en/hotels/lonpypy-canopy-london-city/">https://www.hilton.com/en/hotels/lonpypy-canopy-london-city/</a></li>
+            <li><strong>Phone:</strong> <a href="tel:+442039883300">+44 20 3988 3300</a></li>
+            <li><strong>Note: Non-refundable rate</strong></li>
+        </ul>
+    </div>
+    
+    <div class="hotel-info">
+        <h3>Stoneleigh: September 23-28, 2025</h3>
+        <ul>
+            <li>Accommodation arranged separately</li>
+            <li>5 nights in Warwickshire countryside</li>
+        </ul>
+    </div>
+    
+    <h2 id="dublin-arrival">🛬 DUBLIN AIRPORT ARRIVAL GUIDE</h2>
+<div class="video-link" style="margin:6px 0 12px 0;"><a href="https://www.youtube.com/watch?v=SVL_bPqeynM" target="_blank" rel="noopener">🎥 Watch: Dublin Airport arrival overview</a> </div>
+
+    
+    <h3>Immigration & Customs Process</h3>
+    <ol>
+        <li><strong>Disembark</strong> - Follow signs for "Arrivals"</li>
+        <li><strong>Immigration</strong> - Have passport ready, US citizens typically asked purpose of visit</li>
+        <li><strong>Baggage Claim</strong> - Monitors display carousel numbers</li>
+        <li><strong>Customs</strong> - Green channel (nothing to declare) or Red channel</li>
+        <li><strong>Arrivals Hall</strong> - Exit to public area</li>
+    </ol>
+    
+    <h3>Where to Buy Leap Card</h3>
+    <ul>
+        <li><strong>Terminal 1:</strong> WH Smith (newsagent)</li>
+        <li><strong>Terminal 2:</strong> Spar convenience store</li>
+        <li>Located AFTER customs, before exiting to arrivals hall</li>
+        <li>Cost: €5 deposit + add €20-30 credit</li>
+        <li>Alternative: Buy Leap Visitor Card for unlimited travel (1/3/7 days)</li>
+    </ul>
+<div class="video-link" style="margin:6px 0 12px 0;"><a href="https://www.youtube.com/watch?v=mD5o71_kY2E" target="_blank" rel="noopener">🎥 Watch: Dublin Airport → city centre options</a> </div>
+
+    
+    <h3>Airport to Hotel Transportation</h3>
+    <ul>
+        <li><strong>Taxi:</strong> €25-30 to city center
+            <ul>
+                <li>Taxi rank outside arrivals</li>
+                <li>20-30 minutes depending on traffic</li>
+            </ul>
+        </li>
+        <li><strong>Aircoach:</strong> €7 per person (not recommended with heavy luggage)</li>
+        <li><strong>Airport Buses:</strong> Routes 16, 41, or 747 (€3.30 with Leap Card)</li>
+    </ul>
+    
+    <h2 id="dublin-transport">🚖 DUBLIN TRANSPORTATION</h2>
+    
+    <h3>To Irish National Stud (Saturday, Sept 20)</h3>
+<div class="video-link" style="margin:6px 0 8px 0;"><a href="https://www.youtube.com/watch?v=mOLpWOalkjs" target="_blank" rel="noopener">🎥 Watch: Dublin → Kildare (Irish Rail)</a> </div>
+
+    <h4>Recommended: Train + Taxi</h4>
+    <p><strong>Total Cost:</strong> ~€40 per person round trip</p>
+    
+    <ol>
+        <li><strong>Taxi to Heuston Station:</strong> €10-12 (15 min)
+            <ul>
+                <li>Book via FreeNow app or hail on street</li>
+            </ul>
+        </li>
+        <li><strong>Train to Kildare:</strong> €20 round trip (35 min, hourly service)
+            <ul>
+                <li>Irish Rail service</li>
+                <li>Recommend 9:00 or 10:00 AM departure</li>
+            </ul>
+        </li>
+        <li><strong>Taxi to National Stud:</strong> €10-12 (10 min)
+            <ul>
+                <li><strong>Important:</strong> Get driver's number for return!</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h3>To Howth (Sunday, Sept 21)</h3>
+<div class="video-link" style="margin:6px 0 8px 0;"><a href="https://www.youtube.com/watch?v=qNtvsxil2Mc" target="_blank" rel="noopener">🎥 Watch: DART to Howth</a> </div>
+
+    <h4>Recommended: Walk + DART</h4>
+    <p><strong>Total Cost:</strong> €7 round trip per person with Leap Card</p>
+    
+    <ol>
+        <li><strong>Walk to Pearse Station:</strong> 12 min from hotel
+            <ul>
+                <li>Exit hotel, head east on Nassau Street</li>
+                <li>Turn left on Pearse Street</li>
+            </ul>
+        </li>
+        <li><strong>DART to Howth:</strong> 30 min direct
+            <ul>
+                <li>Northbound platform</li>
+                <li>Arrives at harbor - perfect for cliff walk</li>
+                <li>Runs every 10-20 minutes</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h2 id="london-transport">🚂 LONDON/BIRMINGHAM TRANSPORTATION</h2>
+    
+    <h3>Heathrow to Birmingham (Sept 22)</h3>
+    <h3>Heathrow ➝ Birmingham — RailAir RA1 + CrossCountry (Mon, Sept 22, 2025)</h3>
+  <p><em>One-way for 2 travelers. This replaces the earlier Paddington/Heathrow Express idea to keep things simple.</em></p>
+
+  <h4>Leg 1 — Heathrow Terminal 5 ➝ Reading (RailAir RA1 coach)</h4>
+  <div class="detail-row"><span><strong>Boarding</strong></span><span>T5, Stop 9 — coaches every ~20–30 min</span></div>
+  <div class="detail-row"><span><strong>Duration</strong></span><span>~45–60 minutes to Reading Station</span></div>
+
+  <h4 style="margin-top:12px;">Leg 2 — Reading ➝ Birmingham New Street (CrossCountry, direct)</h4>
+  <ul>
+    <li><strong>Primary:</strong> 15:43 → 17:18 (XC2240), Standard Semi‑Flex — 2 travelers</li>
+    <li><strong>Backup:</strong> 16:15 → 17:51, Standard Semi‑Flex — 2 travelers</li>
+  </ul>
+</div>
+
+
+<div class="transport-info" style="border-top:1px solid #eee; margin-top:14px; padding-top:10px;">
+  <h3>Agent Plan &amp; Simple Steps — Heathrow (T5) ➝ Birmingham</h3>
+
+  <div class="callout good" style="background:#f6fff8; border:1px solid #cfe9d9; padding:10px; border-radius:8px;">
+    <strong>What I’m booking now (rail):</strong><br/>
+    <ul style="margin:8px 0 0 18px;">
+      <li><strong>Primary:</strong> <em>Reading 15:43 → Birmingham New Street 17:18</em> — CrossCountry (Standard, Semi‑Flex), 2 travelers.</li>
+      <li><strong>Backup (if needed):</strong> <em>Reading 16:15 → Birmingham New Street 17:51</em> — Semi‑Flex, 2 travelers.</li>
+    </ul>
+    <div class="tip" style="margin-top:6px;">
+      RailAir RA1 (Heathrow → Reading) is purchased separately or as a simple walk‑up; coaches run frequently and have under‑floor luggage storage.
+    </div>
+  </div>
+
+  <h4 style="margin-top:12px;">Step-by-Step London to Birmingham</h4>
+  <ol style="margin-left:18px;">
+    <li><strong>Arrive Heathrow T5 (12:30).</strong> Follow signs: <em>Buses &amp; Coaches</em> → Stop 9. Board <strong>RailAir RA1</strong> to <strong>Reading Station</strong>. You can pay contactless (ApplePay) or show a pre‑purchased ticket.<div class="video-link" style="margin:4px 0 0 0;"><a href="https://www.youtube.com/watch?v=Mnm629U3u_A" target="_blank" rel="noopener">🎥 Watch: RailAir RA1 to Reading</a> </div></li>
+    <li><strong>Ride 45–60 min to Reading.</strong> The coach sets you down right by the station entrance.</li>
+    <li><strong>Inside Reading:</strong> Check the big boards for <em>“Birmingham New Street — CrossCountry”</em>. Aim for the <strong>15:43</strong> (primary). Lifts/escalators available; allow ~10–15 min to reach the platform.<div class="video-link" style="margin:4px 0 0 0;"><a href="https://www.youtube.com/watch?v=2fZMnsl6RhU" target="_blank" rel="noopener">🎥 Watch: Reading → Birmingham (CrossCountry)</a> </div></li>
+    <li><strong>If early/late:</strong> If you arrive early, relax and wait for 15:43. If running late, use the ticket’s <em>change</em> option to switch to the <strong>16:15</strong> or a later service (Semi‑Flex: fee + any fare difference).</li>
+    <li><strong>Boarding:</strong> Keep the QR/e‑ticket ready. Stow larger bags in the rack at the carriage end; keep valuables with you. Seats are reserved when available; otherwise, take any unreserved seat.</li>
+    <li><strong>Arrival Birmingham New Street:</strong> Follow exit signs; taxis and rideshare pickup are clearly signed.</li>
+  </ol>
+
+  <h4 style="margin-top:10px;">Tickets &amp; Delivery (What Your Travelers Receive)</h4>
+  <ul style="margin-left:18px;">
+    <li><strong>Rail Europe train tickets:</strong> delivered as <strong>mobile e‑tickets (PDF/QR)</strong> via email / account. These can be shown on iPhone/Android without printing. We’ll also provide a printable copy as a backup.</li>
+    <li><strong>Apple Wallet:</strong> Rail Europe sometimes offers <em>Add to Apple Wallet</em> for supported tickets, but it isn’t guaranteed on every UK route. Plan to use the PDF/QR; if a Wallet button appears on their confirmation, they can add it. Either way, we’ll save the PDFs offline and can include a screenshot in the trip pack.</li>
+    <li><strong>RailAir RA1:</strong> separate ticket. Buy online in advance (mobile QR) or pay the driver with contactless; no seat reservations needed.</li>
+  </ul>
+
+  
+
+    
+    <h2 id="insurance">💳 TRAVEL INSURANCE</h2>
+    
+    <div class="contact-info">
+        <h3>Allianz Travel Insurance</h3>
+        <p><strong>Policy Number: EUSP2501140383</strong></p>
+        
+        <h4>Coverage</h4>
+        <ul>
+            <li>Trip Cancellation/Interruption: $2,439</li>
+            <li>Emergency Medical/Dental: $50,000</li>
+            <li>Emergency Transportation: $250,000</li>
+            <li>Baggage Coverage: $1,500</li>
+        </ul>
+        
+        <h4>Emergency Contacts</h4>
+        <ul>
+            <li><strong>US:</strong> 1-800-654-1908</li>
+            <li><strong>International:</strong> 1-804-281-5700 (Collect)</li>
+        </ul>
+    </div>
+    
+    <h2 id="apps">📱 ESSENTIAL APPS TO DOWNLOAD</h2>
+    
+    <ul>
+        <li><strong>United Airlines</strong> - Check-in and boarding passes</li>
+        <li><strong>British Airways</strong> - Check-in and seat selection</li>
+        <li><strong>FreeNow</strong> - Dublin taxi booking</li>
+        <li><strong>TFI Live</strong> - Dublin public transport real-time info</li>
+        <li><strong>Irish Rail</strong> - Train schedules to Kildare</li>
+        <li><strong>Trainline</strong> - UK train bookings</li>
+        <li><strong>UK ETA</strong> - For visa application</li>
+    </ul>
+    
+    <h2 id="packing">📋 PACKING REMINDERS</h2>
+    
+    <ul>
+        <li>Passports (valid through March 2026)</li>
+        <li>Printed copies of all confirmations</li>
+        <li>UK ETA confirmation</li>
+        <li>Power adapters (Type G for UK/Ireland)</li>
+        <li>Comfortable walking shoes for Howth</li>
+        <li>Rain jacket (September weather)</li>
+        <li>Credit cards (notify bank of travel)</li>
+        <li>Small Euro/Pound notes for tips</li>
+    </ul>
+    
+    <h2 id="contacts">📞 KEY CONTACTS</h2>
+    
+    <div class="contact-info">
+        <h3>Kim Henderson - Travel Agent</h3>
+        <ul>
+            <li>📞 <a href="tel:+12512891505">251-289-1505</a></li>
+            <li>✉️ <a href="/cdn-cgi/l/email-protection#ed868480c385888389889f9e8283ad8e9f98849e889d818c8383889f9ec38e8280"><span class="__cf_email__" data-cfemail="c5aeaca8ebada0aba1a0b7b6aaab85a6b7b0acb6a0b5a9a4ababa0b7b6eba6aaa8">[email&#160;protected]</span></a></li>
+        </ul>
+    </div>
+    
+    <div class="contact-info">
+        <h3>Hotels</h3>
+        <ul>
+            <li>The Grafton Hotel Dublin: <a href="tel:+35316480010">+353 1 648 0010</a></li>
+            <li>Canopy London City: <a href="tel:+442039883300">+44 20 3988 3300</a></li>
+        </ul>
+    </div>
+    
+    <div class="contact-info">
+        <h3>Airlines</h3>
+        <ul>
+            <li>United: <a href="tel:+18008648331">1-800-864-8331</a></li>
+            <li>British Airways: <a href="tel:+18002479297">1-800-247-9297</a></li>
+        </ul>
+    </div>
+    
+    <div class="contact-info">
+        <h3>Emergency Numbers</h3>
+        <ul>
+            <li>Ireland: 112 or 999</li>
+            <li>UK: 112 or 999</li>
+            <li>US Embassy Dublin: <a href="tel:+35316688777">+353 1 668 8777</a></li>
+            <li>US Embassy London: <a href="tel:+442074999000">+44 20 7499 9000</a></li>
+        </ul>
+    </div>
+    
+    <h2 id="schedule">📅 DAY-BY-DAY SUMMARY</h2>
+    
+    <div class="schedule-day">
+        <strong>Sept 17:</strong> Check in for Mobile flight online (opens 12:40 PM for Sept 18 departure)
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 18:</strong> Departure day - Mobile → Dublin
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 19:</strong> Arrive Dublin morning, check-in afternoon, evening walking tour & dinner at Brazen Head
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 20:</strong> Irish National Stud tour, FREE BA seat selection opens (11:05 AM)
+     &nbsp; <a href="https://www.youtube.com/watch?v=q80EjtHeUFo" target="_blank" rel="noopener">🎥 Watch: Irish National Stud (Kildare)</a></div>
+    
+    <div class="schedule-day">
+        <strong>Sept 21:</strong> Howth cliff walk & cruise, Check in for BA flight (11:05 AM)
+     &nbsp; <a href="https://www.youtube.com/watch?v=1FBYoOSpstw" target="_blank" rel="noopener">🎥 Watch: Howth Cliff Walk</a></div>
+    
+    <div class="schedule-day">
+        <strong>Sept 22:</strong> Dublin → London → Birmingham travel day
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 23-27:</strong> Stoneleigh work engagement
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 27:</strong> Check in for return flights (5:55 AM)
+    </div>
+    
+    <div class="schedule-day">
+        <strong>Sept 28:</strong> Return travel - Birmingham → Mobile
+    </div>
+    
+    <hr style="margin: 30px 0;">
+    <p><em>Document last updated: August 17, 2025</em></p>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Save checkbox states to localStorage
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('checkbox')) {
+                const checkboxes = document.querySelectorAll('.checkbox');
+                const states = [];
+                checkboxes.forEach(cb => {
+                    states.push(cb.classList.contains('checked'));
+                });
+                localStorage.setItem('travelChecklistStates', JSON.stringify(states));
+            }
+        });
+        
+        // Load saved checkbox states
+        window.addEventListener('load', function() {
+            const savedStates = localStorage.getItem('travelChecklistStates');
+            if (savedStates) {
+                const states = JSON.parse(savedStates);
+                const checkboxes = document.querySelectorAll('.checkbox');
+                checkboxes.forEach((cb, index) => {
+                    if (states[index]) {
+                        cb.classList.add('checked');
+                    }
+                });
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
