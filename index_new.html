@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somo Travel - Professional Travel Planning</title>
+    <meta name="description" content="Professional travel planning and consultation services with custom itineraries and expert destination guidance.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .intro {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .intro h2 {
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+        
+        main.trips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .trip-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .trip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .trip-card.featured-card {
+            border: 2px solid #667eea;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        }
+        
+        .trip-card.add-trip {
+            border: 2px dashed #cbd5e0;
+            background: #f7fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            color: #718096;
+        }
+        
+        .trip-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.75rem;
+        }
+        
+        .trip-date {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .trip-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+        
+        .trip-status.status-confirmed {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        
+        .trip-status.status-planning {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            main.trips-grid { grid-template-columns: 1fr; }
+            .container { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Somo Travel</h1>
+            <p>Professional Travel Planning & Consultation</p>
+        </header>
+        
+        <div class="intro">
+            <h2>Travel Itineraries & Destination Guides</h2>
+            <p>Explore our custom travel plans, featuring expert-curated destinations and personalized experiences for discerning travelers.</p>
+        </div>
+        
+        <main class="trips-grid">
+            <!-- Trip cards will be inserted here -->
+            
+            
+            
+            <a href="debug-travel-test.html" class="trip-card">
+                <div class="trip-title">Test Client - Debug City</div>
+                <div class="trip-date">Oct 1, 2025 - Oct 3, 2025</div>
+                <div class="trip-status">Planning</div>
+            </a>
+
+            <a href="sara-darren-anniversary-final.html" class="trip-card">
+                <div class="trip-title">Sara &amp; Darren Jones - Bristol &amp; Bath, England</div>
+                <div class="trip-date">Oct 5, 2025 - Oct 15, 2025</div>
+                <div class="trip-status">Confirmed</div>
+            </a>
+
+            <a href="#contact" class="trip-card add-trip">
+                <div>
+                    <strong>Plan Your Journey</strong><br>
+                    <small>Contact us for custom travel planning</small>
+                </div>
+            </a>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Somo Travel. Professional travel planning services.</p>
+        </footer>
+    </div>
+</body>
+</html>
