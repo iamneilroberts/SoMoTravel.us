@@ -1,5 +1,4 @@
-# Security - Don't commit GitHub tokens
-config.js
+# Security - GitHub tokens now managed via localStorage
 
 # Node modules (if any)
 node_modules/
