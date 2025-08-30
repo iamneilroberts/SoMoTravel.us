@@ -489,7 +489,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <div class="logo">Kim's Gems ✲</div>
+            <div class="logo">Kim's Gems â²</div>
             <div class="subtitle">European Travel Specialist</div>
             <p class="description">
                 Crafting personalized European adventures with hidden gems and unforgettable experiences. Each itinerary is carefully designed to blend must-see highlights with off-the-beaten-path discoveries.
@@ -701,270 +701,275 @@
 
         // Trip data - initialized with existing trips
         let trips = [
-            // Proposal Category
             {
-                title: "Scotland & Ireland April 2026 Three Ladies",
-                dates: "April 6-17, 2026 (11 nights)",
-                status: "Commission Split",
-                category: "proposal",
-                file: "April-2026-Scotland-Ireland.html",
-                tags: ["NEW"],
-                lastModified: "2025-08-29",
-                description: ""
+                      "title": "Scotland & Ireland April 2026 Three Ladies",
+                      "dates": "April 6-17, 2026 (11 nights)",
+                      "status": "Commission Split",
+                      "category": "proposal",
+                      "file": "April-2026-Scotland-Ireland.html",
+                      "tags": [
+                                "NEW"
+                      ],
+                      "lastModified": "2025-08-29",
+                      "description": ""
             },
             {
-                title: "Chisholm Travel Confirmation Details",
-                dates: "September 18-28, 2025",
-                status: "Travel Proposal",
-                category: "proposal", 
-                file: "chisolm-trip-details.html",
-                tags: ["Updated"],
-                lastModified: "2025-08-29",
-                description: "Rename from Chisolm Ireland and England"
-            },
-
-            // Confirmed Category
-            {
-                title: "Breckenridge Ski Trip",
-                dates: "December 18-23, 2025",
-                status: "Confirmed",
-                category: "confirmed",
-                file: "Breckenridge_2025.html",
-                tags: [],
-                lastModified: "2025-08-15",
-                description: ""
+                      "title": "Chisholm Travel Confirmation Details",
+                      "dates": "September 18-28, 2025",
+                      "status": "Travel Proposal",
+                      "category": "proposal",
+                      "file": "chisolm-trip-details.html",
+                      "tags": [
+                                "Updated"
+                      ],
+                      "lastModified": "2025-08-29",
+                      "description": "Rename from Chisolm Ireland and England"
             },
             {
-                title: "Sara and Darren England",
-                dates: "October 2025",
-                status: "Confirmed",
-                category: "confirmed",
-                file: "JonesEngland.html",
-                tags: [],
-                lastModified: "2025-08-20",
-                description: ""
-            },
-
-            // Old trips (sorted by date, newest first)
-            {
-                title: "Sara and Darren England Castle Hotel Potions",
-                dates: "October 2025",
-                status: "Planning",
-                category: "old",
-                file: "castle_hotel_options.html",
-                tags: [],
-                lastModified: "2025-08-25",
-                description: ""
+                      "title": "Breckenridge Ski Trip",
+                      "dates": "December 18-23, 2025",
+                      "status": "Confirmed",
+                      "category": "confirmed",
+                      "file": "Breckenridge_2025.html",
+                      "tags": [],
+                      "lastModified": "2025-08-15",
+                      "description": ""
             },
             {
-                title: "Shoemakers children get some shoes trip Neil and Kim",
-                dates: "August 2025",
-                status: "Confirmed",
-                category: "old",
-                file: "toronto-trip-proposal.html",
-                tags: ["NEW"],
-                lastModified: "2025-08-20",
-                description: "Drive by Niagra Falls and wave, then go have some fun in a civilized country"
+                      "title": "Sara and Darren England",
+                      "dates": "October 2025",
+                      "status": "Confirmed",
+                      "category": "confirmed",
+                      "file": "JonesEngland.html",
+                      "tags": [],
+                      "lastModified": "2025-08-20",
+                      "description": ""
             },
             {
-                title: "Miller Ireland Adventure",
-                dates: "July 2025",
-                status: "Planning",
-                category: "old",
-                file: "miller_ireland_mobile_proposal.html",
-                tags: [],
-                lastModified: "2025-07-15",
-                description: ""
+                      "title": "Sara and Darren England Castle Hotel Potions",
+                      "dates": "October 2025",
+                      "status": "Planning",
+                      "category": "old",
+                      "file": "castle_hotel_options.html",
+                      "tags": [],
+                      "lastModified": "2025-08-25",
+                      "description": ""
             },
             {
-                title: "Davidson Alaska Cruise",
-                dates: "May 6-16, 2025",
-                status: "Complete",
-                category: "old",
-                file: "DavidsonSilverMoonCruise_mobileGuide.html",
-                tags: [],
-                lastModified: "2025-05-16",
-                description: ""
+                      "title": "Shoemakers children get some shoes trip Neil and Kim",
+                      "dates": "August 2025",
+                      "status": "Confirmed",
+                      "category": "old",
+                      "file": "toronto-trip-proposal.html",
+                      "tags": [
+                                "NEW"
+                      ],
+                      "lastModified": "2025-08-20",
+                      "description": "Drive by Niagra Falls and wave, then go have some fun in a civilized country"
             },
             {
-                title: "Daniels Family Niagara Falls Vacation",
-                dates: "July 13-15, 2025",
-                status: "Complete",
-                category: "old",
-                file: "daniels-niagara-falls-proposal.html",
-                tags: ["NEW"],
-                lastModified: "2025-07-15",
-                description: ""
+                      "title": "Miller Ireland Adventure",
+                      "dates": "July 2025",
+                      "status": "Planning",
+                      "category": "old",
+                      "file": "miller_ireland_mobile_proposal.html",
+                      "tags": [],
+                      "lastModified": "2025-07-15",
+                      "description": ""
             },
             {
-                title: "Daniels Family Niagara Falls Vacation Dining Recommendations",
-                dates: "July 13-15, 2025",
-                status: "Complete",
-                category: "old",
-                file: "daniels-dining-guide.html",
-                tags: ["NEW"],
-                lastModified: "2025-07-15",
-                description: ""
+                      "title": "Davidson Alaska Cruise",
+                      "dates": "May 6-16, 2025",
+                      "status": "Complete",
+                      "category": "old",
+                      "file": "DavidsonSilverMoonCruise_mobileGuide.html",
+                      "tags": [],
+                      "lastModified": "2025-05-16",
+                      "description": ""
             },
             {
-                title: "Scotland with Mam 2025",
-                dates: "April 20-29, 2025",
-                status: "Complete",
-                category: "old",
-                file: "scotland-trip-itinerary.html",
-                tags: [],
-                lastModified: "2025-04-29",
-                description: ""
+                      "title": "Daniels Family Niagara Falls Vacation",
+                      "dates": "July 13-15, 2025",
+                      "status": "Complete",
+                      "category": "old",
+                      "file": "daniels-niagara-falls-proposal.html",
+                      "tags": [
+                                "NEW"
+                      ],
+                      "lastModified": "2025-07-15",
+                      "description": ""
             },
             {
-                title: "Skye Details",
-                dates: "April 25-27, 2025",
-                status: "Complete",
-                category: "old",
-                file: "skye-trip-details.html",
-                tags: [],
-                lastModified: "2025-04-27",
-                description: ""
+                      "title": "Daniels Family Niagara Falls Vacation Dining Recommendations",
+                      "dates": "July 13-15, 2025",
+                      "status": "Complete",
+                      "category": "old",
+                      "file": "daniels-dining-guide.html",
+                      "tags": [
+                                "NEW"
+                      ],
+                      "lastModified": "2025-07-15",
+                      "description": ""
             },
             {
-                title: "O'Brien Sandals",
-                dates: "May 25-29, 2025",
-                status: "Complete",
-                category: "old",
-                file: "OBrien_Sandals_mobile-guide.html",
-                tags: [],
-                lastModified: "2025-05-29",
-                description: ""
+                      "title": "Scotland with Mam 2025",
+                      "dates": "April 20-29, 2025",
+                      "status": "Complete",
+                      "category": "old",
+                      "file": "scotland-trip-itinerary.html",
+                      "tags": [],
+                      "lastModified": "2025-04-29",
+                      "description": ""
             },
             {
-                title: "Welford European Adventure London Paris Rome",
-                dates: "May 23 - June 1, 2025",
-                status: "Complete",
-                category: "old",
-                file: "welford-european-adventure-2025.html",
-                tags: [],
-                lastModified: "2025-06-01",
-                description: ""
+                      "title": "Skye Details",
+                      "dates": "April 25-27, 2025",
+                      "status": "Complete",
+                      "category": "old",
+                      "file": "skye-trip-details.html",
+                      "tags": [],
+                      "lastModified": "2025-04-27",
+                      "description": ""
             },
             {
-                title: "Welford London Guide",
-                dates: "May 23-27, 2025",
-                status: "Complete",
-                category: "old",
-                file: "welford-london-guide.html",
-                tags: [],
-                lastModified: "2025-05-27",
-                description: ""
+                      "title": "O'Brien Sandals",
+                      "dates": "May 25-29, 2025",
+                      "status": "Complete",
+                      "category": "old",
+                      "file": "OBrien_Sandals_mobile-guide.html",
+                      "tags": [],
+                      "lastModified": "2025-05-29",
+                      "description": ""
             },
             {
-                title: "Kashara & Akiel Chi-town",
-                dates: "August 14-18, 2025",
-                status: "Planning",
-                category: "old",
-                file: "chicago_proposal.html",
-                tags: [],
-                lastModified: "2025-08-18",
-                description: ""
+                      "title": "Welford European Adventure London Paris Rome",
+                      "dates": "May 23 - June 1, 2025",
+                      "status": "Complete",
+                      "category": "old",
+                      "file": "welford-european-adventure-2025.html",
+                      "tags": [],
+                      "lastModified": "2025-06-01",
+                      "description": ""
             },
             {
-                title: "Kim's Cruise 2025",
-                dates: "TBD 2025",
-                status: "Complete",
-                category: "old",
-                file: "KimCruise2025.html",
-                tags: [],
-                lastModified: "2025-06-15",
-                description: ""
+                      "title": "Welford London Guide",
+                      "dates": "May 23-27, 2025",
+                      "status": "Complete",
+                      "category": "old",
+                      "file": "welford-london-guide.html",
+                      "tags": [],
+                      "lastModified": "2025-05-27",
+                      "description": ""
             },
             {
-                title: "Colvin San Francisco",
-                dates: "Aug 9 - 13 2025",
-                status: "Confirmed",
-                category: "old",
-                file: "ColvinSF2025.html",
-                tags: [],
-                lastModified: "2025-08-13",
-                description: ""
+                      "title": "Kashara & Akiel Chi-town",
+                      "dates": "August 14-18, 2025",
+                      "status": "Planning",
+                      "category": "old",
+                      "file": "chicago_proposal.html",
+                      "tags": [],
+                      "lastModified": "2025-08-18",
+                      "description": ""
             },
             {
-                title: "Jason and Jenn Punta Cana",
-                dates: "July 2-6, 2025",
-                status: "Complete",
-                category: "old",
-                file: "punta_cana_proposal.html",
-                tags: [],
-                lastModified: "2025-07-06",
-                description: ""
+                      "title": "Kim's Cruise 2025",
+                      "dates": "TBD 2025",
+                      "status": "Complete",
+                      "category": "old",
+                      "file": "KimCruise2025.html",
+                      "tags": [],
+                      "lastModified": "2025-06-15",
+                      "description": ""
             },
             {
-                title: "Janson and Janson Graham",
-                dates: "July 12-19, 2025",
-                status: "Complete",
-                category: "old",
-                file: "graham-detailed-itinerary.html",
-                tags: [],
-                lastModified: "2025-07-19",
-                description: ""
+                      "title": "Colvin San Francisco",
+                      "dates": "Aug 9 - 13 2025",
+                      "status": "Confirmed",
+                      "category": "old",
+                      "file": "ColvinSF2025.html",
+                      "tags": [],
+                      "lastModified": "2025-08-13",
+                      "description": ""
             },
             {
-                title: "Sara and Darren - Bath",
-                dates: "October 5-15, 2025",
-                status: "Confirmed",
-                category: "old",
-                file: "bath_details.html",
-                tags: [],
-                lastModified: "2025-08-10",
-                description: ""
+                      "title": "Jason and Jenn Punta Cana",
+                      "dates": "July 2-6, 2025",
+                      "status": "Complete",
+                      "category": "old",
+                      "file": "punta_cana_proposal.html",
+                      "tags": [],
+                      "lastModified": "2025-07-06",
+                      "description": ""
             },
             {
-                title: "Sara and Darren - Full trip",
-                dates: "October 5-15, 2025",
-                status: "Confirmed",
-                category: "old",
-                file: "full-trip-mobile.html",
-                tags: [],
-                lastModified: "2025-08-10",
-                description: ""
+                      "title": "Janson and Janson Graham",
+                      "dates": "July 12-19, 2025",
+                      "status": "Complete",
+                      "category": "old",
+                      "file": "graham-detailed-itinerary.html",
+                      "tags": [],
+                      "lastModified": "2025-07-19",
+                      "description": ""
             },
             {
-                title: "Sara and Darren mobile guide",
-                dates: "October 5-15, 2025",
-                status: "Confirmed",
-                category: "old",
-                file: "mobile.html",
-                tags: [],
-                lastModified: "2025-08-10",
-                description: ""
+                      "title": "Sara and Darren - Bath",
+                      "dates": "October 5-15, 2025",
+                      "status": "Confirmed",
+                      "category": "old",
+                      "file": "bath_details.html",
+                      "tags": [],
+                      "lastModified": "2025-08-10",
+                      "description": ""
             },
             {
-                title: "Ireland Loop",
-                dates: "",
-                status: "Reference",
-                category: "old",
-                file: "ireland-loop-html.html",
-                tags: [],
-                lastModified: "2025-06-01",
-                description: ""
+                      "title": "Sara and Darren - Full trip",
+                      "dates": "October 5-15, 2025",
+                      "status": "Confirmed",
+                      "category": "old",
+                      "file": "full-trip-mobile.html",
+                      "tags": [],
+                      "lastModified": "2025-08-10",
+                      "description": ""
             },
             {
-                title: "London & Paris Journey - May 5-15, 2026",
-                dates: "May 5-15, 2026",
-                status: "Travel Proposal",
-                category: "proposal",
-                file: "Chastain_2026-fancy.html",
-                tags: [],
-                lastModified: "2025-08-30",
-                description: ""
+                      "title": "Sara and Darren mobile guide",
+                      "dates": "October 5-15, 2025",
+                      "status": "Confirmed",
+                      "category": "old",
+                      "file": "mobile.html",
+                      "tags": [],
+                      "lastModified": "2025-08-10",
+                      "description": ""
             },
             {
-                title: "Chisolm London & Paris Journey - May 5-15, 2026",
-                dates: "May 5-15, 2026",
-                status: "Travel Proposal",
-                category: "proposal",
-                file: "Chastain_2026-fancy.html",
-                tags: [],
-                lastModified: "2025-08-30",
-                description: ""
+                      "title": "Ireland Loop",
+                      "dates": "",
+                      "status": "Reference",
+                      "category": "old",
+                      "file": "ireland-loop-html.html",
+                      "tags": [],
+                      "lastModified": "2025-06-01",
+                      "description": ""
+            },
+            {
+                      "title": "London & Paris Journey - May 5-15, 2026",
+                      "dates": "May 5-15, 2026",
+                      "status": "Travel Proposal",
+                      "category": "proposal",
+                      "file": "Chastain_2026-fancy.html",
+                      "tags": [],
+                      "lastModified": "2025-08-30",
+                      "description": ""
+            },
+            {
+                      "title": "Chastain London & Paris Journey - May 5-15, 2026",
+                      "dates": "May 5-15, 2026",
+                      "status": "Travel Proposal",
+                      "category": "proposal",
+                      "file": "Chastain_2026-fancy.html",
+                      "tags": [],
+                      "lastModified": "2025-08-30",
+                      "description": ""
             }
         ];
 
@@ -1090,9 +1095,9 @@
             const confirmedToggle = document.querySelector('#confirmed-content').previousElementSibling.querySelector('.category-toggle');
             const oldToggle = document.querySelector('#old-content').previousElementSibling.querySelector('.category-toggle');
             
-            proposalToggle.textContent = '▼';
-            confirmedToggle.textContent = '▼';
-            oldToggle.textContent = '▶'; // Old section starts collapsed
+            proposalToggle.textContent = 'â¼';
+            confirmedToggle.textContent = 'â¼';
+            oldToggle.textContent = 'â¶'; // Old section starts collapsed
         }
 
         function renderTrips(filteredTrips = null) {
@@ -1133,8 +1138,8 @@
 
             card.innerHTML = `
                 <div class="trip-actions">
-                    <div class="action-btn edit" onclick="openEditModal(${index})" title="Edit trip">✏️</div>
-                    <div class="action-btn delete" onclick="confirmDeleteTrip(${index})" title="Delete trip">🗑️</div>
+                    <div class="action-btn edit" onclick="openEditModal(${index})" title="Edit trip">âï¸</div>
+                    <div class="action-btn delete" onclick="confirmDeleteTrip(${index})" title="Delete trip">ðï¸</div>
                 </div>
                 <a href="${trip.file}" style="text-decoration: none; color: inherit; display: block;">
                     <div class="trip-title">${trip.title}</div>
@@ -1169,11 +1174,11 @@
             if (content.classList.contains('collapsed')) {
                 content.classList.remove('collapsed');
                 toggle.classList.remove('collapsed');
-                toggle.textContent = '▼';
+                toggle.textContent = 'â¼';
             } else {
                 content.classList.add('collapsed');
                 toggle.classList.add('collapsed');
-                toggle.textContent = '▶';
+                toggle.textContent = 'â¶';
             }
         }
 
@@ -1328,9 +1333,9 @@
             // Try to extract dates from content
             let dates = '';
             const datePatterns = [
-                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[–-]\d{1,2},?\s+\d{4}/gi,
-                /\d{1,2}\/\d{1,2}\/\d{4}\s*[–-]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
-                /\w+\s+\d{1,2}[–-]\d{1,2},?\s+\d{4}/gi
+                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[â-]\d{1,2},?\s+\d{4}/gi,
+                /\d{1,2}\/\d{1,2}\/\d{4}\s*[â-]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
+                /\w+\s+\d{1,2}[â-]\d{1,2},?\s+\d{4}/gi
             ];
 
             for (const pattern of datePatterns) {
@@ -1439,9 +1444,9 @@
             // Try to extract dates from content
             let dates = '';
             const datePatterns = [
-                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[-–]\d{1,2},?\s+\d{4}/gi,
-                /\d{1,2}\/\d{1,2}\/\d{4}\s*[-–]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
-                /\w+\s+\d{1,2}[-–]\d{1,2},?\s+\d{4}/gi
+                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[-â]\d{1,2},?\s+\d{4}/gi,
+                /\d{1,2}\/\d{1,2}\/\d{4}\s*[-â]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
+                /\w+\s+\d{1,2}[-â]\d{1,2},?\s+\d{4}/gi
             ];
 
             for (const pattern of datePatterns) {
