@@ -577,15 +577,23 @@
         </footer>
     </div>
 
-    <!-- Load GitHub token configuration (not tracked in git) -->
-    <script src="config.js"></script>
-    
     <script>
-        // GitHub configuration - Token will be loaded from config.js (not tracked in git)
+        // GitHub configuration - Token management
+        function getGitHubToken() {
+            let token = localStorage.getItem('github_token');
+            if (!token) {
+                token = prompt('Enter GitHub Personal Access Token for file uploads (one-time setup):\n\nLeave empty to skip GitHub integration.');
+                if (token) {
+                    localStorage.setItem('github_token', token);
+                }
+            }
+            return token;
+        }
+
         const GITHUB_CONFIG = {
             owner: 'iamneilroberts',
             repo: 'SoMoTravel.us',
-            token: window.GITHUB_TOKEN || null, // Will be set by config.js
+            token: getGitHubToken(),
             branch: 'main'
         };
 
