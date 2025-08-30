@@ -447,7 +447,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <div class="logo">Kim's Gems â²</div>
+            <div class="logo">Kim's Gems Ã¢ÂÂ²</div>
             <div class="subtitle">European Travel Specialist</div>
             <p class="description">
                 Crafting personalized European adventures with hidden gems and unforgettable experiences. Each itinerary is carefully designed to blend must-see highlights with off-the-beaten-path discoveries.
@@ -479,7 +479,7 @@
             <div class="category-section">
                 <div class="category-header proposal" onclick="toggleCategory('proposal')">
                     <span>Proposal</span>
-                    <span class="category-toggle">â¼</span>
+                    <span class="category-toggle">Ã¢ÂÂ¼</span>
                 </div>
                 <div class="category-content" id="proposal-content">
                     <div class="trips-grid" id="proposal-grid">
@@ -492,7 +492,7 @@
             <div class="category-section">
                 <div class="category-header confirmed" onclick="toggleCategory('confirmed')">
                     <span>Confirmed</span>
-                    <span class="category-toggle">â¼</span>
+                    <span class="category-toggle">Ã¢ÂÂ¼</span>
                 </div>
                 <div class="category-content" id="confirmed-content">
                     <div class="trips-grid" id="confirmed-grid">
@@ -505,7 +505,7 @@
             <div class="category-section">
                 <div class="category-header old" onclick="toggleCategory('old')">
                     <span>Old Trips (Archived)</span>
-                    <span class="category-toggle">â¼</span>
+                    <span class="category-toggle">Ã¢ÂÂ¼</span>
                 </div>
                 <div class="category-content collapsed" id="old-content">
                     <div class="trips-grid" id="old-grid">
@@ -854,6 +854,16 @@
                       "lastModified": "2025-08-30",
                       "description": ""
             },
+            {
+                      "title": "Chisolm London & Paris Journey - May 5-15, 2026",
+                      "dates": "May 5-15, 2026",
+                      "status": "Travel Proposal",
+                      "category": "proposal",
+                      "file": "Chastain_2026-fancy.html",
+                      "tags": [],
+                      "lastModified": "2025-08-30",
+                      "description": ""
+            },
         ];
 
         // Check if GitHub token is configured
@@ -1038,11 +1048,11 @@
             if (content.classList.contains('collapsed')) {
                 content.classList.remove('collapsed');
                 toggle.classList.remove('collapsed');
-                toggle.textContent = 'â¼';
+                toggle.textContent = 'Ã¢ÂÂ¼';
             } else {
                 content.classList.add('collapsed');
                 toggle.classList.add('collapsed');
-                toggle.textContent = 'â¶';
+                toggle.textContent = 'Ã¢ÂÂ¶';
             }
         }
 
@@ -1142,9 +1152,9 @@
             // Try to extract dates from content
             let dates = '';
             const datePatterns = [
-                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[-â]\d{1,2},?\s+\d{4}/gi,
-                /\d{1,2}\/\d{1,2}\/\d{4}\s*[-â]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
-                /\w+\s+\d{1,2}[-â]\d{1,2},?\s+\d{4}/gi
+                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[-Ã¢ÂÂ]\d{1,2},?\s+\d{4}/gi,
+                /\d{1,2}\/\d{1,2}\/\d{4}\s*[-Ã¢ÂÂ]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
+                /\w+\s+\d{1,2}[-Ã¢ÂÂ]\d{1,2},?\s+\d{4}/gi
             ];
 
             for (const pattern of datePatterns) {
