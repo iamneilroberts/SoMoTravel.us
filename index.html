@@ -971,7 +971,7 @@
         // Check if GitHub token is configured
         function checkGitHubConfig() {
             if (!GITHUB_CONFIG.token) {
-                alert('GitHub integration not configured. Please create a config.js file with your GitHub token.\n\nFor now, trips will be added locally only.');
+                // Token will be requested when needed
                 return false;
             }
             return true;
