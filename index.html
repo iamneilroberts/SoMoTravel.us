@@ -489,7 +489,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <div class="logo">Kim's Gems Ã¢ÂÂ²</div>
+            <div class="logo">Kim's Gems ✲</div>
             <div class="subtitle">European Travel Specialist</div>
             <p class="description">
                 Crafting personalized European adventures with hidden gems and unforgettable experiences. Each itinerary is carefully designed to blend must-see highlights with off-the-beaten-path discoveries.
@@ -521,7 +521,7 @@
             <div class="category-section">
                 <div class="category-header proposal" onclick="toggleCategory('proposal')">
                     <span>Proposal</span>
-                    <span class="category-toggle">Ã¢ÂÂ¼</span>
+                    <span class="category-toggle"></span>
                 </div>
                 <div class="category-content" id="proposal-content">
                     <div class="trips-grid" id="proposal-grid">
@@ -534,7 +534,7 @@
             <div class="category-section">
                 <div class="category-header confirmed" onclick="toggleCategory('confirmed')">
                     <span>Confirmed</span>
-                    <span class="category-toggle">Ã¢ÂÂ¼</span>
+                    <span class="category-toggle"></span>
                 </div>
                 <div class="category-content" id="confirmed-content">
                     <div class="trips-grid" id="confirmed-grid">
@@ -547,7 +547,7 @@
             <div class="category-section">
                 <div class="category-header old" onclick="toggleCategory('old')">
                     <span>Old Trips (Archived)</span>
-                    <span class="category-toggle">Ã¢ÂÂ¼</span>
+                    <span class="category-toggle"></span>
                 </div>
                 <div class="category-content collapsed" id="old-content">
                     <div class="trips-grid" id="old-grid">
@@ -1081,7 +1081,19 @@
         document.addEventListener('DOMContentLoaded', function() {
             renderTrips();
             setupEventListeners();
+            initializeToggleSymbols();
         });
+
+        function initializeToggleSymbols() {
+            // Set initial toggle symbols
+            const proposalToggle = document.querySelector('#proposal-content').previousElementSibling.querySelector('.category-toggle');
+            const confirmedToggle = document.querySelector('#confirmed-content').previousElementSibling.querySelector('.category-toggle');
+            const oldToggle = document.querySelector('#old-content').previousElementSibling.querySelector('.category-toggle');
+            
+            proposalToggle.textContent = '▼';
+            confirmedToggle.textContent = '▼';
+            oldToggle.textContent = '▶'; // Old section starts collapsed
+        }
 
         function renderTrips(filteredTrips = null) {
             const tripsToRender = filteredTrips || trips;
@@ -1157,11 +1169,11 @@
             if (content.classList.contains('collapsed')) {
                 content.classList.remove('collapsed');
                 toggle.classList.remove('collapsed');
-                toggle.textContent = 'Ã¢ÂÂ¼';
+                toggle.textContent = '▼';
             } else {
                 content.classList.add('collapsed');
                 toggle.classList.add('collapsed');
-                toggle.textContent = 'Ã¢ÂÂ¶';
+                toggle.textContent = '▶';
             }
         }
 
@@ -1316,9 +1328,9 @@
             // Try to extract dates from content
             let dates = '';
             const datePatterns = [
-                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[-Ã¢ÂÂ]\d{1,2},?\s+\d{4}/gi,
-                /\d{1,2}\/\d{1,2}\/\d{4}\s*[-Ã¢ÂÂ]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
-                /\w+\s+\d{1,2}[-Ã¢ÂÂ]\d{1,2},?\s+\d{4}/gi
+                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[–-]\d{1,2},?\s+\d{4}/gi,
+                /\d{1,2}\/\d{1,2}\/\d{4}\s*[–-]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
+                /\w+\s+\d{1,2}[–-]\d{1,2},?\s+\d{4}/gi
             ];
 
             for (const pattern of datePatterns) {
