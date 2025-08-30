@@ -489,7 +489,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <div class="logo">Kim's Gems â²</div>
+            <div class="logo">Kim's Gems Ã¢ÂÂ²</div>
             <div class="subtitle">European Travel Specialist</div>
             <p class="description">
                 Crafting personalized European adventures with hidden gems and unforgettable experiences. Each itinerary is carefully designed to blend must-see highlights with off-the-beaten-path discoveries.
@@ -956,17 +956,7 @@
                       "dates": "May 5-15, 2026",
                       "status": "Travel Proposal",
                       "category": "proposal",
-                      "file": "Chastain_2026-fancy.html",
-                      "tags": [],
-                      "lastModified": "2025-08-30",
-                      "description": ""
-            },
-            {
-                      "title": "Chastain London & Paris Journey - May 5-15, 2026",
-                      "dates": "May 5-15, 2026",
-                      "status": "Travel Proposal",
-                      "category": "proposal",
-                      "file": "Chastain_2026-fancy.html",
+                      "file": "Chastain-fancy.html",
                       "tags": [],
                       "lastModified": "2025-08-30",
                       "description": ""
@@ -1095,9 +1085,9 @@
             const confirmedToggle = document.querySelector('#confirmed-content').previousElementSibling.querySelector('.category-toggle');
             const oldToggle = document.querySelector('#old-content').previousElementSibling.querySelector('.category-toggle');
             
-            proposalToggle.textContent = 'â¼';
-            confirmedToggle.textContent = 'â¼';
-            oldToggle.textContent = 'â¶'; // Old section starts collapsed
+            proposalToggle.textContent = 'Ã¢ÂÂ¼';
+            confirmedToggle.textContent = 'Ã¢ÂÂ¼';
+            oldToggle.textContent = 'Ã¢ÂÂ¶'; // Old section starts collapsed
         }
 
         function renderTrips(filteredTrips = null) {
@@ -1138,8 +1128,8 @@
 
             card.innerHTML = `
                 <div class="trip-actions">
-                    <div class="action-btn edit" onclick="openEditModal(${index})" title="Edit trip">âï¸</div>
-                    <div class="action-btn delete" onclick="confirmDeleteTrip(${index})" title="Delete trip">ðï¸</div>
+                    <div class="action-btn edit" onclick="openEditModal(${index})" title="Edit trip">Ã¢ÂÂÃ¯Â¸Â</div>
+                    <div class="action-btn delete" onclick="confirmDeleteTrip(${index})" title="Delete trip">Ã°ÂÂÂÃ¯Â¸Â</div>
                 </div>
                 <a href="${trip.file}" style="text-decoration: none; color: inherit; display: block;">
                     <div class="trip-title">${trip.title}</div>
@@ -1174,11 +1164,11 @@
             if (content.classList.contains('collapsed')) {
                 content.classList.remove('collapsed');
                 toggle.classList.remove('collapsed');
-                toggle.textContent = 'â¼';
+                toggle.textContent = 'Ã¢ÂÂ¼';
             } else {
                 content.classList.add('collapsed');
                 toggle.classList.add('collapsed');
-                toggle.textContent = 'â¶';
+                toggle.textContent = 'Ã¢ÂÂ¶';
             }
         }
 
@@ -1333,9 +1323,9 @@
             // Try to extract dates from content
             let dates = '';
             const datePatterns = [
-                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[â-]\d{1,2},?\s+\d{4}/gi,
-                /\d{1,2}\/\d{1,2}\/\d{4}\s*[â-]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
-                /\w+\s+\d{1,2}[â-]\d{1,2},?\s+\d{4}/gi
+                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[Ã¢ÂÂ-]\d{1,2},?\s+\d{4}/gi,
+                /\d{1,2}\/\d{1,2}\/\d{4}\s*[Ã¢ÂÂ-]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
+                /\w+\s+\d{1,2}[Ã¢ÂÂ-]\d{1,2},?\s+\d{4}/gi
             ];
 
             for (const pattern of datePatterns) {
@@ -1444,9 +1434,9 @@
             // Try to extract dates from content
             let dates = '';
             const datePatterns = [
-                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[-â]\d{1,2},?\s+\d{4}/gi,
-                /\d{1,2}\/\d{1,2}\/\d{4}\s*[-â]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
-                /\w+\s+\d{1,2}[-â]\d{1,2},?\s+\d{4}/gi
+                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[-Ã¢ÂÂ]\d{1,2},?\s+\d{4}/gi,
+                /\d{1,2}\/\d{1,2}\/\d{4}\s*[-Ã¢ÂÂ]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
+                /\w+\s+\d{1,2}[-Ã¢ÂÂ]\d{1,2},?\s+\d{4}/gi
             ];
 
             for (const pattern of datePatterns) {
