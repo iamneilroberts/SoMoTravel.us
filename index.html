@@ -8,7 +8,6 @@
         :root {
             --primary-color: #007bff;
             --secondary-color: #0056b3;
-            --accent-color: #FFB74D;
             --success-color: #28a745;
             --warning-color: #ffc107;
             --danger-color: #dc3545;
@@ -68,7 +67,38 @@
             font-size: 1.1rem;
         }
 
-        /* Category Section Styles */
+        .filter-controls {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-select {
+            min-width: 150px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
         .category-section {
             margin-bottom: 3rem;
             background: white;
@@ -104,16 +134,10 @@
 
         .category-toggle {
             font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .category-toggle.collapsed {
-            transform: rotate(-90deg);
         }
 
         .category-content {
             padding: 1.5rem;
-            display: block;
         }
 
         .category-content.collapsed {
@@ -142,8 +166,6 @@
         .trip-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            text-decoration: none;
-            color: inherit;
         }
 
         .trip-title {
@@ -180,26 +202,76 @@
         }
 
         .trip-tag {
-            background: var(--accent-color);
-            color: white;
+            background: #ffc107;
+            color: #333;
         }
 
         .trip-tag.new {
             background: var(--success-color);
+            color: white;
         }
 
-        .trip-tag.updated {
-            background: var(--warning-color);
-            color: #333;
+        .trip-actions {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            display: flex;
+            gap: 0.25rem;
+            opacity: 0;
+            transition: opacity 0.2s ease;
         }
 
-        .trip-last-modified {
+        .trip-card:hover .trip-actions {
+            opacity: 1;
+        }
+
+        .action-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
             font-size: 0.8rem;
-            color: #999;
-            margin-top: 0.5rem;
         }
 
-        /* Add Trip Modal */
+        .action-btn:hover {
+            background: white;
+        }
+
+        .action-btn.edit {
+            color: var(--primary-color);
+        }
+
+        .action-btn.delete {
+            color: var(--danger-color);
+        }
+
+        .add-trip-card {
+            border: 2px dashed var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            text-decoration: none;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .add-trip-card:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .add-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -259,21 +331,6 @@
             color: var(--text-color);
         }
 
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.2s ease;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
-        }
-
         .file-upload {
             border: 2px dashed var(--border-color);
             border-radius: 8px;
@@ -290,33 +347,6 @@
         .file-upload.dragover {
             border-color: var(--primary-color);
             background-color: rgba(0, 123, 255, 0.05);
-        }
-
-        .tag-input-container {
-            position: relative;
-        }
-
-        .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .tag-item {
-            background: var(--primary-color);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .tag-remove {
-            cursor: pointer;
-            font-weight: bold;
         }
 
         .btn {
@@ -347,101 +377,11 @@
             background-color: #545b62;
         }
 
-        .add-trip-card {
-            border: 2px dashed var(--border-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 200px;
-            text-decoration: none;
-            color: #666;
-            cursor: pointer;
-        }
-
-        .add-trip-card:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .add-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Trip card actions */
-        .trip-actions {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            display: flex;
-            gap: 0.25rem;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-
-        .trip-card:hover .trip-actions {
-            opacity: 1;
-        }
-
-        .action-btn {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: all 0.2s ease;
-        }
-
-        .action-btn:hover {
-            background: white;
-            transform: scale(1.1);
-        }
-
-        .action-btn.edit {
-            color: var(--primary-color);
-        }
-
-        .action-btn.delete {
-            color: var(--danger-color);
-        }
-
         .footer {
             text-align: center;
             margin-top: 3rem;
             padding: 2rem;
             color: #666;
-        }
-
-        /* Filter Controls */
-        .filter-controls {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--card-shadow);
-        }
-
-        .filter-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .search-input {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .filter-select {
-            min-width: 150px;
         }
 
         @media (max-width: 768px) {
@@ -468,44 +408,26 @@
                 padding: 1rem;
             }
         }
-
-        /* Loading spinner */
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--primary-color);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 2s linear infinite;
-            margin: 20px auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <div class="logo">Kim's Gems ÃÂ¢ÃÂÃÂ²</div>
+            <div class="logo">Kim's Gems</div>
             <div class="subtitle">European Travel Specialist</div>
             <p class="description">
                 Crafting personalized European adventures with hidden gems and unforgettable experiences. Each itinerary is carefully designed to blend must-see highlights with off-the-beaten-path discoveries.
             </p>
         </header>
 
-        <!-- Filter Controls -->
         <div class="filter-controls">
             <div class="filter-group">
                 <input type="text" id="searchInput" class="form-control search-input" placeholder="Search trips...">
                 <select id="statusFilter" class="form-control filter-select">
                     <option value="">All Statuses</option>
-                    <option value="confirmed">Confirmed</option>
                     <option value="proposal">Proposal</option>
+                    <option value="confirmed">Confirmed</option>
                     <option value="complete">Complete</option>
-                    <option value="planning">Planning</option>
                 </select>
                 <select id="yearFilter" class="form-control filter-select">
                     <option value="">All Years</option>
@@ -517,42 +439,33 @@
         </div>
 
         <main id="tripsContainer">
-            <!-- Proposal Category -->
             <div class="category-section">
                 <div class="category-header proposal" onclick="toggleCategory('proposal')">
                     <span>Proposal</span>
-                    <span class="category-toggle"></span>
+                    <span class="category-toggle">v</span>
                 </div>
                 <div class="category-content" id="proposal-content">
-                    <div class="trips-grid" id="proposal-grid">
-                        <!-- Proposal trips will be populated by JavaScript -->
-                    </div>
+                    <div class="trips-grid" id="proposal-grid"></div>
                 </div>
             </div>
 
-            <!-- Confirmed Category -->
             <div class="category-section">
                 <div class="category-header confirmed" onclick="toggleCategory('confirmed')">
                     <span>Confirmed</span>
-                    <span class="category-toggle"></span>
+                    <span class="category-toggle">v</span>
                 </div>
                 <div class="category-content" id="confirmed-content">
-                    <div class="trips-grid" id="confirmed-grid">
-                        <!-- Confirmed trips will be populated by JavaScript -->
-                    </div>
+                    <div class="trips-grid" id="confirmed-grid"></div>
                 </div>
             </div>
 
-            <!-- Old Trips Category -->
             <div class="category-section">
                 <div class="category-header old" onclick="toggleCategory('old')">
-                    <span>Old Trips (Archived)</span>
-                    <span class="category-toggle"></span>
+                    <span>Archived</span>
+                    <span class="category-toggle">></span>
                 </div>
                 <div class="category-content collapsed" id="old-content">
-                    <div class="trips-grid" id="old-grid">
-                        <!-- Old trips will be populated by JavaScript -->
-                    </div>
+                    <div class="trips-grid" id="old-grid"></div>
                 </div>
             </div>
         </main>
@@ -569,14 +482,14 @@
                         <label class="form-label">Upload HTML File</label>
                         <div class="file-upload" id="fileUpload">
                             <p>Drag & drop HTML file here or click to browse</p>
-                            <p style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">File will be automatically uploaded and made live on your website</p>
+                            <p style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">File will be uploaded to your website</p>
                             <input type="file" id="htmlFile" accept=".html,.htm" style="display: none;">
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label" for="tripTitle">Trip Title</label>
-                        <input type="text" id="tripTitle" class="form-control" placeholder="Enter trip title">
+                        <input type="text" id="tripTitle" class="form-control" required>
                     </div>
                     
                     <div class="form-group">
@@ -589,21 +502,8 @@
                         <select id="category" class="form-control">
                             <option value="proposal">Proposal</option>
                             <option value="confirmed">Confirmed</option>
-                            <option value="old">Old</option>
+                            <option value="old">Archived</option>
                         </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Tags</label>
-                        <div class="tag-input-container">
-                            <div class="tag-list" id="tagList"></div>
-                            <input type="text" id="tagInput" class="form-control" placeholder="Add tags (press Enter)">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="tripDescription">Description (Optional)</label>
-                        <textarea id="tripDescription" class="form-control" rows="3" placeholder="Brief description"></textarea>
                     </div>
                     
                     <div>
@@ -623,22 +523,13 @@
                 </div>
                 <form id="editTripForm">
                     <div class="form-group">
-                        <label class="form-label">Update HTML File (Optional)</label>
-                        <div class="file-upload" id="editFileUpload">
-                            <p>Drag & drop new HTML file to update (creates backup of old file)</p>
-                            <p style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">Leave empty to keep current file</p>
-                            <input type="file" id="editHtmlFile" accept=".html,.htm" style="display: none;">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
                         <label class="form-label" for="editTripTitle">Trip Title</label>
-                        <input type="text" id="editTripTitle" class="form-control" placeholder="Enter trip title">
+                        <input type="text" id="editTripTitle" class="form-control" required>
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label" for="editTripDates">Trip Dates</label>
-                        <input type="text" id="editTripDates" class="form-control" placeholder="e.g., April 6-17, 2026">
+                        <input type="text" id="editTripDates" class="form-control">
                     </div>
                     
                     <div class="form-group">
@@ -646,28 +537,15 @@
                         <select id="editCategory" class="form-control">
                             <option value="proposal">Proposal</option>
                             <option value="confirmed">Confirmed</option>
-                            <option value="old">Old</option>
+                            <option value="old">Archived</option>
                         </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Tags</label>
-                        <div class="tag-input-container">
-                            <div class="tag-list" id="editTagList"></div>
-                            <input type="text" id="editTagInput" class="form-control" placeholder="Add tags (press Enter)">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="editTripDescription">Description (Optional)</label>
-                        <textarea id="editTripDescription" class="form-control" rows="3" placeholder="Brief description"></textarea>
                     </div>
                     
                     <div style="display: flex; justify-content: space-between;">
                         <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
                         <div>
-                            <button type="button" class="btn" style="background: var(--danger-color); color: white; margin-right: 1rem;" onclick="deleteTrip()">Delete Trip</button>
-                            <button type="submit" class="btn btn-primary">Update Trip</button>
+                            <button type="button" class="btn" style="background: var(--danger-color); color: white; margin-right: 1rem;" onclick="deleteTrip()">Delete</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </div>
                 </form>
@@ -680,11 +558,18 @@
     </div>
 
     <script>
-        // GitHub configuration - Token management
+        // GitHub configuration
+        const GITHUB_CONFIG = {
+            owner: 'iamneilroberts',
+            repo: 'SoMoTravel.us',
+            branch: 'main'
+        };
+
+        // Get GitHub token
         function getGitHubToken() {
             let token = localStorage.getItem('github_token');
             if (!token) {
-                token = prompt('Enter GitHub Personal Access Token for file uploads (one-time setup):\n\nLeave empty to skip GitHub integration.');
+                token = prompt('Enter GitHub Personal Access Token (one-time setup):');
                 if (token) {
                     localStorage.setItem('github_token', token);
                 }
@@ -692,423 +577,72 @@
             return token;
         }
 
-        const GITHUB_CONFIG = {
-            owner: 'iamneilroberts',
-            repo: 'SoMoTravel.us',
-            token: getGitHubToken(),
-            branch: 'main'
-        };
-
-        // Trip data - initialized with existing trips
+        // Trip data
         let trips = [
             {
-                      "title": "Scotland & Ireland April 2026 Three Ladies",
-                      "dates": "April 6-17, 2026 (11 nights)",
-                      "status": "Commission Split",
-                      "category": "proposal",
-                      "file": "April-2026-Scotland-Ireland.html",
-                      "tags": [
-                                "NEW"
-                      ],
-                      "lastModified": "2025-08-29",
-                      "description": ""
+                title: "Scotland & Ireland April 2026 Three Ladies",
+                dates: "April 6-17, 2026 (11 nights)",
+                status: "Commission Split",
+                category: "proposal",
+                file: "April-2026-Scotland-Ireland.html",
+                tags: ["NEW"],
+                lastModified: "2025-08-29"
             },
             {
-                      "title": "Chisholm Travel Confirmation Details",
-                      "dates": "September 18-28, 2025",
-                      "status": "Travel Proposal",
-                      "category": "proposal",
-                      "file": "chisolm-trip-details.html",
-                      "tags": [
-                                "Updated"
-                      ],
-                      "lastModified": "2025-08-29",
-                      "description": "Rename from Chisolm Ireland and England"
+                title: "Chisholm Travel Confirmation Details",
+                dates: "September 18-28, 2025",
+                status: "Travel Proposal",
+                category: "proposal",
+                file: "chisolm-trip-details.html",
+                tags: ["Updated"],
+                lastModified: "2025-08-29"
             },
             {
-                      "title": "Breckenridge Ski Trip",
-                      "dates": "December 18-23, 2025",
-                      "status": "Confirmed",
-                      "category": "confirmed",
-                      "file": "Breckenridge_2025.html",
-                      "tags": [],
-                      "lastModified": "2025-08-15",
-                      "description": ""
+                title: "London & Paris Journey - May 5-15, 2026",
+                dates: "May 5-15, 2026",
+                status: "Travel Proposal",
+                category: "proposal",
+                file: "Chastain_2026-fancy.html",
+                tags: [],
+                lastModified: "2025-08-30"
             },
             {
-                      "title": "Sara and Darren England",
-                      "dates": "October 2025",
-                      "status": "Confirmed",
-                      "category": "confirmed",
-                      "file": "JonesEngland.html",
-                      "tags": [],
-                      "lastModified": "2025-08-20",
-                      "description": ""
+                title: "Breckenridge Ski Trip",
+                dates: "December 18-23, 2025",
+                status: "Confirmed",
+                category: "confirmed",
+                file: "Breckenridge_2025.html",
+                tags: [],
+                lastModified: "2025-08-15"
             },
             {
-                      "title": "Sara and Darren England Castle Hotel Potions",
-                      "dates": "October 2025",
-                      "status": "Planning",
-                      "category": "old",
-                      "file": "castle_hotel_options.html",
-                      "tags": [],
-                      "lastModified": "2025-08-25",
-                      "description": ""
-            },
-            {
-                      "title": "Shoemakers children get some shoes trip Neil and Kim",
-                      "dates": "August 2025",
-                      "status": "Confirmed",
-                      "category": "old",
-                      "file": "toronto-trip-proposal.html",
-                      "tags": [
-                                "NEW"
-                      ],
-                      "lastModified": "2025-08-20",
-                      "description": "Drive by Niagra Falls and wave, then go have some fun in a civilized country"
-            },
-            {
-                      "title": "Miller Ireland Adventure",
-                      "dates": "July 2025",
-                      "status": "Planning",
-                      "category": "old",
-                      "file": "miller_ireland_mobile_proposal.html",
-                      "tags": [],
-                      "lastModified": "2025-07-15",
-                      "description": ""
-            },
-            {
-                      "title": "Davidson Alaska Cruise",
-                      "dates": "May 6-16, 2025",
-                      "status": "Complete",
-                      "category": "old",
-                      "file": "DavidsonSilverMoonCruise_mobileGuide.html",
-                      "tags": [],
-                      "lastModified": "2025-05-16",
-                      "description": ""
-            },
-            {
-                      "title": "Daniels Family Niagara Falls Vacation",
-                      "dates": "July 13-15, 2025",
-                      "status": "Complete",
-                      "category": "old",
-                      "file": "daniels-niagara-falls-proposal.html",
-                      "tags": [
-                                "NEW"
-                      ],
-                      "lastModified": "2025-07-15",
-                      "description": ""
-            },
-            {
-                      "title": "Daniels Family Niagara Falls Vacation Dining Recommendations",
-                      "dates": "July 13-15, 2025",
-                      "status": "Complete",
-                      "category": "old",
-                      "file": "daniels-dining-guide.html",
-                      "tags": [
-                                "NEW"
-                      ],
-                      "lastModified": "2025-07-15",
-                      "description": ""
-            },
-            {
-                      "title": "Scotland with Mam 2025",
-                      "dates": "April 20-29, 2025",
-                      "status": "Complete",
-                      "category": "old",
-                      "file": "scotland-trip-itinerary.html",
-                      "tags": [],
-                      "lastModified": "2025-04-29",
-                      "description": ""
-            },
-            {
-                      "title": "Skye Details",
-                      "dates": "April 25-27, 2025",
-                      "status": "Complete",
-                      "category": "old",
-                      "file": "skye-trip-details.html",
-                      "tags": [],
-                      "lastModified": "2025-04-27",
-                      "description": ""
-            },
-            {
-                      "title": "O'Brien Sandals",
-                      "dates": "May 25-29, 2025",
-                      "status": "Complete",
-                      "category": "old",
-                      "file": "OBrien_Sandals_mobile-guide.html",
-                      "tags": [],
-                      "lastModified": "2025-05-29",
-                      "description": ""
-            },
-            {
-                      "title": "Welford European Adventure London Paris Rome",
-                      "dates": "May 23 - June 1, 2025",
-                      "status": "Complete",
-                      "category": "old",
-                      "file": "welford-european-adventure-2025.html",
-                      "tags": [],
-                      "lastModified": "2025-06-01",
-                      "description": ""
-            },
-            {
-                      "title": "Welford London Guide",
-                      "dates": "May 23-27, 2025",
-                      "status": "Complete",
-                      "category": "old",
-                      "file": "welford-london-guide.html",
-                      "tags": [],
-                      "lastModified": "2025-05-27",
-                      "description": ""
-            },
-            {
-                      "title": "Kashara & Akiel Chi-town",
-                      "dates": "August 14-18, 2025",
-                      "status": "Planning",
-                      "category": "old",
-                      "file": "chicago_proposal.html",
-                      "tags": [],
-                      "lastModified": "2025-08-18",
-                      "description": ""
-            },
-            {
-                      "title": "Kim's Cruise 2025",
-                      "dates": "TBD 2025",
-                      "status": "Complete",
-                      "category": "old",
-                      "file": "KimCruise2025.html",
-                      "tags": [],
-                      "lastModified": "2025-06-15",
-                      "description": ""
-            },
-            {
-                      "title": "Colvin San Francisco",
-                      "dates": "Aug 9 - 13 2025",
-                      "status": "Confirmed",
-                      "category": "old",
-                      "file": "ColvinSF2025.html",
-                      "tags": [],
-                      "lastModified": "2025-08-13",
-                      "description": ""
-            },
-            {
-                      "title": "Jason and Jenn Punta Cana",
-                      "dates": "July 2-6, 2025",
-                      "status": "Complete",
-                      "category": "old",
-                      "file": "punta_cana_proposal.html",
-                      "tags": [],
-                      "lastModified": "2025-07-06",
-                      "description": ""
-            },
-            {
-                      "title": "Janson and Janson Graham",
-                      "dates": "July 12-19, 2025",
-                      "status": "Complete",
-                      "category": "old",
-                      "file": "graham-detailed-itinerary.html",
-                      "tags": [],
-                      "lastModified": "2025-07-19",
-                      "description": ""
-            },
-            {
-                      "title": "Sara and Darren - Bath",
-                      "dates": "October 5-15, 2025",
-                      "status": "Confirmed",
-                      "category": "old",
-                      "file": "bath_details.html",
-                      "tags": [],
-                      "lastModified": "2025-08-10",
-                      "description": ""
-            },
-            {
-                      "title": "Sara and Darren - Full trip",
-                      "dates": "October 5-15, 2025",
-                      "status": "Confirmed",
-                      "category": "old",
-                      "file": "full-trip-mobile.html",
-                      "tags": [],
-                      "lastModified": "2025-08-10",
-                      "description": ""
-            },
-            {
-                      "title": "Sara and Darren mobile guide",
-                      "dates": "October 5-15, 2025",
-                      "status": "Confirmed",
-                      "category": "old",
-                      "file": "mobile.html",
-                      "tags": [],
-                      "lastModified": "2025-08-10",
-                      "description": ""
-            },
-            {
-                      "title": "Ireland Loop",
-                      "dates": "",
-                      "status": "Reference",
-                      "category": "old",
-                      "file": "ireland-loop-html.html",
-                      "tags": [],
-                      "lastModified": "2025-06-01",
-                      "description": ""
-            },
-            {
-                      "title": "London & Paris Journey - May 5-15, 2026",
-                      "dates": "May 5-15, 2026",
-                      "status": "Travel Proposal",
-                      "category": "proposal",
-                      "file": "Chastain_2026-fancy.html",
-                      "tags": [],
-                      "lastModified": "2025-08-30",
-                      "description": ""
-            },
-            {
-                      "title": "Chastain London & Paris Journey - May 5-15, 2026",
-                      "dates": "May 5-15, 2026",
-                      "status": "Travel Proposal",
-                      "category": "proposal",
-                      "file": "Chastain_2026-fancy.html",
-                      "tags": [],
-                      "lastModified": "2025-08-30",
-                      "description": ""
+                title: "Sara and Darren England",
+                dates: "October 2025",
+                status: "Confirmed",
+                category: "confirmed",
+                file: "JonesEngland.html",
+                tags: [],
+                lastModified: "2025-08-20"
             }
         ];
 
-        // Check if GitHub token is configured
-        function checkGitHubConfig() {
-            if (!GITHUB_CONFIG.token) {
-                // Token will be requested when needed
-                return false;
-            }
-            return true;
-        }
+        let currentEditIndex = -1;
 
-        // GitHub API Functions
-        async function uploadFileToGitHub(filename, content) {
-            if (!checkGitHubConfig()) {
-                throw new Error('GitHub not configured');
-            }
-            try {
-                const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`;
-                
-                // Check if file already exists
-                let sha = null;
-                try {
-                    const existingFile = await fetch(url, {
-                        headers: {
-                            'Authorization': `token ${GITHUB_CONFIG.token}`,
-                            'Accept': 'application/vnd.github.v3+json'
-                        }
-                    });
-                    if (existingFile.ok) {
-                        const fileData = await existingFile.json();
-                        sha = fileData.sha; // Need SHA to update existing file
-                    }
-                } catch (e) {
-                    // File doesn't exist, that's fine
-                }
-
-                // Upload/update file
-                const response = await fetch(url, {
-                    method: 'PUT',
-                    headers: {
-                        'Authorization': `token ${GITHUB_CONFIG.token}`,
-                        'Accept': 'application/vnd.github.v3+json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        message: `Add travel document: ${filename}`,
-                        content: btoa(unescape(encodeURIComponent(content))), // Base64 encode
-                        branch: GITHUB_CONFIG.branch,
-                        ...(sha && { sha }) // Include SHA if updating existing file
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error(`GitHub API error: ${response.status}`);
-                }
-
-                return await response.json();
-            } catch (error) {
-                console.error('GitHub upload error:', error);
-                throw error;
-            }
-        }
-
-        async function updateIndexWithNewTrip(trip) {
-            try {
-                // Get current index.html
-                const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/index.html`;
-                const response = await fetch(url, {
-                    headers: {
-                        'Authorization': `token ${GITHUB_CONFIG.token}`,
-                        'Accept': 'application/vnd.github.v3+json'
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error(`Failed to get index.html: ${response.status}`);
-                }
-
-                const fileData = await response.json();
-                const currentContent = atob(fileData.content);
-
-                // Add trip to the trips array in the JavaScript
-                const tripObject = JSON.stringify(trip, null, 16).replace(/\n/g, '\n            ');
-                const insertPoint = currentContent.indexOf('        ];');
-                const newContent = currentContent.slice(0, insertPoint) + 
-                    '            ' + tripObject + ',\n' + 
-                    currentContent.slice(insertPoint);
-
-                // Upload updated index.html
-                await fetch(url, {
-                    method: 'PUT',
-                    headers: {
-                        'Authorization': `token ${GITHUB_CONFIG.token}`,
-                        'Accept': 'application/vnd.github.v3+json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        message: `Add trip to index: ${trip.title}`,
-                        content: btoa(unescape(encodeURIComponent(newContent))),
-                        branch: GITHUB_CONFIG.branch,
-                        sha: fileData.sha
-                    })
-                });
-
-                return true;
-            } catch (error) {
-                console.error('Index update error:', error);
-                throw error;
-            }
-        }
-
-        // Initialize the page
+        // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
             renderTrips();
             setupEventListeners();
-            initializeToggleSymbols();
         });
-
-        function initializeToggleSymbols() {
-            // Set initial toggle symbols
-            const proposalToggle = document.querySelector('#proposal-content').previousElementSibling.querySelector('.category-toggle');
-            const confirmedToggle = document.querySelector('#confirmed-content').previousElementSibling.querySelector('.category-toggle');
-            const oldToggle = document.querySelector('#old-content').previousElementSibling.querySelector('.category-toggle');
-            
-            proposalToggle.textContent = 'ÃÂ¢ÃÂÃÂ¼';
-            confirmedToggle.textContent = 'ÃÂ¢ÃÂÃÂ¼';
-            oldToggle.textContent = 'ÃÂ¢ÃÂÃÂ¶'; // Old section starts collapsed
-        }
 
         function renderTrips(filteredTrips = null) {
             const tripsToRender = filteredTrips || trips;
             
-            // Clear existing grids
+            // Clear grids
             document.getElementById('proposal-grid').innerHTML = '';
             document.getElementById('confirmed-grid').innerHTML = '';
             document.getElementById('old-grid').innerHTML = '';
 
-            // Sort trips by date (newest first) within each category
+            // Sort by date
             const sortedTrips = [...tripsToRender].sort((a, b) => {
                 return new Date(b.lastModified) - new Date(a.lastModified);
             });
@@ -1120,7 +654,7 @@
                 document.getElementById(gridId).appendChild(tripCard);
             });
 
-            // Add "Add New Trip" card to proposal section
+            // Add "Add New Trip" card
             const addTripCard = createAddTripCard();
             document.getElementById('proposal-grid').appendChild(addTripCard);
         }
@@ -1131,15 +665,14 @@
             card.style.position = 'relative';
 
             const tags = trip.tags.map(tag => {
-                const tagClass = tag.toLowerCase() === 'new' ? 'new' : 
-                                tag.toLowerCase() === 'updated' ? 'updated' : '';
+                const tagClass = tag.toLowerCase() === 'new' ? 'new' : '';
                 return `<span class="trip-tag ${tagClass}">${tag}</span>`;
             }).join('');
 
             card.innerHTML = `
                 <div class="trip-actions">
-                    <div class="action-btn edit" onclick="openEditModal(${index})" title="Edit trip">ÃÂ¢ÃÂÃÂÃÂ¯ÃÂ¸ÃÂ</div>
-                    <div class="action-btn delete" onclick="confirmDeleteTrip(${index})" title="Delete trip">ÃÂ°ÃÂÃÂÃÂÃÂ¯ÃÂ¸ÃÂ</div>
+                    <div class="action-btn edit" onclick="openEditModal(${index})" title="Edit trip">E</div>
+                    <div class="action-btn delete" onclick="confirmDeleteTrip(${index})" title="Delete trip">X</div>
                 </div>
                 <a href="${trip.file}" style="text-decoration: none; color: inherit; display: block;">
                     <div class="trip-title">${trip.title}</div>
@@ -1148,8 +681,9 @@
                         <span class="trip-status">${trip.status}</span>
                         ${tags}
                     </div>
-                    ${trip.description ? `<p style="margin-top: 10px; color: #666;">${trip.description}</p>` : ''}
-                    <div class="trip-last-modified">Last Modified: ${formatDate(trip.lastModified)}</div>
+                    <div style="font-size: 0.8rem; color: #999; margin-top: 0.5rem;">
+                        Last Modified: ${formatDate(trip.lastModified)}
+                    </div>
                 </a>
             `;
 
@@ -1173,12 +707,10 @@
             
             if (content.classList.contains('collapsed')) {
                 content.classList.remove('collapsed');
-                toggle.classList.remove('collapsed');
-                toggle.textContent = 'ÃÂ¢ÃÂÃÂ¼';
+                toggle.textContent = 'v';
             } else {
                 content.classList.add('collapsed');
-                toggle.classList.add('collapsed');
-                toggle.textContent = 'ÃÂ¢ÃÂÃÂ¶';
+                toggle.textContent = '>';
             }
         }
 
@@ -1189,21 +721,44 @@
         function closeModal() {
             document.getElementById('addTripModal').style.display = 'none';
             document.getElementById('addTripForm').reset();
-            document.getElementById('tagList').innerHTML = '';
-            currentTags = [];
+        }
+
+        function openEditModal(index) {
+            currentEditIndex = index;
+            const trip = trips[index];
+            
+            document.getElementById('editTripTitle').value = trip.title;
+            document.getElementById('editTripDates').value = trip.dates;
+            document.getElementById('editCategory').value = trip.category;
+            
+            document.getElementById('editTripModal').style.display = 'block';
         }
 
         function closeEditModal() {
             document.getElementById('editTripModal').style.display = 'none';
             document.getElementById('editTripForm').reset();
-            document.getElementById('editTagList').innerHTML = '';
-            currentEditTags = [];
             currentEditIndex = -1;
         }
 
-        let currentTags = [];
-        let currentEditTags = [];
-        let currentEditIndex = -1;
+        function confirmDeleteTrip(index) {
+            const trip = trips[index];
+            if (confirm(`Are you sure you want to delete "${trip.title}"?`)) {
+                deleteTrip(index);
+            }
+        }
+
+        function deleteTrip(index = currentEditIndex) {
+            if (index === -1) return;
+            
+            trips.splice(index, 1);
+            renderTrips();
+            
+            if (document.getElementById('editTripModal').style.display === 'block') {
+                closeEditModal();
+            }
+            
+            updateGitHubIndex();
+        }
 
         function setupEventListeners() {
             // File upload
@@ -1236,17 +791,9 @@
                 }
             });
 
-            // Tag input
-            document.getElementById('tagInput').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    addTag(e.target.value.trim());
-                    e.target.value = '';
-                }
-            });
-
-            // Form submission
-            document.getElementById('addTripForm').addEventListener('submit', handleFormSubmit);
+            // Forms
+            document.getElementById('addTripForm').addEventListener('submit', handleAddTrip);
+            document.getElementById('editTripForm').addEventListener('submit', handleEditTrip);
 
             // Search and filters
             document.getElementById('searchInput').addEventListener('input', filterTrips);
@@ -1262,48 +809,6 @@
                     closeEditModal();
                 }
             });
-
-            // Edit modal file upload
-            const editFileUpload = document.getElementById('editFileUpload');
-            const editFileInput = document.getElementById('editHtmlFile');
-
-            editFileUpload.addEventListener('click', () => editFileInput.click());
-            
-            editFileUpload.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                editFileUpload.classList.add('dragover');
-            });
-
-            editFileUpload.addEventListener('dragleave', () => {
-                editFileUpload.classList.remove('dragover');
-            });
-
-            editFileUpload.addEventListener('drop', (e) => {
-                e.preventDefault();
-                editFileUpload.classList.remove('dragover');
-                const files = e.dataTransfer.files;
-                if (files.length > 0) {
-                    handleEditFileUpload(files[0]);
-                }
-            });
-
-            editFileInput.addEventListener('change', (e) => {
-                if (e.target.files.length > 0) {
-                    handleEditFileUpload(e.target.files[0]);
-                }
-            });
-
-            // Edit tag input
-            document.getElementById('editTagInput').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    addEditTag(e.target.value.trim());
-                    e.target.value = '';
-                }
-            });
-
-            // Edit form submission
-            document.getElementById('editTripForm').addEventListener('submit', handleEditFormSubmit);
         }
 
         function handleFileUpload(file) {
@@ -1324,342 +829,34 @@
             const parser = new DOMParser();
             const doc = parser.parseFromString(content, 'text/html');
             
-            // Try to extract title from various places
+            // Extract title
             let title = doc.querySelector('title')?.textContent || 
                        doc.querySelector('h1')?.textContent || 
-                       doc.querySelector('.trip-title')?.textContent ||
                        filename.replace(/\.(html|htm)$/i, '').replace(/-/g, ' ');
 
-            // Try to extract dates from content
+            // Extract dates - simple patterns
             let dates = '';
-            const datePatterns = [
-                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[ÃÂ¢ÃÂÃÂ-]\d{1,2},?\s+\d{4}/gi,
-                /\d{1,2}\/\d{1,2}\/\d{4}\s*[ÃÂ¢ÃÂÃÂ-]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
-                /\w+\s+\d{1,2}[ÃÂ¢ÃÂÃÂ-]\d{1,2},?\s+\d{4}/gi
-            ];
-
-            for (const pattern of datePatterns) {
-                const match = content.match(pattern);
-                if (match) {
-                    dates = match[0];
-                    break;
-                }
+            const datePattern = /\b\w+\s+\d{1,2}[-]\d{1,2},?\s+\d{4}\b/gi;
+            const match = content.match(datePattern);
+            if (match) {
+                dates = match[0];
             }
 
             // Auto-fill form
             document.getElementById('tripTitle').value = title.trim();
             document.getElementById('tripDates').value = dates;
             
-            // Store the filename for later use
+            // Store filename
             document.getElementById('htmlFile').dataset.filename = filename;
+            document.getElementById('htmlFile').dataset.content = content;
         }
 
-        function addTag(tag) {
-            if (tag && !currentTags.includes(tag)) {
-                currentTags.push(tag);
-                renderTags();
-            }
-        }
-
-        function removeTag(tag) {
-            currentTags = currentTags.filter(t => t !== tag);
-            renderTags();
-        }
-
-        function renderTags() {
-            const tagList = document.getElementById('tagList');
-            tagList.innerHTML = currentTags.map(tag => 
-                `<span class="tag-item">
-                    ${tag}
-                    <span class="tag-remove" onclick="removeTag('${tag}')">&times;</span>
-                </span>`
-            ).join('');
-        }
-
-        // Edit Modal Functions
-        function openEditModal(index) {
-            currentEditIndex = index;
-            const trip = trips[index];
-            
-            // Populate form with current values
-            document.getElementById('editTripTitle').value = trip.title;
-            document.getElementById('editTripDates').value = trip.dates;
-            document.getElementById('editCategory').value = trip.category;
-            document.getElementById('editTripDescription').value = trip.description;
-            
-            // Set current tags
-            currentEditTags = [...trip.tags];
-            renderEditTags();
-            
-            // Show modal
-            document.getElementById('editTripModal').style.display = 'block';
-        }
-
-        function addEditTag(tag) {
-            if (tag && !currentEditTags.includes(tag)) {
-                currentEditTags.push(tag);
-                renderEditTags();
-            }
-        }
-
-        function removeEditTag(tag) {
-            currentEditTags = currentEditTags.filter(t => t !== tag);
-            renderEditTags();
-        }
-
-        function renderEditTags() {
-            const tagList = document.getElementById('editTagList');
-            tagList.innerHTML = currentEditTags.map(tag => 
-                `<span class="tag-item">
-                    ${tag}
-                    <span class="tag-remove" onclick="removeEditTag('${tag}')">&times;</span>
-                </span>`
-            ).join('');
-        }
-
-        function handleEditFileUpload(file) {
-            if (!file.name.toLowerCase().endsWith('.html') && !file.name.toLowerCase().endsWith('.htm')) {
-                alert('Please upload an HTML file.');
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const content = e.target.result;
-                parseEditHtmlFile(content, file.name);
-            };
-            reader.readAsText(file);
-        }
-
-        function parseEditHtmlFile(content, filename) {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(content, 'text/html');
-            
-            // Try to extract title from various places
-            let title = doc.querySelector('title')?.textContent || 
-                       doc.querySelector('h1')?.textContent || 
-                       doc.querySelector('.trip-title')?.textContent ||
-                       filename.replace(/\.(html|htm)$/i, '').replace(/-/g, ' ');
-
-            // Try to extract dates from content
-            let dates = '';
-            const datePatterns = [
-                /(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}[-ÃÂ¢ÃÂÃÂ]\d{1,2},?\s+\d{4}/gi,
-                /\d{1,2}\/\d{1,2}\/\d{4}\s*[-ÃÂ¢ÃÂÃÂ]\s*\d{1,2}\/\d{1,2}\/\d{4}/g,
-                /\w+\s+\d{1,2}[-ÃÂ¢ÃÂÃÂ]\d{1,2},?\s+\d{4}/gi
-            ];
-
-            for (const pattern of datePatterns) {
-                const match = content.match(pattern);
-                if (match) {
-                    dates = match[0];
-                    break;
-                }
-            }
-
-            // Update form with extracted data
-            if (title.trim()) {
-                document.getElementById('editTripTitle').value = title.trim();
-            }
-            if (dates) {
-                document.getElementById('editTripDates').value = dates;
-            }
-            
-            // Store the new filename and content for later use
-            document.getElementById('editHtmlFile').dataset.filename = filename;
-            document.getElementById('editHtmlFile').dataset.content = content;
-        }
-
-        async function handleEditFormSubmit(e) {
-            e.preventDefault();
-            
-            if (currentEditIndex === -1) return;
-            
-            const title = document.getElementById('editTripTitle').value.trim();
-            const dates = document.getElementById('editTripDates').value.trim();
-            const category = document.getElementById('editCategory').value;
-            const description = document.getElementById('editTripDescription').value.trim();
-            const editFileInput = document.getElementById('editHtmlFile');
-            
-            if (!title) {
-                alert('Please enter a trip title.');
-                return;
-            }
-
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Updating...';
-            submitBtn.disabled = true;
-
-            try {
-                const currentTrip = trips[currentEditIndex];
-                
-                // Create updated trip object
-                const updatedTrip = {
-                    title: title,
-                    dates: dates,
-                    status: category === 'proposal' ? 'Travel Proposal' : 
-                           category === 'confirmed' ? 'Confirmed' : 'Complete',
-                    category: category,
-                    file: currentTrip.file, // Keep original filename unless updating
-                    tags: [...currentEditTags],
-                    lastModified: new Date().toISOString().split('T')[0],
-                    description: description
-                };
-
-                // Handle file update if a new file was uploaded
-                if (editFileInput.files && editFileInput.files.length > 0) {
-                    const newFile = editFileInput.files[0];
-                    const newFilename = newFile.name;
-                    const newContent = editFileInput.dataset.content;
-
-                    if (GITHUB_CONFIG.token) {
-                        // Create backup of old file if it's different
-                        if (newFilename !== currentTrip.file) {
-                            const backupFilename = `backup-${Date.now()}-${currentTrip.file}`;
-                            try {
-                                // Get current file content for backup
-                                const currentFileUrl = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${currentTrip.file}`;
-                                const currentFileResponse = await fetch(currentFileUrl, {
-                                    headers: {
-                                        'Authorization': `token ${GITHUB_CONFIG.token}`,
-                                        'Accept': 'application/vnd.github.v3+json'
-                                    }
-                                });
-                                
-                                if (currentFileResponse.ok) {
-                                    const currentFileData = await currentFileResponse.json();
-                                    await uploadFileToGitHub(backupFilename, atob(currentFileData.content));
-                                }
-                            } catch (e) {
-                                console.log('Could not create backup:', e);
-                            }
-                        }
-
-                        // Upload new file
-                        await uploadFileToGitHub(newFilename, newContent);
-                        updatedTrip.file = newFilename;
-                    }
-                }
-
-                // Update the trips array
-                trips[currentEditIndex] = updatedTrip;
-
-                // Update index.html if GitHub is configured
-                if (GITHUB_CONFIG.token) {
-                    await updateIndexWithAllTrips();
-                    alert(`Success! Trip "${title}" has been updated and changes are now live!`);
-                } else {
-                    alert('Trip updated locally! Note: GitHub integration not configured.');
-                }
-
-                renderTrips();
-                closeEditModal();
-
-            } catch (error) {
-                console.error('Update failed:', error);
-                alert(`Update failed: ${error.message}\n\nPlease try again or contact support if the problem persists.`);
-            } finally {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        }
-
-        function confirmDeleteTrip(index) {
-            const trip = trips[index];
-            if (confirm(`Are you sure you want to delete "${trip.title}"?\n\nThis will remove it from the site but keep the HTML file as backup.`)) {
-                deleteTrip(index);
-            }
-        }
-
-        async function deleteTrip(index = currentEditIndex) {
-            if (index === -1) return;
-            
-            try {
-                const trip = trips[index];
-                
-                // Remove from trips array
-                trips.splice(index, 1);
-                
-                // Update index.html if GitHub is configured
-                if (GITHUB_CONFIG.token) {
-                    await updateIndexWithAllTrips();
-                    alert(`Trip "${trip.title}" has been removed from the site.\n\nHTML file "${trip.file}" remains as backup.`);
-                } else {
-                    alert('Trip removed locally! Note: GitHub integration not configured.');
-                }
-
-                renderTrips();
-                if (document.getElementById('editTripModal').style.display === 'block') {
-                    closeEditModal();
-                }
-
-            } catch (error) {
-                console.error('Delete failed:', error);
-                alert(`Delete failed: ${error.message}`);
-            }
-        }
-
-        // Updated function to rewrite entire trips array to index.html
-        async function updateIndexWithAllTrips() {
-            try {
-                const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/index.html`;
-                const response = await fetch(url, {
-                    headers: {
-                        'Authorization': `token ${GITHUB_CONFIG.token}`,
-                        'Accept': 'application/vnd.github.v3+json'
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error(`Failed to get index.html: ${response.status}`);
-                }
-
-                const fileData = await response.json();
-                const currentContent = atob(fileData.content);
-
-                // Replace the entire trips array
-                const tripsArrayStart = currentContent.indexOf('let trips = [');
-                const tripsArrayEnd = currentContent.indexOf('        ];', tripsArrayStart) + 10;
-                
-                const tripsString = 'let trips = [\n' + 
-                    trips.map(trip => '            ' + JSON.stringify(trip, null, 12).replace(/\n/g, '\n            ')).join(',\n') + 
-                    '\n        ];';
-
-                const newContent = currentContent.slice(0, tripsArrayStart) + 
-                    tripsString + 
-                    currentContent.slice(tripsArrayEnd);
-
-                // Upload updated index.html
-                await fetch(url, {
-                    method: 'PUT',
-                    headers: {
-                        'Authorization': `token ${GITHUB_CONFIG.token}`,
-                        'Accept': 'application/vnd.github.v3+json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        message: `Update trips list - ${new Date().toLocaleDateString()}`,
-                        content: btoa(unescape(encodeURIComponent(newContent))),
-                        branch: GITHUB_CONFIG.branch,
-                        sha: fileData.sha
-                    })
-                });
-
-                return true;
-            } catch (error) {
-                console.error('Index update error:', error);
-                throw error;
-            }
-        }
-
-        async function handleFormSubmit(e) {
+        async function handleAddTrip(e) {
             e.preventDefault();
             
             const title = document.getElementById('tripTitle').value.trim();
             const dates = document.getElementById('tripDates').value.trim();
             const category = document.getElementById('category').value;
-            const description = document.getElementById('tripDescription').value.trim();
             const fileInput = document.getElementById('htmlFile');
             
             if (!title) {
@@ -1675,64 +872,56 @@
             const file = fileInput.files[0];
             const filename = file.name;
 
-            // Show loading state
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Uploading...';
-            submitBtn.disabled = true;
+            // Create trip object
+            const newTrip = {
+                title: title,
+                dates: dates,
+                status: category === 'proposal' ? 'Travel Proposal' : 
+                       category === 'confirmed' ? 'Confirmed' : 'Complete',
+                category: category,
+                file: filename,
+                tags: [],
+                lastModified: new Date().toISOString().split('T')[0]
+            };
 
-            try {
-                // Create trip object
-                const newTrip = {
-                    title: title,
-                    dates: dates,
-                    status: category === 'proposal' ? 'Travel Proposal' : 
-                           category === 'confirmed' ? 'Confirmed' : 'Complete',
-                    category: category,
-                    file: filename,
-                    tags: [...currentTags],
-                    lastModified: new Date().toISOString().split('T')[0],
-                    description: description
-                };
+            // Add to trips array
+            trips.push(newTrip);
 
-                // If GitHub is configured, upload the file
-                if (GITHUB_CONFIG.token) {
-                    // Read file content
-                    const fileContent = await new Promise((resolve, reject) => {
-                        const reader = new FileReader();
-                        reader.onload = e => resolve(e.target.result);
-                        reader.onerror = reject;
-                        reader.readAsText(file);
-                    });
+            // Update UI
+            renderTrips();
+            closeModal();
 
-                    // Upload file to GitHub
-                    await uploadFileToGitHub(filename, fileContent);
-                    
-                    // Add to trips array first
-                    trips.push(newTrip);
-                    
-                    // Update index.html with all trips
-                    await updateIndexWithAllTrips();
+            // Upload to GitHub if configured
+            await uploadToGitHub(filename, fileInput.dataset.content);
+            await updateGitHubIndex();
+        }
 
-                    alert(`Success! Your trip "${title}" has been added and is now live at:\nhttps://somotravel.us/${filename}`);
-                } else {
-                    alert('Trip added locally! Note: GitHub integration not configured, so the file was not uploaded to the live site.');
-                    // Add to trips array for local-only mode
-                    trips.push(newTrip);
-                }
-
-                // Update UI
-                renderTrips();
-                closeModal();
-
-            } catch (error) {
-                console.error('Upload failed:', error);
-                alert(`Upload failed: ${error.message}\n\nPlease try again or contact support if the problem persists.`);
-            } finally {
-                // Reset button
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
+        async function handleEditTrip(e) {
+            e.preventDefault();
+            
+            if (currentEditIndex === -1) return;
+            
+            const title = document.getElementById('editTripTitle').value.trim();
+            const dates = document.getElementById('editTripDates').value.trim();
+            const category = document.getElementById('editCategory').value;
+            
+            if (!title) {
+                alert('Please enter a trip title.');
+                return;
             }
+
+            // Update trip
+            trips[currentEditIndex].title = title;
+            trips[currentEditIndex].dates = dates;
+            trips[currentEditIndex].category = category;
+            trips[currentEditIndex].status = category === 'proposal' ? 'Travel Proposal' : 
+                                           category === 'confirmed' ? 'Confirmed' : 'Complete';
+            trips[currentEditIndex].lastModified = new Date().toISOString().split('T')[0];
+
+            renderTrips();
+            closeEditModal();
+            
+            await updateGitHubIndex();
         }
 
         function filterTrips() {
@@ -1741,12 +930,8 @@
             const yearFilter = document.getElementById('yearFilter').value;
 
             const filtered = trips.filter(trip => {
-                const matchesSearch = trip.title.toLowerCase().includes(searchTerm) ||
-                                    trip.description.toLowerCase().includes(searchTerm);
-                
-                const matchesStatus = !statusFilter || 
-                                    trip.status.toLowerCase().includes(statusFilter);
-                
+                const matchesSearch = trip.title.toLowerCase().includes(searchTerm);
+                const matchesStatus = !statusFilter || trip.category === statusFilter;
                 const matchesYear = !yearFilter || 
                                   trip.dates.includes(yearFilter) || 
                                   trip.lastModified.includes(yearFilter);
@@ -1755,6 +940,75 @@
             });
 
             renderTrips(filtered);
+        }
+
+        async function uploadToGitHub(filename, content) {
+            const token = getGitHubToken();
+            if (!token) return;
+
+            try {
+                const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`;
+                
+                const response = await fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: `Add travel document: ${filename}`,
+                        content: btoa(unescape(encodeURIComponent(content))),
+                        branch: GITHUB_CONFIG.branch
+                    })
+                });
+
+                if (response.ok) {
+                    console.log('File uploaded successfully');
+                }
+            } catch (error) {
+                console.error('Upload failed:', error);
+            }
+        }
+
+        async function updateGitHubIndex() {
+            const token = getGitHubToken();
+            if (!token) return;
+
+            try {
+                const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/index.html`;
+                
+                // Get current file
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+
+                if (response.ok) {
+                    const fileData = await response.json();
+                    const currentContent = document.documentElement.outerHTML;
+                    
+                    // Update file
+                    await fetch(url, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: `Update trips list - ${new Date().toLocaleDateString()}`,
+                            content: btoa(unescape(encodeURIComponent(currentContent))),
+                            branch: GITHUB_CONFIG.branch,
+                            sha: fileData.sha
+                        })
+                    });
+                }
+            } catch (error) {
+                console.error('Index update failed:', error);
+            }
         }
 
         function formatDate(dateString) {
