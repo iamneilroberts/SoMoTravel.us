@@ -527,6 +527,7 @@
                         <label class="form-label">Upload HTML File</label>
                         <div class="file-upload" id="fileUpload">
                             <p>Drag & drop HTML file here or click to browse</p>
+                            <p style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">File will be automatically uploaded and made live on your website</p>
                             <input type="file" id="htmlFile" accept=".html,.htm" style="display: none;">
                         </div>
                     </div>
@@ -576,7 +577,18 @@
         </footer>
     </div>
 
+    <!-- Load GitHub token configuration (not tracked in git) -->
+    <script src="config.js"></script>
+    
     <script>
+        // GitHub configuration - Token will be loaded from config.js (not tracked in git)
+        const GITHUB_CONFIG = {
+            owner: 'iamneilroberts',
+            repo: 'SoMoTravel.us',
+            token: window.GITHUB_TOKEN || null, // Will be set by config.js
+            branch: 'main'
+        };
+
         // Trip data - initialized with existing trips
         let trips = [
             // Proposal Category
@@ -826,6 +838,115 @@
             }
         ];
 
+        // Check if GitHub token is configured
+        function checkGitHubConfig() {
+            if (!GITHUB_CONFIG.token) {
+                alert('GitHub integration not configured. Please create a config.js file with your GitHub token.\n\nFor now, trips will be added locally only.');
+                return false;
+            }
+            return true;
+        }
+
+        // GitHub API Functions
+        async function uploadFileToGitHub(filename, content) {
+            if (!checkGitHubConfig()) {
+                throw new Error('GitHub not configured');
+            }
+            try {
+                const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`;
+                
+                // Check if file already exists
+                let sha = null;
+                try {
+                    const existingFile = await fetch(url, {
+                        headers: {
+                            'Authorization': `token ${GITHUB_CONFIG.token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    });
+                    if (existingFile.ok) {
+                        const fileData = await existingFile.json();
+                        sha = fileData.sha; // Need SHA to update existing file
+                    }
+                } catch (e) {
+                    // File doesn't exist, that's fine
+                }
+
+                // Upload/update file
+                const response = await fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${GITHUB_CONFIG.token}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: `Add travel document: ${filename}`,
+                        content: btoa(unescape(encodeURIComponent(content))), // Base64 encode
+                        branch: GITHUB_CONFIG.branch,
+                        ...(sha && { sha }) // Include SHA if updating existing file
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`GitHub API error: ${response.status}`);
+                }
+
+                return await response.json();
+            } catch (error) {
+                console.error('GitHub upload error:', error);
+                throw error;
+            }
+        }
+
+        async function updateIndexWithNewTrip(trip) {
+            try {
+                // Get current index.html
+                const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/index.html`;
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': `token ${GITHUB_CONFIG.token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Failed to get index.html: ${response.status}`);
+                }
+
+                const fileData = await response.json();
+                const currentContent = atob(fileData.content);
+
+                // Add trip to the trips array in the JavaScript
+                const tripObject = JSON.stringify(trip, null, 16).replace(/\n/g, '\n            ');
+                const insertPoint = currentContent.indexOf('        ];');
+                const newContent = currentContent.slice(0, insertPoint) + 
+                    '            ' + tripObject + ',\n' + 
+                    currentContent.slice(insertPoint);
+
+                // Upload updated index.html
+                await fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${GITHUB_CONFIG.token}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: `Add trip to index: ${trip.title}`,
+                        content: btoa(unescape(encodeURIComponent(newContent))),
+                        branch: GITHUB_CONFIG.branch,
+                        sha: fileData.sha
+                    })
+                });
+
+                return true;
+            } catch (error) {
+                console.error('Index update error:', error);
+                throw error;
+            }
+        }
+
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             renderTrips();
@@ -1046,37 +1167,82 @@
             ).join('');
         }
 
-        function handleFormSubmit(e) {
+        async function handleFormSubmit(e) {
             e.preventDefault();
             
             const title = document.getElementById('tripTitle').value.trim();
             const dates = document.getElementById('tripDates').value.trim();
             const category = document.getElementById('category').value;
             const description = document.getElementById('tripDescription').value.trim();
-            const filename = document.getElementById('htmlFile').dataset.filename || 'new-trip.html';
-
+            const fileInput = document.getElementById('htmlFile');
+            
             if (!title) {
                 alert('Please enter a trip title.');
                 return;
             }
 
-            const newTrip = {
-                title: title,
-                dates: dates,
-                status: category === 'proposal' ? 'Travel Proposal' : 
-                       category === 'confirmed' ? 'Confirmed' : 'Complete',
-                category: category,
-                file: filename,
-                tags: [...currentTags],
-                lastModified: new Date().toISOString().split('T')[0],
-                description: description
-            };
+            if (!fileInput.files || fileInput.files.length === 0) {
+                alert('Please select an HTML file to upload.');
+                return;
+            }
 
-            trips.push(newTrip);
-            renderTrips();
-            closeModal();
-            
-            alert('Trip added successfully! Note: You still need to upload the HTML file to your GitHub repository.');
+            const file = fileInput.files[0];
+            const filename = file.name;
+
+            // Show loading state
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Uploading...';
+            submitBtn.disabled = true;
+
+            try {
+                // Create trip object
+                const newTrip = {
+                    title: title,
+                    dates: dates,
+                    status: category === 'proposal' ? 'Travel Proposal' : 
+                           category === 'confirmed' ? 'Confirmed' : 'Complete',
+                    category: category,
+                    file: filename,
+                    tags: [...currentTags],
+                    lastModified: new Date().toISOString().split('T')[0],
+                    description: description
+                };
+
+                // If GitHub is configured, upload the file
+                if (GITHUB_CONFIG.token) {
+                    // Read file content
+                    const fileContent = await new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = e => resolve(e.target.result);
+                        reader.onerror = reject;
+                        reader.readAsText(file);
+                    });
+
+                    // Upload file to GitHub
+                    await uploadFileToGitHub(filename, fileContent);
+                    
+                    // Update index.html with new trip
+                    await updateIndexWithNewTrip(newTrip);
+
+                    alert(`Success! Your trip "${title}" has been added and is now live at:\nhttps://somotravel.us/${filename}`);
+                } else {
+                    alert('Trip added locally! Note: GitHub integration not configured, so the file was not uploaded to the live site.');
+                }
+
+                // Update local trips array and UI
+                trips.push(newTrip);
+                renderTrips();
+                closeModal();
+
+            } catch (error) {
+                console.error('Upload failed:', error);
+                alert(`Upload failed: ${error.message}\n\nPlease try again or contact support if the problem persists.`);
+            } finally {
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
         }
 
         function filterTrips() {
