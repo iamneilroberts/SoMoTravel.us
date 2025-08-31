@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voygent.ai — Itineraries that sell. Automations that save hours.</title>
+  <meta name="description" content="Voygent.ai is the AI-first travel proposal platform: availability‑aware itineraries, commission‑smart automations, and a modern client site."/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --panel:#11131a;
+      --muted:#a9b1c3;
+      --brand:#6ee7b7; /* mint */
+      --brand-2:#60a5fa; /* cornflower */
+      --text:#eef2f7;
+      --accent:#fde047; /* gold */
+      --danger:#ef4444;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+      --grad:linear-gradient(135deg, rgba(110,231,183,.15), rgba(96,165,250,.15));
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1150px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--brand);color:#0b0c10;padding:.85rem 1.1rem;border-radius:12px;font-weight:700;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
+    .btn.secondary{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.15)}
+    .pill{padding:.35rem .7rem;border-radius:999px;font-size:.8rem;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06)}
+    header{position:sticky;top:0;z-index:40;background:rgba(11,12,16,.6);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:.7rem;font-weight:800;letter-spacing:.2px}
+    .logo{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 180deg,var(--brand),var(--brand-2),var(--brand));box-shadow:0 0 0 3px rgba(255,255,255,.06)}
+    .navlinks{display:flex;gap:1.2rem}
+    .navlinks a{color:var(--muted)}
+    .hero{position:relative;overflow:hidden}
+    .hero .container{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;padding:84px 20px}
+    .h-title{font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.1;margin:0 0 12px;font-weight:800}
+    .h-sub{color:var(--muted);font-size:1.1rem;margin:0 0 22px}
+    .glass{background:var(--panel);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero-card{padding:20px;border-radius:var(--radius);background:var(--grad)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{padding:18px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
+    .feature h4{margin:.2rem 0 .4rem}
+    .muted{color:var(--muted)}
+    .section{padding:68px 0}
+    .section h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin:0 0 10px}
+    .section p.lead{color:var(--muted);max-width:800px}
+    .check{color:var(--brand);font-weight:900}
+    .pricing{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .plan{padding:22px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:linear-gradient(180deg,rgba(96,165,250,.07),rgba(110,231,183,.07));display:flex;flex-direction:column}
+    .plan.hi{outline:2px solid rgba(253,224,71,.45)}
+    .price{font-size:2rem;font-weight:800}
+    .ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px}
+    .ul li{color:var(--text)}
+    .faq{display:grid;gap:12px;max-width:900px}
+    details{border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px;background:rgba(255,255,255,.03)}
+    summary{cursor:pointer;font-weight:600}
+    footer{padding:40px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,.06)}
+    .badge{font-size:.75rem;border:1px solid rgba(255,255,255,.2);padding:.25rem .5rem;border-radius:999px}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .kbd{font:600 .8rem/1.5 Inter,system-ui;padding:.1rem .45rem;border:1px solid rgba(255,255,255,.2);border-bottom-width:2px;border-radius:6px;background:rgba(255,255,255,.06)}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    @media (max-width: 960px){
+      .hero .container{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr}
+      .two{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><div class="logo"></div> Voygent<span style="opacity:.6">.ai</span></div>
+      <nav class="navlinks">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn" href="#get-started">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div>
+        <span class="pill">AI‑first travel proposals</span>
+        <h1 class="h-title">Itineraries that sell.
+          <span style="background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">Automations that save hours.</span></h1>
+        <p class="h-sub">Voygent.ai helps travel advisors build availability‑aware, commission‑smart proposals in minutes — then publishes a beautiful client site with one click.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" href="#pricing">See Pricing</a>
+          <a class="btn secondary" href="#features">Explore Features</a>
+        </div>
+        <div style="margin-top:18px" class="muted">Self‑host (BYOK) or choose our hosted plan. Keep mcp‑chrome local today; go fully hosted later.</div>
+      </div>
+      <div class="glass hero-card">
+        <div style="padding:16px;border-radius:12px;background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.12)">
+          <div class="muted">Demo snapshot</div>
+          <div style="display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px">
+            <div class="feature">
+              <div class="muted">Paris · 4 nights · Refundable</div>
+              <h4>Hotel du Parc — from $260</h4>
+              <div class="muted">Classic Room · Free cancel until Jun 1 · 14% commission</div>
+            </div>
+            <div class="feature">
+              <div class="muted">Florence · 4 nights · Value pick</div>
+              <h4>Residenza Ponte Vecchio — from $188</h4>
+              <div class="muted">Superior · Breakfast · Walkable area</div>
+            </div>
+            <div class="feature">
+              <div class="muted">Rome · 3 nights · Premium</div>
+              <h4>Antica Roma Collection — from $342</h4>
+              <div class="muted">Junior Suite · Late checkout · 18% commission</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <span class="badge">Availability‑first</span>
+          <span class="badge">Commission‑aware</span>
+          <span class="badge">Client site + PDF</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="container">
+      <h2>Why advisors switch to Voygent.ai</h2>
+      <p class="lead">Stop copy/paste. Start closing. Voygent combines live vendor availability, AI planning, and gorgeous proposals — in one streamlined flow.</p>
+      <div class="grid-3" style="margin-top:18px">
+        <div class="feature">
+          <h4>Availability‑aware</h4>
+          <p class="muted">Pulls live results from CPMaxx, VAX, and Delta Vacations (via local mcp‑chrome) so your picks are actually bookable.</p>
+        </div>
+        <div class="feature">
+          <h4>Commission‑smart</h4>
+          <p class="muted">Highlights refundable vs non‑refundable options, upgrade deltas, and projected commission — automatically.</p>
+        </div>
+        <div class="feature">
+          <h4>Sizzle proposals</h4>
+          <p class="muted">Nunjucks → HTML → PDF engine renders beautiful, on‑brand proposals and a shareable client site.</p>
+        </div>
+        <div class="feature">
+          <h4>Open & flexible</h4>
+          <p class="muted">Self‑host (BYOK) or use our hosted cloud. Keep using your preferred LLMs and workflows.</p>
+        </div>
+        <div class="feature">
+          <h4>Hybrid architecture</h4>
+          <p class="muted">Run browser automation locally today. Move to full cloud when you’re ready (Opera Neon or hosted runners).</p>
+        </div>
+        <div class="feature">
+          <h4>Team‑ready</h4>
+          <p class="muted">Dashboard for proposals, clients, and pipeline. Roles, sharing, and templates for consistent delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section">
+    <div class="container">
+      <h2>Simple pricing that scales with you</h2>
+      <p class="lead">Try self‑hosted for free, or choose our hosted plans and let us run the infrastructure.</p>
+      <div class="pricing" style="margin-top:18px">
+        <div class="plan">
+          <div class="pill" style="width:max-content">Starter</div>
+          <div class="price">$29<span class="muted" style="font-weight:600;font-size:1rem">/mo</span></div>
+          <ul class="ul">
+            <li><span class="check">✔</span> 10 itineraries / month</li>
+            <li><span class="check">✔</span> AI drafts (budget models)</li>
+            <li><span class="check">✔</span> Client site link</li>
+            <li><span class="check">✔</span> PDF export</li>
+            <li class="muted">White label & automations not included</li>
+          </ul>
+          <div style="margin-top:auto"><a class="btn" href="#get-started">Start</a></div>
+        </div>
+        <div class="plan hi">
+          <div class="pill" style="width:max-content">Pro</div>
+          <div class="price">$79<span class="muted" style="font-weight:600;font-size:1rem">/mo</span></div>
+          <ul class="ul">
+            <li><span class="check">✔</span> Unlimited itineraries</li>
+            <li><span class="check">✔</span> White label + custom domain</li>
+            <li><span class="check">✔</span> Advanced templates</li>
+            <li><span class="check">✔</span> Premium AI polish</li>
+            <li><span class="check">✔</span> Hosted dashboard</li>
+          </ul>
+          <div style="margin-top:auto"><a class="btn" href="#get-started">Upgrade</a></div>
+        </div>
+        <div class="plan">
+          <div class="pill" style="width:max-content">Pro+ Automation</div>
+          <div class="price">$149<span class="muted" style="font-weight:600;font-size:1rem">/mo</span></div>
+          <ul class="ul">
+            <li><span class="check">✔</span> Everything in Pro</li>
+            <li><span class="check">✔</span> Live vendor availability</li>
+            <li><span class="check">✔</span> Commission‑aware picks</li>
+            <li><span class="check">✔</span> Availability‑first proposals</li>
+            <li><span class="check">✔</span> Cached hotel & flight results</li>
+          </ul>
+          <div style="margin-top:auto"><a class="btn" href="#get-started">Automate</a></div>
+        </div>
+        <div class="plan">
+          <div class="pill" style="width:max-content">Agency</div>
+          <div class="price">$399<span class="muted" style="font-weight:600;font-size:1rem">/mo</span></div>
+          <ul class="ul">
+            <li><span class="check">✔</span> Everything in Pro+</li>
+            <li><span class="check">✔</span> Multi‑agent dashboard</li>
+            <li><span class="check">✔</span> CRM‑lite + reporting</li>
+            <li><span class="check">✔</span> Priority support & SLAs</li>
+            <li><span class="check">✔</span> Custom branding</li>
+          </ul>
+          <div style="margin-top:auto"><a class="btn" href="#get-started">Talk to sales</a></div>
+        </div>
+      </div>
+      <div class="muted" style="margin-top:10px">Need deep back‑office sync and integrations? <strong>Agency Plus</strong> from $799/mo.</div>
+    </div>
+  </section>
+
+  <section id="how" class="section">
+    <div class="container two">
+      <div>
+        <h2>How it works</h2>
+        <ol class="ul" style="counter-reset:step;gap:14px">
+          <li><span class="badge">1</span> Enter dates, cities, and style (e.g., <span class="kbd">quaint • walkable • historic</span>).</li>
+          <li><span class="badge">2</span> Run availability searches (local <span class="mono">mcp‑chrome</span> now, hosted later).</li>
+          <li><span class="badge">3</span> Voygent picks L / M / H options by refundability, price, and commission.</li>
+          <li><span class="badge">4</span> Publish a branded client site + PDF. Save photos at publish for speed.</li>
+        </ol>
+      </div>
+      <div class="glass" style="padding:18px">
+        <h3 style="margin-top:0">Open or Hosted — your call</h3>
+        <p class="muted">Self‑host (BYOK) from GitHub — or choose Voygent Cloud. Even with local automation today, the hosted dashboard makes it feel like SaaS. When hosted runners are ready, you can go 100% cloud with no workflow changes.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+          <span class="badge">BYOK</span>
+          <span class="badge">LibreChat</span>
+          <span class="badge">mcp‑chrome</span>
+          <span class="badge">Nunjucks → HTML → PDF</span>
+          <span class="badge">Neon/D1</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="faq" style="margin-top:12px">
+        <details>
+          <summary>Can I self‑host with my own LLM keys?</summary>
+          <div class="muted">Yes. Voygent is open to self‑host (BYOK). Our hosted plans simply add convenience, uptime, and features like custom domains and team dashboards.</div>
+        </details>
+        <details>
+          <summary>Do you support CPMaxx, VAX, and Delta Vacations?</summary>
+          <div class="muted">Yes — via local browser automation today (mcp‑chrome). We normalize results to a standard schema so AI can plan with live availability. Hosted automation is on our roadmap.</div>
+        </details>
+        <details>
+          <summary>What about saving hotel photos?</summary>
+          <div class="muted">We recommend saving them at publish time so proposals are fast and future‑proof even if URLs change.</div>
+        </details>
+        <details>
+          <summary>Can I use cheaper models to draft and premium to polish?</summary>
+          <div class="muted">Absolutely. Draft with budget models; apply a premium pass for final client‑ready copy.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="get-started" class="section" style="padding-bottom:84px">
+    <div class="container glass" style="padding:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <div>
+        <h2 style="margin:0">Ready to build proposals clients say “yes” to?</h2>
+        <div class="muted">Spin up in minutes. Keep your current vendors. Bring your own LLM keys.</div>
+      </div>
+      <div>
+        <a class="btn" href="#pricing">Choose a plan</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div class="muted">© <span id="y"></span> Voygent.ai • All rights reserved</div>
+      <div style="display:flex;gap:14px">
+        <a class="muted" href="#">Terms</a>
+        <a class="muted" href="#">Privacy</a>
+        <a class="muted" href="#">Status</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
