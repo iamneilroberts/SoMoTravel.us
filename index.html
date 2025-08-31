@@ -5,42 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SoMo Travel — Trips</title>
   <style>
-    :root {
-      --primary:#0d6efd; --primary-600:#0b5ed7; --muted:#6b7280; --text:#111827;
-      --bg:#f6f7fb; --card:#ffffff; --border:#e5e7eb; --chip:#eef2ff; --chip-text:#334155;
-      --radius:14px;
+    :root{
+      --primary:#0d6efd; --primary-600:#0b5ed7; --muted:#6b7280; --text:#0b1220; --bg:#f5f7fb;
+      --card:#fff; --border:#e5e7eb; --shadow:0 10px 24px rgba(0,0,0,.06);
     }
     html,body{height:100%}
-    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--text); background:var(--bg)}
-    .container{max-width:1120px; margin:28px auto; padding:0 18px}
-    header{display:flex; align-items:center; justify-content:space-between; margin-bottom:18px}
-    h1{font-size:22px; margin:0}
+    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--text); background:var(--bg); font-size:18px}
+    .container{max-width:1180px; margin:22px auto; padding:0 18px}
+    header{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px}
+    h1{margin:8px 0 0; font-size:28px}
     .toolbar{display:flex; gap:10px; flex-wrap:wrap}
-    .btn{border:none; border-radius:10px; padding:10px 14px; font-weight:600; cursor:pointer; background:#eef0f6}
+    .btn{border:none; background:#eef0f6; padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer}
     .btn-primary{background:var(--primary); color:#fff}
     .btn-primary:hover{background:var(--primary-600)}
-    .btn-secondary{background:#e9ecf4}
-    .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px}
-    .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:14px; box-shadow:0 6px 18px rgba(0,0,0,.06)}
-    .title{font-weight:700; margin-bottom:4px}
-    .dates{color:var(--muted); font-size:13px}
-    .status{display:inline-block; padding:4px 8px; border-radius:999px; background:#eef2ff; color:#374151; font-size:12px; margin-top:8px}
+    .btn-secondary{background:#e9ecf4; color:#111}
+
+    /* Sections */
+    .section{background:#fff; border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); margin-bottom:18px}
+    .section-header{display:flex; align-items:center; justify-content:space-between; padding:14px 16px; font-weight:800; font-size:18px; letter-spacing:.2px}
+    .section-content{padding:16px}
+    .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px}
+
+    /* Header themes */
+    .proposal{background:linear-gradient(90deg,#fff3d4,#ffeaa6)}
+    .confirmed{background:linear-gradient(90deg,#e5ffe9,#c8f7d4)}
+    .deposit_paid{background:linear-gradient(90deg,#eaf1ff,#d6e2ff)}
+    .paid_in_full{background:linear-gradient(90deg,#e6f9ff,#c5f1ff)}
+    .active{background:linear-gradient(90deg,#fff0f0,#ffd9d9)}
+    .past{background:linear-gradient(90deg,#f3f4f6,#e5e7eb)}
+    .no_sale{background:linear-gradient(90deg,#fdf2f8,#fce7f3)}
+
+    /* Trip cards */
+    .card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:16px; box-shadow:var(--shadow)}
+    .title{font-size:18px; font-weight:800; color:#0b5ed7; margin-bottom:6px}
+    .dates{color:#4b5563; font-size:14px}
+    .status{display:inline-block; margin-top:8px; font-size:12px; padding:4px 10px; border-radius:999px; background:#eef2ff; color:#334155}
     .tags{margin-top:8px}
-    .tag{display:inline-block; padding:4px 8px; background:var(--chip); color:var(--chip-text); border-radius:999px; font-size:12px; margin-right:6px; margin-top:6px}
+    .tag{display:inline-block; padding:6px 10px; background:#eef2ff; color:#334155; border-radius:999px; font-size:12px; margin-right:6px; margin-top:6px}
     .actions{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap}
-    .muted{color:var(--muted); font-size:13px}
+    .actions .btn{font-size:14px; padding:8px 10px}
 
-    /* Modal */
+    #emptyState{color:var(--muted); margin-top:20px}
+
+    /* Backdrop + modal */
     .backdrop{display:none; position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:1000; align-items:center; justify-content:center}
-    .modal{width:min(760px,95%); max-height:85vh; overflow:auto; background:#fff; border-radius:14px; border:1px solid var(--border); box-shadow:0 18px 46px rgba(0,0,0,.25)}
-    .modal header{padding:14px 16px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between}
-    .modal .content{padding:16px}
-    .row{display:flex; gap:10px; flex-wrap:wrap}
-    .row>div{flex:1 1 220px}
-    input[type="text"], select{width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:10px; font-size:14px}
-    .file-drop{border:2px dashed #cbd5e1; border-radius:12px; padding:16px; text-align:center; color:#64748b; background:#fafbff; cursor:pointer}
+    .modal{width:min(820px,95%); max-height:85vh; overflow:auto; background:#fff; border-radius:14px; border:1px solid var(--border); box-shadow:0 18px 46px rgba(0,0,0,.25)}
 
-    /* Spinner overlay */
+    .form-label{font-weight:700; color:#1f2937; margin-bottom:.35rem; display:block}
+    .form-control{font-size:1.02rem; padding:12px 14px; border-radius:12px; border:1px solid var(--border); width:100%}
+    .file-drop{border:2px dashed #b6c2ff; border-radius:14px; padding:22px; background:#f7f9ff; text-align:center; color:#374151; cursor:pointer}
+    .file-drop:hover{border-color:#7aa7ff; background:#f5f9ff}
+
+    /* Spinner */
     #spinnerOverlay{display:none; position:fixed; inset:0; background:rgba(255,255,255,.85); z-index:2000; align-items:center; justify-content:center; flex-direction:column; color:#222}
     #spinnerOverlay .spinner{border:6px solid #f3f3f3; border-top:6px solid var(--primary); border-radius:50%; width:56px; height:56px; animation:spin 1s linear infinite; margin-bottom:1rem}
     @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
@@ -57,65 +73,92 @@
       </div>
     </header>
 
-    <div id="tripGrid" class="grid"></div>
-    <div id="emptyState" class="muted" style="display:none">No trips yet.</div>
+    <div id="tripGrid"></div>
+    <div id="emptyState" style="display:none">No trips yet.</div>
   </div>
 
   <!-- Add/Edit Modal -->
   <div id="tripModal" class="backdrop">
     <div class="modal">
-      <header>
-        <div class="title" id="modalTitle">Add Trip</div>
-        <button class="btn" onclick="closeModal()">Close</button>
+      <header style="background:var(--primary);color:#fff;border-radius:14px 14px 0 0;padding:16px 18px;display:flex;align-items:center;justify-content:space-between">
+        <div class="title" id="modalTitle" style="font-size:1.35rem;font-weight:800">Add Trip</div>
+        <button class="btn" style="background:#ffffff22;color:#fff;border:1px solid #ffffff55" onclick="closeModal()">Close</button>
       </header>
-      <div class="content">
+      <div class="content" style="padding:18px 18px 20px">
         <form id="tripForm">
-          <input type="hidden" id="editIndex" value="" />
-          <div class="row">
-            <div><label>Title<br><input id="tripTitle" type="text" required placeholder="e.g., Dublin & Paris Journey"></label></div>
-            <div><label>Dates<br><input id="tripDates" type="text" placeholder="e.g., May 5–15, 2026"></label></div>
-          </div>
-          <div class="row">
-            <div>
-              <label>Category<br>
-                <select id="tripCategory">
-                  <option value="proposal">Travel Proposal</option>
-                  <option value="confirmed">Confirmed</option>
-                  <option value="complete">Complete</option>
-                </select>
-              </label>
-            </div>
-            <div><label>Tags (comma separated)<br><input id="tripTags" type="text" placeholder="e.g., family, europe"></label></div>
-          </div>
-          <div class="row">
-            <div><label>Filename (public .html)<br><input id="tripFilename" type="text" required placeholder="e.g., DublinParis2026.html"></label></div>
-            <div style="display:flex; align-items:flex-end">
-              <div id="fileDrop" class="file-drop" onclick="document.getElementById('htmlFile').click()">
-                <input id="htmlFile" type="file" accept=".html,.htm" style="display:none">
-                <div id="fileInfo">Click to choose itinerary HTML (or leave empty to only edit metadata)</div>
+          <!-- BIG upload first -->
+          <div class="form-group">
+            <label class="form-label">Filename & Upload</label>
+            <div id="fileUploadArea" class="file-drop"
+                 onclick="document.getElementById('htmlFile').click()"
+                 ondragover="event.preventDefault(); this.style.borderColor='#0d6efd'; this.style.background='#eef4ff';"
+                 ondragleave="this.style.borderColor='#b6c2ff'; this.style.background='#f7f9ff';"
+                 ondrop="handleHtmlDrop(event)">
+              <input id="htmlFile" type="file" accept=".html,.htm" style="display:none">
+              <div style="font-size:1.15rem; font-weight:700; margin-bottom:6px">Upload itinerary HTML</div>
+              <div id="fileInfo" class="muted" style="font-size:0.95rem">Click or drop a .html file here</div>
+              <div style="margin-top:10px">
+                <button type="button" class="btn btn-primary" onclick="document.getElementById('htmlFile').click()">Choose File</button>
               </div>
             </div>
+            <div style="margin-top:10px">
+              <label class="form-label" for="tripFilename">Public filename (.html)</label>
+              <input id="tripFilename" class="form-control" type="text" placeholder="e.g., DublinParis2026.html" required>
+            </div>
           </div>
-          <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:12px">
-            <button type="button" class="btn" onclick="closeModal()">Cancel</button>
-            <button id="submitBtn" type="submit" class="btn btn-primary">Save</button>
+
+          <div class="row" style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px">
+            <div style="flex:1 1 280px">
+              <label class="form-label" for="tripTitle">Title</label>
+              <input id="tripTitle" class="form-control" type="text" placeholder="e.g., Dublin & Paris Journey">
+            </div>
+            <div style="flex:1 1 220px">
+              <label class="form-label" for="tripDates">Dates</label>
+              <input id="tripDates" class="form-control" type="text" placeholder="e.g., May 5–15, 2026">
+            </div>
+          </div>
+
+          <div class="row" style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px">
+            <div style="flex:1 1 220px">
+              <label class="form-label" for="tripCategory">Category</label>
+              <select id="tripCategory" class="form-control">
+                <option value="proposal">Proposal</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="deposit_paid">Deposit Paid</option>
+                <option value="paid_in_full">Paid in Full</option>
+                <option value="active">Active</option>
+                <option value="past">Past</option>
+                <option value="no_sale">No Sale</option>
+              </select>
+            </div>
+            <div style="flex:2 1 320px">
+              <label class="form-label" for="tripTags">Tags (comma separated)</label>
+              <input id="tripTags" class="form-control" type="text" placeholder="e.g., family, europe">
+            </div>
+          </div>
+
+          <input type="hidden" id="editIndex" value="">
+
+          <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:16px">
+            <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+            <button id="submitBtn" type="submit" class="btn btn-primary" style="font-size:1.05rem">Save</button>
           </div>
         </form>
       </div>
     </div>
   </div>
 
-  <!-- Version History Modal (per file) -->
+  <!-- File History / Metadata History Modal (reused) -->
   <div id="historyModal" class="backdrop">
     <div class="modal">
-      <header>
+      <header style="padding:14px 16px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between">
         <div>
-          <div class="title">Version history</div>
-          <div class="muted" id="historyPath"></div>
+          <div class="title" style="font-weight:800">Version history</div>
+          <div class="muted" id="historyPath" style="font-size:14px"></div>
         </div>
         <button class="btn" onclick="closeHistoryModal()">Close</button>
       </header>
-      <div id="historyBody" class="content">Loading…</div>
+      <div id="historyBody" class="content" style="padding:16px">Loading…</div>
     </div>
   </div>
 
@@ -126,61 +169,63 @@
 /***** CONFIG *****/
 const GITHUB_CONFIG = { owner: 'iamneilroberts', repo: 'SoMoTravel.us', branch: 'main' };
 
+/***** CATEGORY CONSTANTS *****/
+const CATEGORY_ORDER = ['proposal','confirmed','deposit_paid','paid_in_full','active','past','no_sale'];
+const CATEGORY_LABELS = { proposal:'Proposal', confirmed:'Confirmed', deposit_paid:'Deposit Paid', paid_in_full:'Paid in Full', active:'Active', past:'Past', no_sale:'No Sale' };
+
 /***** UTILITIES *****/
 function showSpinner(msg='Working…'){ document.getElementById('spinnerMessage').textContent = msg; document.getElementById('spinnerOverlay').style.display='flex'; }
 function hideSpinner(){ document.getElementById('spinnerOverlay').style.display='none'; }
-
 function asciiHeaderValue(s){ return String(s ?? '').normalize('NFKC').replace(/[\u00A0\u1680\u2000-\u200B\u202F\u205F\u3000]/g,' ').replace(/[^\x20-\x7E]/g,'').trim(); }
 function sanitizeToken(raw){ let t = asciiHeaderValue(raw).replace(/^["']|["']$/g,''); const m = t.match(/gh[pousr]_[A-Za-z0-9_]+/); return m?m[0]:t; }
 function getGitHubToken(){ let token = localStorage.getItem('github_token'); if(!token){ token = prompt('Enter GitHub Personal Access Token (repo contents read/write):'); } if(token){ token = sanitizeToken(token); localStorage.setItem('github_token', token); return token; } return null; }
 function setToken(){ localStorage.removeItem('github_token'); getGitHubToken(); alert('Token stored.'); }
-
 function encodeBase64(str){ try{ return btoa(unescape(encodeURIComponent(str))); }catch(e){ let out=''; for(let i=0;i<str.length;i++){ const c=str.charCodeAt(i); if(c<128) out+=String.fromCharCode(c); else if(c<2048) out+=String.fromCharCode(192|(c>>6))+String.fromCharCode(128|(c&63)); else out+=String.fromCharCode(224|(c>>12))+String.fromCharCode(128|((c>>6)&63))+String.fromCharCode(128|(c&63)); } return btoa(out);} }
-
 async function waitForFile(url, attempts=6, delay=3000){ for(let i=0;i<attempts;i++){ try{ const r=await fetch(url+`?cb=${Date.now()}`, {cache:'reload'}); if(r.ok) return true; }catch(_){} await new Promise(r=>setTimeout(r,delay)); } return false; }
 async function waitForRemoval(url, attempts=6, delay=3000){ for(let i=0;i<attempts;i++){ try{ const r=await fetch(url+`?cb=${Date.now()}`, {cache:'reload'}); if(!r.ok) return true; }catch(_){ return true; } await new Promise(r=>setTimeout(r,delay)); } return false; }
-
 function parseTagsInput(str){ return (str||'').split(',').map(s=>s.trim()).filter(Boolean).slice(0,20); }
+function normalizeCategory(old){ const v=(old||'').toLowerCase(); if(v==='proposal')return'proposal'; if(v==='confirmed')return'confirmed'; if(['deposit_paid','deposit-paid','deposit'].includes(v))return'deposit_paid'; if(['paid_in_full','paid-in-full','paid'].includes(v))return'paid_in_full'; if(['active','traveling'].includes(v))return'active'; if(['complete','completed','old','past'].includes(v))return'past'; if(['no_sale','nosale','declined','lost'].includes(v))return'no_sale'; return'proposal'; }
+function b64ToUtf8(b64){ const bin=atob(b64.replace(/\n/g,'')); const bytes=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i); return new TextDecoder('utf-8').decode(bytes); }
 
 /***** PUBLIC LOAD (NO TOKEN) *****/
-async function loadTripsPublic(){ const url = `${location.origin}/trips.json?cb=${Date.now()}`; const res = await fetch(url,{cache:'reload'}); if(!res.ok) { document.getElementById('tripGrid').innerHTML=''; document.getElementById('emptyState').style.display='block'; return []; } const data = await res.json(); const trips = Array.isArray(data.trips)?data.trips:[]; renderTrips(trips); return trips; }
+async function loadTripsPublic(){
+  const primary = `${location.origin}/trips.json?cb=${Date.now()}`;
+  const fallback = `https://raw.githubusercontent.com/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/${GITHUB_CONFIG.branch}/trips.json?cb=${Date.now()}`;
+  async function fetchJson(url){ const r=await fetch(url,{cache:'reload'}); if(!r.ok) throw new Error('HTTP '+r.status); const t=await r.text(); return JSON.parse(t); }
+  let data=null; try{ data=await fetchJson(primary);}catch(e1){ try{ console.warn('[trips.json] primary failed:',e1.message); data=await fetchJson(fallback);}catch(e2){ console.error('[trips.json] fallback failed:',e2.message); document.getElementById('tripGrid').innerHTML=''; document.getElementById('emptyState').style.display='block'; return []; } }
+  const trips = Array.isArray(data.trips) ? data.trips.map(t=>({ ...t, category: normalizeCategory(t.category) })) : [];
+  renderTrips(trips); return trips;
+}
 
 /***** GITHUB HELPERS (ADMIN) *****/
 function ghHeaders(){ const token=getGitHubToken(); if(!token) throw new Error('Missing token'); return { 'Authorization': asciiHeaderValue('Bearer '+token), 'Accept':'application/vnd.github.v3+json', 'Content-Type':'application/json' }; }
-
 async function uploadToGitHub(filename, content){ const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`; const headers=ghHeaders(); let sha=null; try{ const chk=await fetch(url+`?ref=${GITHUB_CONFIG.branch}`,{headers}); if(chk.ok){ const j=await chk.json(); sha=j.sha||null; } }catch(_){} const resp=await fetch(url,{ method:'PUT', headers, body: JSON.stringify({ message:(sha?`Update travel document: ${filename}`:`Add travel document: ${filename}`), content: encodeBase64(content), branch:GITHUB_CONFIG.branch, ...(sha?{sha}:{} ) }) }); if(!resp.ok){ let msg=`HTTP ${resp.status}`; try{ const j=await resp.json(); if(j?.message) msg+=` - ${j.message}`; }catch(_){} throw new Error(msg); } }
-
 async function deleteFromGitHub(filename){ const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`; const headers=ghHeaders(); const head=await fetch(url+`?ref=${GITHUB_CONFIG.branch}`,{headers}); if(!head.ok) throw new Error('Lookup failed '+head.status); const j=await head.json(); const del=await fetch(url,{method:'DELETE', headers, body: JSON.stringify({ message:`Delete ${filename}`, sha:j.sha, branch:GITHUB_CONFIG.branch })}); if(!del.ok){ let msg=`HTTP ${del.status}`; try{ const d=await del.json(); if(d?.message) msg+=` - ${d.message}`; }catch(_){} throw new Error(msg);} }
-
-async function getTripsJsonFromGitHub(){ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json?ref=${GITHUB_CONFIG.branch}`; const res=await fetch(url,{headers}); if(res.status===404) return {sha:null,trips:[]}; if(!res.ok) throw new Error('trips.json GET '+res.status); const j=await res.json(); const text=atob((j.content||'').replace(/\n/g,'')); const data=JSON.parse(text||'{"version":1,"trips":[]}'); return { sha:j.sha||null, trips:Array.isArray(data.trips)?data.trips:[] } }
-
+async function getTripsJsonFromGitHub(){ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json?ref=${GITHUB_CONFIG.branch}`; const res=await fetch(url,{headers}); if(res.status===404) return {sha:null,trips:[]}; if(!res.ok) throw new Error('trips.json GET '+res.status); const j=await res.json(); const text=atob((j.content||'').replace(/\n/g,'')); const data=JSON.parse(text||'{"version":1,"trips":[]}'); return { sha:j.sha||null, trips:Array.isArray(data.trips)?data.trips.map(t=>({ ...t, category: normalizeCategory(t.category) })):[] } }
 async function saveTripsJsonToGitHub(nextTrips, prevSha){ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json`; const body={ message:'Update trips.json', content: encodeBase64(JSON.stringify({version:1,trips:nextTrips},null,2)), branch:GITHUB_CONFIG.branch, ...(prevSha?{sha:prevSha}:{}) }; const put=await fetch(url,{method:'PUT', headers, body:JSON.stringify(body)}); if(!put.ok){ let msg=`trips.json PUT ${put.status}`; try{ const j=await put.json(); if(j?.message) msg+=` - ${j.message}`; }catch(_){} throw new Error(msg);} }
 
-/***** RENDER *****/
-function renderTrips(trips){ const grid=document.getElementById('tripGrid'); grid.innerHTML=''; document.getElementById('emptyState').style.display=trips.length? 'none':'block'; trips.forEach((t,i)=> grid.appendChild(createTripCard(t,i))); }
+/***** RENDER (grouped sections) *****/
+function renderTrips(trips){ const root=document.getElementById('tripGrid'); root.innerHTML=''; document.getElementById('emptyState').style.display=trips.length?'none':'block'; const groups=new Map(); trips.forEach(t=>{ const c=t.category||'proposal'; if(!groups.has(c)) groups.set(c,[]); groups.get(c).push(t); }); CATEGORY_ORDER.forEach(cat=>{ const list=groups.get(cat)||[]; if(!list.length) return; const section=document.createElement('section'); section.className='section'; const header=document.createElement('div'); header.className=`section-header ${cat}`; header.innerHTML=`<div>${CATEGORY_LABELS[cat]} <span style="font-weight:600;color:#374151;opacity:.8">(${list.length})</span></div>`; section.appendChild(header); const content=document.createElement('div'); content.className='section-content'; const grid=document.createElement('div'); grid.className='grid'; list.forEach((t,i)=>grid.appendChild(createTripCard(t,i))); content.appendChild(grid); section.appendChild(content); root.appendChild(section); }); }
 
-function createTripCard(trip, index){ const card=document.createElement('div'); card.className='card trip-card'; const title=document.createElement('div'); title.className='title'; title.textContent=trip.title||trip.filename; const dates=document.createElement('div'); dates.className='dates'; dates.textContent=trip.dates||''; const status=document.createElement('div'); status.className='status'; status.textContent=(trip.category||'proposal').replace(/^./,c=>c.toUpperCase()); const tags=document.createElement('div'); tags.className='tags'; (trip.tags||[]).forEach(t=>{ const el=document.createElement('span'); el.className='tag'; el.textContent=t; tags.appendChild(el); }); const view=document.createElement('a'); view.href=`/${trip.filename}`; view.target='_blank'; view.rel='noopener'; view.className='btn btn-secondary'; view.textContent='View'; const histBtn=document.createElement('button'); histBtn.className='btn btn-secondary'; histBtn.textContent='Version history'; histBtn.onclick=()=>openHistoryModal(trip);
-  const editBtn=document.createElement('button'); editBtn.className='btn btn-secondary'; editBtn.textContent='Edit'; editBtn.onclick=()=>openEditModal(trip,index);
-  const delBtn=document.createElement('button'); delBtn.className='btn btn-secondary'; delBtn.textContent='Delete'; delBtn.onclick=()=>confirmDeleteTrip(trip,index);
-  const actions=document.createElement('div'); actions.className='actions'; actions.append(view,histBtn,editBtn,delBtn);
-  card.append(title,dates,status,tags,actions); return card; }
+function createTripCard(trip,index){ const card=document.createElement('div'); card.className='card trip-card'; const title=document.createElement('div'); title.className='title'; title.textContent=trip.title||trip.filename; const dates=document.createElement('div'); dates.className='dates'; dates.textContent=trip.dates||''; const status=document.createElement('div'); status.className='status'; status.textContent=CATEGORY_LABELS[normalizeCategory(trip.category)]||'Proposal'; const tags=document.createElement('div'); tags.className='tags'; (trip.tags||[]).forEach(t=>{ const el=document.createElement('span'); el.className='tag'; el.textContent=t; tags.appendChild(el); }); const view=document.createElement('a'); view.href=`/${trip.filename}`; view.target='_blank'; view.rel='noopener'; view.className='btn btn-secondary'; view.textContent='View'; const histBtn=document.createElement('button'); histBtn.className='btn btn-secondary'; histBtn.textContent='Version history'; histBtn.onclick=()=>openHistoryModal(trip); const editBtn=document.createElement('button'); editBtn.className='btn btn-secondary'; editBtn.textContent='Edit'; editBtn.onclick=()=>openEditModal(trip,index); const delBtn=document.createElement('button'); delBtn.className='btn btn-secondary'; delBtn.textContent='Delete'; delBtn.onclick=()=>confirmDeleteTrip(trip,index); const actions=document.createElement('div'); actions.className='actions'; actions.append(view,histBtn,editBtn,delBtn); card.append(title,dates,status,tags,actions); return card; }
 
-/***** MODALS *****/
-function openAddModal(){ document.getElementById('tripForm').reset(); document.getElementById('editIndex').value=''; document.getElementById('modalTitle').textContent='Add Trip'; document.getElementById('fileInfo').textContent='Click to choose itinerary HTML'; document.getElementById('tripModal').style.display='flex'; }
-function openEditModal(trip,index){ document.getElementById('modalTitle').textContent='Edit Trip'; document.getElementById('tripTitle').value=trip.title||''; document.getElementById('tripDates').value=trip.dates||''; document.getElementById('tripCategory').value=trip.category||'proposal'; document.getElementById('tripTags').value=(trip.tags||[]).join(', '); document.getElementById('tripFilename').value=trip.filename||''; document.getElementById('fileInfo').textContent='(Optional) choose a new HTML to replace existing'; document.getElementById('editIndex').value=String(index); document.getElementById('tripModal').style.display='flex'; }
+/***** MODAL OPEN/CLOSE *****/
+function openAddModal(){ document.getElementById('tripForm').reset(); document.getElementById('editIndex').value=''; document.getElementById('modalTitle').textContent='Add Trip'; document.getElementById('fileInfo').textContent='Click or drop a .html file here'; document.getElementById('tripModal').style.display='flex'; }
+function openEditModal(trip,index){ document.getElementById('modalTitle').textContent='Edit Trip'; document.getElementById('tripTitle').value=trip.title||''; document.getElementById('tripDates').value=trip.dates||''; document.getElementById('tripCategory').value=normalizeCategory(trip.category); document.getElementById('tripTags').value=(trip.tags||[]).join(', '); document.getElementById('tripFilename').value=trip.filename||''; document.getElementById('fileInfo').textContent='(Optional) choose a new HTML to replace existing'; document.getElementById('editIndex').value=String(index); document.getElementById('tripModal').style.display='flex'; }
 function closeModal(){ document.getElementById('tripModal').style.display='none'; }
 
-/***** ADD/EDIT SUBMIT *****/
-(function initForm(){ const inp=document.getElementById('htmlFile'); inp.addEventListener('change',()=>{ const f=inp.files?.[0]; document.getElementById('fileInfo').textContent = f? `Selected: ${f.name}` : 'Click to choose itinerary HTML'; }); document.getElementById('tripForm').addEventListener('submit', onSubmitTrip); })();
+/***** UPLOAD + AUTOFILL *****/
+(function initUploadUI(){ const fileInput=document.getElementById('htmlFile'); fileInput.addEventListener('change',()=>{ const f=fileInput.files?.[0]; document.getElementById('fileInfo').textContent=f?`Selected: ${f.name}`:'Click or drop a .html file here'; if(!f) return; const fnEl=document.getElementById('tripFilename'); if(!fnEl.value) fnEl.value=defaultFilenameFromFile(f); (async()=>{ try{ const text=await f.text(); const t=extractTitleFromHtml(text); const d=extractDatesFromHtml(text); if(t && !document.getElementById('tripTitle').value) document.getElementById('tripTitle').value=t; if(d && !document.getElementById('tripDates').value) document.getElementById('tripDates').value=d; }catch(e){ console.warn('parse fail',e);} })(); }); })();
+function handleHtmlDrop(ev){ ev.preventDefault(); const dt=ev.dataTransfer; if(!dt||!dt.files?.length) return; const file=dt.files[0]; const input=document.getElementById('htmlFile'); const dt2=new DataTransfer(); dt2.items.add(file); input.files=dt2.files; input.dispatchEvent(new Event('change')); const area=document.getElementById('fileUploadArea'); area.style.borderColor='#b6c2ff'; area.style.background='#f7f9ff'; }
+function defaultFilenameFromFile(file){ const name=file?.name||''; if(!name) return ''; if(/\.(html?|HTML?)$/.test(name)) return name; return name.replace(/[^A-Za-z0-9._-]+/g,'-').replace(/\.+$/,'')+'.html'; }
+function extractTitleFromHtml(html){ try{ const doc=new DOMParser().parseFromString(html,'text/html'); const t=(doc.querySelector('title')?.textContent||'').trim(); if(t) return t.replace(/\s+/g,' ').slice(0,180); const h1=(doc.querySelector('h1')?.textContent||'').trim(); if(h1) return h1.replace(/\s+/g,' ').slice(0,180); const h2=(doc.querySelector('h2')?.textContent||'').trim(); if(h2) return h2.replace(/\s+/g,' ').slice(0,180); }catch{} return ''; }
+function extractDatesFromHtml(html){ const text=html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' '); const month='(January|February|March|April|May|June|July|August|September|October|November|December)'; const day='\\d{1,2}(st|nd|rd|th)?'; const year='\\d{4}'; const range1=new RegExp(`${month}\\s+${day}?\\s*(–|-|to)\\s*${month}?\\s*${day}?,?\\s*${year}`,'i'); const range2=new RegExp(`${month}\\s+${day},?\\s*${year}\\s*(–|-|to)\\s*${month}\\s+${day},?\\s*${year}`,'i'); const single=new RegExp(`${month}\\s+${day},?\\s*${year}`,'i'); const monthYear=new RegExp(`${month}\\s+${year}`,'i'); const tbd=/\bTBD\b\s*\d{4}/i; return (text.match(range1)?.[0]||text.match(range2)?.[0]||text.match(single)?.[0]||text.match(monthYear)?.[0]||text.match(tbd)?.[0]||'').trim(); }
 
-async function onSubmitTrip(e){ e.preventDefault(); try{
-  const i = document.getElementById('editIndex').value; const isEdit = i!==''; const title=document.getElementById('tripTitle').value.trim(); const dates=document.getElementById('tripDates').value.trim(); const category=document.getElementById('tripCategory').value; const tags=parseTagsInput(document.getElementById('tripTags').value); const filename=document.getElementById('tripFilename').value.trim();
-  let fileContent=null; const fileInput=document.getElementById('htmlFile'); if(fileInput.files && fileInput.files[0]){ fileContent= await fileInput.files[0].text(); }
-
-  // 1) Upload/replace file if provided
+/***** FORM SUBMIT *****/
+(function initForm(){ document.getElementById('tripForm').addEventListener('submit', onSubmitTrip); })();
+async function onSubmitTrip(e){ e.preventDefault(); try{ const i=document.getElementById('editIndex').value; const isEdit=i!==''; const title=document.getElementById('tripTitle').value.trim(); const dates=document.getElementById('tripDates').value.trim(); const category=normalizeCategory(document.getElementById('tripCategory').value); const tags=parseTagsInput(document.getElementById('tripTags').value); const filename=document.getElementById('tripFilename').value.trim(); let fileContent=null; const fileInput=document.getElementById('htmlFile'); if(fileInput.files && fileInput.files[0]){ fileContent= await fileInput.files[0].text(); }
+  if(!isEdit && fileContent===null){ if(!confirm('No HTML selected. Save metadata only?')) return; }
   if(fileContent!==null){ showSpinner('Uploading itinerary…'); await uploadToGitHub(filename, fileContent); const fileUrl=`${location.origin}/${filename}`; await waitForFile(fileUrl); hideSpinner(); }
-
-  // 2) Update trips.json
   showSpinner('Updating metadata…'); const {sha,trips}= await getTripsJsonFromGitHub(); const idx = trips.findIndex(t=>t.filename===filename); const entry={ filename, title, dates, category, tags, lastModified: new Date().toISOString().slice(0,10) };
   if(idx>=0){ trips[idx]=entry; } else { trips.push(entry); }
   await saveTripsJsonToGitHub(trips, sha); await waitForFile(`${location.origin}/trips.json`); hideSpinner(); alert('Saved.'); closeModal(); await loadTripsPublic(); }
@@ -190,17 +235,15 @@ async function onSubmitTrip(e){ e.preventDefault(); try{
 /***** DELETE *****/
 async function confirmDeleteTrip(trip,index){ if(!confirm(`Delete ${trip.title||trip.filename}?`)) return; try{ showSpinner('Deleting…'); await deleteFromGitHub(trip.filename); await waitForRemoval(`${location.origin}/${trip.filename}`); const {sha,trips}=await getTripsJsonFromGitHub(); const next=trips.filter(t=>t.filename!==trip.filename); await saveTripsJsonToGitHub(next, sha); await waitForFile(`${location.origin}/trips.json`); hideSpinner(); alert('Deleted.'); await loadTripsPublic(); } catch(err){ hideSpinner(); console.error(err); alert('Delete failed: '+(err?.message||err)); } }
 
-/***** FILE HISTORY (for itinerary) *****/
+/***** HISTORY (file) *****/
 function closeHistoryModal(){ document.getElementById('historyModal').style.display='none'; document.getElementById('historyBody').innerHTML=''; }
 async function listFileHistory(path, perPage=25){ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/commits?path=${encodeURIComponent(path)}&per_page=${perPage}&sha=${encodeURIComponent(GITHUB_CONFIG.branch)}`; const r=await fetch(url,{headers}); if(!r.ok) throw new Error('History HTTP '+r.status); return r.json(); }
-function previewHistorical(path,sha){ const raw=`https://raw.githubusercontent.com/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/${sha}/${path}`; window.open(raw,'_blank','noopener'); }
+async function previewHistorical(path,commitSha){ try{ showSpinner('Loading preview…'); const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${encodeURIComponent(path)}?ref=${commitSha}`; const res=await fetch(url,{headers}); if(!res.ok) throw new Error('HTTP '+res.status); const data=await res.json(); const html=b64ToUtf8(data.content||''); const blob=new Blob([html],{type:'text/html'}); const objectUrl=URL.createObjectURL(blob); hideSpinner(); window.open(objectUrl,'_blank','noopener'); }catch(err){ hideSpinner(); alert('Preview failed: '+(err?.message||err)); } }
 async function restoreFileToCommit(path,sha){ const headers=ghHeaders(); const head=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${path}?ref=${GITHUB_CONFIG.branch}`,{headers}); if(!head.ok) throw new Error('Head lookup '+head.status); const headJ=await head.json(); const hist=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${path}?ref=${sha}`,{headers}); if(!hist.ok) throw new Error('Historical lookup '+hist.status); const histJ=await hist.json(); const put=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${path}`,{ method:'PUT', headers, body: JSON.stringify({ message:`Revert ${path} to ${sha}`, content: histJ.content, branch:GITHUB_CONFIG.branch, sha: headJ.sha }) }); if(!put.ok){ let m=`HTTP ${put.status}`; try{ const j=await put.json(); if(j?.message) m+=` - ${j.message}`; }catch(_){} throw new Error(m);} }
-
 async function openHistoryModal(trip){ const modal=document.getElementById('historyModal'); const body=document.getElementById('historyBody'); document.getElementById('historyPath').textContent=trip.filename; body.innerHTML='Loading…'; modal.style.display='flex'; try{ const commits=await listFileHistory(trip.filename,30); if(!Array.isArray(commits)||!commits.length){ body.innerHTML='<div class="muted">No history.</div>'; return; } const wrap=document.createElement('div'); wrap.style.display='grid'; wrap.style.gap='10px'; commits.forEach(c=>{ const row=document.createElement('div'); row.style.display='grid'; row.style.gridTemplateColumns='1fr auto auto'; row.style.gap='8px'; row.style.alignItems='center'; row.style.padding='10px'; row.style.border='1px solid var(--border)'; row.style.borderRadius='8px'; const when=new Date(c.commit.author.date).toLocaleString(); row.innerHTML=`<div><div style="font-weight:600">${when}</div><div class="muted">${(c.commit.message||'').split('\n')[0]}</div><div class="muted" style="font-size:12px">${c.sha.slice(0,7)}</div></div>`; const prev=document.createElement('button'); prev.className='btn btn-secondary'; prev.textContent='Preview'; prev.onclick=()=>previewHistorical(trip.filename,c.sha); const restore=document.createElement('button'); restore.className='btn btn-primary'; restore.textContent='Restore'; restore.onclick=async()=>{ if(!confirm(`Restore ${trip.filename} to ${c.sha.slice(0,7)}?`)) return; try{ showSpinner('Restoring…'); await restoreFileToCommit(trip.filename,c.sha); await waitForFile(`${location.origin}/${trip.filename}`); hideSpinner(); alert('Restored.'); }catch(err){ hideSpinner(); alert('Restore failed: '+(err?.message||err)); } }; row.append(prev,restore); wrap.appendChild(row); }); body.innerHTML=''; body.appendChild(wrap); }catch(err){ console.error(err); body.innerHTML='<div style="color:#b00">Failed to load history.</div>'; } }
 
-/***** METADATA (trips.json) HISTORY (global) *****/
-async function openMetadataHistory(){ try{ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/commits?path=trips.json&per_page=30&sha=${encodeURIComponent(GITHUB_CONFIG.branch)}`; const r=await fetch(url,{headers}); if(!r.ok) throw new Error('HTTP '+r.status); const commits=await r.json(); const bodyEl=document.createElement('div'); bodyEl.className='content'; const list=document.createElement('div'); list.style.display='grid'; list.style.gap='10px'; (commits||[]).forEach(c=>{ const row=document.createElement('div'); row.style.display='grid'; row.style.gridTemplateColumns='1fr auto auto'; row.style.gap='8px'; row.style.alignItems='center'; row.style.padding='10px'; row.style.border='1px solid var(--border)'; row.style.borderRadius='8px'; const when=new Date(c.commit.author.date).toLocaleString(); row.innerHTML=`<div><div style="font-weight:600">${when}</div><div class="muted">${(c.commit.message||'').split('\n')[0]}</div><div class="muted" style="font-size:12px">${c.sha.slice(0,7)}</div></div>`; const prev=document.createElement('button'); prev.className='btn btn-secondary'; prev.textContent='Preview'; prev.onclick=()=>window.open(`https://raw.githubusercontent.com/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/${c.sha}/trips.json`,'_blank','noopener'); const restore=document.createElement('button'); restore.className='btn btn-primary'; restore.textContent='Restore'; restore.onclick=()=>restoreTripsJsonToCommit(c.sha); row.append(prev,restore); list.appendChild(row); }); const modal=document.getElementById('historyModal'); document.getElementById('historyPath').textContent='trips.json'; const hb=document.getElementById('historyBody'); hb.innerHTML=''; hb.appendChild(list); modal.style.display='flex'; }catch(err){ alert('Failed to load metadata history: '+(err?.message||err)); } }
-
+/***** METADATA (trips.json) HISTORY *****/
+async function openMetadataHistory(){ try{ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/commits?path=trips.json&per_page=30&sha=${encodeURIComponent(GITHUB_CONFIG.branch)}`; const r=await fetch(url,{headers}); if(!r.ok) throw new Error('HTTP '+r.status); const commits=await r.json(); const list=document.createElement('div'); list.style.display='grid'; list.style.gap='10px'; (commits||[]).forEach(c=>{ const row=document.createElement('div'); row.style.display='grid'; row.style.gridTemplateColumns='1fr auto auto'; row.style.gap='8px'; row.style.alignItems='center'; row.style.padding='10px'; row.style.border='1px solid var(--border)'; row.style.borderRadius='8px'; const when=new Date(c.commit.author.date).toLocaleString(); row.innerHTML=`<div><div style="font-weight:600">${when}</div><div class="muted">${(c.commit.message||'').split('\n')[0]}</div><div class="muted" style="font-size:12px">${c.sha.slice(0,7)}</div></div>`; const prev=document.createElement('button'); prev.className='btn btn-secondary'; prev.textContent='Preview'; prev.onclick=()=>window.open(`https://raw.githubusercontent.com/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/${c.sha}/trips.json`,'_blank','noopener'); const restore=document.createElement('button'); restore.className='btn btn-primary'; restore.textContent='Restore'; restore.onclick=()=>restoreTripsJsonToCommit(c.sha); row.append(prev,restore); list.appendChild(row); }); const modal=document.getElementById('historyModal'); document.getElementById('historyPath').textContent='trips.json'; const hb=document.getElementById('historyBody'); hb.innerHTML=''; hb.appendChild(list); modal.style.display='flex'; }catch(err){ alert('Failed to load metadata history: '+(err?.message||err)); } }
 async function restoreTripsJsonToCommit(sha){ if(!confirm(`Restore trips.json to ${sha.slice(0,7)}?`)) return; try{ showSpinner('Restoring metadata…'); const headers=ghHeaders(); const head=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json?ref=${GITHUB_CONFIG.branch}`,{headers}); if(!head.ok) throw new Error('Head lookup '+head.status); const headJ=await head.json(); const hist=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json?ref=${sha}`,{headers}); if(!hist.ok) throw new Error('Historical lookup '+hist.status); const histJ=await hist.json(); const put=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json`,{ method:'PUT', headers, body: JSON.stringify({ message:`Revert trips.json to ${sha}`, content: histJ.content, branch:GITHUB_CONFIG.branch, sha: headJ.sha })}); if(!put.ok) throw new Error('PUT '+put.status); await waitForFile(`${location.origin}/trips.json`); hideSpinner(); alert('Metadata restored.'); await loadTripsPublic(); }catch(err){ hideSpinner(); alert('Restore failed: '+(err?.message||err)); }
 }
 
