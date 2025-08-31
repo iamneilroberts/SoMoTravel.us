@@ -377,6 +377,39 @@
             background-color: #545b62;
         }
 
+        .tag-input-container {
+            position: relative;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tag-item {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tag-remove {
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .tag-remove:hover {
+            color: #ffcccc;
+        }
+
         .footer {
             text-align: center;
             margin-top: 3rem;
@@ -506,6 +539,14 @@
                         </select>
                     </div>
                     
+                    <div class="form-group">
+                        <label class="form-label">Tags</label>
+                        <div class="tag-input-container">
+                            <div class="tag-list" id="tagList"></div>
+                            <input type="text" id="tagInput" class="form-control" placeholder="Add tags (press Enter)">
+                        </div>
+                    </div>
+                    
                     <div>
                         <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
                         <button type="submit" class="btn btn-primary">Add Trip</button>
@@ -539,6 +580,14 @@
                             <option value="confirmed">Confirmed</option>
                             <option value="old">Archived</option>
                         </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Tags</label>
+                        <div class="tag-input-container">
+                            <div class="tag-list" id="editTagList"></div>
+                            <input type="text" id="editTagInput" class="form-control" placeholder="Add tags (press Enter)">
+                        </div>
                     </div>
                     
                     <div style="display: flex; justify-content: space-between;">
@@ -627,6 +676,8 @@
         ];
 
         let currentEditIndex = -1;
+        let currentTags = [];
+        let currentEditTags = [];
 
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
@@ -721,6 +772,8 @@
         function closeModal() {
             document.getElementById('addTripModal').style.display = 'none';
             document.getElementById('addTripForm').reset();
+            document.getElementById('tagList').innerHTML = '';
+            currentTags = [];
         }
 
         function openEditModal(index) {
@@ -731,13 +784,19 @@
             document.getElementById('editTripDates').value = trip.dates;
             document.getElementById('editCategory').value = trip.category;
             
+            // Set current tags
+            currentEditTags = [...trip.tags];
+            renderEditTags();
+            
             document.getElementById('editTripModal').style.display = 'block';
         }
 
         function closeEditModal() {
             document.getElementById('editTripModal').style.display = 'none';
             document.getElementById('editTripForm').reset();
+            document.getElementById('editTagList').innerHTML = '';
             currentEditIndex = -1;
+            currentEditTags = [];
         }
 
         function confirmDeleteTrip(index) {
@@ -747,8 +806,23 @@
             }
         }
 
-        function deleteTrip(index = currentEditIndex) {
+        async function deleteTrip(index = currentEditIndex) {
             if (index === -1) return;
+            
+            const trip = trips[index];
+            
+            // Archive the HTML file on GitHub if configured
+            const token = getGitHubToken();
+            if (token) {
+                try {
+                    await archiveHtmlFile(trip.file);
+                } catch (error) {
+                    console.error('Failed to archive HTML file:', error);
+                    if (!confirm(`Failed to archive HTML file "${trip.file}". Continue with deletion?`)) {
+                        return;
+                    }
+                }
+            }
             
             trips.splice(index, 1);
             renderTrips();
@@ -757,7 +831,13 @@
                 closeEditModal();
             }
             
-            updateGitHubIndex();
+            await updateGitHubIndex();
+            
+            if (token) {
+                alert(`Trip "${trip.title}" deleted and HTML file "${trip.file}" archived.`);
+            } else {
+                alert(`Trip "${trip.title}" deleted locally.`);
+            }
         }
 
         function setupEventListeners() {
@@ -794,6 +874,23 @@
             // Forms
             document.getElementById('addTripForm').addEventListener('submit', handleAddTrip);
             document.getElementById('editTripForm').addEventListener('submit', handleEditTrip);
+
+            // Tag inputs
+            document.getElementById('tagInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    addTag(e.target.value.trim());
+                    e.target.value = '';
+                }
+            });
+
+            document.getElementById('editTagInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    addEditTag(e.target.value.trim());
+                    e.target.value = '';
+                }
+            });
 
             // Search and filters
             document.getElementById('searchInput').addEventListener('input', filterTrips);
@@ -851,6 +948,51 @@
             document.getElementById('htmlFile').dataset.content = content;
         }
 
+        // Tag management functions
+        function addTag(tag) {
+            if (tag && !currentTags.includes(tag)) {
+                currentTags.push(tag);
+                renderTags();
+            }
+        }
+
+        function removeTag(tag) {
+            currentTags = currentTags.filter(t => t !== tag);
+            renderTags();
+        }
+
+        function renderTags() {
+            const tagList = document.getElementById('tagList');
+            tagList.innerHTML = currentTags.map(tag => 
+                `<span class="tag-item">
+                    ${tag}
+                    <span class="tag-remove" onclick="removeTag('${tag}')">&times;</span>
+                </span>`
+            ).join('');
+        }
+
+        function addEditTag(tag) {
+            if (tag && !currentEditTags.includes(tag)) {
+                currentEditTags.push(tag);
+                renderEditTags();
+            }
+        }
+
+        function removeEditTag(tag) {
+            currentEditTags = currentEditTags.filter(t => t !== tag);
+            renderEditTags();
+        }
+
+        function renderEditTags() {
+            const tagList = document.getElementById('editTagList');
+            tagList.innerHTML = currentEditTags.map(tag => 
+                `<span class="tag-item">
+                    ${tag}
+                    <span class="tag-remove" onclick="removeEditTag('${tag}')">&times;</span>
+                </span>`
+            ).join('');
+        }
+
         async function handleAddTrip(e) {
             e.preventDefault();
             
@@ -872,28 +1014,55 @@
             const file = fileInput.files[0];
             const filename = file.name;
 
-            // Create trip object
-            const newTrip = {
-                title: title,
-                dates: dates,
-                status: category === 'proposal' ? 'Travel Proposal' : 
-                       category === 'confirmed' ? 'Confirmed' : 'Complete',
-                category: category,
-                file: filename,
-                tags: [],
-                lastModified: new Date().toISOString().split('T')[0]
-            };
+            // Show loading state
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Uploading...';
+            submitBtn.disabled = true;
 
-            // Add to trips array
-            trips.push(newTrip);
+            try {
+                // Create trip object
+                const newTrip = {
+                    title: title,
+                    dates: dates,
+                    status: category === 'proposal' ? 'Travel Proposal' : 
+                           category === 'confirmed' ? 'Confirmed' : 'Complete',
+                    category: category,
+                    file: filename,
+                    tags: [...currentTags],
+                    lastModified: new Date().toISOString().split('T')[0]
+                };
 
-            // Update UI
-            renderTrips();
-            closeModal();
+                // Add to trips array
+                trips.push(newTrip);
 
-            // Upload to GitHub if configured
-            await uploadToGitHub(filename, fileInput.dataset.content);
-            await updateGitHubIndex();
+                // Update UI first
+                renderTrips();
+                closeModal();
+
+                // Upload to GitHub if configured
+                const token = getGitHubToken();
+                if (token) {
+                    await uploadToGitHub(filename, fileInput.dataset.content);
+                    await updateGitHubIndex();
+                    alert(`Success! Trip "${title}" added and files uploaded to GitHub.`);
+                } else {
+                    alert(`Trip "${title}" added locally. GitHub integration not configured.`);
+                }
+
+            } catch (error) {
+                console.error('Upload failed:', error);
+                // Remove from trips array if upload failed
+                const tripIndex = trips.findIndex(t => t.title === title && t.file === filename);
+                if (tripIndex !== -1) {
+                    trips.splice(tripIndex, 1);
+                    renderTrips();
+                }
+                alert(`Upload failed: ${error.message}\n\nPlease try again.`);
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
         }
 
         async function handleEditTrip(e) {
@@ -916,6 +1085,7 @@
             trips[currentEditIndex].category = category;
             trips[currentEditIndex].status = category === 'proposal' ? 'Travel Proposal' : 
                                            category === 'confirmed' ? 'Confirmed' : 'Complete';
+            trips[currentEditIndex].tags = [...currentEditTags];
             trips[currentEditIndex].lastModified = new Date().toISOString().split('T')[0];
 
             renderTrips();
@@ -949,6 +1119,31 @@
             try {
                 const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`;
                 
+                // Check if file already exists and backup if it does
+                let sha = null;
+                try {
+                    const existingFileResponse = await fetch(url, {
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    });
+                    
+                    if (existingFileResponse.ok) {
+                        const existingFileData = await existingFileResponse.json();
+                        sha = existingFileData.sha;
+                        
+                        // Create backup of existing file
+                        const timestamp = new Date().toISOString().split('T')[0];
+                        const backupFilename = `archive/backup-${timestamp}-${filename}`;
+                        await createBackupFile(backupFilename, existingFileData.content);
+                        console.log(`Backup created: ${backupFilename}`);
+                    }
+                } catch (e) {
+                    // File doesn't exist, that's fine
+                }
+
+                // Upload/update the file
                 const response = await fetch(url, {
                     method: 'PUT',
                     headers: {
@@ -957,17 +1152,108 @@
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        message: `Add travel document: ${filename}`,
+                        message: sha ? `Update travel document: ${filename}` : `Add travel document: ${filename}`,
                         content: btoa(unescape(encodeURIComponent(content))),
-                        branch: GITHUB_CONFIG.branch
+                        branch: GITHUB_CONFIG.branch,
+                        ...(sha && { sha })
                     })
                 });
 
                 if (response.ok) {
-                    console.log('File uploaded successfully');
+                    console.log(`File ${sha ? 'updated' : 'uploaded'} successfully`);
+                    return true;
+                } else {
+                    throw new Error(`GitHub API error: ${response.status}`);
                 }
             } catch (error) {
                 console.error('Upload failed:', error);
+                throw error;
+            }
+        }
+
+        async function createBackupFile(backupFilename, existingContent) {
+            const token = getGitHubToken();
+            if (!token) return;
+
+            try {
+                const backupUrl = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${backupFilename}`;
+                
+                await fetch(backupUrl, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: `Create backup: ${backupFilename}`,
+                        content: existingContent, // Already base64 encoded
+                        branch: GITHUB_CONFIG.branch
+                    })
+                });
+            } catch (error) {
+                console.error('Backup creation failed:', error);
+            }
+        }
+
+        async function archiveHtmlFile(filename) {
+            const token = getGitHubToken();
+            if (!token) return;
+
+            try {
+                const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`;
+                
+                // Get the current file
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+
+                if (response.ok) {
+                    const fileData = await response.json();
+                    
+                    // Create archive filename
+                    const timestamp = new Date().toISOString().split('T')[0];
+                    const archiveFilename = `archive/archived-${timestamp}-${filename}`;
+                    
+                    // Create archived copy
+                    const archiveUrl = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${archiveFilename}`;
+                    await fetch(archiveUrl, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: `Archive deleted trip file: ${filename}`,
+                            content: fileData.content, // Already base64 encoded
+                            branch: GITHUB_CONFIG.branch
+                        })
+                    });
+
+                    // Delete the original file
+                    await fetch(url, {
+                        method: 'DELETE',
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: `Delete trip file (archived as ${archiveFilename})`,
+                            sha: fileData.sha,
+                            branch: GITHUB_CONFIG.branch
+                        })
+                    });
+
+                    console.log(`File archived: ${filename} -> ${archiveFilename}`);
+                }
+            } catch (error) {
+                console.error('Archive failed:', error);
+                throw error;
             }
         }
 
