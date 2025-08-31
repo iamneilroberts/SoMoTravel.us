@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>London & Paris Travel Package - May 5-15, 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            border-bottom: 3px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 20px 0 10px 0;
+            border-left: 5px solid #333;
+        }
+        
+        h3 {
+            margin: 15px 0 10px 0;
+            color: #333;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        
+        h4 {
+            margin: 10px 0 5px 0;
+            color: #555;
+        }
+        
+        .nav {
+            background: #fff;
+            border: 2px solid #000;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        
+        .nav a {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            background: #f0f0f0;
+            color: #000;
+            text-decoration: none;
+            border: 1px solid #333;
+        }
+        
+        .nav a:hover {
+            background: #e0e0e0;
+        }
+        
+        .urgent {
+            border: 3px solid #ff0000;
+            background: #fff0f0;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .urgent h2 {
+            background: #ff0000;
+            color: #fff;
+            margin: -15px -15px 10px -15px;
+            padding: 10px 15px;
+        }
+        
+        .price-highlight {
+            border: 3px solid #0066cc;
+            background: #f0f7ff;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .price-highlight h2 {
+            background: #0066cc;
+            color: #fff;
+            margin: -15px -15px 10px -15px;
+            padding: 10px 15px;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 10px;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #000;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        
+        .checkbox.checked::after {
+            content: '✓';
+            display: block;
+            text-align: center;
+            line-height: 16px;
+            font-weight: bold;
+        }
+        
+        .confirmation {
+            background: #e0e0e0;
+            padding: 2px 6px;
+            font-family: monospace;
+            font-weight: bold;
+            display: inline-block;
+            border: 1px solid #000;
+        }
+        
+        .flight-info, .hotel-info, .transport-info {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            background: #fafafa;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 3px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .tip {
+            background: #ffffcc;
+            border-left: 4px solid #ffcc00;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        
+        .contact-info {
+            background: #f5f5f5;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #999;
+        }
+        
+        a {
+            color: #0066cc;
+        }
+        
+        .button-link {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #0066cc;
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        
+        .button-link:hover {
+            background: #0052a3;
+        }
+        
+        strong {
+            font-weight: 600;
+        }
+        
+        .schedule-day {
+            background: #f9f9f9;
+            padding: 8px;
+            margin: 5px 0;
+            border-left: 3px solid #666;
+        }
+        
+        .london-section {
+            background: #f0f7ff;
+            border: 2px solid #0066cc;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .paris-section {
+            background: #fff5f5;
+            border: 2px solid #cc6600;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .time-block {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 12px 0;
+        }
+        
+        .time-header {
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 5px;
+        }
+        
+        .paris-header {
+            color: #cc6600;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background: #f0f0f0;
+        }
+        
+        @media print {
+            .nav {
+                display: none;
+            }
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>London & Paris Travel Package</h1>
+    <p><strong>London → Paris</strong><br>
+    <strong>May 5-15, 2026 | 2 Travelers</strong></p>
+    
+    <nav class="nav">
+        <a href="#pricing">💰 Pricing</a>
+        <a href="#flights">✈️ Flights</a>
+        <a href="#hotels">🏨 Hotels</a>
+        <a href="#london">🇬🇧 London</a>
+        <a href="#eurostar">🚄 Eurostar</a>
+        <a href="#paris">🇫🇷 Paris</a>
+        <a href="#champagne">🍾 Champagne</a>
+        <a href="#requirements">📋 Requirements</a>
+        <a href="#schedule">📅 Schedule</a>
+    </nav>
+    
+    <div class="price-highlight" id="pricing">
+        <h2>💰 PACKAGE PRICING SUMMARY</h2>
+        
+        <h3>Total Package Cost Options</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Option</th>
+                    <th>Total Cost</th>
+                    <th>Per Person</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Basic Economy from Mobile</strong></td>
+                    <td>$7,331.76</td>
+                    <td>$3,665.88</td>
+                </tr>
+                <tr>
+                    <td><strong>Preferred from Mobile</strong></td>
+                    <td>$11,715.76</td>
+                    <td>$5,857.88</td>
+                </tr>
+                <tr>
+                    <td>From Pensacola</td>
+                    <td>$7,671.76 - $11,942.02</td>
+                    <td>$3,835.88 - $5,971.01</td>
+                </tr>
+                <tr>
+                    <td>From Gulfport</td>
+                    <td>$7,540.56 - $11,279.66</td>
+                    <td>$3,770.28 - $5,639.83</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h4>Travel Protection Options</h4>
+        <ul>
+            <li><strong>Travel Protection Plus (Travel Credit):</strong> $279.98 for 2 travelers</li>
+            <li><strong>Travel Protection Plus (Cash Refund - Cancel for ANY reason):</strong> $569.98 for 2 travelers</li>
+        </ul>
+        
+        <h4>Estimated Total Trip Cost</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Estimated Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Package Base</td>
+                    <td>$7,332 - $11,716</td>
+                </tr>
+                <tr>
+                    <td>Travel Protection</td>
+                    <td>$280 - $570</td>
+                </tr>
+                <tr>
+                    <td>Eurostar Tickets</td>
+                    <td>$100 - $500</td>
+                </tr>
+                <tr>
+                    <td>Champagne Day Trip</td>
+                    <td>$200 - $400</td>
+                </tr>
+                <tr>
+                    <td>Daily Tours/Activities</td>
+                    <td>$1,000 - $2,000</td>
+                </tr>
+                <tr>
+                    <td>Meals & Incidentals</td>
+                    <td>$1,500 - $2,500</td>
+                </tr>
+                <tr style="background: #f0f7ff;">
+                    <td><strong>TOTAL ESTIMATED</strong></td>
+                    <td><strong>$10,412 - $17,686</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <h2 id="flights">✈️ FLIGHT DETAILS</h2>
+    
+    <h3>Outbound: May 5, 2026</h3>
+    
+    <div class="flight-info">
+        <h4>Mobile Regional Airport → London Heathrow</h4>
+        
+        <p><strong>MOB → IAD (Washington Dulles)</strong></p>
+        <ul>
+            <li>Airline: United Express (CommutAir)</li>
+            <li>Flight: UA4951</li>
+            <li>Time: 12:55 PM - 4:20 PM</li>
+        </ul>
+        
+        <p><strong>IAD → LHR (London Heathrow)</strong> - Overnight Flight</p>
+        <ul>
+            <li>Airline: United Airlines</li>
+            <li>Flight: UA918</li>
+            <li>Time: 6:30 PM - 6:55 AM+1 (arrives May 6)</li>
+            <li><strong>Layover:</strong> 2 hours 10 minutes in Washington Dulles</li>
+        </ul>
+        <div class="tip">
+            <strong>Flight Tips:</strong>
+            <ul>
+                <li>Select meals for overnight flight</li>
+                <li>Consider seat upgrades for comfort</li>
+                <li>Arrives London early morning - perfect for day exploration</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3>Return: May 16, 2026</h3>
+    
+    <div class="flight-info">
+        <h4>Paris Charles de Gaulle → Mobile Regional Airport</h4>
+        
+        <p><strong>CDG → IAD (Washington Dulles)</strong></p>
+        <ul>
+            <li>Airline: United Airlines</li>
+            <li>Flight: UA914</li>
+            <li>Time: 12:25 PM - 2:45 PM</li>
+            <li>Duration: 9 hours 20 minutes</li>
+        </ul>
+        
+        <p><strong>IAD → MOB (Mobile Regional)</strong></p>
+        <ul>
+            <li>Airline: United Express (CommutAir)</li>
+            <li>Flight: UA4295</li>
+            <li>Time: 5:35 PM - 7:10 PM</li>
+            <li><strong>Layover:</strong> 2 hours 50 minutes in Washington Dulles</li>
+        </ul>
+    </div>
+    
+    <h2 id="hotels">🏨 HOTEL ACCOMMODATIONS</h2>
+    
+    <div class="hotel-info">
+        <h3>London: May 6-9, 2026</h3>
+        <h4>Hilton London Tower Bridge (4/5 stars)</h4>
+        <ul>
+            <li><strong>Duration:</strong> 3 nights</li>
+            <li><strong>Room:</strong> Twin Hilton Guest Room (2 beds, A/C, WiFi, minibar)</li>
+            <li><strong>Location:</strong> South Bank, walking distance to London Bridge station</li>
+            <li><strong>Amenities:</strong> Fitness center, restaurant, 24-hour room service</li>
+            <li><strong>Note:</strong> Non-refundable rate</li>
+        </ul>
+        <div class="tip">
+            <strong>Location Benefits:</strong> Perfect base for exploring Borough Market, Tower Bridge, Shakespeare's Globe, and the South Bank cultural attractions.
+        </div>
+    </div>
+    
+    <div class="hotel-info">
+        <h3>Paris: May 9-16, 2026</h3>
+        <h4>Canopy by Hilton Paris Eiffel Tower (4/5 stars)</h4>
+        <ul>
+            <li><strong>Duration:</strong> 7 nights</li>
+            <li><strong>Room:</strong> Twin Room (26 sqm, espresso machine, fridge, bathrobes)</li>
+            <li><strong>Includes:</strong> Evening tasting & welcome gift</li>
+            <li><strong>Location:</strong> Near Champs-Élysées and Eiffel Tower</li>
+            <li><strong>Note:</strong> Non-refundable rate</li>
+        </ul>
+        <div class="tip">
+            <strong>Special Perks:</strong> Take advantage of the complimentary evening tasting! Perfect location for walking to major attractions.
+        </div>
+    </div>
+    
+    <h2 id="eurostar">🚄 LONDON TO PARIS TRANSFER (MAY 9)</h2>
+    
+    <div class="transport-info">
+        <h3>Eurostar High-Speed Train</h3>
+        <ul>
+            <li><strong>Route:</strong> London St Pancras → Paris Gare du Nord</li>
+            <li><strong>Duration:</strong> 2 hours 15-30 minutes</li>
+            <li><strong>Frequency:</strong> 15+ trains daily</li>
+            <li><strong>Price Range:</strong> £39-200+ (book early for best rates)</li>
+            <li><strong>Check-in:</strong> Arrive 30-45 minutes early for security/passport control</li>
+        </ul>
+        
+        <h4>Station Area Dining</h4>
+        <p><strong>London St Pancras International</strong></p>
+        <ul>
+            <li>St Pancras Brasserie, Sourced Market, Pret A Manger</li>
+            <li>M&S Simply Food (grab sandwiches for train)</li>
+        </ul>
+        
+        <p><strong>Paris Gare du Nord</strong></p>
+        <ul>
+            <li>Brasserie Terminus Nord (classic brasserie across from station)</li>
+            <li>Paul bakery, Relay (for snacks)</li>
+        </ul>
+    </div>
+    
+    <h2 id="london">🇬🇧 LONDON ACTIVITIES & DINING</h2>
+    
+    <div class="london-section">
+        <h3>Walking Tours from Hilton Tower Bridge</h3>
+        
+        <h4>Self-Guided Walking Routes (Free)</h4>
+        <div class="time-block">
+            <div class="time-header">🚶 Thames Path Walk (5 mins from hotel)</div>
+            <p>West to Tower Bridge → Tower of London → St. Katherine Docks<br>
+            East to Butler's Wharf → Design Museum → Bermondsey</p>
+        </div>
+        
+        <div class="time-block">
+            <div class="time-header">🏪 Borough Market Circuit (10 mins walk)</div>
+            <p>Cross London Bridge → Borough Market → Southwark Cathedral → Golden Hinde → Shakespeare's Globe</p>
+        </div>
+        
+        <div class="time-block">
+            <div class="time-header">🎨 South Bank Cultural Walk (15 mins start)</div>
+            <p>Tate Modern → Millennium Bridge → Globe Theatre → Borough Market → The Shard</p>
+        </div>
+        
+        <h4>Guided Walking Tours</h4>
+        <ul>
+            <li><strong>Jack the Ripper Tour</strong> - Departs from Tower Hill (evening tours)</li>
+            <li><strong>Historic Pub Walk</strong> - Starts at London Bridge</li>
+            <li><strong>Street Art Tour</strong> - Shoreditch/Brick Lane (20 mins by tube)</li>
+        </ul>
+        
+        <h4>Popular Viator Tours</h4>
+        <ul>
+            <li>Tower of London & Crown Jewels</li>
+            <li>Westminster Abbey & Big Ben</li>
+            <li>Thames River Cruise</li>
+            <li>Harry Potter Studio Tour</li>
+        </ul>
+        <a href="https://www.viator.com/agent-trip-suggestions/W-95b438fb-f31e-44db-932b-a089f8222722" class="button-link">Browse London Activities</a>
+    </div>
+    
+    <div class="london-section">
+        <h3>Dining Near Hilton Tower Bridge</h3>
+        
+        <h4>🌅 Breakfast</h4>
+        <ul>
+            <li><strong>The Ivy Tower Bridge</strong> (5 mins) - Elegant British breakfast, river views</li>
+            <li><strong>The Breakfast Club London Bridge</strong> (8 mins) - Popular all-day breakfast</li>
+            <li><strong>Borough Market</strong> (10 mins) - Multiple vendors, fresh pastries, coffee</li>
+            <li><strong>Roast</strong> (10 mins) - Full English breakfast with Borough Market views</li>
+        </ul>
+        
+        <h4>🥗 Lunch</h4>
+        <ul>
+            <li><strong>Padella</strong> (Borough Market) - Fresh handmade pasta, expect queues</li>
+            <li><strong>Wright Brothers Borough Market</strong> (10 mins) - Oysters and seafood</li>
+            <li><strong>The George Inn</strong> (12 mins) - Historic galleried coaching inn, pub lunch</li>
+            <li><strong>Flat Iron Square</strong> (15 mins) - Food hall with multiple vendors</li>
+        </ul>
+        
+        <h4>🍽️ Dinner</h4>
+        <ul>
+            <li><strong>The Coal Shed</strong> (2 mins) - Premium steaks and seafood</li>
+            <li><strong>Aqua Shard</strong> (10 mins) - Level 31 dining with panoramic views</li>
+            <li><strong>Hawksmoor Borough</strong> (12 mins) - British steakhouse</li>
+            <li><strong>St. John Maltby</strong> (15 mins) - Nose-to-tail dining</li>
+            <li><strong>OXO Tower Restaurant</strong> (20 mins walk) - Fine dining with Thames views</li>
+        </ul>
+        
+        <div class="tip">
+            <strong>London Pro Tips:</strong>
+            <ul>
+                <li>Borough Market is closed Sundays (limited stalls) and Mondays</li>
+                <li>Book restaurants for Friday/Saturday nights</li>
+                <li>Many pubs stop serving food at 9 PM</li>
+                <li>The Shard has free views from bars on upper floors (buy a drink)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h2 id="paris">🇫🇷 PARIS ACTIVITIES & DINING</h2>
+    
+    <div class="paris-section">
+        <h3>Walking Tours from Canopy Eiffel Tower</h3>
+        
+        <h4>Self-Guided Walking Routes (Free)</h4>
+        <div class="time-block">
+            <div class="time-header paris-header">🗼 Eiffel Tower to Trocadéro (15 mins from hotel)</div>
+            <p>Champ de Mars → Eiffel Tower → Cross Seine → Trocadéro Gardens → Palais de Chaillot</p>
+        </div>
+        
+        <div class="time-block">
+            <div class="time-header paris-header">🛍️ Champs-Élysées Stroll (10 mins to start)</div>
+            <p>Arc de Triomphe → Luxury shops → Grand Palais → Petit Palais → Place de la Concorde</p>
+        </div>
+        
+        <div class="time-block">
+            <div class="time-header paris-header">🌊 Seine River Walk (5 mins to river)</div>
+            <p>Pont de l'Alma → Along quays → Musée d'Orsay → Louvre → Notre-Dame</p>
+        </div>
+        
+        <div class="time-block">
+            <div class="time-header paris-header">📚 Left Bank Literary Walk (20 mins)</div>
+            <p>Les Invalides → Rodin Museum → Rue Cler Market → École Militaire</p>
+        </div>
+        
+        <h4>Guided Walking Tours</h4>
+        <ul>
+            <li><strong>Paris Food Tour - Saint-Germain</strong> (starts nearby)</li>
+            <li><strong>Montmartre Walking Tour</strong> (metro to Abbesses)</li>
+            <li><strong>Latin Quarter Historical Walk</strong></li>
+            <li><strong>Paris at Dawn Photography Walk</strong></li>
+        </ul>
+        
+        <h4>Popular Viator Tours</h4>
+        <ul>
+            <li>Skip-the-line Eiffel Tower</li>
+            <li>Louvre Museum guided tour</li>
+            <li>Versailles day trip</li>
+            <li>Seine River dinner cruise</li>
+        </ul>
+        <a href="https://www.viator.com/agent-trip-suggestions/W-306f63b8-3615-4f2b-b0c8-904dc341ed5e" class="button-link">Browse Paris Activities</a>
+    </div>
+    
+    <div class="paris-section">
+        <h3>Dining Near Canopy Eiffel Tower</h3>
+        
+        <h4>🥐 Breakfast</h4>
+        <ul>
+            <li><strong>Café de l'Homme</strong> (Trocadéro) - Eiffel Tower views, elegant breakfast</li>
+            <li><strong>Carette</strong> (Trocadéro) - Classic French pastries and hot chocolate</li>
+            <li><strong>Boulangerie Julien</strong> (Rue Saint-Dominique) - Local bakery, fresh croissants</li>
+            <li><strong>Season</strong> (nearby) - Healthy brunch options</li>
+            <li><strong>Hotel's Rooftop</strong> - Your hotel has a lovely breakfast with views</li>
+        </ul>
+        
+        <h4>🥖 Lunch</h4>
+        <ul>
+            <li><strong>Rue Cler Market Street</strong> (10 mins) - Multiple cafés, shops, and bistros</li>
+            <li><strong>Les Cocottes</strong> (5 mins) - Christian Constant's casual bistro</li>
+            <li><strong>Café Central</strong> (8 mins) - Traditional brasserie</li>
+            <li><strong>L'Ami Jean</strong> (10 mins) - Basque-inspired bistro</li>
+            <li><strong>Chez L'Ami Louis</strong> (metro) - Famous for roast chicken</li>
+        </ul>
+        
+        <h4>🍷 Dinner</h4>
+        <ul>
+            <li><strong>Le Jules Verne</strong> (Eiffel Tower) - Michelin dining IN the tower (book far ahead)</li>
+            <li><strong>L'Astrance</strong> (15 mins) - 3 Michelin stars (reservation essential)</li>
+            <li><strong>Les Ombres</strong> (Musée Quai Branly rooftop) - Modern French with Eiffel views</li>
+            <li><strong>Il Vino d'Enrico Bernardo</strong> - Italian fine dining</li>
+            <li><strong>Bistrot Belhara</strong> (10 mins) - Contemporary bistro</li>
+            <li><strong>La Fontaine de Mars</strong> (12 mins) - Classic bistro, Obama dined here</li>
+        </ul>
+        
+        <div class="tip">
+            <strong>Paris Pro Tips:</strong>
+            <ul>
+                <li>Make dinner reservations for popular spots</li>
+                <li>Many restaurants closed Sunday dinner/Monday</li>
+                <li>Lunch "formules" (set menus) offer great value</li>
+                <li>Picnic supplies from Rue Cler market for Eiffel Tower lawn</li>
+                <li>Your hotel's evening tasting is included - take advantage!</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h2 id="champagne">🍾 SPECIAL DAY TRIP: CHAMPAGNE REGION (MAY 11)</h2>
+    
+    <div class="transport-info">
+        <h3>Train from Paris to Reims</h3>
+        <ul>
+            <li><strong>Station:</strong> Paris Gare de l'Est → Reims</li>
+            <li><strong>Duration:</strong> 45-46 minutes</li>
+            <li><strong>Activities:</strong> Walk Avenue de Champagne, visit major champagne houses</li>
+        </ul>
+        
+        <h4>Recommended Tours</h4>
+        <ol>
+            <li><strong>Veuve Clicquot Tour</strong> (book in advance)
+                <br><a href="https://www.veuveclicquot.com/en-us/visitus.html" class="button-link">Visit Website</a>
+            </li>
+            <li><strong>Small Group Afternoon Tour from Reims</strong>
+                <br><a href="https://www.viator.com/tours/Reims/Small-Group-afternoon-Champagne-Tour-with-Champagne-Tastings-from-Reims/d5049-17408P20" class="button-link">View Tour</a>
+            </li>
+            <li><strong>Small Group Guided Tour from Paris</strong> - Full day option
+                <br><a href="https://www.viator.com/tours/Paris/Reims-Champagne-Tour/d479-19014P3" class="button-link">View Tour</a>
+            </li>
+        </ol>
+        
+        <div class="tip">
+            <strong>Champagne Region Tips:</strong>
+            <ul>
+                <li>Book champagne house tours well in advance</li>
+                <li>Many houses require reservations</li>
+                <li>Consider a guided tour from Paris for convenience</li>
+                <li>Perfect day trip - back in Paris by evening</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h2 id="requirements">📋 IMPORTANT TRAVEL REQUIREMENTS</h2>
+    
+    <div class="urgent">
+        <h2>🚨 REQUIRED DOCUMENTATION</h2>
+        
+        <h3>For UK Entry (London)</h3>
+        <ul>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span><strong>ETA (Electronic Travel Authorization):</strong> Required for US citizens
+                <ul>
+                    <li>Apply online before travel</li>
+                    <li>Processing time: Usually instant to 3 days</li>
+                    <li><a href="https://www.gov.uk/guidance/apply-for-an-electronic-travel-authorisation-eta">UK ETA Information</a></li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>For EU/France Entry (Paris)</h3>
+        <ul>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span><strong>ETIAS:</strong> Will be required starting in 2025
+                <ul>
+                    <li>€7 fee, valid for 3 years</li>
+                    <li><a href="https://travel-europe.europa.eu/etias_en">ETIAS Information</a></li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>General Requirements</h3>
+        <ul>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Passport valid for 6 months beyond travel dates</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Download essential apps (see recommendations below)</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Notify banks of international travel</li>
+            <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span>Purchase travel insurance</li>
+        </ul>
+    </div>
+    
+    <h3>Essential Apps to Download</h3>
+    <ul>
+        <li><strong>Navigation:</strong> Citymapper (best for both cities), Google Maps with offline downloads</li>
+        <li><strong>Translation:</strong> Google Translate app with offline download</li>
+        <li><strong>Transportation:</strong> Uber (works in both cities), TfL Go (London), Citymapper</li>
+        <li><strong>Currency:</strong> XE Currency (offline converter)</li>
+    </ul>
+    
+    <h3>Money & Tipping</h3>
+    <ul>
+        <li>Carry euros and pounds - some places don't take cards</li>
+        <li><strong>Tipping:</strong> London 10-15%, Paris round up or 5-10%</li>
+        <li>Notify credit card companies of travel dates</li>
+    </ul>
+    
+    <h2 id="schedule">📅 DAY-BY-DAY SUMMARY</h2>
+    
+    <div class="schedule-day">
+        <strong>May 5:</strong> Departure day - Mobile → London (overnight flight)
+    </div>
+    
+    <div class="schedule-day">
+        <strong>May 6:</strong> Arrive London morning, check-in, explore South Bank area
+    </div>
+    
+    <div class="schedule-day">
+        <strong>May 7:</strong> Full day London sightseeing - Tower of London, Borough Market, Thames walk
+    </div>
+    
+    <div class="schedule-day">
+        <strong>May 8:</strong> London museums and attractions - Westminster, British Museum, or Harry Potter Tour
+    </div>
+    
+    <div class="schedule-day">
+        <strong>May 9:</strong> Morning in London, afternoon Eurostar to Paris, evening arrival
+    </div>
+    
+    <div class="schedule-day">
+        <strong>May 10:</strong> First full day in Paris - Eiffel Tower area, Trocadéro, Champs-Élysées
+    </div>
+    
+    <div class="schedule-day">
+        <strong>May 11:</strong> Champagne region day trip to Reims
+    </div>
+    
+    <div class="schedule-day">
+        <strong>May 12:</strong> Louvre Museum, Seine river cruise, Latin Quarter
+    </div>
+    
+    <div class="schedule-day">
+        <strong>May 13:</strong> Versailles day trip or Montmartre exploration
+    </div>
+    
+    <div class="schedule-day">
+        <strong>May 14:</strong> Musée d'Orsay, shopping, Left Bank stroll
+    </div>
+    
+    <div class="schedule-day">
+        <strong>May 15:</strong> Final Paris morning, last-minute shopping, farewell dinner
+    </div>
+    
+    <div class="schedule-day">
+        <strong>May 16:</strong> Return travel - Paris → Mobile via Washington DC
+    </div>
+    
+    <hr style="margin: 30px 0;">
+    <p><em>All prices subject to change. Book flights and Eurostar early for best rates.</em></p>
+    <p><em>Document prepared by your travel professional</em></p>
+    
+    <script>
+        // Save checkbox states to localStorage
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('checkbox')) {
+                const checkboxes = document.querySelectorAll('.checkbox');
+                const states = [];
+                checkboxes.forEach(cb => {
+                    states.push(cb.classList.contains('checked'));
+                });
+                localStorage.setItem('londonParisChecklistStates', JSON.stringify(states));
+            }
+        });
+        
+        // Load saved checkbox states
+        window.addEventListener('load', function() {
+            const savedStates = localStorage.getItem('londonParisChecklistStates');
+            if (savedStates) {
+                const states = JSON.parse(savedStates);
+                const checkboxes = document.querySelectorAll('.checkbox');
+                checkboxes.forEach((cb, index) => {
+                    if (states[index]) {
+                        cb.classList.add('checked');
+                    }
+                });
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
