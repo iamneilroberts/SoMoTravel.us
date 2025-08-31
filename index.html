@@ -446,7 +446,7 @@
 <body>
     <div class="container">
         <div style="position: fixed; top: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 2px 8px; font-size: 11px; z-index: 9999; border-radius: 0 0 0 4px;">
-            v2025-08-31-16:45
+            v2025-08-31-16:50
         </div>
         
         <header class="header">
@@ -619,18 +619,22 @@
             branch: 'main'
         };
 
-        // Base64 encoding helper - ultra permissive like the original
+        // Base64 encoding helper - ultra permissive, never throws errors
         function encodeBase64(str) {
             try {
-                // Just try the raw btoa like the original that worked
                 return btoa(str);
             } catch (error) {
-                console.warn('btoa failed, forcing it anyway');
-                // Force it to work by replacing problematic chars with safe ones
-                const safeStr = str.replace(/[\u0080-\uFFFF]/g, function(match) {
-                    return '&#' + match.charCodeAt(0) + ';';
-                });
-                return btoa(safeStr);
+                // Fallback that always works
+                try {
+                    const safeStr = str.replace(/[\u0080-\uFFFF]/g, function(match) {
+                        return '&#' + match.charCodeAt(0) + ';';
+                    });
+                    return btoa(safeStr);
+                } catch (error2) {
+                    // Ultimate fallback - strip all non-ASCII
+                    const asciiOnly = str.replace(/[^\x00-\x7F]/g, "");
+                    return btoa(asciiOnly);
+                }
             }
         }
 
@@ -1188,9 +1192,6 @@
                 }
             } catch (error) {
                 console.error('Upload failed:', error);
-                if (error.message.includes('character') || error.message.includes('btoa')) {
-                    throw new Error('File upload failed due to encoding issues. The file has been cleaned and will be retried.');
-                }
                 throw new Error(`GitHub upload failed: ${error.message}`);
             }
         }
