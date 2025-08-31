@@ -2,16 +2,15 @@
   "version": 1,
   "trips": [
     {
-      "title": "Scotland & Ireland April 2026 Three Ladies",
-      "dates": "April 6-17, 2026 (11 nights)",
-      "status": "Commission Split",
-      "category": "proposal",
       "filename": "April-2026-Scotland-Ireland.html",
+      "title": "Donna, Gloria & Rosemary Scotland & Ireland April 2026",
+      "dates": "April 6-17, 2026 (11 nights)",
+      "category": "proposal",
       "tags": [
-        "NEW"
+        "Scotland",
+        "Ireland"
       ],
-      "lastModified": "2025-08-29",
-      "description": ""
+      "lastModified": "2025-08-31"
     },
     {
       "title": "Chisholm Travel Confirmation Details",
