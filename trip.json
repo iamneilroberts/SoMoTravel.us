@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "trips": [
+    {
+      "title": "Scotland & Ireland April 2026 Three Ladies",
+      "dates": "April 6-17, 2026 (11 nights)",
+      "status": "Commission Split",
+      "category": "proposal",
+      "filename": "April-2026-Scotland-Ireland.html",
+      "tags": ["NEW"],
+      "lastModified": "2025-08-29"
+    },
+    {
+      "title": "Chisholm Travel Confirmation Details",
+      "dates": "September 18-28, 2025",
+      "status": "Travel Proposal",
+      "category": "proposal",
+      "filename": "chisolm-trip-details.html",
+      "tags": ["Updated"],
+      "lastModified": "2025-08-29"
+    },
+    {
+      "title": "London & Paris Journey - May 5-15, 2026",
+      "dates": "May 5-15, 2026",
+      "status": "Travel Proposal",
+      "category": "proposal",
+      "filename": "Chastain_2026-fancy.html",
+      "tags": [],
+      "lastModified": "2025-08-30"
+    },
+    {
+      "title": "Chastain Europe 2026",
+      "dates": "2026",
+      "status": "Travel Proposal",
+      "category": "proposal",
+      "filename": "Chastain-simple.html",
+      "tags": [],
+      "lastModified": "2025-08-31"
+    },
+    {
+      "title": "Breckenridge Ski Trip",
+      "dates": "December 18-23, 2025",
+      "status": "Confirmed",
+      "category": "confirmed",
+      "filename": "Breckenridge_2025.html",
+      "tags": [],
+      "lastModified": "2025-08-15"
+    },
+    {
+      "title": "Sara and Darren England",
+      "dates": "October 2025",
+      "status": "Confirmed",
+      "category": "confirmed",
+      "filename": "JonesEngland.html",
+      "tags": [],
+      "lastModified": "2025-08-20"
+    }
+  ]
+}
