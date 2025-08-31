@@ -445,6 +445,10 @@
 </head>
 <body>
     <div class="container">
+        <div style="position: fixed; top: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 2px 8px; font-size: 11px; z-index: 9999; border-radius: 0 0 0 4px;">
+            v2025-08-31-16:45
+        </div>
+        
         <header class="header">
             <div class="logo">Kim's Gems</div>
             <div class="subtitle">European Travel Specialist</div>
@@ -615,25 +619,18 @@
             branch: 'main'
         };
 
-        // Base64 encoding helper that handles special characters
+        // Base64 encoding helper - ultra permissive like the original
         function encodeBase64(str) {
             try {
-                // Try the simple approach first (like the old version)
+                // Just try the raw btoa like the original that worked
                 return btoa(str);
             } catch (error) {
-                console.warn('Simple btoa failed, trying UTF-8 encoding');
-                try {
-                    return btoa(unescape(encodeURIComponent(str)));
-                } catch (error2) {
-                    console.warn('UTF-8 encoding failed, cleaning and trying again');
-                    // Clean problematic characters and try again
-                    const cleanStr = str
-                        .replace(/[""'']/g, '"')
-                        .replace(/[–—]/g, '-')
-                        .replace(/…/g, '...')
-                        .replace(/[\u0000-\u001F\u007F-\u009F]/g, '');
-                    return btoa(unescape(encodeURIComponent(cleanStr)));
-                }
+                console.warn('btoa failed, forcing it anyway');
+                // Force it to work by replacing problematic chars with safe ones
+                const safeStr = str.replace(/[\u0080-\uFFFF]/g, function(match) {
+                    return '&#' + match.charCodeAt(0) + ';';
+                });
+                return btoa(safeStr);
             }
         }
 
@@ -1056,32 +1053,25 @@
                     lastModified: new Date().toISOString().split('T')[0]
                 };
 
-                // Add to trips array
-                trips.push(newTrip);
-
-                // Update UI first
-                renderTrips();
-                closeModal();
-
-                // Upload to GitHub if configured
+                // Upload to GitHub if configured - only add to local array if upload succeeds
                 const token = getGitHubToken();
                 if (token) {
                     await uploadToGitHub(filename, fileInput.dataset.content);
                     await updateGitHubIndex();
-                    alert(`Success! Trip "${title}" added and files uploaded to GitHub.`);
+                    
+                    // Only add to trips array after successful upload
+                    trips.push(newTrip);
+                    renderTrips();
+                    closeModal();
+                    
+                    alert(`Success! Trip "${title}" uploaded to GitHub.\n\nNote: It may take 1-2 minutes for the live site to update.`);
                 } else {
-                    alert(`Trip "${title}" added locally. GitHub integration not configured.`);
+                    alert(`GitHub integration not configured. Please set up your GitHub token to upload trips.`);
                 }
 
             } catch (error) {
                 console.error('Upload failed:', error);
-                // Remove from trips array if upload failed
-                const tripIndex = trips.findIndex(t => t.title === title && t.file === filename);
-                if (tripIndex !== -1) {
-                    trips.splice(tripIndex, 1);
-                    renderTrips();
-                }
-                alert(`Upload failed: ${error.message}\n\nPlease try again.`);
+                alert(`Upload failed: ${error.message}\n\nTrip not added. Please try again.`);
             } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
@@ -1102,7 +1092,9 @@
                 return;
             }
 
-            // Update trip
+            // Update trip locally first, then sync to GitHub
+            const originalTrip = {...trips[currentEditIndex]};
+            
             trips[currentEditIndex].title = title;
             trips[currentEditIndex].dates = dates;
             trips[currentEditIndex].category = category;
@@ -1111,10 +1103,16 @@
             trips[currentEditIndex].tags = [...currentEditTags];
             trips[currentEditIndex].lastModified = new Date().toISOString().split('T')[0];
 
-            renderTrips();
-            closeEditModal();
-            
-            await updateGitHubIndex();
+            try {
+                await updateGitHubIndex();
+                renderTrips();
+                closeEditModal();
+                alert(`Trip "${title}" updated successfully.\n\nNote: Live site updates in 1-2 minutes.`);
+            } catch (error) {
+                // Revert changes if GitHub update failed
+                trips[currentEditIndex] = originalTrip;
+                throw error;
+            }
         }
 
         function filterTrips() {
