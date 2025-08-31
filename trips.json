@@ -271,10 +271,13 @@
     },
     {
       "filename": "Chastain2026.html",
-      "title": "London & Paris Travel Package - May 5-15, 2026",
+      "title": "Chastain Package - May 5-15, 2026",
       "dates": "May 5-15, 2026",
       "category": "proposal",
-      "tags": [],
+      "tags": [
+        "Paris",
+        "London"
+      ],
       "lastModified": "2025-08-31"
     }
   ]
