@@ -618,21 +618,22 @@
         // Base64 encoding helper that handles special characters
         function encodeBase64(str) {
             try {
-                // Clean the string of problematic characters first
-                const cleanStr = str
-                    .replace(/[\u0000-\u001F\u007F-\u009F]/g, '') // Remove control characters
-                    .replace(/[\u2000-\u206F\u2E00-\u2E7F\u3000-\u303F]/g, ' ') // Replace fancy spaces/punctuation with regular space
-                    .replace(/[""'']/g, '"') // Replace smart quotes with regular quotes
-                    .replace(/[–—]/g, '-') // Replace en/em dashes with regular dash
-                    .replace(/…/g, '...') // Replace ellipsis
-                    .trim();
-                    
-                return btoa(unescape(encodeURIComponent(cleanStr)));
+                // Try the simple approach first (like the old version)
+                return btoa(str);
             } catch (error) {
-                console.warn('Encoding failed, trying ASCII-only fallback:', error);
-                // Ultimate fallback: convert to ASCII only
-                const asciiStr = str.replace(/[^\x00-\x7F]/g, "");
-                return btoa(asciiStr);
+                console.warn('Simple btoa failed, trying UTF-8 encoding');
+                try {
+                    return btoa(unescape(encodeURIComponent(str)));
+                } catch (error2) {
+                    console.warn('UTF-8 encoding failed, cleaning and trying again');
+                    // Clean problematic characters and try again
+                    const cleanStr = str
+                        .replace(/[""'']/g, '"')
+                        .replace(/[–—]/g, '-')
+                        .replace(/…/g, '...')
+                        .replace(/[\u0000-\u001F\u007F-\u009F]/g, '');
+                    return btoa(unescape(encodeURIComponent(cleanStr)));
+                }
             }
         }
 
@@ -938,20 +939,10 @@
 
             const reader = new FileReader();
             reader.onload = function(e) {
-                let content = e.target.result;
-                
-                // Pre-clean the content to remove problematic characters
-                content = content
-                    .replace(/[\u0000-\u001F\u007F-\u009F]/g, '') // Remove control characters
-                    .replace(/[""'']/g, '"') // Replace smart quotes
-                    .replace(/[–—]/g, '-') // Replace dashes
-                    .replace(/…/g, '...') // Replace ellipsis
-                    .replace(/[\u2000-\u206F]/g, ' ') // Replace fancy spaces
-                    .trim();
-                    
+                const content = e.target.result;
                 parseHtmlFile(content, file.name);
             };
-            reader.readAsText(file, 'UTF-8'); // Explicitly specify UTF-8
+            reader.readAsText(file, 'UTF-8');
         }
 
         function parseHtmlFile(content, filename) {
@@ -1075,14 +1066,6 @@
                 // Upload to GitHub if configured
                 const token = getGitHubToken();
                 if (token) {
-                    // Test encoding before upload
-                    try {
-                        const testEncoding = encodeBase64(fileInput.dataset.content);
-                        console.log('Encoding test passed');
-                    } catch (encodingError) {
-                        throw new Error('File contains characters that cannot be uploaded. Please save as plain UTF-8 HTML and try again.');
-                    }
-                    
                     await uploadToGitHub(filename, fileInput.dataset.content);
                     await updateGitHubIndex();
                     alert(`Success! Trip "${title}" added and files uploaded to GitHub.`);
@@ -1317,7 +1300,18 @@
 
                 if (response.ok) {
                     const fileData = await response.json();
-                    const currentContent = document.documentElement.outerHTML;
+                    let currentContent = atob(fileData.content);
+                    
+                    // Update the trips array in the HTML content
+                    const tripsArrayStart = currentContent.indexOf('let trips = [');
+                    const tripsArrayEnd = currentContent.indexOf('        ];', tripsArrayStart) + 10;
+                    
+                    if (tripsArrayStart !== -1 && tripsArrayEnd !== -1) {
+                        const newTripsArray = 'let trips = ' + JSON.stringify(trips, null, 12).replace(/\n/g, '\n        ') + ';';
+                        currentContent = currentContent.slice(0, tripsArrayStart) + 
+                                       newTripsArray + 
+                                       currentContent.slice(tripsArrayEnd);
+                    }
                     
                     // Update file
                     await fetch(url, {
@@ -1329,14 +1323,17 @@
                         },
                         body: JSON.stringify({
                             message: `Update trips list - ${new Date().toLocaleDateString()}`,
-                            content: btoa(unescape(encodeURIComponent(currentContent))),
+                            content: encodeBase64(currentContent),
                             branch: GITHUB_CONFIG.branch,
                             sha: fileData.sha
                         })
                     });
+                    
+                    console.log('Index updated successfully');
                 }
             } catch (error) {
                 console.error('Index update failed:', error);
+                throw error;
             }
         }
 
