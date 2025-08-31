@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hotel Options — Rooms & Adjusted Pricing</title>
+<style>
+:root {
+  --bg: #101418; --text: #f2f5f7; --muted: #a7b0b7;
+  --card: #161c22; --accent: #71d0ff; --line: rgba(255,255,255,.08);
+}
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+       margin: 0; background: var(--bg); color: var(--text); }
+.header { padding: 32px 20px; text-align: center; background: linear-gradient(180deg, rgba(113,208,255,.15), transparent);
+          border-bottom: 1px solid var(--line); }
+.header h1 { margin: 0 0 6px; font-weight: 700; }
+.header p { margin: 0; color: var(--muted); }
+.container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+.hotel-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; margin: 18px 0 28px; }
+.hotel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.hotel-name { font-size: 22px; font-weight: 700; }
+.hotel-address { color: var(--muted); font-size: 14px; }
+.desc { margin-top: 8px; line-height: 1.5; }
+.gallery { margin-top: 12px; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+.gallery a { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+.gallery img { width: 100%; height: 140px; object-fit: cover; display: block; transition: transform .2s ease; }
+.gallery a:hover img { transform: scale(1.03); }
+.rooms { margin-top: 12px; border-top: 1px dashed var(--line); padding-top: 10px; }
+.room { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; padding: 12px 0; border-bottom: 1px dashed var(--line); }
+.room:last-child { border-bottom: none; }
+.room h4 { margin: 0; font-size: 16px; }
+.room p { margin: 0; color: var(--muted); font-size: 14px; }
+.price { text-align: right; }
+.price .raw { display: block; font-size: 13px; color: var(--muted); text-decoration: line-through; }
+.price .adj { display: block; font-size: 16px; font-weight: 700; }
+.badge { display: inline-block; font-size: 12px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); margin-top: 6px; }
+.note { font-size: 13px; color: var(--muted); margin-top: 20px; }
+@media print {
+  body { background: #fff; color: #000; }
+  .hotel-card { break-inside: avoid; border-color: #ddd; }
+  .gallery img { height: 120px; }
+  .note { color: #333; }
+}
+</style></head><body>
+<div class="header">
+  <h1>Hotel Options</h1>
+  <p>Prices shown are rough estimates adjusted to a 20% commission basis; original feed likely reflects ~5%.</p>
+</div>
+<div class="container">
+
+    <section class="hotel-card">
+      <div class="hotel-head">
+        <div class="hotel-name">The Old Bell</div>
+        <div class="hotel-address"></div>
+      </div>
+      <p class="desc">Located in Malmesbury, The Old Bell Hotel is a 1-minute drive from Malmesbury Abbey and 8 minutes from Highgrove House.  This eco-certified hotel is 4.7 mi (7.6 km) from M4 Karting and 5.2 mi (8.4 km) from Highgrove Shop Tetbury.</p>
+      <div class="gallery"><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/72b0a2ee_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/72b0a2ee_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/53060216_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/53060216_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/210c50b3_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/210c50b3_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/d1663ad2_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/d1663ad2_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/393f0ef7_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/393f0ef7_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/b3fab457_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/b3fab457_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/6048cd4b_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/6048cd4b_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/b90bbd69_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/b90bbd69_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/05a4a692_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/05a4a692_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/5ef18ed3_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/5ef18ed3_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/b41377e3_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/b41377e3_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/1e670f26_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/1e670f26_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/490011ce_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/490011ce_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/90de3bf4_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/90de3bf4_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/56ff5802_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/56ff5802_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/4f9c7e41_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/4f9c7e41_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/439a4fba_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/439a4fba_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/5ef18ed3_b.jpg,http" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/23000000/22720000/22711000/22710966/5ef18ed3_b.jpg,http" alt=""></a></div>
+      <div class='rooms'><div class='badge'>No room/rate details found in supplied HTML</div></div>
+    </section>
+    
+
+    <section class="hotel-card">
+      <div class="hotel-head">
+        <div class="hotel-name">Montigo Resorts, Somerset</div>
+        <div class="hotel-address"></div>
+      </div>
+      <p class="desc">Located in Shepton Mallet, Montigo Resorts, Somerset is in the historical district, within a 5-minute drive of Kilver Court and Royal Bath and West Showground.  This spa hotel is 15.2 mi (24.4 km) from Longleat Safari and Adventure Park and 15.9 mi (25.7 km) from Cheddar Gorge.</p>
+      <div class="gallery"><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/7b2689c9_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/7b2689c9_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/e148270f_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/e148270f_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/4c756954_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/4c756954_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/d4c2fac0_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/d4c2fac0_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/2666b29b_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/2666b29b_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/c571e4b7_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/c571e4b7_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/97dc645c_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/97dc645c_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/fc596214_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/fc596214_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/f503433e_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/f503433e_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/54240028_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/54240028_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/810e4a36_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/810e4a36_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/3cb679f4_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/3cb679f4_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/dc304342_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/dc304342_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/2c0cf2af_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/2c0cf2af_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/fc977841_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/fc977841_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/6e638173_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/6e638173_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/0a166a61_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/0a166a61_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/1000000/520000/517300/517268/54240028_b.jpg,http" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/1000000/520000/517300/517268/54240028_b.jpg,http" alt=""></a></div>
+      <div class='rooms'><div class='badge'>No room/rate details found in supplied HTML</div></div>
+    </section>
+    
+
+    <section class="hotel-card">
+      <div class="hotel-head">
+        <div class="hotel-name">Beechfield House Hotel</div>
+        <div class="hotel-address"></div>
+      </div>
+      <p class="desc">Located in Melksham, Beechfield House Hotel is in a rural location, within a 5-minute drive of Lacock Abbey and Lacock Bakery.  This hotel is 12.1 mi (19.5 km) from Roman Baths and 12.4 mi (19.9 km) from Thermae Bath Spa.</p>
+      <div class="gallery"><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/e3e52bf5_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/e3e52bf5_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/ad9189fe_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/ad9189fe_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/6f702507_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/6f702507_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/1573f81b_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/1573f81b_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/cedf6cbd_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/cedf6cbd_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/49a243ca_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/49a243ca_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/058c8550_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/058c8550_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/63573f3f_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/63573f3f_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/026a176c_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/026a176c_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/2877b97d_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/2877b97d_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/de579f36_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/de579f36_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/3787919d_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/3787919d_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/b5f2fe4d_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/b5f2fe4d_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/dc60ce74_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/dc60ce74_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/819dea73_z.jpg" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/819dea73_z.jpg" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/2877b97d_b.jpg,http" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/2877b97d_b.jpg,http" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/de579f36_b.jpg,http" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/de579f36_b.jpg,http" alt=""></a><a href="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/3787919d_b.jpg,http" target="_blank" rel="noopener"><img src="https://i.travelapi.com/lodging/2000000/1930000/1925300/1925252/3787919d_b.jpg,http" alt=""></a></div>
+      <div class='rooms'><div class='badge'>No room/rate details found in supplied HTML</div></div>
+    </section>
+    
+  <div class="note">
+    Notes: Adjusted prices are a simple proportional scaling (P₍₂₀₎ ≈ P₍₅₎ × 1.20/1.05) and may not reflect taxes/fees or non‑commissionable amounts. Final booking price can differ.
+  </div>
+</div></body></html>
