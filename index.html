@@ -531,12 +531,13 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="category">Category</label>
-                        <select id="category" class="form-control">
-                            <option value="proposal">Proposal</option>
-                            <option value="confirmed">Confirmed</option>
-                            <option value="old">Archived</option>
+                        <label class="form-label" for="category">Category (determines which section trip appears in)</label>
+                        <select id="category" class="form-control" style="border: 2px solid var(--primary-color);">
+                            <option value="proposal">Proposal (Yellow section)</option>
+                            <option value="confirmed">Confirmed (Green section)</option>
+                            <option value="old">Archived (Gray section)</option>
                         </select>
+                        <p style="font-size: 0.85em; color: #666; margin-top: 0.5rem;">Choose which section this trip will appear in on the website</p>
                     </div>
                     
                     <div class="form-group">
@@ -613,6 +614,19 @@
             repo: 'SoMoTravel.us',
             branch: 'main'
         };
+
+        // Base64 encoding helper that handles special characters
+        function encodeBase64(str) {
+            try {
+                // Try the standard approach first
+                return btoa(unescape(encodeURIComponent(str)));
+            } catch (error) {
+                // Fallback for problematic characters
+                return btoa(str.replace(/[\u0080-\uFFFF]/g, function(match) {
+                    return String.fromCharCode(0xC0 | (match.charCodeAt(0) >> 6), 0x80 | (match.charCodeAt(0) & 0x3F));
+                }));
+            }
+        }
 
         // Get GitHub token
         function getGitHubToken() {
@@ -1153,7 +1167,7 @@
                     },
                     body: JSON.stringify({
                         message: sha ? `Update travel document: ${filename}` : `Add travel document: ${filename}`,
-                        content: btoa(unescape(encodeURIComponent(content))),
+                        content: encodeBase64(content),
                         branch: GITHUB_CONFIG.branch,
                         ...(sha && { sha })
                     })
@@ -1167,7 +1181,10 @@
                 }
             } catch (error) {
                 console.error('Upload failed:', error);
-                throw error;
+                if (error.message.includes('character')) {
+                    throw new Error('File contains special characters that cannot be uploaded. Please save the file with UTF-8 encoding and try again.');
+                }
+                throw new Error(`GitHub upload failed: ${error.message}`);
             }
         }
 
