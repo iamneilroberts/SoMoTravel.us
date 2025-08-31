@@ -1,1334 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kim Henderson SOMO Travel</title>
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #0056b3;
-            --success-color: #28a745;
-            --warning-color: #ffc107;
-            --danger-color: #dc3545;
-            --background-color: #ffffff;
-            --text-color: #333333;
-            --border-color: #e0e0e0;
-            --card-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--text-color);
-            background: linear-gradient(135deg, #eef2f7 0%, #dbe4ee 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding: 2rem 1rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-        }
-
-        .logo {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .subtitle {
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .description {
-            max-width: 800px;
-            margin: 0 auto;
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        .filter-controls {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--card-shadow);
-        }
-
-        .filter-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .search-input {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .filter-select {
-            min-width: 150px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        .category-section {
-            margin-bottom: 3rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            overflow: hidden;
-        }
-
-        .category-header {
-            background: var(--primary-color);
-            color: white;
-            padding: 1rem 1.5rem;
-            font-size: 1.4rem;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .category-header.proposal {
-            background: var(--warning-color);
-            color: #333;
-        }
-
-        .category-header.confirmed {
-            background: var(--success-color);
-        }
-
-        .category-header.old {
-            background: #6c757d;
-        }
-
-        .category-toggle {
-            font-size: 1.2rem;
-        }
-
-        .category-content {
-            padding: 1.5rem;
-        }
-
-        .category-content.collapsed {
-            display: none;
-        }
-
-        .trips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .trip-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .trip-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        .trip-title {
-            color: var(--primary-color);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .trip-date {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .trip-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .trip-status, .trip-tag {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .trip-status {
-            background: #cfe2ff;
-            color: var(--secondary-color);
-        }
-
-        .trip-tag {
-            background: #ffc107;
-            color: #333;
-        }
-
-        .trip-tag.new {
-            background: var(--success-color);
-            color: white;
-        }
-
-        .trip-actions {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            display: flex;
-            gap: 0.25rem;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-
-        .trip-card:hover .trip-actions {
-            opacity: 1;
-        }
-
-        .action-btn {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-
-        .action-btn:hover {
-            background: white;
-        }
-
-        .action-btn.edit {
-            color: var(--primary-color);
-        }
-
-        .action-btn.delete {
-            color: var(--danger-color);
-        }
-
-        .add-trip-card {
-            border: 2px dashed var(--border-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 200px;
-            text-decoration: none;
-            color: #666;
-            cursor: pointer;
-        }
-
-        .add-trip-card:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .add-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 2rem;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .modal-title {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .close {
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: #000;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text-color);
-        }
-
-        .file-upload {
-            border: 2px dashed var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: border-color 0.2s ease;
-        }
-
-        .file-upload:hover {
-            border-color: var(--primary-color);
-        }
-
-        .file-upload.dragover {
-            border-color: var(--primary-color);
-            background-color: rgba(0, 123, 255, 0.05);
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .btn-secondary {
-            background-color: #6c757d;
-            color: white;
-            margin-right: 1rem;
-        }
-
-        .btn-secondary:hover {
-            background-color: #545b62;
-        }
-
-        .tag-input-container {
-            position: relative;
-        }
-
-        .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .tag-item {
-            background: var(--primary-color);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .tag-remove {
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1rem;
-            line-height: 1;
-        }
-
-        .tag-remove:hover {
-            color: #ffcccc;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 3rem;
-            padding: 2rem;
-            color: #666;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-
-            .logo {
-                font-size: 2rem;
-            }
-
-            .trips-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .filter-group {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .modal-content {
-                margin: 10% auto;
-                width: 95%;
-                padding: 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoMo Travel — Trips</title>
+  <style>
+    :root {
+      --primary:#0d6efd; --primary-600:#0b5ed7; --muted:#6b7280; --text:#111827;
+      --bg:#f6f7fb; --card:#ffffff; --border:#e5e7eb; --chip:#eef2ff; --chip-text:#334155;
+      --radius:14px;
+    }
+    html,body{height:100%}
+    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--text); background:var(--bg)}
+    .container{max-width:1120px; margin:28px auto; padding:0 18px}
+    header{display:flex; align-items:center; justify-content:space-between; margin-bottom:18px}
+    h1{font-size:22px; margin:0}
+    .toolbar{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{border:none; border-radius:10px; padding:10px 14px; font-weight:600; cursor:pointer; background:#eef0f6}
+    .btn-primary{background:var(--primary); color:#fff}
+    .btn-primary:hover{background:var(--primary-600)}
+    .btn-secondary{background:#e9ecf4}
+    .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:14px; box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    .title{font-weight:700; margin-bottom:4px}
+    .dates{color:var(--muted); font-size:13px}
+    .status{display:inline-block; padding:4px 8px; border-radius:999px; background:#eef2ff; color:#374151; font-size:12px; margin-top:8px}
+    .tags{margin-top:8px}
+    .tag{display:inline-block; padding:4px 8px; background:var(--chip); color:var(--chip-text); border-radius:999px; font-size:12px; margin-right:6px; margin-top:6px}
+    .actions{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap}
+    .muted{color:var(--muted); font-size:13px}
+
+    /* Modal */
+    .backdrop{display:none; position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:1000; align-items:center; justify-content:center}
+    .modal{width:min(760px,95%); max-height:85vh; overflow:auto; background:#fff; border-radius:14px; border:1px solid var(--border); box-shadow:0 18px 46px rgba(0,0,0,.25)}
+    .modal header{padding:14px 16px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between}
+    .modal .content{padding:16px}
+    .row{display:flex; gap:10px; flex-wrap:wrap}
+    .row>div{flex:1 1 220px}
+    input[type="text"], select{width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:10px; font-size:14px}
+    .file-drop{border:2px dashed #cbd5e1; border-radius:12px; padding:16px; text-align:center; color:#64748b; background:#fafbff; cursor:pointer}
+
+    /* Spinner overlay */
+    #spinnerOverlay{display:none; position:fixed; inset:0; background:rgba(255,255,255,.85); z-index:2000; align-items:center; justify-content:center; flex-direction:column; color:#222}
+    #spinnerOverlay .spinner{border:6px solid #f3f3f3; border-top:6px solid var(--primary); border-radius:50%; width:56px; height:56px; animation:spin 1s linear infinite; margin-bottom:1rem}
+    @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div style="position: fixed; top: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 2px 8px; font-size: 11px; z-index: 9999; border-radius: 0 0 0 4px;">
-            v2025-08-31-17:01
-        </div>
-        
-        <header class="header">
-            <div class="logo">Kim's Gems</div>
-            <div class="subtitle">European Travel Specialist</div>
-            <p class="description">
-                Crafting personalized European adventures with hidden gems and unforgettable experiences. Each itinerary is carefully designed to blend must-see highlights with off-the-beaten-path discoveries.
-            </p>
-        </header>
+  <div class="container">
+    <header>
+      <h1>SoMo Travel — Trips</h1>
+      <div class="toolbar">
+        <button class="btn" onclick="openAddModal()">Add Trip</button>
+        <button class="btn" onclick="setToken()">Set GitHub Token</button>
+        <button class="btn" onclick="openMetadataHistory()">Metadata History</button>
+      </div>
+    </header>
 
-        <div class="filter-controls">
-            <div class="filter-group">
-                <input type="text" id="searchInput" class="form-control search-input" placeholder="Search trips...">
-                <select id="statusFilter" class="form-control filter-select">
-                    <option value="">All Statuses</option>
-                    <option value="proposal">Proposal</option>
-                    <option value="confirmed">Confirmed</option>
-                    <option value="complete">Complete</option>
+    <div id="tripGrid" class="grid"></div>
+    <div id="emptyState" class="muted" style="display:none">No trips yet.</div>
+  </div>
+
+  <!-- Add/Edit Modal -->
+  <div id="tripModal" class="backdrop">
+    <div class="modal">
+      <header>
+        <div class="title" id="modalTitle">Add Trip</div>
+        <button class="btn" onclick="closeModal()">Close</button>
+      </header>
+      <div class="content">
+        <form id="tripForm">
+          <input type="hidden" id="editIndex" value="" />
+          <div class="row">
+            <div><label>Title<br><input id="tripTitle" type="text" required placeholder="e.g., Dublin & Paris Journey"></label></div>
+            <div><label>Dates<br><input id="tripDates" type="text" placeholder="e.g., May 5–15, 2026"></label></div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Category<br>
+                <select id="tripCategory">
+                  <option value="proposal">Travel Proposal</option>
+                  <option value="confirmed">Confirmed</option>
+                  <option value="complete">Complete</option>
                 </select>
-                <select id="yearFilter" class="form-control filter-select">
-                    <option value="">All Years</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
-                </select>
+              </label>
             </div>
-        </div>
-
-        <main id="tripsContainer">
-            <div class="category-section">
-                <div class="category-header proposal" onclick="toggleCategory('proposal')">
-                    <span>Proposal</span>
-                    <span class="category-toggle">v</span>
-                </div>
-                <div class="category-content" id="proposal-content">
-                    <div class="trips-grid" id="proposal-grid"></div>
-                </div>
+            <div><label>Tags (comma separated)<br><input id="tripTags" type="text" placeholder="e.g., family, europe"></label></div>
+          </div>
+          <div class="row">
+            <div><label>Filename (public .html)<br><input id="tripFilename" type="text" required placeholder="e.g., DublinParis2026.html"></label></div>
+            <div style="display:flex; align-items:flex-end">
+              <div id="fileDrop" class="file-drop" onclick="document.getElementById('htmlFile').click()">
+                <input id="htmlFile" type="file" accept=".html,.htm" style="display:none">
+                <div id="fileInfo">Click to choose itinerary HTML (or leave empty to only edit metadata)</div>
+              </div>
             </div>
-
-            <div class="category-section">
-                <div class="category-header confirmed" onclick="toggleCategory('confirmed')">
-                    <span>Confirmed</span>
-                    <span class="category-toggle">v</span>
-                </div>
-                <div class="category-content" id="confirmed-content">
-                    <div class="trips-grid" id="confirmed-grid"></div>
-                </div>
-            </div>
-
-            <div class="category-section">
-                <div class="category-header old" onclick="toggleCategory('old')">
-                    <span>Archived</span>
-                    <span class="category-toggle">></span>
-                </div>
-                <div class="category-content collapsed" id="old-content">
-                    <div class="trips-grid" id="old-grid"></div>
-                </div>
-            </div>
-        </main>
-
-        <!-- Add Trip Modal -->
-        <div id="addTripModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title">Add New Trip</h2>
-                    <span class="close" onclick="closeModal()">&times;</span>
-                </div>
-                <form id="addTripForm">
-                    <div class="form-group">
-                        <label class="form-label">Upload HTML File</label>
-                        <div class="file-upload" id="fileUpload">
-                            <p>Drag & drop HTML file here or click to browse</p>
-                            <p style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">File will be uploaded to your website</p>
-                            <input type="file" id="htmlFile" accept=".html,.htm" style="display: none;">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="tripTitle">Trip Title</label>
-                        <input type="text" id="tripTitle" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="tripDates">Trip Dates</label>
-                        <input type="text" id="tripDates" class="form-control" placeholder="e.g., April 6-17, 2026">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="category">Category (determines which section trip appears in)</label>
-                        <select id="category" class="form-control" style="border: 2px solid var(--primary-color);">
-                            <option value="proposal">Proposal (Yellow section)</option>
-                            <option value="confirmed">Confirmed (Green section)</option>
-                            <option value="old">Archived (Gray section)</option>
-                        </select>
-                        <p style="font-size: 0.85em; color: #666; margin-top: 0.5rem;">Choose which section this trip will appear in on the website</p>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Tags</label>
-                        <div class="tag-input-container">
-                            <div class="tag-list" id="tagList"></div>
-                            <input type="text" id="tagInput" class="form-control" placeholder="Add tags (press Enter)">
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Add Trip</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Edit Trip Modal -->
-        <div id="editTripModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title">Edit Trip</h2>
-                    <span class="close" onclick="closeEditModal()">&times;</span>
-                </div>
-                <form id="editTripForm">
-                    <div class="form-group">
-                        <label class="form-label" for="editTripTitle">Trip Title</label>
-                        <input type="text" id="editTripTitle" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="editTripDates">Trip Dates</label>
-                        <input type="text" id="editTripDates" class="form-control">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="editCategory">Category</label>
-                        <select id="editCategory" class="form-control">
-                            <option value="proposal">Proposal</option>
-                            <option value="confirmed">Confirmed</option>
-                            <option value="old">Archived</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Tags</label>
-                        <div class="tag-input-container">
-                            <div class="tag-list" id="editTagList"></div>
-                            <input type="text" id="editTagInput" class="form-control" placeholder="Add tags (press Enter)">
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; justify-content: space-between;">
-                        <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
-                        <div>
-                            <button type="button" class="btn" style="background: var(--danger-color); color: white; margin-right: 1rem;" onclick="deleteTrip()">Delete</button>
-                            <button type="submit" class="btn btn-primary">Update</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <p>Contact Kim for personalized European travel planning</p>
-        </footer>
+          </div>
+          <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:12px">
+            <button type="button" class="btn" onclick="closeModal()">Cancel</button>
+            <button id="submitBtn" type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 
-    <script>
-        // GitHub configuration
-        const GITHUB_CONFIG = {
-            owner: 'iamneilroberts',
-            repo: 'SoMoTravel.us',
-            branch: 'main'
-        };
+  <!-- Version History Modal (per file) -->
+  <div id="historyModal" class="backdrop">
+    <div class="modal">
+      <header>
+        <div>
+          <div class="title">Version history</div>
+          <div class="muted" id="historyPath"></div>
+        </div>
+        <button class="btn" onclick="closeHistoryModal()">Close</button>
+      </header>
+      <div id="historyBody" class="content">Loading…</div>
+    </div>
+  </div>
 
-        // Base64 encoding helper - ultra permissive, never throws errors
-        function encodeBase64(str) {
-            try {
-                return btoa(str);
-            } catch (error) {
-                // Fallback that always works
-                try {
-                    const safeStr = str.replace(/[\u0080-\uFFFF]/g, function(match) {
-                        return '&#' + match.charCodeAt(0) + ';';
-                    });
-                    return btoa(safeStr);
-                } catch (error2) {
-                    // Ultimate fallback - strip all non-ASCII
-                    const asciiOnly = str.replace(/[^\x00-\x7F]/g, "");
-                    return btoa(asciiOnly);
-                }
-            }
-        }
+  <!-- Spinner overlay -->
+  <div id="spinnerOverlay"><div class="spinner"></div><div id="spinnerMessage">Working…</div></div>
 
-        // Get GitHub token
-        function getGitHubToken() {
-            let token = localStorage.getItem('github_token');
-            if (!token) {
-                token = prompt('Enter GitHub Personal Access Token (one-time setup):');
-                if (token) {
-                    localStorage.setItem('github_token', token);
-                }
-            }
-            return token;
-        }
+<script>
+/***** CONFIG *****/
+const GITHUB_CONFIG = { owner: 'iamneilroberts', repo: 'SoMoTravel.us', branch: 'main' };
 
-        // Trip data
-        let trips = [
-            {
-                title: "Scotland & Ireland April 2026 Three Ladies",
-                dates: "April 6-17, 2026 (11 nights)",
-                status: "Commission Split",
-                category: "proposal",
-                file: "April-2026-Scotland-Ireland.html",
-                tags: ["NEW"],
-                lastModified: "2025-08-29"
-            },
-            {
-                title: "Chisholm Travel Confirmation Details",
-                dates: "September 18-28, 2025",
-                status: "Travel Proposal",
-                category: "proposal",
-                file: "chisolm-trip-details.html",
-                tags: ["Updated"],
-                lastModified: "2025-08-29"
-            },
-            {
-                title: "London & Paris Journey - May 5-15, 2026",
-                dates: "May 5-15, 2026",
-                status: "Travel Proposal",
-                category: "proposal",
-                file: "Chastain_2026-fancy.html",
-                tags: [],
-                lastModified: "2025-08-30"
-            },
-            {
-                title: "Chastain Europe 2026",
-                dates: "2026",
-                status: "Travel Proposal",
-                category: "proposal",
-                file: "Chastain-simple.html",
-                tags: [],
-                lastModified: "2025-08-31"
-            },
-            {
-                title: "Breckenridge Ski Trip",
-                dates: "December 18-23, 2025",
-                status: "Confirmed",
-                category: "confirmed",
-                file: "Breckenridge_2025.html",
-                tags: [],
-                lastModified: "2025-08-15"
-            },
-            {
-                title: "Sara and Darren England",
-                dates: "October 2025",
-                status: "Confirmed",
-                category: "confirmed",
-                file: "JonesEngland.html",
-                tags: [],
-                lastModified: "2025-08-20"
-            }
-        ];
+/***** UTILITIES *****/
+function showSpinner(msg='Working…'){ document.getElementById('spinnerMessage').textContent = msg; document.getElementById('spinnerOverlay').style.display='flex'; }
+function hideSpinner(){ document.getElementById('spinnerOverlay').style.display='none'; }
 
-        let currentEditIndex = -1;
-        let currentTags = [];
-        let currentEditTags = [];
+function asciiHeaderValue(s){ return String(s ?? '').normalize('NFKC').replace(/[\u00A0\u1680\u2000-\u200B\u202F\u205F\u3000]/g,' ').replace(/[^\x20-\x7E]/g,'').trim(); }
+function sanitizeToken(raw){ let t = asciiHeaderValue(raw).replace(/^["']|["']$/g,''); const m = t.match(/gh[pousr]_[A-Za-z0-9_]+/); return m?m[0]:t; }
+function getGitHubToken(){ let token = localStorage.getItem('github_token'); if(!token){ token = prompt('Enter GitHub Personal Access Token (repo contents read/write):'); } if(token){ token = sanitizeToken(token); localStorage.setItem('github_token', token); return token; } return null; }
+function setToken(){ localStorage.removeItem('github_token'); getGitHubToken(); alert('Token stored.'); }
 
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            renderTrips();
-            setupEventListeners();
-        });
+function encodeBase64(str){ try{ return btoa(unescape(encodeURIComponent(str))); }catch(e){ let out=''; for(let i=0;i<str.length;i++){ const c=str.charCodeAt(i); if(c<128) out+=String.fromCharCode(c); else if(c<2048) out+=String.fromCharCode(192|(c>>6))+String.fromCharCode(128|(c&63)); else out+=String.fromCharCode(224|(c>>12))+String.fromCharCode(128|((c>>6)&63))+String.fromCharCode(128|(c&63)); } return btoa(out);} }
 
-        function renderTrips(filteredTrips = null) {
-            const tripsToRender = filteredTrips || trips;
-            
-            // Clear grids
-            document.getElementById('proposal-grid').innerHTML = '';
-            document.getElementById('confirmed-grid').innerHTML = '';
-            document.getElementById('old-grid').innerHTML = '';
+async function waitForFile(url, attempts=6, delay=3000){ for(let i=0;i<attempts;i++){ try{ const r=await fetch(url+`?cb=${Date.now()}`, {cache:'reload'}); if(r.ok) return true; }catch(_){} await new Promise(r=>setTimeout(r,delay)); } return false; }
+async function waitForRemoval(url, attempts=6, delay=3000){ for(let i=0;i<attempts;i++){ try{ const r=await fetch(url+`?cb=${Date.now()}`, {cache:'reload'}); if(!r.ok) return true; }catch(_){ return true; } await new Promise(r=>setTimeout(r,delay)); } return false; }
 
-            // Sort by date
-            const sortedTrips = [...tripsToRender].sort((a, b) => {
-                return new Date(b.lastModified) - new Date(a.lastModified);
-            });
+function parseTagsInput(str){ return (str||'').split(',').map(s=>s.trim()).filter(Boolean).slice(0,20); }
 
-            sortedTrips.forEach((trip, index) => {
-                const originalIndex = trips.indexOf(trip);
-                const tripCard = createTripCard(trip, originalIndex);
-                const gridId = trip.category + '-grid';
-                document.getElementById(gridId).appendChild(tripCard);
-            });
+/***** PUBLIC LOAD (NO TOKEN) *****/
+async function loadTripsPublic(){ const url = `${location.origin}/trips.json?cb=${Date.now()}`; const res = await fetch(url,{cache:'reload'}); if(!res.ok) { document.getElementById('tripGrid').innerHTML=''; document.getElementById('emptyState').style.display='block'; return []; } const data = await res.json(); const trips = Array.isArray(data.trips)?data.trips:[]; renderTrips(trips); return trips; }
 
-            // Add "Add New Trip" card
-            const addTripCard = createAddTripCard();
-            document.getElementById('proposal-grid').appendChild(addTripCard);
-        }
+/***** GITHUB HELPERS (ADMIN) *****/
+function ghHeaders(){ const token=getGitHubToken(); if(!token) throw new Error('Missing token'); return { 'Authorization': asciiHeaderValue('Bearer '+token), 'Accept':'application/vnd.github.v3+json', 'Content-Type':'application/json' }; }
 
-        function createTripCard(trip, index) {
-            const card = document.createElement('div');
-            card.className = 'trip-card';
-            card.style.position = 'relative';
+async function uploadToGitHub(filename, content){ const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`; const headers=ghHeaders(); let sha=null; try{ const chk=await fetch(url+`?ref=${GITHUB_CONFIG.branch}`,{headers}); if(chk.ok){ const j=await chk.json(); sha=j.sha||null; } }catch(_){} const resp=await fetch(url,{ method:'PUT', headers, body: JSON.stringify({ message:(sha?`Update travel document: ${filename}`:`Add travel document: ${filename}`), content: encodeBase64(content), branch:GITHUB_CONFIG.branch, ...(sha?{sha}:{} ) }) }); if(!resp.ok){ let msg=`HTTP ${resp.status}`; try{ const j=await resp.json(); if(j?.message) msg+=` - ${j.message}`; }catch(_){} throw new Error(msg); } }
 
-            const tags = trip.tags.map(tag => {
-                const tagClass = tag.toLowerCase() === 'new' ? 'new' : '';
-                return `<span class="trip-tag ${tagClass}">${tag}</span>`;
-            }).join('');
+async function deleteFromGitHub(filename){ const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`; const headers=ghHeaders(); const head=await fetch(url+`?ref=${GITHUB_CONFIG.branch}`,{headers}); if(!head.ok) throw new Error('Lookup failed '+head.status); const j=await head.json(); const del=await fetch(url,{method:'DELETE', headers, body: JSON.stringify({ message:`Delete ${filename}`, sha:j.sha, branch:GITHUB_CONFIG.branch })}); if(!del.ok){ let msg=`HTTP ${del.status}`; try{ const d=await del.json(); if(d?.message) msg+=` - ${d.message}`; }catch(_){} throw new Error(msg);} }
 
-            card.innerHTML = `
-                <div class="trip-actions">
-                    <div class="action-btn edit" onclick="openEditModal(${index})" title="Edit trip">E</div>
-                    <div class="action-btn delete" onclick="confirmDeleteTrip(${index})" title="Delete trip">X</div>
-                </div>
-                <a href="${trip.file}" style="text-decoration: none; color: inherit; display: block;">
-                    <div class="trip-title">${trip.title}</div>
-                    ${trip.dates ? `<div class="trip-date">${trip.dates}</div>` : ''}
-                    <div class="trip-meta">
-                        <span class="trip-status">${trip.status}</span>
-                        ${tags}
-                    </div>
-                    <div style="font-size: 0.8rem; color: #999; margin-top: 0.5rem;">
-                        Last Modified: ${formatDate(trip.lastModified)}
-                    </div>
-                </a>
-            `;
+async function getTripsJsonFromGitHub(){ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json?ref=${GITHUB_CONFIG.branch}`; const res=await fetch(url,{headers}); if(res.status===404) return {sha:null,trips:[]}; if(!res.ok) throw new Error('trips.json GET '+res.status); const j=await res.json(); const text=atob((j.content||'').replace(/\n/g,'')); const data=JSON.parse(text||'{"version":1,"trips":[]}'); return { sha:j.sha||null, trips:Array.isArray(data.trips)?data.trips:[] } }
 
-            return card;
-        }
+async function saveTripsJsonToGitHub(nextTrips, prevSha){ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json`; const body={ message:'Update trips.json', content: encodeBase64(JSON.stringify({version:1,trips:nextTrips},null,2)), branch:GITHUB_CONFIG.branch, ...(prevSha?{sha:prevSha}:{}) }; const put=await fetch(url,{method:'PUT', headers, body:JSON.stringify(body)}); if(!put.ok){ let msg=`trips.json PUT ${put.status}`; try{ const j=await put.json(); if(j?.message) msg+=` - ${j.message}`; }catch(_){} throw new Error(msg);} }
 
-        function createAddTripCard() {
-            const card = document.createElement('div');
-            card.className = 'trip-card add-trip-card';
-            card.onclick = openModal;
-            card.innerHTML = `
-                <div class="add-icon">+</div>
-                <div>Add New Trip</div>
-            `;
-            return card;
-        }
+/***** RENDER *****/
+function renderTrips(trips){ const grid=document.getElementById('tripGrid'); grid.innerHTML=''; document.getElementById('emptyState').style.display=trips.length? 'none':'block'; trips.forEach((t,i)=> grid.appendChild(createTripCard(t,i))); }
 
-        function toggleCategory(categoryId) {
-            const content = document.getElementById(categoryId + '-content');
-            const toggle = content.previousElementSibling.querySelector('.category-toggle');
-            
-            if (content.classList.contains('collapsed')) {
-                content.classList.remove('collapsed');
-                toggle.textContent = 'v';
-            } else {
-                content.classList.add('collapsed');
-                toggle.textContent = '>';
-            }
-        }
+function createTripCard(trip, index){ const card=document.createElement('div'); card.className='card trip-card'; const title=document.createElement('div'); title.className='title'; title.textContent=trip.title||trip.filename; const dates=document.createElement('div'); dates.className='dates'; dates.textContent=trip.dates||''; const status=document.createElement('div'); status.className='status'; status.textContent=(trip.category||'proposal').replace(/^./,c=>c.toUpperCase()); const tags=document.createElement('div'); tags.className='tags'; (trip.tags||[]).forEach(t=>{ const el=document.createElement('span'); el.className='tag'; el.textContent=t; tags.appendChild(el); }); const view=document.createElement('a'); view.href=`/${trip.filename}`; view.target='_blank'; view.rel='noopener'; view.className='btn btn-secondary'; view.textContent='View'; const histBtn=document.createElement('button'); histBtn.className='btn btn-secondary'; histBtn.textContent='Version history'; histBtn.onclick=()=>openHistoryModal(trip);
+  const editBtn=document.createElement('button'); editBtn.className='btn btn-secondary'; editBtn.textContent='Edit'; editBtn.onclick=()=>openEditModal(trip,index);
+  const delBtn=document.createElement('button'); delBtn.className='btn btn-secondary'; delBtn.textContent='Delete'; delBtn.onclick=()=>confirmDeleteTrip(trip,index);
+  const actions=document.createElement('div'); actions.className='actions'; actions.append(view,histBtn,editBtn,delBtn);
+  card.append(title,dates,status,tags,actions); return card; }
 
-        function openModal() {
-            document.getElementById('addTripModal').style.display = 'block';
-        }
+/***** MODALS *****/
+function openAddModal(){ document.getElementById('tripForm').reset(); document.getElementById('editIndex').value=''; document.getElementById('modalTitle').textContent='Add Trip'; document.getElementById('fileInfo').textContent='Click to choose itinerary HTML'; document.getElementById('tripModal').style.display='flex'; }
+function openEditModal(trip,index){ document.getElementById('modalTitle').textContent='Edit Trip'; document.getElementById('tripTitle').value=trip.title||''; document.getElementById('tripDates').value=trip.dates||''; document.getElementById('tripCategory').value=trip.category||'proposal'; document.getElementById('tripTags').value=(trip.tags||[]).join(', '); document.getElementById('tripFilename').value=trip.filename||''; document.getElementById('fileInfo').textContent='(Optional) choose a new HTML to replace existing'; document.getElementById('editIndex').value=String(index); document.getElementById('tripModal').style.display='flex'; }
+function closeModal(){ document.getElementById('tripModal').style.display='none'; }
 
-        function closeModal() {
-            document.getElementById('addTripModal').style.display = 'none';
-            document.getElementById('addTripForm').reset();
-            document.getElementById('tagList').innerHTML = '';
-            currentTags = [];
-        }
+/***** ADD/EDIT SUBMIT *****/
+(function initForm(){ const inp=document.getElementById('htmlFile'); inp.addEventListener('change',()=>{ const f=inp.files?.[0]; document.getElementById('fileInfo').textContent = f? `Selected: ${f.name}` : 'Click to choose itinerary HTML'; }); document.getElementById('tripForm').addEventListener('submit', onSubmitTrip); })();
 
-        function openEditModal(index) {
-            currentEditIndex = index;
-            const trip = trips[index];
-            
-            document.getElementById('editTripTitle').value = trip.title;
-            document.getElementById('editTripDates').value = trip.dates;
-            document.getElementById('editCategory').value = trip.category;
-            
-            // Set current tags
-            currentEditTags = [...trip.tags];
-            renderEditTags();
-            
-            document.getElementById('editTripModal').style.display = 'block';
-        }
+async function onSubmitTrip(e){ e.preventDefault(); try{
+  const i = document.getElementById('editIndex').value; const isEdit = i!==''; const title=document.getElementById('tripTitle').value.trim(); const dates=document.getElementById('tripDates').value.trim(); const category=document.getElementById('tripCategory').value; const tags=parseTagsInput(document.getElementById('tripTags').value); const filename=document.getElementById('tripFilename').value.trim();
+  let fileContent=null; const fileInput=document.getElementById('htmlFile'); if(fileInput.files && fileInput.files[0]){ fileContent= await fileInput.files[0].text(); }
 
-        function closeEditModal() {
-            document.getElementById('editTripModal').style.display = 'none';
-            document.getElementById('editTripForm').reset();
-            document.getElementById('editTagList').innerHTML = '';
-            currentEditIndex = -1;
-            currentEditTags = [];
-        }
+  // 1) Upload/replace file if provided
+  if(fileContent!==null){ showSpinner('Uploading itinerary…'); await uploadToGitHub(filename, fileContent); const fileUrl=`${location.origin}/${filename}`; await waitForFile(fileUrl); hideSpinner(); }
 
-        function confirmDeleteTrip(index) {
-            const trip = trips[index];
-            if (confirm(`Are you sure you want to delete "${trip.title}"?`)) {
-                deleteTrip(index);
-            }
-        }
+  // 2) Update trips.json
+  showSpinner('Updating metadata…'); const {sha,trips}= await getTripsJsonFromGitHub(); const idx = trips.findIndex(t=>t.filename===filename); const entry={ filename, title, dates, category, tags, lastModified: new Date().toISOString().slice(0,10) };
+  if(idx>=0){ trips[idx]=entry; } else { trips.push(entry); }
+  await saveTripsJsonToGitHub(trips, sha); await waitForFile(`${location.origin}/trips.json`); hideSpinner(); alert('Saved.'); closeModal(); await loadTripsPublic(); }
+  catch(err){ hideSpinner(); console.error(err); alert('Save failed: '+(err?.message||err)); }
+}
 
-        async function deleteTrip(index = currentEditIndex) {
-            if (index === -1) return;
-            
-            const trip = trips[index];
-            
-            // Archive the HTML file on GitHub if configured
-            const token = getGitHubToken();
-            if (token) {
-                try {
-                    await archiveHtmlFile(trip.file);
-                } catch (error) {
-                    console.error('Failed to archive HTML file:', error);
-                    if (!confirm(`Failed to archive HTML file "${trip.file}". Continue with deletion?`)) {
-                        return;
-                    }
-                }
-            }
-            
-            trips.splice(index, 1);
-            renderTrips();
-            
-            if (document.getElementById('editTripModal').style.display === 'block') {
-                closeEditModal();
-            }
-            
-            await updateGitHubIndex();
-            
-            if (token) {
-                alert(`Trip "${trip.title}" deleted and HTML file "${trip.file}" archived.`);
-            } else {
-                alert(`Trip "${trip.title}" deleted locally.`);
-            }
-        }
+/***** DELETE *****/
+async function confirmDeleteTrip(trip,index){ if(!confirm(`Delete ${trip.title||trip.filename}?`)) return; try{ showSpinner('Deleting…'); await deleteFromGitHub(trip.filename); await waitForRemoval(`${location.origin}/${trip.filename}`); const {sha,trips}=await getTripsJsonFromGitHub(); const next=trips.filter(t=>t.filename!==trip.filename); await saveTripsJsonToGitHub(next, sha); await waitForFile(`${location.origin}/trips.json`); hideSpinner(); alert('Deleted.'); await loadTripsPublic(); } catch(err){ hideSpinner(); console.error(err); alert('Delete failed: '+(err?.message||err)); } }
 
-        function setupEventListeners() {
-            // File upload
-            const fileUpload = document.getElementById('fileUpload');
-            const fileInput = document.getElementById('htmlFile');
+/***** FILE HISTORY (for itinerary) *****/
+function closeHistoryModal(){ document.getElementById('historyModal').style.display='none'; document.getElementById('historyBody').innerHTML=''; }
+async function listFileHistory(path, perPage=25){ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/commits?path=${encodeURIComponent(path)}&per_page=${perPage}&sha=${encodeURIComponent(GITHUB_CONFIG.branch)}`; const r=await fetch(url,{headers}); if(!r.ok) throw new Error('History HTTP '+r.status); return r.json(); }
+function previewHistorical(path,sha){ const raw=`https://raw.githubusercontent.com/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/${sha}/${path}`; window.open(raw,'_blank','noopener'); }
+async function restoreFileToCommit(path,sha){ const headers=ghHeaders(); const head=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${path}?ref=${GITHUB_CONFIG.branch}`,{headers}); if(!head.ok) throw new Error('Head lookup '+head.status); const headJ=await head.json(); const hist=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${path}?ref=${sha}`,{headers}); if(!hist.ok) throw new Error('Historical lookup '+hist.status); const histJ=await hist.json(); const put=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${path}`,{ method:'PUT', headers, body: JSON.stringify({ message:`Revert ${path} to ${sha}`, content: histJ.content, branch:GITHUB_CONFIG.branch, sha: headJ.sha }) }); if(!put.ok){ let m=`HTTP ${put.status}`; try{ const j=await put.json(); if(j?.message) m+=` - ${j.message}`; }catch(_){} throw new Error(m);} }
 
-            fileUpload.addEventListener('click', () => fileInput.click());
-            
-            fileUpload.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                fileUpload.classList.add('dragover');
-            });
+async function openHistoryModal(trip){ const modal=document.getElementById('historyModal'); const body=document.getElementById('historyBody'); document.getElementById('historyPath').textContent=trip.filename; body.innerHTML='Loading…'; modal.style.display='flex'; try{ const commits=await listFileHistory(trip.filename,30); if(!Array.isArray(commits)||!commits.length){ body.innerHTML='<div class="muted">No history.</div>'; return; } const wrap=document.createElement('div'); wrap.style.display='grid'; wrap.style.gap='10px'; commits.forEach(c=>{ const row=document.createElement('div'); row.style.display='grid'; row.style.gridTemplateColumns='1fr auto auto'; row.style.gap='8px'; row.style.alignItems='center'; row.style.padding='10px'; row.style.border='1px solid var(--border)'; row.style.borderRadius='8px'; const when=new Date(c.commit.author.date).toLocaleString(); row.innerHTML=`<div><div style="font-weight:600">${when}</div><div class="muted">${(c.commit.message||'').split('\n')[0]}</div><div class="muted" style="font-size:12px">${c.sha.slice(0,7)}</div></div>`; const prev=document.createElement('button'); prev.className='btn btn-secondary'; prev.textContent='Preview'; prev.onclick=()=>previewHistorical(trip.filename,c.sha); const restore=document.createElement('button'); restore.className='btn btn-primary'; restore.textContent='Restore'; restore.onclick=async()=>{ if(!confirm(`Restore ${trip.filename} to ${c.sha.slice(0,7)}?`)) return; try{ showSpinner('Restoring…'); await restoreFileToCommit(trip.filename,c.sha); await waitForFile(`${location.origin}/${trip.filename}`); hideSpinner(); alert('Restored.'); }catch(err){ hideSpinner(); alert('Restore failed: '+(err?.message||err)); } }; row.append(prev,restore); wrap.appendChild(row); }); body.innerHTML=''; body.appendChild(wrap); }catch(err){ console.error(err); body.innerHTML='<div style="color:#b00">Failed to load history.</div>'; } }
 
-            fileUpload.addEventListener('dragleave', () => {
-                fileUpload.classList.remove('dragover');
-            });
+/***** METADATA (trips.json) HISTORY (global) *****/
+async function openMetadataHistory(){ try{ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/commits?path=trips.json&per_page=30&sha=${encodeURIComponent(GITHUB_CONFIG.branch)}`; const r=await fetch(url,{headers}); if(!r.ok) throw new Error('HTTP '+r.status); const commits=await r.json(); const bodyEl=document.createElement('div'); bodyEl.className='content'; const list=document.createElement('div'); list.style.display='grid'; list.style.gap='10px'; (commits||[]).forEach(c=>{ const row=document.createElement('div'); row.style.display='grid'; row.style.gridTemplateColumns='1fr auto auto'; row.style.gap='8px'; row.style.alignItems='center'; row.style.padding='10px'; row.style.border='1px solid var(--border)'; row.style.borderRadius='8px'; const when=new Date(c.commit.author.date).toLocaleString(); row.innerHTML=`<div><div style="font-weight:600">${when}</div><div class="muted">${(c.commit.message||'').split('\n')[0]}</div><div class="muted" style="font-size:12px">${c.sha.slice(0,7)}</div></div>`; const prev=document.createElement('button'); prev.className='btn btn-secondary'; prev.textContent='Preview'; prev.onclick=()=>window.open(`https://raw.githubusercontent.com/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/${c.sha}/trips.json`,'_blank','noopener'); const restore=document.createElement('button'); restore.className='btn btn-primary'; restore.textContent='Restore'; restore.onclick=()=>restoreTripsJsonToCommit(c.sha); row.append(prev,restore); list.appendChild(row); }); const modal=document.getElementById('historyModal'); document.getElementById('historyPath').textContent='trips.json'; const hb=document.getElementById('historyBody'); hb.innerHTML=''; hb.appendChild(list); modal.style.display='flex'; }catch(err){ alert('Failed to load metadata history: '+(err?.message||err)); } }
 
-            fileUpload.addEventListener('drop', (e) => {
-                e.preventDefault();
-                fileUpload.classList.remove('dragover');
-                const files = e.dataTransfer.files;
-                if (files.length > 0) {
-                    handleFileUpload(files[0]);
-                }
-            });
+async function restoreTripsJsonToCommit(sha){ if(!confirm(`Restore trips.json to ${sha.slice(0,7)}?`)) return; try{ showSpinner('Restoring metadata…'); const headers=ghHeaders(); const head=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json?ref=${GITHUB_CONFIG.branch}`,{headers}); if(!head.ok) throw new Error('Head lookup '+head.status); const headJ=await head.json(); const hist=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json?ref=${sha}`,{headers}); if(!hist.ok) throw new Error('Historical lookup '+hist.status); const histJ=await hist.json(); const put=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json`,{ method:'PUT', headers, body: JSON.stringify({ message:`Revert trips.json to ${sha}`, content: histJ.content, branch:GITHUB_CONFIG.branch, sha: headJ.sha })}); if(!put.ok) throw new Error('PUT '+put.status); await waitForFile(`${location.origin}/trips.json`); hideSpinner(); alert('Metadata restored.'); await loadTripsPublic(); }catch(err){ hideSpinner(); alert('Restore failed: '+(err?.message||err)); }
+}
 
-            fileInput.addEventListener('change', (e) => {
-                if (e.target.files.length > 0) {
-                    handleFileUpload(e.target.files[0]);
-                }
-            });
-
-            // Forms
-            document.getElementById('addTripForm').addEventListener('submit', handleAddTrip);
-            document.getElementById('editTripForm').addEventListener('submit', handleEditTrip);
-
-            // Tag inputs
-            document.getElementById('tagInput').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    addTag(e.target.value.trim());
-                    e.target.value = '';
-                }
-            });
-
-            document.getElementById('editTagInput').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    addEditTag(e.target.value.trim());
-                    e.target.value = '';
-                }
-            });
-
-            // Search and filters
-            document.getElementById('searchInput').addEventListener('input', filterTrips);
-            document.getElementById('statusFilter').addEventListener('change', filterTrips);
-            document.getElementById('yearFilter').addEventListener('change', filterTrips);
-
-            // Modal close on outside click
-            window.addEventListener('click', (e) => {
-                if (e.target === document.getElementById('addTripModal')) {
-                    closeModal();
-                }
-                if (e.target === document.getElementById('editTripModal')) {
-                    closeEditModal();
-                }
-            });
-        }
-
-        function handleFileUpload(file) {
-            if (!file.name.toLowerCase().endsWith('.html') && !file.name.toLowerCase().endsWith('.htm')) {
-                alert('Please upload an HTML file.');
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const content = e.target.result;
-                parseHtmlFile(content, file.name);
-            };
-            reader.readAsText(file, 'UTF-8');
-        }
-
-        function parseHtmlFile(content, filename) {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(content, 'text/html');
-            
-            // Extract title
-            let title = doc.querySelector('title')?.textContent || 
-                       doc.querySelector('h1')?.textContent || 
-                       filename.replace(/\.(html|htm)$/i, '').replace(/-/g, ' ');
-
-            // Extract dates - simple patterns
-            let dates = '';
-            const datePattern = /\b\w+\s+\d{1,2}[-]\d{1,2},?\s+\d{4}\b/gi;
-            const match = content.match(datePattern);
-            if (match) {
-                dates = match[0];
-            }
-
-            // Auto-fill form
-            document.getElementById('tripTitle').value = title.trim();
-            document.getElementById('tripDates').value = dates;
-            
-            // Store filename
-            document.getElementById('htmlFile').dataset.filename = filename;
-            document.getElementById('htmlFile').dataset.content = content;
-        }
-
-        // Tag management functions
-        function addTag(tag) {
-            if (tag && !currentTags.includes(tag)) {
-                currentTags.push(tag);
-                renderTags();
-            }
-        }
-
-        function removeTag(tag) {
-            currentTags = currentTags.filter(t => t !== tag);
-            renderTags();
-        }
-
-        function renderTags() {
-            const tagList = document.getElementById('tagList');
-            tagList.innerHTML = currentTags.map(tag => 
-                `<span class="tag-item">
-                    ${tag}
-                    <span class="tag-remove" onclick="removeTag('${tag}')">&times;</span>
-                </span>`
-            ).join('');
-        }
-
-        function addEditTag(tag) {
-            if (tag && !currentEditTags.includes(tag)) {
-                currentEditTags.push(tag);
-                renderEditTags();
-            }
-        }
-
-        function removeEditTag(tag) {
-            currentEditTags = currentEditTags.filter(t => t !== tag);
-            renderEditTags();
-        }
-
-        function renderEditTags() {
-            const tagList = document.getElementById('editTagList');
-            tagList.innerHTML = currentEditTags.map(tag => 
-                `<span class="tag-item">
-                    ${tag}
-                    <span class="tag-remove" onclick="removeEditTag('${tag}')">&times;</span>
-                </span>`
-            ).join('');
-        }
-
-        async function handleAddTrip(e) {
-            e.preventDefault();
-            
-            const title = document.getElementById('tripTitle').value.trim();
-            const dates = document.getElementById('tripDates').value.trim();
-            const category = document.getElementById('category').value;
-            const fileInput = document.getElementById('htmlFile');
-            
-            if (!title) {
-                alert('Please enter a trip title.');
-                return;
-            }
-
-            if (!fileInput.files || fileInput.files.length === 0) {
-                alert('Please select an HTML file to upload.');
-                return;
-            }
-
-            const file = fileInput.files[0];
-            const filename = file.name;
-
-            // Show loading state
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Uploading...';
-            submitBtn.disabled = true;
-
-            try {
-                // Create trip object
-                const newTrip = {
-                    title: title,
-                    dates: dates,
-                    status: category === 'proposal' ? 'Travel Proposal' : 
-                           category === 'confirmed' ? 'Confirmed' : 'Complete',
-                    category: category,
-                    file: filename,
-                    tags: [...currentTags],
-                    lastModified: new Date().toISOString().split('T')[0]
-                };
-
-                // Upload to GitHub if configured - only add to local array if upload succeeds
-                const token = getGitHubToken();
-                if (token) {
-                    await uploadToGitHub(filename, fileInput.dataset.content);
-                    await updateGitHubIndex();
-                    
-                    // Only add to trips array after successful upload
-                    trips.push(newTrip);
-                    renderTrips();
-                    closeModal();
-                    
-                    alert(`Success! Trip "${title}" uploaded to GitHub.\n\nNote: It may take 1-2 minutes for the live site to update.`);
-                } else {
-                    alert(`GitHub integration not configured. Please set up your GitHub token to upload trips.`);
-                }
-
-            } catch (error) {
-                console.error('Upload failed:', error);
-                alert(`Upload failed: ${error.message}\n\nTrip not added. Please try again.`);
-            } finally {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        }
-
-        async function handleEditTrip(e) {
-            e.preventDefault();
-            
-            if (currentEditIndex === -1) return;
-            
-            const title = document.getElementById('editTripTitle').value.trim();
-            const dates = document.getElementById('editTripDates').value.trim();
-            const category = document.getElementById('editCategory').value;
-            
-            if (!title) {
-                alert('Please enter a trip title.');
-                return;
-            }
-
-            // Update trip locally first, then sync to GitHub
-            const originalTrip = {...trips[currentEditIndex]};
-            
-            trips[currentEditIndex].title = title;
-            trips[currentEditIndex].dates = dates;
-            trips[currentEditIndex].category = category;
-            trips[currentEditIndex].status = category === 'proposal' ? 'Travel Proposal' : 
-                                           category === 'confirmed' ? 'Confirmed' : 'Complete';
-            trips[currentEditIndex].tags = [...currentEditTags];
-            trips[currentEditIndex].lastModified = new Date().toISOString().split('T')[0];
-
-            try {
-                await updateGitHubIndex();
-                renderTrips();
-                closeEditModal();
-                alert(`Trip "${title}" updated successfully.\n\nNote: Live site updates in 1-2 minutes.`);
-            } catch (error) {
-                // Revert changes if GitHub update failed
-                trips[currentEditIndex] = originalTrip;
-                throw error;
-            }
-        }
-
-        function filterTrips() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const statusFilter = document.getElementById('statusFilter').value.toLowerCase();
-            const yearFilter = document.getElementById('yearFilter').value;
-
-            const filtered = trips.filter(trip => {
-                const matchesSearch = trip.title.toLowerCase().includes(searchTerm);
-                const matchesStatus = !statusFilter || trip.category === statusFilter;
-                const matchesYear = !yearFilter || 
-                                  trip.dates.includes(yearFilter) || 
-                                  trip.lastModified.includes(yearFilter);
-
-                return matchesSearch && matchesStatus && matchesYear;
-            });
-
-            renderTrips(filtered);
-        }
-
-        async function uploadToGitHub(filename, content) {
-            const token = getGitHubToken();
-            if (!token) return;
-
-            try {
-                const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`;
-                
-                // Simple upload like the original version
-                const response = await fetch(url, {
-                    method: 'PUT',
-                    headers: {
-                        'Authorization': `token ${token}`,
-                        'Accept': 'application/vnd.github.v3+json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        message: `Add travel document: ${filename}`,
-                        content: encodeBase64(content),
-                        branch: GITHUB_CONFIG.branch
-                    })
-                });
-
-                if (response.ok) {
-                    console.log('File uploaded successfully');
-                    return true;
-                } else {
-                    const errorData = await response.json();
-                    throw new Error(`GitHub API error: ${response.status} - ${errorData.message || 'Unknown error'}`);
-                }
-            } catch (error) {
-                console.error('Upload failed:', error);
-                throw error;
-            }
-        }
-
-        async function createBackupFile(backupFilename, existingContent) {
-            const token = getGitHubToken();
-            if (!token) return;
-
-            try {
-                const backupUrl = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${backupFilename}`;
-                
-                await fetch(backupUrl, {
-                    method: 'PUT',
-                    headers: {
-                        'Authorization': `token ${token}`,
-                        'Accept': 'application/vnd.github.v3+json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        message: `Create backup: ${backupFilename}`,
-                        content: existingContent, // Already base64 encoded
-                        branch: GITHUB_CONFIG.branch
-                    })
-                });
-            } catch (error) {
-                console.error('Backup creation failed:', error);
-            }
-        }
-
-        async function archiveHtmlFile(filename) {
-            const token = getGitHubToken();
-            if (!token) return;
-
-            try {
-                const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`;
-                
-                // Get the current file
-                const response = await fetch(url, {
-                    headers: {
-                        'Authorization': `token ${token}`,
-                        'Accept': 'application/vnd.github.v3+json'
-                    }
-                });
-
-                if (response.ok) {
-                    const fileData = await response.json();
-                    
-                    // Create archive filename
-                    const timestamp = new Date().toISOString().split('T')[0];
-                    const archiveFilename = `archive/archived-${timestamp}-${filename}`;
-                    
-                    // Create archived copy
-                    const archiveUrl = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${archiveFilename}`;
-                    await fetch(archiveUrl, {
-                        method: 'PUT',
-                        headers: {
-                            'Authorization': `token ${token}`,
-                            'Accept': 'application/vnd.github.v3+json',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            message: `Archive deleted trip file: ${filename}`,
-                            content: fileData.content, // Already base64 encoded
-                            branch: GITHUB_CONFIG.branch
-                        })
-                    });
-
-                    // Delete the original file
-                    await fetch(url, {
-                        method: 'DELETE',
-                        headers: {
-                            'Authorization': `token ${token}`,
-                            'Accept': 'application/vnd.github.v3+json',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            message: `Delete trip file (archived as ${archiveFilename})`,
-                            sha: fileData.sha,
-                            branch: GITHUB_CONFIG.branch
-                        })
-                    });
-
-                    console.log(`File archived: ${filename} -> ${archiveFilename}`);
-                }
-            } catch (error) {
-                console.error('Archive failed:', error);
-                throw error;
-            }
-        }
-
-        async function updateGitHubIndex() {
-            const token = getGitHubToken();
-            if (!token) return;
-
-            try {
-                const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/index.html`;
-                
-                // Get current file
-                const response = await fetch(url, {
-                    headers: {
-                        'Authorization': `token ${token}`,
-                        'Accept': 'application/vnd.github.v3+json'
-                    }
-                });
-
-                if (response.ok) {
-                    const fileData = await response.json();
-                    let currentContent = atob(fileData.content);
-                    
-                    // Update the trips array in the HTML content
-                    const tripsArrayStart = currentContent.indexOf('let trips = [');
-                    const tripsArrayEnd = currentContent.indexOf('        ];', tripsArrayStart) + 10;
-                    
-                    if (tripsArrayStart !== -1 && tripsArrayEnd !== -1) {
-                        const newTripsArray = 'let trips = ' + JSON.stringify(trips, null, 12).replace(/\n/g, '\n        ') + ';';
-                        currentContent = currentContent.slice(0, tripsArrayStart) + 
-                                       newTripsArray + 
-                                       currentContent.slice(tripsArrayEnd);
-                    }
-                    
-                    // Update file
-                    await fetch(url, {
-                        method: 'PUT',
-                        headers: {
-                            'Authorization': `token ${token}`,
-                            'Accept': 'application/vnd.github.v3+json',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            message: `Update trips list - ${new Date().toLocaleDateString()}`,
-                            content: encodeBase64(currentContent),
-                            branch: GITHUB_CONFIG.branch,
-                            sha: fileData.sha
-                        })
-                    });
-                    
-                    console.log('Index updated successfully');
-                }
-            } catch (error) {
-                console.error('Index update failed:', error);
-                throw error;
-            }
-        }
-
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'short', 
-                day: 'numeric' 
-            });
-        }
-    </script>
+/***** STARTUP *****/
+loadTripsPublic();
+</script>
 </body>
 </html>
