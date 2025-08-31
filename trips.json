@@ -232,14 +232,12 @@
       "description": ""
     },
     {
+      "filename": "mobile.html",
       "title": "Sara and Darren mobile guide",
       "dates": "October 5-15, 2025",
-      "status": "Confirmed",
-      "category": "confirmed",
-      "filename": "mobile.html",
+      "category": "no_sale",
       "tags": [],
-      "lastModified": "2025-08-10",
-      "description": ""
+      "lastModified": "2025-08-31"
     },
     {
       "title": "Ireland Loop",
