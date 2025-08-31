@@ -100,16 +100,14 @@
       "description": ""
     },
     {
+      "filename": "daniels-dining-guide.html",
       "title": "Daniels Family Niagara Falls Vacation Dining Recommendations",
       "dates": "July 13-15, 2025",
-      "status": "Complete",
-      "category": "past",
-      "filename": "daniels-dining-guide.html",
+      "category": "no_sale",
       "tags": [
         "NEW"
       ],
-      "lastModified": "2025-07-15",
-      "description": ""
+      "lastModified": "2025-08-31"
     },
     {
       "title": "Scotland with Mam 2025",
