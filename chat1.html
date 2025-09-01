@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voygent • Simulated Chat Transcript</title>
+  <meta name="description" content="A self‑contained HTML to visualize the Voygent simulated chat transcript." />
+  <style>
+    :root{
+      --bg:#0b0d12;      --panel:#0f121a;    --ink:#e8eef7;    --muted:#9aa6b2;
+      --voy:#6ee7b7;     --hum:#60a5fa;      --sys:#fbbf24;    --line:rgba(255,255,255,.08);
+      --radius:16px;     --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    .wrap{max-width:980px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;background:rgba(11,13,18,.7);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line);z-index:20}
+    .bar{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 24px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .logo{width:22px;height:22px;border-radius:8px;background:conic-gradient(from 180deg,var(--voy),var(--hum),var(--voy));box-shadow:0 0 0 2px rgba(255,255,255,.06)}
+    .btns{display:flex;gap:8px;flex-wrap:wrap}
+    button, .btn{cursor:pointer;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);padding:.6rem .8rem;border-radius:10px}
+    .btn.prim{background:linear-gradient(135deg, rgba(110,231,183,.15), rgba(96,165,250,.15));}
+
+    main{padding:22px 0}
+    .meta{color:var(--muted);font-size:.95rem;margin:0 0 18px}
+
+    .stream{display:grid;gap:12px}
+    .msg{display:flex;gap:10px;align-items:flex-end}
+    .msg .avatar{flex:0 0 36px;height:36px;border-radius:12px;display:grid;place-items:center;font-weight:800}
+    .msg .bubble{max-width:75%;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--panel);box-shadow:var(--shadow)}
+    .msg .who{font-size:.78rem;letter-spacing:.2px;opacity:.8;margin-bottom:6px}
+    .msg .text{white-space:pre-wrap}
+
+    .msg[data-role="voygent"]{justify-content:flex-start}
+    .msg[data-role="voygent"] .avatar{background:rgba(110,231,183,.15);color:#0c2f23;border:1px solid rgba(110,231,183,.35)}
+    .msg[data-role="voygent"] .bubble{border-color:rgba(110,231,183,.28)}
+
+    .msg[data-role="human"]{justify-content:flex-end}
+    .msg[data-role="human"] .avatar{background:rgba(96,165,250,.15);color:#0c213b;border:1px solid rgba(96,165,250,.35)}
+    .msg[data-role="human"] .bubble{border-color:rgba(96,165,250,.28);background:linear-gradient(180deg,rgba(96,165,250,.06),rgba(255,255,255,.03))}
+
+    .msg[data-role="system"]{justify-content:center}
+    .msg[data-role="system"] .avatar{display:none}
+    .msg[data-role="system"] .bubble{max-width:680px;text-align:center;background:linear-gradient(180deg,rgba(251,191,36,.12),rgba(255,255,255,.03));border-color:rgba(251,191,36,.35)}
+
+    code.cmd{display:inline-block;background:rgba(255,255,255,.06);border:1px solid var(--line);padding:.12rem .4rem;border-radius:6px;font-family:ui-monospace,SFMono-Regular,Consolas,Menlo,monospace}
+
+    .footer-note{margin-top:18px;color:var(--muted);font-size:.85rem}
+
+    @media (max-width: 720px){
+      .msg .bubble{max-width:100%}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><div class="logo"></div> Voygent • Simulated Chat</div>
+      <div class="btns">
+        <button class="btn" id="toggleCompact">Toggle compact</button>
+        <button class="btn" id="copy">Copy transcript</button>
+        <button class="btn prim" onclick="window.print()">Print / PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <main>
+      <p class="meta">Detailed chat transcript (abridged only where repetitive)</p>
+      <section class="stream" id="stream">
+        <!-- System boot -->
+        <article class="msg" data-role="system">
+          <div class="avatar">*</div>
+          <div class="bubble">
+            <div class="who">System</div>
+            <div class="text">Voygent CE boots in <code class="cmd">travel_agent_start</code> mode.</div>
+          </div>
+        </article>
+
+        <!-- Voygent greeting -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">Hi! I’m the community edition of Voygent. I help plan trips and generate beautiful proposals on your self‑hosted site.
+Use <code class="cmd">/new</code>, <code class="cmd">/continue</code>, <code class="cmd">/render</code>, <code class="cmd">/commissions</code>, <code class="cmd">/validate</code>. Or tell me what you want to plan.</div>
+          </div>
+        </article>
+
+        <!-- Human new command -->
+        <article class="msg" data-role="human">
+          <div class="avatar">H</div>
+          <div class="bubble">
+            <div class="who">Human</div>
+            <div class="text">/new "Trip for family of 4 (2 teens) to Vancouver from Atlanta, May 2026, 7 nights. Premium economy flights, boutique hotels, walkable areas. Budget ~$2500/pp. They love hiking and art collecting."</div>
+          </div>
+        </article>
+
+        <!-- Voygent ask for contacts -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">Checking clients… none found for “Smith.”
+
+Please share contact details; I’ll create the client profile.</div>
+          </div>
+        </article>
+
+        <!-- Human provides contacts -->
+        <article class="msg" data-role="human">
+          <div class="avatar">H</div>
+          <div class="bubble">
+            <div class="who">Human</div>
+            <div class="text">Jane Smith (43) – real estate, avid reader & baking;
+Frank (45) – IT, science/history;
+Audra (18) – bio/pre‑med;
+Jack (14) – baseball & hip hop.
+Primary contact: Jane • (401) 555‑1212 • JaneSmithRealtor@gmail.com</div>
+          </div>
+        </article>
+
+        <!-- Voygent creates clients + 3 concepts -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">✅ Created client records and household. Here are three themed concepts:
+1) Urban Arts & Alpine Adventures — galleries + markets; Whistler day; whale watching.
+2) Science, Nature & Culture Explorer — Science World, UBC MOA/Botanical Gardens; Whistler hiking; whale tour.
+3) Active Family Discovery — Grouse Grind, Stanley Park bikes, Sea‑to‑Sky + Whistler, whale tour.
+Which concept fits best? I can blend.</div>
+          </div>
+        </article>
+
+        <!-- Human picks concept 2 -->
+        <article class="msg" data-role="human">
+          <div class="avatar">H</div>
+          <div class="bubble">
+            <div class="who">Human</div>
+            <div class="text">Option 2.</div>
+          </div>
+        </article>
+
+        <!-- Voygent suggests two flows -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">Two flow options:
+• Flow A (City first, then nature): D1 Gastown; D2 Science World; D3 UBC MOA+Gardens; D4 Granville Island; D5 Whistler hiking; D6 Whale tour (Steveston); D7 Capilano; D8 Depart.
+• Flow B (Alternate): D1 city; D2 Capilano/Grouse; D3 Science World+galleries; D4 Whistler; D5 UBC; D6 whale; D7 Granville; D8 depart.
+Which?</div>
+          </div>
+        </article>
+
+        <!-- Human picks Flow A -->
+        <article class="msg" data-role="human">
+          <div class="avatar">H</div>
+          <div class="bubble">
+            <div class="who">Human</div>
+            <div class="text">Flow A.</div>
+          </div>
+        </article>
+
+        <!-- Voygent scaffolds trip -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">✅ Trip created with day‑by‑day scaffolding and placeholders for flights/hotel/car/excursions. Ready to search packages (air+hotel+car)?</div>
+          </div>
+        </article>
+
+        <!-- Human asks to search packages -->
+        <article class="msg" data-role="human">
+          <div class="avatar">H</div>
+          <div class="bubble">
+            <div class="who">Human</div>
+            <div class="text">Search packages first.</div>
+          </div>
+        </article>
+
+        <!-- Voygent suggests vendors -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">Open Apple Vacations, Delta Vacations, Air Canada Vacations, WestJet Vacations (Costco if member). Target boutique hotels in Gastown/Yaletown/Coal Harbour. Open one and I’ll analyze via mcp‑chrome.</div>
+          </div>
+        </article>
+
+        <!-- Human opens Apple Vacations -->
+        <article class="msg" data-role="human">
+          <div class="avatar">H</div>
+          <div class="bubble">
+            <div class="who">Human</div>
+            <div class="text">Apple Vacations page open.</div>
+          </div>
+        </article>
+
+        <!-- Voygent parses package -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">Parsed package:
+• Flights (PE): AC505 ATL→YVR May 10 08:45–11:20; AC504 YVR→ATL May 17 23:55 (red‑eye)
+• Hotel: The Victorian (Gastown), 2 rooms, 7 nights
+• Car: Hertz midsize
+• Total: $9,847 (~$2,462/pp)
+Add to trip?</div>
+          </div>
+        </article>
+
+        <!-- Human confirms add -->
+        <article class="msg" data-role="human">
+          <div class="avatar">H</div>
+          <div class="bubble">
+            <div class="who">Human</div>
+            <div class="text">Yes.</div>
+          </div>
+        </article>
+
+        <!-- Voygent adds package and proposes excursions -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">✅ Package saved. For excursions, consider: Landsea Whistler day tour; Prince of Whales (Steveston); Wild Whales (Granville); Seabreeze. Which ones?</div>
+          </div>
+        </article>
+
+        <!-- Human selects tours -->
+        <article class="msg" data-role="human">
+          <div class="avatar">H</div>
+          <div class="bubble">
+            <div class="who">Human</div>
+            <div class="text">Landsea ($189pp) and Prince of Whales Steveston ($165pp).</div>
+          </div>
+        </article>
+
+        <!-- Voygent adds and drafts proposal -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">✅ Activities added. Current total: $9,847 + $1,412 = $11,259 ($2,815/pp).
+Draft proposal ready with day‑by‑day + dining (L’Abattoir, Miku, Chambar, Sandbar, Blue Canoe, Hawksworth). Run <code class="cmd">/commissions</code> or <code class="cmd">/validate</code>?</div>
+          </div>
+        </article>
+
+        <!-- Human runs commissions -->
+        <article class="msg" data-role="human">
+          <div class="avatar">H</div>
+          <div class="bubble">
+            <div class="who">Human</div>
+            <div class="text">/commissions</div>
+          </div>
+        </article>
+
+        <!-- Voygent commission analysis -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">Commission & Profitability:
+• Apple $9,847 → 12% = $1,182 (10% std + 2% PE)
+• Excursions $1,412 → $192 (15% + 12%)
+= Gross $1,374 (12.2%)
+Fees est. $144 → Net $1,230 (10.9%)
+
+Raise margin:
+1) Planning fee $395 → +$395
+2) Book hotel separately via Virtuoso/Signature → +$250 & client saves ~$200
+3) Private transfers (20%) → +$66
+4) Whale tour upgrade (18%) → +$40
+5) Foodie tour $500 @15% → +$75
+New gross ≈ $2,200; est. fees −$176 → Net ≈ $2,024 (~17.1% margin). Add insurance/esims/VIP for more.</div>
+          </div>
+        </article>
+
+        <!-- Human runs validate -->
+        <article class="msg" data-role="human">
+          <div class="avatar">H</div>
+          <div class="bubble">
+            <div class="who">Human</div>
+            <div class="text">/validate</div>
+          </div>
+        </article>
+
+        <!-- Voygent validation report -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">Validation:
+• Restaurants confirmed (L’Abattoir, Miku, Chambar, Sandbar, Blue Canoe, Hawksworth); reservations advised.
+• Attractions confirmed: Science World (10–5, Tue–Sun), UBC MOA/Gardens, Granville, Capilano (open year‑round).
+• Excursions: Landsea & Prince of Whales in season (May–Sep).
+Timing tweaks: Science World at 10:00 (not 9:30 members); Steveston depart hotel 9:00 for 10:30; consider late checkout on red‑eye day.
+Cost options: shift car pickup to Day 5 (save ~$300), one casual dinner (save ~$200), online Capilano (save ~$40).
+Status: READY TO PUBLISH. Save report & update trip?</div>
+          </div>
+        </article>
+
+        <!-- Human continue -->
+        <article class="msg" data-role="human">
+          <div class="avatar">H</div>
+          <div class="bubble">
+            <div class="who">Human</div>
+            <div class="text">Continue.</div>
+          </div>
+        </article>
+
+        <!-- Voygent saves validation + dashboard -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">✅ Validation report saved and linked to trip card.
+Dashboard now shows:
+Smith – Vancouver BC • May 10–17, 2026
+Status: ✓ Validated | Proposal Ready • Total: $11,259
+[View Proposal] [Validation Report] [Edit]</div>
+          </div>
+        </article>
+
+        <!-- Voygent quick actions -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">Quick actions:
+A) Draft client email with proposal link
+B) Booking priority list
+C) Client presentation deck
+D) Start new trip
+What next?</div>
+          </div>
+        </article>
+
+        <!-- Human asks to send and show dashboard -->
+        <article class="msg" data-role="human">
+          <div class="avatar">H</div>
+          <div class="bubble">
+            <div class="who">Human</div>
+            <div class="text">Send the email and mark as “Proposal Sent.” Show dashboard of active trips; then ask if I want to work on another trip or review commissions.</div>
+          </div>
+        </article>
+
+        <!-- Voygent final updates -->
+        <article class="msg" data-role="voygent">
+          <div class="avatar">V</div>
+          <div class="bubble">
+            <div class="who">Voygent</div>
+            <div class="text">✅ Email sent to JaneSmithRealtor@gmail.com with proposal link & highlights.
+✅ Trip status updated → Proposal Sent.
+
+Active Trips:
+• Smith – Vancouver (May 10–17, 2026) — Status: Proposal Sent — Total: $11,259 — [View Proposal] [Validation] [Commission Plan] [Edit] [Book]
+• Miller – Italy (Sep 2026) — Status: Concepts Drafted — Est: $8,400 — [Resume] [Shortlist Hotels] [Render]
+• Patel – London/Paris (Jun 2026) — Status: Data Needed — Est: TBD — [Intake] [Search Packages]
+
+Would you like to start another trip or review your commission pipeline?</div>
+          </div>
+        </article>
+
+      </section>
+
+      <p class="footer-note">Tip: Paste additional messages as new <code class="cmd">article.msg</code> elements (roles: <code class="cmd">system</code>, <code class="cmd">voygent</code>, <code class="cmd">human</code>). Use the Print button to export to PDF.</p>
+    </main>
+  </div>
+
+  <script>
+    // Compact mode toggle
+    const toggle = document.getElementById('toggleCompact');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('compact');
+      document.querySelectorAll('.msg .who').forEach(el=>{
+        el.style.display = document.body.classList.contains('compact') ? 'none' : '';
+      });
+    });
+
+    // Copy transcript to clipboard (plain text)
+    document.getElementById('copy').addEventListener('click', async () => {
+      const msgs = Array.from(document.querySelectorAll('.msg'));
+      const txt = msgs.map(m => {
+        const role = m.dataset.role;
+        const who = role === 'voygent' ? 'Voygent' : role === 'human' ? 'Human' : 'System';
+        const body = m.querySelector('.text').innerText.trim();
+        return `${who}: ${body}`;
+      }).join('\n\n');
+      try{
+        await navigator.clipboard.writeText(txt);
+        alert('Transcript copied to clipboard.');
+      }catch(e){
+        console.error(e); alert('Copy failed.');
+      }
+    });
+  </script>
+</body>
+</html>
