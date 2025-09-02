@@ -44,6 +44,7 @@
     .tag{display:inline-block; padding:6px 10px; background:#eef2ff; color:#334155; border-radius:999px; font-size:12px; margin-right:6px; margin-top:6px}
     .actions{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap}
     .actions .btn{font-size:14px; padding:8px 10px}
+    .tag-new{background:#fee2e2; color:#b91c1c; border:1px solid #fecaca}
 
     #emptyState{color:var(--muted); margin-top:20px}
 
@@ -168,6 +169,11 @@
 <script>
 /***** CONFIG *****/
 const GITHUB_CONFIG = { owner: 'iamneilroberts', repo: 'SoMoTravel.us', branch: 'main' };
+const FORM_ENDPOINTS = { question:'https://formspree.io/f/xrbaadbo', feedback:'https://formspree.io/f/myzddvjr' };
+
+function parseMsgParams(){ try{ const q=new URLSearchParams(location.search||''); const trip=q.get('msg_trip'); const kind=(q.get('msg_kind')||'').toLowerCase(); if(trip && (kind==='question'||kind==='feedback')) return {trip,kind}; return null; }catch(_) { return null; } }
+const MSG_HIGHLIGHT = parseMsgParams();
+function formDashboardUrl(kind){ try{ const ep = FORM_ENDPOINTS[kind]; if(!ep) return null; const id = new URL(ep).pathname.split('/').filter(Boolean).pop(); return id?`https://formspree.io/forms/${id}/submissions`:null; }catch(_) { return null; } }
 
 /***** CATEGORY CONSTANTS *****/
 const CATEGORY_ORDER = ['proposal','confirmed','deposit_paid','paid_in_full','active','past','no_sale'];
@@ -207,7 +213,31 @@ async function saveTripsJsonToGitHub(nextTrips, prevSha){ const headers=ghHeader
 /***** RENDER (grouped sections) *****/
 function renderTrips(trips){ const root=document.getElementById('tripGrid'); root.innerHTML=''; document.getElementById('emptyState').style.display=trips.length?'none':'block'; const groups=new Map(); trips.forEach(t=>{ const c=t.category||'proposal'; if(!groups.has(c)) groups.set(c,[]); groups.get(c).push(t); }); CATEGORY_ORDER.forEach(cat=>{ const list=groups.get(cat)||[]; if(!list.length) return; const section=document.createElement('section'); section.className='section'; const header=document.createElement('div'); header.className=`section-header ${cat}`; header.innerHTML=`<div>${CATEGORY_LABELS[cat]} <span style="font-weight:600;color:#374151;opacity:.8">(${list.length})</span></div>`; section.appendChild(header); const content=document.createElement('div'); content.className='section-content'; const grid=document.createElement('div'); grid.className='grid'; list.forEach((t,i)=>grid.appendChild(createTripCard(t,i))); content.appendChild(grid); section.appendChild(content); root.appendChild(section); }); }
 
-function createTripCard(trip,index){ const card=document.createElement('div'); card.className='card trip-card'; const title=document.createElement('div'); title.className='title'; title.textContent=trip.title||trip.filename; const dates=document.createElement('div'); dates.className='dates'; dates.textContent=trip.dates||''; const status=document.createElement('div'); status.className='status'; status.textContent=CATEGORY_LABELS[normalizeCategory(trip.category)]||'Proposal'; const tags=document.createElement('div'); tags.className='tags'; (trip.tags||[]).forEach(t=>{ const el=document.createElement('span'); el.className='tag'; el.textContent=t; tags.appendChild(el); }); const view=document.createElement('a'); view.href=`/${trip.filename}`; view.target='_blank'; view.rel='noopener'; view.className='btn btn-secondary'; view.textContent='View'; const histBtn=document.createElement('button'); histBtn.className='btn btn-secondary'; histBtn.textContent='Version history'; histBtn.onclick=()=>openHistoryModal(trip); const editBtn=document.createElement('button'); editBtn.className='btn btn-secondary'; editBtn.textContent='Edit'; editBtn.onclick=()=>openEditModal(trip,index); const delBtn=document.createElement('button'); delBtn.className='btn btn-secondary'; delBtn.textContent='Delete'; delBtn.onclick=()=>confirmDeleteTrip(trip,index); const actions=document.createElement('div'); actions.className='actions'; actions.append(view,histBtn,editBtn,delBtn); card.append(title,dates,status,tags,actions); return card; }
+function createTripCard(trip,index){
+  const card=document.createElement('div'); card.className='card trip-card';
+  const title=document.createElement('div'); title.className='title'; title.textContent=trip.title||trip.filename;
+  const dates=document.createElement('div'); dates.className='dates'; dates.textContent=trip.dates||'';
+  const status=document.createElement('div'); status.className='status'; status.textContent=CATEGORY_LABELS[normalizeCategory(trip.category)]||'Proposal';
+  const tags=document.createElement('div'); tags.className='tags'; (trip.tags||[]).forEach(t=>{ const el=document.createElement('span'); el.className='tag'; el.textContent=t; tags.appendChild(el); });
+  // Highlight if URL indicates a new message for this trip
+  if(MSG_HIGHLIGHT && (MSG_HIGHLIGHT.trip===trip.filename)){
+    const badge=document.createElement('span'); badge.className='tag tag-new'; badge.textContent='New message'; tags.appendChild(badge);
+  }
+  const view=document.createElement('a'); view.href=`/${trip.filename}`; view.target='_blank'; view.rel='noopener'; view.className='btn btn-secondary'; view.textContent='View';
+  const histBtn=document.createElement('button'); histBtn.className='btn btn-secondary'; histBtn.textContent='Version history'; histBtn.onclick=()=>openHistoryModal(trip);
+  const editBtn=document.createElement('button'); editBtn.className='btn btn-secondary'; editBtn.textContent='Edit'; editBtn.onclick=()=>openEditModal(trip,index);
+  const delBtn=document.createElement('button'); delBtn.className='btn btn-secondary'; delBtn.textContent='Delete'; delBtn.onclick=()=>confirmDeleteTrip(trip,index);
+  const actions=document.createElement('div'); actions.className='actions';
+  actions.append(view,histBtn,editBtn,delBtn);
+  // Add link to Formspree submissions if highlighted
+  if(MSG_HIGHLIGHT && (MSG_HIGHLIGHT.trip===trip.filename)){
+    const dash=formDashboardUrl(MSG_HIGHLIGHT.kind);
+    if(dash){ const a=document.createElement('a'); a.href=dash; a.target='_blank'; a.rel='noopener'; a.className='btn btn-primary'; a.textContent='View submissions'; actions.appendChild(a); }
+  }
+  card.append(title,dates,status,tags,actions);
+  return card;
+}
+
 
 /***** MODAL OPEN/CLOSE *****/
 function openAddModal(){ document.getElementById('tripForm').reset(); document.getElementById('editIndex').value=''; document.getElementById('modalTitle').textContent='Add Trip'; document.getElementById('fileInfo').textContent='Click or drop a .html file here'; document.getElementById('tripModal').style.display='flex'; }

@@ -1,0 +1,1404 @@
+[2025-09-02T14:18:17] Code v0.2.56
+--------
+workdir: /home/neil/dev/somotravel.us
+model: gpt-5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: medium
+reasoning summaries: auto
+--------
+[2025-09-02T14:18:17] User instructions:
+Context: This repo: static site for a travel agent dashboard (proposals + incomplete purchased trips). Objective: add customer feedback & engagement features now and set up a path to a richer backend later (D1, Workers). Constraints: avoid PII storage; use mailto for sensitive docs; CPMaxx auth link is a placeholder. Hosting likely via GitHub Pages (CNAME present).
+
+Agent: Goal: Create a comprehensive, multi‑phase plan to add customer feedback and interaction capabilities to somotravel.us (a temporary website for the upcoming voygen.ai product) and evolve the itinerary dashboard into a sales‑oriented funnel. Prioritize customer feedback features first. Context: - This repo is a static site with many per‑trip HTML pages (proposals/itineraries) and an `index.html` landing/dashboard. No build step currently. - Key files: `index.html`, `mobile.html`, `trips.json` (source of truth for trips displayed), `config.js` (site‑level settings), plus dozens of static itinerary/proposal pages (e.g., `chicago_proposal.html`, `scotland-trip-itinerary.html`, `welford-london-guide.html`). See directory structure below. - Git history shows commit style like "Add travel document: <File>" and frequent updates to `trips.json`. - Separate project `/home/neil/dev/voygen` exists for the future full voygen.ai app. This repo remains a temporary, static dashboard. Requirements to Plan (focus now: customer feedback): - Customer interaction logging: record customer access/time, viewed sections/scroll depth. - Easy way for customers to ask a question about a section/item; route to agent (dashboard message center is fine), with email fallback. - Prominent links to agent contact: phone/SMS, email, Facebook Messenger on proposals. - Optional live chat when available, or scheduling link if not. - Video chat from website, initiated/controlled by the travel agent. - Exit‑intent or before‑close modal that prompts quick feedback with pre‑written options: Ready to Book / Just looking / Need more info on … / Want to change … / Need to consult others / Other; CTA: Book now to lock in plans. - "Book Now" flows to CPMaxx credit card auth link (placeholder now) and shows "Next Steps" checklist with links. Constraints & Considerations: - Static site (no server) today. Favor client‑side JS, third‑party services (e.g., CF Pages Functions/Workers, lightweight form backends, or webhook relays) until full backend is ready. - PII caution: Do not store sensitive images (passport/ID). Provide simple `mailto:` flow for sensitive docs to route through client’s device. - Future: integrate Cloudflare D1 for real‑time statuses, next steps, message center, and analytics once backend exists (likely in voygen repo). Deliverables: - A phased plan (MVP → Iteration 2 → Full) with technical options for static hosting. - Event/metric schema (view events, scroll depth, section context). - UX additions (CTA placement, modal, question buttons per section). - Data flow for messages: from page → backend or third‑party → agent dashboard/email. - Security/PII posture and configuration tips. - Implementation outline referencing key files here and minimal code snippets to slot into `index.html`, `config.js`, and a typical itinerary page. Repo Structure (summary): - Root: static HTML pages (proposals/itineraries). Examples:   - `index.html`, `mobile.html`, `index_enhanced.html`   - `chicago_proposal.html`, `colson-proposal.html`, `daniels-niagara-falls-proposal.html`   - `scotland-trip-itinerary.html`, `welford-london-guide.html`   - `full-trip-mobile.html`, `OBrien_Sandals_mobile-guide.html` - Data/config:   - `trips.json` — trip metadata; homepage references   - `config.js` — site settings (contact info, flags) - Misc:   - `oldtrips/` archives, `CNAME` for custom domain. Key Files Provided for reference: - index.html - trips.json - config.js Please produce: - A concrete, stepwise plan with milestones, roles (front‑end, backend/worker), and risk/mitigation. - Specific user‑facing copy for exit‑intent modal and CTA areas. - Minimal example event schema (JSON) and DOM hooks for per‑section questions. - Third‑party options comparison (analytics, forms, chat, scheduling) with zero/low code integration paths. - Migration path to Cloudflare D1 and Workers once the voygen backend is in scope, including schema sketch for messages and events.
+
+Desired output: Plans + architecture comparison + event schema + UX copy + migration path
+
+Files to consider: index.html, trips.json, config.js
+
+[Running in read-only mode - no modifications allowed]
+[2025-09-02T14:18:26] codex
+
+I’ll quickly scan `index.html`, `config.js`, and `trips.json` to tailor the plan.
+[2025-09-02T14:18:27] exec bash -lc 'ls -la' in /home/neil/dev/somotravel.us
+[2025-09-02T14:18:27] bash -lc 'ls -la' succeeded in 10ms:
+total 1044
+drwxrwxr-x  4 neil neil  4096 Sep  2 08:51 .
+drwxrwxr-x 26 neil neil  4096 Sep  2 08:49 ..
+-rw-rw-r--  1 neil neil  2384 Sep  2 08:51 AGENTS.md
+-rw-rw-r--  1 neil neil 24413 Sep  2 08:48 April-2026-Scotland-Ireland.html
+-rw-rw-r--  1 neil neil  4654 Sep  2 08:48 bath_details.html
+-rw-rw-r--  1 neil neil 24050 Sep  2 08:48 Breckenridge_2025.html
+-rw-rw-r--  1 neil neil 55794 Sep  2 08:48 castle_hotel_options.html
+-rw-rw-r--  1 neil neil 24270 Sep  2 08:48 Chastain_2026-fancy.html
+-rw-rw-r--  1 neil neil 29902 Sep  2 08:48 Chastain2026.html
+-rw-rw-r--  1 neil neil 24270 Sep  2 08:48 Chastain_2026-styled.html
+-rw-rw-r--  1 neil neil 24270 Sep  2 08:48 Chastain-fancy.html
+-rw-rw-r--  1 neil neil 29902 Sep  2 08:48 Chastain-simple.html
+-rw-rw-r--  1 neil neil 17821 Sep  2 08:48 chat1.html
+-rw-rw-r--  1 neil neil 24391 Sep  2 08:48 chicago_proposal.html
+-rw-rw-r--  1 neil neil 35918 Sep  2 08:48 chisolm-trip-details.html
+-rw-rw-r--  1 neil neil  1930 Sep  2 08:48 cleanup-summary.md
+-rw-rw-r--  1 neil neil    13 Sep  2 08:48 CNAME
+-rw-rw-r--  1 neil neil 29764 Sep  2 08:48 colson-proposal.html
+-rw-rw-r--  1 neil neil 18198 Sep  2 08:48 ColvinSF2025.html
+[2025-09-02T14:18:27] tokens used: 9251
+[2025-09-02T14:18:30] exec bash -lc "sed -n '1,200p' config.js" in /home/neil/dev/somotravel.us
+[2025-09-02T14:18:30] bash -lc "sed -n '1,200p' config.js" succeeded in 10ms:
+// GitHub Configuration
+// Token is now managed via browser localStorage for security
+// Users will be prompted for their token on first use
+
+// This file can be safely committed to the repository
+window.GITHUB_TOKEN = null; // Token will be loaded from localStorage
+[2025-09-02T14:18:30] tokens used: 10968
+
+[2025-09-02T14:18:32] thinking
+
+**Analyzing file structure**
+
+I'm going to check out the first 200 lines of index.html. This will help me understand its structure, including how it incorporates config.js and the context in which it’s used. By initially focusing on those lines, I can get a clearer picture of any setup or important elements that are part of the file, making it easier to assess what’s happening overall. Let’s dig in!
+[2025-09-02T14:18:35] exec bash -lc "sed -n '1,200p' index.html" in /home/neil/dev/somotravel.us
+[2025-09-02T14:18:35] bash -lc "sed -n '1,200p' index.html" succeeded in 10ms:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoMo Travel — Trips</title>
+  <style>
+    :root{
+      --primary:#0d6efd; --primary-600:#0b5ed7; --muted:#6b7280; --text:#0b1220; --bg:#f5f7fb;
+      --card:#fff; --border:#e5e7eb; --shadow:0 10px 24px rgba(0,0,0,.06);
+    }
+    html,body{height:100%}
+    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--text); background:var(--bg); font-size:18px}
+    .container{max-width:1180px; margin:22px auto; padding:0 18px}
+    header{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px}
+    h1{margin:8px 0 0; font-size:28px}
+    .toolbar{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{border:none; background:#eef0f6; padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer}
+    .btn-primary{background:var(--primary); color:#fff}
+    .btn-primary:hover{background:var(--primary-600)}
+[2025-09-02T14:18:35] tokens used: 227
+[2025-09-02T14:18:37] exec bash -lc "sed -n '200,500p' index.html" in /home/neil/dev/somotravel.us
+[2025-09-02T14:18:37] bash -lc "sed -n '200,500p' index.html" succeeded in 11ms:
+/***** GITHUB HELPERS (ADMIN) *****/
+function ghHeaders(){ const token=getGitHubToken(); if(!token) throw new Error('Missing token'); return { 'Authorization': asciiHeaderValue('Bearer '+token), 'Accept':'application/vnd.github.v3+json', 'Content-Type':'application/json' }; }
+async function uploadToGitHub(filename, content){ const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`; const headers=ghHeaders(); let sha=null; try{ const chk=await fetch(url+`?ref=${GITHUB_CONFIG.branch}`,{headers}); if(chk.ok){ const j=await chk.json(); sha=j.sha||null; } }catch(_){} const resp=await fetch(url,{ method:'PUT', headers, body: JSON.stringify({ message:(sha?`Update travel document: ${filename}`:`Add travel document: ${filename}`), content: encodeBase64(content), branch:GITHUB_CONFIG.branch, ...(sha?{sha}:{} ) }) }); if(!resp.ok){ let msg=`HTTP ${resp.status}`; try{ const j=await resp.json(); if(j?.message) msg+=` - ${j.message}`; }catch(_){} throw new Error(msg); } }
+async function deleteFromGitHub(filename){ const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`; const headers=ghHeaders(); const head=await fetch(url+`?ref=${GITHUB_CONFIG.branch}`,{headers}); if(!head.ok) throw new Error('Lookup failed '+head.status); const j=await head.json(); const del=await fetch(url,{method:'DELETE', headers, body: JSON.stringify({ message:`Delete ${filename}`, sha:j.sha, branch:GITHUB_CONFIG.branch })}); if(!del.ok){ let msg=`HTTP ${del.status}`; try{ const d=await del.json(); if(d?.message) msg+=` - ${d.message}`; }catch(_){} throw new Error(msg);} }
+async function getTripsJsonFromGitHub(){ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json?ref=${GITHUB_CONFIG.branch}`; const res=await fetch(url,{headers}); if(res.status===404) return {sha:null,trips:[]}; if(!res.ok) throw new Error('trips.json GET '+res.status); const j=await res.json(); const text=atob((j.content||'').replace(/\n/g,'')); const data=JSON.parse(text||'{"version":1,"trips":[]}'); return { sha:j.sha||null, trips:Array.isArray(data.trips)?data.trips.map(t=>({ ...t, category: normalizeCategory(t.category) })):[] } }
+async function saveTripsJsonToGitHub(nextTrips, prevSha){ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json`; const body={ message:'Update trips.json', content: encodeBase64(JSON.stringify({version:1,trips:nextTrips},null,2)), branch:GITHUB_CONFIG.branch, ...(prevSha?{sha:prevSha}:{}) }; const put=await fetch(url,{method:'PUT', headers, body:JSON.stringify(body)}); if(!put.ok){ let msg=`trips.json PUT ${put.status}`; try{ const j=await put.json(); if(j?.message) msg+=` - ${j.message}`; }catch(_){} throw new Error(msg);} }
+
+/***** RENDER (grouped sections) *****/
+function renderTrips(trips){ const root=document.getElementById('tripGrid'); root.innerHTML=''; document.getElementById('emptyState').style.display=trips.length?'none':'block'; const groups=new Map(); trips.forEach(t=>{ const c=t.category||'proposal'; if(!groups.has(c)) groups.set(c,[]); groups.get(c).push(t); }); CATEGORY_ORDER.forEach(cat=>{ const list=groups.get(cat)||[]; if(!list.length) return; const section=document.createElement('section'); section.className='section'; const header=document.createElement('div'); header.className=`section-header ${cat}`; header.innerHTML=`<div>${CATEGORY_LABELS[cat]} <span style="font-weight:600;color:#374151;opacity:.8">(${list.length})</span></div>`; section.appendChild(header); const content=document.createElement('div'); content.className='section-content'; const grid=document.createElement('div'); grid.className='grid'; list.forEach((t,i)=>grid.appendChild(createTripCard(t,i))); content.appendChild(grid); section.appendChild(content); root.appendChild(section); }); }
+
+function createTripCard(trip,index){ const card=document.createElement('div'); card.className='card trip-card'; const title=document.createElement('div'); title.className='title'; title.textContent=trip.title||trip.filename; const dates=document.createElement('div'); dates.className='dates'; dates.textContent=trip.dates||''; const status=document.createElement('div'); status.className='status'; status.textContent=CATEGORY_LABELS[normalizeCategory(trip.category)]||'Proposal'; const tags=document.createElement('div'); tags.className='tags'; (trip.tags||[]).forEach(t=>{ const el=document.createElement('span'); el.className='tag'; el.textContent=t; tags.appendChild(el); }); const view=document.createElement('a'); view.href=`/${trip.filename}`; view.target='_blank'; view.rel='noopener'; view.className='btn btn-secondary'; view.textContent='View'; const histBtn=document.createElement('button'); histBtn.className='btn btn-secondary'; histBtn.textContent='Version history'; histBtn.onclick=()=>openHistoryModal(trip); const editBtn=document.createElement('button'); editBtn.className='btn btn-secondary'; editBtn.textContent='Edit'; editBtn.onclick=()=>ope
+[2025-09-02T14:18:37] tokens used: 4250
+[2025-09-02T14:18:42] exec bash -lc "sed -n '1,200p' scotland-trip-itinerary.html" in /home/neil/dev/somotravel.us
+[2025-09-02T14:18:42] bash -lc "sed -n '1,200p' scotland-trip-itinerary.html" succeeded in 28ms:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scotland & Ireland Journey - April 2026</title>
+    <style>
+        :root {
+            --primary: #2c5f2d;
+            --secondary: #97bc62;
+            --accent: #4a90e2;
+            --bg-light: #f8f9fa;
+            --bg-dark: #1a1a1a;
+            --text-light: #333;
+            --text-dark: #e0e0e0;
+            --border: #dee2e6;
+            --border-dark: #444;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+[2025-09-02T14:18:42] tokens used: 5109
+[2025-09-02T14:18:43] exec bash -lc "sed -n '200,500p' scotland-trip-itinerary.html" in /home/neil/dev/somotravel.us
+[2025-09-02T14:18:43] bash -lc "sed -n '200,500p' scotland-trip-itinerary.html" succeeded in 22ms:
+            color: #666;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🏰 Scotland & Ireland Journey 🍀</h1>
+    <p style="font-size: 1.1em; font-style: italic;">Experience the best of Scotland and Ireland at a relaxed pace, from Edinburgh's majestic castle and Royal Mile to Ireland's dramatic Cliffs of Moher and ancient Burren landscapes. This thoughtfully crafted journey avoids tourist traps and large bus tours, instead featuring intimate small-group experiences (maximum 16 guests), scenic train rides along the Scottish coast, and authentic encounters with local culture. Discover historic castles, charming seaside villages, mystical ancient sites, and breathtaking coastal vistas, all while enjoying the comfort of superior centrally-located hotels within walking distance of major attractions. With no driving required and expert local guides who share insider stories and hidden gems, this is Celtic travel as it should be – genuine, comfortable, and unforgettable.</p>
+    
+    <div class="highlight">
+[2025-09-02T14:18:43] tokens used: 1786
+[2025-09-02T14:18:46] exec bash -lc "sed -n '1,160p' chicago_proposal.html" in /home/neil/dev/somotravel.us
+[2025-09-02T14:18:46] bash -lc "sed -n '1,160p' chicago_proposal.html" succeeded in 45ms:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicago Travel Proposal - Kashara & Akiel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+[2025-09-02T14:18:46] tokens used: 4679
+[2025-09-02T14:18:48] exec bash -lc "sed -n '160,380p' chicago_proposal.html" in /home/neil/dev/somotravel.us
+[2025-09-02T14:18:48] bash -lc "sed -n '160,380p' chicago_proposal.html" succeeded in 12ms:
+        .transit-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .transit-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .safety-tip {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #fff;
+        }
+        
+[2025-09-02T14:18:48] tokens used: 1438
+[2025-09-02T14:18:50] exec bash -lc "sed -n '380,800p' chicago_proposal.html" in /home/neil/dev/somotravel.us
+[2025-09-02T14:18:50] bash -lc "sed -n '380,800p' chicago_proposal.html" succeeded in 12ms:
+        </div>
+        
+        <div class="card">
+            <h2>🍽️ Restaurant Recommendations</h2>
+            <div class="restaurant-grid">
+                <div class="restaurant-card">
+                    <h4>🍕 Pizzeria Portofino</h4>
+                    <div class="restaurant-details">
+                        <p><strong>Cuisine:</strong> Pizzeria | <strong>Dress:</strong> Business Casual | <strong>Cost:</strong> $$</p>
+                        <p><strong>Location:</strong> Riverfront - 317 N. Clark St</p>
+                        <p><strong>Phone:</strong> 312-900-9018 | <strong>Rating:</strong> 4.8⭐</p>
+                    </div>
+                </div>
+                <div class="restaurant-card">
+                    <h4>🍝 Coda Di Volpe</h4>
+                    <div class="restaurant-details">
+                        <p><strong>Cuisine:</strong> Southern Italian | <strong>Dress:</strong> Business Casual | <strong>Cost:</strong> $$</p>
+                        <p><strong>Location:</strong> Lakeview - 3335 N Southport Ave</p>
+                        <p><strong>Phone:</strong> (773)687-8568 | <strong>Rating:</strong> 4.7⭐</p>
+                    </div>
+[2025-09-02T14:18:50] tokens used: 2573
+[2025-09-02T14:18:55] exec bash -lc "sed -n '1,120p' trips.json" in /home/neil/dev/somotravel.us
+[2025-09-02T14:18:55] bash -lc "sed -n '1,120p' trips.json" succeeded in 12ms:
+{
+  "version": 1,
+  "trips": [
+    {
+      "filename": "April-2026-Scotland-Ireland.html",
+      "title": "Donna, Gloria & Rosemary Scotland & Ireland April 2026",
+      "dates": "April 6-17, 2026 (11 nights)",
+      "category": "proposal",
+      "tags": [
+        "Scotland",
+        "Ireland"
+      ],
+      "lastModified": "2025-08-31"
+    },
+    {
+      "title": "Chisholm Travel Confirmation Details",
+      "dates": "September 18-28, 2025",
+      "status": "Travel Proposal",
+      "category": "proposal",
+      "filename": "chisolm-trip-details.html",
+[2025-09-02T14:18:55] tokens used: 2806
+[2025-09-02T14:18:57] exec bash -lc "sed -n '120,300p' trips.json" in /home/neil/dev/somotravel.us
+[2025-09-02T14:18:57] bash -lc "sed -n '120,300p' trips.json" succeeded in 17ms:
+    },
+    {
+      "title": "Skye Details",
+      "dates": "April 25-27, 2025",
+      "status": "Complete",
+      "category": "past",
+      "filename": "skye-trip-details.html",
+      "tags": [],
+      "lastModified": "2025-04-27",
+      "description": ""
+    },
+    {
+      "title": "O'Brien Sandals",
+      "dates": "May 25-29, 2025",
+      "status": "Complete",
+      "category": "past",
+      "filename": "OBrien_Sandals_mobile-guide.html",
+      "tags": [],
+      "lastModified": "2025-05-29",
+      "description": ""
+[2025-09-02T14:18:57] tokens used: 1283
+
+[2025-09-02T14:19:12] thinking
+
+**Organizing data flow and enhancements**
+
+I need to outline the data flow for messages: it'll move from the page to Formspree/Basin, then forward to email or a dashboard. Later, it goes through a Cloudflare Worker to D1 and finally to the dashboard at Voygen. 
+
+I'll include a diagram description along with minimal code updates. This includes adding a script for analytics, creating a sticky footer on each itinerary page, and implementing exit-intent modals. I'll track scroll depth and section views using IntersectionObserver, as well as extend the config.js with relevant contact info.
+**Creating code snippets for configuration**
+
+I’m working on code snippets for the configuration. In the config.js file, I’ll set up an object that includes agent contact info, CPMaxx authentication links, and chat settings, along with an analytics provider.
+
+I need to be careful to avoid including any sensitive information—just the structure is required. For the index.html snippet, I’ll ensure the config.js is loaded in the head section with the script tag. It’s important that it's included properly since the current setup doesn’t include it.
+**Providing code snippets for tracking**
+
+I need to create snippets for both the index.html and itinerary pages. First, I'll include a script for analytics; I have two options: Cloudflare Web Analytics or Plausible.
+
+For scroll tracking, there's a function to capture the scroll percentage and other relevant data. If there’s no backend, I can send this data as custom events to Plausible.
+
+I'll set up an IntersectionObserver for h2 and h3 elements. Additionally, I’ll insert an "Ask about this" button for each card or section, which will use a mailto link for users to send questions, including context from the filename in the parameters.
+**Implementing features for user engagement**
+
+I’m planning to implement an exit-intent modal with minimal CSS and JS, using localStorage to prevent it from appearing multiple times.
+
+Next, I’ll add a "Next Steps" section in proposals for tasks like securing deposits and confirming traveler names. I need to provide a code snippet for a collapsible drawer for this feature.
+
+For video chat in the MVP, I won’t implement it yet. Instead, I’ll suggest using Whereby or Daily Prebuilt, with a "Join Video Session" link appearing conditionally based on a token.  
+
+Lastly, regarding analytics, Cloudflare Web Analytics is a great option for a privacy-preserving setup and supports custom events.
+**Structuring the implementation plan**
+
+I’m outlining a plan for tracking page views and custom events, considering either building our own with Workers or using Plausible, which is privacy-friendly and supports easy event tracking.
+
+Next, I’m comparing form solutions like Formspree for simplicity against options like Basin and Netlify Forms. For chat, Crisp and Tawk.to seem promising; Calendly and Cal.com are good choices for scheduling. 
+
+I also have a phased plan for implementation, including an MVP and future iterations, with details on data flow and event schema. I'll provide minimal code snippets while keeping everything concise yet comprehensive.
+[2025-09-02T14:19:51] codex
+**Creating code snippets for configuration**
+
+I’m working on code snippets for the configuration. In the config.js file, I’ll set up an object that includes agent contact info, CPMaxx authentication links, and chat settings, along with an analytics provider.
+
+I need to be careful to avoid including any sensitive information—just the structure is required. For the index.html snippet, I’ll ensure the config.js is loaded in the head section with the script tag. It’s important that it's included properly since the current setup doesn’t include it.
+[2025-09-02T14:19:51] codex
+**Providing code snippets for tracking**
+
+I need to create snippets for both the index.html and itinerary pages. First, I'll include a script for analytics; I have two options: Cloudflare Web Analytics or Plausible.
+
+For scroll tracking, there's a function to capture the scroll percentage and other relevant data. If there’s no backend, I can send this data as custom events to Plausible.
+
+I'll set up an IntersectionObserver for h2 and h3 elements. Additionally, I’ll insert an "Ask about this" button for each card or section, which will use a mailto link for users to send questions, including context from the filename in the parameters.
+[2025-09-02T14:19:51] codex
+**Implementing features for user engagement**
+
+I’m planning to implement an exit-intent modal with minimal CSS and JS, using localStorage to prevent it from appearing multiple times.
+
+Next, I’ll add a "Next Steps" section in proposals for tasks like securing deposits and confirming traveler names. I need to provide a code snippet for a collapsible drawer for this feature.
+
+For video chat in the MVP, I won’t implement it yet. Instead, I’ll suggest using Whereby or Daily Prebuilt, with a "Join Video Session" link appearing conditionally based on a token.  
+
+Lastly, regarding analytics, Cloudflare Web Analytics is a great option for a privacy-preserving setup and supports custom events.
+[2025-09-02T14:19:51] codex
+**Structuring the implementation plan**
+
+I’m outlining a plan for tracking page views and custom events, considering either building our own with Workers or using Plausible, which is privacy-friendly and supports easy event tracking.
+
+Next, I’m comparing form solutions like Formspree for simplicity against options like Basin and Netlify Forms. For chat, Crisp and Tawk.to seem promising; Calendly and Cal.com are good choices for scheduling. 
+
+I also have a phased plan for implementation, including an MVP and future iterations, with details on data flow and event schema. I'll provide minimal code snippets while keeping everything concise yet comprehensive.
+[2025-09-02T14:19:51] codex
+
+**Goal**
+Add lightweight customer feedback and engagement to today’s static site, while setting up a clean migration path to Cloudflare Workers + D1 (and eventually voygen.ai). Prioritize: event logging, easy questions per section, strong contact CTAs, exit‑intent feedback, and “Book Now” flow.
+
+**Phased Plan**
+
+- MVP (0–2 days)
+  - Add privacy‑friendly analytics + custom events (scroll, section views, clicks).
+  - Inject “Ask a question” per section → mailto/Formspree.
+  - Add sticky contact bar (call/SMS/email/Messenger) on proposals.
+  - Add exit‑intent modal with quick feedback chips + “Book Now” CTA (CPMaxx placeholder).
+  - Add “Next Steps” checklist block (links + mailto for sensitive docs).
+
+- Iteration 2 (3–7 days)
+  - Replace mailto with form backend (Formspree/Basin/Getform) for questions + feedback (spam‑protected).
+  - Optional live chat (Crisp/Tawk) + scheduling (Calendly/Cal.com) on proposals.
+  - Add IntersectionObserver timing for section dwell time; push custom events to analytics.
+  - Gate “Join Video Session” link behind config flag; agent shares a 1‑time room link (Whereby/Daily).
+
+- Full (with Workers + D1, 1–2 weeks)
+  - Move events/messages to a Cloudflare Worker API with tokenized client calls.
+  - Persist to D1: trips, messages, events, next‑steps; add status updates.
+  - Basic agent dashboard (in voygen) for message center, event feed, next‑steps checklist, and chat/video presence.
+  - Optional realtime via Durable Objects or WebSockets for live chat/video presence.
+
+**Roles**
+- Front‑end: DOM hooks, modal UX, analytics integration, config flags.
+- Worker/Backend: CF Worker endpoints, D1 schema, auth tokens, email relay.
+- Ops/Analytics: DNS/CNAME safety, script tokens, rate limiting, CSP.
+
+**Risks & Mitigation**
+- PII leakage: never collect names/passports; use mailto for sensitive docs. Only aggregate events, anonymize.
+- Spam: form providers with honeypot/recaptcha; throttle in Worker later.
+- Performance: defer/async scripts; small inline JS; lazy init observers.
+- Annoying modals: frequency cap via localStorage; single show per session.
+
+---
+
+**Event Schema**
+
+- Session envelope
+  - sessionId: UUIDv4
+  - page: path
+  - tripFilename: derived from `location.pathname`
+  - ts: ISO string
+  - userAgentHash: sha256(userAgent + salt) client‑side
+  - ref: document.referrer (trimmed)
+
+- Events
+  - PageView
+    - type: "page_view"
+  - ScrollDepth
+    - type: "scroll_depth"
+    - pct: 25|50|75|100
+    - maxPct: number
+  - SectionView
+    - type: "section_view"
+    - sectionId: "tuesday-apr-8" (slug)
+    - title: "Tuesday, Apr 8 Day 3 - Scottish Highlands Adventure"
+    - timeInViewMs: number (Iteration 2)
+  - Click
+    - type: "click"
+    - action: "ask_question" | "book_now" | "contact_phone" | "contact_email" | "chat_open" | "schedule_open"
+    - sectionId?: string
+    - label?: string (e.g., “Messenger”)
+
+Example payload (custom event):
+{
+  "sessionId": "a3c3…",
+  "page": "/scotland-trip-itinerary.html",
+  "tripFilename": "scotland-trip-itinerary.html",
+  "ts": "2025-09-02T14:03:22.111Z",
+  "type": "section_view",
+  "sectionId": "tuesday-apr-8",
+  "title": "Tuesday, Apr 8 Day 3 - Scottish Highlands Adventure"
+}
+
+---
+
+**UX Additions**
+
+- Per‑section question buttons
+  - Small “Ask about this” button appended to each `h2/h3` or `.day-header`.
+  - Opens a compact modal or mailto with section context prefilled.
+
+- Contact CTAs (sticky on proposals)
+  - Phone/SMS, Email, Messenger (“Ask Anything”), Book Now (CPMaxx placeholder), Schedule call.
+  - Mobile‑friendly bar at bottom; desktop: top right.
+
+- Exit‑intent / before‑close modal
+  - Chips: Ready to Book / Just Looking / Need More Info on… / Want to Change… / Need to Consult / Other
+  - Primary CTA: “Book now to lock in your plans”
+  - Secondary: “Ask a quick question”
+  - Frequency: once per session (localStorage flag)
+
+- “Next Steps” checklist
+  - Items: Secure Deposit, Confirm Traveler Names, Passport Validity Check, Insurance Decision, Seating Preferences.
+  - Links: CPMaxx auth placeholder; mailto for names/passports; optional Calendly link.
+
+Copy suggestions
+- Contact bar title: “Questions or updates? I’m here to help.”
+- Ask button: “Ask about this”
+- Exit‑intent header: “Before you go — quick feedback?”
+- Chips:
+  - “Ready to book”
+  - “Just looking”
+  - “Need more info on this section”
+  - “Want to tweak the plan”
+  - “Need to check with others”
+  - “Other”
+- Exit CTA: “Book now to lock in your plans”
+- Next Steps title: “Next Steps to Secure Your Trip”
+- Next Steps note: “Prices and availability can change; a deposit locks things in.”
+
+---
+
+**Third‑Party Options (static‑friendly)**
+
+- Analytics
+  - Cloudflare Web Analytics: free, privacy‑friendly; page + core metrics; limited custom events.
+  - Plausible: privacy‑friendly, simple custom events; great fit for our event schema; hosted or self‑hosted.
+  - Google Analytics: powerful, less privacy‑friendly; not recommended here.
+
+- Forms (questions/feedback)
+  - Formspree: drop‑in endpoint, spam protection; free tier.
+  - Basin / Getform: similar; good spam filters; paid tiers.
+  - Netlify Forms: requires Netlify build/hosting.
+
+- Chat
+  - Crisp: free tier, modern UI, offline messages to email.
+  - Tawk.to: free; easy embed, branded.
+  - Intercom: premium.
+
+- Scheduling
+  - Calendly: easiest; embed/link.
+  - Cal.com: open‑source, flexible embed.
+
+- Video
+  - Whereby: dead‑simple agent‑shared room; iframe embed.
+  - Daily (Prebuilt): robust; agent‑created links; more control.
+  - Jitsi: free/open; share links; minimal setup.
+
+Recommendation: Plausible + Formspree + Crisp + Calendly + Whereby (MVP via shared links; embed later).
+
+---
+
+**Implementation Outline (key file hooks)**
+
+- config.js (site‑level settings; no secrets)
+window.SITE_CONFIG = {
+  agent: {
+    phone: "+1-XXX-XXX-XXXX",
+    sms: "+1-XXX-XXX-XXXX",
+    email: "hello@somotravel.us",
+    messengerUrl: "https://m.me/yourpage",
+    scheduleUrl: "https://cal.com/yourname/intro"
+  },
+  cpmaxx: { authLink: "https://cpmaxx.example/authorize?ref=placeholder" },
+  chat: { enabled: false, provider: "crisp", websiteId: "CRISP_WEBSITE_ID" },
+  analytics: { provider: "plausible", domain: "somotravel.us" },
+  features: { exitIntent: true, askButtons: true, contactBar: true, nextSteps: true, videoEnabled: false }
+};
+
+- index.html and typical itinerary/proposal page: include config + analytics (in head)
+<script src="/config.js" defer></script>
+<!-- Plausible (recommended) -->
+<script defer data-domain="somotravel.us" src="https://plausible.io/js/script.js"></script>
+
+- Minimal analytics + event helpers (inject near end of body)
+<script>
+(function(){
+  const S = window.SITE_CONFIG || {};
+  const sessionId = (crypto.randomUUID && crypto.randomUUID()) || (Date.now()+"-"+Math.random());
+  const tripFilename = location.pathname.split('/').pop();
+
+  function sendEvent(name, props={}) {
+    try {
+      // Plausible custom events (no PII)
+      if (window.plausible) window.plausible(name, { props: { page: location.pathname, trip: tripFilename, ...props } });
+    } catch(_) {}
+  }
+
+  // Page view
+  sendEvent('PageView');
+
+  // Scroll depth
+  let maxPct = 0;
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = Math.min(100, Math.round((h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100));
+    if (pct >= 25 && maxPct < 25) { maxPct = 25; sendEvent('ScrollDepth', { pct: 25 }); }
+    if (pct >= 50 && maxPct < 50) { maxPct = 50; sendEvent('ScrollDepth', { pct: 50 }); }
+    if (pct >= 75 && maxPct < 75) { maxPct = 75; sendEvent('ScrollDepth', { pct: 75 }); }
+    if (pct >= 100 && maxPct < 100) { maxPct = 100; sendEvent('ScrollDepth', { pct: 100 }); }
+  }, { passive: true });
+
+  // Section observers
+  function slugify(s){ return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,''); }
+  const targets = Array.from(document.querySelectorAll('h2, h3, .day-header'));
+  const seen = new Set();
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if (e.isIntersecting) {
+        const t = e.target;
+        const title = (t.textContent||'').trim();
+        const id = t.id || (t.id = slugify(title));
+        if (!seen.has(id)) { seen.add(id); sendEvent('SectionView', { sectionId: id, title }); }
+      }
+    });
+  }, { threshold: 0.5 });
+  targets.forEach(el => io.observe(el));
+
+  // Ask‑a‑question buttons
+  if (S.features?.askButtons !== false) {
+    targets.forEach(t => {
+      const btn = document.createElement('button');
+      btn.textContent = 'Ask about this';
+      btn.style.cssText = 'margin-left:10px;font-size:0.85rem;padding:6px 10px;border-radius:999px;border:1px solid #d1d5db;background:#eef2ff;cursor:pointer;';
+      btn.addEventListener('click', () => {
+        const title = (t.textContent||'').trim();
+        const subject = `[Question] ${document.title} — ${title}`;
+        const body = `Hi,\n\nI have a question about:\n${title}\n\nDetails:\n\n— Sent from ${location.href}`;
+        sendEvent('Click', { action: 'ask_question', sectionId: t.id||slugify(title) });
+        // MVP: mailto fallback (PII stays client‑side)
+        location.href = `mailto:${encodeURIComponent(S.agent?.email || 'hello@somotravel.us')}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        // Iteration 2: POST to Formspree instead of mailto
+      });
+      // Place button after header line
+      const wrap = t.classList.contains('day-header') ? t : t.parentElement || t;
+      wrap.appendChild(btn);
+    });
+  }
+
+  // Sticky contact bar (proposals)
+  if (S.features?.contactBar !== false) {
+    const bar = document.createElement('div');
+    bar.innerHTML = `
+      <div style="position:fixed;left:0;right:0;bottom:0;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;background:rgba(255,255,255,.96);border-top:1px solid #e5e7eb;padding:10px;z-index:9999;backdrop-filter:saturate(1.2) blur(4px);">
+        <a href="tel:${S.agent?.phone||''}" style="padding:8px 12px;border-radius:10px;background:#eef2ff;text-decoration:none;">Call</a>
+        <a href="sms:${S.agent?.sms||''}" style="padding:8px 12px;border-radius:10px;background:#eef2ff;text-decoration:none;">Text</a>
+        <a href="mailto:${S.agent?.email||''}" style="padding:8px 12px;border-radius:10px;background:#eef2ff;text-decoration:none;">Email</a>
+        ${S.agent?.messengerUrl? `<a href="${S.agent.messengerUrl}" target="_blank" rel="noopener" style="padding:8px 12px;border-radius:10px;background:#eef2ff;text-decoration:none;">Messenger</a>`:''}
+        ${S.agent?.scheduleUrl? `<a href="${S.agent.scheduleUrl}" target="_blank" rel="noopener" style="padding:8px 12px;border-radius:10px;background:#d1fae5;text-decoration:none;">Schedule</a>`:''}
+        <a href="${S.cpmaxx?.authLink||'#'}" target="_blank" rel="noopener" style="padding:8px 12px;border-radius:10px;background:#c7d2fe;text-decoration:none;">Book Now</a>
+      </div>`;
+    document.body.appendChild(bar);
+  }
+
+  // Exit‑intent modal
+  if (S.features?.exitIntent !== false) {
+    const key = 'sti_exit_seen';
+    function showExit() {
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, '1');
+      const backdrop = document.createElement('div');
+      backdrop.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9998;display:flex;align-items:center;justify-content:center;';
+      const modal = document.createElement('div');
+      modal.style.cssText = 'background:#fff;border-radius:12px;max-width:520px;width:92%;padding:18px;border:1px solid #e5e7eb;';
+      modal.innerHTML = `
+        <div style="font-weight:800;font-size:1.1rem;margin-bottom:8px;">Before you go — quick feedback?</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px;">
+          ${['Ready to book','Just looking','Need more info on this section','Want to tweak the plan','Need to check with others','Other'].map(c => `<button class="chip" data-v="${c}" style="padding:8px 10px;border-radius:999px;border:1px solid #d1d5db;background:#f9fafb;cursor:pointer;">${c}</button>`).join('')}
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <a id="bookNow" href="${S.cpmaxx?.authLink||'#'}" target="_blank" rel="noopener" style="padding:10px 12px;border-radius:10px;background:#0d6efd;color:#fff;text-decoration:none;">Book now to lock in your plans</a>
+          <button id="askQ" style="padding:10px 12px;border-radius:10px;border:1px solid #d1d5db;background:#fff;cursor:pointer;">Ask a quick question</button>
+          <button id="closeX" style="margin-left:auto;padding:10px 12px;border-radius:10px;border:1px solid #d1d5db;background:#fff;cursor:pointer;">Dismiss</button>
+        </div>`;
+      backdrop.appendChild(modal); document.body.appendChild(backdrop);
+      backdrop.addEventListener('click', (e)=>{ if(e.target===backdrop) backdrop.remove(); });
+      modal.querySelectorAll('.chip').forEach(b => b.addEventListener('click', ()=>{ sendEvent('FeedbackChip', { value: b.dataset.v }); }));
+      modal.querySelector('#bookNow').addEventListener('click', ()=> sendEvent('Click', { action:'book_now' }));
+      modal.querySelector('#askQ').addEventListener('click', ()=>{
+        sendEvent('Click', { action:'ask_question' });
+        location.href = `mailto:${encodeURIComponent(S.agent?.email||'hello@somotravel.us')}?subject=${encodeURIComponent('[Question] '+document.title)}&body=${encodeURIComponent('Hi,\n\nQuick question about this trip:\n\n— Sent from '+location.href)}`;
+      });
+      modal.querySelector('#closeX').addEventListener('click', ()=> backdrop.remove());
+    }
+    // Desktop exit intent and mobile beforeunload
+    document.addEventListener('mouseleave', (e)=>{ if (e.clientY <= 0) showExit(); }, { passive:true });
+    window.addEventListener('beforeunload', ()=>{ showExit(); });
+  }
+
+  // Optional chat
+  if (S.chat?.enabled && S.chat?.provider === 'crisp' && S.chat.websiteId) {
+    window.$crisp=[];window.CRISP_WEBSITE_ID=S.chat.websiteId;
+    const s=document.createElement("script"); s.src="https://client.crisp.chat/l.js"; s.async=1; document.head.appendChild(s);
+  }
+})();
+</script>
+
+- “Next Steps” checklist (drop into proposals near pricing)
+<div class="card" style="border-left:4px solid #0d6efd">
+  <h2>Next Steps to Secure Your Trip</h2>
+  <ol>
+    <li>Secure deposit — <a href="#" onclick="plausible && plausible('Click',{props:{action:'book_now'}})" href="${window.SITE_CONFIG?.cpmaxx?.authLink||'#'}" target="_blank" rel="noopener">Book now</a></li>
+    <li>Confirm traveler names — <a href="mailto:${window.SITE_CONFIG?.agent?.email||''}?subject=Traveler Names[2025-09-02T14:21:28] ERROR: stream error: stream disconnected before completion: Transport error: error decoding response body; retrying 1/5 in 194ms…
+
+[2025-09-02T14:21:40] thinking
+
+**Planning Implementation Details**
+
+I’m outlining the implementation with references to key files like index.html and config.js, focusing on a typical itinerary page. I’ll include minimal code snippets for event collection and implement data attributes. I should remember to follow the guideline to avoid heavy formatting.
+
+The developer's instructions allow full markdown for the final output, so I’ll adhere to the formatting guidelines for bullets and headers, using title case for headers and bold keywords for bullets. Additionally, I'll ensure to include a migration path to Cloudflare D1 and Workers.
+**Detailing Communication Options**
+
+I’m considering various communication tools for different purposes. For email fallback, I’ll mention Formspree, Basin, and EmailJS along with mailto. For chat options, I’ll propose Crisp or Tawk.to. For scheduling, we can look into Calendly, Cal.com, or SavvyCal. 
+
+For video chat initiated by an agent, I could suggest using Whereby or Daily.co for personalized invites, with Jitsi as another alternative. I need to adjust config.js to include a SITE_CONFIG global for contact info and flags, while also planning an exit-intent modal with CTA copy.
+**Mapping Message Data Flow**
+
+I'm mapping out the data flow for messages in the MVP. For starters, I'll use Formspree, Basin, or mailto, including the subject to specify the page and section. Console logging will also be included.
+
+Next, the plan is for a Cloudflare Worker to handle POST requests from the fetch to an endpoint. I want to store minimal non-PII events in D1 and send emails via MailChannels, with an optional routing to Slack or Discord via a webhook. I’ll provide diagrams and detail an event schema in JSON format, ensuring proper hashing to avoid PII.
+**Designing Exit Intent and Communication Features**
+
+I need to provide a snippet for the exit intent to show a modal when a user leaves the page, triggered by mouse leave or a timer on mobile. If the "Book Now" button is clicked, that'll trigger a plausible event and navigate the user.
+
+For contacting agents, I'm thinking of a footer or sticky bar that includes links for phone, SMS, email, and Messenger. I'll propose a snippet for that as well.
+
+For video chat, options like Whereby for embedded rooms or Crisp's video call add-on could work. I should also think of fallbacks and mention configuring flags for features like live chat and scheduling links with Calendly. I'll map out the analytics for custom events, along with a pros and cons comparison for third-party options.
+**Outlining Migration and Implementation Steps**
+
+I'm focusing on low-code steps for migrating to Cloudflare D1 and Workers. I’ll define endpoints like /collect for events and /message for questions, and outline a D1 schema with tables for events, messages, and sessions, plus indexes with TTL retention for privacy. 
+
+We might suggest changes to index.html for event logging on customer-facing pages. I’ll also detail how to enhance the config.js to include SITE_CONFIG and features for chat and scheduling. 
+
+In the final output, I want to organize sections like Overview, Phased Plan, Event Schema, UX Additions, and Code Snippets, making sure the bullets are concise and referencing key files clearly. It’s essential to include all minimal code snippets needed. Let's get started on crafting this!
+[2025-09-02T14:22:11] codex
+**Detailing Communication Options**
+
+I’m considering various communication tools for different purposes. For email fallback, I’ll mention Formspree, Basin, and EmailJS along with mailto. For chat options, I’ll propose Crisp or Tawk.to. For scheduling, we can look into Calendly, Cal.com, or SavvyCal. 
+
+For video chat initiated by an agent, I could suggest using Whereby or Daily.co for personalized invites, with Jitsi as another alternative. I need to adjust config.js to include a SITE_CONFIG global for contact info and flags, while also planning an exit-intent modal with CTA copy.
+[2025-09-02T14:22:11] codex
+**Mapping Message Data Flow**
+
+I'm mapping out the data flow for messages in the MVP. For starters, I'll use Formspree, Basin, or mailto, including the subject to specify the page and section. Console logging will also be included.
+
+Next, the plan is for a Cloudflare Worker to handle POST requests from the fetch to an endpoint. I want to store minimal non-PII events in D1 and send emails via MailChannels, with an optional routing to Slack or Discord via a webhook. I’ll provide diagrams and detail an event schema in JSON format, ensuring proper hashing to avoid PII.
+[2025-09-02T14:22:11] codex
+**Designing Exit Intent and Communication Features**
+
+I need to provide a snippet for the exit intent to show a modal when a user leaves the page, triggered by mouse leave or a timer on mobile. If the "Book Now" button is clicked, that'll trigger a plausible event and navigate the user.
+
+For contacting agents, I'm thinking of a footer or sticky bar that includes links for phone, SMS, email, and Messenger. I'll propose a snippet for that as well.
+
+For video chat, options like Whereby for embedded rooms or Crisp's video call add-on could work. I should also think of fallbacks and mention configuring flags for features like live chat and scheduling links with Calendly. I'll map out the analytics for custom events, along with a pros and cons comparison for third-party options.
+[2025-09-02T14:22:11] codex
+**Outlining Migration and Implementation Steps**
+
+I'm focusing on low-code steps for migrating to Cloudflare D1 and Workers. I’ll define endpoints like /collect for events and /message for questions, and outline a D1 schema with tables for events, messages, and sessions, plus indexes with TTL retention for privacy. 
+
+We might suggest changes to index.html for event logging on customer-facing pages. I’ll also detail how to enhance the config.js to include SITE_CONFIG and features for chat and scheduling. 
+
+In the final output, I want to organize sections like Overview, Phased Plan, Event Schema, UX Additions, and Code Snippets, making sure the bullets are concise and referencing key files clearly. It’s essential to include all minimal code snippets needed. Let's get started on crafting this!
+**Outcome**
+Customer feedback and engagement plan for the static site, with phased rollout, UX copy, event schema, minimal code snippets for `index.html`, itinerary/proposal pages, and `config.js`, third‑party integrations, and a migration path to Cloudflare Workers + D1.
+
+**Phased Plan**
+
+- MVP (this week; static + third parties)
+  - Logging: page views, scroll depth, link/CTA clicks, section questions.
+  - Ask-a-question per section; sends via Formspree/Basin or mailto fallback.
+  - Prominent contact bar: phone/SMS, email, Messenger.
+  - Exit‑intent modal with quick feedback; logs selection; “Book Now” to CPMaxx placeholder link.
+  - Optional live chat (Crisp/Tawk.to toggle); scheduling link (Calendly/Cal.com).
+- Iteration 2 (2–3 weeks; Cloudflare Worker collector)
+  - Replace third-party forms with a Worker endpoint `/message` + MailChannels email to agent; log to CF Web Analytics or custom `/collect`.
+  - Visitor/session IDs, debounce, sampling. Add “Next Steps” checklist component to proposals.
+  - Optional: Slack/Discord webhook relay for new questions.
+- Full (post-MVP; shared with voygen)
+  - Workers + D1: Events and Messages tables; dashboards (basic in voygen).
+  - Real-time status for proposals; agent-triggered video chat invites; auth-gated admin views.
+  - Consolidate trip metadata/CRM in voygen; somotravel.us becomes public-facing funnel.
+
+**Roles**
+
+- Front‑end: instrument pages, add UX elements, DOM hooks, integrate chat/scheduling; maintain `trips.json` references.
+- Worker/Backend: CF Worker endpoints `/collect`, `/message`; MailChannels; D1 schema/migrations; bot‑mitigation (Turnstile).
+- Ops: CF Pages/Workers setup, secrets, environment configs; privacy reviews.
+
+**Risks & Mitigations**
+
+- Privacy/PII: only minimal, non-sensitive metadata; hash UA/IP; avoid storing names/emails unless voluntarily submitted. Use `mailto:` for sensitive doc flows.
+- Static hosting caching: add `?cb=` cache busters; prefer `sendBeacon` or POST to Worker for reliability.
+- Chat noise: gate via config; default off; provide scheduling fallback.
+- Modal fatigue: frequency cap via `localStorage`, suppress after engagement.
+
+**Event Schema**
+
+- Event envelope (sent via `sendBeacon` to `/collect` or third‑party custom event):
+  - event_name: string (page_view, scroll, click_cta, question_open, question_submit, exit_intent_select)
+  - page: string (path)
+  - title: string
+  - ts: ISO timestamp
+  - session_id: uuidv4 (localStorage)
+  - visitor_id: uuidv4 (localStorage)
+  - referrer: string
+  - scroll_pct: number (0-100; for scroll events)
+  - section_id: string (data-section-id)
+  - section_title: string (data-section-title)
+  - props: object (free-form small map)
+  - ua_hash: sha256(userAgent) hex (client-side)
+  - ip_trunc: optional (omit on MVP; can add server-side /24 trunc later)
+  - source: 'somotravel-static'
+- Message payload (MVP → Worker):
+  - message_id: uuid
+  - page, section_id, section_title
+  - question: string
+  - contact: { email?: string } (optional)
+  - session_id, visitor_id, ts
+  - delivery: { via: 'mailto'|'formspree'|'worker-mailchannels' }
+
+**DOM Hooks**
+
+- For any section/card to enable questions:
+  - Add `data-track="section" data-section-id="day-3" data-section-title="Scottish Highlands Adventure"`
+  - Add “Ask a question” button with `class="ask-question"` and `data-target="day-3"`
+
+Example in a typical itinerary page section:
+```html
+<div class="card" data-track="section" data-section-id="day-3" data-section-title="Scottish Highlands Adventure">
+  <div class="day-header">Tuesday, Apr 8 Day 3 - Scottish Highlands Adventure</div>
+  <!-- ...content... -->
+  <div style="margin-top:10px">
+    <button class="ask-question" data-target="day-3">Ask a question about this day</button>
+  </div>
+</div>
+```
+
+**UX Additions**
+
+- Contact bar (sticky on proposals)
+  - Copy: “Questions? We’re here to help.”
+  - Buttons:
+    - Call: `tel:${SITE_CONFIG.agent.phone_display}`
+    - Text: `sms:${SITE_CONFIG.agent.sms}`
+    - Email: `mailto:${SITE_CONFIG.agent.email}?subject=Question about ${document.title}`
+    - Messenger: `https://m.me/${SITE_CONFIG.agent.messengerUsername}`
+- Exit‑intent modal (desktop mouseout at top, mobile idle/time + back nav)
+  - Title: “Quick check before you go”
+  - Copy: “How can we make this trip perfect for you?”
+  - Options:
+    - Ready to book
+    - Just looking
+    - Need more info on…
+    - Want to change…
+    - Need to consult others
+    - Other
+  - CTA: “Book now to lock in plans” → `SITE_CONFIG.cpmaxx.authLink` (placeholder)
+  - Secondary: “Ask a question” opens per‑section or general message.
+- “Next Steps” checklist (proposals near pricing)
+  - Items: Secure deposit, Confirm traveler names, Upload IDs (via mailto), Review insurance, Schedule planning call.
+
+Suggested copy block:
+- “Ready to go? A small deposit locks in rates and availability.”
+- “Prefer to chat live? Open chat or schedule a 15‑minute call.”
+
+**Minimal Config (`config.js` extension)**
+
+Add a site config object (kept generic; no secrets):
+```html
+<script>
+window.SITE_CONFIG = {
+  agent: {
+    name: "SoMo Travel",
+    email: "hello@somotravel.us",
+    phone_display: "+1 (555) 555‑5555",
+    phone_tel: "+15555555555",
+    sms: "+15555555555",
+    messengerUsername: "somotravel"
+  },
+  chat: { enabled: false, provider: "crisp", websiteId: "" }, // Crisp websiteId from dashboard
+  schedule: { enabled: true, provider: "calendly", url: "https://calendly.com/your-handle/intro" },
+  cpmaxx: { authLink: "https://example.com/placeholder" }, // placeholder now
+  analytics: { provider: "plausible", domain: "somotravel.us" }, // or "cf"
+  message: { provider: "formspree", formId: "xyz123" } // or "basin"|"worker"
+};
+</script>
+```
+
+Include this near the top of `index.html` and itinerary pages before the instrumentation snippet.
+
+**Instrumentation (drop-in script)**
+
+Add at the end of `index.html` and typical itinerary/proposal pages.
+
+```html
+<script>
+// --- IDs ---
+function uuid(){return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15>>c/4).toString(16))}
+const LS=localStorage; const SS=sessionStorage;
+const visitor_id = LS.getItem('visitor_id') || (LS.setItem('visitor_id', uuid()), LS.getItem('visitor_id'));
+const session_id = SS.getItem('session_id') || (SS.setItem('session_id', uuid()), SS.getItem('session_id'));
+
+// --- helpers ---
+function sha256hex(str){const enc=new TextEncoder();return crypto.subtle.digest("SHA-256",enc.encode(str)).then(b=>Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join(''));}
+function nowISO(){return new Date().toISOString();}
+function safeTitle(){return (document.title||'').slice(0,180)}
+function sendEvent(evt){
+  const payload = { ...evt, page: location.pathname, title: safeTitle(), ts: nowISO(), session_id, visitor_id, source: 'somotravel-static' };
+  // Plausible custom events (if chosen)
+  if (window.SITE_CONFIG?.analytics?.provider === 'plausible' && window.plausible) {
+    plausible(evt.event_name || 'Custom', { props: payload });
+  }
+  // Cloudflare Web Analytics custom event (if chosen)
+  if (window.SITE_CONFIG?.analytics?.provider === 'cf' && window.__q) {
+    __q.push(['event', evt.event_name, payload]);
+  }
+  // Worker collector (future-ready)
+  if (window.SITE_CONFIG?.analytics?.collectorUrl) {
+    const url = window.SITE_CONFIG.analytics.collectorUrl;
+    const body = JSON.stringify(payload);
+    if (navigator.sendBeacon) { navigator.sendBeacon(url, new Blob([body], {type:'application/json'})); }
+    else { fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body}); }
+  }
+}
+
+// --- basic page view ---
+sha256hex(navigator.userAgent||'').then(ua_hash=>sendEvent({event_name:'page_view', ua_hash}));
+
+// --- scroll depth ---
+let maxScroll=0, ticking=false;
+function onScroll(){
+  const h = document.documentElement;
+  const pct = Math.round(100 * h.scrollTop / (h.scrollHeight - h.clientHeight || 1));
+  if (pct > maxScroll) { maxScroll = pct; }
+  if (!ticking) {
+    window.requestAnimationFrame(()=>{ ticking=false; });
+    ticking = true;
+  }
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+// send on unload
+window.addEventListener('visibilitychange', ()=>{ if (document.visibilityState==='hidden'){ sendEvent({event_name:'scroll', scroll_pct:maxScroll}); }});
+
+// --- section questions ---
+function openQuestion(sectionId, sectionTitle){
+  sendEvent({event_name:'question_open', section_id:sectionId, section_title:sectionTitle});
+  // form provider routing
+  const msgProvider = window.SITE_CONFIG?.message?.provider || 'mailto';
+  const subject = encodeURIComponent(`Question: ${sectionTitle || safeTitle()}`);
+  const body = encodeURIComponent(`Page: ${location.href}\nSection: ${sectionTitle||sectionId}\n\nYour question:\n`);
+  if (msgProvider==='mailto') {
+    location.href = `mailto:${window.SITE_CONFIG?.agent?.email}?subject=${subject}&body=${body}`;
+  } else if (msgProvider==='formspree' && window.SITE_CONFIG?.message?.formId) {
+    const url = `https://formspree.io/f/${window.SITE_CONFIG.message.formId}`;
+    fetch(url, {method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify({ message_context:{page:location.href,sectionId,sectionTitle,session_id,visitor_id}, message:'' })})
+      .then(()=>alert('Thanks! We’ll get back to you shortly.'))
+      .catch(()=>alert('Could not send – please email us instead.'));
+  } else if (msgProvider==='worker' && window.SITE_CONFIG?.message?.endpoint) {
+    fetch(window.SITE_CONFIG.message.endpoint, {method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ message_context:{page:location.href,sectionId,sectionTitle,session_id,visitor_id} })});
+    alert('Thanks! We’ll get back to you shortly.');
+  } else {
+    location.href = `mailto:${window.SITE_CONFIG?.agent?.email}?subject=${subject}&body=${body}`;
+  }
+}
+document.addEventListener('click', (e)=>{
+  const btn = e.target.closest('.ask-question');
+  if (!btn) return;
+  const target = btn.getAttribute('data-target');
+  const host = btn.closest('[data-track="section"]');
+  const title = (host?.getAttribute('data-section-title')) || btn.getAttribute('data-title') || '';
+  e.preventDefault(); openQuestion(target || '', title);
+});
+
+// --- exit intent modal ---
+(function(){
+  let shown = sessionStorage.getItem('exit_shown');
+  function showModal(){
+    if (shown) return;
+    shown = '1'; sessionStorage.setItem('exit_shown','1');
+    const wrap=document.createElement('div'); wrap.className='backdrop'; wrap.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;display:flex;align-items:center;justify-content:center';
+    const modal=document.createElement('div'); modal.className='modal'; modal.style.cssText='width:min(720px,95%);background:#fff;border-radius:14px;padding:18px;border:1px solid #e5e7eb';
+    modal.innerHTML=`
+      <div style="font-weight:800;font-size:1.25rem;margin-bottom:8px">Quick check before you go</div>
+      <div style="color:#374151;margin-bottom:12px">How can we make this trip perfect for you?</div>
+      <div style="display:grid;gap:8px;margin:10px 0">
+        ${['Ready to book','Just looking','Need more info','Want to change something','Need to consult others','Other'].map(txt=>`<button class="btn" data-choice="${txt}" style="text-align:left;background:#eef0f6;padding:10px 12px;border-radius:10px;border:0">${txt}</button>`).join('')}
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px">
+        <a class="btn" id="bookNow" style="background:#0d6efd;color:#fff" href="${(window.SITE_CONFIG?.cpmaxx?.authLink)||'#'}" target="_blank" rel="noopener">Book now to lock in plans</a>
+        <button class="btn" id="modalClose">Close</button>
+      </div>`;
+    wrap.appendChild(modal); document.body.appendChild(wrap);
+    wrap.addEventListener('click', (e)=>{ if(e.target===wrap||e.target.id==='modalClose'){ document.body.removeChild(wrap);} });
+    modal.addEventListener('click', (e)=>{
+      const b=e.target.closest('button.btn[data-choice]'); if(!b) return;
+      const choice=b.getAttribute('data-choice'); sendEvent({event_name:'exit_intent_select', props:{choice}});
+      if (/Need more info|Want to change/.test(choice)) {
+        const first = document.querySelector('.ask-question'); if(first){ first.click(); }
+      }
+      document.body.removeChild(wrap);
+    });
+    document.getElementById('bookNow').addEventListener('click', ()=>sendEvent({event_name:'click_cta', props:{action:'book_now'}}));
+  }
+  // desktop: mouse leaves top; mobile: 30s idle or back nav
+  document.addEventListener('mouseout', (e)=>{ if(e.clientY<=0) showModal(); });
+  setTimeout(()=>{ if (document.visibilityState==='visible') showModal(); }, 30000);
+})();
+</script>
+```
+
+Optional add-ons (toggle via `SITE_CONFIG`):
+
+- Plausible:
+```html
+<script defer data-domain="somotravel.us" src="https://plausible.io/js/script.js"></script>
+```
+
+- Cloudflare Web Analytics:
+```html
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token":"YOUR_TOKEN"}'></script>
+<script>window.__q = window.__q || [];</script>
+```
+
+- Crisp chat:
+```html
+<script>
+if (SITE_CONFIG?.chat?.enabled && SITE_CONFIG.chat.provider==='crisp' && SITE_CONFIG.chat.websiteId) {
+  window.$crisp=[]; window.CRISP_WEBSITE_ID=SITE_CONFIG.chat.websiteId;
+  (function(){var d=document,s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.head.appendChild(s);})();
+}
+</script>
+```
+
+- Calendly popup:
+```html
+<link href="https://assets.calendly.com/assets/external/widget.css" rel[2025-09-02T14:24:01] ERROR: stream error: stream disconnected before completion: Transport error: error decoding response body; retrying 2/5 in 405ms…
+
+[2025-09-02T14:24:05] thinking
+
+**Preparing the Final Plan Deliverable**
+
+I need to create a comprehensive, multi-phase plan that includes technical options, event/metric schemas, UX enhancements, data flow, and security considerations. The user has provided the repo structure and constraints, but since we’re in a read-only environment, we can't modify any files or run patches. I've already scanned the files to tailor our response. Now, I'll ensure to follow the style guidelines, using clear headers and bold keywords for bullets while keeping the content concise and thorough.
+**Delivering the Plan Components**
+
+I need to include several key sections in the plan. First, an overview and a phased plan with MVP, Iteration 2, and Full details. I'll compare architecture options for analytics, forms, chat, and scheduling, focusing on zero/low code integration paths. The event schema will encompass multiple metrics with JSON examples. I also need to detail DOM hooks for tracking user interactions, specific UX copy, and data flow insights. Lastly, I’ll address security considerations and provide an implementation outline referencing the appropriate files, along with necessary code snippets for clarity.
+**Suggesting Feedback Implementation**
+
+I'm thinking it might be useful to add a `feedback.js` file or perhaps an inline snippet that can be easily pasted into the pages. This would help streamline the feedback collection process. It could make it simple for users to provide their thoughts without needing extensive modifications to each page. I should ensure that it’s clear and easy to implement, so I’ll consider how it might fit into our overall structure and guidelines.
+**Outlining Implementation Details**
+
+I’ll need to include minimal code snippets for several components. First, I’ll define `window.SITE_CONFIG = {...}` either in `config.js` or at the top of each page. Next, I’ll integrate analytics, like Plausible or Cloudflare Web Analytics, with a fallback for localStorage to queue events. The event recorder should compute `session_id` and send events accordingly; since static pages on GitHub Pages might struggle with direct Worker calls, I’ll propose a placeholder for a subdomain endpoint. Also, I’ll set up scroll depth tracking with thresholds and exit-intent modal code. Lastly, I'll link a "Book Now" CTA to the CPMaxx placeholder and outline next steps.
+**Structuring the Implementation Plan**
+
+I need to include details such as contact links (tel, sms, mailto), and optional Messenger links. For video chat, I’ll propose triggers for Daily.co or Jitsi with a "Start call" option controlled by the agent. The migration path to Cloudflare D1 should suggest various endpoints and schema tables. I'll define roles and address privacy and spam risks. I'll reference modifications in `index.html` for the site-wide bar among other features. Providing JSON examples for the event schema and a bullet list comparing third-party options are also essential. Lastly, I’ll include code snippets for `config.js`, feedback UI, and scheduling links.
+[2025-09-02T14:24:48] codex
+**Delivering the Plan Components**
+
+I need to include several key sections in the plan. First, an overview and a phased plan with MVP, Iteration 2, and Full details. I'll compare architecture options for analytics, forms, chat, and scheduling, focusing on zero/low code integration paths. The event schema will encompass multiple metrics with JSON examples. I also need to detail DOM hooks for tracking user interactions, specific UX copy, and data flow insights. Lastly, I’ll address security considerations and provide an implementation outline referencing the appropriate files, along with necessary code snippets for clarity.
+[2025-09-02T14:24:48] codex
+**Suggesting Feedback Implementation**
+
+I'm thinking it might be useful to add a `feedback.js` file or perhaps an inline snippet that can be easily pasted into the pages. This would help streamline the feedback collection process. It could make it simple for users to provide their thoughts without needing extensive modifications to each page. I should ensure that it’s clear and easy to implement, so I’ll consider how it might fit into our overall structure and guidelines.
+[2025-09-02T14:24:48] codex
+**Outlining Implementation Details**
+
+I’ll need to include minimal code snippets for several components. First, I’ll define `window.SITE_CONFIG = {...}` either in `config.js` or at the top of each page. Next, I’ll integrate analytics, like Plausible or Cloudflare Web Analytics, with a fallback for localStorage to queue events. The event recorder should compute `session_id` and send events accordingly; since static pages on GitHub Pages might struggle with direct Worker calls, I’ll propose a placeholder for a subdomain endpoint. Also, I’ll set up scroll depth tracking with thresholds and exit-intent modal code. Lastly, I'll link a "Book Now" CTA to the CPMaxx placeholder and outline next steps.
+[2025-09-02T14:24:48] codex
+**Structuring the Implementation Plan**
+
+I need to include details such as contact links (tel, sms, mailto), and optional Messenger links. For video chat, I’ll propose triggers for Daily.co or Jitsi with a "Start call" option controlled by the agent. The migration path to Cloudflare D1 should suggest various endpoints and schema tables. I'll define roles and address privacy and spam risks. I'll reference modifications in `index.html` for the site-wide bar among other features. Providing JSON examples for the event schema and a bullet list comparing third-party options are also essential. Lastly, I’ll include code snippets for `config.js`, feedback UI, and scheduling links.
+**Overview**
+- Goal: Add lightweight, privacy‑safe customer feedback and engagement to proposals/itineraries now, while paving a clean path to a Cloudflare Workers + D1 backend for richer analytics, messaging, and funnel features later.
+- Today: Static pages (GitHub Pages). Use client‑side JS + low‑code services (analytics, forms, chat, scheduling). Avoid PII storage; use mailto for sensitive docs.
+- Future: Swap low‑code endpoints for Workers with identical payloads; persist to D1 with sensible retention.
+
+**Phased Plan**
+- MVP (this week)
+  - Analytics + events: page views, scroll depth, section views, CTA clicks, exit‑intent feedback, question submissions.
+  - Per‑section “Ask a question” buttons; mailto fallback for sensitive docs.
+  - Prominent contact and “Book Now” CTAs; “Next Steps” checklist.
+  - Optional chat (Crisp/Tawk.to) and scheduling link (Calendly/Cal.com).
+- Iteration 2 (2–4 weeks)
+  - Replace form backend with Cloudflare Worker endpoints (/collect, /message). Add spam protection (hCaptcha/turnstile or proof‑of‑work).
+  - Basic “message center” list view (read-only) in dashboard (new static page) backed by Worker.
+  - Agent‑initiated video: controlled “join” link surfaced on pages when a room is active.
+- Full (with voygen backend)
+  - Cloudflare D1 for events/messages/sessions; presence channel for “agent online” banner.
+  - Auth’d message center + per‑trip threads and status/next‑steps state machine.
+  - Funnel reporting: engagement → questions → bookings; surface in `index.html`.
+
+**Event Schema**
+- Envelope (sent with every event)
+  - session_id: UUID v4 (stored in localStorage)
+  - page_url, referrer, user_agent, ts_iso, trip_file (e.g., "scotland-trip-itinerary.html")
+  - anon_user: { ua_hash, tz, lang }
+- Events
+  - page_view: { title }
+  - scroll_depth: { max_percent: 25|50|75|100 }
+  - section_view: { section_id, section_title, order }
+  - cta_click: { id: 'book_now'|'contact_phone'|'contact_email'|'schedule'|... }
+  - question_open: { section_id }
+  - question_submitted: { section_id, channel: 'form'|'mailto' }
+  - exit_intent: { choice: 'ready_to_book'|'just_looking'|'need_more_info'|'want_to_change'|'consult_others'|'other', note? }
+- Example payload
+```json
+{
+  "session_id": "c7f6ad1b-2e21-4db7-bd1a-9c0417a2c6f3",
+  "trip_file": "scotland-trip-itinerary.html",
+  "page_url": "https://somotravel.us/scotland-trip-itinerary.html",
+  "ts_iso": "2025-09-02T15:04:21.120Z",
+  "event": "section_view",
+  "props": { "section_id": "edinburgh-overview", "section_title": "Edinburgh, Scotland", "order": 1 }
+}
+```
+
+**UX Additions**
+- CTA placement
+  - Top “Need help?” bar with phone, SMS, email, Messenger.
+  - “Book Now” button near pricing and at the footer; logs `cta_click:book_now`.
+- Per‑section question hooks
+  - Add `data-section-id` to each major card/day/overview and a small “Ask a question” button. Bubble opens inline form (name optional; email optional; textbox). Submit via Formspree/Basin now; Worker later.
+- Exit‑intent modal copy
+  - Title: Before you go — quick feedback?
+  - Options:
+    - Ready to book now
+    - Just looking for ideas
+    - Need more info about [text]
+    - Want to adjust/change [text]
+    - Need to consult others
+    - Other [text]
+  - Footer: Book now to lock in pricing and availability.
+  - Buttons: Book Now, Send Feedback, Keep Browsing.
+- Next Steps checklist (after pricing)
+  - 1) Secure deposit — Book now
+  - 2) Confirm traveler names — Email us
+  - 3) Travel docs — Email photos securely from your device
+  - 4) Questions? — Chat or Schedule a call
+
+**Data Flow**
+- Today (no backend)
+  - Page JS → Analytics (Plausible/CF Web Analytics custom events).
+  - Questions form → Formspree/Basin → Agent email.
+  - Sensitive docs → mailto link prefilled with trip and section context.
+- Iteration 2
+  - Page JS → Cloudflare Worker `/collect` (store in D1).
+  - Questions form → Worker `/message` (store + email via MailChannels).
+  - Agent flips “room active” in Worker → clients fetch presence → show “Join video”.
+- Full
+  - All events/messages/sessions into D1; dashboard pages read via Worker APIs; optional auth for agent.
+
+**Third‑Party Options**
+- Analytics
+  - Plausible: simple, privacy-first, easy custom events. Low code, paid.
+  - Cloudflare Web Analytics: free, privacy‑preserving; custom events via `__q` or Beacon; pairs well with CF Workers/D1.
+- Forms (questions)
+  - Formspree: free tier + SMTP to agent; spam filtering; add reCAPTCHA later.
+  - Basin: similar to Formspree with nice dashboards.
+  - Netlify Forms: if ever hosting on Netlify; not applicable on GH Pages.
+- Chat
+  - Crisp: fast, great UX, canned replies, email fallback.
+  - Tawk.to: free, reliable; more utilitarian UI.
+- Scheduling
+  - Calendly: robust, easy popup widget.
+  - Cal.com: open source; similar embed.
+- Video
+  - Jitsi (free, meeting URL) or Daily (paid SDK, better control). Start with Jitsi invite links that the agent shares.
+
+**Security/PII Posture**
+- No storage of passport/ID/images; route to mailto from client device only.
+- No names/DOB required in forms; collect only message content and optional reply email.
+- Strip IP addresses; store UA hash only. Retain raw events 30–90 days rolling.
+- Use CSP to limit script origins (plausible.io, client.crisp.chat, calendly domains).
+- CORS: allow GET/POST from `somotravel.us` to Workers domain when added.
+
+**Implementation Outline (key files + minimal snippets)**
+
+- config.js (add SITE_CONFIG; keep existing token logic)
+```html
+<script>
+window.SITE_CONFIG = {
+  agent: {
+    name: "Somo Travel",
+    email: "agent@example.com",
+    phone: "+1-555-123-4567",
+    sms: "+1-555-123-4567",
+    messenger: "https://m.me/yourpage",
+    calendly: "https://calendly.com/your-handle/intro"
+  },
+  cpmaxx: { authLink: "https://cpmaxx.example/placeholder" },
+  analytics: { provider: "plausible", domain: "somotravel.us", cfToken: "" },
+  chat: { enabled: true, provider: "crisp", websiteId: "CRISP_WEBSITE_ID" },
+  inquiry: { provider: "formspree", formId: "YOUR_FORMSPREE_ID", workerUrl: "" },
+  video: { provider: "jitsi", roomUrl: "" }, // set when active
+  features: { exitIntent: true, questions: true, schedule: true, bookNow: true }
+};
+</script>
+```
+
+- Common embed (paste near end of body on proposal/itinerary pages)
+```html
+<!-- Engagement bootstrap -->
+<script>
+(function(){
+  const S = window.SITE_CONFIG||{};
+  // Analytics (Plausible or Cloudflare)
+  if (S.analytics?.provider === 'plausible' && S.analytics.domain) {
+    const s=document.createElement('script');
+    s.defer=1; s.setAttribute('data-domain', S.analytics.domain);
+    s.src='https://plausible.io/js/script.js'; document.head.appendChild(s);
+    window.logEvent=(name,props)=>{try{window.plausible && window.plausible(name,{props});}catch(_){}}; 
+  } else if (S.analytics?.provider === 'cloudflare' && S.analytics.cfToken) {
+    const s=document.createElement('script');
+    s.defer=1; s.src='https://static.cloudflareinsights.com/beacon.min.js';
+    s.setAttribute('data-cf-beacon', JSON.stringify({token:S.analytics.cfToken}));
+    document.head.appendChild(s);
+    window.__q=window.__q||[]; window.logEvent=(n,p)=>window.__q.push({event:n,props:p});
+  } else {
+    window.logEvent=(name,props)=>console.debug('[event]',name,props);
+  }
+
+  // Session
+  const sid = localStorage.getItem('st_sid') || (crypto.randomUUID?.()||String(Date.now())+'-'+Math.random().toString(36).slice(2));
+  localStorage.setItem('st_sid', sid);
+
+  // Helpers
+  const tripFile = (location.pathname.split('/').pop()||'').toLowerCase();
+  function postToWorker(type, props){
+    const u = S.inquiry?.workerUrl; if(!u) return;
+    fetch(u + (type==='event'?'/collect':'/message'), {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ session_id:sid, trip_file:tripFile, page_url:location.href, ts_iso:new Date().toISOString(), event:type, props })
+    }).catch(()=>{});
+  }
+  function emit(event, props){ window.logEvent(event, props); postToWorker('event', {event, ...props}); }
+
+  // Page view
+  emit('page_view', { title: document.title });
+
+  // Scroll depth
+  (function trackScroll(){
+    const marks=[25,50,75,100], sent=new Set();
+    function onScroll(){ const p=Math.round(100*window.scrollY/(document.body.scrollHeight-innerHeight)); marks.forEach(m=>{ if(p>=m && !sent.has(m)){ sent.add(m); emit('scroll_depth',{max_percent:m}); } }); }
+    addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  })();
+
+  // Section views and inline Ask button
+  (function sections(){
+    const secSel='[data-section-id]';
+    document.querySelectorAll(secSel).forEach((el)=>{
+      const id=el.getAttribute('data-section-id'); if(!id) return;
+      // Add ask button
+      if (S.features?.questions) {
+        const btn=document.createElement('button');
+        btn.textContent='Ask a question';
+        btn.style.cssText='float:right;margin-left:8px;font-size:.9rem;padding:.35rem .6rem;border-radius:8px;border:1px solid #cbd5e1;background:#f1f5f9;cursor:pointer';
+        btn.addEventListener('click',()=>openQuestion(el, id));
+        el.insertAdjacentElement('afterbegin', btn);
+      }
+    });
+    // Observe visibility
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const el=e.target, id=el.getAttribute('data-section-id');
+          const title=el.querySelector('h1,h2,h3')?.textContent?.trim()||id;
+          const order=[...document.querySelectorAll(secSel)].indexOf(el);
+          emit('section_view',{section_id:id, section_title:title, order});
+          io.unobserve(el);
+        }
+      });
+    },{threshold:.4});
+    document.querySelectorAll(secSel).forEach(el=>io.observe(el));
+
+    // Question flow
+    function openQuestion(el,id){
+      emit('question_open',{section_id:id});
+      const agentEmail = S.agent?.email||'';
+      // Try form provider first
+      if (S.inquiry?.provider==='formspree' && S.inquiry.formId) {
+        const form=document.createElement('form');
+        form.action=`https://formspree.io/f/${S.inquiry.formId}`;
+        form.method='POST';
+        form.style.cssText='border:1px solid #e5e7eb;border-radius:8px;padding:10px;margin:10px 0;background:#fafafa';
+        form.innerHTML = `
+          <div style="font-weight:700;margin-bottom:6px">Ask a question about this section</div>
+          <input type="hidden" name="trip_file" value="${tripFile}">
+          <input type="hidden" name="section_id" value="${id}">
+          <textarea name="message" required rows="3" style="width:100%;padding:8px;border-radius:6px;border:1px solid #cbd5e1" placeholder="Type your question..."></textarea>
+          <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+            <input name="reply_to" type="email" placeholder="Email (optional)" style="flex:1;min-width:220px;padding:8px;border-radius:6px;border:1px solid #cbd5e1">
+            <button type="submit" style="padding:.5rem .8rem;border-radius:8px;border:0;background:#0d6efd;color:#fff">Send</button>
+            <a href="mailto:${agentEmail}?subject=Question about ${encodeURIComponent(tripFile)} — ${encodeURIComponent(id)}&body=${encodeURIComponent('Hi! I have a question about: '+id+'%0A%0A[Type here]')}" style="padding:.5rem .8rem;border-radius:8px;border:1px solid #cbd5e1;background:#fff;text-decoration:none;color:#111">Use email</a>
+          </div>`;
+        form.addEventListener('submit',()=>{ emit('question_submitted',{section_id:id,channel:'form'}); });
+        el.insertAdjacentElement('afterend', form);
+        form.querySelector('textarea')?.focus();
+      } else {
+        // Mailto fallback only
+        location.href=`mailto:${agentEmail}?subject=Question about ${encodeURIComponent(tripFile)} — ${encodeURIComponent(id)}&body=${encodeURIComponent('Hi! I have a question about: '+id+'%0A%0A[Type here]')}`;
+        emit('question_submitted',{section_id:id,channel:'mailto'});
+      }
+    }
+  })();
+
+  // Exit intent modal
+  if (S.features?.exitIntent){
+    let shown=false;
+    function showModal(){ if(shown) return; shown=true; emit('exit_intent',{choice:'opened'}); renderModal(); }
+    function renderModal(){
+      const wrap=document.createElement('div'); wrap.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:9999';
+      wrap.innerHTML=`
+        <div style="width:min(760px,95%);background:#fff;border-radius:12px;border:1px solid #e5e7eb;box-shadow:0 18px 46px rgba(0,0,0,.25);overflow:hidden">
+          <div style="background:#0d6efd;color:#fff;padding:14px 16px;font-weight:800">Before you go — quick feedback?</div>
+          <div style="padding:16px">
+            <p style="margin:.2rem 0 .8rem;color:#374151">Help us tailor this trip for you. Choose one:</p>
+            <div style="display:grid;gap:8px">
+              ${[
+                ['ready_to_book','Ready to book now'],
+                ['just_looking','Just looking for ideas'],
+                ['need_more_info','Need more info about…'],
+                ['want_to_change','Want to adjust/change…'],
+                ['consult_others','Need to consult others'],
+                ['other','Other…']
+              ].map(([v,l])=>`<label style="display:flex;gap:8px;align-items:center"><input type="radio" name="ei_choice" value="${v}"><span>${l}</span></label>`).join('')}
+            </div>
+            <textarea id="ei_note" rows="3" placeholder="Add details (optional)" style="margin-top:10px;width:100%;padding:8px;border-radius:8px;border:1px solid #cbd5e1"></textarea>
+          </div>
+          <div style="display:flex;gap:8px;justify-content:flex-end;padding:12px;border-top:1px solid #e5e7eb">
+            <a id="ei_book" href="${S.cpmaxx?.authLink||'#'}" target="_blank" rel="noopener" style="text-decoration:none;background:#0d6efd;color:#fff;padding:.6rem 1rem;border-radius:10px;font-weight:700">Book Now</a>
+            <button id="ei_send" style="background:#f1f5f9;border:1px solid #cbd5e1;padding:.6rem 1rem;border-radius:10px">Send Feedback</button>
+            <button id="ei_close" style="background:#fff;border:1px solid #cbd5e1;padding:.6rem 1rem;border-radius:10px">Keep Browsing</button>
+          </div>
+        </div>`;
+      document.body.appendChild(wrap);
+      wrap.addEventListener('click',(e)=>{ if(e.target===wrap) wrap.remove(); });
+      wrap.querySelector('#ei_book').addEventListener('click',()=>emit('cta_click',{id:'book_now'}));
+      wrap.querySelector('#ei_send').addEventListener('click',()=>{
+        const choice=document.querySelector('input[name="ei_choice"]:checked')?.value||'other';
+        const note=document.getElementById('ei_note').value||'';
+        emit('exit_intent',{choice, note});
+        if (S.inquiry?.provider==='formspree' && S.inquiry.formId){
+          fetch(`https://formspree.io/f/${S.inquiry.formId}`, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({trip_file:tripFile,type:'exit_intent',choice,note})});
+        }
+        wrap.remove();
+      });
+      wrap.querySelector('#ei_close').addEventListener('click',()=>wrap.remove());
+    }
+    // Desktop intent (mouseleave top) + mobile back/visibility
+    document.addEventListener('mouseout',(e)=>{ if(e.clientY<=0) showModal(); });
+    document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='hidden') showModal(); }, {once:true});
+  }
+
+  // Contact & chat
+  (function contacts(){
+    // Optional top contact bar injection
+    const a = (window.SITE_CONFIG||{}).agent||{};
+    const bar=document.createElement('div');
+    bar.style.cssText='position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid #e5e7eb;padding:8px 12px;display:flex;gap:10px;justify-content:flex-end;align-items:center';
+    bar.innerHTML = `
+      <a href="tel:${a.phone||''}" onclick="logEvent && logEvent('cta_click',{id:'contact_phone'})">Call</a> |
+      <a href="sms:${a.sms||a.phone||''}" onclick="logEvent && logEvent('cta_click',{id:'contact_sms'})">Text</a> |
+      <a href="mailto:${a.email||''}" onclick="logEvent && logEvent('cta_click',{id:'contact_email'})">Email</a> |
+      <a href="${a.messenger||'#'}" target="_blank" rel="noopener" onclick="logEvent && logEvent('cta_click',{id:'contact_messenger'})">Messenger</a>
+      ${S.features?.schedule && a.calendly ? `| <a href="${a.calendly}" target="_blank" rel="noopener" onclick="logEvent && logEvent('cta_click',{id:'schedule'})">Schedule</a>`:''}
+      ${S.video?.roomUrl ? `| <a href="${S.video.roomUrl}" target="_blank" rel="noopener" onclick="logEvent && logEvent('cta_click',{id:'video_join'})">Join Video</a>`:''}
+    `;
+    document.body.prepend(bar);
+  })();
+
+  // Optional chat
+  if (S.chat?.enabled && S.chat?.provider === 'crisp' && S.chat.websiteId) {
+    window.$crisp=[]; window.CRISP_WEBSITE_ID=S.chat.websiteId;
+    const s=document.createElement("script"); s.src="https://client.crisp.chat/l.js"; s.async=1; document.head.appendChild(s);
+  }
+})();
+</script>
+```
+
+- “Next Steps” checklist block (drop near pricing)
+```html
+<div class="card" style="border-left:4px solid #0d6efd;padding:16px;margin-top:16px">
+  <h2>Next Steps to Secure Your Trip</h2>
+  <ol>
+    <li>Secure deposit — <a href="#" onclick="logEvent('cta_click',{id:'book_now'}); this.href=(window.SITE_CONFIG?.cpmaxx?.authLink||'#');" target="_blank" rel="noopener">Book now</a></li>
+    <li>Confirm traveler names — <a href="mailto:${window.SITE_CONFIG?.agent?.email||''}?subject=Traveler Names — ${location.pathname.split('/').pop()}">Email us</a></li>
+    <li>Send travel docs (secure) — <a href="mailto:${window.SITE_CONFIG?.agent?.email||''}?subject=Travel Docs — ${location.pathname.split('/').pop()}&body=Please attach photos of your IDs from your device.">Email from your device</a></li>
+    <li>Questions? — <a href="${window.SITE_CONFIG?.agent?.calendly||'#'}" target="_blank" rel="noopener" onclick="logEvent('cta_click',{id:'schedule'})">Schedule a call</a></li>
+  </ol>
+</div>
+```
+
+- DOM hooks on itinerary/proposal sections (examples)
+```html
+<h2 data-section-id="edinburgh-overview">🏴 Edinburgh, Scotland</h2>
+<div class="card" data-section-id="day-3-loch-ness">Tuesday, Apr 8 — Highlands & Loch Ness</div>
+```
+
+**Migration to Workers + D1**
+- Endpoints (Workers)
+  - POST /collect: body { session_id, trip_file, page_url, ts_iso, event, props }
+  - POST /message: body { session_id, trip_file, section_id?, message, reply_to? }
+  - GET /presence: returns { video_active: boolean, roomUrl? }
+  - POST /presence: agent toggles video or sets room URL (protected later)
+- D1 Schema (SQLite)
+```sql
+CREATE TABLE sessions (
+  session_id TEXT PRIMARY KEY,
+  ua_hash TEXT, tz TEXT, lang TEXT,
+  created_at TEXT DEFAULT (datetime('now'))
+);
+CREATE TABLE events (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  session_id TEXT, trip_file TEXT, page_url TEXT,
+  event TEXT, props TEXT, ts_iso TEXT,
+  created_at TEXT DEFAULT (datetime('now')),
+  FOREIGN KEY(session_id) REFERENCES sessions(session_id)
+);
+CREATE INDEX idx_events_trip_ts ON events(trip_file, ts_iso);
+
+CREATE TABLE messages (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  session_id TEXT, trip_file TEXT, section_id TEXT,
+  message TEXT, reply_to TEXT,
+  created_at TEXT DEFAULT (datetime('now'))
+);
+CREATE INDEX idx_messages_trip_created ON messages(trip_file, created_at);
+
+CREATE TABLE presence (
+  id INTEGER PRIMARY KEY CHECK (id=1),
+  video_active INTEGER DEFAULT 0,
+  room_url TEXT,
+  updated_at TEXT DEFAULT (datetime('now'))
+);
+```
+- Retention
+  - Purge events >90 days, messages >180 days.
+  - Store IP only transiently for anti‑abuse, not in D1.
+
+**Roles & Milestones**
+- Front‑end
+  - Wire SITE_CONFIG; add embed to top proposals (1 day).
+  - Add `data-section-id` attributes and insert “Next Steps” block on key pages (1–2 days).
+  - QA desktop+mobile, validate events flow (0.5 day).
+- Backend/Worker
+  - Stand up Worker stubs for /collect, /message (1 day).
+  - Add MailChannels email relay for messages (0.5 day).
+  - Add D1 schema + writes (1 day).
+  - Switch forms from Formspree to Worker (feature flag) (0.5 day).
+- Risks/Mitigations
+  - Privacy: minimize fields, no images; mailto for sensitive docs.
+  - Spam: add hCaptcha/Turnstile; basic rate‑limit in Worker.
+  - Third‑party outage: dual‑log to CF Worker when analytics provider unavailable.
+  - CORS: preflight allow `https://somotravel.us` origin on Worker.
+
+**Architecture Comparison (quick)**
+- Analytics
+  - Plausible: +simple +privacy +nice UI; −paid; −no row‑level export without API.
+  - CF Web Analytics: +free +native to CF; −UI less rich; +pairs with Workers.
+- Forms
+  - Formspree: +fast setup +spam filter; −external dependency.
+  - Basin: +dashboard; −paid tiers.
+  - Worker: +full control; −you build spam control.
+- Chat
+  - Crisp: +best UX; −paid for advanced.
+  - Tawk.to: +free; −branding.
+- Scheduling
+  - Calendly: +ubiquitous; −brand dependency.
+  - Cal.com: +OSS/self‑host option later.
+
+**Configuration Tips**
+- Keep `CNAME` as-is. All embeds use HTTPS.
+- Add a minimal CSP: script-src 'self' plausible.io client.crisp.chat static.cloudflareinsights.com assets.calendly.com; connect-src 'self' plausible.io *.workers.dev; frame-src calendly.com *.calendly.com meet.jit.si;
+- Validate HTML and run Lighthouse for a quick a11y pass; ensure tap targets ≥44px.
+
+**Suggested Next Steps**
+- Confirm preferred providers: Plausible or Cloudflare Web Analytics; Formspree or Basin; Crisp or Tawk; Calendly link.
+- I can draft a reusable `embed/engage.js` with these features and a small README. 
+- Want me to proceed by preparing the embed file and a sample PR diff showing how to add it to two representative pages?
+[2025-09-02T14:25:40] tokens used: 7732

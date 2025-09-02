@@ -22,6 +22,10 @@
       delegate(document, 'click', '.vf-ask[data-action="ask"]', onAskClick);
     }
     ensureAskModal();
+    // Prefill schedule links with stored identity
+    try{ updateScheduleLinks(); }catch(_){ }
+    // Diagnostics in local/dev or ?debug=1
+    try{ insertDiagnosticsIfDev(); }catch(_){ }
     // Section analytics
     observeSections();
     // Scroll depth
@@ -116,8 +120,9 @@
 
   /* ---------------- Ask Flow ---------------- */
   function onAskClick(e){
-    e.preventDefault();
-    const btn = e.currentTarget;
+    try{ e.preventDefault(); }catch(_){ }
+    const btn = this || e.currentTarget;
+    if(!btn || !btn.closest){ return; }
     const sec = btn.closest('.vf-section');
     const sectionId = (sec?.getAttribute('data-section-id')) || (sec?.id) || '';
     const title = (sec?.getAttribute('data-section-title')) || (sec?.querySelector('h2,h3')?.textContent || '').trim();
@@ -132,7 +137,11 @@
       sectionId, title,
       pageUrl: page + anchor
     };
-    openAskModal(payload);
+    // Ensure modal exists; if not, create then open; fallback to prompt
+    try{ ensureAskModal(); }catch(_){ }
+    if(!openAskModal(payload)){
+      askViaPrompt(payload);
+    }
   }
 
   function fallbackMailto(payload){
@@ -156,11 +165,12 @@
     // Actions
     delegate(modal, 'click', '[data-action="send_feedback"]', ()=>{
       const note = modal.querySelector('textarea')?.value || '';
-      const payload = { type:'exit_feedback', choice: STATE.selectedChip, note, pageUrl: location.href, tripFilename: tripFilename() };
+      const subject = `[Exit feedback] ${tripFilename()}`;
+      const payload = { type:'exit_feedback', choice: STATE.selectedChip, note, pageUrl: location.href, tripFilename: tripFilename(), ttcMs: Math.max(0, Date.now() - (STATE.startTs||Date.now())), hp:'', _subject: subject };
       sendEvent('click', { action:'send_feedback', label:STATE.selectedChip||'none' });
       if(CFG.forms.feedbackEndpoint){ sendToForms('feedback', payload).catch(()=>{}); }
       hideExit(modal);
-      alert('Thanks for the feedback!');
+      showToast('Thanks for the feedback!');
     });
     delegate(modal, 'click', '[data-action="dismiss"]', ()=>{ hideExit(modal); });
 
@@ -189,6 +199,14 @@
   function postJson(url, data){ return fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) }).then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.json().catch(()=>({ok:true})); }); }
   function postFormData(url, data){ const fd=new FormData(); Object.entries(data||{}).forEach(([k,v])=> fd.append(k, typeof v==='object'? JSON.stringify(v): String(v??''))); return fetch(url, { method:'POST', body: fd, headers:{'Accept':'application/json'} }).then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); }); }
   function sendToForms(kind, payload){ const url = kind==='feedback' ? CFG.forms.feedbackEndpoint : CFG.forms.questionEndpoint; const provider = (CFG.forms.provider||'auto').toLowerCase(); if(provider==='formspree'){ return postFormData(url, payload); } return postJson(url, payload); }
+
+  function showToast(msg){
+    let t = document.querySelector('.vf-toast');
+    if(!t){ t=document.createElement('div'); t.className='vf-toast'; document.body.appendChild(t); }
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(()=> t.classList.remove('show'), 2200);
+  }
 
   /* ---------------- Ask Modal ---------------- */
   function ensureAskModal(){
@@ -221,21 +239,95 @@
 
     delegate(wrap, 'click', '[data-action="ask_cancel"]', ()=> hideAskModal());
     delegate(wrap, 'click', '[data-action="ask_send"]', ()=> submitAskModal());
+    // Live persistence while typing
+    delegate(wrap, 'input', '[data-ask-name]', (ev)=>{ try{ localStorage.setItem('vf_name', ev.target.value||''); }catch(_){} updateScheduleLinks(); });
+    delegate(wrap, 'input', '[data-ask-email]', (ev)=>{ try{ localStorage.setItem('vf_email', ev.target.value||''); }catch(_){} updateScheduleLinks(); });
   }
 
   function openAskModal(ctx){
     STATE.askCtx = ctx;
     const modal = document.querySelector('[data-ask-modal]');
-    if(!modal) return;
+    if(!modal) return false;
     const p = modal.querySelector('[data-vf-ask-context]');
     const title = ctx?.title || 'this section';
     p.textContent = `About: ${title}`;
     modal.hidden = false; modal.style.display='flex';
     const msg = modal.querySelector('[data-ask-message]');
     if(msg){ msg.value = ''; msg.focus(); }
+    const sendBtn = modal.querySelector('[data-action="ask_send"]');
+    if(sendBtn){ sendBtn.disabled = true; setTimeout(()=>{ sendBtn.disabled = false; }, 1500); }
+    // Prefill name/email from localStorage
+    try{
+      const name = localStorage.getItem('vf_name') || '';
+      const email = localStorage.getItem('vf_email') || '';
+      const nameEl = modal.querySelector('[data-ask-name]');
+      const emailEl = modal.querySelector('[data-ask-email]');
+      if(nameEl && !nameEl.value) nameEl.value = name;
+      if(emailEl && !emailEl.value) emailEl.value = email;
+    }catch(_){ }
+    return true;
   }
   function hideAskModal(){ const modal=document.querySelector('[data-ask-modal]'); if(!modal) return; modal.hidden=true; modal.style.display='none'; }
   function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v||''); }
+  function updateScheduleLinks(){
+    try{
+      const name = (localStorage.getItem('vf_name')||'').trim();
+      const email = (localStorage.getItem('vf_email')||'').trim();
+      const notes = `Trip:${tripFilename()}`;
+      const links = document.querySelectorAll('a[data-action="schedule_open"]');
+      links.forEach(a=>{
+        try{
+          const base = a.getAttribute('href') || CFG.agent.scheduleUrl || '#';
+          const u = new URL(base, location.origin);
+          if(name) u.searchParams.set('name', name);
+          if(email && validEmail(email)) u.searchParams.set('email', email);
+          u.searchParams.set('notes', notes);
+          a.setAttribute('href', u.toString());
+        }catch(_){ }
+      });
+    }catch(_){ }
+  }
+
+  /* ---------------- Diagnostics (Dev) ---------------- */
+  function isDev(){
+    const h = location.hostname || '';
+    const qp = new URLSearchParams(location.search||'');
+    return h==='localhost' || h.startsWith('127.') || qp.get('debug')==='1';
+  }
+  function insertDiagnosticsIfDev(){
+    if(!isDev()) return;
+    if(document.querySelector('.vf-diagnostics-btn')) return;
+    if(!CFG.forms.questionEndpoint && !CFG.forms.feedbackEndpoint) return;
+    const btn = document.createElement('button');
+    btn.className='vf-diagnostics-btn';
+    btn.type='button';
+    btn.textContent='Diagnostics';
+    btn.title='Send test submissions to Formspree';
+    btn.addEventListener('click', runDiagnostics);
+    document.body.appendChild(btn);
+  }
+  async function runDiagnostics(){
+    const name = (localStorage.getItem('vf_name')||'Dev Tester').trim();
+    const email = (localStorage.getItem('vf_email')||'devtester@example.com').trim();
+    const base = { tripFilename: tripFilename(), sectionId: 'diagnostics', title: 'Diagnostics', pageUrl: location.href };
+    const results = [];
+    try{
+      if(CFG.forms.questionEndpoint){
+        const p = { ...base, type:'question', name, email, message:'Diagnostics: question test' };
+        await sendToForms('question', p);
+        results.push('Question: OK');
+      }
+      if(CFG.forms.feedbackEndpoint){
+        const p2 = { ...base, type:'exit_feedback', choice:'looking', note:'Diagnostics: feedback test' };
+        await sendToForms('feedback', p2);
+        results.push('Feedback: OK');
+      }
+      alert(results.join('\n') || 'No endpoints configured');
+    }catch(err){
+      console.error('[vf] diagnostics error', err);
+      alert('Diagnostics failed: '+(err && err.message || err));
+    }
+  }
   function submitAskModal(){
     const modal=document.querySelector('[data-ask-modal]');
     if(!modal) return;
@@ -244,14 +336,34 @@
     const message = modal.querySelector('[data-ask-message]')?.value?.trim() || '';
     if(!message || message.length < 3){ alert('Please enter a brief question.'); return; }
     if(email && !validEmail(email)){ alert('Please enter a valid email or leave it blank.'); return; }
-    const payload = { ...(STATE.askCtx||{}), name, email, message };
+    // Persist identity for future sessions
+    try{ if(name) localStorage.setItem('vf_name', name); if(email) localStorage.setItem('vf_email', email); }catch(_){ }
+    updateScheduleLinks();
+    const title = (STATE.askCtx && STATE.askCtx.title) || 'this section';
+    const subject = `[Question] ${tripFilename()} — ${title}`;
+    const ttcMs = Math.max(0, Date.now() - (STATE.startTs||Date.now()));
+    const payload = { ...(STATE.askCtx||{}), name, email, message, ttcMs, hp:'', _subject: subject };
     if(CFG.forms.questionEndpoint){
       sendToForms('question', payload)
-        .then(()=> { hideAskModal(); alert('Question sent. We will reply soon.'); })
+        .then(()=> { hideAskModal(); showToast('Sent! We will reply soon.'); })
         .catch(()=> { hideAskModal(); fallbackMailto(payload); });
     } else {
       hideAskModal();
       fallbackMailto(payload);
+    }
+  }
+
+  function askViaPrompt(payload){
+    let msg = '';
+    try{ msg = prompt('What would you like to ask about this section?') || ''; }catch(_){}
+    if(!msg) return; // user canceled
+    const quick = { ...payload, message: String(msg).slice(0,1000) };
+    if(CFG.forms.questionEndpoint){
+      sendToForms('question', { ...quick, _subject: `[Question] ${tripFilename()} — ${quick.title||'this section'}` })
+        .then(()=> showToast('Sent! We will reply soon.'))
+        .catch(()=> fallbackMailto(quick));
+    } else {
+      fallbackMailto(quick);
     }
   }
 })();
