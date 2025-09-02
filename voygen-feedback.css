@@ -1,0 +1,45 @@
+/* Minimal styles for feedback UI. Keep portable and conflict-free. */
+:root{
+  --vf-primary:#0d6efd; --vf-primary-600:#0b5ed7; --vf-text:#0b1220; --vf-muted:#6b7280;
+  --vf-bg:#ffffff; --vf-border:#e5e7eb; --vf-shadow:0 10px 24px rgba(0,0,0,.12);
+}
+
+/* Sticky contact bar */
+.vf-contact-bar{position:sticky; bottom:0; left:0; right:0; z-index:999; display:flex; gap:8px; align-items:center; justify-content:space-between; padding:10px 12px; background:#fff; border-top:1px solid var(--vf-border); box-shadow:0 -6px 18px rgba(0,0,0,.06)}
+.vf-contact-bar a{display:inline-flex; align-items:center; justify-content:center; padding:10px 12px; border-radius:10px; background:#eef0f6; color:#111; text-decoration:none; font-weight:700}
+.vf-contact-bar .vf-primary{background:var(--vf-primary); color:#fff}
+.vf-contact-bar .vf-primary:hover{background:var(--vf-primary-600)}
+
+/* Ask button in headers */
+.vf-ask{appearance:none; border:1px solid var(--vf-border); background:#f8fafc; color:#111; padding:6px 10px; border-radius:8px; font-weight:600; cursor:pointer}
+.vf-ask:hover{background:#eef2ff}
+
+/* Next steps checklist */
+.vf-next-steps{border:1px solid var(--vf-border); border-radius:14px; padding:14px; background:#fff; box-shadow:var(--vf-shadow); margin:16px 0}
+.vf-checklist{list-style:none; padding:0; margin:8px 0}
+.vf-checklist li{margin:8px 0}
+.vf-note{color:var(--vf-muted); font-size:.95rem}
+
+/* Exit modal */
+.vf-backdrop{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.55); z-index:1000}
+.vf-modal{width:min(760px,94%); background:#fff; color:var(--vf-text); border:1px solid var(--vf-border); border-radius:14px; box-shadow:0 18px 46px rgba(0,0,0,.25); padding:16px}
+.vf-modal h3{margin:0 0 10px 0}
+.vf-chips{display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 10px 0}
+.vf-chips button{appearance:none; border:1px solid var(--vf-border); background:#f8fafc; color:#111; padding:8px 12px; border-radius:999px; cursor:pointer; font-weight:600}
+.vf-chips button.is-selected{background:#eef2ff; border-color:#c7d2fe; color:#111}
+.vf-input{width:100%; min-height:80px; border:1px solid var(--vf-border); border-radius:10px; padding:10px; font:inherit}
+.vf-actions{display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end; margin-top:12px}
+.vf-primary{appearance:none; border:none; background:var(--vf-primary); color:#fff; padding:10px 14px; border-radius:10px; font-weight:800; text-decoration:none; cursor:pointer}
+.vf-secondary{appearance:none; border:1px solid var(--vf-border); background:#fff; color:#111; padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer}
+.vf-tertiary{appearance:none; border:none; background:transparent; color:#111; padding:10px 12px; border-radius:8px; cursor:pointer}
+
+/* Section wrapper (for optional card look) */
+.vf-section{scroll-margin-top:90px}
+
+/* Form labels (ask modal) */
+.vf-label{display:block; font-weight:700; color:#1f2937; margin:10px 0 6px}
+.vf-form .vf-input{margin-bottom:8px}
+
+@media (max-width:640px){
+  .vf-contact-bar{flex-wrap:wrap; gap:6px}
+}

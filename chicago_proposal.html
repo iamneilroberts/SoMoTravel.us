@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="trip:filename" content="chicago_proposal.html">
     <title>Chicago Travel Proposal - Kashara & Akiel</title>
     <style>
         * {
@@ -225,14 +226,94 @@
             }
         }
     </style>
+    <!-- Feedback/analytics wiring -->
+    <script>
+      window.SITE_CONFIG = {
+        agent: {
+          phone: "+1-251-289-1505",
+          email: "kim.henderson@cruiseplanners.com",
+          messengerUrl: "https://m.me/khenderson36695",
+          scheduleUrl: "https://cal.com/neil-roberts-sppjyv/15min"
+        },
+        cpmaxx: { authLink: "https://cpmaxx.example/authorize?ref=chicago_proposal.html" },
+        forms: {
+          provider: "formspree",
+          questionEndpoint: "https://formspree.io/f/xrbaadbo",
+          feedbackEndpoint: "https://formspree.io/f/myzddvjr"
+        },
+        analytics: { provider: "plausible", domain: "somotravel.us" },
+        chat: { enabled: false, provider: "crisp", websiteId: "" },
+        features: { exitIntent: true, askButtons: true, contactBar: true, nextSteps: true }
+      };
+    </script>
+    <link rel="stylesheet" href="/voygen-feedback.css">
+    <script defer data-domain="somotravel.us" src="https://plausible.io/js/script.js"></script>
+    <!-- Lightweight enhancement: mark sections and add ask buttons for this page -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        const slug = (s)=> (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'').slice(0,80);
+        // Card-level sections (by h2)
+        document.querySelectorAll('.card').forEach(card=>{
+          const h2 = card.querySelector('h2');
+          if(!h2) return;
+          const title = h2.textContent.trim();
+          const id = slug(title);
+          card.classList.add('vf-section');
+          if(id && !card.id) card.id = id;
+          card.setAttribute('data-section-id', id||'');
+          card.setAttribute('data-section-title', title);
+          if(!h2.nextElementSibling || !h2.nextElementSibling.classList || !h2.nextElementSibling.classList.contains('vf-ask')){
+            const btn = document.createElement('button');
+            btn.className = 'vf-ask';
+            btn.setAttribute('data-action','ask');
+            btn.setAttribute('aria-label', 'Ask a question about '+title);
+            btn.textContent = 'Ask about this';
+            h2.insertAdjacentElement('afterend', btn);
+          }
+        });
+        // Daily itinerary sub-sections
+        document.querySelectorAll('.itinerary-day').forEach(day=>{
+          const h3 = day.querySelector('.day-header h3');
+          if(!h3) return;
+          const title = h3.textContent.trim();
+          const id = slug(title);
+          day.classList.add('vf-section');
+          if(id && !day.id) day.id = id;
+          day.setAttribute('data-section-id', id||'');
+          day.setAttribute('data-section-title', title);
+          if(!day.querySelector('.day-header .vf-ask')){
+            const btn = document.createElement('button');
+            btn.className = 'vf-ask';
+            btn.setAttribute('data-action','ask');
+            btn.setAttribute('aria-label', 'Ask a question about '+title);
+            btn.textContent = 'Ask about this';
+            day.querySelector('.day-header').appendChild(btn);
+          }
+        });
+      });
+    </script>
+    <script defer src="/voygen-feedback.js"></script>
 </head>
-<body>
+<body data-trip-filename="chicago_proposal.html" data-trip-title="Chicago Travel Proposal - Kashara &amp; Akiel">
     <div class="container">
         <div class="header">
             <h1>Kashara & Akiel's Chi-town Weekend</h1>
             <p class="subtitle">Your Ultimate Chicago Adventure Awaits</p>
             <div class="dates">August 14-18, 2025</div>
         </div>
+        
+        <!-- Next Steps checklist (lightweight) -->
+        <aside class="vf-next-steps" aria-labelledby="next-steps-title">
+          <h3 id="next-steps-title">Next Steps to Secure Your Trip</h3>
+          <ul class="vf-checklist">
+            <li><label><input type="checkbox"> Pay deposit <a href="https://cpmaxx.example/authorize?ref=chicago_proposal.html">CPMaxx authorization</a></label></li>
+            <li><label><input type="checkbox"> Confirm traveler names (<a href="mailto:agent@somotravel.us?subject=Traveler%20names%20for%20chicago_proposal.html">email</a>)</label></li>
+            <li><label><input type="checkbox"> Check passport validity through return date</label></li>
+            <li><label><input type="checkbox"> Choose insurance option</label></li>
+            <li><label><input type="checkbox"> Seating and preferences</label></li>
+          </ul>
+          <p class="vf-note">Prices and availability can change; a deposit locks things in.</p>
+        </aside>
         
         <div class="card package-summary">
             <h2>📦 Package Summary</h2>
@@ -532,6 +613,36 @@
                 <p>Ventra (CTA transit), Metra App, Citymapper, Divvy Bikes, Uber/Lyft, OpenTable for restaurant reservations.</p>
             </div>
         </div>
+        
+        <!-- Sticky contact/action bar -->
+        <nav class="vf-contact-bar" data-sticky role="navigation" aria-label="Contact and actions">
+          <a class="vf-contact" href="tel:+12512891505" data-action="contact_phone">Call</a>
+          <a class="vf-contact" href="mailto:kim.henderson@cruiseplanners.com" data-action="contact_email">Email</a>
+          <a class="vf-contact" href="https://m.me/khenderson36695" target="_blank" rel="noopener" data-action="contact_messenger">Messenger</a>
+          <a class="vf-contact" href="https://cal.com/neil-roberts-sppjyv/15min" target="_blank" rel="noopener" data-action="schedule_open">Schedule</a>
+          <a class="vf-primary" href="https://cpmaxx.example/authorize?ref=chicago_proposal.html" data-action="book_now">Book Now</a>
+        </nav>
+    </div>
+
+    <!-- Exit-intent modal -->
+    <div class="vf-backdrop" data-exit-modal hidden>
+      <div class="vf-modal" role="dialog" aria-modal="true" aria-labelledby="vf-exit-title">
+        <h3 id="vf-exit-title">Before you go — quick feedback?</h3>
+        <div class="vf-chips">
+          <button data-value="ready">Ready to book</button>
+          <button data-value="looking">Just looking</button>
+          <button data-value="info">Need more info on this</button>
+          <button data-value="change">Want to tweak the plan</button>
+          <button data-value="consult">Need to check with others</button>
+          <button data-value="other">Other</button>
+        </div>
+        <textarea class="vf-input" placeholder="Optional note…"></textarea>
+        <div class="vf-actions">
+          <a class="vf-primary" href="https://cpmaxx.example/authorize?ref=chicago_proposal.html" data-action="book_now">Book now to lock in your plans</a>
+          <button class="vf-secondary" data-action="send_feedback">Send feedback</button>
+          <button class="vf-tertiary" data-action="dismiss">Close</button>
+        </div>
+      </div>
     </div>
 </body>
 </html>
