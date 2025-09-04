@@ -2,21 +2,6 @@
   "version": 1,
   "trips": [
     {
-      "title": "TEST: Scotland & Ireland Journey 2026",
-      "dates": "April 29 - May 10, 2026",
-      "filename": "TEST-scotland-ireland-2026-proposal.html",
-      "category": "proposal",
-      "tags": [
-        "TEST",
-        "Scotland",
-        "Ireland",
-        "Multi-Country"
-      ],
-      "description": "TEST DOCUMENT - Scotland and Ireland journey for three travelers",
-      "status": "planning",
-      "lastModified": "2025-09-04"
-    },
-    {
       "filename": "April-2026-Scotland-Ireland.html",
       "title": "Donna, Gloria & Rosemary Scotland & Ireland April 2026",
       "dates": "April 6-17, 2026 (11 nights)",
@@ -322,19 +307,6 @@
         "dang old tag"
       ],
       "lastModified": "2025-08-31"
-    },
-    {
-      "filename": "TEST-scotland-ireland-2026-proposal.html",
-      "title": "TEST: Scotland & Ireland Journey 2026",
-      "dates": "April 29 - May 10, 2026",
-      "category": "proposal",
-      "tags": [
-        "TEST",
-        "Scotland",
-        "Ireland",
-        "Multi-Country"
-      ],
-      "lastModified": "2025-09-04"
     }
   ]
 }
