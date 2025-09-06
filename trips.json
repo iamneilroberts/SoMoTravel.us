@@ -2,6 +2,23 @@
   "version": 1,
   "trips": [
     {
+      "title": "Literary England Tour - Jane Austen Experience",
+      "dates": "October 15-20, 2025",
+      "filename": "literary-england-jane-austen-tour-elizabeth-bennet",
+      "category": "proposal",
+      "tags": [
+        "literature",
+        "jane-austen",
+        "england",
+        "museums",
+        "historical",
+        "luxury"
+      ],
+      "description": "5-day literary tour focusing on Jane Austen's life and locations, featuring Bath, Winchester, and Chawton with special emphasis on the Jane Austen House Museum",
+      "status": "planning",
+      "lastModified": "2025-09-06"
+    },
+    {
       "filename": "April-2026-Scotland-Ireland.html",
       "title": "Donna, Gloria & Rosemary Scotland & Ireland April 2026",
       "dates": "April 6-17, 2026 (11 nights)",
