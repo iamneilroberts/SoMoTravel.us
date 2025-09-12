@@ -1,0 +1,294 @@
+{
+  "version": 1,
+  "trips": [
+    {
+      "filename": "April-2026-Scotland-Ireland.html",
+      "title": "Donna, Gloria & Rosemary Scotland & Ireland April 2026",
+      "dates": "April 6-17, 2026 (11 nights)",
+      "category": "proposal",
+      "tags": [
+        "Scotland",
+        "Ireland"
+      ],
+      "lastModified": "2025-08-31"
+    },
+    {
+      "title": "Chisholm Travel Confirmation Details",
+      "dates": "September 18-28, 2025",
+      "status": "Travel Proposal",
+      "category": "proposal",
+      "filename": "chisolm-trip-details.html",
+      "tags": [
+        "Updated"
+      ],
+      "lastModified": "2025-08-29",
+      "description": "Rename from Chisolm Ireland and England"
+    },
+    {
+      "title": "Breckenridge Ski Trip",
+      "dates": "December 18-23, 2025",
+      "status": "Confirmed",
+      "category": "confirmed",
+      "filename": "Breckenridge_2025.html",
+      "tags": [],
+      "lastModified": "2025-08-15",
+      "description": ""
+    },
+    {
+      "title": "Sara and Darren England",
+      "dates": "October 2025",
+      "status": "Confirmed",
+      "category": "confirmed",
+      "filename": "JonesEngland.html",
+      "tags": [],
+      "lastModified": "2025-08-20",
+      "description": ""
+    },
+    {
+      "title": "Sara and Darren England Castle Hotel Potions",
+      "dates": "October 2025",
+      "status": "Planning",
+      "category": "past",
+      "filename": "castle_hotel_options.html",
+      "tags": [],
+      "lastModified": "2025-08-25",
+      "description": ""
+    },
+    {
+      "title": "Shoemakers children get some shoes trip Neil and Kim",
+      "dates": "August 2025",
+      "status": "Confirmed",
+      "category": "past",
+      "filename": "toronto-trip-proposal.html",
+      "tags": [
+        "NEW"
+      ],
+      "lastModified": "2025-08-20",
+      "description": "Drive by Niagra Falls and wave, then go have some fun in a civilized country"
+    },
+    {
+      "title": "Miller Ireland Adventure",
+      "dates": "July 2025",
+      "status": "Planning",
+      "category": "past",
+      "filename": "miller_ireland_mobile_proposal.html",
+      "tags": [],
+      "lastModified": "2025-07-15",
+      "description": ""
+    },
+    {
+      "title": "Davidson Alaska Cruise",
+      "dates": "May 6-16, 2025",
+      "status": "Complete",
+      "category": "past",
+      "filename": "DavidsonSilverMoonCruise_mobileGuide.html",
+      "tags": [],
+      "lastModified": "2025-05-16",
+      "description": ""
+    },
+    {
+      "title": "Daniels Family Niagara Falls Vacation",
+      "dates": "July 13-15, 2025",
+      "status": "Complete",
+      "category": "past",
+      "filename": "daniels-niagara-falls-proposal.html",
+      "tags": [
+        "NEW"
+      ],
+      "lastModified": "2025-07-15",
+      "description": ""
+    },
+    {
+      "filename": "daniels-dining-guide.html",
+      "title": "Daniels Family Niagara Falls Vacation Dining Recommendations",
+      "dates": "July 13-15, 2025",
+      "category": "no_sale",
+      "tags": [
+        "NEW"
+      ],
+      "lastModified": "2025-08-31"
+    },
+    {
+      "title": "Scotland with Mam 2025",
+      "dates": "April 20-29, 2025",
+      "status": "Complete",
+      "category": "past",
+      "filename": "scotland-trip-itinerary.html",
+      "tags": [],
+      "lastModified": "2025-04-29",
+      "description": ""
+    },
+    {
+      "title": "Skye Details",
+      "dates": "April 25-27, 2025",
+      "status": "Complete",
+      "category": "past",
+      "filename": "skye-trip-details.html",
+      "tags": [],
+      "lastModified": "2025-04-27",
+      "description": ""
+    },
+    {
+      "title": "O'Brien Sandals",
+      "dates": "May 25-29, 2025",
+      "status": "Complete",
+      "category": "past",
+      "filename": "OBrien_Sandals_mobile-guide.html",
+      "tags": [],
+      "lastModified": "2025-05-29",
+      "description": ""
+    },
+    {
+      "title": "Welford European Adventure London Paris Rome",
+      "dates": "May 23 - June 1, 2025",
+      "status": "Complete",
+      "category": "past",
+      "filename": "welford-european-adventure-2025.html",
+      "tags": [],
+      "lastModified": "2025-06-01",
+      "description": ""
+    },
+    {
+      "title": "Welford London Guide",
+      "dates": "May 23-27, 2025",
+      "status": "Complete",
+      "category": "past",
+      "filename": "welford-london-guide.html",
+      "tags": [],
+      "lastModified": "2025-05-27",
+      "description": ""
+    },
+    {
+      "title": "Kashara & Akiel Chi-town",
+      "dates": "August 14-18, 2025",
+      "status": "Planning",
+      "category": "past",
+      "filename": "chicago_proposal.html",
+      "tags": [],
+      "lastModified": "2025-08-18",
+      "description": ""
+    },
+    {
+      "title": "Kim's Cruise 2025",
+      "dates": "TBD 2025",
+      "status": "Complete",
+      "category": "past",
+      "filename": "KimCruise2025.html",
+      "tags": [],
+      "lastModified": "2025-06-15",
+      "description": ""
+    },
+    {
+      "title": "Colvin San Francisco",
+      "dates": "Aug 9 - 13 2025",
+      "status": "Confirmed",
+      "category": "past",
+      "filename": "ColvinSF2025.html",
+      "tags": [],
+      "lastModified": "2025-08-13",
+      "description": ""
+    },
+    {
+      "title": "Jason and Jenn Punta Cana",
+      "dates": "July 2-6, 2025",
+      "status": "Complete",
+      "category": "past",
+      "filename": "punta_cana_proposal.html",
+      "tags": [],
+      "lastModified": "2025-07-06",
+      "description": ""
+    },
+    {
+      "title": "Janson and Janson Graham",
+      "dates": "July 12-19, 2025",
+      "status": "Complete",
+      "category": "past",
+      "filename": "graham-detailed-itinerary.html",
+      "tags": [],
+      "lastModified": "2025-07-19",
+      "description": ""
+    },
+    {
+      "title": "Sara and Darren - Bath",
+      "dates": "October 5-15, 2025",
+      "status": "Confirmed",
+      "category": "past",
+      "filename": "bath_details.html",
+      "tags": [],
+      "lastModified": "2025-08-10",
+      "description": ""
+    },
+    {
+      "title": "Sara and Darren - Full trip",
+      "dates": "October 5-15, 2025",
+      "status": "Confirmed",
+      "category": "past",
+      "filename": "full-trip-mobile.html",
+      "tags": [],
+      "lastModified": "2025-08-10",
+      "description": ""
+    },
+    {
+      "filename": "mobile.html",
+      "title": "Sara and Darren mobile guide",
+      "dates": "October 5-15, 2025",
+      "category": "no_sale",
+      "tags": [],
+      "lastModified": "2025-08-31"
+    },
+    {
+      "title": "Ireland Loop",
+      "dates": "Reference Material",
+      "status": "Reference",
+      "category": "past",
+      "filename": "ireland-loop-html.html",
+      "tags": [],
+      "lastModified": "2025-06-01",
+      "description": ""
+    },
+    {
+      "filename": "Testfile.html",
+      "title": "dang ol test",
+      "dates": "1/1/2026",
+      "category": "no_sale",
+      "tags": [
+        "test tag",
+        "dang old tag"
+      ],
+      "lastModified": "2025-08-31"
+    },
+    {
+      "filename": "Chastain_2026-styled.html",
+      "title": "Chastain 2026 (styled)",
+      "dates": "May 5-15, 2026",
+      "category": "proposal",
+      "tags": [
+        "new",
+        "six people"
+      ],
+      "lastModified": "2025-08-31"
+    },
+    {
+      "filename": "Chastain2026.html",
+      "title": "Chastain Package - May 5-15, 2026",
+      "dates": "May 5-15, 2026",
+      "category": "proposal",
+      "tags": [
+        "Paris",
+        "London"
+      ],
+      "lastModified": "2025-08-31"
+    },
+    {
+      "filename": "scotland_ireland_updated_itinerary.html",
+      "title": "Donna, Gloria & Rosemany Scotland & Ireland Journey - April/May 2026",
+      "dates": "April 29 - May 10, 2026",
+      "category": "proposal",
+      "tags": [
+        "Scotland",
+        "Ireland"
+      ],
+      "lastModified": "2025-08-31"
+    }
+  ]
+}

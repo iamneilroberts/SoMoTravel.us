@@ -2,6 +2,40 @@
   "version": 1,
   "trips": [
     {
+      "title": "Literary England Tour - Jane Austen Experience",
+      "dates": "October 15-20, 2025",
+      "filename": "literary-england-jane-austen-tour-elizabeth-bennet",
+      "category": "proposal",
+      "tags": [
+        "literature",
+        "jane-austen",
+        "england",
+        "museums",
+        "historical",
+        "luxury"
+      ],
+      "description": "5-day literary tour focusing on Jane Austen's life and locations, featuring Bath, Winchester, and Chawton with special emphasis on the Jane Austen House Museum",
+      "status": "planning",
+      "lastModified": "2025-09-06"
+    },
+    {
+      "title": "Sara & Darren Jones 25th Anniversary - Bristol & Bath",
+      "dates": "October 5-15, 2025",
+      "filename": "sara-darren-jones-25th-anniversary-bristol-bath",
+      "category": "proposal",
+      "tags": [
+        "anniversary",
+        "luxury",
+        "bristol",
+        "bath",
+        "romantic",
+        "historic"
+      ],
+      "description": "Luxury 25th wedding anniversary celebration in Bristol and Bath, featuring 5-star hotels, romantic experiences, historic sites, and couple's spa treatments",
+      "status": "planning",
+      "lastModified": "2025-09-06"
+    },
+    {
       "filename": "April-2026-Scotland-Ireland.html",
       "title": "Donna, Gloria & Rosemary Scotland & Ireland April 2026",
       "dates": "April 6-17, 2026 (11 nights)",
@@ -35,6 +69,17 @@
       "lastModified": "2025-08-31"
     },
     {
+      "filename": "scotland_ireland_updated_itinerary.html",
+      "title": "Donna, Gloria & Rosemany Scotland & Ireland Journey - April/May 2026",
+      "dates": "April 29 - May 10, 2026",
+      "category": "proposal",
+      "tags": [
+        "Scotland",
+        "Ireland"
+      ],
+      "lastModified": "2025-08-31"
+    },
+    {
       "title": "Chisholm Travel Confirmation Details",
       "dates": "September 18-28, 2025",
       "status": "Travel Proposal",
@@ -47,9 +92,9 @@
       "description": "Rename from Chisolm Ireland and England"
     },
     {
-      "filename": "sara-darren-jones-anniversary-itinerary.html",
       "title": "Sara & Darren Jones: 25th Anniversary Celebration",
       "dates": "October 5-15, 2025",
+      "filename": "sara-darren-jones-anniversary-itinerary.html",
       "category": "confirmed",
       "tags": [
         "anniversary",
@@ -60,7 +105,19 @@
         "Jane Austen",
         "Stonehenge"
       ],
-      "lastModified": "2025-09-12"
+      "description": "Anniversary trip through Bath, Winchester, and Bristol with Jane Austen tour, Stonehenge, and London day trip",
+      "status": "confirmed",
+      "lastModified": "2025-09-04"
+    },
+    {
+      "title": "Sara and Darren England",
+      "dates": "October 2025",
+      "status": "Confirmed",
+      "category": "confirmed",
+      "filename": "JonesEngland.html",
+      "tags": [],
+      "lastModified": "2025-08-20",
+      "description": ""
     },
     {
       "title": "Breckenridge Ski Trip",
@@ -70,6 +127,16 @@
       "filename": "Breckenridge_2025.html",
       "tags": [],
       "lastModified": "2025-08-15",
+      "description": ""
+    },
+    {
+      "title": "Sara and Darren England Castle Hotel Potions",
+      "dates": "October 2025",
+      "status": "Planning",
+      "category": "past",
+      "filename": "castle_hotel_options.html",
+      "tags": [],
+      "lastModified": "2025-08-25",
       "description": ""
     },
     {
@@ -102,6 +169,26 @@
       "filename": "ColvinSF2025.html",
       "tags": [],
       "lastModified": "2025-08-13",
+      "description": ""
+    },
+    {
+      "title": "Sara and Darren - Bath",
+      "dates": "October 5-15, 2025",
+      "status": "Confirmed",
+      "category": "past",
+      "filename": "bath_details.html",
+      "tags": [],
+      "lastModified": "2025-08-10",
+      "description": ""
+    },
+    {
+      "title": "Sara and Darren - Full trip",
+      "dates": "October 5-15, 2025",
+      "status": "Confirmed",
+      "category": "past",
+      "filename": "full-trip-mobile.html",
+      "tags": [],
+      "lastModified": "2025-08-10",
       "description": ""
     },
     {
@@ -233,6 +320,25 @@
       "category": "no_sale",
       "tags": [
         "NEW"
+      ],
+      "lastModified": "2025-08-31"
+    },
+    {
+      "filename": "mobile.html",
+      "title": "Sara and Darren mobile guide",
+      "dates": "October 5-15, 2025",
+      "category": "no_sale",
+      "tags": [],
+      "lastModified": "2025-08-31"
+    },
+    {
+      "filename": "Testfile.html",
+      "title": "dang ol test",
+      "dates": "1/1/2026",
+      "category": "no_sale",
+      "tags": [
+        "test tag",
+        "dang old tag"
       ],
       "lastModified": "2025-08-31"
     }

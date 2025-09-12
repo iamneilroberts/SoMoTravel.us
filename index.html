@@ -206,7 +206,45 @@ async function loadTripsPublic(){
 /***** GITHUB HELPERS (ADMIN) *****/
 function ghHeaders(){ const token=getGitHubToken(); if(!token) throw new Error('Missing token'); return { 'Authorization': asciiHeaderValue('Bearer '+token), 'Accept':'application/vnd.github.v3+json', 'Content-Type':'application/json' }; }
 async function uploadToGitHub(filename, content){ const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`; const headers=ghHeaders(); let sha=null; try{ const chk=await fetch(url+`?ref=${GITHUB_CONFIG.branch}`,{headers}); if(chk.ok){ const j=await chk.json(); sha=j.sha||null; } }catch(_){} const resp=await fetch(url,{ method:'PUT', headers, body: JSON.stringify({ message:(sha?`Update travel document: ${filename}`:`Add travel document: ${filename}`), content: encodeBase64(content), branch:GITHUB_CONFIG.branch, ...(sha?{sha}:{} ) }) }); if(!resp.ok){ let msg=`HTTP ${resp.status}`; try{ const j=await resp.json(); if(j?.message) msg+=` - ${j.message}`; }catch(_){} throw new Error(msg); } }
-async function deleteFromGitHub(filename){ const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${filename}`; const headers=ghHeaders(); const head=await fetch(url+`?ref=${GITHUB_CONFIG.branch}`,{headers}); if(!head.ok) throw new Error('Lookup failed '+head.status); const j=await head.json(); const del=await fetch(url,{method:'DELETE', headers, body: JSON.stringify({ message:`Delete ${filename}`, sha:j.sha, branch:GITHUB_CONFIG.branch })}); if(!del.ok){ let msg=`HTTP ${del.status}`; try{ const d=await del.json(); if(d?.message) msg+=` - ${d.message}`; }catch(_){} throw new Error(msg);} }
+async function deleteFromGitHub(filename){ 
+  const encodedFilename = encodeURIComponent(filename);
+  const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${encodedFilename}`; 
+  const headers=ghHeaders(); 
+  
+  // First check if file exists
+  const head=await fetch(url+`?ref=${encodeURIComponent(GITHUB_CONFIG.branch)}`,{headers}); 
+  if(!head.ok) {
+    if(head.status === 404) {
+      throw new Error(`File ${filename} not found in repository`);
+    }
+    throw new Error(`Lookup failed ${head.status} - ${head.statusText}`);
+  }
+  
+  const j=await head.json(); 
+  if(!j.sha) {
+    throw new Error(`No SHA found for file ${filename}`);
+  }
+  
+  const del=await fetch(url,{
+    method:'DELETE', 
+    headers, 
+    body: JSON.stringify({ 
+      message:`Delete ${filename}`, 
+      sha:j.sha, 
+      branch:GITHUB_CONFIG.branch 
+    })
+  }); 
+  
+  if(!del.ok){ 
+    let msg=`DELETE failed ${del.status} - ${del.statusText}`; 
+    try{ 
+      const d=await del.json(); 
+      if(d?.message) msg+=` - ${d.message}`; 
+      if(d?.errors) msg+=` - ${JSON.stringify(d.errors)}`;
+    }catch(_){} 
+    throw new Error(msg);
+  }
+}
 async function getTripsJsonFromGitHub(){ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json?ref=${GITHUB_CONFIG.branch}`; const res=await fetch(url,{headers}); if(res.status===404) return {sha:null,trips:[]}; if(!res.ok) throw new Error('trips.json GET '+res.status); const j=await res.json(); const text=atob((j.content||'').replace(/\n/g,'')); const data=JSON.parse(text||'{"version":1,"trips":[]}'); return { sha:j.sha||null, trips:Array.isArray(data.trips)?data.trips.map(t=>({ ...t, category: normalizeCategory(t.category) })):[] } }
 async function saveTripsJsonToGitHub(nextTrips, prevSha){ const headers=ghHeaders(); const url=`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips.json`; const body={ message:'Update trips.json', content: encodeBase64(JSON.stringify({version:1,trips:nextTrips},null,2)), branch:GITHUB_CONFIG.branch, ...(prevSha?{sha:prevSha}:{}) }; const put=await fetch(url,{method:'PUT', headers, body:JSON.stringify(body)}); if(!put.ok){ let msg=`trips.json PUT ${put.status}`; try{ const j=await put.json(); if(j?.message) msg+=` - ${j.message}`; }catch(_){} throw new Error(msg);} }
 
@@ -263,7 +301,51 @@ async function onSubmitTrip(e){ e.preventDefault(); try{ const i=document.getEle
 }
 
 /***** DELETE *****/
-async function confirmDeleteTrip(trip,index){ if(!confirm(`Delete ${trip.title||trip.filename}?`)) return; try{ showSpinner('Deleting…'); await deleteFromGitHub(trip.filename); await waitForRemoval(`${location.origin}/${trip.filename}`); const {sha,trips}=await getTripsJsonFromGitHub(); const next=trips.filter(t=>t.filename!==trip.filename); await saveTripsJsonToGitHub(next, sha); await waitForFile(`${location.origin}/trips.json`); hideSpinner(); alert('Deleted.'); await loadTripsPublic(); } catch(err){ hideSpinner(); console.error(err); alert('Delete failed: '+(err?.message||err)); } }
+async function confirmDeleteTrip(trip,index){ 
+  if(!confirm(`Delete ${trip.title||trip.filename}?\n\nThis will permanently remove the file from the repository.`)) return; 
+  
+  try{ 
+    // Validate GitHub token first
+    const token = getGitHubToken();
+    if(!token) {
+      alert('GitHub token is required to delete files. Please set your token first.');
+      return;
+    }
+    
+    showSpinner('Deleting file from repository…'); 
+    await deleteFromGitHub(trip.filename); 
+    
+    showSpinner('Waiting for file removal…');
+    await waitForRemoval(`${location.origin}/${trip.filename}`); 
+    
+    showSpinner('Updating trip metadata…');
+    const {sha,trips}=await getTripsJsonFromGitHub(); 
+    const next=trips.filter(t=>t.filename!==trip.filename); 
+    await saveTripsJsonToGitHub(next, sha); 
+    await waitForFile(`${location.origin}/trips.json`); 
+    
+    hideSpinner(); 
+    alert('Trip deleted successfully!'); 
+    await loadTripsPublic(); 
+  } catch(err){ 
+    hideSpinner(); 
+    console.error('Delete error:', err); 
+    
+    // Provide specific error messages
+    let errorMsg = 'Delete failed: ';
+    if(err.message.includes('404') || err.message.includes('not found')) {
+      errorMsg += 'File not found in repository. It may have already been deleted.';
+    } else if(err.message.includes('401') || err.message.includes('403')) {
+      errorMsg += 'Authorization failed. Please check your GitHub token has write permissions.';
+    } else if(err.message.includes('422')) {
+      errorMsg += 'Repository error. The file may be locked or have conflicts.';
+    } else {
+      errorMsg += (err?.message || err);
+    }
+    
+    alert(errorMsg + '\n\nCheck the browser console for more details.');
+  } 
+}
 
 /***** HISTORY (file) *****/
 function closeHistoryModal(){ document.getElementById('historyModal').style.display='none'; document.getElementById('historyBody').innerHTML=''; }

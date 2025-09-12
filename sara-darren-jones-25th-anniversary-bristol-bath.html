@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sara & Darren Jones 25th Anniversary - Bristol & Bath</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #c9b037 0%, #8b7355 100%);
+            min-height: 100vh;
+        }
+        
+        .proposal-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #c9b037 0%, #8b7355 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        
+        .header h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+        
+        .anniversary-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 15px 0;
+            font-size: 1.1rem;
+        }
+        
+        .trip-dates {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 15px;
+        }
+        
+        .content { padding: 40px 30px; }
+        .section { margin-bottom: 40px; }
+        
+        .section h3 {
+            font-size: 1.6rem;
+            color: #8b7355;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #c9b037;
+            padding-bottom: 10px;
+        }
+        
+        .anniversary-highlight {
+            background: linear-gradient(135deg, #fff9e6 0%, #f5f0e8 100%);
+            border: 2px solid #c9b037;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .anniversary-highlight h4 {
+            color: #8b7355;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .jane-austen-special {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border: 3px solid #4169e1;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .jane-austen-special h4 {
+            color: #4169e1;
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+        
+        .anniversary-date-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        
+        .destination-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .destination-card {
+            background: #fafbfc;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .destination-card h4 {
+            color: #8b7355;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .destination-card .dates {
+            color: #c9b037;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .activity-list {
+            text-align: left;
+            margin-top: 15px;
+        }
+        
+        .activity-list li {
+            margin: 8px 0;
+            padding-left: 5px;
+        }
+        
+        .accommodation-luxury {
+            background: #f0f8ff;
+            border-left: 4px solid #c9b037;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .accommodation-luxury h5 {
+            color: #8b7355;
+            margin-bottom: 10px;
+        }
+        
+        .romance-features {
+            background: #ffeef0;
+            border: 1px solid #ffb3ba;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .romance-features h4 {
+            color: #8b0000;
+            margin-bottom: 15px;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e1e8ed;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .destination-section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="proposal-container">
+        <header class="header">
+            <h1>🥂 25th Anniversary Celebration</h1>
+            <h2>Sara & Darren Jones</h2>
+            <div class="anniversary-badge">
+                ✨ Silver Anniversary Journey ✨
+            </div>
+            <div>Bristol & Bath, England</div>
+            <div class="trip-dates">
+                October 5-15, 2025 | 10 Magical Days
+            </div>
+        </header>
+        
+        <main class="content">
+            <div class="anniversary-highlight">
+                <h4>💕 Celebrating 25 Years of Love</h4>
+                <p><strong>Married October 12, 1999</strong></p>
+                <p>A quarter-century of memories deserves a truly special celebration. This luxury journey through historic Bristol and romantic Bath has been crafted to honor your milestone anniversary with unforgettable experiences.</p>
+            </div>
+            
+            <div class="jane-austen-special">
+                <h4>🏛️ ANNIVERSARY SPECIAL ADDITION</h4>
+                <h3>Jane Austen's House Museum</h3>
+                <div class="anniversary-date-badge">🎉 ON YOUR ANNIVERSARY DATE! 🎉</div>
+                <p><strong>Wednesday, October 12th, 2025</strong><br>
+                <em>Your Actual Anniversary Date - What could be more romantic!</em></p>
+                
+                <div style="text-align: left; margin-top: 20px; background: white; padding: 20px; border-radius: 8px;">
+                    <p><strong>⏰ 10:00 AM - 4:00 PM | Chawton, Hampshire</strong></p>
+                    <ul style="margin-top: 15px;">
+                        <li>🚗 Private car transfer from Bath (45 minutes each way)</li>
+                        <li>🏡 Guided tour of Jane Austen's final home</li>
+                        <li>✍️ See the writing table where she penned Emma & Persuasion</li>
+                        <li>🌹 Beautiful cottage gardens perfect for anniversary photos</li>
+                        <li>🫖 Cream tea for two at historic Cassandra's Cup tearoom</li>
+                        <li>⛪ Visit romantic Chawton Church</li>
+                        <li>🍾 Return to Bath by 5:00 PM for special anniversary dinner</li>
+                    </ul>
+                    <p style="text-align: center; margin-top: 15px; font-weight: bold; color: #4169e1;">
+                        Cost: £150 for two (private car + museum entry)
+                    </p>
+                </div>
+            </div>
+            
+            <section class="section">
+                <h3>Your Anniversary Journey</h3>
+                
+                <div class="destination-section">
+                    <div class="destination-card">
+                        <h4>🏭 Historic Bristol</h4>
+                        <div class="dates">October 5-10, 2025</div>
+                        <p>Discover maritime heritage and vibrant culture</p>
+                        <div class="activity-list">
+                            <ul>
+                                <li>• SS Great Britain - Victorian engineering marvel</li>
+                                <li>• Clifton Suspension Bridge romantic walks</li>
+                                <li>• Bristol Cathedral and historic Old City</li>
+                                <li>• Luxury harbourside dining experiences</li>
+                                <li>• Cabot Circus shopping and exploration</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="destination-card">
+                        <h4>🏛️ Romantic Bath</h4>
+                        <div class="dates">October 10-15, 2025</div>
+                        <p>Georgian elegance and spa relaxation</p>
+                        <div class="activity-list">
+                            <ul>
+                                <li>• Roman Baths and Pump Room experience</li>
+                                <li>• Bath Abbey and Georgian architecture</li>
+                                <li>• Couple's spa treatments at Thermae Bath Spa</li>
+                                <li>• <strong>Jane Austen's House (Oct 12 - Anniversary!)</strong></li>
+                                <li>• Royal Crescent and Circus walks</li>
+                                <li>• Anniversary dinner at award-winning restaurant</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h3>Anniversary Day Timeline - October 12th</h3>
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 5px solid #ff6b6b;">
+                    <h4 style="color: #ff6b6b; margin-bottom: 20px;">🎂 Your Silver Anniversary Day</h4>
+                    <ul style="font-size: 1.1rem; line-height: 1.8;">
+                        <li><strong>9:00 AM</strong> - Private car pickup from Bath hotel</li>
+                        <li><strong>10:00 AM</strong> - Arrive Jane Austen's House Museum, Chawton</li>
+                        <li><strong>10:30 AM</strong> - Guided literary tour of Austen's home</li>
+                        <li><strong>12:30 PM</strong> - Explore cottage gardens & anniversary photos</li>
+                        <li><strong>2:00 PM</strong> - Cream tea at Cassandra's Cup tearoom</li>
+                        <li><strong>3:30 PM</strong> - Visit Chawton Church (romantic & historic)</li>
+                        <li><strong>4:00 PM</strong> - Private car return to Bath</li>
+                        <li><strong>5:00 PM</strong> - Arrive Bath hotel, rest & prepare</li>
+                        <li><strong>7:30 PM</strong> - Anniversary dinner at The Scallop Shell</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h3>Luxury Accommodation</h3>
+                
+                <div class="accommodation-luxury">
+                    <h5>🏨 The Bristol Hotel (5-Star) | Bristol</h5>
+                    <p><strong>October 5-10, 2025</strong></p>
+                    <ul>
+                        <li>• Harbourside location with stunning water views</li>
+                        <li>• Executive suite with champagne welcome</li>
+                        <li>• In-room dining for romantic evenings</li>
+                        <li>• Concierge service for anniversary arrangements</li>
+                    </ul>
+                </div>
+                
+                <div class="accommodation-luxury">
+                    <h5>🏨 The Bath Priory (5-Star Boutique) | Bath</h5>
+                    <p><strong>October 10-15, 2025</strong></p>
+                    <ul>
+                        <li>• Award-winning hotel set in beautiful gardens</li>
+                        <li>• Luxury suite with Victorian roll-top bath</li>
+                        <li>• Michelin-starred restaurant on-site</li>
+                        <li>• Couple's spa treatments available</li>
+                        <li>• Private dining options for special occasions</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <div class="romance-features">
+                <h4>💖 Special Anniversary Touches</h4>
+                <ul>
+                    <li>🥂 Champagne welcome at both hotels</li>
+                    <li>🌹 Fresh flowers and chocolates in rooms</li>
+                    <li>🍽️ Private anniversary dinner with wine pairing (Oct 12)</li>
+                    <li>💆‍♀️ Couple's spa treatment sessions</li>
+                    <li>📸 Professional photography at Jane Austen's House</li>
+                    <li>🎁 Personalized anniversary keepsakes</li>
+                    <li>📚 <strong>NEW:</strong> Jane Austen first edition book as anniversary gift</li>
+                </ul>
+            </div>
+            
+            <section class="section">
+                <h3>Why This Journey is Perfect</h3>
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 8px;">
+                    <p><strong>For Sara & Darren:</strong></p>
+                    <ul style="margin-top: 15px;">
+                        <li>• Perfect blend of history, culture, and romance</li>
+                        <li>• <strong>Jane Austen's House on your actual anniversary date!</strong></li>
+                        <li>• Luxury accommodations befitting a milestone anniversary</li>
+                        <li>• Bristol's maritime heritage and Bath's Georgian elegance</li>
+                        <li>• Intimate experiences designed for couples celebrating 25 years</li>
+                        <li>• October timing offers beautiful autumn colors and comfortable weather</li>
+                        <li>• Literary connection adds depth and meaning to your celebration</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p><strong>VoygentCE Anniversary Travel Proposal</strong><br>
+            Prepared for: Sara & Darren Jones<br>
+            Email: sara.jones@anniversary-travels.co.uk<br>
+            Trip ID: 40 | Updated: September 6, 2025</p>
+            <p style="margin-top: 15px; font-style: italic; color: #4169e1;">
+                "Here's to 25 years of love and the perfect anniversary celebration at Jane Austen's House!" 💕📚
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
