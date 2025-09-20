@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chisholm Family European Adventure - Luxury Travel Theme</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            line-height: 1.7;
+            color: #2c2c2c;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            min-height: 100vh;
+        }
+        
+        .proposal-container {
+            background: #fefefe;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            color: #2c2c2c;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: "✨";
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .trip-dates {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        
+        .content { padding: 50px 40px; }
+        .section { margin-bottom: 50px; }
+        
+        .section h3 {
+            font-size: 2rem;
+            color: #b8860b;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #d4af37;
+            padding-bottom: 15px;
+            font-weight: 400;
+            text-align: center;
+        }
+        
+        .itinerary-day {
+            background: linear-gradient(135deg, #faf8f5 0%, #f5f2ed 100%);
+            border: 2px solid #e8dcc0;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            padding: 35px;
+            position: relative;
+        }
+        
+        .itinerary-day::before {
+            content: "🏛️";
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: #d4af37;
+            padding: 8px 12px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+        
+        .day-header {
+            font-size: 1.8rem;
+            color: #8b4513;
+            margin-bottom: 20px;
+            font-weight: 500;
+            margin-left: 40px;
+        }
+        
+        .activity {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            border-left: 6px solid #d4af37;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .activity-time {
+            font-weight: 600;
+            color: #b8860b;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .activity-time::before {
+            content: "⏰ ";
+        }
+        
+        .activity-title {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #2c2c2c;
+            font-weight: 500;
+        }
+        
+        .activity-description {
+            color: #5a5a5a;
+            font-size: 1rem;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #faf8f5 0%, #f0ead6 100%);
+            border: 3px solid #d4af37;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .summary h3 {
+            color: #8b4513;
+            margin-bottom: 25px;
+            border: none;
+            padding: 0;
+            font-size: 2.2rem;
+        }
+        
+        .cost-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 25px;
+        }
+        
+        .cost-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .cost-amount {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #b8860b;
+            margin-bottom: 5px;
+        }
+        
+        .cost-label {
+            font-size: 1.1rem;
+            color: #5a5a5a;
+            font-weight: 400;
+        }
+        
+        .footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid #e8dcc0;
+            text-align: center;
+            color: #5a5a5a;
+            font-size: 1rem;
+            background: linear-gradient(135deg, #faf8f5 0%, #f5f2ed 100%);
+            padding: 30px;
+            border-radius: 12px;
+        }
+        
+        @media print {
+            body { background: none; padding: 0; }
+            .proposal-container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="proposal-container">
+        <header class="header">
+            <h1>Luxury Travel Experience</h1>
+            <h2>Chisholm Family European Adventure</h2>
+            <div>Dublin • London • Stoneleigh</div>
+            <div class="trip-dates">
+                September 18-28, 2025 • Exclusive 10-Day Journey
+            </div>
+        </header>
+        
+        <main class="content">
+            <section class="section">
+                <h3>✨ Curated Itinerary ✨</h3>
+                
+                <div class="itinerary-day">
+                    <div class="day-header">Day 1: Grand Arrival in Dublin</div>
+                    <div class="activity">
+                        <div class="activity-time">10:00 AM</div>
+                        <div class="activity-title">🛩️ Arrival at Dublin Airport</div>
+                        <div class="activity-description">VIP arrival service with expedited customs and private lounge access</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">12:30 PM</div>
+                        <div class="activity-title">🏨 The Shelbourne Hotel - Royal Suite</div>
+                        <div class="activity-description">Historic 5-star luxury in Dublin's most prestigious location, where royalty and celebrities have stayed for centuries</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">2:00 PM</div>
+                        <div class="activity-title">🍽️ Michelin-Starred Lunch Experience</div>
+                        <div class="activity-description">Exquisite Irish cuisine at Trinity College's finest restaurant, featuring locally-sourced ingredients and traditional recipes reimagined</div>
+                    </div>
+                </div>
+
+                <div class="itinerary-day">
+                    <div class="day-header">Day 4: London Luxury Transfer</div>
+                    <div class="activity">
+                        <div class="activity-time">9:00 AM</div>
+                        <div class="activity-title">🚁 Private Helicopter Transfer</div>
+                        <div class="activity-description">Scenic helicopter journey from Dublin to London with champagne service and aerial views of the Irish Sea</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">2:00 PM</div>
+                        <div class="activity-title">🏰 Stoneleigh Park Hotel - Heritage Suite</div>
+                        <div class="activity-description">Aristocratic 4-star countryside estate with manicured gardens, traditional British elegance, and personalized butler service</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="summary">
+                    <h3>💎 Luxury Experience Summary 💎</h3>
+                    <div class="cost-breakdown">
+                        <div class="cost-item">
+                            <div class="cost-amount">$6,900.00</div>
+                            <div class="cost-label">Premium Investment</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-amount">10 Days</div>
+                            <div class="cost-label">Unforgettable Memories</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p><strong>✨ VoygentCE Luxury Travel Collection ✨</strong><br>
+            <em>Curated exclusively for the Chisholm Family</em><br>
+            Luxury Travel Theme • Trip ID: 1<br>
+            Crafted with care on September 20, 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
