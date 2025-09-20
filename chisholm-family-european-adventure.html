@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Proposal: Chisholm Family European Adventure</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .proposal-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2a5aa0 0%, #1e3d6f 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .header h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+
+        .trip-dates {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        .content { padding: 40px 30px; }
+        .section { margin-bottom: 40px; }
+
+        .section h3 {
+            font-size: 1.5rem;
+            color: #2a5aa0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e1e8ed;
+            padding-bottom: 10px;
+        }
+
+        .hotel {
+            background: #fafbfc;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .hotel:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .hotel h4 {
+            font-size: 1.3rem;
+            color: #1e3d6f;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hotel-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .hotel-meta p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .hotel-meta strong {
+            color: #333;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #2a5aa0;
+            font-size: 1.2rem;
+        }
+
+        .rating {
+            color: #ffa500;
+            font-size: 1.1rem;
+        }
+
+        .refundable-badge {
+            display: inline-block;
+            background: #e8f5e8;
+            color: #2d5a2d;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .commission-indicator {
+            color: #28a745;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .amenities {
+            margin-top: 15px;
+        }
+
+        .amenity {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 3px 8px;
+            margin: 2px 4px 2px 0;
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+
+        .itinerary-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .day-entry {
+            border-left: 4px solid #2a5aa0;
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+
+        .day-header {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e3d6f;
+            margin-bottom: 10px;
+        }
+
+        .day-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .activity-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .activity-item {
+            background: white;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .summary {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .summary h3 {
+            color: #2a5aa0;
+            margin-bottom: 15px;
+            border: none;
+            padding: 0;
+        }
+
+        .cost-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .cost-item {
+            text-align: center;
+        }
+
+        .cost-amount {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2a5aa0;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e1e8ed;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .proposal-container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="proposal-container">
+        <header class="header">
+            <h1>Travel Proposal</h1>
+            <h2>Chisholm Family European Adventure</h2>
+
+            <div>Dublin, London, Stoneleigh</div>
+
+            <div class="trip-dates">
+                Thursday, September 18, 2025 - Sunday, September 28, 2025
+            </div>
+        </header>
+
+        <main class="content">
+
+            <section class="section">
+                <h3>Recommended Hotels</h3>
+
+                <div class="hotel">
+                    <h4>The Grafton Hotel Dublin</h4>
+
+                    <div class="hotel-meta">
+                        <div>
+                            <p><strong>Location:</strong> Dublin, Ireland</p>
+                            <p><strong>Rating:</strong> ⭐⭐⭐⭐ (4 stars)</p>
+                        </div>
+                        <div>
+                            <p><strong>Price:</strong> <span class="price">$180 USD</span> per night</p>
+                            <p><strong>Source:</strong> Manual</p>
+                        </div>
+                    </div>
+
+                    <div class="amenities">
+                        <span class="amenity">WiFi</span>
+                        <span class="amenity">Restaurant</span>
+                        <span class="amenity">Bar</span>
+                        <span class="amenity">City Center Location</span>
+                    </div>
+
+                    <div class="refundable-badge">✓ Refundable</div>
+                </div>
+
+                <div class="hotel">
+                    <h4>Canopy by Hilton London City</h4>
+
+                    <div class="hotel-meta">
+                        <div>
+                            <p><strong>Location:</strong> London, United Kingdom</p>
+                            <p><strong>Rating:</strong> ⭐⭐⭐⭐ (4 stars)</p>
+                        </div>
+                        <div>
+                            <p><strong>Price:</strong> <span class="price">$220 USD</span> per night</p>
+                            <p><strong>Source:</strong> Manual</p>
+                        </div>
+                    </div>
+
+                    <div class="amenities">
+                        <span class="amenity">WiFi</span>
+                        <span class="amenity">Fitness Center</span>
+                        <span class="amenity">Restaurant</span>
+                        <span class="amenity">Rooftop Bar</span>
+                        <span class="amenity">Pet Friendly</span>
+                    </div>
+
+                    <div class="refundable-badge">✓ Refundable</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3>Daily Itinerary</h3>
+                <div class="itinerary-section">
+
+                    <div class="day-entry">
+                        <div class="day-header">Day 1: Departure - Mobile → Dublin</div>
+                        <div class="day-date">Thursday, September 18, 2025</div>
+                        <ul class="activity-list">
+                            <li class="activity-item">Depart Mobile for Dublin</li>
+                            <li class="activity-item">Overnight flight</li>
+                        </ul>
+                    </div>
+
+                    <div class="day-entry">
+                        <div class="day-header">Day 2: Arrive Dublin</div>
+                        <div class="day-date">Friday, September 19, 2025</div>
+                        <ul class="activity-list">
+                            <li class="activity-item">Arrive in Dublin morning</li>
+                            <li class="activity-item">Hotel check-in in afternoon</li>
+                            <li class="activity-item">Evening walking tour & Brazen Head dinner</li>
+                        </ul>
+                    </div>
+
+                    <div class="day-entry">
+                        <div class="day-header">Day 3: Irish National Stud</div>
+                        <div class="day-date">Saturday, September 20, 2025</div>
+                        <ul class="activity-list">
+                            <li class="activity-item">Train to Kildare & taxi to National Stud</li>
+                            <li class="activity-item">BA seat selection opens (11:05 AM)</li>
+                        </ul>
+                    </div>
+
+                    <div class="day-entry">
+                        <div class="day-header">Day 4: Howth Day Trip</div>
+                        <div class="day-date">Sunday, September 21, 2025</div>
+                        <ul class="activity-list">
+                            <li class="activity-item">DART to Howth; cliff walk & cruise</li>
+                            <li class="activity-item">Check in for BA flight (11:05 AM)</li>
+                        </ul>
+                    </div>
+
+                    <div class="day-entry">
+                        <div class="day-header">Day 5: Dublin → London</div>
+                        <div class="day-date">Monday, September 22, 2025</div>
+                        <ul class="activity-list">
+                            <li class="activity-item">Fly to London (Heathrow T5)</li>
+                            <li class="activity-item">Afternoon exploration</li>
+                            <li class="activity-item">Overnight in London</li>
+                        </ul>
+                    </div>
+
+                    <div class="day-entry">
+                        <div class="day-header">Day 6: London → Birmingham</div>
+                        <div class="day-date">Tuesday, September 23, 2025</div>
+                        <ul class="activity-list">
+                            <li class="activity-item">Sightseeing & Thames cruise</li>
+                            <li class="activity-item">Evening train to Birmingham</li>
+                        </ul>
+                    </div>
+
+                    <div class="day-entry">
+                        <div class="day-header">Days 7-10: Stoneleigh Work</div>
+                        <div class="day-date">September 24-27, 2025</div>
+                        <ul class="activity-list">
+                            <li class="activity-item">Stoneleigh work engagement</li>
+                            <li class="activity-item">Check in for return flights (5:55 AM on Day 10)</li>
+                        </ul>
+                    </div>
+
+                    <div class="day-entry">
+                        <div class="day-header">Day 11: Return Travel</div>
+                        <div class="day-date">Sunday, September 28, 2025</div>
+                        <ul class="activity-list">
+                            <li class="activity-item">Birmingham → Mobile return travel</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="summary">
+                    <h3>Trip Summary</h3>
+                    <div class="cost-breakdown">
+                        <div class="cost-item">
+                            <div class="cost-amount">$6,864.19</div>
+                            <div>Total Trip Cost</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-amount">Kim Henderson</div>
+                            <div>Travel Agent</div>
+                            <div style="font-size: 0.9rem; margin-top: 5px;">251-289-1505</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <p><strong>VoygentCE Travel Proposal</strong><br>
+            Trip ID: 1<br>
+            Prepared for: Chisholm Family (chisholm.family@email.com)<br>
+            Generated: Saturday, September 20, 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
