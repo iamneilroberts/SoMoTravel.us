@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chisholm Family European Adventure - Minimal Clean Theme</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .proposal-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        
+        .header h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .header .destinations {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+        
+        .trip-dates {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .content { 
+            padding: 50px 40px; 
+        }
+        
+        .section { 
+            margin-bottom: 50px; 
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section h3 {
+            font-size: 1.4rem;
+            color: #495057;
+            margin-bottom: 30px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: #6c757d;
+        }
+        
+        .itinerary-day {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            padding: 30px;
+            transition: all 0.2s ease;
+        }
+        
+        .itinerary-day:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .day-header {
+            font-size: 1.2rem;
+            color: #343a40;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+        
+        .activity {
+            margin-bottom: 20px;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+        
+        .activity:last-child {
+            margin-bottom: 0;
+        }
+        
+        .activity-time {
+            font-weight: 500;
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-align: right;
+            padding-top: 2px;
+        }
+        
+        .activity-content {
+            border-left: 2px solid #e9ecef;
+            padding-left: 20px;
+        }
+        
+        .activity-title {
+            font-size: 1rem;
+            margin-bottom: 4px;
+            color: #343a40;
+            font-weight: 500;
+        }
+        
+        .activity-description {
+            color: #6c757d;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .summary {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .summary h3 {
+            color: #495057;
+            margin-bottom: 30px;
+            font-size: 1.4rem;
+        }
+        
+        .summary h3::after {
+            background: #6c757d;
+        }
+        
+        .cost-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .cost-item {
+            text-align: center;
+        }
+        
+        .cost-amount {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+        
+        .cost-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.85rem;
+        }
+        
+        @media print {
+            body { background: none; padding: 0; }
+            .proposal-container { box-shadow: none; }
+        }
+        
+        @media (max-width: 600px) {
+            .activity {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .activity-time {
+                text-align: left;
+            }
+            
+            .activity-content {
+                border-left: none;
+                border-top: 2px solid #e9ecef;
+                padding-left: 0;
+                padding-top: 15px;
+            }
+            
+            .cost-breakdown {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="proposal-container">
+        <header class="header">
+            <h1>Minimal Clean</h1>
+            <h2>Chisholm Family European Adventure</h2>
+            <div class="destinations">Dublin • London • Stoneleigh</div>
+            <div class="trip-dates">September 18-28, 2025</div>
+        </header>
+        
+        <main class="content">
+            <section class="section">
+                <h3>Itinerary</h3>
+                
+                <div class="itinerary-day">
+                    <div class="day-header">Day 1 • September 18, 2025</div>
+                    <div class="activity">
+                        <div class="activity-time">10:00 AM</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Dublin Airport Arrival</div>
+                            <div class="activity-description">International flight arrival and ground transport</div>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">12:30 PM</div>
+                        <div class="activity-content">
+                            <div class="activity-title">The Shelbourne Hotel</div>
+                            <div class="activity-description">Check-in to luxury accommodation in Dublin city center</div>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">2:00 PM</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Trinity College Lunch</div>
+                            <div class="activity-description">Dining experience near historic Trinity College</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="itinerary-day">
+                    <div class="day-header">Day 4 • September 21, 2025</div>
+                    <div class="activity">
+                        <div class="activity-time">9:00 AM</div>
+                        <div class="activity-content">
+                            <div class="activity-title">London Transfer</div>
+                            <div class="activity-description">Departure from Dublin and transfer to London</div>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">2:00 PM</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Stoneleigh Park Hotel</div>
+                            <div class="activity-description">Check-in to countryside hotel accommodation</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="summary">
+                    <h3>Summary</h3>
+                    <div class="cost-breakdown">
+                        <div class="cost-item">
+                            <div class="cost-amount">$6,900</div>
+                            <div class="cost-label">Total Cost</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-amount">10</div>
+                            <div class="cost-label">Days</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>VoygentCE Travel • Minimal Clean Theme<br>
+            Trip 1 • Prepared for Chisholm Family<br>
+            Generated September 20, 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
