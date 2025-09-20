@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Proposal: Chisholm Family European Adventure - Luxury Edition</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #2c1810;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #8b5a3c 0%, #d4af37 100%);
+            min-height: 100vh;
+        }
+
+        .proposal-container {
+            background: #fefdfb;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(139, 90, 60, 0.3);
+            overflow: hidden;
+            border: 2px solid #d4af37;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #8b5a3c 0%, #d4af37 50%, #b8860b 100%);
+            color: #fefdfb;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '✈';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .header h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            font-style: italic;
+        }
+
+        .trip-dates {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 15px;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 50px 40px;
+            background: #fefdfb;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h3 {
+            font-size: 1.8rem;
+            color: #8b5a3c;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #d4af37;
+            padding-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+        }
+
+        .section h3::before {
+            content: '◊';
+            position: absolute;
+            left: -30px;
+            color: #d4af37;
+            font-size: 1.5rem;
+        }
+
+        .hotel {
+            background: linear-gradient(135deg, #fefdfb 0%, #f9f6f0 100%);
+            border: 2px solid #e8dcc0;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            padding: 35px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hotel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, #d4af37, #b8860b);
+        }
+
+        .hotel:hover {
+            box-shadow: 0 15px 30px rgba(139, 90, 60, 0.2);
+            transform: translateY(-3px);
+            border-color: #d4af37;
+        }
+
+        .hotel h4 {
+            font-size: 1.6rem;
+            color: #8b5a3c;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hotel-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hotel-meta p {
+            margin: 8px 0;
+            color: #5d4037;
+            font-size: 1.05rem;
+        }
+
+        .hotel-meta strong {
+            color: #2c1810;
+            font-weight: 600;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #b8860b;
+            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .rating {
+            color: #d4af37;
+            font-size: 1.2rem;
+        }
+
+        .refundable-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e8f5e8, #d0f0d0);
+            color: #2d5a2d;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            margin-top: 15px;
+            border: 1px solid #4caf50;
+            font-weight: 500;
+        }
+
+        .amenities {
+            margin-top: 20px;
+        }
+
+        .amenity {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #fefdfb;
+            padding: 6px 14px;
+            margin: 4px 6px 4px 0;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(139, 90, 60, 0.3);
+        }
+
+        .summary {
+            background: linear-gradient(135deg, #f9f6f0 0%, #fefdfb 100%);
+            border: 3px solid #d4af37;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .summary h3 {
+            color: #8b5a3c;
+            margin-bottom: 25px;
+            border: none;
+            padding: 0;
+            font-size: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cost-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cost-item {
+            text-align: center;
+        }
+
+        .cost-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #b8860b;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid #e8dcc0;
+            text-align: center;
+            color: #8b5a3c;
+            font-size: 1rem;
+            background: linear-gradient(135deg, #fefdfb 0%, #f9f6f0 100%);
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #d4af37;
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .proposal-container { box-shadow: none; }
+        }
+
+        @media (max-width: 768px) {
+            .content { padding: 30px 25px; }
+            .header { padding: 40px 25px; }
+            .hotel { padding: 25px; }
+            .hotel-meta { grid-template-columns: 1fr; }
+            .cost-breakdown { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="proposal-container">
+        <header class="header">
+            <h1>Travel Proposal</h1>
+            <h2>Chisholm Family European Adventure</h2>
+            <div>Dublin, London & Stoneleigh</div>
+            <div class="trip-dates">
+                Thursday, September 18, 2025 - Sunday, September 28, 2025
+            </div>
+        </header>
+
+        <main class="content">
+            <section class="section">
+                <h3>Luxury Hotel Recommendations</h3>
+
+                <div class="hotel">
+                    <h4>The Grafton Hotel Dublin</h4>
+                    <div class="hotel-meta">
+                        <div>
+                            <p><strong>Location:</strong> Dublin City Center, Ireland</p>
+                            <p><strong>Rating:</strong> <span class="rating">★★★★☆</span> (4-Star)</p>
+                            <p><strong>Check-in:</strong> September 18, 2025</p>
+                        </div>
+                        <div>
+                            <p><strong>Rate:</strong> <span class="price">$180 per night</span></p>
+                            <p><strong>Check-out:</strong> September 21, 2025</p>
+                            <p><strong>Nights:</strong> 3</p>
+                        </div>
+                    </div>
+                    <p><strong>Description:</strong> Historic Georgian hotel in Dublin city center, offering timeless elegance and modern comfort in the heart of Ireland's capital.</p>
+                    <div class="amenities">
+                        <span class="amenity">WiFi</span>
+                        <span class="amenity">Restaurant</span>
+                        <span class="amenity">Bar</span>
+                        <span class="amenity">City Center Location</span>
+                    </div>
+                    <span class="refundable-badge">✓ Fully Refundable</span>
+                </div>
+
+                <div class="hotel">
+                    <h4>Canopy by Hilton London City</h4>
+                    <div class="hotel-meta">
+                        <div>
+                            <p><strong>Location:</strong> Aldgate, London, United Kingdom</p>
+                            <p><strong>Rating:</strong> <span class="rating">★★★★☆</span> (4-Star)</p>
+                            <p><strong>Check-in:</strong> September 21, 2025</p>
+                        </div>
+                        <div>
+                            <p><strong>Rate:</strong> <span class="price">$220 per night</span></p>
+                            <p><strong>Check-out:</strong> September 28, 2025</p>
+                            <p><strong>Nights:</strong> 7</p>
+                        </div>
+                    </div>
+                    <p><strong>Description:</strong> Modern boutique hotel in Aldgate, London, featuring contemporary design and personalized service in the heart of the city.</p>
+                    <div class="amenities">
+                        <span class="amenity">WiFi</span>
+                        <span class="amenity">Fitness Center</span>
+                        <span class="amenity">Restaurant</span>
+                        <span class="amenity">Rooftop Bar</span>
+                        <span class="amenity">Pet Friendly</span>
+                    </div>
+                    <span class="refundable-badge">✓ Fully Refundable</span>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="summary">
+                    <h3>Investment Summary</h3>
+                    <div class="cost-breakdown">
+                        <div class="cost-item">
+                            <div class="cost-amount">$2,080</div>
+                            <div>Accommodation Total</div>
+                            <small>(Dublin: $540 + London: $1,540)</small>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-amount">$2,500</div>
+                            <div>Estimated Trip Total</div>
+                            <small>(Including activities & transport)</small>
+                        </div>
+                    </div>
+                    <p style="margin-top: 25px; font-style: italic; color: #8b5a3c;">
+                        This luxury package has been curated using real imported data from the source page,
+                        showcasing the authentic hotels available for your European adventure.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p><strong>VoygentCE Travel Proposal - Luxury Edition</strong><br>
+            Trip ID: 1<br>
+            Prepared for: Chisholm Family (chisholm.family@email.com)<br>
+            Generated: Saturday, September 20, 2025</p>
+            <div class="signature">
+                "Crafted with real data from Voygen's import pipeline"
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
