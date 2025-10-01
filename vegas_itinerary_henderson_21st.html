@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henderson's 21st Birthday - Las Vegas Trip</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            color: #f5576c;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #f093fb;
+        }
+        
+        h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+        }
+        
+        h4 {
+            color: #764ba2;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+        }
+        
+        .party-info {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .party-info ul {
+            list-style: none;
+        }
+        
+        .party-info li {
+            padding: 8px 0;
+            font-size: 1.1em;
+        }
+        
+        .party-info strong {
+            color: #c92a2a;
+        }
+        
+        .flight-schedule {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .day-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #f5576c;
+        }
+        
+        .day-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .time-block {
+            margin: 20px 0;
+            padding-left: 20px;
+            border-left: 3px solid #8ec5fc;
+        }
+        
+        .time-block strong {
+            color: #f5576c;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .reservation {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 5px solid #f093fb;
+        }
+        
+        .highlight {
+            background: #fff3bf;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .must-try {
+            background: #ffe3e3;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .secret {
+            background: #e3f2ff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #4dabf7;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .warning-box {
+            background: #ffe3e3;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 5px solid #ff6b6b;
+        }
+        
+        .info-box {
+            background: #e3f2ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 5px solid #4dabf7;
+        }
+        
+        .emoji {
+            font-size: 1.3em;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1.5em;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎉 Henderson's 21st Birthday 🎉</h1>
+            <p>Las Vegas Trip Itinerary</p>
+            <p>October 8-12, 2025 | Party of 6</p>
+        </header>
+        
+        <div class="content">
+            <!-- Travel Party -->
+            <div class="section party-info">
+                <h2><span class="emoji">🎊</span> Travel Party</h2>
+                <ul>
+                    <li><strong>Dylan & Kim</strong> - Confirmation: JK8KEI</li>
+                    <li><strong>Justin & Kenzie</strong> - Confirmation: GKAWWN</li>
+                    <li><strong>Haley</strong> - Confirmation: H9AO7V</li>
+                    <li><strong>Caden</strong> - Confirmation: GR8SWI</li>
+                </ul>
+            </div>
+            
+            <!-- Flight Schedule -->
+            <div class="section flight-schedule">
+                <h2><span class="emoji">✈️</span> Flight Schedule</h2>
+                
+                <h3>Wednesday, October 8</h3>
+                <ul>
+                    <li><strong>Delta 5462</strong> - Mobile to Atlanta (9:13am - 11:35am)</li>
+                    <li><strong>Delta 549</strong> - Atlanta to Las Vegas (12:20pm - 1:37pm)</li>
+                    <li><strong>Haley & Caden arrive:</strong> 7:50pm</li>
+                </ul>
+                
+                <h3>Saturday, October 11</h3>
+                <ul>
+                    <li><strong>Delta 722</strong> - Las Vegas to Atlanta (11:59pm - 6:43am <strong>Sun Oct 12</strong>)</li>
+                </ul>
+                
+                <h3>Sunday, October 12</h3>
+                <ul>
+                    <li><strong>Delta 5462</strong> - Atlanta to Mobile (8:10am - 8:33am)</li>
+                </ul>
+            </div>
+            
+            <!-- Day by Day Itinerary -->
+            <div class="section">
+                <h2><span class="emoji">📅</span> Day-by-Day Itinerary</h2>
+                
+                <!-- WEDNESDAY -->
+                <div class="day-section">
+                    <div class="day-title">WEDNESDAY, OCTOBER 8 - Arrival Day</div>
+                    
+                    <div class="time-block">
+                        <strong>1:37pm - Arrive Las Vegas</strong>
+                        <ul>
+                            <li>Pick up rental car at airport</li>
+                            <li>Drive to hotel</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>3:00pm - Hotel Check-in & Settle In</strong>
+                        <ul>
+                            <li>Check into hotel</li>
+                            <li>Freshen up</li>
+                            <li>Wait for Haley & Caden (arrive 7:50pm)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>4:00pm - Welcome to Vegas Walk (Early arrivals)</strong>
+                        <ul>
+                            <li>Explore the Strip on foot</li>
+                            <li>Take photos at iconic spots (Bellagio Fountains)</li>
+                            <li>Birthday person gets first legal Vegas drinks!</li>
+                            <li>Light activities until full group arrives</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>7:50pm - Full Group Assembled!</strong>
+                        <ul>
+                            <li>Pick up Haley & Caden from airport or meet at hotel</li>
+                            <li>Get ready for dinner</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reservation">
+                        <strong>8:30pm - Mon Ami Gabi at Paris Las Vegas</strong> <span class="highlight">✅ RESERVED FOR 6</span>
+                        <ul>
+                            <li>French bistro with Eiffel Tower views</li>
+                            <li>Perfect first night celebration</li>
+                            <li>Outstanding patio seating overlooking the Strip</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>10:30pm - Late Night Options:</strong>
+                        <div class="info-box">
+                            <strong>Fremont Street Experience (Downtown Las Vegas - 20 min drive) - RECOMMENDED FOR FIRST NIGHT!</strong>
+                            <ul>
+                                <li>Free Viva Vision light shows every hour on the canopy</li>
+                                <li>Live bands and street performers</li>
+                                <li>SlotZilla Zipline (fly over the crowd!)</li>
+                                <li><strong>El Cortez Casino</strong> - Free drinks while gambling + $25 FREE PLAY with players card signup!</li>
+                                <li>Golden Nugget casino (check out the shark tank)</li>
+                            </ul>
+                            
+                            <strong>Speakeasy Options:</strong>
+                            <ul>
+                                <li><strong>The Laundry Room</strong> (Commonwealth) - Secret speakeasy, hidden behind dryer door, craft cocktails (text 702-701-1466 for entry)</li>
+                                <li><strong>Sidebar</strong> - Vintage arcade meets craft cocktail bar</li>
+                            </ul>
+                            
+                            <strong>Bars & Clubs:</strong>
+                            <ul>
+                                <li><strong>Circa Rooftop</strong> - Stadium Swim sportsbook, amazing views</li>
+                                <li><strong>Atomic Liquors</strong> - Vegas's oldest freestanding bar (est. 1952)</li>
+                                <li><strong>Commonwealth</strong> - Rooftop patio, craft cocktails</li>
+                                <li><strong>Binion's</strong> - Classic Vegas casino</li>
+                            </ul>
+                        </div>
+                        <ul>
+                            <li>Walk the Strip and experience the energy</li>
+                            <li>Bellagio Fountains (shows every 15-30 min until midnight)</li>
+                            <li>Casino hopping for birthday drinks</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- THURSDAY -->
+                <div class="day-section">
+                    <div class="day-title">THURSDAY, OCTOBER 9 - Show Day</div>
+                    
+                    <div class="time-block">
+                        <strong>9:00am - Breakfast Options:</strong>
+                        <ul>
+                            <li><strong>Eggslut</strong> (Cosmopolitan) - Famous breakfast sandwiches, casual - <span class="highlight">HIGHLY RECOMMENDED</span></li>
+                            <li><strong>Me Mamas Breakfast & Lunch</strong> - Local favorite, comfort food</li>
+                            <li><strong>Zippy's</strong> - Hawaiian food, unique Vegas experience</li>
+                            <li><strong>Hash House A Go Go</strong> (Caesars Palace) - Huge portions, twisted farm food</li>
+                            <li><strong>Peppermill Restaurant & Fireside Lounge</strong> - Vegas institution, retro vibes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>11:00am - Valley of Fire State Park Drive</strong>
+                        <ul>
+                            <li>50 minutes northeast of Vegas</li>
+                            <li>Nevada's oldest and largest state park</li>
+                            <li>Stunning red Aztec sandstone formations</li>
+                        </ul>
+                        <strong>Must-see stops:</strong>
+                        <ul>
+                            <li>Fire Wave Trail (moderate hike, incredible striped formations)</li>
+                            <li>Elephant Rock (easy walk, iconic photo spot)</li>
+                            <li>Seven Sisters rock formations</li>
+                            <li>Arch Rock (short walk from parking)</li>
+                            <li>Atlatl Rock petroglyphs (ancient rock art)</li>
+                        </ul>
+                        <ul>
+                            <li><strong>Duration:</strong> 3-4 hours roundtrip including drive</li>
+                            <li>Bring water and sunscreen</li>
+                            <li>$10 park entrance fee</li>
+                            <li>Back to Vegas by early afternoon</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>2:00pm - Lunch Options:</strong>
+                        <ul>
+                            <li><strong>Crack Shack</strong> - Amazing chicken sandwiches - <span class="highlight">HIGHLY RECOMMENDED</span></li>
+                            <li><strong>La Salsa Cantina</strong> (Miracle Mile Shops) - Fresh Mexican food</li>
+                            <li><strong>Secret Pizza</strong> (Cosmopolitan) - Hidden gem, NY-style slices</li>
+                            <li><strong>Tacos El Gordo</strong> - Authentic Tijuana-style tacos, local favorite</li>
+                            <li><strong>In-N-Out Burger</strong> - California classic (location on the Strip)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>4:00pm - Shopping & Exploring:</strong>
+                        <ul>
+                            <li>Forum Shops at Caesars</li>
+                            <li>Grand Canal Shoppes at Venetian</li>
+                            <li>Miracle Mile Shops at Planet Hollywood</li>
+                            <li>Container Park downtown (boutiques, bars, giant praying mantis sculpture)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reservation">
+                        <strong>7:00pm - Dinner at Caramella - Planet Hollywood</strong> <span class="highlight">✅ RESERVED FOR 6</span>
+                        <ul>
+                            <li>Italian restaurant at Planet Hollywood</li>
+                            <li>Perfect timing before the show</li>
+                            <li>Conveniently located in same hotel</li>
+                        </ul>
+                        <div class="must-try">
+                            <strong>MUST TRY:</strong> Foot-long cheesecake, Chicken Parm
+                        </div>
+                        <div class="secret">
+                            <strong>SECRET:</strong> After dinner, door inside IT'SUGAR candy store leads to a speakeasy!
+                        </div>
+                    </div>
+                    
+                    <div class="reservation">
+                        <strong>9:00pm - Criss Angel MINDFREAK</strong> <span class="highlight">✅ TICKETED</span>
+                        <ul>
+                            <li>Criss Angel Theater at Planet Hollywood</li>
+                            <li>Section 102, Row C, Seats 11-14</li>
+                            <li>Mind-blowing magic and illusions</li>
+                            <li>Arrive 15-20 minutes early</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>11:30pm - Late Night:</strong>
+                        <ul>
+                            <li>Celebrate at a club or lounge</li>
+                            <li>Omnia at Caesars (electronic dance music, stunning views)</li>
+                            <li>XS at Wynn (pool club atmosphere)</li>
+                            <li>Foundation Room at Mandalay Bay (sophisticated rooftop)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- FRIDAY -->
+                <div class="day-section">
+                    <div class="day-title">FRIDAY, OCTOBER 10 - Adventure & Show Day</div>
+                    
+                    <div class="time-block">
+                        <strong>9:00am - Breakfast Options:</strong>
+                        <ul>
+                            <li><strong>Me Mamas Breakfast & Lunch</strong> - Local favorite, comfort food portions</li>
+                            <li><strong>Eggslut</strong> (Cosmopolitan) - Famous breakfast sandwiches - <span class="highlight">HIGHLY RECOMMENDED</span></li>
+                            <li><strong>Zippy's</strong> - Hawaiian food, unique Vegas experience</li>
+                            <li><strong>Bacchanal Buffet</strong> (Caesars Palace) - Best buffet in Vegas</li>
+                            <li><strong>The Griddle Cafe</strong> - Huge pancakes and comfort food</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>11:00am - Drive to Boulder City for Kayak Tour</strong>
+                        <ul>
+                            <li>30-40 minute scenic drive from Strip</li>
+                            <li>Stop at Welcome to Fabulous Las Vegas sign on way out (photo op!)</li>
+                            <li><strong>HOOVER DAM STOP</strong> - Quick photo op at the dam overlook (add 15-20 min)</li>
+                            <li><strong>EN ROUTE STOP: Hemenway Park in Boulder City</strong> - See bighorn sheep! (5-10 min)</li>
+                            <li>Grab snacks/water for the tour</li>
+                            <li>Arrive at kayak launch site by 1:45pm</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reservation">
+                        <strong>2:00pm - Las Vegas Emerald Cave Kayak Tour</strong> <span class="highlight">✅ BOOKED</span>
+                        <ul>
+                            <li><strong>Confirmation:</strong> 1316742135</li>
+                            <li><strong>Duration:</strong> Approximately 4 hours (2pm-6pm)</li>
+                            <li>Colorado River adventure</li>
+                            <li>Stunning emerald waters in Black Canyon</li>
+                            <li>Scenic Hoover Dam area views</li>
+                        </ul>
+                        <div class="info-box">
+                            <strong>INCLUDED:</strong> Snacks, drinks, drybags, phone pouch<br>
+                            <strong>BRING:</strong> Towel, water shoes (NO FLIP-FLOPS), sunscreen, swimsuit under clothes<br>
+                            <strong>NOT INCLUDED:</strong> National Park fee (bring cash/card)
+                        </div>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>6:00pm - Return from Kayaking</strong>
+                        <ul>
+                            <li>Drive back to Vegas Strip</li>
+                            <li>Quick shower and change at hotel</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>7:30pm - Dinner on Way Back (Before Mad Apple):</strong>
+                        <ul>
+                            <li><strong>Nine Fine Irishmen</strong> (New York-New York) - Irish pub, same hotel as Mad Apple</li>
+                            <li><strong>Tom's Urban</strong> (New York-New York) - American comfort food</li>
+                            <li><strong>America</strong> (New York-New York) - Classic diner with huge menu</li>
+                            <li><strong>Gonzalez y Gonzalez</strong> (New York-New York) - Mexican food & margaritas</li>
+                            <li><strong>Shake Shack</strong> (New York-New York) - Quick burgers if running late</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reservation">
+                        <strong>Mad Apple Party Package:</strong>
+                        <ul>
+                            <li><strong>Doors open:</strong> 9:00pm (30 min before showtime)</li>
+                            <li><strong>Show starts:</strong> 9:30pm <span class="highlight">✅ TICKETED</span></li>
+                            <li>Mad Apple by Cirque du Soleil at NY-NY</li>
+                            <li>Vegas nightclub meets Cirque - high-energy, adult-oriented</li>
+                            <li>Live music, acrobatics, comedy</li>
+                            <li>Cost: $16.47 + $1.48 LET = $17.95 per person</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>11:30pm - Late Night Birthday Celebration:</strong>
+                        <div class="info-box">
+                            <strong>Vegas Speakeasies - HIGHLY RECOMMENDED:</strong>
+                            <ul>
+                                <li><strong>The Laundry Room</strong> (Commonwealth, Downtown) - Ultra-exclusive, hidden behind dryer door, craft cocktails (text 702-701-1466 for reservations)</li>
+                                <li><strong>The Underground at The Mob Museum</strong> - Speakeasy in real underground Prohibition-era distillery, craft cocktails</li>
+                                <li><strong>Velveteen Rabbit</strong> (Downtown) - Craft cocktail bar, vintage vibe</li>
+                                <li><strong>Herbs & Rye</strong> - Award-winning cocktails, old-school steakhouse atmosphere</li>
+                                <li><strong>Nostalgia</strong> (Luxor) - Hidden behind a "Barber Shop," password required</li>
+                            </ul>
+                        </div>
+                        <ul>
+                            <li><strong>Brooklyn Bowl</strong> (The LINQ) - Bowling, live music, great vibe</li>
+                            <li><strong>Topgolf Las Vegas</strong> (open late) - Fun group activity</li>
+                            <li><strong>The Chandelier</strong> (Cosmopolitan) - Three-story bar experience</li>
+                            <li><strong>Downtown Las Vegas</strong> - Fremont Street, Circa sportsbook rooftop</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- SATURDAY -->
+                <div class="day-section">
+                    <div class="day-title">SATURDAY, OCTOBER 11 - Death Valley & Mt. Charleston Adventure Day</div>
+                    
+                    <div class="time-block">
+                        <strong>9:00am - Hotel Checkout & Depart</strong>
+                        <ul>
+                            <li><strong>Pack up and check out of hotel</strong> (keep luggage in car)</li>
+                            <li>Quick hotel breakfast or coffee to-go</li>
+                            <li>Hit the road for Death Valley</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>9:30am - Breakfast En Route</strong>
+                        <ul>
+                            <li><strong>Black Bear Diner</strong> (on way to Pahrump) - Hearty portions, classic American</li>
+                            <li><strong>Local diners</strong> in Pahrump area</li>
+                            <li>Pack extra snacks and water (1 gallon per person)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>10:30am - Arrive Pahrump</strong>
+                        <ul>
+                            <li>Gas up before entering Death Valley</li>
+                            <li>Last chance for supplies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>11:00am - 2:00pm - Death Valley National Park Exploration (3 hours)</strong>
+                        
+                        <strong>Must-See Stops (Prioritized for 3-hour visit):</strong>
+                        <ol>
+                            <li><strong>Drive up to Dante's View</strong> (scenic overlook drive, don't stop - just experience the elevation)</li>
+                            <li><strong>Zabriskie Point</strong> (20 min) - Stunning badlands overlook, essential stop</li>
+                            <li><strong>Furnace Creek Visitor Center</strong> (15 min) - Quick bathroom/water break</li>
+                            <li><strong>Badwater Basin</strong> (45 min) - Lowest point in North America (-282 feet) - DON'T MISS</li>
+                            <li><strong>Artist's Palette</strong> (30 min) - Rainbow-colored mountainside</li>
+                            <li><strong>Devil's Golf Course</strong> (15 min) - Quick photo stop of salt formations</li>
+                        </ol>
+                        
+                        <div class="warning-box">
+                            <strong>Notes:</strong>
+                            <ul>
+                                <li>Bring: Sunscreen, hats, LOTS of water (1 gallon per person)</li>
+                                <li>October temps: 70-90°F (pleasant compared to summer)</li>
+                                <li>Limited cell service</li>
+                                <li><strong>National Park entrance fee required</strong> (not included in kayak tour)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>2:00pm - Lunch En Route to Mt. Charleston</strong>
+                        <ul>
+                            <li>Drive back toward Vegas</li>
+                            <li>Stop in Pahrump or along the way</li>
+                        </ul>
+                        <strong>Lunch Options:</strong>
+                        <ul>
+                            <li><strong>Pahrump Nugget</strong> - Casino buffet, hearty meals</li>
+                            <li><strong>Terrible's Road House</strong> - Casual dining</li>
+                            <li><strong>Local restaurants</strong> in Pahrump area</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>3:30pm - Arrive Mt. Charleston (45 min from Pahrump via Vegas)</strong>
+                        <ul>
+                            <li>Northwest of Vegas, about 45 minutes from Strip</li>
+                            <li>20-30 degrees cooler than Vegas</li>
+                        </ul>
+                        <strong>Mt. Charleston Activities:</strong>
+                        <ul>
+                            <li><strong>Cathedral Rock Trailhead</strong> - Scenic views, very short walk (15-20 min)</li>
+                            <li><strong>Mount Charleston Resort</strong> - Grab drinks, enjoy mountain air and views</li>
+                            <li><strong>Kyle Canyon Scenic Drive</strong> - Beautiful mountain overlooks</li>
+                            <li><strong>Mary Jane Falls Trail</strong> - If energy permits (2.5 miles roundtrip, moderate)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>5:30pm - Depart Mt. Charleston for Vegas</strong>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>7:00pm - Dinner on Way to Airport:</strong>
+                        <ul>
+                            <li><strong>Hussong's Cantina</strong> (Mandalay Bay) - Mexican, right by airport</li>
+                            <li><strong>Citizens Kitchen</strong> (Mandalay Bay) - American comfort food, near airport</li>
+                            <li><strong>In-N-Out Burger</strong> (Tropicana Ave) - Quick California classic near airport</li>
+                            <li><strong>The Peppermill</strong> - Vegas institution, 24 hours</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>8:30pm - Final Vegas Moments:</strong>
+                        <ul>
+                            <li>Quick stop at Bellagio Fountains for one last show</li>
+                            <li>Drive down the Strip one final time</li>
+                            <li>Grab any last-minute snacks for flight</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>9:30pm - Head to Airport</strong>
+                        <ul>
+                            <li><strong>Return rental car</strong> (allow 30-45 min for return process)</li>
+                            <li><strong>Check bags</strong> for Delta 722 flight</li>
+                            <li>Go through security</li>
+                            <li>Relax at gate before 11:59pm departure</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reservation">
+                        <strong>11:59pm - Delta 722 Departure</strong>
+                        <ul>
+                            <li>Red-eye flight to Atlanta</li>
+                            <li>Sleep on the plane</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- SUNDAY -->
+                <div class="day-section">
+                    <div class="day-title">SUNDAY, OCTOBER 12 - Departure Day (Red-eye Arrival)</div>
+                    
+                    <div class="time-block">
+                        <strong>6:43am - Arrive Atlanta from Vegas</strong>
+                        <ul>
+                            <li>Delta 722 red-eye lands in Atlanta</li>
+                            <li>1 hour 27 minute layover</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>8:10am - Board Final Flight Home</strong>
+                        <ul>
+                            <li>Delta 5462: Atlanta → Mobile (8:10am - 8:33am)</li>
+                            <li>Short 23-minute flight</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <strong>8:33am - Welcome Home to Mobile!</strong>
+                        <p>End of Henderson's epic 21st birthday Vegas adventure! 🎉</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Recommendations -->
+            <div class="section">
+                <h2><span class="emoji">🎯</span> Additional Vegas Recommendations</h2>
+                
+                <div class="tip-box">
+                    <h3>Best Photo Spots</h3>
+                    <ul>
+                        <li>Welcome to Fabulous Las Vegas sign</li>
+                        <li>Bellagio Fountains</li>
+                        <li>Luxor light beam at night</li>
+                        <li>Eiffel Tower at Paris</li>
+                        <li>High Roller observation wheel</li>
+                        <li>Neon Museum (book in advance)</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <h3>Top Free Activities</h3>
+                    <ul>
+                        <li>Bellagio Fountains (every 15-30 min)</li>
+                        <li>Mirage Volcano (nightly shows)</li>
+                        <li>Fall of Atlantis at Caesars (animatronic show)</li>
+                        <li>Conservatory at Bellagio (seasonal displays)</li>
+                        <li>People watching on the Strip</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <h3>Must-Visit Speakeasies & Hidden Bars</h3>
+                    <ul>
+                        <li><strong>IT'SUGAR Speakeasy</strong> (Planet Hollywood) - Hidden door inside candy store leads to secret bar</li>
+                        <li><strong>The Laundry Room</strong> (Commonwealth) - Ultra-secret, text 702-701-1466 for entry</li>
+                        <li><strong>The Underground at The Mob Museum</strong> - Real Prohibition-era distillery</li>
+                        <li><strong>Velveteen Rabbit</strong> (Downtown) - Craft cocktails, vintage atmosphere</li>
+                        <li><strong>Herbs & Rye</strong> - Award-winning cocktails, old Vegas feel</li>
+                        <li><strong>Nostalgia</strong> (Luxor) - Hidden behind fake barber shop, password required</li>
+                        <li><strong>Prohibition Bar</strong> - 1920s themed speakeasy</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <h3>21st Birthday Experiences</h3>
+                    <ul>
+                        <li>Get free drinks while gambling (tip cocktail servers)</li>
+                        <li>Visit SKYFALL Lounge (Delano) - views and cocktails</li>
+                        <li>Take shots on Fremont Street</li>
+                        <li>Birthday drinks at Chandelier Bar</li>
+                        <li>Visit XS or Omnia nightclubs</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <h3>Quick Casual Dining Favorites</h3>
+                    <ul>
+                        <li><strong>Crack Shack</strong> - Best chicken sandwiches in Vegas</li>
+                        <li><strong>Eggslut</strong> (Cosmopolitan) - Breakfast sandwiches all day</li>
+                        <li><strong>La Salsa Cantina</strong> (Miracle Mile Shops) - Fresh Mexican</li>
+                        <li><strong>Zippy's</strong> - Hawaiian comfort food</li>
+                        <li><strong>Ocean Prime</strong> - Happy hour 3-6pm (upscale steaks/seafood deals)</li>
+                        <li><strong>TSP (The Sweet Pig)</strong> - Mini cupcakes, perfect dessert</li>
+                        <li><strong>Eataly</strong> (Park MGM) - Italian marketplace</li>
+                        <li><strong>Wicked Spoon</strong> (Cosmopolitan) - Creative buffet</li>
+                        <li><strong>Momofuku</strong> (Cosmopolitan) - Asian-inspired</li>
+                        <li><strong>Holsteins</strong> (Cosmopolitan) - Gourmet burgers & shakes</li>
+                        <li><strong>Nacho Daddy</strong> - Loaded nachos, scorpion shots</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Important Notes -->
+            <div class="section">
+                <h2><span class="emoji">📝</span> Important Notes</h2>
+                
+                <div class="info-box">
+                    <h3>Rental Car</h3>
+                    <ul>
+                        <li><strong>Pick up:</strong> Wednesday arrival at airport (1:37pm)</li>
+                        <li><strong>Return:</strong> Saturday night at airport (by 11pm for 11:59pm flight)</li>
+                        <li><strong>Total rental:</strong> 3.5 days</li>
+                        <li>Needed for: Death Valley (Saturday), Mt. Charleston, potentially other excursions</li>
+                        <li><strong>Parking:</strong> Most Strip hotels charge $15-30/day for parking (budget accordingly)</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <h3>Packing Essentials</h3>
+                    <ul>
+                        <li>Comfortable walking shoes (you'll walk MILES)</li>
+                        <li><strong>Towel for kayak tour</strong></li>
+                        <li><strong>Water shoes for kayak tour (NO FLIP-FLOPS)</strong></li>
+                        <li>Sunscreen & sunglasses</li>
+                        <li>Light layers (AC indoors is cold, outside is warm)</li>
+                        <li>Nice outfits for shows and dinners</li>
+                        <li>Daypack for Death Valley</li>
+                        <li>Phone chargers & portable battery</li>
+                        <li>ID for 21st birthday person (needed everywhere!)</li>
+                        <li>Swimsuit (for kayaking and pools)</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <h3>Money-Saving Tips</h3>
+                    <ul>
+                        <li>Drink alcohol while gambling (free drinks)</li>
+                        <li>Walk between hotels instead of taxi/Uber when possible</li>
+                        <li>Look for happy hour specials (4-7pm many places)</li>
+                        <li>Download casino apps for promotions</li>
+                        <li>Eat one big meal and supplement with snacks</li>
+                        <li>Free attractions between paid activities</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h3>Weather Forecast (October in Vegas)</h3>
+                    <ul>
+                        <li><strong>Average high:</strong> 82°F</li>
+                        <li><strong>Average low:</strong> 59°F</li>
+                        <li><strong>Death Valley:</strong> 70-90°F (much hotter than Vegas)</li>
+                        <li><strong>Mt. Charleston:</strong> 50-65°F (cooler, 20 degrees less than Vegas)</li>
+                        <li>Virtually no rain - pack light!</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Confirmed Reservations -->
+            <div class="section">
+                <h2><span class="emoji">✅</span> Quick Reference: Confirmed Reservations</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Activity</th>
+                            <th>Location</th>
+                            <th>Confirmation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Wed 10/8</td>
+                            <td>8:30 PM</td>
+                            <td>Dinner for 6</td>
+                            <td>Mon Ami Gabi, Paris</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Thu 10/9</td>
+                            <td>7:00 PM</td>
+                            <td>Dinner for 6</td>
+                            <td>Caramella, Planet Hollywood</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Thu 10/9</td>
+                            <td>9:00 PM</td>
+                            <td>Show</td>
+                            <td>Criss Angel MINDFREAK, Planet Hollywood</td>
+                            <td>Sec 102, Row C, 11-14</td>
+                        </tr>
+                        <tr>
+                            <td>Fri 10/10</td>
+                            <td>2:00 PM</td>
+                            <td>Kayak Tour (4 hrs)</td>
+                            <td>Emerald Cave</td>
+                            <td>1316742135</td>
+                        </tr>
+                        <tr>
+                            <td>Fri 10/10</td>
+                            <td>9:30 PM</td>
+                            <td>Show</td>
+                            <td>Mad Apple, NY-NY</td>
+                            <td>$17.95/person</td>
+                        </tr>
+                        <tr>
+                            <td>Sat 10/11</td>
+                            <td>9:00 AM</td>
+                            <td>Hotel Checkout</td>
+                            <td>Pack & bring luggage</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Sat 10/11</td>
+                            <td>All Day</td>
+                            <td>Day Trip</td>
+                            <td>Death Valley (3 hrs) + Mt. Charleston</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Sat 10/11</td>
+                            <td>11:59 PM</td>
+                            <td>Flight</td>
+                            <td>Delta 722: Vegas → Atlanta</td>
+                            <td>Arrives 6:43am Sun</td>
+                        </tr>
+                        <tr>
+                            <td>Sun 10/12</td>
+                            <td>8:10 AM</td>
+                            <td>Flight</td>
+                            <td>Delta 5462: Atlanta → Mobile</td>
+                            <td>Arrives 8:33am</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Birthday Section -->
+            <div class="section">
+                <h2><span class="emoji">🎊</span> Happy 21st Birthday, Henderson!</h2>
+                
+                <div class="tip-box">
+                    <h3>Vegas Birthday Traditions:</h3>
+                    <ul>
+                        <li>Free birthday desserts at most restaurants (tell your server!)</li>
+                        <li>Birthday cocktails at casino bars</li>
+                        <li>Free entry or VIP treatment at some clubs (call ahead)</li>
+                        <li>Take a birthday shot at every hotel you visit</li>
+                        <li>Get a "21" balloon from a gift shop and wear it around</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <h3>Group Photo Opportunities:</h3>
+                    <ul>
+                        <li>Professional photo at Bellagio Fountains</li>
+                        <li>Group shot at Welcome sign</li>
+                        <li>On the High Roller at sunset</li>
+                        <li>In front of each show venue</li>
+                        <li>Commemorative photo at Fremont Street</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Have an amazing trip! 🎰🎉🍾</p>
+        </footer>
+    </div>
+</body>
+</html>
