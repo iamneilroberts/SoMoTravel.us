@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sara & Darren Jones - UK Anniversary Trip</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .alert-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 30px 40px;
+            border-radius: 4px;
+        }
+
+        .alert-box h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .alert-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .alert-box li {
+            padding: 8px 0;
+            color: #856404;
+        }
+
+        .alert-box strong {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .section {
+            padding: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .info-card p {
+            margin: 5px 0;
+            font-size: 0.95em;
+        }
+
+        .day-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 25px;
+        }
+
+        .day-header h3 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .day-header p {
+            opacity: 0.9;
+            font-size: 1em;
+        }
+
+        .day-content {
+            padding: 25px;
+        }
+
+        .time-block {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #667eea;
+        }
+
+        .time-block h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .time-block p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .time-block ul {
+            margin: 10px 0 10px 20px;
+            color: #555;
+        }
+
+        .accommodation {
+            background: #f0f4ff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .accommodation strong {
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .tour-highlight {
+            background: #fff9e6;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 4px solid #ffc107;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .contact-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            .section {
+                padding: 20px;
+            }
+            .info-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sara & Darren Jones</h1>
+            <p>United Kingdom Anniversary Celebration</p>
+            <p>October 5-15, 2025</p>
+        </header>
+
+        <div class="alert-box">
+            <h3>🚨 IMMEDIATE ACTION ITEMS</h3>
+            <ul>
+                <li><strong>✓ Verify Passports:</strong> Check both passports are valid through March 2026 minimum</li>
+                <li><strong>✓ UK ETA Application Required:</strong> Apply at gov.uk/guidance/apply-for-an-electronic-travel-authorisation-eta<br>
+                Cost: £10 per person | Required as of January 8, 2025 | Processing: Instant to 3 days</li>
+                <li><strong>✓ Select Meals - Outbound Flight:</strong> Washington Dulles → Amsterdam (Oct 5) - Overnight flight</li>
+                <li><strong>✓ Select Meals - Return Flight:</strong> Bristol → Amsterdam → Washington Dulles (Oct 15) - 9-hour journey</li>
+            </ul>
+            <strong>⚠️ Early Departure Warning:</strong> October 15 requires 5:45 AM hotel checkout for 9:20 AM flight
+        </div>
+
+        <section class="section">
+            <h2>✈️ Flight Information</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Outbound Flight</h4>
+                    <p><strong>Date:</strong> October 5-6, 2025</p>
+                    <p><strong>Flight:</strong> Delta/KLM DL9447</p>
+                    <p><strong>Confirmation:</strong> GFHM85</p>
+                    <p><strong>Departure:</strong> Oct 5, 5:25 PM EDT<br>Washington Dulles (IAD)</p>
+                    <p><strong>Connection:</strong> Amsterdam (AMS)<br>1h 40m layover</p>
+                    <p><strong>Arrival:</strong> Oct 6, 9:05 AM<br>Bristol (BRS)</p>
+                    <p><strong>Check-in Opens:</strong> Oct 5, 2:25 PM EDT</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Return Flight</h4>
+                    <p><strong>Date:</strong> October 15, 2025</p>
+                    <p><strong>Flight:</strong> KLM KL1076</p>
+                    <p><strong>Departure:</strong> 9:20 AM<br>Bristol (BRS)</p>
+                    <p><strong>Connection:</strong> Amsterdam (AMS)</p>
+                    <p><strong>Arrival:</strong> 3:35 PM EDT<br>Washington Dulles (IAD)</p>
+                    <p><strong>Airport Arrival:</strong> 6:30 AM (very early!)</p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h4>🚗 Rental Car Information</h4>
+                <p><strong>Company:</strong> Enterprise</p>
+                <p><strong>Vehicle:</strong> Intermediate Sport Utility Vehicle (SUV) - Automatic</p>
+                <p><strong>Driver:</strong> DARREN JONES</p>
+                <p><strong>Location:</strong> Bristol Airport Car Rental Centre</p>
+                <p><strong>Address:</strong> Bristol, ENG BS48 3DW GB</p>
+                <p><strong>Phone:</strong> 01275-47599</p>
+                <p><strong>Pickup:</strong> October 6, 9:00 AM</p>
+                <p><strong>Return:</strong> October 15, 7:00 AM</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🏨 Accommodations</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>The Kennard Hotel - Bath</h4>
+                    <p><strong>Dates:</strong> Oct 6-9 (3 nights)</p>
+                    <p><strong>Location:</strong> Central Bath</p>
+                    <p><strong>Room:</strong> King bed upgrade requested</p>
+                    <p><strong>Website:</strong> kennard.co.uk</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>The Old Granary - Winchester</h4>
+                    <p><strong>Dates:</strong> Oct 9-14 (5 nights)</p>
+                    <p><strong>Booking:</strong> 26114515</p>
+                    <p><strong>Location:</strong> Bransbury, Barton Stacey SO21 3QJ</p>
+                    <p><strong>Type:</strong> Luxury converted granary, 2 bedrooms</p>
+                    <p><strong>Total:</strong> £839.44</p>
+                    <p><strong>Check-in:</strong> 4:00-8:00 PM</p>
+                    <p><strong>Check-out:</strong> 10:00 AM</p>
+                    <p><strong>Contact:</strong> 01872 30 88 33</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Berwick Lodge - Bristol</h4>
+                    <p><strong>Dates:</strong> Oct 14-15 (1 night)</p>
+                    <p><strong>Reservation:</strong> E8W223AX</p>
+                    <p><strong>Room:</strong> Garden Suite</p>
+                    <p><strong>Cost:</strong> $340.50 USD</p>
+                    <p><strong>Note:</strong> 5:45 AM checkout for flight</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>📅 Daily Itinerary</h2>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 1 - Arrival & Bath Orientation</h3>
+                    <p>Monday, October 6</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <h4>Morning - Bristol Airport Arrival</h4>
+                        <p>9:05 AM: Land at Bristol Airport</p>
+                        <p>9:00 AM: Pick up rental car (Enterprise SUV)</p>
+                        <p>10:30 AM: Drive to Bath (45 minutes)</p>
+                    </div>
+
+                    <div class="time-block">
+                        <h4>Afternoon - Bath City Highlights Walk</h4>
+                        <div class="tour-highlight">
+                            <p><strong>Confirmed Tour</strong></p>
+                            <p><strong>Time:</strong> 3:00 PM</p>
+                            <p><strong>Booking:</strong> CLJGGR (ToursByLocals)</p>
+                            <p><strong>Guide:</strong> Susan Swainbank</p>
+                            <p><strong>Meeting Point:</strong> 11 Henrietta Street, Bath</p>
+                            <p><strong>Focus:</strong> Private Jane Austen focused tour</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <h4>Evening - Orientation & Dinner</h4>
+                        <p>Walk: Pulteney Bridge → Bath Abbey</p>
+                        <p>Dinner options: Woods or Joya</p>
+                    </div>
+
+                    <div class="accommodation">
+                        <strong>🏨 The Kennard Hotel</strong>
+                        <p>Central Bath • King bed • Check-in after 2:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 2 - Roman History</h3>
+                    <p>Tuesday, October 7</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <h4>Morning - Free Exploration</h4>
+                        <p>Independent discovery of Bath</p>
+                        <p>Lunch: Roman Baths Kitchen or Coraggio</p>
+                    </div>
+
+                    <div class="time-block">
+                        <h4>Afternoon - Roman Baths Tour</h4>
+                        <p>2-hour guided experience (Included)</p>
+                        <p>Ancient Roman history exploration</p>
+                    </div>
+
+                    <div class="accommodation">
+                        <strong>🏨 The Kennard Hotel</strong>
+                        <p>Central Bath</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 3 - Jane Austen's Bath</h3>
+                    <p>Wednesday, October 8</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <h4>Morning - Jane Austen Sites</h4>
+                        <ul>
+                            <li>No.1 Royal Crescent (£12.50)</li>
+                            <li>The Circus & Gay Street</li>
+                            <li>Sydney Gardens (free)</li>
+                        </ul>
+                    </div>
+
+                    <div class="time-block">
+                        <h4>Afternoon - Shopping & Food Trail</h4>
+                        <ul>
+                            <li>Topping & Company bookshop</li>
+                            <li>Mr B's Emporium</li>
+                            <li>Walcot Street antiques</li>
+                        </ul>
+                    </div>
+
+                    <div class="accommodation">
+                        <strong>🏨 The Kennard Hotel</strong>
+                        <p>Central Bath</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 4 - Stonehenge & Winchester</h3>
+                    <p>Thursday, October 9</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <h4>Morning - Departure from Bath</h4>
+                        <p>Hotel checkout</p>
+                        <p>Optional: Bishop's Palace or Old Sarum</p>
+                    </div>
+
+                    <div class="time-block">
+                        <h4>Afternoon - Private Stonehenge Tour</h4>
+                        <div class="tour-highlight">
+                            <p><strong>Confirmed Tour - $125.98</strong></p>
+                            <p><strong>Confirmation:</strong> 1609515571</p>
+                            <p><strong>Booking:</strong> BR-1225055703</p>
+                            <p><strong>Meeting:</strong> Stonehenge Visitor Centre, Salisbury SP4 7DE</p>
+                            <p><strong>Hours:</strong> 9:30 AM - 5:00 PM</p>
+                            <p><strong>Contact:</strong> Pintours +18449582728</p>
+                            <p><strong>Viator Support:</strong> +1-702-648-5873</p>
+                            <p><strong>⚠️ Note:</strong> NO REFUNDS</p>
+                            <p><strong>Required:</strong> Photo ID</p>
+                        </div>
+                    </div>
+
+                    <div class="accommodation">
+                        <strong>🏨 The Old Granary</strong>
+                        <p>Luxury granary • Check-in 4:00-8:00 PM • 5 nights</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 5 - London Day Trip Option</h3>
+                    <p>Friday, October 10</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <h4>Day at Leisure</h4>
+                        <p>Explore Winchester area</p>
+                        <p>OR</p>
+                        <p>Optional day trip planning</p>
+                    </div>
+
+                    <div class="accommodation">
+                        <strong>🏨 The Old Granary</strong>
+                        <p>Bransbury, Winchester area</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 6 - Medieval Winchester & London Tours</h3>
+                    <p>Saturday, October 11</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <h4>Early Morning - Train to London</h4>
+                        <p>7:05 AM: Depart Winchester</p>
+                        <p>8:17 AM: Arrive Waterloo</p>
+                    </div>
+
+                    <div class="time-block">
+                        <h4>Morning - Tower of London & Thames River Cruise</h4>
+                        <div class="tour-highlight">
+                            <p><strong>Confirmed Tour - $582.70</strong></p>
+                            <p><strong>Time:</strong> 9:30 AM start</p>
+                            <p><strong>Confirmation:</strong> 1609515571</p>
+                            <p><strong>Booking:</strong> BR-1225055701</p>
+                            <p><strong>Meeting:</strong> Abraham Lincoln Statue, Parliament Square, London SW1P 3AE</p>
+                            <p><strong>End:</strong> Tower of London EC3N 4AB (free to explore after)</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <h4>Afternoon - Private Black Taxi Tour</h4>
+                        <div class="tour-highlight">
+                            <p><strong>Confirmed Tour - $258.81</strong></p>
+                            <p><strong>Time:</strong> 2:00 PM start</p>
+                            <p><strong>Booking:</strong> BR-1225055697</p>
+                            <p><strong>Meeting:</strong> CitizenM Hotel, 40 Trinity Square, EC3N 4DJ<br>(next to Tower Hill Underground)</p>
+                            <p><strong>Driver:</strong> Mike Hewett</p>
+                            <p><strong>Mobile:</strong> +44-7946-498002</p>
+                            <p><strong>Taxi:</strong> LL68WGX</p>
+                            <p>Private London highlights</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <h4>Evening - Return to Winchester</h4>
+                        <p>7:30 PM: Return train to Winchester</p>
+                    </div>
+
+                    <div class="accommodation">
+                        <strong>🏨 The Old Granary</strong>
+                        <p>Bransbury, Winchester area</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 7 - Jane Austen's Hampshire</h3>
+                    <p>Sunday, October 12</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <h4>Morning - Jane Austen's House Museum</h4>
+                        <div class="tour-highlight">
+                            <p><strong>Confirmed Visit</strong></p>
+                            <p><strong>Booking:</strong> 62363</p>
+                            <p><strong>Location:</strong> Chawton, Hampshire</p>
+                            <p>Visit Jane Austen's House Museum in Chawton</p>
+                            <p>Explore where she wrote her major novels</p>
+                            <p>See personal items and manuscripts</p>
+                        </div>
+                    </div>
+
+                    <div class="time-block">
+                        <h4>Afternoon - Chawton Village & Surroundings</h4>
+                        <ul>
+                            <li>Chawton House (former estate of Jane's brother)</li>
+                            <li>P&G Wells Booksellers in Winchester</li>
+                            <li>St. Nicholas Church</li>
+                            <li>Traditional afternoon tea at Cassandra's Cup</li>
+                        </ul>
+                    </div>
+
+                    <div class="accommodation">
+                        <strong>🏨 The Old Granary</strong>
+                        <p>Bransbury, Winchester area</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 8 - Literary Landscapes</h3>
+                    <p>Monday, October 13</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <h4>Full Day - Film Locations Tour</h4>
+                        <ul>
+                            <li>Wilton House (Pemberley)</li>
+                            <li>Stourhead Gardens</li>
+                            <li>Lacock Village</li>
+                        </ul>
+                    </div>
+
+                    <div class="accommodation">
+                        <strong>🏨 The Old Granary</strong>
+                        <p>Bransbury, Winchester area</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 9 - Final Day Touring</h3>
+                    <p>Tuesday, October 14</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <h4>Morning - Check-out & Travel</h4>
+                        <p>10:00 AM: Leave The Old Granary</p>
+                        <p>Drive to Bristol via A34</p>
+                    </div>
+
+                    <div class="time-block">
+                        <h4>Afternoon - Highclere Castle</h4>
+                        <p>Downton Abbey filming location</p>
+                        <p>Lunch: The Fox and Hounds</p>
+                    </div>
+
+                    <div class="accommodation">
+                        <strong>🏨 Berwick Lodge</strong>
+                        <p>Garden Suite • EARLY NIGHT - 5:45 AM checkout!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 10 - Departure</h3>
+                    <p>Wednesday, October 15</p>
+                </div>
+                <div class="day-content">
+                    <div class="time-block">
+                        <h4>Very Early Morning Required!</h4>
+                        <p><strong>5:45 AM:</strong> Hotel checkout</p>
+                        <p><strong>6:30 AM:</strong> Arrive Bristol Airport</p>
+                        <p><strong>7:00 AM:</strong> Return rental car (Enterprise)</p>
+                        <p><strong>9:20 AM:</strong> Flight departure</p>
+                        <p><strong>3:35 PM EDT:</strong> Arrive Washington Dulles</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>📞 Important Contacts</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h4>Travel Agent</h4>
+                    <p><strong>Kim Henderson</strong></p>
+                    <p>📱 251-508-6921</p>
+                    <p>✉️ kim.henderson@cruiseplanners.com</p>
+                    <p>Agency: Travel Specialist for Cruise Planners.com</p>
+                </div>
+
+                <div class="contact-card">
+                    <h4>ToursByLocals Emergency</h4>
+                    <p><strong>24/7 Support</strong></p>
+                    <p>📱 +1-604-636-7058</p>
+                </div>
+
+                <div class="contact-card">
+                    <h4>Finest Retreats</h4>
+                    <p><strong>The Old Granary</strong></p>
+                    <p>📱 +44 01872 30 88 33</p>
+                </div>
+
+                <div class="contact-card">
+                    <h4>US Embassy London</h4>
+                    <p><strong>Emergency Services</strong></p>
+                    <p>📱 +44 20 7499 9000</p>
+                </div>
+
+                <div class="contact-card">
+                    <h4>Enterprise Rent-A-Car</h4>
+                    <p><strong>Bristol Airport</strong></p>
+                    <p>📱 01275-47599</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Have a wonderful anniversary celebration!</p>
+            <p>Safe travels, Sara & Darren</p>
+            <div style="margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.3);">
+                <p><strong>Kim Henderson</strong></p>
+                <p style="font-style: italic; margin: 5px 0;">Cruise & Tour Specialist</p>
+                <p style="font-size: 0.9em; margin: 5px 0;">Associate of Susie & Brad Jones, A Cruise Planners® Independent Franchise Owner</p>
+                <p style="margin: 10px 0;"><strong>t.</strong> 251-289-1505</p>
+                <p style="margin: 5px 0;"><strong>e.</strong> kim.henderson@cruiseplanners.com</p>
+                <p style="margin: 5px 0;"><strong>w.</strong> www.somotravelspecialist.com</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
