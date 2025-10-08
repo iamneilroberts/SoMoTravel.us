@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Alabama Car Payment Calculator — Mobile</title>
+<meta name="theme-color" content="#0e0f12" />
+<style>
+  /* ---------- Mobile-first design ---------- */
+  :root{
+    --bg:#0e0f12;
+    --panel:#151820;
+    --panel-2:#1b1f27;
+    --text:#e8ecf1;
+    --muted:#a2acb7;
+    --accent:#4e9cff;
+    --accent-2:#7bd389;
+    --border:#2a2f37;
+    --ok:#79d39b;
+    --warn:#ffb155;
+    --danger:#ff6b6b;
+    --radius:14px;
+    --radius-sm:10px;
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+    --space:14px;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f6f7fb; --panel:#ffffff; --panel-2:#ffffff; --text:#1d2330; --muted:#536072; --border:#dbe0e6; --shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .stickybar{box-shadow: 0 -4px 20px rgba(0,0,0,.08)}
+    input,select,button{color-scheme: light;}
+  }
+  html,body{background:var(--bg);color:var(--text);margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;-webkit-text-size-adjust:100%}
+  body{padding-bottom:120px} /* room for sticky bar */
+  .wrap{max-width:740px;margin:0 auto;padding:12px 14px 28px}
+  .titlebar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:6px 0 12px}
+  .titlebar h1{font-size:1.15rem;margin:0}
+  .badge{font-size:.72rem;background:#0f1218;border:1px solid var(--border);padding:4px 8px;border-radius:999px;color:var(--muted)}
+  .card{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:var(--space)}
+  .section-title{display:flex;align-items:center;justify-content:space-between;margin:2px 0 8px}
+  .section-title h2{font-size:1rem;margin:0;color:var(--muted);font-weight:600}
+  .pill{display:inline-flex;gap:6px;align-items:center;background:#10131a;border:1px solid var(--border);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:.8rem}
+  .hr{height:1px;background:var(--border);margin:12px 0}
+
+  /* Inputs */
+  .stack{display:flex;flex-direction:column;gap:10px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:.95rem;color:var(--muted)}
+  .control{position:relative;display:flex;align-items:center}
+  .control input,.control select{
+    width:100%;box-sizing:border-box;background:#0c0f14;color:var(--text);
+    border:1px solid var(--border);border-radius:var(--radius-sm);
+    padding:14px 12px;font-size:1.05rem;line-height:1;min-height:48px;
+    -webkit-appearance:none;appearance:none;
+  }
+  .unit{position:absolute;right:12px;font-size:.95rem;color:var(--muted);pointer-events:none}
+  input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{ -webkit-appearance: none; margin: 0; }
+  input[type=number]{ -moz-appearance: textfield; }
+  .hint{font-size:.85rem;color:var(--muted)}
+  details{border:1px solid var(--border);border-radius:var(--radius);padding:10px;background:#10141c}
+  details>summary{cursor:pointer;list-style:none;font-weight:600}
+  details>summary::-webkit-details-marker{display:none}
+  details .inner{padding-top:10px}
+  .segmented{display:flex;gap:8px;overflow-x:auto;padding:4px 2px;margin:2px -4px 10px;scroll-snap-type:x mandatory}
+  .segmented input{position:absolute;opacity:0;pointer-events:none}
+  .segmented label{
+    scroll-snap-align:start; white-space:nowrap; padding:10px 12px; border:1px solid var(--border); border-radius:999px;
+    font-weight:600; font-size:.95rem; background:#0f1218; color:var(--muted); user-select:none
+  }
+  .segmented input:checked + label{ background:var(--accent); color:#0c1220; border-color:transparent }
+
+  /* Results */
+  .results{display:grid;gap:12px}
+  .kpi{display:flex;flex-direction:column;gap:8px;padding:12px;border:1px dashed var(--border);border-radius:12px;background:#0f1116}
+  .kpi .head{display:flex;align-items:center;justify-content:space-between}
+  .kpi .big{font-size:1.6rem;font-weight:800}
+  .kpi .sub{color:var(--muted);font-size:.95rem}
+  .table{width:100%;border-collapse:collapse}
+  .table td{padding:8px 0;border-bottom:1px solid var(--border);font-size:.95rem}
+  .table tr:last-child td{border-bottom:0}
+  .table td:first-child{color:var(--muted)}
+  .ok{color:var(--ok)} .warn{color:var(--warn)} .danger{color:var(--danger)}
+  .small{font-size:.9rem;color:var(--muted)}
+  .foot{font-size:.85rem;color:var(--muted)}
+
+  /* Sticky action bar */
+  .stickybar{
+    position:fixed;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(14,15,18,0),var(--panel));
+    border-top:1px solid var(--border);padding:10px env(safe-area-inset-right) calc(10px + env(safe-area-inset-bottom)) env(safe-area-inset-left);
+  }
+  .stickybar .inner{max-width:740px;margin:0 auto;display:flex;gap:8px}
+  .stickybar button{
+    flex:1;min-height:48px;border-radius:12px;border:1px solid transparent;font-weight:800;font-size:1.05rem;cursor:pointer
+  }
+  .primary{background:var(--accent);color:#0b101d}
+  .secondary{background:#0f1218;color:var(--text);border-color:var(--border)}
+  .ghost{background:transparent;color:var(--text);border-color:var(--border)}
+  .tools{display:flex;gap:8px;overflow-x:auto}
+
+  /* Desktop tweaks */
+  @media (min-width: 780px){
+    .titlebar h1{font-size:1.25rem}
+    .card{padding:16px}
+    .wrap{padding:18px 18px 28px}
+    .stickybar .inner{gap:10px}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="titlebar">
+      <h1>Alabama Car Payment Calculator</h1>
+      <span class="badge">Mobile‑optimized • Works offline</span>
+    </div>
+
+    <!-- Solve for (swipeable segmented control) -->
+    <div class="card" aria-label="Solve For">
+      <div class="section-title">
+        <h2>Solve for</h2>
+        <span class="pill" id="modeChip">Monthly payment (forward)</span>
+      </div>
+      <div class="segmented" role="tablist" aria-label="Solve for">
+        <input type="radio" name="solveMode" id="mode_payment" value="payment" checked>
+        <label for="mode_payment">Payment</label>
+
+        <input type="radio" name="solveMode" id="mode_price" value="price">
+        <label for="mode_price">Max Price</label>
+
+        <input type="radio" name="solveMode" id="mode_down" value="down">
+        <label for="mode_down">Cash Down</label>
+
+        <input type="radio" name="solveMode" id="mode_tradein" value="tradein">
+        <label for="mode_tradein">Trade‑In $</label>
+
+        <input type="radio" name="solveMode" id="mode_term" value="term">
+        <label for="mode_term">Term (mo)</label>
+
+        <input type="radio" name="solveMode" id="mode_apr" value="apr">
+        <label for="mode_apr">APR %</label>
+      </div>
+
+      <div id="targetWrap" class="field" style="display:none">
+        <label for="targetPayment">Target monthly payment</label>
+        <div class="control">
+          <input id="targetPayment" type="number" inputmode="decimal" step="0.01" min="0" value="500" aria-describedby="targetHelp" />
+          <span class="unit">$</span>
+        </div>
+        <div id="targetHelp" class="hint">Used when solving for Price, Cash Down, Trade‑In, Term, or APR.</div>
+      </div>
+    </div>
+
+    <!-- Quick summary (updates live) -->
+    <div class="card" aria-live="polite" aria-atomic="true">
+      <div class="section-title"><h2>Results at a glance</h2></div>
+      <div class="results">
+        <div class="kpi">
+          <div class="head">
+            <span class="pill">Private Sale Route</span>
+            <span class="small">No trade‑in tax credit</span>
+          </div>
+          <div class="big" id="psPrimary">$0.00</div>
+          <div class="sub" id="psPrimarySub">Monthly payment</div>
+        </div>
+        <div class="kpi">
+          <div class="head">
+            <span class="pill">Dealer Trade‑In Route</span>
+            <span class="small">Tax on net trade difference</span>
+          </div>
+          <div class="big" id="tiPrimary">$0.00</div>
+          <div class="sub" id="tiPrimarySub">Monthly payment</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inputs -->
+    <div class="card">
+      <div class="section-title"><h2>Vehicle & Pricing</h2></div>
+      <div class="stack">
+        <div class="field">
+          <label for="price">Vehicle price (negotiated)</label>
+          <div class="control"><input id="price" type="number" inputmode="decimal" step="0.01" min="0" value="35000"><span class="unit">$</span></div>
+        </div>
+        <div class="field">
+          <label for="docFeeTaxable">Dealer doc / processing fee (taxable)</label>
+          <div class="control"><input id="docFeeTaxable" type="number" inputmode="decimal" step="0.01" min="0" value="449"><span class="unit">$</span></div>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+      <details open>
+        <summary>Taxes & Fees (Alabama)</summary>
+        <div class="inner stack">
+          <div class="field">
+            <label for="stateTaxRate">State motor‑vehicle sales tax rate</label>
+            <div class="control"><input id="stateTaxRate" type="number" inputmode="decimal" step="0.01" min="0" value="2.00"><span class="unit">%</span></div>
+          </div>
+          <div class="field">
+            <label for="localTaxRate">Local (county/city) auto tax rate</label>
+            <div class="control"><input id="localTaxRate" type="number" inputmode="decimal" step="0.01" min="0" value="0.00"><span class="unit">%</span></div>
+          </div>
+          <div class="field">
+            <label for="titleFee">Title fee</label>
+            <div class="control"><input id="titleFee" type="number" inputmode="decimal" step="0.01" min="0" value="15.00"><span class="unit">$</span></div>
+          </div>
+          <div class="field">
+            <label for="regFee">Registration / plate fee</label>
+            <div class="control"><input id="regFee" type="number" inputmode="decimal" step="0.01" min="0" value="23.00"><span class="unit">$</span></div>
+          </div>
+          <div class="field">
+            <label for="issueFee">County issue fee</label>
+            <div class="control"><input id="issueFee" type="number" inputmode="decimal" step="0.01" min="0" value="1.25"><span class="unit">$</span></div>
+          </div>
+          <div class="field">
+            <label for="otherFees">Other upfront fees (non‑taxable)</label>
+            <div class="control"><input id="otherFees" type="number" inputmode="decimal" step="0.01" min="0" value="0.00"><span class="unit">$</span></div>
+          </div>
+          <div class="hint">Local auto tax and registration add‑ons vary by county/city—adjust as needed.</div>
+        </div>
+      </details>
+
+      <div class="hr"></div>
+      <details>
+        <summary>Old Vehicle</summary>
+        <div class="inner stack">
+          <div class="field">
+            <label for="privateSale">Private sale expected price</label>
+            <div class="control"><input id="privateSale" type="number" inputmode="decimal" step="0.01" min="0" value="12000"><span class="unit">$</span></div>
+          </div>
+          <div class="field">
+            <label for="tradeIn">Dealer trade‑in offer</label>
+            <div class="control"><input id="tradeIn" type="number" inputmode="decimal" step="0.01" min="0" value="10500"><span class="unit">$</span></div>
+          </div>
+          <div class="field">
+            <label for="oldLoan">Remaining loan balance on old car</label>
+            <div class="control"><input id="oldLoan" type="number" inputmode="decimal" step="0.01" min="0" value="8000"><span class="unit">$</span></div>
+          </div>
+        </div>
+      </details>
+
+      <div class="hr"></div>
+      <details open>
+        <summary>Financing</summary>
+        <div class="inner stack">
+          <div class="field">
+            <label for="cashDown">Cash down</label>
+            <div class="control"><input id="cashDown" type="number" inputmode="decimal" step="0.01" min="0" value="3000"><span class="unit">$</span></div>
+          </div>
+          <div class="field">
+            <label for="apr">APR (annual %)</label>
+            <div class="control"><input id="apr" type="number" inputmode="decimal" step="0.01" min="0" value="5.99"><span class="unit">%</span></div>
+          </div>
+          <div class="field">
+            <label for="months">Term (months)</label>
+            <div class="control"><input id="months" type="number" inputmode="numeric" step="1" min="1" value="60"><span class="unit">mo</span></div>
+          </div>
+          <div class="tools">
+            <button class="ghost" data-term="36" type="button">36 mo</button>
+            <button class="ghost" data-term="48" type="button">48 mo</button>
+            <button class="ghost" data-term="60" type="button">60 mo</button>
+            <button class="ghost" data-term="72" type="button">72 mo</button>
+            <button class="ghost" data-term="84" type="button">84 mo</button>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- Full breakdown -->
+    <div class="card">
+      <div class="section-title"><h2>Full breakdown</h2></div>
+      <div class="results">
+        <div class="kpi">
+          <div class="head">
+            <span class="pill">Private Sale Route</span>
+            <span class="small" id="psNote">No trade‑in tax credit</span>
+          </div>
+          <table class="table">
+            <tbody id="psTable"></tbody>
+          </table>
+          <div id="psWarnings" class="small"></div>
+        </div>
+        <div class="kpi">
+          <div class="head">
+            <span class="pill">Dealer Trade‑In Route</span>
+            <span class="small" id="tiNote">Tax on net trade difference</span>
+          </div>
+          <table class="table">
+            <tbody id="tiTable"></tbody>
+          </table>
+          <div id="tiWarnings" class="small"></div>
+        </div>
+      </div>
+      <div class="hr"></div>
+      <div class="foot">
+        Notes: In Alabama, the trade‑in value reduces the taxable price (“net trade difference”). Private sale proceeds don’t reduce the taxable base. Title/registration amounts vary by county and vehicle weight—use your local values.
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky action bar -->
+  <div class="stickybar">
+    <div class="inner">
+      <button id="calcBtn" class="primary">Calculate</button>
+      <button id="saveBtn" class="secondary">Save</button>
+      <button id="loadBtn" class="secondary">Load</button>
+      <button id="resetBtn" class="ghost">Reset</button>
+    </div>
+  </div>
+
+<script>
+  // ---------- Utilities ----------
+  const $ = (id)=>document.getElementById(id);
+  const money = (x)=> (isFinite(x)? x:0);
+  const fmt$ = (n)=> money(n).toLocaleString(undefined,{style:'currency',currency:'USD'});
+  const fmtPct = (n)=> (isFinite(n)? n:0).toLocaleString(undefined,{maximumFractionDigits:2}) + '%';
+  const fmtInt = (n)=> isFinite(n)? Math.round(n).toLocaleString() : '—';
+
+  function readNumber(id){
+    // Read numeric input safely (supports blank).
+    const el = $(id);
+    const raw = (el.value||'').toString().trim().replace(/,/g,'');
+    const v = parseFloat(raw);
+    return isNaN(v)? 0 : v;
+  }
+
+  function setPrimary(which, value, label, format='money'){
+    const valStr = format==='money' ? fmt$(value)
+                 : format==='percent' ? fmtPct(value)
+                 : format==='int' ? fmtInt(value)
+                 : (isFinite(value)? value.toString() : '—');
+    $(which+'Primary').textContent = valStr;
+    $(which+'PrimarySub').textContent = label;
+  }
+
+  function putRows(tbodyId, rows){
+    $(tbodyId).innerHTML = rows.map(([k,v,cls]) =>
+      `<tr><td class="${cls||''}">${k}</td><td style="text-align:right">${v}</td></tr>`).join('');
+  }
+  function addWarn(id, msgs){
+    $(id).innerHTML = msgs.map(m => `<div class="warn">⚠︎ ${m}</div>`).join('');
+  }
+
+  // ---------- Payment math ----------
+  function payFrom(L, aprAnnual, n){
+    n = Math.max(1, Math.round(n));
+    const r = Math.max(0, aprAnnual)/100/12;
+    if(r===0) return L/n;
+    const f = r/(1 - Math.pow(1+r, -n));
+    return L*f;
+  }
+  function loanFromPayment(M, aprAnnual, n){
+    const r = Math.max(0, aprAnnual)/100/12;
+    if(r===0) return M*n;
+    return M * (1 - Math.pow(1+r, -n)) / r;
+  }
+  function monthsFrom(M, L, aprAnnual){
+    const r = Math.max(0, aprAnnual)/100/12;
+    if(r===0) return (M>0? Math.ceil(L/M) : Infinity);
+    const denom = 1 - (r*L)/M;
+    if (denom <= 0) return Infinity;
+    const n = -Math.log(denom) / Math.log(1+r);
+    return Math.ceil(n);
+  }
+  function aprFrom(M, L, n){
+    n = Math.max(1, Math.round(n));
+    if (L <= 0) return 0;
+    // Bisection over monthly rate r ∈ [0,1] (0%..1200% APR)
+    let lo=0, hi=1.0;
+    const f = (r)=> (r===0 ? L/n : (r*L)/(1 - Math.pow(1+r,-n))) - M;
+    for(let i=0;i<80;i++){
+      const mid=(lo+hi)/2, val=f(mid);
+      if(Math.abs(val)<1e-10) return mid*1200;
+      if(val>0) hi=mid; else lo=mid;
+    }
+    return ((lo+hi)/2)*1200;
+  }
+
+  // ---------- Scenario math (AL rules baked in) ----------
+  function calcScenario(kind, inputs){
+    const tRate = (inputs.stateTaxRate + inputs.localTaxRate)/100;
+    const taxableFees = inputs.docFeeTaxable;
+    const fees = inputs.titleFee + inputs.regFee + inputs.issueFee + inputs.otherFees;
+    const pricePlusTaxable = inputs.price + taxableFees;
+
+    let taxableBase, salesTax, otd, financed, warnings=[];
+    if (kind === 'ps'){
+      const netPrivate = Math.max(inputs.privateSale - inputs.oldLoan, 0);
+      const negEq = Math.max(inputs.oldLoan - inputs.privateSale, 0);
+      taxableBase = Math.max(pricePlusTaxable, 0);
+      salesTax = taxableBase * tRate;
+      otd = pricePlusTaxable + salesTax + fees;
+      financed = otd - inputs.cashDown - netPrivate;
+      if (negEq > 0){
+        warnings.push(`Private sale has $${negEq.toFixed(2)} negative equity. This is not rolled into the loan—cover it with cash or add it to “Other fees” if the dealer will roll it.`);
+      }
+      return {taxableBase, salesTax, fees, otd, financed, netPrivate, negEq, netEquity:-negEq};
+    } else {
+      const T = inputs.tradeIn;
+      const payoff = inputs.oldLoan;
+      const netEquity = T - payoff;
+      taxableBase = Math.max(pricePlusTaxable - T, 0); // net trade difference
+      salesTax = taxableBase * tRate;
+      otd = (inputs.price + taxableFees) + salesTax + fees;
+      financed = otd - inputs.cashDown - netEquity; // subtract equity (adds if negative)
+      if (netEquity < 0){
+        warnings.push(`Trade‑in has $${(-netEquity).toFixed(2)} negative equity. It will be rolled into the loan.`);
+      }
+      return {taxableBase, salesTax, fees, otd, financed, netPrivate:0, negEq:Math.max(-netEquity,0), netEquity};
+    }
+  }
+
+  // Affine pieces in price for back-solving
+  function affinePieces(kind, inputs){
+    const t = (inputs.stateTaxRate + inputs.localTaxRate)/100;
+    const F = inputs.docFeeTaxable;
+    const fees = inputs.titleFee + inputs.regFee + inputs.issueFee + inputs.otherFees;
+    if(kind==='ps'){
+      const netPrivate = Math.max(inputs.privateSale - inputs.oldLoan, 0);
+      // L = (1+t)*price + (1+t)*F + fees - cashDown - netPrivate
+      return {slope: 1+t, C: (1+t)*F + fees - inputs.cashDown - netPrivate};
+    }else{
+      const T = inputs.tradeIn, payoff = inputs.oldLoan;
+      // L = (1+t)*price + (1+t)*F - (1+t)*T + fees - cashDown + payoff
+      return {slope: 1+t, C: (1+t)*F - (1+t)*T + fees - inputs.cashDown + payoff};
+    }
+  }
+
+  function rowsFor(kind, s, inputs){
+    const tL = inputs.stateTaxRate/100;
+    const tLocal = inputs.localTaxRate/100;
+    const taxSplitState = s.taxableBase * tL;
+    const taxSplitLocal = s.taxableBase * tLocal;
+
+    return [
+      ['Negotiated price', fmt$(inputs.price)],
+      ['Taxable dealer fees', fmt$(inputs.docFeeTaxable)],
+      kind==='ti' ? ['Trade‑in credit (for tax)', '- ' + fmt$(inputs.tradeIn)] : null,
+      ['Taxable base', fmt$(s.taxableBase)],
+      ['State motor‑vehicle tax', fmt$(taxSplitState) + `  (${(inputs.stateTaxRate||0).toFixed(2)}%)`],
+      ['Local auto tax', fmt$(taxSplitLocal) + `  (${(inputs.localTaxRate||0).toFixed(2)}%)`],
+      ['Total sales tax', fmt$(s.salesTax)],
+      ['Title fee', fmt$(inputs.titleFee)],
+      ['Registration/plate', fmt$(inputs.regFee)],
+      ['Issue fee', fmt$(inputs.issueFee)],
+      ['Other fees', fmt$(inputs.otherFees)],
+      ['Out‑the‑door (before down/credits)', fmt$(s.otd)],
+      ['Cash down', '- ' + fmt$(inputs.cashDown)],
+      kind==='ps'
+        ? ['Private sale net (applied)', '- ' + fmt$(s.netPrivate)]
+        : ['Trade‑in net equity', (s.netEquity>=0 ? '- ' : '+ ') + fmt$(Math.abs(s.netEquity))],
+      ['Amount financed', fmt$(Math.max(0, s.financed))]
+    ].filter(Boolean);
+  }
+
+  // ---------- Compute + UI wiring ----------
+  function readInputs(){
+    return {
+      price: readNumber('price'),
+      docFeeTaxable: readNumber('docFeeTaxable'),
+      stateTaxRate: Math.max(0, readNumber('stateTaxRate')),
+      localTaxRate: Math.max(0, readNumber('localTaxRate')),
+      titleFee: Math.max(0, readNumber('titleFee')),
+      regFee: Math.max(0, readNumber('regFee')),
+      issueFee: Math.max(0, readNumber('issueFee')),
+      otherFees: Math.max(0, readNumber('otherFees')),
+      privateSale: Math.max(0, readNumber('privateSale')),
+      tradeIn: Math.max(0, readNumber('tradeIn')),
+      oldLoan: Math.max(0, readNumber('oldLoan')),
+      cashDown: Math.max(0, readNumber('cashDown')),
+      apr: Math.max(0, readNumber('apr')),
+      months: Math.max(1, readNumber('months')),
+      targetPayment: Math.max(0, readNumber('targetPayment')),
+      solveMode: (document.querySelector('input[name="solveMode"]:checked')||{}).value || 'payment'
+    };
+  }
+
+  function updateModeChip(mode){
+    const labels = {
+      payment:'Monthly payment (forward)',
+      price:'Max price under target payment',
+      down:'Required cash down for target payment',
+      tradein:'Required trade‑in offer for target payment',
+      term:'Term (months) for target payment',
+      apr:'APR (%) for target payment'
+    };
+    $('modeChip').textContent = labels[mode] || 'Monthly payment (forward)';
+    $('targetWrap').style.display = (mode==='payment') ? 'none' : '';
+  }
+
+  function compute(){
+    const inputs = readInputs();
+    updateModeChip(inputs.solveMode);
+
+    const ps = calcScenario('ps', inputs);
+    const ti = calcScenario('ti', inputs);
+
+    // Primary values by mode
+    if (inputs.solveMode === 'payment'){
+      const mPS = payFrom(Math.max(0, ps.financed), inputs.apr, inputs.months);
+      const mTI = payFrom(Math.max(0, ti.financed), inputs.apr, inputs.months);
+      setPrimary('ps', mPS, 'Monthly payment', 'money');
+      setPrimary('ti', mTI, 'Monthly payment', 'money');
+    } else if (inputs.solveMode === 'price'){
+      const L = loanFromPayment(inputs.targetPayment, inputs.apr, inputs.months);
+      const Pps = affinePieces('ps', inputs), Pti = affinePieces('ti', inputs);
+      const pricePS = Math.max(0, (L - Pps.C)/Pps.slope);
+      const priceTI = Math.max(0, (L - Pti.C)/Pti.slope);
+      setPrimary('ps', pricePS, 'Max vehicle price', 'money');
+      setPrimary('ti', priceTI, 'Max vehicle price', 'money');
+    } else if (inputs.solveMode === 'down'){
+      const L = loanFromPayment(inputs.targetPayment, inputs.apr, inputs.months);
+      const Pps = affinePieces('ps', inputs), Pti = affinePieces('ti', inputs);
+      const needPS = Math.max(0, (Pps.slope*inputs.price + Pps.C) - L);
+      const needTI = Math.max(0, (Pti.slope*inputs.price + Pti.C) - L);
+      setPrimary('ps', needPS, 'Required cash down', 'money');
+      setPrimary('ti', needTI, 'Required cash down', 'money');
+    } else if (inputs.solveMode === 'tradein'){
+      const L = loanFromPayment(inputs.targetPayment, inputs.apr, inputs.months);
+      const t = (inputs.stateTaxRate + inputs.localTaxRate)/100;
+      const Treq = ((1+t)*(inputs.price + inputs.docFeeTaxable) + (inputs.titleFee+inputs.regFee+inputs.issueFee+inputs.otherFees) - inputs.cashDown + inputs.oldLoan - L) / (1+t);
+      setPrimary('ps', NaN, 'N/A for private sale', 'int'); // display as —
+      $('psPrimary').textContent = '—';
+      $('psPrimarySub').textContent = 'N/A (private sale)';
+      setPrimary('ti', Math.max(0, Treq), 'Required trade‑in offer', 'money');
+    } else if (inputs.solveMode === 'term'){
+      const m = inputs.targetPayment;
+      const nPS = monthsFrom(m, Math.max(0, ps.financed), inputs.apr);
+      const nTI = monthsFrom(m, Math.max(0, ti.financed), inputs.apr);
+      setPrimary('ps', isFinite(nPS)? nPS : NaN, 'Months needed', 'int');
+      setPrimary('ti', isFinite(nTI)? nTI : NaN, 'Months needed', 'int');
+    } else if (inputs.solveMode === 'apr'){
+      const m = inputs.targetPayment;
+      const aPS = aprFrom(m, Math.max(0, ps.financed), inputs.months);
+      const aTI = aprFrom(m, Math.max(0, ti.financed), inputs.months);
+      setPrimary('ps', isFinite(aPS)? aPS : NaN, 'APR needed (%)', 'percent');
+      setPrimary('ti', isFinite(aTI)? aTI : NaN, 'APR needed (%)', 'percent');
+    }
+
+    putRows('psTable', rowsFor('ps', ps, inputs));
+    putRows('tiTable', rowsFor('ti', ti, inputs));
+
+    addWarn('psWarnings', ps.negEq>0 ? [`You must cover $${ps.negEq.toFixed(2)} to pay off the old loan when selling privately.`] : []);
+    addWarn('tiWarnings', ti.negEq>0 ? [`$${ti.negEq.toFixed(2)} negative equity will be rolled into the loan in the trade‑in route.`] : []);
+  }
+
+  // ---------- Event wiring ----------
+  function debounce(fn, ms=200){
+    let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn.apply(this,args), ms); };
+  }
+
+  // Recompute on change
+  const ids = ['price','docFeeTaxable','stateTaxRate','localTaxRate','titleFee','regFee','issueFee','otherFees','privateSale','tradeIn','oldLoan','cashDown','apr','months','targetPayment'];
+  ids.forEach(id=> $(id).addEventListener('input', debounce(compute, 120)));
+
+  document.querySelectorAll('input[name="solveMode"]').forEach(r=>{
+    r.addEventListener('change', ()=>{ compute(); });
+  });
+
+  document.querySelectorAll('.tools [data-term]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{ $('months').value = btn.dataset.term; compute(); });
+  });
+
+  $('calcBtn').addEventListener('click', compute);
+  $('resetBtn').addEventListener('click', ()=>{
+    $('price').value=35000; $('docFeeTaxable').value=449;
+    $('stateTaxRate').value=2.00; $('localTaxRate').value=0.00;
+    $('titleFee').value=15.00; $('regFee').value=23.00; $('issueFee').value=1.25; $('otherFees').value=0.00;
+    $('privateSale').value=12000; $('tradeIn').value=10500; $('oldLoan').value=8000;
+    $('cashDown').value=3000; $('apr').value=5.99; $('months').value=60; $('targetPayment').value=500;
+    document.getElementById('mode_payment').checked = true;
+    compute();
+  });
+  $('saveBtn').addEventListener('click', ()=>{
+    const data = Object.fromEntries(ids.map(id=>[id,$(id).value]));
+    data.solveMode = (document.querySelector('input[name="solveMode"]:checked')||{}).value || 'payment';
+    localStorage.setItem('al_calc_mobile', JSON.stringify(data));
+    alert('Inputs saved to this device.');
+  });
+  $('loadBtn').addEventListener('click', ()=>{
+    const raw = localStorage.getItem('al_calc_mobile');
+    if(!raw){ alert('No saved inputs found.'); return; }
+    try{
+      const data = JSON.parse(raw);
+      Object.entries(data).forEach(([k,v])=>{ if($(k)) $(k).value=v; });
+      if (data.solveMode){
+        const r = document.getElementById('mode_'+data.solveMode);
+        if (r) r.checked = true;
+      }
+      compute();
+    }catch(e){ alert('Could not load saved inputs.'); }
+  });
+
+  // Initial compute on load
+  compute();
+</script>
+</body>
+</html>
+
