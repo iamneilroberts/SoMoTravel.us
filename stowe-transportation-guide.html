@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportation Guide | Burlington Airport to The Lodge at Spruce Peak</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .intro-box {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #2d5a87;
+        }
+        
+        .intro-box h2 {
+            color: #1e3a5f;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        
+        .intro-box p {
+            color: #555;
+        }
+        
+        .route-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .route-stat {
+            text-align: center;
+            padding: 15px 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .route-stat .value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d5a87;
+        }
+        
+        .route-stat .label {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 5px;
+        }
+        
+        .option-card {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .option-header {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .option-header.lodge {
+            background: linear-gradient(135deg, #2d5a87 0%, #1e3a5f 100%);
+            color: white;
+        }
+        
+        .option-header.shuttle {
+            background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+            color: white;
+        }
+        
+        .option-header.rideshare {
+            background: linear-gradient(135deg, #8e44ad 0%, #6c3483 100%);
+            color: white;
+        }
+        
+        .option-header.local {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white;
+        }
+        
+        .option-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .option-price {
+            font-size: 1.1rem;
+            font-weight: 500;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        
+        .option-body {
+            padding: 25px;
+        }
+        
+        .option-body p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .detail-row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .detail-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e8f4fd;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+        
+        .detail-text {
+            color: #444;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .contact-info strong {
+            color: #2d5a87;
+        }
+        
+        .recommended-badge {
+            background: #ffd700;
+            color: #1e3a5f;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-left: 10px;
+            text-transform: uppercase;
+        }
+        
+        .free-shuttle-section {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 2px solid #81c784;
+        }
+        
+        .free-shuttle-section h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .free-shuttle-section p {
+            color: #33691e;
+            margin-bottom: 10px;
+        }
+        
+        .tips-section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .tips-section h3 {
+            color: #1e3a5f;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .tips-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-section li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .tips-section li:last-child {
+            border-bottom: none;
+        }
+        
+        .tips-section li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .footer .agency {
+            font-weight: 600;
+            color: #2d5a87;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .route-info {
+                flex-direction: column;
+            }
+            
+            .option-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Transportation Guide</h1>
+        <div class="subtitle">Burlington Airport (BTV) → The Lodge at Spruce Peak, Stowe</div>
+    </div>
+    
+    <div class="container">
+        <div class="intro-box">
+            <h2>Getting to Stowe Without a Rental Car</h2>
+            <p>Great news! You don't need to rent a car to enjoy your stay at The Lodge at Spruce Peak. Here are your transportation options from Burlington International Airport, plus details on getting around once you arrive.</p>
+            
+            <div class="route-info">
+                <div class="route-stat">
+                    <div class="value">34 mi</div>
+                    <div class="label">Distance</div>
+                </div>
+                <div class="route-stat">
+                    <div class="value">~45-60 min</div>
+                    <div class="label">Travel Time</div>
+                </div>
+                <div class="route-stat">
+                    <div class="value">I-89 South</div>
+                    <div class="label">Main Route</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lodge Transfer -->
+        <div class="option-card">
+            <div class="option-header lodge">
+                <span class="option-title">Lodge at Spruce Peak Private Transfer <span class="recommended-badge">Recommended</span></span>
+                <span class="option-price">$200/vehicle</span>
+            </div>
+            <div class="option-body">
+                <p>The Lodge offers a private airport transfer service directly to and from Burlington Airport. This is the most convenient option for a seamless arrival experience.</p>
+                
+                <div class="detail-row">
+                    <div class="detail-icon">📞</div>
+                    <div class="detail-text">Must contact the property <strong>48 hours prior</strong> to arrival to arrange</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-icon">💰</div>
+                    <div class="detail-text">$200 per vehicle, one-way (same rate for children)</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-icon">👥</div>
+                    <div class="detail-text">Cost-effective for groups of 3-4 travelers</div>
+                </div>
+                
+                <div class="contact-info">
+                    <strong>To Book:</strong> Call 802-253-3560 or contact the lodge directly
+                </div>
+            </div>
+        </div>
+        
+        <!-- Third-Party Shuttles -->
+        <div class="option-card">
+            <div class="option-header shuttle">
+                <span class="option-title">Third-Party Shuttle Services</span>
+                <span class="option-price">$50-100/person</span>
+            </div>
+            <div class="option-body">
+                <p>Several reliable shuttle companies operate between Burlington Airport and Stowe. These can be more economical for solo travelers or couples.</p>
+                
+                <div class="detail-row">
+                    <div class="detail-icon">🚐</div>
+                    <div class="detail-text"><strong>Vermont Shuttle</strong> – Year-round service, vans and SUVs available</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-icon">🚐</div>
+                    <div class="detail-text"><strong>Jay Way Travel</strong> – Door-to-door service, known for punctuality</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-icon">🚌</div>
+                    <div class="detail-text"><strong>Green Mountain Transit</strong> – Budget-friendly regional option</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-icon">⚠️</div>
+                    <div class="detail-text">Book in advance, especially during ski season</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rideshare/Taxi -->
+        <div class="option-card">
+            <div class="option-header rideshare">
+                <span class="option-title">Uber / Lyft / Taxi</span>
+                <span class="option-price">$65-100</span>
+            </div>
+            <div class="option-body">
+                <p>Rideshare apps are available at Burlington Airport, though availability can vary. Local taxi companies offer a more reliable alternative.</p>
+                
+                <div class="detail-row">
+                    <div class="detail-icon">📱</div>
+                    <div class="detail-text">Check both Uber and Lyft upon arrival to compare availability</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-icon">🚕</div>
+                    <div class="detail-text"><strong>Green Cab VT</strong> – Local taxi service, call ahead recommended</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-icon">❄️</div>
+                    <div class="detail-text">Driver availability may be limited in bad weather or off-peak times</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Free Shuttle Section -->
+        <div class="free-shuttle-section">
+            <h3>🚌 FREE Mountain Road Shuttle (Once You Arrive)</h3>
+            <p>Great news for getting around Stowe without a car! The <strong>Mountain Road Shuttle</strong> is a complimentary service connecting Stowe Village to Stowe Mountain Resort all winter long.</p>
+            <p><strong>Frequency:</strong> Every 30 minutes (off-peak) or every 20 minutes (peak periods)</p>
+            <p><strong>Key Stops:</strong> Stowe Village, Commodores Inn, Mountain Road lodging, Spruce Peak Base, Mansfield Base</p>
+            <p><strong>Season:</strong> Runs throughout the winter ski season</p>
+        </div>
+        
+        <!-- Tips -->
+        <div class="tips-section">
+            <h3>💡 Travel Tips</h3>
+            <ul>
+                <li>Book transportation in advance during ski season when demand is highest</li>
+                <li>Allow extra travel time in winter weather conditions</li>
+                <li>The Over Easy Transfer Gondola connects Mount Mansfield to Spruce Peak Village</li>
+                <li>Route 108 through Smugglers' Notch is closed in winter – all traffic uses I-89 via Waterbury</li>
+                <li>Valet parking at the Lodge is $35/night if you end up renting a car</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Prepared by <span class="agency">SOMO Travel Specialists | Cruise Planners</span></p>
+        <p style="margin-top: 8px;">Questions? We're happy to help coordinate your transportation!</p>
+    </div>
+</body>
+</html>
