@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris & London Trip Comparison | May 2-9, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2744;
+            --gold: #c9a227;
+            --gold-light: #e8d5a3;
+            --cream: #faf8f5;
+            --warm-gray: #6b6560;
+            --light-gray: #e8e6e3;
+            --white: #ffffff;
+            --accent-blue: #4a6fa5;
+            --success: #2d7a4f;
+            --warning: #c45c26;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--light-gray);
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .destination-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .main-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .trip-dates {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--warm-gray);
+            margin-bottom: 8px;
+        }
+
+        .party-size {
+            font-size: 13px;
+            color: var(--warm-gray);
+            font-weight: 300;
+        }
+
+        /* Agent Info */
+        .agent-card {
+            background: var(--navy);
+            color: var(--white);
+            padding: 25px 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .agent-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .agent-company {
+            font-size: 12px;
+            font-weight: 300;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        .agent-contact {
+            text-align: right;
+        }
+
+        .agent-contact a {
+            color: var(--gold-light);
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            transition: color 0.2s;
+        }
+
+        .agent-contact a:hover {
+            color: var(--gold);
+        }
+
+        /* Quote Cards */
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .quotes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quote-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(26, 39, 68, 0.08);
+            border: 1px solid var(--light-gray);
+        }
+
+        .quote-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 20px 25px;
+            position: relative;
+        }
+
+        .quote-header.option-b {
+            background: linear-gradient(135deg, var(--navy) 0%, #2a3d5c 100%);
+        }
+
+        .option-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .vendor-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .quote-price {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: right;
+        }
+
+        .price-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        .price-amount {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--gold-light);
+        }
+
+        .quote-body {
+            padding: 25px;
+        }
+
+        .section-title {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .flight-row {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--light-gray);
+            font-size: 12px;
+        }
+
+        .flight-row:last-child {
+            border-bottom: none;
+        }
+
+        .flight-date {
+            width: 70px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .flight-num {
+            width: 60px;
+            color: var(--warm-gray);
+            font-size: 11px;
+        }
+
+        .flight-route {
+            flex: 1;
+            color: var(--navy);
+        }
+
+        .flight-time {
+            text-align: right;
+            color: var(--warm-gray);
+            font-size: 11px;
+        }
+
+        .hotel-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .hotel-item:last-child {
+            border-bottom: none;
+        }
+
+        .hotel-city {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hotel-dates {
+            font-size: 11px;
+            color: var(--warm-gray);
+        }
+
+        .hotel-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            color: var(--navy);
+            margin-bottom: 3px;
+        }
+
+        .hotel-room {
+            font-size: 11px;
+            color: var(--warm-gray);
+        }
+
+        .breakfast-tag {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            font-size: 9px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 6px;
+        }
+
+        .payment-schedule {
+            margin-top: 20px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 13px;
+            border-bottom: 1px dotted var(--light-gray);
+        }
+
+        .payment-row:last-child {
+            border-bottom: none;
+        }
+
+        .payment-row.highlight {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .payment-label {
+            color: var(--warm-gray);
+        }
+
+        .payment-amount {
+            font-weight: 500;
+        }
+
+        .payment-due {
+            font-size: 11px;
+            color: var(--warm-gray);
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(26, 39, 68, 0.08);
+        }
+
+        .comparison-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .comparison-table th:first-child {
+            border-radius: 6px 0 0 0;
+        }
+
+        .comparison-table th:last-child {
+            border-radius: 0 6px 0 0;
+        }
+
+        .comparison-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 13px;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: rgba(250, 248, 245, 0.5);
+        }
+
+        .comparison-table .feature-name {
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .advantage {
+            background: rgba(45, 122, 79, 0.1);
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        /* Requirements Section */
+        .requirements-section {
+            margin-bottom: 40px;
+        }
+
+        .requirements-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            color: var(--navy);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .requirement-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(26, 39, 68, 0.08);
+            border-left: 4px solid var(--gold);
+        }
+
+        .requirement-card.warning {
+            border-left-color: var(--warning);
+        }
+
+        .requirement-card.info {
+            border-left-color: var(--accent-blue);
+        }
+
+        .requirement-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .requirement-card h3 .icon {
+            font-size: 20px;
+        }
+
+        .requirement-card p {
+            color: var(--warm-gray);
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .requirement-card ul {
+            margin-left: 20px;
+            color: var(--warm-gray);
+            font-size: 13px;
+        }
+
+        .requirement-card li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background: var(--cream);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-top: 12px;
+            font-size: 12px;
+        }
+
+        .highlight-box strong {
+            color: var(--navy);
+        }
+
+        /* Eurostar Section */
+        .eurostar-section {
+            background: linear-gradient(135deg, var(--navy) 0%, #2a3d5c 100%);
+            color: var(--white);
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eurostar-section::before {
+            content: '🚄';
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 80px;
+            opacity: 0.15;
+        }
+
+        .eurostar-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .eurostar-section .subtitle {
+            color: var(--gold-light);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .eurostar-section p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 12px;
+            max-width: 600px;
+        }
+
+        .eurostar-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        @media (max-width: 600px) {
+            .eurostar-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .eurostar-stat {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .eurostar-stat .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold-light);
+        }
+
+        .eurostar-stat .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        /* Checklist */
+        .checklist-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(26, 39, 68, 0.08);
+        }
+
+        .checklist-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 14px;
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checkbox {
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--gold);
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checklist-text {
+            color: var(--navy);
+        }
+
+        .checklist-note {
+            font-size: 12px;
+            color: var(--warm-gray);
+            margin-top: 3px;
+        }
+
+        /* Important Notice */
+        .notice-box {
+            background: linear-gradient(135deg, #fef3e2 0%, #fdebd0 100%);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .notice-box h3 {
+            color: var(--warning);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .notice-box p {
+            color: var(--navy);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .notice-box .subtext {
+            font-size: 13px;
+            color: var(--warm-gray);
+            font-weight: 400;
+            margin-top: 8px;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer-cta h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .footer-cta .tagline {
+            color: var(--gold-light);
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item .icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold-light);
+        }
+
+        .contact-item .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            margin-top: 5px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                font-size: 11px;
+            }
+            
+            .container {
+                padding: 20px;
+                max-width: 100%;
+            }
+            
+            .quote-card, .comparison-section, .requirement-card, 
+            .checklist-section, .notice-box, .footer-cta, .eurostar-section {
+                box-shadow: none;
+                break-inside: avoid;
+            }
+            
+            .quotes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="destination-label">Vacation Quote</div>
+            <h1 class="main-title">Paris & London</h1>
+            <p class="trip-dates">May 2–9, 2026</p>
+            <p class="party-size">Party of 2 Adults</p>
+        </header>
+
+        <!-- Agent Card -->
+        <div class="agent-card">
+            <div class="agent-info">
+                <h3>Kim Henderson</h3>
+                <div class="agent-company">SOMO Travel Specialists d/b/a Cruise Planners</div>
+            </div>
+            <div class="agent-contact">
+                <a href="tel:251-508-6921">📞 251-508-6921</a>
+                <a href="mailto:kim.henderson@gmail.com">✉️ kim.henderson@gmail.com</a>
+            </div>
+        </div>
+
+        <!-- Quote Cards -->
+        <div class="quotes-grid">
+            <!-- Option A -->
+            <div class="quote-card">
+                <div class="quote-header">
+                    <div class="option-label">Option A</div>
+                    <div class="vendor-name">Apple Vacations</div>
+                    <div class="quote-price">
+                        <div class="price-label">Total</div>
+                        <div class="price-amount">$5,880.64</div>
+                    </div>
+                </div>
+                <div class="quote-body">
+                    <div class="section-title">Flights</div>
+                    <div class="flight-row">
+                        <span class="flight-date">May 2</span>
+                        <span class="flight-num">UA 4314</span>
+                        <span class="flight-route">MOB → IAD</span>
+                        <span class="flight-time">12:55p – 4:24p</span>
+                    </div>
+                    <div class="flight-row">
+                        <span class="flight-date">May 2</span>
+                        <span class="flight-num">UA 330</span>
+                        <span class="flight-route">IAD → CDG</span>
+                        <span class="flight-time">10:35p – 12:35p+1</span>
+                    </div>
+                    <div class="flight-row">
+                        <span class="flight-date">May 9</span>
+                        <span class="flight-num">UA 879</span>
+                        <span class="flight-route">LHR → IAH</span>
+                        <span class="flight-time">10:00a – 2:25p</span>
+                    </div>
+                    <div class="flight-row">
+                        <span class="flight-date">May 9</span>
+                        <span class="flight-num">UA 4312</span>
+                        <span class="flight-route">IAH → MOB</span>
+                        <span class="flight-time">8:00p – 9:29p</span>
+                    </div>
+
+                    <div class="section-title" style="margin-top: 20px;">Hotels</div>
+                    <div class="hotel-item">
+                        <div class="hotel-city">
+                            <span>Paris</span>
+                            <span class="hotel-dates">May 3–6</span>
+                        </div>
+                        <div class="hotel-name">Plaza Tour Eiffel Hotel</div>
+                        <div class="hotel-room">Deluxe Room • Near Place du Trocadéro • 4-Star</div>
+                        <span class="breakfast-tag">Breakfast Included</span>
+                    </div>
+                    <div class="hotel-item">
+                        <div class="hotel-city">
+                            <span>London</span>
+                            <span class="hotel-dates">May 6–9</span>
+                        </div>
+                        <div class="hotel-name">Hilton London Tower Bridge</div>
+                        <div class="hotel-room">Twin Guest Room • South Bank, River Thames</div>
+                        <span class="breakfast-tag">Breakfast Included</span>
+                    </div>
+
+                    <div class="payment-schedule">
+                        <div class="section-title">Payment Schedule</div>
+                        <div class="payment-row">
+                            <span class="payment-label">Deposit</span>
+                            <span>
+                                <span class="payment-amount">$700.00</span>
+                                <div class="payment-due">Due Dec 8, 2025</div>
+                            </span>
+                        </div>
+                        <div class="payment-row">
+                            <span class="payment-label">Final Payment</span>
+                            <span>
+                                <span class="payment-amount">$5,121.67</span>
+                                <div class="payment-due">Due Mar 18, 2026</div>
+                            </span>
+                        </div>
+                        <div class="payment-row">
+                            <span class="payment-label">Pay at Destination</span>
+                            <span class="payment-amount">$58.97</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option B -->
+            <div class="quote-card">
+                <div class="quote-header option-b">
+                    <div class="option-label">Option B</div>
+                    <div class="vendor-name">Pleasant Holidays</div>
+                    <div class="quote-price">
+                        <div class="price-label">Total</div>
+                        <div class="price-amount">$5,948.00</div>
+                    </div>
+                </div>
+                <div class="quote-body">
+                    <div class="section-title">Flights</div>
+                    <div class="flight-row">
+                        <span class="flight-date">May 2</span>
+                        <span class="flight-num">UA 4314</span>
+                        <span class="flight-route">MOB → IAD</span>
+                        <span class="flight-time">12:55p – 4:24p</span>
+                    </div>
+                    <div class="flight-row">
+                        <span class="flight-date">May 2</span>
+                        <span class="flight-num">UA 915</span>
+                        <span class="flight-route">IAD → CDG</span>
+                        <span class="flight-time">6:00p – 7:45a+1</span>
+                    </div>
+                    <div class="flight-row">
+                        <span class="flight-date">May 9</span>
+                        <span class="flight-num">UA 879</span>
+                        <span class="flight-route">LHR → IAH</span>
+                        <span class="flight-time">10:00a – 2:25p</span>
+                    </div>
+                    <div class="flight-row">
+                        <span class="flight-date">May 9</span>
+                        <span class="flight-num">UA 4323</span>
+                        <span class="flight-route">IAH → MOB</span>
+                        <span class="flight-time">4:45p – 6:17p</span>
+                    </div>
+
+                    <div class="section-title" style="margin-top: 20px;">Hotels</div>
+                    <div class="hotel-item">
+                        <div class="hotel-city">
+                            <span>Paris</span>
+                            <span class="hotel-dates">May 3–6</span>
+                        </div>
+                        <div class="hotel-name">Canopy by Hilton Paris Eiffel Tower</div>
+                        <div class="hotel-room">Grand Premium Room • 16 Avenue D'Eylau</div>
+                        <span class="breakfast-tag">Breakfast Included</span>
+                    </div>
+                    <div class="hotel-item">
+                        <div class="hotel-city">
+                            <span>London</span>
+                            <span class="hotel-dates">May 6–9</span>
+                        </div>
+                        <div class="hotel-name">The Westminster London, Curio Collection by Hilton</div>
+                        <div class="hotel-room">Twin Guest Room • 30 John Islip Street (Near Tate Britain)</div>
+                        <span class="breakfast-tag">Breakfast Included</span>
+                    </div>
+
+                    <div class="payment-schedule">
+                        <div class="section-title">Payment Schedule</div>
+                        <div class="payment-row">
+                            <span class="payment-label">Deposit</span>
+                            <span>
+                                <span class="payment-amount">$400.00</span>
+                                <div class="payment-due">Due Dec 6, 2025</div>
+                            </span>
+                        </div>
+                        <div class="payment-row">
+                            <span class="payment-label">Final Payment</span>
+                            <span>
+                                <span class="payment-amount">$5,548.00</span>
+                                <div class="payment-due">Due Mar 18, 2026</div>
+                            </span>
+                        </div>
+                        <div class="payment-row">
+                            <span class="payment-label">Paris City Tax</span>
+                            <span>
+                                <span class="payment-amount">~€50.70</span>
+                                <div class="payment-due">Paid at hotel checkout</div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="comparison-section">
+            <h2>Side-by-Side Comparison</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Option A</th>
+                        <th>Option B</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Total Price</td>
+                        <td class="advantage">$5,880.64 ✓</td>
+                        <td>$5,948.00</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Deposit Amount</td>
+                        <td>$700</td>
+                        <td class="advantage">$400 ✓</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Paris Arrival Time</td>
+                        <td>12:35pm Sunday</td>
+                        <td class="advantage">7:45am Sunday ✓</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Arrive Home</td>
+                        <td>9:29pm</td>
+                        <td class="advantage">6:17pm ✓</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">DC Layover (Outbound)</td>
+                        <td>6 hrs 11 min</td>
+                        <td class="advantage">1 hr 36 min ✓</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Paris Hotel</td>
+                        <td>Plaza Tour Eiffel</td>
+                        <td>Canopy by Hilton</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">London Hotel</td>
+                        <td>Hilton Tower Bridge</td>
+                        <td>Westminster London, Curio</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">All Hotels Hilton Brand</td>
+                        <td>No (Paris only)</td>
+                        <td class="advantage">Yes ✓</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Breakfast Included</td>
+                        <td>Yes – Both Cities</td>
+                        <td>Yes – Both Cities</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Travel Requirements -->
+        <div class="requirements-section">
+            <h2>Important Travel Requirements</h2>
+
+            <div class="requirement-card">
+                <h3><span class="icon">🛂</span> Passport Requirements</h3>
+                <p>All travelers must have a valid U.S. passport to enter France and the United Kingdom.</p>
+                <ul>
+                    <li>Passport must be valid for at least <strong>6 months beyond return date</strong> (through November 2026)</li>
+                    <li>Non-U.S. citizens must check with French and UK embassies for specific visa requirements</li>
+                </ul>
+            </div>
+
+            <div class="requirement-card warning">
+                <h3><span class="icon">🇬🇧</span> UK Electronic Travel Authorization (ETA) — REQUIRED</h3>
+                <p>Starting February 25, 2026, U.S. citizens cannot enter the UK without an approved ETA.</p>
+                <ul>
+                    <li><strong>Cost:</strong> £16 (~$20 USD) per person</li>
+                    <li><strong>Validity:</strong> 2 years or until passport expires</li>
+                    <li><strong>Processing:</strong> Most applications approved within minutes</li>
+                </ul>
+                <div class="highlight-box">
+                    <strong>How to Apply:</strong> Visit <strong>gov.uk/eta</strong> or download the UK ETA app
+                </div>
+            </div>
+
+            <div class="requirement-card info">
+                <h3><span class="icon">🇪🇺</span> France / EU Entry Requirements</h3>
+                <p>The ETIAS travel authorization system is scheduled to launch in late 2026, <strong>after your travel dates</strong>.</p>
+                <ul>
+                    <li><strong>ETIAS likely NOT required</strong> for May 2026 travel</li>
+                    <li>The EU Entry/Exit System (EES) will be fully implemented by April 2026</li>
+                    <li>Be prepared for biometric scanning (photo/fingerprints) at EU border entry</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Eurostar Section -->
+        <div class="eurostar-section">
+            <div class="subtitle">Not Included in Quote</div>
+            <h2>Paris to London Transportation</h2>
+            <p>Neither quote includes transportation from Paris to London on May 6. We recommend the Eurostar high-speed train for a comfortable, scenic journey.</p>
+            <p>Travel from Paris Gare du Nord to London St Pancras International in just over 2 hours. Book early for best fares at <strong>eurostar.com</strong>.</p>
+            
+            <div class="eurostar-details">
+                <div class="eurostar-stat">
+                    <div class="value">2h 16m</div>
+                    <div class="label">Travel Time</div>
+                </div>
+                <div class="eurostar-stat">
+                    <div class="value">€59–180</div>
+                    <div class="label">Per Person</div>
+                </div>
+                <div class="eurostar-stat">
+                    <div class="value">7 Months</div>
+                    <div class="label">Advance Booking</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checklist -->
+        <div class="checklist-section">
+            <h2>Pre-Travel Checklist</h2>
+            <ul class="checklist">
+                <li>
+                    <div class="checkbox"></div>
+                    <div>
+                        <div class="checklist-text">Verify passport validity (6+ months beyond November 2026)</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox"></div>
+                    <div>
+                        <div class="checklist-text">Apply for UK ETA</div>
+                        <div class="checklist-note">Required by February 25, 2026 — Apply at gov.uk/eta</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox"></div>
+                    <div>
+                        <div class="checklist-text">Book Eurostar: Paris → London for May 6, 2026</div>
+                        <div class="checklist-note">Book early for best fares at eurostar.com</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox"></div>
+                    <div>
+                        <div class="checklist-text">Add Travel Protection</div>
+                        <div class="checklist-note">Highly encouraged — Contact Kim Henderson</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox"></div>
+                    <div>
+                        <div class="checklist-text">Check airline website for seat assignments after booking</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox"></div>
+                    <div>
+                        <div class="checklist-text">Monitor ETIAS launch date</div>
+                        <div class="checklist-note">Likely not needed for May 2026, but stay informed</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Important Notice -->
+        <div class="notice-box">
+            <h3>⚠️ Important Notice</h3>
+            <p>Prices are NOT guaranteed until deposit is received.</p>
+            <p class="subtext">These quotes are for flights and hotels only. Travel Protection is additional and highly encouraged.</p>
+        </div>
+
+        <!-- Footer CTA -->
+        <div class="footer-cta">
+            <h2>Ready to Book?</h2>
+            <p class="tagline">Contact Kim Henderson to secure your Paris & London adventure</p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="icon">📞</div>
+                    <a href="tel:251-508-6921">251-508-6921</a>
+                    <div class="label">Call or Text</div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">✉️</div>
+                    <a href="mailto:kim.henderson@gmail.com">kim.henderson@gmail.com</a>
+                    <div class="label">Email</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
