@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italy Adventure Proposal - April 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1E3A5F 0%, #2E5D4B 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-style: italic;
+            font-size: 1.4em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .header .dates {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        
+        .header .proposal-type {
+            background: #C75B12;
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .header .tagline {
+            margin-top: 15px;
+            font-style: italic;
+            opacity: 0.85;
+        }
+        
+        /* Content */
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            color: #C75B12;
+            font-size: 1.8em;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #C75B12;
+        }
+        
+        h3 {
+            color: #2E5D4B;
+            font-size: 1.4em;
+            margin: 30px 0 15px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        /* Intro boxes */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 30px 0;
+        }
+        
+        .intro-box {
+            padding: 25px;
+            text-align: center;
+            color: white;
+        }
+        
+        .intro-box.green {
+            background: #2E5D4B;
+        }
+        
+        .intro-box.orange {
+            background: #C75B12;
+        }
+        
+        .intro-box h4 {
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+        
+        .intro-box p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        
+        /* Day sections */
+        .day-section {
+            background: #fafafa;
+            border-radius: 10px;
+            margin: 30px 0;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .day-header {
+            background: linear-gradient(135deg, #1E3A5F 0%, #2a4a6f 100%);
+            color: white;
+            padding: 20px 25px;
+        }
+        
+        .day-header h3 {
+            color: white;
+            margin: 0;
+            font-size: 1.5em;
+        }
+        
+        .day-content {
+            padding: 25px;
+        }
+        
+        /* Transportation box */
+        .transport-box {
+            background: #e8e8e8;
+            border-left: 4px solid #1E3A5F;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .transport-box h4 {
+            color: #1E3A5F;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .transport-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .transport-box li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .transport-box li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #1E3A5F;
+            font-weight: bold;
+        }
+        
+        /* Explore on your own */
+        .explore-box {
+            background: #e8f4e8;
+            border-left: 4px solid #2E5D4B;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .explore-box h4 {
+            color: #2E5D4B;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .explore-box h5 {
+            color: #2E5D4B;
+            margin: 15px 0 10px 0;
+            font-size: 1.05em;
+        }
+        
+        .explore-box ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .explore-box li {
+            padding: 5px 0;
+        }
+        
+        /* Viator option */
+        .viator-box {
+            background: #fff8e7;
+            border-left: 4px solid #C75B12;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .viator-box h4 {
+            color: #C75B12;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .viator-box .tour-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .viator-box .tour-details {
+            background: white;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 0.95em;
+        }
+        
+        .viator-box ul {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .viator-box li {
+            padding: 4px 0;
+        }
+        
+        /* Accommodation */
+        .accommodation {
+            background: #f0f0f0;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .accommodation strong {
+            color: #1E3A5F;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+        
+        th {
+            background: #1E3A5F;
+            color: white;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+        
+        tr:hover {
+            background: #e8f4e8;
+        }
+        
+        .table-total {
+            background: #C75B12 !important;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .table-total td {
+            border-bottom: none;
+        }
+        
+        .table-subtotal {
+            background: #2E5D4B !important;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .table-subtotal td {
+            border-bottom: none;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-right {
+            text-align: right;
+        }
+        
+        /* Budget section */
+        .budget-note {
+            background: #fffde7;
+            border: 1px solid #ffd54f;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        /* Contact section */
+        .contact-section {
+            background: linear-gradient(135deg, #1E3A5F 0%, #2E5D4B 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .contact-section h3 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        
+        .contact-names {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+        
+        .company-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .tagline-final {
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        /* Next steps */
+        .next-steps {
+            background: #f5f5f5;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .next-steps ol {
+            margin-left: 25px;
+        }
+        
+        .next-steps li {
+            padding: 8px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            table {
+                font-size: 0.85em;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .container {
+                box-shadow: none;
+            }
+            
+            .day-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>L'Esperienza Italiana</h1>
+            <div class="subtitle">The Italian Experience</div>
+            <div class="dates">10-Day Italy Adventure • April 14-23, 2026</div>
+            <div class="proposal-type">PROPOSAL C: FLEXIBLE ITALY WITH CURATED OPTIONS</div>
+            <div class="tagline">Your Choice: Independent Exploration OR Guided Viator Experiences</div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <h2>Your Trip, Your Way</h2>
+            <p>This proposal gives you the best of both worlds: a carefully planned itinerary with detailed transportation, <strong>plus</strong> optional Viator excursions you can add for expert-guided experiences. Each day includes suggestions for exploring independently <em>or</em> booking a curated tour. Mix and match based on your mood, energy level, and interests!</p>
+            
+            <div class="intro-grid">
+                <div class="intro-box green">
+                    <h4>🚶 EXPLORE ON YOUR OWN</h4>
+                    <p>Wander at your pace, discover hidden gems</p>
+                </div>
+                <div class="intro-box orange">
+                    <h4>⭐ OPTIONAL VIATOR TOURS</h4>
+                    <p>Skip lines, expert guides, unique access</p>
+                </div>
+            </div>
+            
+            <h2>Day-by-Day Itinerary with Transportation</h2>
+            
+            <!-- Day 1 -->
+            <div class="day-section">
+                <div class="day-header">
+                    <h3>Day 1: Arrival in Rome (Monday, April 14)</h3>
+                </div>
+                <div class="day-content">
+                    <div class="transport-box">
+                        <h4>🚗 TRANSPORTATION DETAILS</h4>
+                        <ul>
+                            <li><strong>Flight:</strong> Birmingham (BHM) → Atlanta (ATL) → Rome Fiumicino (FCO)</li>
+                            <li><strong>Estimated arrival:</strong> Late afternoon/early evening local time (~4:00-6:00 PM)</li>
+                            <li><strong>Airport to Hotel:</strong> Pre-arranged private transfer (~€50-60) OR Leonardo Express train to Roma Termini (€14/pp, 32 min) + taxi to Trastevere (~€15)</li>
+                            <li><strong>Distance:</strong> FCO Airport to Trastevere = 30 km / ~45 minutes by car</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="accommodation">
+                        <strong>Accommodation:</strong> Hotel Santa Maria, Trastevere – 16th-century converted cloister with peaceful courtyard (€180-220/night)
+                    </div>
+                    
+                    <div class="explore-box">
+                        <h4>🚶 EXPLORE ON YOUR OWN</h4>
+                        <p>After settling in, take an evening stroll through Trastevere's cobblestone streets. This authentic Roman neighborhood comes alive at night with locals and visitors enjoying aperitivo.</p>
+                        <ul>
+                            <li>Piazza di Santa Maria in Trastevere – beautiful basilica and fountain</li>
+                            <li>Wander Via della Scala and Via del Moro for local trattorias</li>
+                            <li>Gelato at Fatamorgana (artisan flavors) or Otaleg</li>
+                            <li>Dinner recommendation: Da Enzo al 29 or Tonnarello (arrive early or expect a wait!)</li>
+                        </ul>
+                    </div>
+                    
+                    <p><em style="color: #666;">No Viator tour recommended today – recover from travel and ease into Rome at your own pace.</em></p>
+                </div>
+            </div>
+            
+            <!-- Day 2 -->
+            <div class="day-section">
+                <div class="day-header">
+                    <h3>Day 2: Rome Highlights (Tuesday, April 15)</h3>
+                </div>
+                <div class="day-content">
+                    <div class="transport-box">
+                        <h4>🚗 TRANSPORTATION DETAILS</h4>
+                        <ul>
+                            <li><strong>Getting around Rome:</strong> Walking + Metro/Bus. Rome is very walkable! Metro tickets €1.50 single or €7 for 24-hour pass</li>
+                            <li><strong>From Trastevere:</strong> Tram 8 to Piazza Venezia (city center) OR walk across Ponte Sisto bridge (~15 min to Campo de' Fiori)</li>
+                            <li><strong>To Vatican:</strong> Bus 23 from Trastevere to Vatican (~20 min) OR walk along the Tiber (~30 min scenic route)</li>
+                            <li><strong>Key distances:</strong> Trastevere to Trevi Fountain = 2.5 km walk; to Vatican = 2 km walk</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="explore-box">
+                        <h4>🚶 EXPLORE ON YOUR OWN</h4>
+                        <h5>Morning: Historic Center Walking Route (~3-4 hours)</h5>
+                        <ol>
+                            <li>Start at Piazza Navona (Bernini's fountains, street artists)</li>
+                            <li>Walk to Pantheon (free entry, stunning dome) – arrive early to avoid crowds</li>
+                            <li>Coffee at Sant'Eustachio Il Caffè (famous since 1938)</li>
+                            <li>Trevi Fountain – toss a coin, make a wish!</li>
+                            <li>Spanish Steps – climb for views, window shop Via Condotti</li>
+                        </ol>
+                        <h5>Afternoon: Vatican Museums (pre-book tickets!)</h5>
+                        <p>Book timed-entry tickets at <em>museivaticani.va</em> (€17 + €4 reservation). Allow 3-4 hours. Lines can exceed 2 hours without advance tickets!</p>
+                    </div>
+                    
+                    <div class="viator-box">
+                        <h4>⭐ OPTIONAL VIATOR EXPERIENCES</h4>
+                        
+                        <p><span class="tour-name">Option A: Rome Golf Cart Tour with Gelato</span> – Cover more ground without the walking! Zip through narrow streets in a 6-person golf cart hitting all major sites plus hidden gems. Includes artisan gelato stop.</p>
+                        <div class="tour-details">
+                            <strong>Duration:</strong> 3 hours | <strong>Cost:</strong> ~$95/person | <strong>Group size:</strong> Max 6<br>
+                            <strong>Best for:</strong> First-time visitors wanting an overview; those who prefer less walking
+                        </div>
+                        
+                        <p><span class="tour-name">Option B: Skip-the-Line Vatican + Sistine Chapel</span> – Priority access skips the infamous queues. Expert guide explains the galleries, Raphael Rooms, and Michelangelo's masterpiece.</p>
+                        <div class="tour-details">
+                            <strong>Duration:</strong> 3 hours | <strong>Cost:</strong> ~$117/person | <strong>Group size:</strong> Max 12<br>
+                            <strong>Best for:</strong> Art lovers; avoiding 2+ hour Vatican lines; deeper historical context
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 3 -->
+            <div class="day-section">
+                <div class="day-header">
+                    <h3>Day 3: Ancient Rome + Train to Naples (Wednesday, April 16)</h3>
+                </div>
+                <div class="day-content">
+                    <div class="transport-box">
+                        <h4>🚗 TRANSPORTATION DETAILS</h4>
+                        <ul>
+                            <li><strong>Morning in Rome:</strong> Metro Line B to Colosseo station (direct from Termini) OR walk from Trastevere via Circus Maximus (~25 min)</li>
+                            <li><strong>Rome to Naples:</strong> Frecciarossa high-speed train from Roma Termini → Napoli Centrale</li>
+                            <li><strong>Train duration:</strong> 1 hour 10 minutes (book at trenitalia.com or italotreno.com)</li>
+                            <li><strong>Train cost:</strong> €45-80/person depending on class and advance booking</li>
+                            <li><strong>Recommended departure:</strong> 2:00 PM or 3:00 PM train (after morning sightseeing)</li>
+                            <li><strong>Naples station to hotel:</strong> Taxi from Napoli Centrale to historic center ~€10-15 (5-10 min)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="accommodation">
+                        <strong>Accommodation:</strong> Hotel Palazzo Decumani, Naples – Elegant boutique hotel in the heart of Spaccanapoli (€180-220/night)
+                    </div>
+                    
+                    <div class="explore-box">
+                        <h4>🚶 EXPLORE ON YOUR OWN</h4>
+                        <h5>Morning: Colosseum & Roman Forum (~3-4 hours)</h5>
+                        <ul>
+                            <li>Pre-book Colosseum tickets at coopculture.it (€18 includes Forum & Palatine, valid 24 hrs)</li>
+                            <li>Arrive at 8:30 AM opening to beat crowds</li>
+                            <li>Walk through Roman Forum – see Temple of Saturn, Arch of Titus, House of the Vestal Virgins</li>
+                            <li>Climb Palatine Hill for panoramic views (same ticket)</li>
+                        </ul>
+                        <h5>Evening: First taste of Naples</h5>
+                        <ul>
+                            <li>Wander Spaccanapoli (the street that "splits Naples")</li>
+                            <li>Pizza at L'Antica Pizzeria da Michele (the original!) or Sorbillo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="viator-box">
+                        <h4>⭐ OPTIONAL VIATOR EXPERIENCE</h4>
+                        <p><span class="tour-name">Colosseum Arena Floor + Roman Forum with Guide</span> – Walk where gladiators fought! Special access to the Arena Floor (usually restricted) plus expert guide through Forum and Palatine Hill.</p>
+                        <div class="tour-details">
+                            <strong>Duration:</strong> 3 hours | <strong>Cost:</strong> ~$65/person | <strong>Group size:</strong> Max 12-15<br>
+                            <strong>Best for:</strong> History buffs; those wanting arena floor access; deeper understanding of ancient Rome
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 4 -->
+            <div class="day-section">
+                <div class="day-header">
+                    <h3>Day 4: Naples & Pompeii (Thursday, April 17)</h3>
+                </div>
+                <div class="day-content">
+                    <div class="transport-box">
+                        <h4>🚗 TRANSPORTATION DETAILS</h4>
+                        <ul>
+                            <li><strong>Naples to Pompeii:</strong> Circumvesuviana train from Napoli Garibaldi (below Centrale) → Pompei Scavi-Villa dei Misteri</li>
+                            <li><strong>Train duration:</strong> 35-40 minutes | <strong>Cost:</strong> €3.60/person each way</li>
+                            <li><strong>Trains depart:</strong> Every 20-30 minutes from ~6:00 AM</li>
+                            <li><strong>Getting around Naples:</strong> Historic center is very walkable. Metro Line 1 connects major sites. Taxi within center ~€8-12</li>
+                            <li><strong>Tip:</strong> Watch belongings on Circumvesuviana – it's safe but crowded. Keep bags in front.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="explore-box">
+                        <h4>🚶 EXPLORE ON YOUR OWN</h4>
+                        <h5>Morning: Naples Underground & Historic Center</h5>
+                        <ul>
+                            <li>Napoli Sotterranea (Underground Naples) – Book at napolisotterranea.org (€15, tours hourly)</li>
+                            <li>Descend 40 meters to Greek-Roman aqueducts and WWII shelters</li>
+                            <li>Visit San Gregorio Armeno – famous street of Nativity scene craftsmen</li>
+                            <li>Quick lunch: Fried pizza (pizza fritta) from a street vendor!</li>
+                        </ul>
+                        <h5>Afternoon: Pompeii (~3-4 hours)</h5>
+                        <ul>
+                            <li>Pre-book tickets at ticketone.it (€18) or buy at entrance</li>
+                            <li>Download free Rick Steves audio tour or rent audio guide (€8)</li>
+                            <li>Must-see: Forum, House of the Faun, Stabian Baths, Garden of the Fugitives (plaster casts)</li>
+                            <li>Wear comfortable shoes – uneven ancient streets!</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="viator-box">
+                        <h4>⭐ OPTIONAL VIATOR EXPERIENCES</h4>
+                        
+                        <p><span class="tour-name">Option A: Naples Underground + Pizza Making Class</span> – Explore the underground, then learn to make authentic Neapolitan pizza from a real pizzaiolo. Eat your creation!</p>
+                        <div class="tour-details">
+                            <strong>Duration:</strong> 3 hours | <strong>Cost:</strong> ~$75/person<br>
+                            <strong>Best for:</strong> Foodies; hands-on experiences; learning authentic pizza secrets
+                        </div>
+                        
+                        <p><span class="tour-name">Option B: Pompeii with Archaeologist Guide</span> – An archaeologist brings the ruins to life with stories you won't find in guidebooks. Includes skip-the-line and round-trip transport from Naples.</p>
+                        <div class="tour-details">
+                            <strong>Duration:</strong> 4 hours | <strong>Cost:</strong> ~$85/person | <strong>Group size:</strong> Max 10<br>
+                            <strong>Best for:</strong> History lovers; wanting deeper context; avoiding train logistics
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 5 -->
+            <div class="day-section">
+                <div class="day-header">
+                    <h3>Day 5: Naples to Positano + Amalfi Coast (Friday, April 18)</h3>
+                </div>
+                <div class="day-content">
+                    <div class="transport-box">
+                        <h4>🚗 TRANSPORTATION DETAILS</h4>
+                        <ul>
+                            <li><strong>Option 1 – Private Transfer (Recommended):</strong> Pre-booked car service Naples → Positano. Door-to-door, scenic coastal drive. ~€120-150 total (not per person)</li>
+                            <li><strong>Option 2 – Ferry:</strong> Alilauro hydrofoil from Naples Molo Beverello → Positano. ~1 hour, €25-30/person. Runs mid-April to October. Book at alilauro.it</li>
+                            <li><strong>Option 3 – Bus:</strong> Circumvesuviana to Sorrento (1 hr) + SITA bus to Positano (50 min). Budget option ~€8/person but long/crowded</li>
+                            <li><strong>Travel time:</strong> Naples to Positano = 75-90 minutes by car (longer during peak traffic)</li>
+                            <li><strong>Luggage note:</strong> Private transfer handles luggage easily. Ferries/buses have limited space – pack light!</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="accommodation">
+                        <strong>Accommodation:</strong> Villa Franca, Positano – Cliffside hotel with infinity pool and stunning views (€320-420/night) – 3 nights
+                    </div>
+                    
+                    <div class="explore-box">
+                        <h4>🚶 EXPLORE ON YOUR OWN</h4>
+                        <h5>Afternoon: Settle into Positano</h5>
+                        <ul>
+                            <li>Wander the steep staircases and colorful lanes</li>
+                            <li>Visit Chiesa di Santa Maria Assunta (majolica-tiled dome)</li>
+                            <li>Spiaggia Grande beach – relax, people-watch, enjoy a spritz</li>
+                            <li>Shop for handmade sandals and linen clothing</li>
+                            <li>Sunset aperitivo at Franco's Bar (spectacular views)</li>
+                        </ul>
+                        <h5>Optional afternoon hike: Path of the Gods (self-guided)</h5>
+                        <ul>
+                            <li>Take taxi/bus to Nocelle, hike to Bomerano (easier downhill-ish direction)</li>
+                            <li>Or bus to Bomerano, hike to Nocelle, bus/walk to Positano</li>
+                            <li>Trail: 7 km, 3-4 hours, moderate difficulty, stunning views</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="viator-box">
+                        <h4>⭐ OPTIONAL VIATOR EXPERIENCE</h4>
+                        <p><span class="tour-name">Path of the Gods Guided Hike</span> – Private guide handles all logistics (transport to trailhead, route navigation). Learn local legends, find best photo spots, enjoy the hike without worrying about buses.</p>
+                        <div class="tour-details">
+                            <strong>Duration:</strong> 5 hours | <strong>Cost:</strong> ~$150/person | <strong>Private guide</strong><br>
+                            <strong>Best for:</strong> Hikers wanting expert guidance; those nervous about logistics; richer experience
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 6 -->
+            <div class="day-section">
+                <div class="day-header">
+                    <h3>Day 6: Capri Island (Saturday, April 19)</h3>
+                </div>
+                <div class="day-content">
+                    <div class="transport-box">
+                        <h4>🚗 TRANSPORTATION DETAILS</h4>
+                        <ul>
+                            <li><strong>Ferry Positano → Capri:</strong> ~1 hour on Positano Jet (positanojet.it) or Lucibello. Departures ~9:00-10:00 AM. Cost: €22-25/person each way</li>
+                            <li><strong>Return ferry:</strong> Last boats typically 5:00-6:00 PM (check schedule – varies by season)</li>
+                            <li><strong>On Capri:</strong> Funicular from Marina Grande to Capri town (€2.20). Bus to Anacapri (€2.20). Walking is best for exploring!</li>
+                            <li><strong>Blue Grotto:</strong> Rowboat entrance ~€18/person (weather dependent, often closed). Go early morning for calmest seas</li>
+                            <li><strong>Book ahead:</strong> Ferry tickets can sell out on nice weekends – book online 1-2 days ahead</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="explore-box">
+                        <h4>🚶 EXPLORE ON YOUR OWN</h4>
+                        <h5>Full day on Capri</h5>
+                        <ul>
+                            <li>Morning: Attempt Blue Grotto if weather permits (rowboat queue can be long)</li>
+                            <li>Bus to Anacapri – less crowded, more authentic feeling</li>
+                            <li>Monte Solaro chairlift – 12-minute ride to island's highest point (€12 round-trip)</li>
+                            <li>Villa San Michele – beautiful gardens with ancient artifacts</li>
+                            <li>Walk to Capri town via scenic path through residential areas</li>
+                            <li>Piazzetta – people-watch at the famous tiny square (expensive drinks!)</li>
+                            <li>Gardens of Augustus – panoramic viewpoint over Faraglioni rocks</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="viator-box">
+                        <h4>⭐ OPTIONAL VIATOR EXPERIENCE</h4>
+                        <p><span class="tour-name">Capri Small-Group Boat Tour from Positano</span> – Skip the ferry crowds! Sail directly from Positano, circumnavigate Capri seeing sea caves and grottoes inaccessible by land. Includes swimming stops, prosecco, and free time on the island.</p>
+                        <div class="tour-details">
+                            <strong>Duration:</strong> 8 hours | <strong>Cost:</strong> ~$175/person | <strong>Group size:</strong> Max 12<br>
+                            <strong>Best for:</strong> Boat lovers; wanting to see Capri from the water; swim stops; hassle-free experience
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 7 -->
+            <div class="day-section">
+                <div class="day-header">
+                    <h3>Day 7: Amalfi Coast & Ravello (Sunday, April 20)</h3>
+                </div>
+                <div class="day-content">
+                    <div class="transport-box">
+                        <h4>🚗 TRANSPORTATION DETAILS</h4>
+                        <ul>
+                            <li><strong>Positano → Amalfi:</strong> Ferry (~25 min, €10) OR SITA bus (~40 min, €2.50 – scenic but winding!)</li>
+                            <li><strong>Amalfi → Ravello:</strong> SITA bus from Amalfi (25 min, €1.30) OR taxi (~€30). Bus stop in Amalfi's main piazza</li>
+                            <li><strong>Ravello → Positano:</strong> Bus back to Amalfi, then ferry/bus to Positano OR pre-book taxi (~€50)</li>
+                            <li><strong>Ferry tip:</strong> Travelmar ferries connect Positano-Amalfi-Salerno. Buy tickets at the pier or online at travelmar.it</li>
+                            <li><strong>Consider:</strong> Hiring a private driver for the day allows Positano → Amalfi → Ravello → Positano without bus stress (~€200)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="explore-box">
+                        <h4>🚶 EXPLORE ON YOUR OWN</h4>
+                        <h5>Morning: Amalfi Town</h5>
+                        <ul>
+                            <li>Amalfi Cathedral (Duomo) – climb the dramatic staircase, visit the Cloister of Paradise</li>
+                            <li>Paper Museum – Amalfi's historic paper-making tradition</li>
+                            <li>Walk to tiny Atrani (5 min) – authentic fishing village, 800 residents</li>
+                            <li>Limoncello tasting at local shops</li>
+                        </ul>
+                        <h5>Afternoon: Ravello</h5>
+                        <ul>
+                            <li>Villa Cimbrone – Terrace of Infinity (possibly Italy's most beautiful view)</li>
+                            <li>Villa Rufolo – gardens that inspired Wagner</li>
+                            <li>Quiet lanes perfect for wandering and photographing</li>
+                            <li>Coffee with a view at one of the piazza cafés</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="viator-box">
+                        <h4>⭐ OPTIONAL VIATOR EXPERIENCE</h4>
+                        <p><span class="tour-name">Amalfi Coast Small-Group Boat Tour</span> – See the coast from the water on a traditional wooden boat. Visit Emerald Grotto (included), swim in hidden coves, pass fishing villages, stop in Amalfi for free time.</p>
+                        <div class="tour-details">
+                            <strong>Duration:</strong> 6 hours | <strong>Cost:</strong> ~$140/person | <strong>Group size:</strong> Max 12<br>
+                            <strong>Best for:</strong> Those wanting a relaxing day on the water; accessing hidden grottoes; avoiding buses
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 8 -->
+            <div class="day-section">
+                <div class="day-header">
+                    <h3>Day 8: Transfer to Tuscany via Orvieto (Monday, April 21)</h3>
+                </div>
+                <div class="day-content">
+                    <div class="transport-box">
+                        <h4>🚗 TRANSPORTATION DETAILS</h4>
+                        <ul>
+                            <li><strong>Recommended: Private car service</strong> Positano → Orvieto → Chianti. One-way transfer ~€350-400 (total, not per person). Door-to-door, scenic route, stops where you want</li>
+                            <li><strong>Total distance:</strong> ~380 km / 4-4.5 hours driving (plus Orvieto stop)</li>
+                            <li><strong>Route:</strong> Positano → A3 highway north → Exit at Orvieto → Continue to Chianti via Siena or Florence</li>
+                            <li><strong>Alternative (complex):</strong> Bus Positano → Salerno + Train Salerno → Orvieto → Train Orvieto → Chiusi + Taxi to agriturismo. Not recommended – too many transfers!</li>
+                            <li><strong>Orvieto parking:</strong> Large lots at base of hill. Take funicular up to old town (€1.30). Leave luggage in car</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="accommodation">
+                        <strong>Accommodation:</strong> Agriturismo La Fontaccia, Chianti – Working farm with pool, vineyard views, home-cooked dinners (€140-180/night) – 2 nights
+                    </div>
+                    
+                    <div class="explore-box">
+                        <h4>🚶 EXPLORE ON YOUR OWN</h4>
+                        <h5>Midday Stop: Orvieto (~2-3 hours)</h5>
+                        <ul>
+                            <li>Orvieto Duomo – Stunning Gothic cathedral with Signorelli's frescoes</li>
+                            <li>Orvieto Underground – Etruscan caves and tunnels beneath the city (€8, tours every 30 min)</li>
+                            <li>Walk the peaceful streets – ceramics shops, wine bars</li>
+                            <li>Lunch at Trattoria dell'Orso or wine/cheese at Enoteca al Duomo</li>
+                            <li>Try Orvieto Classico white wine – local specialty</li>
+                        </ul>
+                        <p><strong>Evening:</strong> Arrive at agriturismo, settle in. Most offer optional farm dinner (book ahead) – incredible home-cooked Tuscan meal with house wines!</p>
+                    </div>
+                    
+                    <div class="viator-box">
+                        <h4>⭐ OPTIONAL VIATOR EXPERIENCE</h4>
+                        <p><span class="tour-name">Orvieto Truffle Hunting Experience</span> – Join a local truffle hunter and his trained Lagotto dogs in the Umbrian forest. Search for the prized "black diamond," then enjoy a truffle-infused brunch with local wines at the estate.</p>
+                        <div class="tour-details">
+                            <strong>Duration:</strong> 4 hours | <strong>Cost:</strong> ~$120/person | <strong>Includes brunch + wines</strong><br>
+                            <strong>Best for:</strong> Foodies; unique once-in-a-lifetime experience; nature lovers
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 9 -->
+            <div class="day-section">
+                <div class="day-header">
+                    <h3>Day 9: Tuscan Wine Country (Tuesday, April 22)</h3>
+                </div>
+                <div class="day-content">
+                    <div class="transport-box">
+                        <h4>🚗 TRANSPORTATION DETAILS</h4>
+                        <ul>
+                            <li><strong>Best option: Rent a car for the day</strong> OR keep private driver from Day 8. Chianti's wineries require wheels – public transit is nearly impossible</li>
+                            <li><strong>Car rental:</strong> Pick up from Florence Airport or Siena ~€60-80/day. Consider designating a driver for wine tastings!</li>
+                            <li><strong>Key distances from Chianti:</strong> Greve in Chianti (15 min), Panzano (20 min), Castellina (25 min), Montalcino (1 hr), Montepulciano (1 hr)</li>
+                            <li><strong>Driving tip:</strong> Chianti roads are narrow and winding but beautiful. Allow extra time, stop at viewpoints!</li>
+                            <li><strong>Wine tasting etiquette:</strong> Most wineries require appointments! Email or call 2+ days ahead. Many close Sundays.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="explore-box">
+                        <h4>🚶 EXPLORE ON YOUR OWN</h4>
+                        <h5>Self-Drive Wine Route (with designated driver!)</h5>
+                        <ol>
+                            <li><strong>Morning:</strong> Visit 1-2 Chianti Classico wineries (pre-book!)<br>
+                            <em style="font-size: 0.9em;">Recommended: Castello di Querceto, Badia a Coltibuono, or Castello di Volpaia</em></li>
+                            <li><strong>Lunch:</strong> Dario Cecchini in Panzano (famous butcher – book ahead!) OR picnic from a local alimentari</li>
+                            <li><strong>Afternoon:</strong> Drive to a hilltop town<br>
+                            <em style="font-size: 0.9em;">Options: San Gimignano (towers), Monteriggioni (walled village), Radda in Chianti</em></li>
+                            <li><strong>Evening:</strong> Dinner at agriturismo OR cooking class (see below)</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="viator-box">
+                        <h4>⭐ OPTIONAL VIATOR EXPERIENCES</h4>
+                        
+                        <p><span class="tour-name">Option A: Tuscan Wine Safari (Full Day)</span> – Leave the driving to someone else! Travel in a 4WD vehicle through off-road vineyard routes. Visit 2 prestigious wineries (Chianti Classico + Brunello di Montalcino), includes gourmet lunch.</p>
+                        <div class="tour-details">
+                            <strong>Duration:</strong> 8 hours | <strong>Cost:</strong> ~$225/person | <strong>Group size:</strong> Max 8<br>
+                            <strong>Best for:</strong> Wine lovers who want to taste freely; accessing hidden estates; hassle-free wine touring
+                        </div>
+                        
+                        <p><span class="tour-name">Option B: Chianti Cooking Class (Evening)</span> – At a farmhouse kitchen, a local chef teaches you to make fresh pasta from scratch + traditional sauces + tiramisu. Enjoy your creations for dinner with unlimited Chianti.</p>
+                        <div class="tour-details">
+                            <strong>Duration:</strong> 3.5 hours | <strong>Cost:</strong> ~$95/person | <strong>Group size:</strong> Max 8<br>
+                            <strong>Best for:</strong> Foodies; hands-on cooking; taking recipes home; memorable evening
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 10 -->
+            <div class="day-section">
+                <div class="day-header">
+                    <h3>Day 10: Florence & Departure (Wednesday, April 23)</h3>
+                </div>
+                <div class="day-content">
+                    <div class="transport-box">
+                        <h4>🚗 TRANSPORTATION DETAILS</h4>
+                        <ul>
+                            <li><strong>Chianti to Florence:</strong> ~45 minutes to 1 hour by car. Drop rental at Florence Airport (FLR) OR park near city center</li>
+                            <li><strong>Florence parking:</strong> Garage Stazione Santa Maria Novella (~€3/hour) – walk to most sights</li>
+                            <li><strong>Getting around Florence:</strong> Historic center is compact and walkable (most sights within 15 min of each other)</li>
+                            <li><strong>To airport:</strong> Taxi ~€25-30 (20 min) OR Tramvia T2 from Santa Maria Novella station (€1.70, 20 min)</li>
+                            <li><strong>Flights:</strong> Florence (FLR) → Frankfurt/Munich/Amsterdam → Atlanta (ATL) → Birmingham (BHM)</li>
+                            <li><strong>Check-in recommendation:</strong> Arrive FLR 2.5-3 hours before international departure</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="explore-box">
+                        <h4>🚶 EXPLORE ON YOUR OWN</h4>
+                        <h5>Morning: Quick Florence Highlights (~3 hours)</h5>
+                        <ul>
+                            <li>Ponte Vecchio – iconic bridge lined with jewelry shops</li>
+                            <li>Piazza della Signoria – outdoor sculpture gallery, Palazzo Vecchio</li>
+                            <li>Duomo exterior – marvel at Brunelleschi's dome (interior/climb requires tickets + time)</li>
+                            <li>Mercato Centrale – last-minute food souvenirs (olive oil, balsamic, truffle products, pasta)</li>
+                            <li>Gelato at Perché No! or Vivoli</li>
+                            <li>Leather shopping in San Lorenzo market area (bargain!)</li>
+                        </ul>
+                    </div>
+                    
+                    <p><em style="color: #666;">No Viator tour recommended today – enjoy a relaxed morning before your flight. Save Florence's major museums (Uffizi, Accademia) for a future trip!</em></p>
+                </div>
+            </div>
+            
+            <!-- Viator Summary Table -->
+            <h2>Optional Viator Experiences Menu</h2>
+            <p>Pick and choose the experiences that excite you most! All include free cancellation 24 hours in advance.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Experience</th>
+                        <th>Day</th>
+                        <th>Duration</th>
+                        <th>Est. Cost</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rome Golf Cart + Gelato</td>
+                        <td class="text-center">Day 2</td>
+                        <td class="text-center">3 hrs</td>
+                        <td class="text-center">$95/pp</td>
+                        <td>City overview, less walking</td>
+                    </tr>
+                    <tr>
+                        <td>Vatican Skip-the-Line</td>
+                        <td class="text-center">Day 2</td>
+                        <td class="text-center">3 hrs</td>
+                        <td class="text-center">$117/pp</td>
+                        <td>Art lovers, avoiding lines</td>
+                    </tr>
+                    <tr>
+                        <td>Colosseum Arena Floor</td>
+                        <td class="text-center">Day 3</td>
+                        <td class="text-center">3 hrs</td>
+                        <td class="text-center">$65/pp</td>
+                        <td>History buffs, special access</td>
+                    </tr>
+                    <tr>
+                        <td>Naples Underground + Pizza</td>
+                        <td class="text-center">Day 4</td>
+                        <td class="text-center">3 hrs</td>
+                        <td class="text-center">$75/pp</td>
+                        <td>Foodies, hands-on</td>
+                    </tr>
+                    <tr>
+                        <td>Pompeii with Archaeologist</td>
+                        <td class="text-center">Day 4</td>
+                        <td class="text-center">4 hrs</td>
+                        <td class="text-center">$85/pp</td>
+                        <td>History lovers, transport incl.</td>
+                    </tr>
+                    <tr>
+                        <td>Path of the Gods Hike</td>
+                        <td class="text-center">Day 5</td>
+                        <td class="text-center">5 hrs</td>
+                        <td class="text-center">$150/pp</td>
+                        <td>Hikers, logistics handled</td>
+                    </tr>
+                    <tr>
+                        <td>Capri Boat Tour</td>
+                        <td class="text-center">Day 6</td>
+                        <td class="text-center">8 hrs</td>
+                        <td class="text-center">$175/pp</td>
+                        <td>Boat lovers, swimming</td>
+                    </tr>
+                    <tr>
+                        <td>Amalfi Coast Boat Tour</td>
+                        <td class="text-center">Day 7</td>
+                        <td class="text-center">6 hrs</td>
+                        <td class="text-center">$140/pp</td>
+                        <td>Coast views, grottoes</td>
+                    </tr>
+                    <tr>
+                        <td>Orvieto Truffle Hunt</td>
+                        <td class="text-center">Day 8</td>
+                        <td class="text-center">4 hrs</td>
+                        <td class="text-center">$120/pp</td>
+                        <td>Unique, foodies, nature</td>
+                    </tr>
+                    <tr>
+                        <td>Tuscan Wine Safari</td>
+                        <td class="text-center">Day 9</td>
+                        <td class="text-center">8 hrs</td>
+                        <td class="text-center">$225/pp</td>
+                        <td>Wine lovers, no driving</td>
+                    </tr>
+                    <tr>
+                        <td>Chianti Cooking Class</td>
+                        <td class="text-center">Day 9</td>
+                        <td class="text-center">3.5 hrs</td>
+                        <td class="text-center">$95/pp</td>
+                        <td>Hands-on, take recipes home</td>
+                    </tr>
+                    <tr class="table-total">
+                        <td class="text-right" colspan="3"><strong>IF ALL VIATOR OPTIONS SELECTED:</strong></td>
+                        <td class="text-center"><strong>~$1,342/pp</strong></td>
+                        <td class="text-center"><strong>(Mix & match!)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Budget -->
+            <h2>Budget Estimate</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th class="text-center">Low Estimate</th>
+                        <th class="text-center">High Estimate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Flights (BHM-Rome, Florence-BHM open jaw)</td>
+                        <td class="text-center">$1,100</td>
+                        <td class="text-center">$1,500</td>
+                    </tr>
+                    <tr>
+                        <td>Accommodations (9 nights)</td>
+                        <td class="text-center">$950</td>
+                        <td class="text-center">$1,350</td>
+                    </tr>
+                    <tr>
+                        <td>Ground Transport (trains, transfers, ferries, car)</td>
+                        <td class="text-center">$400</td>
+                        <td class="text-center">$600</td>
+                    </tr>
+                    <tr>
+                        <td>Meals & Incidentals</td>
+                        <td class="text-center">$500</td>
+                        <td class="text-center">$750</td>
+                    </tr>
+                    <tr class="table-subtotal">
+                        <td><strong>BASE TRIP (no Viator tours)</strong></td>
+                        <td class="text-center"><strong>$2,950/pp</strong></td>
+                        <td class="text-center"><strong>$4,200/pp</strong></td>
+                    </tr>
+                    <tr>
+                        <td><em>Optional Viator Experiences (if all selected)</em></td>
+                        <td class="text-center"><em>+$1,250</em></td>
+                        <td class="text-center"><em>+$1,450</em></td>
+                    </tr>
+                    <tr class="table-total">
+                        <td><strong>MAXIMUM (with all tours)</strong></td>
+                        <td class="text-center"><strong>$4,200/pp</strong></td>
+                        <td class="text-center"><strong>$5,650/pp</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="budget-note">
+                <strong>Flexibility note:</strong> Most travelers select 3-5 Viator experiences for the highlights they care most about, keeping the budget in the $3,500-$4,500 range per person.
+            </div>
+            
+            <!-- Next Steps -->
+            <h2>Next Steps</h2>
+            <div class="next-steps">
+                <p>Ready to start planning? Here's how to proceed:</p>
+                <ol>
+                    <li>Review this proposal and note any questions</li>
+                    <li>Let us know which Viator experiences interest you (or if you prefer to explore independently)</li>
+                    <li>We'll research and secure flight options (best prices 3-4 months ahead)</li>
+                    <li>Book accommodations (April is popular – boutique hotels fill quickly)</li>
+                    <li>Reserve any desired Viator experiences (2+ weeks ahead for best availability)</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h3>YOUR TRAVEL CONSULTANTS</h3>
+            <div class="contact-names">Kim Henderson • Susie Jones</div>
+            <div class="company-name">SOMO Travel Specialists / Cruise Planners</div>
+            <div class="tagline-final">"Your adventure, your way – we're here to make it happen!"</div>
+        </div>
+    </div>
+</body>
+</html>
