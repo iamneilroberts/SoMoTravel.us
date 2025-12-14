@@ -3,369 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stowe Vermont Ski Trip - January 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+    <title>Stowe Ski Trip - January 6-11, 2026</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Crimson Text', serif;
-            background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0d1b2a 100%);
-            color: #e8e8e8;
-            line-height: 1.8;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
         }
-
-        /* Animated snow background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, #eee, rgba(238,238,238,.2)),
-                radial-gradient(2px 2px at 60px 70px, #fff, rgba(255,255,255,.2)),
-                radial-gradient(1px 1px at 50px 50px, #ddd, rgba(221,221,221,.2)),
-                radial-gradient(1px 1px at 130px 80px, #fff, rgba(255,255,255,.2));
-            background-repeat: repeat;
-            background-size: 200px 200px;
-            opacity: 0.05;
-            pointer-events: none;
-            z-index: 0;
-            animation: snowDrift 20s linear infinite;
-        }
-
-        @keyframes snowDrift {
-            0% { transform: translateY(0) translateX(0); }
-            100% { transform: translateY(50px) translateX(20px); }
-        }
-
-        /* Mountain silhouette */
-        body::after {
-            content: '';
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(to top, rgba(15,20,25,.8), transparent);
-            pointer-events: none;
-            z-index: 0;
-        }
-
+        
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 60px 40px;
-            position: relative;
-            z-index: 1;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
         }
-
+        
         header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 30px;
             text-align: center;
-            margin-bottom: 80px;
-            animation: fadeInDown 1s ease-out;
         }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #fff 0%, #d4af91 50%, #fff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
-        }
-
-        .subtitle {
-            font-size: 1.4rem;
-            color: #a8c5d8;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .highlight-bar {
-            height: 3px;
-            width: 100px;
-            background: linear-gradient(90deg, #d4af91, #8ba8c7);
-            margin: 20px auto;
-        }
-
-        .trip-overview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 60px;
-        }
-
-        .overview-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(212,175,145,0.2);
-            padding: 25px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out backwards;
-        }
-
-        .overview-card:nth-child(1) { animation-delay: 0.1s; }
-        .overview-card:nth-child(2) { animation-delay: 0.2s; }
-        .overview-card:nth-child(3) { animation-delay: 0.3s; }
-        .overview-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .overview-card:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: rgba(212,175,145,0.4);
-            transform: translateY(-5px);
-        }
-
-        .overview-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: #d4af91;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .overview-card p {
-            font-size: 1.1rem;
-            color: #b0b0b0;
-        }
-
-        section {
-            margin-bottom: 70px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #d4af91;
+        
+        header h1 {
+            font-size: 2.5em;
             margin-bottom: 10px;
-            position: relative;
-            display: inline-block;
         }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, #d4af91, #8ba8c7);
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
         }
-
-        .section-content {
-            margin-top: 40px;
-        }
-
-        .activity-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .activity-card {
-            background: rgba(212,175,145,0.05);
-            border-left: 4px solid #d4af91;
+        
+        .content {
             padding: 30px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
         }
-
-        .activity-card:hover {
-            background: rgba(212,175,145,0.1);
-            transform: translateX(5px);
+        
+        section {
+            margin-bottom: 40px;
         }
-
-        .activity-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: #d4af91;
-            margin-bottom: 12px;
+        
+        h2 {
+            color: #1e3c72;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
         }
-
-        .activity-card p {
-            font-size: 1rem;
-            color: #c0c0c0;
-            line-height: 1.7;
+        
+        h3 {
+            color: #2a5298;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
         }
-
-        .cost-table {
+        
+        .confirmation-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .confirmation-box strong {
+            color: #1e3c72;
+        }
+        
+        table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 30px;
-            font-size: 1.05rem;
+            margin: 15px 0;
         }
-
-        .cost-table th {
-            background: rgba(212,175,145,0.15);
-            padding: 15px 20px;
+        
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
             text-align: left;
-            font-family: 'Playfair Display', serif;
-            color: #d4af91;
-            border-bottom: 2px solid rgba(212,175,145,0.3);
+            font-weight: 600;
         }
-
-        .cost-table td {
-            padding: 15px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+        
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
         }
-
-        .cost-table tr:hover {
-            background: rgba(212,175,145,0.05);
+        
+        table tr:nth-child(even) {
+            background: #f9f9f9;
         }
-
-        .cost-label {
-            color: #b0b0b0;
+        
+        table tr:hover {
+            background: #f0f4ff;
         }
-
-        .cost-amount {
-            color: #d4af91;
-            font-weight: bold;
-            text-align: right;
+        
+        .highlight {
+            background: #fffacd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
         }
-
-        .total-row td {
+        
+        .alert {
+            background: #ffe6e6;
+            border-left: 4px solid #d32f2f;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .alert strong {
+            color: #d32f2f;
+        }
+        
+        .success {
+            background: #e6ffe6;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .success strong {
+            color: #2e7d32;
+        }
+        
+        .cost-summary {
+            background: #f5f5f5;
             padding: 20px;
-            background: rgba(212,175,145,0.1);
-            border-top: 2px solid rgba(212,175,145,0.3);
-            border-bottom: 2px solid rgba(212,175,145,0.3);
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .cost-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .cost-row.total {
+            border-bottom: 2px solid #667eea;
             font-weight: bold;
+            font-size: 1.1em;
+            color: #1e3c72;
+            margin-top: 10px;
+            padding-top: 10px;
         }
-
-        .logistics {
-            background: rgba(139,168,199,0.08);
-            border: 1px solid rgba(139,168,199,0.2);
-            padding: 30px;
-            border-radius: 2px;
-            margin-top: 30px;
+        
+        .itinerary-day {
+            background: #f9f9f9;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
         }
-
-        .logistics h3 {
-            font-family: 'Playfair Display', serif;
-            color: #8ba8c7;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
+        
+        .itinerary-day h3 {
+            margin-top: 0;
+            color: #1e3c72;
         }
-
-        .logistics-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(139,168,199,0.1);
+        
+        .time-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 3px;
         }
-
-        .logistics-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        
+        .time-item strong {
+            color: #2a5298;
         }
-
-        .logistics-label {
-            color: #8ba8c7;
-            font-weight: bold;
-            margin-bottom: 5px;
+        
+        .contacts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
         }
-
-        .logistics-detail {
-            color: #c0c0c0;
+        
+        .contact-card {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border-top: 3px solid #667eea;
         }
-
-        .tips {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 25px;
-            margin-top: 30px;
+        
+        .contact-card h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
         }
-
-        .tips h3 {
-            color: #d4af91;
-            margin-bottom: 15px;
-            font-family: 'Playfair Display', serif;
+        
+        .contact-card p {
+            margin: 5px 0;
+            font-size: 0.95em;
         }
-
-        .tips ul {
+        
+        .checklist {
             list-style: none;
-            padding-left: 0;
+            padding: 0;
         }
-
-        .tips li {
-            padding: 8px 0 8px 25px;
-            position: relative;
-            color: #b0b0b0;
+        
+        .checklist li {
+            padding: 10px 15px;
+            margin: 5px 0;
+            background: #f9f9f9;
+            border-left: 3px solid #667eea;
+            border-radius: 3px;
         }
-
-        .tips li::before {
-            content: '◆';
-            position: absolute;
-            left: 0;
-            color: #d4af91;
+        
+        .checklist li:before {
+            content: "☐ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
         }
-
+        
         footer {
+            background: #f5f5f5;
+            padding: 20px;
             text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #707070;
-            font-size: 0.95rem;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+            color: #666;
         }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
+        
+        @media print {
+            body {
+                background: white;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-
             .container {
-                padding: 30px 20px;
+                box-shadow: none;
             }
-
-            .cost-table {
-                font-size: 0.9rem;
+            section {
+                page-break-inside: avoid;
             }
-
-            .cost-table th,
-            .cost-table td {
-                padding: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .contacts {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            table th, table td {
+                padding: 8px;
             }
         }
     </style>
@@ -373,509 +272,378 @@
 <body>
     <div class="container">
         <header>
-            <h1>STOWE</h1>
-            <div class="highlight-bar"></div>
-            <p class="subtitle">Vermont Ski Trip — January 6-11, 2026</p>
+            <h1>🎿 STOWE SKI TRIP 🎿</h1>
+            <p>January 6-11, 2026 | 4 Adults</p>
         </header>
-
-        <div class="trip-overview">
-            <div class="overview-card">
-                <h3>Duration</h3>
-                <p>6 Days / 5 Nights</p>
-            </div>
-            <div class="overview-card">
-                <h3>Group</h3>
-                <p>7 Adults</p>
-            </div>
-            <div class="overview-card">
+        
+        <div class="content">
+            <!-- CONFIRMATIONS -->
+            <section>
+                <h2>✓ CONFIRMATIONS</h2>
+                
                 <h3>Lodging</h3>
-                <p>The Lodge at Spruce Peak</p>
-            </div>
-            <div class="overview-card">
-                <h3>Budget</h3>
-                <p>$2,264–$2,389 per person</p>
-            </div>
-        </div>
-
-        <section>
-            <h2>Trip Structure</h2>
-            <div class="section-content">
-                <p>Your trip balances world-class skiing with exploration and relaxation. Here's how we've organized it:</p>
-                <div class="activity-grid">
-                    <div class="activity-card">
-                        <h3>🎿 Ski Day</h3>
-                        <p>One dedicated day on Stowe Mountain. Rent equipment locally and take advantage of the Epic Pass for significant savings on lift tickets.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>🛍️ Village Day</h3>
-                        <p>Explore Stowe Village for shopping, galleries, cafes, and restaurants. Plenty of time to wander, photograph, and enjoy the alpine atmosphere.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>🚗 Day Trips</h3>
-                        <p>Use the remaining days to explore nearby attractions, scenic drives, and charming Vermont towns with the rental car.</p>
-                    </div>
+                <div class="confirmation-box">
+                    <strong>Hotel:</strong> The Lodge at Spruce Peak (Hyatt Collections)<br>
+                    <strong>Confirmation #:</strong> <span class="highlight">PZ4J0I</span><br>
+                    <strong>Room:</strong> 1 Double Room (sleeps 4)<br>
+                    <strong>Check-in:</strong> January 6, 2026 at 4:00 PM<br>
+                    <strong>Check-out:</strong> January 11, 2026<br>
+                    <strong>Cost:</strong> $3,724.74
                 </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Day Trip Recommendations</h2>
-            <div class="section-content">
-                <p>Your group will have a rental car and 3–4 days to explore. Here are the best options:</p>
-                <div class="activity-grid">
-                    <div class="activity-card">
-                        <h3>Woodstock (1 hr)</h3>
-                        <p>Picture-perfect village with covered bridges, galleries, shops, and excellent restaurants. Perfect for photos and wandering. Plan a half or full day here.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Quechee Gorge (1 hr)</h3>
-                        <p>Dramatic scenic gorge with hiking trails ranging from easy viewpoints to more adventurous descents to the gorge floor.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Smugglers' Notch Loop</h3>
-                        <p>Stunning winter scenic drive between Stowe and Jeffersonville with mountain views (weather dependent).</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Ben & Jerry's Factory (30 min)</h3>
-                        <p>Waterbury-based factory tour—fun even for non-ice-cream enthusiasts. Great photo ops.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Cold Hollow Cider Mill (30 min)</h3>
-                        <p>Fresh cider donuts and scenic mill setting in Waterbury. Short stop, big impact.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Camel's Hump Snowshoeing (30 min)</h3>
-                        <p>Moderate difficulty hike with beautiful views. Doable as a half-day adventure if your group wants hiking.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Covered Bridges (Woodstock Area)</h2>
-            <div class="section-content">
-                <p>Three stunning bridges to visit in and around Woodstock, all within 5-10 minutes of each other. Great for photos and exploring:</p>
-                <div class="activity-grid">
-                    <div class="activity-card">
-                        <h3>Middle Covered Bridge</h3>
-                        <p><strong>Built:</strong> 1969 | <strong>Length:</strong> 139 feet<br><br>The most photographed bridge in Woodstock, located on Mountain Avenue with views of the village green. Features a pedestrian walkway with western views of a waterfall. Simon Pearce restaurant is nearby for lunch or dinner.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Taftsville Covered Bridge</h3>
-                        <p><strong>Built:</strong> 1836 | <strong>Length:</strong> 189 feet<br><br>One of the oldest covered bridges in the nation, featuring a modified multiple kingpost truss design. Located on Covered Bridge Road off Route 4, about 5 minutes from Woodstock. Parking available; excellent for sunset photos. Taftsville Country Store nearby for snacks.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Lincoln Covered Bridge</h3>
-                        <p><strong>Built:</strong> 1877 | <strong>Length:</strong> 136 feet<br><br>National Register of Historic Places with a unique modified Pratt truss design. Located on Route 4 in the Fletcher Hill area, west of Woodstock. The Lincoln Inn & Restaurant is right there for lunch or dinner.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Emily's Bridge</h3>
-                        <p><strong>Built:</strong> 1844 | <strong>Location:</strong> Stowe Hollow<br><br>Historic covered bridge with local ghost legends, very popular for photos. Closer to your lodge in Stowe if you want a quick bridge visit without traveling to Woodstock.</p>
-                    </div>
-                </div>
-                <div class="logistics" style="margin-top: 30px;">
-                    <h3>Suggested Woodstock Route</h3>
-                    <div class="logistics-item">
-                        <div class="logistics-detail">Start in Woodstock village (Middle Bridge + downtown shopping) → Drive 5 min east to Taftsville Bridge + Country Store → Drive 10 min west to Lincoln Bridge & Inn. Total driving time between stops: ~20 minutes.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Shopping Guide</h2>
-            <div class="section-content">
-                <h3 style="color: #d4af91; font-family: 'Playfair Display', serif; margin-bottom: 20px;">Stowe Village Shops</h3>
-                <div class="activity-grid">
-                    <div class="activity-card">
-                        <h3>Stowe Mercantile</h3>
-                        <p>Eclectic Vermont gifts, home goods, and local artisan products. Perfect for unique souvenirs.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Shaw's General Store</h3>
-                        <p>Classic Vermont country store operating since 1895. Authentic experience with local products and charm.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Stowe Craft</h3>
-                        <p>Handmade jewelry, pottery, and artisan goods from local makers.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Bear Pond Books</h3>
-                        <p>Cozy independent bookstore. Great for browsing Vermont history and local authors.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Green Mountain Distillers</h3>
-                        <p>Sample and purchase local Vermont spirits. Fun for the group to browse.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Main Street Boutiques</h3>
-                        <p>Various shops featuring clothing, outdoor gear, and Vermont-made goods along Main Street.</p>
-                    </div>
-                </div>
-
-                <h3 style="color: #d4af91; font-family: 'Playfair Display', serif; margin-bottom: 20px; margin-top: 40px;">Woodstock Shopping (Artisans & Galleries)</h3>
-                <div class="activity-grid">
-                    <div class="activity-card">
-                        <h3>Collective</h3>
-                        <p>Artisan-owned cooperative gallery where you can meet the artists who make the work. Unique, one-of-a-kind pieces.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Simon Pearce Factory Store</h3>
-                        <p>Watch master glassblowers and potters at work, then shop first-quality and discounted seconds. Restaurant on-site for meals.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Farmhouse Pottery</h3>
-                        <p>Handcrafted pottery and modern homeware. Watch master potters or book a wheel workshop to create your own artisan souvenir.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Danforth Pewter</h3>
-                        <p>Handcrafted pewter gifts, ornaments, and home goods. Everything from vases to jewelry.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>N.T. Ferro Jewelers</h3>
-                        <p>Fine jewelry design and production. Largest selection of Vermont charms, many handmade.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>The Woodstock Gallery</h3>
-                        <p>Folk art to fine art. Colorful selection of quality contemporary New England artists.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Focus Vermont</h3>
-                        <p>Large and small photographs capturing Vermont scenery and landscapes by local photographers.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>37 Central Clothiers</h3>
-                        <p>Trendy streetwear including Free People, Joe's Jeans, Z Supply, Rails, and Bella Dahl. Great for the 20-year-old group.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Sudie's Clothing Boutique</h3>
-                        <p>Classic pieces with a twist—cozy sweaters with heart-shaped elbow patches, wedge booties, cashmere turtlenecks, colorful puffer jackets.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Dining Recommendations</h2>
-            <div class="section-content">
-                <p>From casual lunch stops to dinner destinations, here are the best spots for your group:</p>
                 
-                <h3 style="color: #8ba8c7; font-family: 'Playfair Display', serif; margin: 30px 0 20px 0; font-size: 1.3rem;">Woodstock Dining</h3>
-                <div class="activity-grid">
-                    <div class="activity-card">
-                        <h3>Simon Pearce Restaurant</h3>
-                        <p>Upscale dining overlooking a waterfall at the factory. Perfect for a special dinner. Connected to the factory store for a full afternoon/evening experience.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Lincoln Inn & Restaurant</h3>
-                        <p>Right next to Lincoln Covered Bridge. Great for lunch or dinner after bridge viewing. Historic Vermont inn atmosphere.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Taftsville Country Store</h3>
-                        <p>Casual stop for snacks, sandwiches, and local goods. Perfect for a quick lunch between bridge visits.</p>
-                    </div>
+                <h3>Flights</h3>
+                <div class="confirmation-box">
+                    <strong>Confirmation #:</strong> <span class="highlight">CJ9DN3</span><br>
+                    <strong>Airline Reference:</strong> D2ECJ0<br>
+                    <strong>Outbound:</strong> January 6 | Mobile 12:45 PM → Burlington 6:54 PM<br>
+                    <strong>Inbound:</strong> January 11 | Burlington 2:04 PM → Mobile 7:51 PM<br>
+                    <strong>Cost:</strong> $5,010.20
                 </div>
-
-                <h3 style="color: #8ba8c7; font-family: 'Playfair Display', serif; margin: 30px 0 20px 0; font-size: 1.3rem;">Stowe Area Dining & Nightlife</h3>
-                <div class="activity-grid">
-                    <div class="activity-card">
-                        <h3>Trapp Family Lodge Biergarten</h3>
-                        <p>Austrian-style brews and food. Beautiful grounds and historic atmosphere. Great for apres-ski with the group.</p>
+                
+                <h3>Airport Transfers</h3>
+                <div class="alert">
+                    <strong>⚠️ Important:</strong> Payment due at time of pickup<br>
+                    <strong>Service:</strong> Stowe Airport Transfers<br>
+                    <strong>Contact:</strong> (802) 338-8428 (text for changes)<br>
+                    <strong>Pickup Jan 6:</strong> Burlington Airport ~7:00 PM<br>
+                    <strong>Dropoff Jan 11:</strong> The Lodge to Burlington Airport<br>
+                    <strong>Cost:</strong> <span class="highlight">TBD - Call for pricing</span>
+                </div>
+            </section>
+            
+            <!-- LODGE AMENITIES -->
+            <section>
+                <h2>🏨 THE LODGE AMENITIES</h2>
+                <div class="success">
+                    <p><strong>✓ Heated Outdoor Pool:</strong> 9 AM - 10 PM daily</p>
+                    <p><strong>✓ Hot Tubs:</strong> 2 hot tubs at base of Mount Mansfield</p>
+                    <p><strong>✓ Ice Skating Rink:</strong> Noon - 6 PM daily (complimentary, skate rentals at Adventure Center)</p>
+                    <p><strong>✓ Full Service Spa:</strong> Massages, facials, cryo-therapy (advance booking recommended)</p>
+                    <p><strong>✓ Hair & Nail Salon:</strong> On-site</p>
+                    <p><strong>✓ State-of-the-Art Fitness Center:</strong> Daily classes, cardio, weights, Peloton bikes</p>
+                </div>
+            </section>
+            
+            <!-- DAILY ITINERARY -->
+            <section>
+                <h2>📅 DAILY ITINERARY</h2>
+                
+                <div class="itinerary-day">
+                    <h3>Monday, January 6 - ARRIVAL</h3>
+                    <div class="time-item">
+                        <strong>12:45 PM:</strong> Depart Mobile Regional Airport (MOB)
                     </div>
-                    <div class="activity-card">
-                        <h3>Cold Hollow Cider Mill</h3>
-                        <p>Famous for fresh cider donuts and historic apple-pressing operation. Quick stop or casual lunch destination in Waterbury (30 min).</p>
+                    <div class="time-item">
+                        <strong>6:54 PM:</strong> Arrive Burlington International Airport (BTV)
                     </div>
-                    <div class="activity-card">
-                        <h3>Ben & Jerry's Factory</h3>
-                        <p>Waterbury location. Lunch or snack stop combined with factory tour (30 min away).</p>
+                    <div class="time-item">
+                        <strong>~7:00 PM:</strong> Meet Stowe Airport Transfers | PAY AT PICKUP
+                    </div>
+                    <div class="time-item">
+                        <strong>~7:45-8:00 PM:</strong> Arrive The Lodge, check in
+                    </div>
+                    <div class="time-item">
+                        <strong>Evening:</strong> Casual dinner in Stowe village (Farmhouse Tap & Grill or Piecasso)
                     </div>
                 </div>
                 
-                <div class="tips" style="margin-top: 30px;">
-                    <h3>Dining Tips for Your Group</h3>
-                    <ul>
-                        <li><strong>Book dinner reservations in advance:</strong> Popular restaurants fill quickly in January, especially weekends</li>
-                        <li><strong>Ski day lunch:</strong> Pack sandwiches or eat at the mountain lodge to save $30–50 per person</li>
-                        <li><strong>Apres-ski:</strong> Happy hours in Stowe Village offer great deals on drinks and appetizers for 20-year-olds</li>
-                        <li><strong>Nightlife:</strong> Stowe has solid apres-ski and bar scene suitable for your age group</li>
-                        <li><strong>Factory dining:</strong> Simon Pearce and Ben & Jerry's both offer dining combined with activities</li>
-                    </ul>
+                <div class="itinerary-day">
+                    <h3>Tuesday, January 7 - SKI DAY</h3>
+                    <div class="time-item">
+                        <strong>Morning:</strong> Pick up ski rentals at TrueNorth (in The Lodge)
+                    </div>
+                    <div class="time-item">
+                        <strong>Full Day:</strong> Skiing on Stowe Mountain (Spruce Peak)
+                    </div>
+                    <div class="time-item">
+                        <strong>Afternoon:</strong> Break for lunch at mountain lodge
+                    </div>
+                    <div class="time-item">
+                        <strong>Late Afternoon:</strong> Apres-ski at The Shed
+                    </div>
+                    <div class="time-item">
+                        <strong>~7:00 PM:</strong> DINNER RESERVATION - Grail Restaurant (call to book)
+                    </div>
+                    <div class="time-item">
+                        <strong>Evening:</strong> Nightlife - Matterhorn, Edson Hill Tavern
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Specialty Tours & Curated Excursions</h2>
-            <div class="section-content">
-                <p>For a more immersive experience, consider these curated full-day or overnight excursions featuring culinary, historic, art, architecture, and music experiences:</p>
                 
-                <h3 style="color: #d4af91; font-family: 'Playfair Display', serif; margin: 30px 0 20px 0; font-size: 1.3rem;">Custom Stowe Itinerary Tour #1033880</h3>
-                <div class="logistics" style="margin-bottom: 30px;">
-                    <h3>Private Tour Experience</h3>
-                    <div class="logistics-item">
-                        <div class="logistics-label">Cost</div>
-                        <div class="logistics-detail">$162 per person</div>
+                <div class="itinerary-day">
+                    <h3>Wednesday, January 8 - STOWE VILLAGE DAY</h3>
+                    <div class="time-item">
+                        <strong>Morning:</strong> Sleep in, casual breakfast/brunch at The Lodge
                     </div>
-                    <div class="logistics-item">
-                        <div class="logistics-label">Duration</div>
-                        <div class="logistics-detail">Full Day Tour or Overnight Option (customizable)</div>
+                    <div class="time-item">
+                        <strong>Midday:</strong> Explore Stowe village - boutiques, galleries, shops
                     </div>
-                    <div class="logistics-item">
-                        <div class="logistics-label">Description</div>
-                        <div class="logistics-detail">Contact for further customization based on group interests in culinary, art, architecture, historic sites, or music experiences.</div>
+                    <div class="time-item">
+                        <strong>~1:00 PM:</strong> Lunch at Cold Hollow Cider Mill (Waterbury, 15 min away)
                     </div>
-                </div>
-
-                <h3 style="color: #8ba8c7; font-family: 'Playfair Display', serif; margin: 30px 0 20px 0; font-size: 1.2rem;">Included Experiences & Attractions</h3>
-                <div class="activity-grid">
-                    <div class="activity-card">
-                        <h3>Caramoor Center for the Arts & Music</h3>
-                        <p>Premier arts and music venue offering performances and exhibitions in a beautiful setting. Perfect for cultural immersion and live music experiences.</p>
+                    <div class="time-item">
+                        <strong>Afternoon:</strong> More shopping in village
                     </div>
-                    <div class="activity-card">
-                        <h3>Kykuit - National Historic Landmark</h3>
-                        <p>Stunning Classical Revival Georgian mansion with historic architecture and grounds. A window into early 20th-century American wealth and design.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>The Culinary Institute of America</h3>
-                        <p><strong>Founded:</strong> 1946. Legendary culinary school offering tastings, cooking demonstrations, and gourmet dining experiences for visitors.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Blue Hill at Stone Barns - Hudson Table</h3>
-                        <p>Farm-to-table fine dining experience. A multi-course culinary journey celebrating local farm ingredients in an intimate setting. Reserve well in advance.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Wakeman Town Farm Tour</h3>
-                        <p>Third-generation working farm offering guided tours, farm experiences, and seasonal activities. Connect with authentic Vermont agricultural heritage.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Woodbury Common Shopping</h3>
-                        <p>Premium outlets and shopping district. Great for brand-name shopping and local artisan finds in a curated setting.</p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Glenmere Mansion</h3>
-                        <p>Historic mansion featuring fine architecture and period design. Available for tours highlighting American historical preservation and design.</p>
+                    <div class="time-item">
+                        <strong>Evening:</strong> Dinner (Pane e Salute or casual spot), Stowe nightlife
                     </div>
                 </div>
-
-                <h3 style="color: #d4af91; font-family: 'Playfair Display', serif; margin: 30px 0 20px 0; font-size: 1.3rem;">Burlington Area Tours (via Viator)</h3>
-                <div class="activity-grid">
-                    <div class="activity-card">
-                        <h3>Smartphone-Guided Walking Tour of Burlington</h3>
-                        <p>Self-guided exploration of Burlington's historic downtown, architecture, and cultural landmarks using mobile app. Flexible timing, perfect for independent exploration. <br><a href="https://www.viator.com/tours/Burlington/Smartphone-Guided-Walking-Tour-of-Burlington/d23484-292768P10?pid=P00005400&uid=U00232400&mcid=58086&currency=USD" style="color: #d4af91; text-decoration: underline;">View on Viator</a></p>
-                    </div>
-                    <div class="activity-card">
-                        <h3>Burlington Blitz VT Scavenger Hunt</h3>
-                        <p>Interactive scavenger hunt experience exploring Burlington's neighborhoods, landmarks, and quirky local gems. Fun group activity perfect for 20-year-olds. <br><a href="https://www.viator.com/tours/Burlington/Burlington-Blitz-VT-Scavenger-Hunt/d23484-200006P358?pid=P00005400&uid=U00232400&mcid=58086&currency=USD" style="color: #d4af91; text-decoration: underline;">View on Viator</a></p>
-                    </div>
-                </div>
-
-                <div class="tips">
-                    <h3>Specialty Tour Recommendations</h3>
-                    <ul>
-                        <li><strong>Culinary Focus:</strong> Book Blue Hill at Stone Barns Hudson Table well in advance (3+ months). Limited availability in January.</li>
-                        <li><strong>Custom Tour:</strong> Contact Tour #1033880 provider early to customize based on your group's primary interests (music, architecture, farm-to-table, etc.)</li>
-                        <li><strong>Overnight Option:</strong> Consider the overnight excursion for a deeper immersion experience—great for group bonding.</li>
-                        <li><strong>Burlington Tours:</strong> Ideal for a day trip from Stowe (about 40 minutes). Scavenger hunt particularly engaging for younger groups.</li>
-                        <li><strong>Farm Experience:</strong> Wakeman Town Farm offers seasonal activities—plan accordingly for January availability.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Extra Gems - Local Favorites</h2>
-            <div class="section-content">
-                <p>Don't miss these authentic local experiences that showcase Stowe's character and charm:</p>
                 
-                <div class="activity-grid">
-                    <div class="activity-card">
-                        <h3>Snowmobile Vermont</h3>
-                        <p>Thrilling winter adventure with guided snowmobile tours through Vermont's backcountry and scenic trails. Perfect for an adrenaline-filled day for your group. <br><br><a href="https://www.tripadvisor.com/Attraction_Review-g57415-d1766161-Reviews-Snowmobile_Vermont-Stowe_Vermont.html" style="color: #d4af91; text-decoration: underline;">View on TripAdvisor</a></p>
+                <div class="itinerary-day">
+                    <h3>Thursday, January 9 - WOODSTOCK DAY TRIP</h3>
+                    <div class="time-item">
+                        <strong>~1 hour south to Woodstock</strong>
                     </div>
-                    <div class="activity-card">
-                        <h3>Stowe Farmers Market</h3>
-                        <p><strong>Days:</strong> Sundays Only<br><strong>Hours:</strong> 10:30 AM - 3:00 PM<br><br>Local farmers, vendors, and artisans selling seasonal produce, baked goods, crafts, and Vermont specialties. Perfect for picking up snacks, farm-fresh items, and unique gifts. Great group activity to experience authentic Stowe community.</p>
+                    <div class="time-item">
+                        <strong>Morning/Afternoon:</strong> Explore covered bridges:<br>
+                        • Middle Covered Bridge (139 ft, near village green)<br>
+                        • Taftsville Covered Bridge (189 ft, 5 min east, 1836)<br>
+                        • Lincoln Covered Bridge (136 ft, 5 min west, 1877)
                     </div>
-                    <div class="activity-card">
-                        <h3>Nebraska Knoll Sugar Farm</h3>
-                        <p>Family-owned sugar farm offering a window into Vermont's maple syrup tradition. Tours, tastings, and the chance to see how pure Vermont maple is made from tree to table.</p>
+                    <div class="time-item">
+                        <strong>~12:30 PM:</strong> Lunch at Worthy Kitchen
                     </div>
-                    <div class="activity-card">
-                        <h3>Stowe Cider</h3>
-                        <p>Local craft cidery producing unique hard ciders from Vermont apples. Tasting room and casual atmosphere perfect for trying local beverages and connecting with Stowe's craft culture.</p>
+                    <div class="time-item">
+                        <strong>Afternoon (2-3 hours):</strong> Shopping on Central & Elm Streets<br>
+                        Artisans: Collective, Simon Pearce, Farmhouse Pottery<br>
+                        Galleries: Woodstock Gallery, Focus Vermont<br>
+                        Clothing: 37 Central Clothiers, Sudie's, Vermont Flannel<br>
+                        Gifts: Clover, Woody's Mercantile, Danforth Pewter<br>
+                        Must-visit: FH Gillingham & Sons (1886 general store)
+                    </div>
+                    <div class="time-item">
+                        <strong>~4:00 PM:</strong> Return to Stowe (1 hour)
+                    </div>
+                    <div class="time-item">
+                        <strong>Evening:</strong> Dinner in Stowe, nightlife
                     </div>
                 </div>
-
-                <div class="tips">
-                    <h3>Timing & Logistics Tips</h3>
-                    <ul>
-                        <li><strong>Farmers Market:</strong> Plan a Sunday morning activity—arrive by 11 AM for best selection. Great for breakfast/brunch stop and local gift shopping.</li>
-                        <li><strong>Snowmobile Tours:</strong> Book in advance, especially for group rates. Best for an adventure-focused day when weather is clear.</li>
-                        <li><strong>Sugar Farm & Cider:</strong> Combine both in one afternoon for a "taste of Vermont" experience—maple products and craft cider showcase local heritage.</li>
-                        <li><strong>Group-Friendly:</strong> All of these venues welcome groups and can often accommodate larger parties with advance notice.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Lodging Options</h2>
-            <div class="section-content">
-                <p style="background: rgba(212,175,145,0.1); padding: 20px; border-left: 4px solid #d4af91; margin-bottom: 30px;"><strong>IMPORTANT NOTE:</strong> The Lodge at Spruce Peak is the ONLY ski-in/ski-out property in Stowe. All other alternatives require shuttle service or car transportation to the slopes. If direct slope access is essential for your group, The Lodge at Spruce Peak is your only option.</p>
                 
-                <div class="logistics" style="margin-bottom: 30px; background: rgba(212,175,145,0.15); border: 2px solid #d4af91;">
-                    <h3>ONLY SKI-IN/SKI-OUT OPTION: The Lodge at Spruce Peak ⭐⭐⭐</h3>
-                    <div class="logistics-item">
-                        <div class="logistics-label">Access to Slopes</div>
-                        <div class="logistics-detail"><strong>DIRECT SKI-IN/SKI-OUT ACCESS</strong> — Step out your room onto the slopes. No shuttle. No car needed.</div>
+                <div class="itinerary-day">
+                    <h3>Friday, January 10 - QUECHEE GORGE DAY TRIP</h3>
+                    <div class="time-item">
+                        <strong>~45 min east to Quechee Gorge</strong>
                     </div>
-                    <div class="logistics-item">
-                        <div class="logistics-label">Location</div>
-                        <div class="logistics-detail">Slope-side at Spruce Peak Village—direct gondola access to Mount Mansfield</div>
+                    <div class="time-item">
+                        <strong>Morning:</strong> Explore gorge - scenic overlook, short hike (weather permitting)
                     </div>
-                    <div class="logistics-item">
-                        <div class="logistics-label">Key Amenities</div>
-                        <div class="logistics-detail">Award-winning spa, full-service fitness center, year-round heated pool, four on-property dining outlets, modern suites with kitchenettes</div>
+                    <div class="time-item">
+                        <strong>~1:00 PM:</strong> LUNCH RESERVATION - Simon Pearce Restaurant (stunning views, creative American)
                     </div>
-                    <div class="logistics-item">
-                        <div class="logistics-label">Cost (7 adults, 5 nights)</div>
-                        <div class="logistics-detail">$10,104.49 total with air ($1,443.50 per person)</div>
+                    <div class="time-item">
+                        <strong>Afternoon:</strong> Browse artisan shops, scenic walk
+                    </div>
+                    <div class="time-item">
+                        <strong>~4:00 PM:</strong> Return to Stowe (45 min)
+                    </div>
+                    <div class="time-item">
+                        <strong>Evening:</strong> Final night out - dinner & nightlife in Stowe
                     </div>
                 </div>
-
-                <h3 style="color: #8ba8c7; font-family: 'Playfair Display', serif; margin: 40px 0 20px 0; font-size: 1.3rem;">Alternative Options (NOT Ski-In/Ski-Out) — Require Shuttle or Car</h3>
                 
-                <div class="activity-grid">
-                    <div class="activity-card">
-                        <h3>Topnotch Resort & Spa</h3>
-                        <p><strong>Slope Access:</strong> Complimentary shuttle to lifts<br><strong>Distance:</strong> Mount Mansfield base<br><br><strong>Amenities:</strong> Full-service spa, restaurant, pool, sauna, steam room, spacious rooms, resort homes with full kitchens<br><br><strong>Best For:</strong> Groups wanting premium amenities + spa relaxation with quick mountain access via shuttle.</p>
+                <div class="itinerary-day">
+                    <h3>Saturday, January 11 - CHECKOUT & DEPART</h3>
+                    <div class="time-item">
+                        <strong>11:00 AM:</strong> Check out of The Lodge
                     </div>
-                    <div class="activity-card">
-                        <h3>Stoweflake Resort & Spa</h3>
-                        <p><strong>Slope Access:</strong> Shuttle service or car<br><strong>Distance:</strong> Minutes from town center<br><br><strong>Amenities:</strong> 50,000 sq ft spa, wellness center, groomed XC trails, restaurant, yoga/spin classes<br><br><strong>Best For:</strong> Groups balancing skiing with wellness/relaxation activities. Great for mixed interests.</p>
+                    <div class="time-item">
+                        <strong>~11:30 AM:</strong> Meet Stowe Airport Transfers for drive to Burlington
                     </div>
-                    <div class="activity-card">
-                        <h3>Innsbruck Inn at Stowe</h3>
-                        <p><strong>Slope Access:</strong> Shuttle or 6-10 min car ride<br><strong>Distance:</strong> Between resort and village<br><br><strong>Amenities:</strong> Recently renovated, spacious rooms, hot tub, ping pong, apres-ski treats, Austrian charm<br><br><strong>Best For:</strong> Budget-conscious groups. Excellent value. Close to village nightlife for younger crowds.</p>
+                    <div class="time-item">
+                        <strong>~12:15 PM:</strong> Arrive Burlington Airport
                     </div>
-                    <div class="activity-card">
-                        <h3>Green Mountain Inn</h3>
-                        <p><strong>Slope Access:</strong> Shuttle or car<br><strong>Distance:</strong> Town center location<br><br><strong>Amenities:</strong> Historic charm, hearty breakfast, convenient town location, fireplace rooms<br><br><strong>Best For:</strong> Groups prioritizing Stowe village experience. Ideal if shopping/dining/nightlife is a priority over immediate slope access.</p>
+                    <div class="time-item">
+                        <strong>2:04 PM:</strong> Depart Burlington (BTV)
+                    </div>
+                    <div class="time-item">
+                        <strong>7:51 PM:</strong> Arrive Mobile Regional Airport (MOB)
                     </div>
                 </div>
-
-                <div class="tips">
-                    <h3>Choosing Your Lodging</h3>
-                    <ul>
-                        <li><strong>Ski-In/Ski-Out Priority:</strong> The Lodge at Spruce Peak is your ONLY option with direct slope access. Non-negotiable if morning first-tracks or lunchtime returns matter to your group.</li>
-                        <li><strong>Best Shuttle Alternative:</strong> Topnotch offers complimentary shuttle, premium spa, and closest experience to slopeside living at better value.</li>
-                        <li><strong>Wellness Focus:</strong> Stoweflake for groups balancing skiing with spa days and relaxation—shuttle included.</li>
-                        <li><strong>Budget + Nightlife:</strong> Innsbruck Inn for cost savings and proximity to village bars/restaurants. Shuttle service still gets you to mountain.</li>
-                        <li><strong>Group Decision:</strong> All alternatives require you to wait for shuttle or drive each day. Factor this into your itinerary planning.</li>
-                    </ul>
+            </section>
+            
+            <!-- COST BREAKDOWN -->
+            <section>
+                <h2>💰 COST BREAKDOWN</h2>
+                <div class="cost-summary">
+                    <div class="cost-row">
+                        <span>Lodging</span>
+                        <span>$3,724.74</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Airfare</span>
+                        <span>$5,010.20</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Travel Protection Insurance</span>
+                        <span>$0.00 (DECLINED)</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Airport Transfers (TBD)</span>
+                        <span>To be paid at pickup</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Ski Rental (1 day)</span>
+                        <span>$220.00</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Epic Day Pass (1 day)</span>
+                        <span>$372.00</span>
+                    </div>
+                    <div class="cost-row total">
+                        <span>TOTAL (excl. transfers)</span>
+                        <span>$9,327.94</span>
+                    </div>
+                    <div class="cost-row total">
+                        <span>Per Person</span>
+                        <span>$2,331.74</span>
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Cost Breakdown</h2>
-            <div class="section-content">
-                <p>Here's the complete per-person cost for your group of 7:</p>
-                <table class="cost-table">
+                
+                <h3>Additional Costs (Not Included)</h3>
+                <table>
                     <thead>
                         <tr>
                             <th>Item</th>
-                            <th class="cost-amount">Per Person</th>
-                            <th class="cost-amount">Group Total</th>
+                            <th>Amount</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="cost-label">Lodging + Flights*</td>
-                            <td class="cost-amount">$1,443.50</td>
-                            <td class="cost-amount">$10,104.49</td>
+                            <td>Airport Transfers (both ways)</td>
+                            <td>TBD - Call (802) 338-8428</td>
                         </tr>
                         <tr>
-                            <td class="cost-label">Travel Protection</td>
-                            <td class="cost-amount">$122</td>
-                            <td class="cost-amount">$854</td>
+                            <td>Meals & Dining</td>
+                            <td>Budget per person estimate</td>
                         </tr>
                         <tr>
-                            <td class="cost-label">Rental Car</td>
-                            <td class="cost-amount">$100.79</td>
-                            <td class="cost-amount">$705.50</td>
+                            <td>Shopping & Gifts</td>
+                            <td>Per person preference</td>
                         </tr>
                         <tr>
-                            <td class="cost-label">Ski Rental (1 day)</td>
-                            <td class="cost-amount">$55</td>
-                            <td class="cost-amount">$385</td>
+                            <td>Nightlife & Apres-Ski</td>
+                            <td>$50-75/person estimate</td>
                         </tr>
                         <tr>
-                            <td class="cost-label">Epic Day Pass (1 day)</td>
-                            <td class="cost-amount">$93</td>
-                            <td class="cost-amount">$651</td>
+                            <td>Optional: Sleigh Ride</td>
+                            <td>Call (802) 798-9769</td>
                         </tr>
                         <tr>
-                            <td class="cost-label">Meals & Dining (5 days)</td>
-                            <td class="cost-amount">$300–$425</td>
-                            <td class="cost-amount">$2,100–$2,975</td>
+                            <td>Optional: Snowmobile Tour (2 hrs)</td>
+                            <td>$105/person for group</td>
                         </tr>
                         <tr>
-                            <td class="cost-label">Miscellaneous</td>
-                            <td class="cost-amount">$150–$250</td>
-                            <td class="cost-amount">$1,050–$1,750</td>
-                        </tr>
-                        <tr class="total-row">
-                            <td><strong>TOTAL</strong></td>
-                            <td class="cost-amount"><strong>$2,264–$2,389</strong></td>
-                            <td class="cost-amount"><strong>$15,850–$16,724</strong></td>
+                            <td>Optional: Dogsled (Sat only)</td>
+                            <td>$90/person for group</td>
                         </tr>
                     </tbody>
                 </table>
-                <p style="margin-top: 20px; color: #999; font-size: 0.95rem;">*Air is included in the lodging package price ($10,104.49 includes flights for all 7 adults)</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Logistics & Details</h2>
-            <div class="logistics">
-                <h3>The Lodge at Spruce Peak</h3>
-                <div class="logistics-item">
-                    <div class="logistics-label">Location</div>
-                    <div class="logistics-detail">Slope-side at Stowe Mountain Resort—direct access to skiing and village shuttle</div>
+            </section>
+            
+            <!-- IMPORTANT CONTACTS -->
+            <section>
+                <h2>📞 IMPORTANT CONTACTS</h2>
+                <div class="contacts">
+                    <div class="contact-card">
+                        <h4>Pre-Arrival Concierge</h4>
+                        <p><strong>Name:</strong> Diane Cawley</p>
+                        <p><strong>Email:</strong> dcawley@destinationhotels.com</p>
+                        <p><strong>Phone:</strong> (877) 291-3781</p>
+                        <p>For dining, activity suggestions, spa bookings</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h4>Airport Transfers</h4>
+                        <p><strong>Service:</strong> Stowe Airport Transfers</p>
+                        <p><strong>Phone:</strong> (802) 338-8428</p>
+                        <p>Text for changes. Payment at pickup.</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h4>The Lodge Front Desk</h4>
+                        <p><strong>Phone:</strong> (802) 760-4700</p>
+                        <p>Check-in, amenities, general questions</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h4>Ski Rentals</h4>
+                        <p><strong>TrueNorth (in The Lodge)</strong></p>
+                        <p><strong>Phone:</strong> (802) 760-4608</p>
+                        <p>Book online for best prices</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h4>Stowe Mountain Resort</h4>
+                        <p><strong>Phone:</strong> (802) 253-3000</p>
+                        <p>Lift tickets, mountain info</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h4>United Airlines</h4>
+                        <p><strong>Customer Service:</strong> (800) 241-6522</p>
+                        <p>Download app for real-time updates</p>
+                    </div>
                 </div>
-                <div class="logistics-item">
-                    <div class="logistics-label">Accommodation</div>
-                    <div class="logistics-detail">Suite for 7 adults with modern amenities, spa access, and on-site dining</div>
-                </div>
-                <div class="logistics-item">
-                    <div class="logistics-label">Check-in / Check-out</div>
-                    <div class="logistics-detail">Standard 4 PM check-in, 11 AM check-out. Early check-in may be available upon request.</div>
-                </div>
-                <div class="logistics-item">
-                    <div class="logistics-label">Rental Car</div>
-                    <div class="logistics-detail">Mid-size SUV recommended for winter driving. Pick up at Burlington International Airport (BTV)</div>
-                </div>
-            </div>
-
-            <div class="tips">
-                <h3>Money-Saving Tips & Recommendations</h3>
-                <ul>
-                    <li><strong>Book dinners early:</strong> Popular restaurants fill quickly in January</li>
-                    <li><strong>Lunch on ski day:</strong> Pack sandwiches or eat at mountain lodge to save $30–50 per person</li>
-                    <li><strong>Group activities:</strong> Split guide costs if doing group snowshoeing or adventure activities</li>
-                    <li><strong>Shopping:</strong> Tax-free clothing in Vermont (but not ski rentals)</li>
-                    <li><strong>Après-ski:</strong> Happy hours in Stowe Village offer great deals on drinks and appetizers</li>
-                    <li><strong>Travel insurance:</strong> Highly recommended given January mountain weather unpredictability</li>
+            </section>
+            
+            <!-- PRE-TRIP CHECKLIST -->
+            <section>
+                <h2>✅ PRE-TRIP CHECKLIST</h2>
+                
+                <h3>BEFORE TRIP (ASAP)</h3>
+                <ul class="checklist">
+                    <li><strong>VERIFY ALL 4 PASSENGERS HAVE STAR IDs</strong> - Valid REAL ID or passport required</li>
+                    <li>Assign outbound seats online (United.com, Confirmation CJ9DN3)</li>
+                    <li>Download United Airlines app and add confirmation number</li>
+                    <li>Share flight details with all 4 passengers</li>
+                    <li>Confirm airport transfers - Call (802) 338-8428 for pricing</li>
                 </ul>
-            </div>
-        </section>
-
+                
+                <h3>1 WEEK BEFORE TRIP</h3>
+                <ul class="checklist">
+                    <li>Book ski rentals at TrueNorth (online for best price)</li>
+                    <li>Purchase Epic Day Passes online at stowe.com</li>
+                    <li><strong>MAKE DINNER RESERVATIONS:</strong> Grail Restaurant (Tues) & Simon Pearce (Fri)</li>
+                    <li>Decide on optional excursions (sleigh ride, snowmobile, dogsled)</li>
+                    <li>Contact Diane for excursion coordination if interested</li>
+                </ul>
+                
+                <h3>3 DAYS BEFORE TRIP</h3>
+                <ul class="checklist">
+                    <li>Check in online 24 hours before departure (Jan 5 at 12:45 PM)</li>
+                    <li>Select outbound seats during online check-in</li>
+                    <li>Pack luggage for 4 people in 1 double room</li>
+                    <li>Confirm all passengers have STAR IDs and flight confirmations</li>
+                    <li>Check weather forecast for Stowe</li>
+                </ul>
+                
+                <h3>DAY OF DEPARTURE (JANUARY 6)</h3>
+                <ul class="checklist">
+                    <li>Arrive at Mobile Regional Airport 2 hours early (10:45 AM)</li>
+                    <li>All 4 passengers present with valid IDs</li>
+                    <li>Download mobile boarding passes</li>
+                    <li>Monitor flight status on United app</li>
+                    <li>Have tight connection in Dulles (1 hr 2 min) - boarding passes ready</li>
+                    <li>Meet Stowe Airport Transfers at Burlington ~7:00 PM - HAVE PAYMENT READY</li>
+                </ul>
+            </section>
+            
+            <!-- CRITICAL REMINDERS -->
+            <section>
+                <div class="alert">
+                    <h3>⚠️ CRITICAL REMINDERS</h3>
+                    <p><strong>✓ STAR IDs:</strong> All 4 passengers MUST have valid REAL ID-compliant photo IDs. No ID = No flight. Verify NOW at https://www.tsa.gov/real-id</p>
+                    <p><strong>✓ DINNER RESERVATIONS:</strong> Book Grail Restaurant (Tues) & Simon Pearce (Fri) ASAP. January books up fast.</p>
+                    <p><strong>✓ AIRPORT TRANSFERS:</strong> Payment DUE AT PICKUP. Call (802) 338-8428 to confirm pricing before arrival.</p>
+                    <p><strong>✓ ONLINE CHECK-IN:</strong> Check in 24 hours before departure (Jan 5 at 12:45 PM) for best seat selection.</p>
+                    <p><strong>✓ TIGHT CONNECTION:</strong> 1 hour 2 minutes between flights in Dulles - have mobile boarding passes ready!</p>
+                </div>
+            </section>
+        </div>
+        
         <footer>
-            <p>Planned by SOMO Travel Specialist • Cruise Planners</p>
-            <p style="margin-top: 10px; font-size: 0.85rem;">Last updated: December 3, 2025</p>
+            <p>Stowe Ski Trip | January 6-11, 2026 | 4 Adults</p>
+            <p>For questions or updates, contact Diane (Pre-Arrival Concierge) at dcawley@destinationhotels.com or (877) 291-3781</p>
+            <p><em>Last updated: December 2025 | Print-friendly format available</em></p>
         </footer>
     </div>
 </body>
