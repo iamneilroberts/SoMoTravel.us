@@ -1,889 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portugal Itinerary - Henderson & Jones</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #fff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        header {
-            background: linear-gradient(135deg, #1E4D78 0%, #2E75B6 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        header .subtitle {
-            font-size: 1.3em;
-            opacity: 0.9;
-        }
-        header .dates {
-            font-size: 1.1em;
-            margin-top: 10px;
-            opacity: 0.8;
-        }
-        header .travelers {
-            margin-top: 20px;
-            font-style: italic;
-            opacity: 0.9;
-        }
-        .agent-bar {
-            background: #1a3a5c;
-            color: white;
-            padding: 10px 40px;
-            font-size: 0.9em;
-            display: flex;
-            justify-content: space-between;
-        }
-        .agent-bar a {
-            color: #8fc4e8;
-        }
-        main {
-            padding: 40px;
-        }
-        h2 {
-            color: #1E4D78;
-            font-size: 1.8em;
-            margin: 30px 0 15px 0;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #1E4D78;
-        }
-        h3 {
-            color: #2E75B6;
-            font-size: 1.3em;
-            margin: 25px 0 10px 0;
-        }
-        h4 {
-            color: #404040;
-            font-size: 1.1em;
-            margin: 20px 0 10px 0;
-        }
-        p {
-            margin-bottom: 12px;
-        }
-        ul {
-            margin: 10px 0 15px 25px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        .day-header {
-            background: linear-gradient(135deg, #1E4D78 0%, #2E75B6 100%);
-            color: white;
-            padding: 20px 30px;
-            margin: 30px -40px 20px -40px;
-            font-size: 1.5em;
-        }
-        .included-activity {
-            background: #e8f4e8;
-            border-left: 4px solid #28a745;
-            padding: 15px 20px;
-            margin: 15px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .included-activity .label {
-            color: #28a745;
-            font-weight: bold;
-            font-size: 0.85em;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-        .purchased-activity {
-            background: #e3f2fd;
-            border-left: 4px solid #2196F3;
-            padding: 15px 20px;
-            margin: 15px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .purchased-activity .label {
-            color: #2196F3;
-            font-weight: bold;
-            font-size: 0.85em;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-        .optional-activity {
-            background: #fff8e1;
-            border-left: 4px solid #ff9800;
-            padding: 15px 20px;
-            margin: 15px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .optional-activity .label {
-            color: #ff9800;
-            font-weight: bold;
-            font-size: 0.85em;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-        .warning {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 12px 15px;
-            margin: 15px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .hotel-box {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 15px 0;
-        }
-        .hotel-box h4 {
-            margin-top: 0;
-            color: #1E4D78;
-        }
-        .flight-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 0.95em;
-        }
-        .flight-table th {
-            background: #1E4D78;
-            color: white;
-            padding: 12px;
-            text-align: left;
-        }
-        .flight-table td {
-            padding: 12px;
-            border: 1px solid #ddd;
-        }
-        .flight-table .flight-num {
-            font-weight: bold;
-        }
-        .flight-table .airline {
-            color: #666;
-            font-size: 0.9em;
-        }
-        .flight-table .time {
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-        .flight-table .connection {
-            background: #f5f5f5;
-            text-align: center;
-            font-style: italic;
-            color: #666;
-        }
-        .confirmation-box {
-            background: #1E4D78;
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        .confirmation-box .conf-item {
-            text-align: center;
-            padding: 10px 20px;
-        }
-        .confirmation-box .conf-label {
-            font-size: 0.85em;
-            opacity: 0.8;
-        }
-        .confirmation-box .conf-number {
-            font-size: 1.5em;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-        .payment-box {
-            background: #f8f9fa;
-            border: 2px solid #1E4D78;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        .payment-box .balance {
-            color: #c00000;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-        .restaurant {
-            margin-bottom: 8px;
-        }
-        .restaurant strong {
-            color: #1E4D78;
-        }
-        .bucket-list {
-            background: #fce4ec;
-            border-left: 4px solid #e91e63;
-            padding: 12px 15px;
-            margin: 15px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .bucket-list strong {
-            color: #e91e63;
-        }
-        .baggage-warning {
-            background: #ffebee;
-            border: 1px solid #f44336;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-        .baggage-warning strong {
-            color: #c00000;
-        }
-        footer {
-            background: #1E4D78;
-            color: white;
-            padding: 30px 40px;
-            text-align: center;
-        }
-        footer .booking-ref {
-            font-size: 1.3em;
-            margin-bottom: 15px;
-        }
-        footer .booking-ref span {
-            background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 4px;
-            letter-spacing: 2px;
-        }
-        @media print {
-            .container {
-                box-shadow: none;
-            }
-            .day-header {
-                margin: 30px 0 20px 0;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-        @media (max-width: 600px) {
-            header {
-                padding: 30px 20px;
-            }
-            header h1 {
-                font-size: 1.8em;
-            }
-            main {
-                padding: 20px;
-            }
-            .day-header {
-                margin: 20px -20px 15px -20px;
-                padding: 15px 20px;
-                font-size: 1.2em;
-            }
-            .agent-bar {
-                flex-direction: column;
-                text-align: center;
-                gap: 5px;
-            }
-            .confirmation-box {
-                flex-direction: column;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portugal Packing Guide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #f9f9f9;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #1E4D78;
+    }
+    h1 {
+      color: #1E4D78;
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      color: #666;
+      font-style: italic;
+      font-size: 1.1em;
+    }
+    .trip-dates {
+      background: #1E4D78;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+    h2 {
+      color: #1E4D78;
+      font-size: 1.5em;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    h3 {
+      color: #2E75B6;
+      font-size: 1.15em;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 15px;
+    }
+    ul {
+      margin-left: 25px;
+      margin-bottom: 15px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    strong {
+      color: #1E4D78;
+    }
+    .tip-box {
+      background: #f0f7fc;
+      border-left: 4px solid #2E75B6;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+      color: #666;
+    }
+    .footer .company {
+      color: #1E4D78;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="agent-bar">
-            <span>SOMO Travel Specialists / Cruise Planners</span>
-            <span>Kim Henderson | <a href="tel:+12512934992">+1-251-293-4992</a> | <a href="/cdn-cgi/l/email-protection#543f3d397a3c313a303126273b3a143726213d27312438353a3a3126277a373b39"><span class="__cf_email__" data-cfemail="cba0a2a6e5a3aea5afaeb9b8a4a58ba8b9bea2b8aebba7aaa5a5aeb9b8e5a8a4a6">[email&#160;protected]</span></a></span>
-        </div>
-        
-        <header>
-            <h1>Algarve Sun & Coastal Gems</h1>
-            <div class="subtitle">Portugal in 10 Days</div>
-            <div class="dates">March 22 - 31, 2026</div>
-            <div class="travelers">Prepared for: Kimberly Ann Henderson & Verna Sue Jones</div>
-        </header>
-
-        <main>
-            <!-- TRIP OVERVIEW -->
-            <h2>Trip Overview</h2>
-            <p>Begin your Portuguese adventure in Lisbon, where you'll walk through the charming Alfama quarter and admire Belém Tower. Then visit Lagos, Alcácer do Sal, and Sagres, taking in dramatic cliffs, golden coastlines, and rich maritime history. Stand at Cape São Vicente, the southwesternmost point of Europe, and spend three relaxing days exploring the Algarve region. Finally, visit the UNESCO World Heritage city of Évora before returning to Lisbon.</p>
-
-            <h3>What's Included</h3>
-            <ul>
-                <li>Round-trip flights from New Orleans (via Boston/NYC/Atlanta)</li>
-                <li>8 nights in Superior category hotels (4-star)</li>
-                <li>Daily breakfast at hotels</li>
-                <li>All transfers between destinations</li>
-                <li>Half-Day Panoramic Tour of Lisbon (included)</li>
-                <li>Sagres & Cape São Vicente excursion (included)</li>
-                <li>Walking Tour of Évora (included)</li>
-                <li>Boat Tour to Ponta da Piedade Caves (purchased - $47/person)</li>
-                <li>Half-Day Tour to Sintra with Pena Palace (purchased - $96/person)</li>
-            </ul>
-
-            <div class="payment-box">
-                <p><strong>Total Trip Cost:</strong> $4,782.00 (2 travelers)</p>
-                <p><strong>Amount Paid:</strong> $4,013.29</p>
-                <p class="balance">Balance Due by January 21, 2026: $768.71</p>
-            </div>
-
-            <!-- AIR ITINERARY -->
-            <h2>Air Itinerary</h2>
-            
-            <div class="confirmation-box">
-                <div class="conf-item">
-                    <div class="conf-label">Delta Confirmation</div>
-                    <div class="conf-number">GQRVJ8</div>
-                </div>
-                <div class="conf-item">
-                    <div class="conf-label">Virgin Atlantic PNR</div>
-                    <div class="conf-number">C9GEFP</div>
-                </div>
-                <div class="conf-item">
-                    <div class="conf-label">Cabin Class</div>
-                    <div class="conf-number">Economy</div>
-                </div>
-            </div>
-
-            <h3>Outbound: March 22, 2026 — New Orleans to Lisbon</h3>
-            <table class="flight-table">
-                <thead>
-                    <tr>
-                        <th>Flight</th>
-                        <th>Departure</th>
-                        <th>Arrival</th>
-                        <th>Duration</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <span class="flight-num">DL1347</span><br>
-                            <span class="airline">Delta Air Lines</span>
-                        </td>
-                        <td>
-                            <span class="time">2:40 PM</span><br>
-                            New Orleans (MSY)
-                        </td>
-                        <td>
-                            <span class="time">6:52 PM</span><br>
-                            Boston (BOS)
-                        </td>
-                        <td>3h 12m</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" class="connection">Connection in Boston: 2h 48m</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="flight-num">VS3953</span><br>
-                            <span class="airline">Virgin Atlantic</span>
-                        </td>
-                        <td>
-                            <span class="time">9:40 PM</span><br>
-                            Boston (BOS)
-                        </td>
-                        <td>
-                            <span class="time">8:00 AM +1</span><br>
-                            Lisbon (LIS)
-                        </td>
-                        <td>6h 20m</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="warning">⚠️ <strong>Overnight flight:</strong> Arrives March 23 at 8:00 AM Lisbon time.</div>
-
-            <h3>Return: March 31, 2026 — Lisbon to New Orleans</h3>
-            <table class="flight-table">
-                <thead>
-                    <tr>
-                        <th>Flight</th>
-                        <th>Departure</th>
-                        <th>Arrival</th>
-                        <th>Duration</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <span class="flight-num">DL273</span><br>
-                            <span class="airline">Delta Air Lines</span>
-                        </td>
-                        <td>
-                            <span class="time">10:00 AM</span><br>
-                            Lisbon (LIS)
-                        </td>
-                        <td>
-                            <span class="time">1:02 PM</span><br>
-                            New York (JFK)
-                        </td>
-                        <td>8h 02m</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" class="connection">Connection in New York JFK: 2h 18m</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="flight-num">DL1480</span><br>
-                            <span class="airline">Delta Air Lines</span>
-                        </td>
-                        <td>
-                            <span class="time">3:20 PM</span><br>
-                            New York (JFK)
-                        </td>
-                        <td>
-                            <span class="time">5:52 PM</span><br>
-                            Atlanta (ATL)
-                        </td>
-                        <td>2h 32m</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" class="connection">Connection in Atlanta: 1h 38m</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="flight-num">DL1450</span><br>
-                            <span class="airline">Delta Air Lines</span>
-                        </td>
-                        <td>
-                            <span class="time">7:30 PM</span><br>
-                            Atlanta (ATL)
-                        </td>
-                        <td>
-                            <span class="time">8:05 PM</span><br>
-                            New Orleans (MSY)
-                        </td>
-                        <td>1h 35m</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>Baggage Allowance</h3>
-            <ul>
-                <li><strong>2 personal items</strong> (per passenger)</li>
-                <li><strong>2 cabin bags</strong> (per passenger)</li>
-            </ul>
-            <div class="baggage-warning">
-                <strong>⚠️ No checked bags included.</strong> If you need checked luggage, purchase directly through Delta Air Lines or Virgin Atlantic before departure.
-            </div>
-
-            <!-- DAY 1 -->
-            <div class="day-header">Day 1: Sunday, March 22 — Departure</div>
-            
-            <h4>Flights</h4>
-            <p><strong>2:40 PM</strong> — Depart New Orleans (MSY) → Boston (BOS) on Delta DL1347</p>
-            <p><strong>6:52 PM</strong> — Arrive Boston — 2hr 48min layover</p>
-            <p><strong>9:40 PM</strong> — Depart Boston (BOS) → Lisbon (LIS) on Virgin Atlantic VS3953</p>
-            <p><em>Overnight flight</em> — Pack snacks, neck pillow, and entertainment for the 6hr 20min transatlantic flight.</p>
-
-            <!-- DAY 2 -->
-            <div class="day-header">Day 2: Monday, March 23 — Arrival in Lisbon</div>
-            
-            <p><strong>8:00 AM</strong> — Arrive Lisbon Airport (LIS)</p>
-            <p>Transfer to hotel. Meet & Greet details will be provided 7 days before departure. Rest and recover from overnight flight.</p>
-
-            <div class="hotel-box">
-                <h4>🏨 Hotel: Açores Lisboa or similar (4-star)</h4>
-                <p>Avenida Columbano Bordalo Pinheiro, 3 Praça de Espanha, Lisbon</p>
-                <p><em>2 nights (March 23-25)</em></p>
-            </div>
-
-            <h4>🧳 Luggage Storage (8 AM Arrival - 3 PM Check-in)</h4>
-            <p>Since you'll arrive around 8 AM but hotel check-in is typically 3 PM, here are your options:</p>
-            <ul>
-                <li><strong>Ask the Hotel (Free)</strong> — Most 4-star hotels will store luggage for arriving guests even before check-in. Simply ask at the front desk upon arrival. This is the easiest option.</li>
-                <li><strong>Lisbon Airport Lockers</strong> — 24/7 automatic lockers with video surveillance in Terminal 1 near Arrivals. €2-12 per item depending on size. Good if you want to explore before heading to the hotel.</li>
-                <li><strong>Bounce App</strong> — Over 370 locations in Lisbon, many near Baixa-Chiado and Rossio. From €1.95/bag with €10,000 protection. Book at <a href="https://bounce.com">bounce.com</a></li>
-                <li><strong>LuggageHero App</strong> — 30+ locations near transport hubs. From €3.48/bag. Use code <strong>PORTUGALIST</strong> for 2 hours free.</li>
-                <li><strong>Rossio Station Lockers</strong> — Self-storage lockers at the metro station. Coins only.</li>
-                <li><strong>LUGGit Pickup Service</strong> — A driver meets you anywhere, collects your bags, stores them, and delivers to your hotel later. From €4.99/bag. Use code <strong>BLOG10</strong> for 10% off. Book at <a href="https://luggit.app">luggit.app</a></li>
-            </ul>
-            <div class="included-activity">
-                <strong>💡 Recommendation:</strong> Ask the hotel first — the Açores Lisboa will very likely hold your bags at reception while you explore or rest in the lobby until your room is ready.
-            </div>
-
-            <h4>Walking Distance from Hotel</h4>
-            <ul>
-                <li><strong>Gulbenkian Museum & Gardens</strong> (10 min walk) — World-class art collection in beautiful gardens. Perfect for jet-lag recovery.</li>
-                <li><strong>El Corte Inglés</strong> (5 min walk) — Department store with supermarket for snacks and supplies.</li>
-                <li><strong>Praça de Espanha Metro</strong> (2 min walk) — Easy access to city center.</li>
-            </ul>
-
-            <h4>🍽️ Lunch Options Near Hotel</h4>
-            <p class="restaurant"><strong>Cervejaria Portugália</strong> — Classic Portuguese beer hall, excellent bifanas (pork sandwiches) and seafood.</p>
-            <p class="restaurant"><strong>Café Versailles</strong> — Ornate Belle Époque café, light meals and pastries. Great for afternoon coffee.</p>
-
-            <h4>🍽️ Dinner Recommendations</h4>
-            <p class="restaurant"><strong>Cervejaria Ramiro</strong> (15 min by metro) — Lisbon's most famous seafood restaurant. Try the garlic prawns and clams.</p>
-            <p class="restaurant"><strong>Taberna da Rua das Flores</strong> (Baixa district) — Small plates, excellent Portuguese wines, cozy atmosphere.</p>
-            <p class="restaurant"><strong>Time Out Market</strong> (Cais do Sodré) — Food hall with Lisbon's best chefs. Perfect when two people want different cuisines.</p>
-
-            <!-- DAY 3 -->
-            <div class="day-header">Day 3: Tuesday, March 24 — Lisbon Sightseeing</div>
-
-            <div class="included-activity">
-                <div class="label">✓ Included Activity</div>
-                <h4>Half-Day Panoramic Tour of Lisbon</h4>
-                <p><strong>Duration:</strong> 4 hours | <strong>Physical Rating:</strong> Light</p>
-                <ul>
-                    <li>Walking tour through the historic Alfama quarter</li>
-                    <li>Avenida da Liberdade, Marquês de Pombal, Praça do Comércio</li>
-                    <li>Church of the Monastery of Jerónimos (entry included)</li>
-                    <li>Exterior views of Belém Tower</li>
-                    <li>Vasco da Gama Bridge views</li>
-                </ul>
-            </div>
-
-            <h4>🍽️ Lunch in Belém (After Tour)</h4>
-            <p class="restaurant"><strong>Pastéis de Belém</strong> — The original custard tart bakery since 1837. A must-visit! Get the tarts warm with cinnamon.</p>
-            <p class="restaurant"><strong>Ponto Final</strong> — Take the quick ferry to Cacilhas for grilled fish with stunning views back to Lisbon.</p>
-            <p class="restaurant"><strong>À Margem</strong> — Modern café near MAAT museum, river views, lighter fare.</p>
-
-            <h4>Free Time Activities</h4>
-            <ul>
-                <li><strong>MAAT (Museum of Art, Architecture & Technology)</strong> — Stunning modern building in Belém with contemporary exhibits.</li>
-                <li><strong>Elevador de Santa Justa</strong> — Iron elevator with panoramic city views. Go early to avoid lines.</li>
-                <li><strong>National Tile Museum</strong> — Beautiful azulejo tile history in a former convent.</li>
-                <li><strong>Rossio Square & Ginjinha</strong> — Sample cherry liqueur at A Ginjinha, a tiny bar near Rossio.</li>
-            </ul>
-
-            <h4>🍽️ Dinner Recommendations</h4>
-            <p class="restaurant"><strong>Belcanto</strong> — Chef José Avillez's 2-Michelin star restaurant for a special evening. Reserve well in advance.</p>
-            <p class="restaurant"><strong>A Cevicheria</strong> — Creative Portuguese-Peruvian fusion, fantastic seafood in a fun atmosphere.</p>
-            <p class="restaurant"><strong>Tasca do Chico</strong> — Informal Fado performances with dinner (alternative to the optional Fado show).</p>
-
-            <div class="optional-activity">
-                <div class="label">Optional Available</div>
-                <strong>Dinner with Fado Show</strong> ($118/person) — Traditional Portuguese dinner with live Fado music in Alfama.
-            </div>
-
-            <!-- DAY 4 -->
-            <div class="day-header">Day 4: Wednesday, March 25 — Lisbon to Lagos</div>
-
-            <p>Today you'll travel south to the Algarve region, stopping in the charming town of Alcácer do Sal along the way.</p>
-
-            <h4>Morning</h4>
-            <p>Breakfast at hotel, then depart for Lagos with transfer.</p>
-
-            <h4>Midday Stop: Alcácer do Sal</h4>
-            <ul>
-                <li>Admire the ancient Moorish castle overlooking the Sado River</li>
-                <li>Scenic views of rice paddies and stork nests</li>
-                <li>Free time for lunch and exploration</li>
-            </ul>
-
-            <h4>🍽️ Lunch in Alcácer do Sal</h4>
-            <p class="restaurant"><strong>Dom Afonso II</strong> — Traditional Alentejo cuisine, grilled meats and rice dishes.</p>
-            <p class="restaurant"><strong>Café Central</strong> — Simple café in town center, sandwiches and local snacks.</p>
-
-            <div class="hotel-box">
-                <h4>🏨 Hotel: Vila Galé Lagos or similar (4-star)</h4>
-                <p>Rua Sophia De Melo Brayner Andresen, Meia Praia, Lagos</p>
-                <p><em>4 nights (March 25-29)</em></p>
-            </div>
-
-            <h4>Walking Distance from Hotel</h4>
-            <ul>
-                <li><strong>Meia Praia Beach</strong> (5 min walk) — Long sandy beach perfect for morning walks.</li>
-                <li><strong>Lagos Marina</strong> (15 min walk) — Restaurants, shops, boat tour departures.</li>
-                <li><strong>Old Town</strong> (20 min walk or quick taxi) — Historic center with cobbled streets.</li>
-            </ul>
-
-            <h4>🍽️ Dinner in Lagos</h4>
-            <p class="restaurant"><strong>Adega da Marina</strong> — Traditional Portuguese, try the cataplana (copper pot seafood stew).</p>
-            <p class="restaurant"><strong>Casinha do Petisco</strong> — Small, intimate spot with creative tapas and local wines.</p>
-            <p class="restaurant"><strong>No Pátio</strong> — Charming courtyard setting, fresh catch of the day.</p>
-
-            <!-- DAY 5 -->
-            <div class="day-header">Day 5: Thursday, March 26 — Sagres & Cape São Vicente</div>
-
-            <div class="included-activity">
-                <div class="label">✓ Included Activity</div>
-                <h4>Sagres & Cape São Vicente Excursion</h4>
-                <p><strong>Duration:</strong> 3 hours | <strong>Physical Rating:</strong> Moderate</p>
-                <p><em>Note: Not recommended for children under 6.</em></p>
-            </div>
-
-            <h4>Sagres</h4>
-            <ul>
-                <li>Dramatic clifftop town with rich maritime history</li>
-                <li>Views of the historic Sagres Fortress</li>
-                <li>Connected to Prince Henry the Navigator and the Age of Discovery</li>
-            </ul>
-
-            <h4>Cape São Vicente</h4>
-            <ul>
-                <li>Southwesternmost point of continental Europe</li>
-                <li>Historic lighthouse (once known as "the End of the World")</li>
-                <li>Breathtaking Atlantic Ocean views</li>
-            </ul>
-
-            <div class="bucket-list">
-                <strong>🪣 Bucket List Tip:</strong> "Last Bratwurst Before America" — Quirky food truck at Cape São Vicente. It's become a tradition for visitors!
-            </div>
-
-            <h4>🍽️ Lunch Options</h4>
-            <p class="restaurant"><strong>Restaurante Carlos</strong> (Sagres) — Fresh grilled fish, local favorite.</p>
-            <p class="restaurant"><strong>A Tasca</strong> (Sagres) — Casual seafood and Portuguese classics.</p>
-            <p class="restaurant"><strong>Ponta da Atalaia</strong> (Cape area) — Simple café with ocean views.</p>
-
-            <h4>Extra Activities If Time Permits</h4>
-            <ul>
-                <li><strong>Fortaleza de Sagres</strong> — Walk the full perimeter of the fortress for dramatic cliff views.</li>
-                <li><strong>Martinhal Beach</strong> — Calm, sheltered beach near Sagres, great for swimming.</li>
-                <li><strong>Watch the Sunset</strong> — Cape São Vicente has some of the most spectacular sunsets in Europe.</li>
-            </ul>
-
-            <h4>🍽️ Dinner in Lagos</h4>
-            <p class="restaurant"><strong>A Forja</strong> — Grilled fish overlooking the marina, excellent value.</p>
-            <p class="restaurant"><strong>Restaurante dos Artistas</strong> — Upscale option with beautiful presentation.</p>
-            <p class="restaurant"><strong>Meu Limão</strong> — Modern Portuguese with vegetarian-friendly options.</p>
-
-            <!-- DAY 6 -->
-            <div class="day-header">Day 6: Friday, March 27 — Lagos at Leisure + Ponta da Piedade</div>
-
-            <p>A relaxed day to explore Lagos at your own pace, with your boat tour to the famous sea caves.</p>
-
-            <div class="purchased-activity">
-                <div class="label">✓ Purchased Activity</div>
-                <h4>Boat Tour to Ponta da Piedade Caves</h4>
-                <p><strong>Duration:</strong> 1 hour | <strong>Physical Rating:</strong> Light | <strong>Cost:</strong> $47/person</p>
-                <ul>
-                    <li>Cruise along the dramatic Algarve coastline</li>
-                    <li>Enter hidden grottos and sea caves up close</li>
-                    <li>Photograph unique golden rock formations</li>
-                    <li>Includes boat tour, life jacket, English commentary</li>
-                </ul>
-            </div>
-            <div class="warning">⚠️ Boat trips may be cancelled due to weather or maritime conditions.</div>
-
-            <h4>Lagos Beaches to Explore</h4>
-            <ul>
-                <li><strong>Praia Dona Ana</strong> — Iconic golden cliffs and turquoise water, walkable from old town.</li>
-                <li><strong>Praia do Camilo</strong> — Secluded cove reached by wooden stairs cut into cliffs. Stunning!</li>
-                <li><strong>Meia Praia</strong> — Long stretch near hotel, perfect for morning walks.</li>
-            </ul>
-
-            <h4>Historical Sites in Lagos</h4>
-            <ul>
-                <li><strong>Igreja de Santo António</strong> — Baroque church with extraordinary gilded interior.</li>
-                <li><strong>Slave Market Museum</strong> — Small but significant; Lagos was Portugal's first slave market.</li>
-                <li><strong>Old Town Walls</strong> — Remnants of Moorish fortifications.</li>
-            </ul>
-
-            <h4>🍽️ Lunch Options</h4>
-            <p class="restaurant"><strong>Nah Nah Bah</strong> — Great burgers and casual beach vibe.</p>
-            <p class="restaurant"><strong>Meia Praia Beach Bars</strong> — Fresh grilled sardines and drinks on the sand.</p>
-            <p class="restaurant"><strong>Café Odeon</strong> — Old town café, sandwiches and light bites.</p>
-
-            <h4>🍽️ Dinner Recommendations</h4>
-            <p class="restaurant"><strong>O Camilo</strong> — Right above Praia do Camilo, seafood with sunset views.</p>
-            <p class="restaurant"><strong>Bon Vivant</strong> — Cozy bistro in old town, Portuguese-Mediterranean fusion.</p>
-            <p class="restaurant"><strong>Tasca Jota</strong> — Family-run, traditional Algarvean dishes.</p>
-
-            <!-- DAY 7 -->
-            <div class="day-header">Day 7: Saturday, March 28 — Free Day in Lagos</div>
-
-            <p>A completely free day to relax on the beach, explore further, or take an optional excursion.</p>
-
-            <h4>Adventure Activities</h4>
-            <ul>
-                <li><strong>Kayak to Ponta da Piedade</strong> — More intimate than the boat tour; paddle into sea caves yourself.</li>
-                <li><strong>Stand-Up Paddleboarding</strong> — Calm morning waters are perfect for beginners.</li>
-                <li><strong>Coasteering</strong> — Cliff jumping, swimming, and cave exploration for adventurous types.</li>
-                <li><strong>Cliff Walk to Luz</strong> — Stunning 2-hour coastal trail; taxi back from Luz.</li>
-            </ul>
-
-            <h4>Day Trip Option: Silves</h4>
-            <p>The former Moorish capital of the Algarve, about 30 minutes from Lagos. Features a stunning red sandstone castle and charming old town. Easy to reach by bus or taxi.</p>
-
-            <h4>Day Trip Option: Benagil Cave</h4>
-            <p>One of Portugal's most photographed spots — a sea cave with a beach inside and a natural skylight. Requires a boat or kayak tour from Carvoeiro/Lagoa (about 45 min from Lagos). Book through local tour operators.</p>
-
-            <div class="bucket-list">
-                <strong>🛒 Saturday Market:</strong> Mercado Municipal de Lagos — Saturday morning market with fresh produce, flowers, local cheese, and regional products.
-            </div>
-
-            <h4>🍽️ Lunch Options</h4>
-            <p class="restaurant"><strong>O António</strong> — Hidden gem, home-cooked Portuguese dishes, excellent value.</p>
-            <p class="restaurant"><strong>Mullens</strong> — Popular brunch spot in old town.</p>
-            <p class="restaurant"><strong>The Garden</strong> — Healthy bowls and salads, vegetarian-friendly.</p>
-
-            <h4>🍽️ Dinner Recommendations</h4>
-            <p class="restaurant"><strong>A Barriga</strong> — Traditional Portuguese in a cozy setting.</p>
-            <p class="restaurant"><strong>Vivendo</strong> — Upscale seafood and Portuguese cuisine.</p>
-            <p class="restaurant"><strong>Pizzeria Don Sebastião</strong> — When you want a break from Portuguese food.</p>
-
-            <div class="optional-activity">
-                <div class="label">Optional Available</div>
-                <strong>Dolphin Seafari Excursion</strong> ($85/person) — 2-hour boat trip to spot dolphins in the Atlantic.<br>
-                <strong>OR Monte da Foia & Cork Factory Experience</strong> ($117/person) — Visit the Algarve's highest point and learn about cork production.
-            </div>
-
-            <!-- DAY 8 -->
-            <div class="day-header">Day 8: Sunday, March 29 — Lagos to Évora to Lisbon</div>
-
-            <p>Depart the Algarve and travel back to Lisbon with a stop in the UNESCO World Heritage city of Évora.</p>
-
-            <div class="included-activity">
-                <div class="label">✓ Included Activity</div>
-                <h4>Walking Tour of Évora</h4>
-                <p><strong>Duration:</strong> 2 hours | <strong>Physical Rating:</strong> Light</p>
-                <p>Évora is a beautifully preserved walled city in the Alentejo region, featuring Roman, Moorish, and medieval heritage.</p>
-            </div>
-
-            <h4>Highlights</h4>
-            <ul>
-                <li><strong>Chapel of Bones (Capela dos Ossos)</strong> — Unique chapel decorated with human bones and skulls.</li>
-                <li><strong>Church of St. Francis</strong> — Gothic-Manueline church housing the Chapel of Bones.</li>
-                <li><strong>Roman Temple of Diana</strong> — Well-preserved 1st century Roman temple.</li>
-                <li><strong>Gothic Cathedral (Sé de Évora)</strong> — 12th century cathedral with rooftop views.</li>
-            </ul>
-
-            <h4>🍽️ Lunch in Évora</h4>
-            <p class="restaurant"><strong>Tasquinha do Oliveira</strong> — Tiny gem with traditional Alentejo cuisine. Reservations essential!</p>
-            <p class="restaurant"><strong>Fialho</strong> — Classic Alentejo dishes like açorda (bread soup) and black pork.</p>
-            <p class="restaurant"><strong>Café Arcada</strong> — On the main square, lighter fare and people-watching.</p>
-            <p class="restaurant"><strong>Taberna Típica Quarta-Feira</strong> — Rustic setting, traditional petiscos (Portuguese tapas).</p>
-
-            <div class="hotel-box">
-                <h4>🏨 Hotel: Açores Lisboa or similar (4-star)</h4>
-                <p>Avenida Columbano Bordalo Pinheiro, 3 Praça de Espanha, Lisbon</p>
-                <p><em>2 nights (March 29-31)</em></p>
-            </div>
-
-            <h4>🍽️ Dinner in Lisbon</h4>
-            <p class="restaurant"><strong>Solar dos Presuntos</strong> — Lisbon institution for northern Portuguese cuisine. Try the presunto (ham).</p>
-            <p class="restaurant"><strong>Café de São Bento</strong> — Famous for steaks, near the National Assembly.</p>
-            <p class="restaurant"><strong>Mini Bar</strong> — Chef José Avillez's playful tapas concept in Bairro Alto.</p>
-
-            <!-- DAY 9 -->
-            <div class="day-header">Day 9: Monday, March 30 — Sintra Day Trip</div>
-
-            <div class="purchased-activity">
-                <div class="label">✓ Purchased Activity</div>
-                <h4>Half-Day Tour to Sintra</h4>
-                <p><strong>Duration:</strong> 3 hours | <strong>Physical Rating:</strong> Light | <strong>Cost:</strong> $96/person</p>
-                <p>Sintra is a UNESCO World Heritage Site famous for its romantic 19th-century architecture, fairytale palaces, and lush gardens.</p>
-            </div>
-
-            <h4>Included in Tour</h4>
-            <ul>
-                <li><strong>Pena Palace</strong> — Colorful Romanticist castle perched on a hilltop. Entry included.</li>
-                <li>The walls and drawbridge</li>
-                <li>The former convent</li>
-                <li>Courtyard of the Arches</li>
-                <li>Palace interior decorated in cathedral style</li>
-            </ul>
-
-            <h4>Extra Time in Sintra (If Available)</h4>
-            <ul>
-                <li><strong>Quinta da Regaleira</strong> — Mysterious estate with underground tunnels and the famous Initiation Well.</li>
-                <li><strong>National Palace</strong> — Medieval royal palace with distinctive twin chimneys.</li>
-                <li><strong>Sintra Town Center</strong> — Charming shops and traditional pastry shops.</li>
-            </ul>
-
-            <h4>🍽️ Lunch Options</h4>
-            <p class="restaurant"><strong>Tascantiga</strong> — Petiscos (tapas) in Sintra's historic center.</p>
-            <p class="restaurant"><strong>Incomum by Luís Santos</strong> — Modern Portuguese, great lunch menu.</p>
-            <p class="restaurant"><strong>Piriquita</strong> — Famous for travesseiros (almond pastries) — a Sintra tradition!</p>
-
-            <h4>Afternoon in Lisbon</h4>
-            <p>After returning from Sintra, enjoy your final afternoon in Lisbon.</p>
-
-            <h4>Last-Chance Activities</h4>
-            <ul>
-                <li><strong>LX Factory</strong> — Creative hub in a former industrial complex; browsing, coffee, bookshops.</li>
-                <li><strong>Miradouros for Sunset</strong> — Miradouro da Senhora do Monte or Miradouro da Graça for final views.</li>
-                <li><strong>Souvenir Shopping</strong> — A Vida Portuguesa (traditional crafts), Loja das Conservas (tinned fish).</li>
-                <li><strong>Bairro Alto</strong> — Wander the bohemian neighborhood before dinner.</li>
-            </ul>
-
-            <h4>🍽️ Final Dinner in Portugal</h4>
-            <p class="restaurant"><strong>O Velho Eurico</strong> — Tiny, authentic, incredible value. Cash only. Near the cathedral.</p>
-            <p class="restaurant"><strong>Cervejaria Trindade</strong> — Historic beer hall in a former monastery. Great atmosphere.</p>
-            <p class="restaurant"><strong>100 Maneiras</strong> — If you want to splurge on a memorable tasting menu for your last night.</p>
-
-            <!-- DAY 10 -->
-            <div class="day-header">Day 10: Tuesday, March 31 — Return Home</div>
-
-            <p>Your Portuguese adventure comes to an end. Transfer to Lisbon Airport for your flights home.</p>
-
-            <h4>Morning</h4>
-            <p>Breakfast at hotel (if flight schedule allows). Check-out and transfer to airport.</p>
-
-            <h4>Flights Home</h4>
-            <p><strong>10:00 AM</strong> — Depart Lisbon (LIS) → New York JFK on Delta DL273</p>
-            <p><strong>1:02 PM</strong> — Arrive New York (JFK) — 2hr 18min layover</p>
-            <p><strong>3:20 PM</strong> — Depart New York (JFK) → Atlanta (ATL) on Delta DL1480</p>
-            <p><strong>5:52 PM</strong> — Arrive Atlanta — 1hr 38min layover</p>
-            <p><strong>7:30 PM</strong> — Depart Atlanta (ATL) → New Orleans (MSY) on Delta DL1450</p>
-            <p><strong>8:05 PM</strong> — Arrive New Orleans — Welcome home!</p>
-
-            <!-- IMPORTANT INFO -->
-            <h2>Important Information</h2>
-
-            <h3>📋 Before You Go Checklist</h3>
-            <ul>
-                <li><strong>Scan your passport</strong> — Email a copy to yourself and save to your phone. Keep a paper copy separate from your actual passport.</li>
-                <li><strong>Check passport expiration</strong> — Must be valid for at least 6 months after your return date (through September 2026).</li>
-                <li><strong>ETIAS not required for March 2026</strong> — The new European Travel Information and Authorization System launches in late 2026. Your trip is before this requirement takes effect, so no action needed.</li>
-                <li><strong>Entry/Exit System (EES)</strong> — Starting October 2025, fingerprints and facial images are collected at EU borders. This is automatic at passport control — no pre-registration required.</li>
-                <li><strong>Send passport copies to Exoticca</strong> — Email copies of valid passports to <a href="mailto:customers@exoticca.com">customers@exoticca.com</a> as required for your booking.</li>
-                <li><strong>Travel insurance</strong> — Consider purchasing travel insurance for medical emergencies and trip interruption.</li>
-            </ul>
-
-            <h3>🛒 Local Shopping — Where Lisbonites Shop</h3>
-            <p>Skip the tourist traps and shop where locals go:</p>
-
-            <h4>Fresh Food Markets</h4>
-            <ul>
-                <li><strong>Mercado de Campo de Ourique</strong> — 80% locals! Beautiful 1934 market with fresh produce, fish, meats, and a food court. At the end of Tram 28 line.</li>
-                <li><strong>Mercado de Arroios</strong> — Multicultural neighborhood market with Portuguese, Asian, and African ingredients. Very authentic, off-the-beaten-path.</li>
-                <li><strong>Mercado de Alvalade</strong> — Exceptional quality seafood, artisan cheeses, local produce. Passionate shopkeepers, authentic atmosphere.</li>
-                <li><strong>Mercado de Benfica</strong> — A true locals' market in a grand circular building. Fresh fish, meats, produce — rarely visited by tourists.</li>
-            </ul>
-
-            <h4>Flea Markets & Antiques</h4>
-            <ul>
-                <li><strong>Feira da Ladra</strong> (Tuesdays & Saturdays) — Lisbon's famous "Thieves Market" in Alfama. Antiques, tiles, vintage items. Haggling expected!</li>
-                <li><strong>Feira do Relógio</strong> (Sundays) — Largest and cheapest market in Lisbon. 300+ stalls in Marvila district. Very local, great bargains.</li>
-                <li><strong>LX Market at LX Factory</strong> (Sundays) — Artsy flea and design market with books, handmade jewelry, local crafts.</li>
-            </ul>
-
-            <h4>Traditional Portuguese Shops</h4>
-            <ul>
-                <li><strong>A Vida Portuguesa</strong> (Chiado & Intendente) — Curated Portuguese products: soaps, ceramics, vintage posters, gourmet foods. Perfect for souvenirs.</li>
-                <li><strong>Manteigaria Silva</strong> — 19th century shop famous for Serra da Estrela cheese and Portuguese delicacies.</li>
-                <li><strong>Loja das Conservas</strong> — Beautifully packaged Portuguese tinned fish (sardines, tuna, mackerel). Great gifts!</li>
-                <li><strong>Cerâmicas na Linha</strong> (Chiado) — Handmade Portuguese ceramics: plates, bowls, tiles. All made in Portugal.</li>
-                <li><strong>Loja da Burel</strong> — Traditional Portuguese wool fabric, revived artisan weaving. Blankets, bags, accessories.</li>
-                <li><strong>Embaixada</strong> (Príncipe Real) — Portuguese brands and designers in a stunning 19th-century neo-Moorish palace.</li>
-            </ul>
-
-            <h3>Hotel City Tax</h3>
-            <p>Lisbon hotels require a municipal tax of approximately €4 per person, per night, paid directly to the hotel upon departure. A credit card must be presented as a guarantee at check-in.</p>
-
-            <h3>Weather in Late March</h3>
-            <ul>
-                <li>Expect temperatures of 15-20°C (60-68°F)</li>
-                <li>Rain is possible — pack a light rain jacket</li>
-                <li>Layers recommended for evening coastal breezes</li>
-                <li>Comfortable walking shoes essential</li>
-            </ul>
-
-            <h3>Emergency Contacts</h3>
-            <p><strong>Exoticca Customer Success:</strong> +1-251-289-1505</p>
-            <p><strong>Cruise Planners (Kim Henderson):</strong> +1-251-293-4992</p>
-            <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="72191b1f5c1a171c161700011d1c321100071b0117021e131c1c1700015c111d1f">[email&#160;protected]</a></p>
-            <p><em>In-trip assistan
+  <div class="container">
+    <div class="header">
+      <h1>Portugal Packing Guide</h1>
+      <p class="subtitle">What to Wear for Daily Tours & Evening Dinners</p>
+      <div class="trip-dates">March 22–31, 2026</div>
+    </div>
+
+    <h2>Daytime Tours</h2>
+    <p>Portugal is fairly casual but leans more polished than typical American attire. Here's what works well for sightseeing:</p>
+
+    <h3>Footwear</h3>
+    <ul>
+      <li><strong>Comfortable walking shoes are essential</strong>—cobblestone streets are everywhere</li>
+      <li>Stylish sneakers or supportive flats work perfectly</li>
+      <li>Avoid flip-flops, which mark you as a tourist</li>
+    </ul>
+
+    <h3>Clothing</h3>
+    <ul>
+      <li>Well-fitted jeans, chinos, capris, or casual dresses</li>
+      <li>Linen pants are great for warmer days</li>
+      <li><strong>Layers are essential</strong>—March temperatures range from 55–65°F</li>
+      <li>Pack a light jacket, cardigan, or versatile scarf</li>
+      <li><strong>Modest tops for church visits</strong>—shoulders should be covered</li>
+    </ul>
+
+    <h2>Evening Dinners</h2>
+    <p>Portuguese locals tend to dress up a bit more for dinner, especially in Lisbon and Porto. <strong>Smart casual</strong> is the standard.</p>
+
+    <h3>What Works Well</h3>
+    <ul>
+      <li>A nice blouse or sweater paired with dark jeans or tailored pants</li>
+      <li>A casual dress with a cardigan or blazer</li>
+      <li>Comfortable but stylish low heels, ankle boots, or dressy flats</li>
+    </ul>
+
+    <h3>What to Avoid</h3>
+    <ul>
+      <li>Athletic wear, shorts, or overly casual clothing at dinner—it stands out</li>
+    </ul>
+
+    <h2>General Tips</h2>
+    <ul>
+      <li><strong>Stick to neutrals and earthy tones</strong>—black, navy, olive, and cream blend in well</li>
+      <li>Portuguese women tend toward classic, understated elegance over flashy</li>
+      <li>A versatile scarf doubles as a style piece and a cover-up for churches</li>
+      <li>Pack pieces that mix and match easily to maximize outfit options</li>
+    </ul>
+
+    <div class="tip-box">
+      <strong>Pro Tip:</strong> A lightweight, wrinkle-resistant wardrobe will serve you well. Choose fabrics that travel easily and can be dressed up or down!
+    </div>
+
+    <div class="footer">
+      <p>Questions? Reach out anytime!</p>
+      <p class="company">SOMO Travel Specialists / Cruise Planners</p>
+    </div>
+  </div>
+</body>
+</html>
