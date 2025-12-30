@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Maarten Resort Locations</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #1E4D78;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        #map {
+            width: 100%;
+            height: 500px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+        }
+        .legend {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .legend h3 {
+            color: #1E4D78;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .legend-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .legend-marker {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .legend-content {
+            flex: 1;
+        }
+        .legend-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 2px;
+        }
+        .legend-details {
+            font-size: 13px;
+            color: #666;
+        }
+        .legend-distance {
+            font-size: 12px;
+            color: #888;
+            margin-top: 2px;
+        }
+        .beach-marker { background: #FFD700; color: #333; }
+        .economical-marker { background: #4CAF50; }
+        .midrange-marker { background: #2196F3; }
+        .luxury-marker { background: #9C27B0; }
+        .warning-marker { background: #FF9800; }
+        
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+        }
+        .popup-content {
+            padding: 5px;
+        }
+        .popup-content h4 {
+            color: #1E4D78;
+            margin-bottom: 5px;
+        }
+        .popup-content p {
+            margin: 3px 0;
+            font-size: 13px;
+            color: #555;
+        }
+        .popup-content .price {
+            font-weight: bold;
+            color: #2E7D32;
+        }
+        
+        .note {
+            background: #FFF8E1;
+            border-left: 4px solid #FFB300;
+            padding: 12px 15px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>St. Maarten Resort Locations</h1>
+        <p class="subtitle">April 2025 | Mullet Bay Area Comparison</p>
+        
+        <div id="map"></div>
+        
+        <div class="legend">
+            <h3>Resort Legend</h3>
+            
+            <div class="legend-item">
+                <div class="legend-marker beach-marker">★</div>
+                <div class="legend-content">
+                    <div class="legend-name">Mullet Bay Beach</div>
+                    <div class="legend-details">Primary beach destination - beautiful white sand, calm turquoise waters</div>
+                </div>
+            </div>
+            
+            <div class="legend-item">
+                <div class="legend-marker economical-marker">1</div>
+                <div class="legend-content">
+                    <div class="legend-name">Sapphire Beach Club Resort</div>
+                    <div class="legend-details">Economical | 2-3 Star | Room Only | $150+/night</div>
+                    <div class="legend-distance">~10 min drive to Mullet Bay</div>
+                </div>
+            </div>
+            
+            <div class="legend-item">
+                <div class="legend-marker midrange-marker">2</div>
+                <div class="legend-content">
+                    <div class="legend-name">The Morgan Resort & Spa</div>
+                    <div class="legend-details">Mid-Range | 4 Star Boutique | Room Only | $300+/night</div>
+                    <div class="legend-distance">~5 min drive to Mullet Bay</div>
+                </div>
+            </div>
+            
+            <div class="legend-item">
+                <div class="legend-marker midrange-marker">3</div>
+                <div class="legend-content">
+                    <div class="legend-name">Sonesta Maho Beach Resort</div>
+                    <div class="legend-details">Mid-Range | 4 Star All-Inclusive | $400+/night</div>
+                    <div class="legend-distance">~5 min drive to Mullet Bay</div>
+                </div>
+            </div>
+            
+            <div class="legend-item">
+                <div class="legend-marker warning-marker">4</div>
+                <div class="legend-content">
+                    <div class="legend-name">Divi Little Bay Beach Resort</div>
+                    <div class="legend-details">Mid-Range | 3.5 Star All-Inclusive | $350+/night</div>
+                    <div class="legend-distance">⚠ ~20-25 min drive to Mullet Bay (opposite side of island)</div>
+                </div>
+            </div>
+            
+            <div class="legend-item">
+                <div class="legend-marker luxury-marker">5</div>
+                <div class="legend-content">
+                    <div class="legend-name">Sonesta Ocean Point Resort</div>
+                    <div class="legend-details">Luxury | 5 Star Premium All-Inclusive | Adults-Only | $600+/night</div>
+                    <div class="legend-distance">~5 min drive to Mullet Bay</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="note">
+            <strong>Note:</strong> Drive times are approximate and may vary based on traffic conditions. All resorts except Divi Little Bay are located in the Maho/Simpson Bay area on the western coast, providing easy access to Mullet Bay Beach.
+        </div>
+    </div>
+
+    <script>
+        // Initialize the map centered on St. Maarten
+        const map = L.map('map').setView([18.0425, -63.0548], 12);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Custom icon function
+        function createIcon(color, label) {
+            return L.divIcon({
+                className: 'custom-marker',
+                html: `<div style="
+                    background: ${color};
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 14px;
+                    border: 3px solid white;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+                ">${label}</div>`,
+                iconSize: [32, 32],
+                iconAnchor: [16, 16],
+                popupAnchor: [0, -16]
+            });
+        }
+
+        // Beach icon (star)
+        const beachIcon = L.divIcon({
+            className: 'custom-marker',
+            html: `<div style="
+                background: #FFD700;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #333;
+                font-weight: bold;
+                font-size: 18px;
+                border: 3px solid white;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            ">★</div>`,
+            iconSize: [36, 36],
+            iconAnchor: [18, 18],
+            popupAnchor: [0, -18]
+        });
+
+        // Location coordinates
+        const locations = [
+            {
+                name: "Mullet Bay Beach",
+                coords: [18.0392, -63.1183],
+                icon: beachIcon,
+                popup: `<div class="popup-content">
+                    <h4>★ Mullet Bay Beach</h4>
+                    <p><strong>Primary Beach Destination</strong></p>
+                    <p>Beautiful quarter-mile stretch of white sand with crystal-clear turquoise waters. More serene than nearby Maho Beach.</p>
+                </div>`
+            },
+            {
+                name: "Sapphire Beach Club Resort",
+                coords: [18.0372, -63.1089],
+                icon: createIcon('#4CAF50', '1'),
+                popup: `<div class="popup-content">
+                    <h4>1. Sapphire Beach Club Resort</h4>
+                    <p><strong>Economical Option</strong> | 2-3 Star</p>
+                    <p>Condo-style with full kitchens</p>
+                    <p class="price">$150+/night | $950+ for 5 nights</p>
+                    <p>~10 min drive to Mullet Bay</p>
+                </div>`
+            },
+            {
+                name: "The Morgan Resort & Spa",
+                coords: [18.0401, -63.1138],
+                icon: createIcon('#2196F3', '2'),
+                popup: `<div class="popup-content">
+                    <h4>2. The Morgan Resort & Spa</h4>
+                    <p><strong>Mid-Range Boutique</strong> | 4 Star</p>
+                    <p>Modern luxury, stunning infinity pool</p>
+                    <p class="price">$300+/night | $1,700+ for 5 nights</p>
+                    <p>~5 min drive to Mullet Bay</p>
+                </div>`
+            },
+            {
+                name: "Sonesta Maho Beach Resort",
+                coords: [18.0410, -63.1155],
+                icon: createIcon('#2196F3', '3'),
+                popup: `<div class="popup-content">
+                    <h4>3. Sonesta Maho Beach Resort</h4>
+                    <p><strong>Mid-Range All-Inclusive</strong> | 4 Star</p>
+                    <p>Family-friendly, 420 rooms, casino access</p>
+                    <p class="price">$400+/night | $2,200+ for 5 nights</p>
+                    <p>~5 min drive to Mullet Bay</p>
+                </div>`
+            },
+            {
+                name: "Divi Little Bay Beach Resort",
+                coords: [18.0178, -63.0394],
+                icon: createIcon('#FF9800', '4'),
+                popup: `<div class="popup-content">
+                    <h4>4. Divi Little Bay Beach Resort</h4>
+                    <p><strong>Mid-Range All-Inclusive</strong> | 3.5 Star</p>
+                    <p>Private peninsula, great snorkeling</p>
+                    <p class="price">$350+/night | $1,950+ for 5 nights</p>
+                    <p>⚠ ~20-25 min drive to Mullet Bay</p>
+                </div>`
+            },
+            {
+                name: "Sonesta Ocean Point Resort",
+                coords: [18.0418, -63.1148],
+                icon: createIcon('#9C27B0', '5'),
+                popup: `<div class="popup-content">
+                    <h4>5. Sonesta Ocean Point Resort</h4>
+                    <p><strong>Luxury Premium All-Inclusive</strong> | 5 Star</p>
+                    <p>Adults-only, gourmet dining, butler service</p>
+                    <p class="price">$600+/night | $3,200+ for 5 nights</p>
+                    <p>~5 min drive to Mullet Bay</p>
+                </div>`
+            }
+        ];
+
+        // Add markers to map
+        locations.forEach(loc => {
+            L.marker(loc.coords, { icon: loc.icon })
+                .addTo(map)
+                .bindPopup(loc.popup);
+        });
+
+        // Draw a line from Divi to Mullet Bay to show distance
+        const diviToMullet = L.polyline([
+            [18.0178, -63.0394], // Divi
+            [18.0392, -63.1183]  // Mullet Bay
+        ], {
+            color: '#FF9800',
+            weight: 2,
+            dashArray: '10, 10',
+            opacity: 0.7
+        }).addTo(map);
+
+        // Fit map to show all markers
+        const bounds = L.latLngBounds(locations.map(l => l.coords));
+        map.fitBounds(bounds, { padding: [30, 30] });
+    </script>
+</body>
+</html>
