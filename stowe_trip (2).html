@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stowe Ski Trip - January 6-11, 2026</title>
     <style>
+        :root {
+            --primary: #1e3a5f;
+            --accent: #4a90d9;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
         
         body {
@@ -16,32 +26,34 @@
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             padding: 20px;
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
         }
         
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
             color: white;
             padding: 40px 30px;
             text-align: center;
         }
         
-        header h1 {
+        .header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
-        header p {
-            font-size: 1.1em;
+        .header .subtitle {
+            font-size: 1.2em;
             opacity: 0.9;
         }
         
@@ -49,35 +61,118 @@
             padding: 30px;
         }
         
-        section {
-            margin-bottom: 40px;
-        }
-        
         h2 {
-            color: #1e3c72;
-            border-bottom: 3px solid #667eea;
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
             padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            font-size: 1.5em;
         }
         
         h3 {
-            color: #2a5298;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1.3em;
+            color: var(--dark);
+            margin: 20px 0 15px 0;
+            font-size: 1.2em;
         }
         
-        .confirmation-box {
-            background: #f0f4ff;
-            border-left: 4px solid #667eea;
-            padding: 15px;
+        h4 {
+            color: var(--primary);
+            margin: 15px 0 10px 0;
+        }
+        
+        .card {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 20px;
             margin: 15px 0;
-            border-radius: 5px;
+            border-left: 4px solid var(--accent);
         }
         
-        .confirmation-box strong {
-            color: #1e3c72;
+        .card.confirmed {
+            border-left-color: var(--success);
+            background: #d4edda;
+        }
+        
+        .card.pending {
+            border-left-color: var(--warning);
+            background: #fff3cd;
+        }
+        
+        .card.action-needed {
+            border-left-color: var(--danger);
+            background: #f8d7da;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .badge.confirmed {
+            background: var(--success);
+            color: white;
+        }
+        
+        .badge.pending {
+            background: var(--warning);
+            color: #333;
+        }
+        
+        .badge.waitlist {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .day-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 25px 0 15px 0;
+        }
+        
+        .day-header h3 {
+            color: white;
+            margin: 0;
+        }
+        
+        .timeline {
+            border-left: 3px solid var(--accent);
+            margin-left: 20px;
+            padding-left: 25px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 10px 0;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 15px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        
+        .timeline-item.highlight::before {
+            background: var(--success);
+            width: 16px;
+            height: 16px;
+            left: -34px;
+        }
+        
+        .time {
+            font-weight: bold;
+            color: var(--primary);
         }
         
         table {
@@ -86,785 +181,794 @@
             margin: 15px 0;
         }
         
-        table th {
-            background: #667eea;
-            color: white;
+        th, td {
             padding: 12px;
             text-align: left;
-            font-weight: 600;
-        }
-        
-        table td {
-            padding: 12px;
             border-bottom: 1px solid #ddd;
         }
         
-        table tr:nth-child(even) {
-            background: #f9f9f9;
+        th {
+            background: var(--primary);
+            color: white;
         }
         
-        table tr:hover {
-            background: #f0f4ff;
+        tr:hover {
+            background: var(--light);
         }
         
-        .highlight {
-            background: #fffacd;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: 600;
-        }
-        
-        .alert {
-            background: #ffe6e6;
-            border-left: 4px solid #d32f2f;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        
-        .alert strong {
-            color: #d32f2f;
-        }
-        
-        .success {
-            background: #e6ffe6;
-            border-left: 4px solid #4caf50;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        
-        .success strong {
-            color: #2e7d32;
-        }
-        
-        .cost-summary {
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 15px 0;
-        }
-        
-        .cost-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .cost-row.total {
-            border-bottom: 2px solid #667eea;
+        .cost-table td:last-child {
+            text-align: right;
             font-weight: bold;
+        }
+        
+        .total-row {
+            background: var(--primary) !important;
+            color: white;
             font-size: 1.1em;
-            color: #1e3c72;
-            margin-top: 10px;
-            padding-top: 10px;
         }
         
-        .itinerary-day {
-            background: #f9f9f9;
-            border-left: 5px solid #667eea;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 5px;
+        .total-row td {
+            border: none;
         }
         
-        .itinerary-day h3 {
-            margin-top: 0;
-            color: #1e3c72;
+        ul {
+            margin: 10px 0 10px 25px;
         }
         
-        .time-item {
-            margin: 10px 0;
-            padding: 10px;
-            background: white;
-            border-radius: 3px;
-        }
-        
-        .time-item strong {
-            color: #2a5298;
-        }
-        
-        .contacts {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 15px 0;
-        }
-        
-        .contact-card {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            border-top: 3px solid #667eea;
-        }
-        
-        .contact-card h4 {
-            color: #1e3c72;
-            margin-bottom: 10px;
-        }
-        
-        .contact-card p {
-            margin: 5px 0;
-            font-size: 0.95em;
-        }
-        
-        .checklist {
-            list-style: none;
-            padding: 0;
+        li {
+            margin: 8px 0;
         }
         
         .checklist li {
-            padding: 10px 15px;
-            margin: 5px 0;
-            background: #f9f9f9;
-            border-left: 3px solid #667eea;
-            border-radius: 3px;
+            list-style: none;
+            position: relative;
+            padding-left: 30px;
         }
         
-        .checklist li:before {
-            content: "☐ ";
-            color: #667eea;
-            font-weight: bold;
-            margin-right: 10px;
+        .checklist li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
         }
         
-        footer {
-            background: #f5f5f5;
-            padding: 20px;
+        .checklist li.done::before {
+            content: '✓';
+            color: var(--success);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        
+        .contact-card {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        
+        .contact-card h4 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .warning-box::before {
+            content: '⚠️ ';
+        }
+        
+        .success-box {
+            background: #d4edda;
+            border: 1px solid #28a745;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .success-box::before {
+            content: '✅ ';
+        }
+        
+        .info-box {
+            background: #cce5ff;
+            border: 1px solid #004085;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .info-box::before {
+            content: 'ℹ️ ';
+        }
+        
+        .footer {
+            background: var(--dark);
+            color: white;
             text-align: center;
-            border-top: 1px solid #ddd;
-            font-size: 0.9em;
-            color: #666;
+            padding: 20px;
+            margin-top: 30px;
         }
         
-        @media print {
-            body {
-                background: white;
-            }
-            .container {
-                box-shadow: none;
-            }
-            section {
-                page-break-inside: avoid;
-            }
+        a {
+            color: var(--accent);
         }
         
         @media (max-width: 600px) {
-            header h1 {
+            .header h1 {
                 font-size: 1.8em;
             }
             
-            .contacts {
+            .content {
+                padding: 15px;
+            }
+            
+            .contact-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            table {
-                font-size: 0.9em;
-            }
-            
-            table th, table td {
-                padding: 8px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <div class="header">
             <h1>🎿 STOWE SKI TRIP 🎿</h1>
-            <p>January 6-11, 2026 (Tuesday - Sunday) | 4 Adults</p>
-        </header>
-        
-        <div class="content">
-            <!-- CONFIRMATIONS -->
-            <section>
-                <h2>✓ CONFIRMATIONS</h2>
-                
-                <h3>Lodging</h3>
-                <div class="confirmation-box">
-                    <strong>Hotel:</strong> The Lodge at Spruce Peak (Hyatt Collections)<br>
-                    <strong>Confirmation #:</strong> <span class="highlight">PZ4J0I</span><br>
-                    <strong>Room:</strong> 1 Double Room (sleeps 4)<br>
-                    <strong>Check-in:</strong> January 6, 2026 at 4:00 PM<br>
-                    <strong>Check-out:</strong> January 11, 2026<br>
-                    <strong>Cost:</strong> $3,724.74
-                </div>
-                
-                <h3>Flights</h3>
-                <div class="confirmation-box">
-                    <strong>Confirmation #:</strong> <span class="highlight">CJ9DN3</span><br>
-                    <strong>Airline Reference:</strong> D2ECJ0<br>
-                    <strong>Outbound:</strong> January 6 | Mobile 12:45 PM → Burlington 6:54 PM<br>
-                    <strong>Inbound:</strong> January 11 | Burlington 2:04 PM → Mobile 7:51 PM<br>
-                    <strong>Cost:</strong> $5,010.20
-                </div>
-                
-                <h3>Snowmobile Tour</h3>
-                <div class="success">
-                    <strong>✓ CONFIRMED BOOKING:</strong> Snowmobile Vermont Stowe<br>
-                    <strong>Booking #:</strong> <span class="highlight">325470696</span><br>
-                    <strong>Tour:</strong> Two Hour Backcountry Tour<br>
-                    <strong>Date/Time:</strong> Wednesday, January 7, 2026 | 10:00 AM - 12:00 PM<br>
-                    <strong>Equipment:</strong> 2 Double Snowmobiles (4 people)<br>
-                    <strong>Location:</strong> 56 Old Farm Rd, First Floor Suite, Stowe, VT 05672<br>
-                    <strong>Arrive:</strong> 9:00 AM (1 hour before)<br>
-                    <strong>Cost:</strong> $695.54 (PAID)<br>
-                    <strong>Important:</strong> Double riders CANNOT switch drivers during tour. Dress in warm winter gear. DOT helmets provided.<br>
-                    <strong>Cancellation:</strong> 72 hours notice for full refund<br>
-                    <strong>Contact:</strong> (802) 253-6221
-                </div>
-                
-                <h3>Sleigh Ride - Gentle Giants</h3>
-                <div class="alert">
-                    <strong>⏳ PENDING CONFIRMATION:</strong> Sleigh Ride Reservation<br>
-                    <strong>Operator:</strong> Mike Martell | <strong>Phone:</strong> (802) 734-1070<br>
-                    <strong>Date:</strong> Wednesday, January 7, 2026 (message left)<br>
-                    <strong>Rate:</strong> $40/person (adults) | <strong>4 people = $160</strong><br>
-                    <strong>⚠️ IMPORTANT:</strong> Reservations REQUIRED | CASH ONLY<br>
-                    <strong>Status:</strong> Awaiting confirmation from Mike Martell
-                </div>
-                <div class="alert">
-                    <strong>⚠️ Important:</strong> Payment due at time of pickup<br>
-                    <strong>Service:</strong> Stowe Airport Transfers<br>
-                    <strong>Contact:</strong> (802) 338-8428 (text for changes)<br>
-                    <strong>Pickup Jan 6:</strong> Burlington Airport ~7:00 PM<br>
-                    <strong>Dropoff Jan 11:</strong> The Lodge to Burlington Airport<br>
-                    <strong>Cost:</strong> <span class="highlight">TBD - Call for pricing</span>
-                </div>
-            </section>
-            
-            <!-- LODGE AMENITIES -->
-            <section>
-                <h2>🏨 THE LODGE AMENITIES</h2>
-                <div class="success">
-                    <p><strong>✓ Heated Outdoor Pool:</strong> 9 AM - 10 PM daily</p>
-                    <p><strong>✓ Hot Tubs:</strong> 2 hot tubs at base of Mount Mansfield</p>
-                    <p><strong>✓ Ice Skating Rink:</strong> Noon - 6 PM daily (complimentary, skate rentals at Adventure Center)</p>
-                    <p><strong>✓ Full Service Spa:</strong> Massages, facials, cryo-therapy (advance booking recommended)</p>
-                    <p><strong>✓ Hair & Nail Salon:</strong> On-site</p>
-                    <p><strong>✓ State-of-the-Art Fitness Center:</strong> Daily classes, cardio, weights, Peloton bikes</p>
-                </div>
-            </section>
-            
-            <!-- DAILY ITINERARY -->
-            <section>
-                <h2>📅 DAILY ITINERARY</h2>
-                
-                <div class="itinerary-day">
-                    <h3>Tuesday, January 6 - ARRIVAL</h3>
-                    <div class="time-item">
-                        <strong>12:45 PM:</strong> Depart Mobile Regional Airport (MOB)
-                    </div>
-                    <div class="time-item">
-                        <strong>6:54 PM:</strong> Arrive Burlington International Airport (BTV)
-                    </div>
-                    <div class="time-item">
-                        <strong>~7:00 PM:</strong> Meet Stowe Airport Shuttle at Burlington Airport
-                        <br>Reserve: www.stoweairportshuttle.com | (802) 338-8426
-                        <br><strong>PAY AT PICKUP</strong>
-                    </div>
-                    <div class="time-item">
-                        <strong>~7:45-8:00 PM:</strong> Arrive The Lodge, check in
-                    </div>
-                    <div class="time-item">
-                        <strong>Evening:</strong> Casual dinner in Stowe village (Farmhouse Tap & Grill or Piecasso)
-                    </div>
-                </div>
-                
-                <div class="itinerary-day">
-                    <h3>Wednesday, January 7 - BACKCOUNTRY SNOWMOBILE TOUR + OPTIONAL SLEIGH RIDE</h3>
-                    <div class="time-item">
-                        <strong>✓ CONFIRMED BOOKING:</strong> Snowmobile Vermont Stowe
-                        <br>Booking #325470696 | Cost: $695.54 (PAID)
-                    </div>
-                    <div class="time-item">
-                        <strong>9:00 AM:</strong> ARRIVE at tour location (1 hour before departure)
-                        <br>56 Old Farm Rd, First Floor Suite, Stowe, VT 05672
-                        <br><strong>ARRANGE TRANSPORTATION</strong> from The Lodge to tour location upon arrival
-                    </div>
-                    <div class="time-item">
-                        <strong>10:00 AM - 12:00 PM:</strong> Two Hour Backcountry Tour
-                        <br>2 Double Snowmobiles (4 people total)
-                        <br>⚠️ Double riders CANNOT switch drivers during tour
-                    </div>
-                    <div class="time-item">
-                        <strong>DRESS CODE:</strong> Warm winter gear (snow pants, parka, gloves, boots)
-                        <br>Dress as if going skiing, but sitting on chairlift for 2 hours
-                        <br>DOT approved helmets provided
-                    </div>
-                    <div class="time-item">
-                        <strong>CANCELLATION POLICY:</strong> 72 hours notice for full refund
-                    </div>
-                    <div class="time-item">
-                        <strong>~12:30 PM:</strong> Return to The Lodge, freshen up
-                    </div>
-                    <div class="time-item">
-                        <strong>⏳ OPTIONAL - SLEIGH RIDE (Pending Confirmation):</strong>
-                        <br>Gentle Giants Sleigh Rides with Mike Martell
-                        <br>Cost: $40/person ($160 for 4 people)
-                        <br>⚠️ Reservations REQUIRED | CASH ONLY
-                        <br><strong>Status:</strong> Message left - awaiting confirmation
-                    </div>
-                    <div class="time-item">
-                        <strong>Evening:</strong> Casual lunch/dinner in Stowe, optional activities
-                    </div>
-                </div>
-                
-                <div class="itinerary-day">
-                    <h3>Thursday, January 8 - SKI DAY</h3>
-                    <div class="time-item">
-                        <strong>Morning:</strong> Pick up ski rentals at TrueNorth (in The Lodge)
-                    </div>
-                    <div class="time-item">
-                        <strong>Full Day:</strong> Skiing on Stowe Mountain (Spruce Peak)
-                    </div>
-                    <div class="time-item">
-                        <strong>Afternoon:</strong> Continue skiing, break for lunch at mountain lodge
-                    </div>
-                    <div class="time-item">
-                        <strong>Late Afternoon:</strong> Apres-ski at The Shed or lodge
-                    </div>
-                    <div class="time-item">
-                        <strong>Evening:</strong> Casual dinner in Stowe village (Farmhouse Tap & Grill, Piecasso, or Cactus Cafe)
-                    </div>
-                    <div class="time-item">
-                        <strong>Night:</strong> Low-key evening - recover from ski day, relax at pool/hot tubs, early night
-                    </div>
-                </div>
-                
-                <div class="itinerary-day">
-                    <h3>Friday, January 9 - WOODSTOCK DAY TRIP</h3>
-                    <div class="time-item">
-                        <strong>🚗 CAR REQUIRED:</strong> Contact Diane (concierge) to coordinate car rental
-                    </div>
-                    <div class="time-item">
-                        <strong>~1 hour south to Woodstock</strong>
-                    </div>
-                    <div class="time-item">
-                        <strong>Morning/Afternoon:</strong> Explore covered bridges:<br>
-                        • Middle Covered Bridge (139 ft, near village green)<br>
-                        • Taftsville Covered Bridge (189 ft, 5 min east, 1836)<br>
-                        • Lincoln Covered Bridge (136 ft, 5 min west, 1877)
-                    </div>
-                    <div class="time-item">
-                        <strong>~12:30 PM:</strong> Lunch at Worthy Kitchen
-                    </div>
-                    <div class="time-item">
-                        <strong>Afternoon (2-3 hours):</strong> Shopping on Central & Elm Streets<br>
-                        Artisans: Collective, Simon Pearce, Farmhouse Pottery<br>
-                        Galleries: Woodstock Gallery, Focus Vermont<br>
-                        Clothing: 37 Central Clothiers, Sudie's, Vermont Flannel<br>
-                        Gifts: Clover, Woody's Mercantile, Danforth Pewter<br>
-                        Must-visit: FH Gillingham & Sons (1886 general store)
-                    </div>
-                    <div class="time-item">
-                        <strong>~4:00 PM:</strong> Return to Stowe (1 hour)
-                    </div>
-                    <div class="time-item">
-                        <strong>Evening:</strong> Dinner in Stowe, nightlife
-                    </div>
-                </div>
-                
-                <div class="itinerary-day">
-                    <h3>Saturday, January 10 - QUECHEE GORGE DAY TRIP / OPTIONAL ACTIVITIES</h3>
-                    <div class="time-item">
-                        <strong>⏰ 2:04 PM:</strong> <span class="highlight">ONLINE CHECK-IN FOR RETURN FLIGHT (Jan 11)</span>
-                        <br>Log into United.com or app with confirmation CJ9DN3
-                    </div>
-                    <div class="time-item">
-                        <strong>⏳ DOGSLED STATUS:</strong> WAITLISTED for 7:20 PM (Stowe will contact if availability opens)
-                        <br>Allow time for dogsled if space becomes available
-                    </div>
-                    <div class="time-item">
-                        <strong>🚗 NOTE:</strong> Car reservation needed through The Lodge concierge (Diane) for flexible routing on this day
-                    </div>
-                    <div class="time-item">
-                        <strong>OPTION A - Quechee Gorge Route:</strong>
-                        <br>• Drive ~45 min east to Quechee Gorge
-                        <br>• Explore gorge - scenic overlook, short hike
-                        <br>• ~1:00 PM: LUNCH - Simon Pearce Restaurant
-                        <br>• Browse artisan shops, scenic walk
-                        <br>• Return to Stowe (~45 min)
-                    </div>
-                    <div class="time-item">
-                        <strong>OPTION B - Route 100 Corridor (Local Attractions):</strong>
-                        <br>Explore Route 100 N from I-89 to Stowe - local shops with tours/samples:
-                        <br>• Ben & Jerry's Factory Tour
-                        <br>• Cold Hollow Cider Mill (cider donuts!)
-                        <br>• Boyden Valley Winery
-                        <br>• Danforth Pewter
-                        <br>• Cabot Creamery
-                        <br>• Smugglers Notch Distillery
-                        <br>• Vermont Artisan Coffee Roasters
-                        <br>• Stowe Maple Products
-                    </div>
-                    <div class="time-item">
-                        <strong>OPTION C - Trapp Family Lodge Visit:</strong>
-                        <br><em>"Always fun! One of the prettiest properties in town."</em>
-                        <br>The Sound of Music inspired family property - still owned and operated by the family that inspired the movie
-                        <br>• Location: 2600 acres on Luce Hill (5-10 min from The Lodge)
-                        <br>• Meet the Highland cattle herd (they come when called!)
-                        <br>• Family history & cow tours offered several times weekly
-                        <br>• Kaffee Haus with homemade pastries & cold drinks
-                        <br>• The Trapp Bier Hall with amazing schnitzels & charcuterie boards
-                        <br>Website: www.trappfamily.com
-                    </div>
-                    <div class="time-item">
-                        <strong>Evening:</strong> Final night out - dinner & nightlife in Stowe
-                        <br>If dogsled becomes available (7:20-7:55 PM): $90/person for 4 people (2 sleds)
-                    </div>
-                </div>
-                
-                <div class="itinerary-day">
-                    <h3>Sunday, January 11 - CHECKOUT & DEPART</h3>
-                    <div class="time-item">
-                        <strong>11:00 AM:</strong> Check out of The Lodge
-                    </div>
-                    <div class="time-item">
-                        <strong>~11:30 AM:</strong> Meet Stowe Airport Shuttle for drive to Burlington
-                        <br>www.stoweairportshuttle.com | (802) 338-8426
-                    </div>
-                    <div class="time-item">
-                        <strong>~12:15 PM:</strong> Arrive Burlington Airport
-                    </div>
-                    <div class="time-item">
-                        <strong>2:04 PM:</strong> Depart Burlington (BTV)
-                    </div>
-                    <div class="time-item">
-                        <strong>7:51 PM:</strong> Arrive Mobile Regional Airport (MOB)
-                    </div>
-                </div>
-            </section>
-            
-            <!-- COST BREAKDOWN -->
-            <section>
-                <h2>💰 COST BREAKDOWN</h2>
-                <div class="cost-summary">
-                    <div class="cost-row">
-                        <span>Lodging</span>
-                        <span>$3,724.74</span>
-                    </div>
-                    <div class="cost-row">
-                        <span>Airfare</span>
-                        <span>$5,010.20</span>
-                    </div>
-                    <div class="cost-row">
-                        <span>Travel Protection Insurance</span>
-                        <span>$0.00 (DECLINED)</span>
-                    </div>
-                    <div class="cost-row">
-                        <span>Airport Transfers (to/from BTV)</span>
-                        <span>TBD - Reserve at www.stoweairportshuttle.com | (802) 338-8426 | Pay at pickup</span>
-                    </div>
-                    <div class="cost-row">
-                        <span>Ski Rental (1 day)</span>
-                        <span>$220.00</span>
-                    </div>
-                    <div class="cost-row">
-                        <span>Epic Day Pass (1 day)</span>
-                        <span>$372.00</span>
-                    </div>
-                    <div class="cost-row total">
-                        <span>TOTAL (excl. transfers)</span>
-                        <span>$9,327.94</span>
-                    </div>
-                    <div class="cost-row total">
-                        <span>Per Person</span>
-                        <span>$2,331.74</span>
-                    </div>
-                </div>
-                
-                <h3>Additional Costs (Not Included)</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Item</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Airport Transfers (both ways)</td>
-                            <td>Stowe Airport Shuttle | www.stoweairportshuttle.com | (802) 338-8426 | Pay at pickup</td>
-                        </tr>
-                        <tr>
-                            <td>Meals & Dining</td>
-                            <td>Budget per person estimate</td>
-                        </tr>
-                        <tr>
-                            <td>Shopping & Gifts</td>
-                            <td>Per person preference</td>
-                        </tr>
-                        <tr>
-                            <td>Nightlife & Apres-Ski</td>
-                            <td>$50-75/person estimate</td>
-                        </tr>
-                        <tr>
-                            <td>Optional: Sleigh Ride</td>
-                            <td>Call (802) 798-9769</td>
-                        </tr>
-                        <tr>
-                            <td>Optional: Sleigh Ride - Gentle Giants (Wed)</td>
-                            <td>PENDING CONFIRMATION | $40/person ($160 total) | CASH ONLY | Mike Martell (802) 734-1070</td>
-                        </tr>
-                        <tr>
-                            <td>Optional: Dogsled (Jan 10)</td>
-                            <td>WAITLISTED - $90/person if available | Stowe will contact</td>
-                        </tr>
-                        <tr>
-                            <td>Optional: Trapp Family Lodge Visit</td>
-                            <td>5-10 min from Lodge | Meet Highland cattle, tours, dining | www.trappfamily.com</td>
-                        </tr>
-                        <tr>
-                            <td>Optional: Route 100 Corridor Tours</td>
-                            <td>Ben & Jerry's, Cold Hollow, Boyden Valley, Cabot, Distilleries, etc.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-            
-            <!-- IMPORTANT CONTACTS -->
-            <section>
-                <h2>📞 IMPORTANT CONTACTS</h2>
-                <div class="contacts">
-                    <div class="contact-card">
-                        <h4>Pre-Arrival Concierge</h4>
-                        <p><strong>Name:</strong> Diane Cawley</p>
-                        <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="50343331273c35291034352324393e3124393f3e383f24353c237e333f3d">[email&#160;protected]</a></p>
-                        <p><strong>Phone:</strong> (877) 291-3781</p>
-                        <p>For dining, activity suggestions, spa bookings</p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <h4>Airport Transfers</h4>
-                        <p><strong>Service:</strong> Stowe Airport Shuttle</p>
-                        <p><strong>Website:</strong> www.stoweairportshuttle.com</p>
-                        <p><strong>Phone:</strong> (802) 338-8426</p>
-                        <p><strong>Service:</strong> Reservations to/from Airport to The Lodge</p>
-                        <p><strong>Payment:</strong> Due at pickup</p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <h4>The Lodge Front Desk</h4>
-                        <p><strong>Phone:</strong> (802) 760-4700</p>
-                        <p>Check-in, amenities, general questions</p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <h4>Ski Rentals</h4>
-                        <p><strong>TrueNorth (in The Lodge)</strong></p>
-                        <p><strong>Phone:</strong> (802) 760-4608</p>
-                        <p>Book online for best prices</p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <h4>Stowe Mountain Resort</h4>
-                        <p><strong>Phone:</strong> (802) 253-3000</p>
-                        <p>Lift tickets, mountain info</p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <h4>United Airlines</h4>
-                        <p><strong>Customer Service:</strong> (800) 241-6522</p>
-                        <p>Download app for real-time updates</p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <h4>Trapp Family Lodge</h4>
-                        <p><em>"Always fun! One of the prettiest properties in town."</em></p>
-                        <p><strong>About:</strong> Still owned and operated by the family that inspired The Sound of Music</p>
-                        <p><strong>Location:</strong> Luce Hill (5-10 min from The Lodge) | 2600 acres</p>
-                        <p><strong>Attractions:</strong></p>
-                        <ul style="margin: 5px 0; padding-left: 20px;">
-                            <li>Meet Highland cattle herd (they come when called!)</li>
-                            <li>Family history & cow tours (several times weekly)</li>
-                            <li>Kaffee Haus with homemade pastries & cold drinks</li>
-                            <li>The Trapp Bier Hall with amazing schnitzels & charcuterie boards</li>
-                        </ul>
-                        <p><strong>Website:</strong> www.trappfamily.com</p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <h4>Sleigh Ride - Gentle Giants</h4>
-                        <p><strong>Operator:</strong> Mike Martell</p>
-                        <p><strong>Phone:</strong> (802) 734-1070</p>
-                        <p><strong>Rate:</strong> $40/person (adults)</p>
-                        <p><strong>⚠️ IMPORTANT:</strong> Reservations REQUIRED | CASH ONLY</p>
-                        <p><strong>Status:</strong> Message left for Wednesday reservation - awaiting confirmation</p>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- PRE-TRIP CHECKLIST -->
-            <section>
-                <h2>✅ PRE-TRIP CHECKLIST</h2>
-                
-                <h3>BEFORE TRIP (ASAP)</h3>
-                <ul class="checklist">
-                    <li><strong>VERIFY ALL 4 PASSENGERS HAVE STAR IDs</strong> - Valid REAL ID or passport required</li>
-                    <li>Assign outbound seats online (United.com, Confirmation CJ9DN3)</li>
-                    <li>Download United Airlines app and add confirmation number</li>
-                    <li>Share flight details with all 4 passengers</li>
-                    <li><strong>BOOK AIRPORT TRANSPORTATION:</strong> Options: Lodge Private Transfer $200/vehicle (must call 48 hrs prior at 802-253-3560) OR Stowe Airport Shuttle www.stoweairportshuttle.com (802) 338-8426</li>
-                    <li><strong>⏳ FOLLOW UP ON SLEIGH RIDE:</strong> Wait for confirmation call from Mike Martell (802) 734-1070 - Message already left for Wednesday</li>
-                    <li><strong>ARRANGE TRANSPORTATION FOR JAN 7 SNOWMOBILE:</strong> Plan transport from The Lodge to snowmobile tour start (56 Old Farm Rd) - depart lodge by 8:00 AM to arrive by 9:00 AM</li>
-                </ul>
-                
-                <h3>1 WEEK BEFORE TRIP</h3>
-                <ul class="checklist">
-                    <li><strong>✓ SNOWMOBILE CONFIRMED:</strong> Booking #325470696 | Wed Jan 7, 10 AM-12 PM | Arrive 9 AM at 56 Old Farm Rd | $695.54 PAID</li>
-                    <li><strong>⏳ SLEIGH RIDE PENDING:</strong> Gentle Giants | Mike Martell (802) 734-1070 | $40pp | CASH ONLY | Message left for Wed</li>
-                    <li>Book ski rentals at TrueNorth (online for best price)</li>
-                    <li>Purchase Epic Day Passes online at stowe.com</li>
-                    <li><strong>MAKE DINNER RESERVATIONS:</strong> Grail Restaurant (Wed) & Simon Pearce (Fri)</li>
-                    <li><strong>RESERVE CAR FOR JAN 9 & JAN 10:</strong> Contact Diane - car needed for Woodstock day trip (Fri) and flexible routing (Sat)</li>
-                    <li>Arrange snowmobile transportation - plan to depart The Lodge by 8:00 AM Jan 7</li>
-                    <li>Consider visiting Trapp Family Lodge or Route 100 Corridor attractions</li>
-                </ul>
-                
-                <h3>3 DAYS BEFORE TRIP</h3>
-                <ul class="checklist">
-                    <li>Check in online 24 hours before departure (Jan 5 at 12:45 PM)</li>
-                    <li>Select outbound seats during online check-in</li>
-                    <li>Pack luggage for 4 people in 1 double room</li>
-                    <li>Confirm all passengers have STAR IDs and flight confirmations</li>
-                    <li>Check weather forecast for Stowe</li>
-                </ul>
-                
-                <h3>DAY OF DEPARTURE (JANUARY 6)</h3>
-                <ul class="checklist">
-                    <li>Arrive at Mobile Regional Airport 2 hours early (10:45 AM)</li>
-                    <li>All 4 passengers present with valid IDs</li>
-                    <li>Download mobile boarding passes</li>
-                    <li>Monitor flight status on United app</li>
-                    <li>Have tight connection in Dulles (1 hr 2 min) - boarding passes ready</li>
-                    <li>Meet Stowe Airport Transfers at Burlington ~7:00 PM - HAVE PAYMENT READY</li>
-                </ul>
-            </section>
-            
-            <!-- TRANSPORTATION GUIDE -->
-            <section>
-                <h2>🚗 TRANSPORTATION GUIDE</h2>
-                <h3>Burlington Airport (BTV) → The Lodge at Spruce Peak, Stowe</h3>
-                <p><strong>Distance:</strong> 34 miles | <strong>Travel Time:</strong> ~45-60 minutes | <strong>Route:</strong> I-89 South</p>
-                
-                <h4>GETTING TO STOWE WITHOUT A RENTAL CAR</h4>
-                <p>Great news! You don't need to rent a car to enjoy your stay at The Lodge at Spruce Peak. Here are your transportation options:</p>
-                
-                <div style="background: #f0f8ff; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #2a5298;">
-                    <h4 style="margin-top: 0;">Lodge at Spruce Peak Private Transfer (RECOMMENDED)</h4>
-                    <p><strong>Cost:</strong> $200/vehicle, one-way (same rate for children)</p>
-                    <p><strong>Why Choose This:</strong> Most convenient option for seamless arrival | Cost-effective for groups of 3-4 travelers</p>
-                    <p><strong>⚠️ IMPORTANT:</strong> Must contact the property <strong>48 hours prior</strong> to arrival to arrange</p>
-                    <p><strong>To Book:</strong> Call (802) 253-3560 or contact The Lodge directly</p>
-                </div>
-                
-                <div style="background: #f0f8ff; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #667eea;">
-                    <h4 style="margin-top: 0;">Stowe Airport Shuttle (RECOMMENDED)</h4>
-                    <p><strong>Cost:</strong> $50-100/person (verify current rates)</p>
-                    <p><strong>Service:</strong> Third-party reliable shuttle company</p>
-                    <p><strong>Website:</strong> www.stoweairportshuttle.com</p>
-                    <p><strong>Phone:</strong> (802) 338-8426</p>
-                    <p><strong>Note:</strong> Book in advance, especially during ski season</p>
-                </div>
-                
-                <div style="background: #f0f8ff; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #667eea;">
-                    <h4 style="margin-top: 0;">Other Third-Party Shuttle Services</h4>
-                    <p><strong>Options:</strong></p>
-                    <ul style="margin: 10px 0; padding-left: 20px;">
-                        <li><strong>Vermont Shuttle</strong> – Year-round service, vans and SUVs available</li>
-                        <li><strong>Jay Way Travel</strong> – Door-to-door service, known for punctuality</li>
-                        <li><strong>Green Mountain Transit</strong> – Budget-friendly regional option</li>
-                    </ul>
-                    <p><strong>Cost:</strong> $50-100/person | <strong>Book in advance</strong></p>
-                </div>
-                
-                <div style="background: #f0f8ff; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #667eea;">
-                    <h4 style="margin-top: 0;">Uber / Lyft / Taxi Services</h4>
-                    <p><strong>Cost:</strong> $65-100 (varies by distance and demand)</p>
-                    <ul style="margin: 10px 0; padding-left: 20px;">
-                        <li>Check both Uber and Lyft upon arrival to compare availability</li>
-                        <li><strong>Green Cab VT</strong> – Local taxi service, call ahead recommended</li>
-                        <li>⚠️ Driver availability may be limited in bad weather or off-peak times</li>
-                    </ul>
-                </div>
-                
-                <h4>FREE Mountain Road Shuttle (Getting Around Stowe)</h4>
-                <div style="background: #fffacd; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #ffa500;">
-                    <p><strong>Great news for exploring without a car!</strong></p>
-                    <p>The Mountain Road Shuttle is a complimentary service connecting Stowe Village to Stowe Mountain Resort throughout winter.</p>
-                    <p><strong>Frequency:</strong> Every 30 minutes (off-peak) | Every 20 minutes (peak periods)</p>
-                    <p><strong>Key Stops:</strong> Stowe Village, Commodores Inn, Mountain Road lodging, Spruce Peak Base, Mansfield Base</p>
-                    <p><strong>Season:</strong> Runs throughout the winter ski season</p>
-                </div>
-                
-                <h4>💡 TRAVEL TIPS</h4>
-                <ul style="margin: 15px 0; padding-left: 20px;">
-                    <li>📌 <strong>Book transportation in advance</strong> during ski season when demand is highest</li>
-                    <li>❄️ <strong>Allow extra travel time</strong> in winter weather conditions</li>
-                    <li>🚠 <strong>Over Easy Transfer Gondola</strong> connects Mount Mansfield to Spruce Peak Village for easy slope access</li>
-                    <li>⚠️ <strong>Route 108 through Smugglers' Notch is CLOSED in winter</strong> – all traffic uses I-89 via Waterbury</li>
-                    <li>🅿️ <strong>Valet parking at the Lodge:</strong> $35/night if you end up renting a car</li>
-                </ul>
-            </section>
-            <section>
-                <div class="alert">
-                    <h3>🚗 AIRPORT TRANSPORTATION - BOOK NOW</h3>
-                    <p><strong>Distance:</strong> Burlington Airport (BTV) to The Lodge | 34 miles | ~45-60 minutes</p>
-                    <p><strong>Important Note:</strong> Route 108 through Smugglers' Notch is CLOSED in winter - all traffic uses I-89 via Waterbury</p>
-                    <p><strong>Option 1: Lodge Private Transfer (RECOMMENDED for groups)</strong></p>
-                    <p style="margin-left: 15px;">Cost: $200/vehicle one-way | Call <strong>(802) 253-3560</strong> | <strong>⚠️ Must contact 48 hours BEFORE arrival</strong></p>
-                    <p><strong>Option 2: Stowe Airport Shuttle</strong></p>
-                    <p style="margin-left: 15px;">Cost: $50-100/person | www.stoweairportshuttle.com | (802) 338-8426</p>
-                </div>
-                <div class="alert">
-                    <h3>⏳ SLEIGH RIDE - PENDING CONFIRMATION (WEDNESDAY, JAN 7)</h3>
-                    <p><strong>Operator:</strong> Mike Martell | <strong>Phone:</strong> (802) 734-1070</p>
-                    <p><strong>Rate:</strong> $40/person (adults) | 4 people = $160 total</p>
-                    <p><strong>⚠️ IMPORTANT:</strong> Reservations REQUIRED | CASH ONLY</p>
-                    <p><strong>Status:</strong> Message left for Wednesday reservation - You will be notified once confirmed</p>
-                </div>
-                
-                <div class="alert">
-                    <h3>✓ SNOWMOBILE TOUR CONFIRMED - WEDNESDAY, JAN 7</h3>
-                    <p><strong>Booking #325470696 | Two Hour Backcountry Tour | 10:00 AM - 12:00 PM</strong></p>
-                    <p><strong>Location:</strong> 56 Old Farm Rd, First Floor Suite, Stowe, VT 05672</p>
-                    <p><strong>ARRIVE BY 9:00 AM</strong> (1 hour before departure)</p>
-                    <p><strong>Equipment:</strong> 2 Double Snowmobiles (4 people total) | Cost: $695.54 (PAID)</p>
-                    <p><strong>⚠️ IMPORTANT:</strong> Arrange transportation from The Lodge to tour location. Plan to depart lodge by 8:00 AM.</p>
-                    <p><strong>Dress Code:</strong> Warm winter gear (snow pants, parka, gloves, boots). Dress as if skiing but sitting on chairlift for 2 hours.</p>
-                    <p><strong>DOT helmets provided. Double riders CANNOT switch drivers during tour.</strong></p>
-                    <p><strong>Contact:</strong> (802) 253-6221 | Cancellation: 72 hours for full refund</p>
-                </div>
-                
-                <div class="alert">
-                    <h3>🚗 CAR RENTALS NEEDED - CONTACT DIANE</h3>
-                    <p><strong>Friday, January 9 (Woodstock Day Trip):</strong> Reserve car for full day - covers boutique shopping and covered bridge touring</p>
-                    <p><strong>Saturday, January 10 (Flexible Options):</strong> Reserve car for flexible routing - Quechee Gorge, Route 100 Corridor, or Trapp Family Lodge</p>
-                    <p><strong>Contact:</strong> Diane Cawley at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4c282f2d3b2029350c28293f3825222d3825232224233829203f622f2321">[email&#160;protected]</a> or (877) 291-3781</p>
-                </div>
-                
-                <div class="alert">
-                    <h3>⏰ CHECK-IN REMINDER - SATURDAY, JAN 10 at 2:04 PM</h3>
-                    <p><strong>ONLINE CHECK-IN FOR RETURN FLIGHT (January 11):</strong> Log into United.com or United app at 2:04 PM on Saturday, January 10. Use confirmation #CJ9DN3 to check in all 4 passengers for the return flight departing 2:04 PM Sunday January 11.</p>
-                </div>
-                
-                <div class="alert">
-                    <h3>⏳ DOGSLED WAITLIST - SATURDAY, JAN 10 at 7:20 PM</h3>
-                    <p><strong>WAITLISTED FOR AVAILABILITY:</strong> Dogsled adventure is currently waitlisted for Saturday, January 10 at 7:20-7:55 PM. Stowe will contact if space becomes available. Cost if available: $90/person for 4 people (2 sleds).</p>
-                </div>
-                
-                <div class="alert">
-                    <h3>⚠️ OTHER CRITICAL REMINDERS</h3>
-                    <p><strong>✓ STAR IDs:</strong> All 4 passengers MUST have valid REAL ID-compliant photo IDs. No ID = No flight. Verify NOW at https://www.tsa.gov/real-id</p>
-                    <p><strong>✓ DINNER RESERVATIONS:</strong> Book Grail Restaurant & Simon Pearce ASAP - January is a busy month</p>
-                    <p><strong>✓ AIRPORT TRANSFERS:</strong> See Transportation Guide section. Book ASAP: Lodge Private Transfer (802) 253-3560 ($200/vehicle, 48 hrs notice) OR Stowe Airport Shuttle (802) 338-8426. Payment due at pickup.</p>
-                    <p><strong>✓ TIGHT CONNECTION:</strong> 1 hour 2 minutes between flights in Dulles on Tues, Jan 6 - have mobile boarding passes ready!</p>
-                </div>
-            </section>
+            <div class="subtitle">January 6-11, 2026 (Tuesday - Sunday) | 4 Adults</div>
         </div>
         
-        <footer>
+        <div class="content">
+            <!-- CONFIRMATIONS SECTION -->
+            <h2>✓ CONFIRMATIONS</h2>
+            
+            <div class="card confirmed">
+                <h3>🏨 Lodging</h3>
+                <p><strong>Hotel:</strong> The Lodge at Spruce Peak (Hyatt Collections)</p>
+                <p><strong>Confirmation #:</strong> PZ4J0I</p>
+                <p><strong>Room:</strong> 1 Double Room (sleeps 4)</p>
+                <p><strong>Check-in:</strong> January 6, 2026 at 4:00 PM</p>
+                <p><strong>Check-out:</strong> January 11, 2026</p>
+                <p><strong>Cost:</strong> $3,724.74</p>
+                <p><strong>Events Calendar:</strong> <a href="https://www.sprucepeak.com/explore/events-calendar/" target="_blank">www.sprucepeak.com/explore/events-calendar/</a></p>
+            </div>
+            
+            <div class="card confirmed">
+                <h3>✈️ Flights</h3>
+                <p><strong>Confirmation #:</strong> CJ9DN3</p>
+                <p><strong>Airline Reference:</strong> D2ECJ0</p>
+                <p><strong>Outbound:</strong> January 6 | Mobile 12:45 PM → Burlington 6:54 PM</p>
+                <p><strong>Inbound:</strong> January 11 | Burlington 2:04 PM → Mobile 7:51 PM</p>
+                <p><strong>Cost:</strong> $5,010.20</p>
+            </div>
+            
+            <div class="card confirmed">
+                <h3>🏔️ Snowmobile Tour</h3>
+                <p><span class="badge confirmed">✓ CONFIRMED</span> Snowmobile Vermont Stowe</p>
+                <p><strong>Booking #:</strong> 325470696</p>
+                <p><strong>Tour:</strong> Two Hour Backcountry Tour</p>
+                <p><strong>Date/Time:</strong> Wednesday, January 7, 2026 | 10:00 AM - 12:00 PM</p>
+                <p><strong>Equipment:</strong> 2 Double Snowmobiles (4 people)</p>
+                <p><strong>Location:</strong> 56 Old Farm Rd, First Floor Suite, Stowe, VT 05672</p>
+                <p><strong>Arrive:</strong> 9:00 AM (1 hour before)</p>
+                <p><strong>Cost:</strong> $695.54 (PAID)</p>
+                <p><strong>Important:</strong> Double riders CANNOT switch drivers during tour. Dress in warm winter gear. DOT helmets provided.</p>
+                <p><strong>Cancellation:</strong> 72 hours notice for full refund</p>
+                <p><strong>Contact:</strong> (802) 253-6221</p>
+            </div>
+            
+            <div class="card confirmed">
+                <h3>🛷 Sleigh Ride - Gentle Giants</h3>
+                <p><span class="badge confirmed">✓ CONFIRMED</span> Sleigh Ride Reservation</p>
+                <p><strong>Operator:</strong> Mike Martell | <strong>Phone:</strong> (802) 734-1070</p>
+                <p><strong>Date/Time:</strong> Wednesday, January 7, 2026 at 3:30 PM</p>
+                <p><strong>Rate:</strong> $40/person (adults) | <strong>4 people = $160</strong></p>
+                <p><strong>⚠️ IMPORTANT:</strong> CASH ONLY - Bring $160 cash</p>
+            </div>
+            
+            <div class="card confirmed">
+                <h3>🚐 Airport Transfers</h3>
+                <p><span class="badge confirmed">✓ RESERVED</span> Stowe Airport Shuttle</p>
+                <p><strong>Website:</strong> www.stoweairportshuttle.com</p>
+                <p><strong>Phone:</strong> (802) 338-8426</p>
+                <p><strong>Pickup Jan 6:</strong> Burlington Airport ~7:00 PM → The Lodge</p>
+                <p><strong>Dropoff Jan 11:</strong> The Lodge → Burlington Airport</p>
+                <p><strong>⚠️ Important:</strong> Payment due at time of pickup</p>
+                <p><strong>💡 TIP:</strong> Ask driver about local transportation options for January 7 activities!</p>
+            </div>
+
+            <!-- JANUARY 7 TRANSPORTATION ALERT -->
+            <div class="card action-needed">
+                <h3>🚗 TRANSPORTATION NEEDED - Wednesday, January 7</h3>
+                <p><strong>Two activities require transport from The Lodge:</strong></p>
+                <table>
+                    <tr>
+                        <th>Depart Lodge</th>
+                        <th>Activity</th>
+                        <th>Location</th>
+                    </tr>
+                    <tr>
+                        <td>~8:00 AM</td>
+                        <td>Snowmobile Tour (arrive 9 AM)</td>
+                        <td>56 Old Farm Rd, Stowe</td>
+                    </tr>
+                    <tr>
+                        <td>~3:00 PM</td>
+                        <td>Sleigh Ride (3:30 PM)</td>
+                        <td>Gentle Giants location</td>
+                    </tr>
+                </table>
+                
+                <h4>Local Taxi Options (Call Ahead to Reserve!):</h4>
+                <table>
+                    <tr>
+                        <th>Service</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Stowe Mountain Top Taxi</strong></td>
+                        <td>(802) 696-4984</td>
+                        <td>info@stowesmountaintoptaxi.com</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Neil's Wheels</strong></td>
+                        <td>(802) 338-8426</td>
+                        <td>neilswheels805@gmail.com</td>
+                    </tr>
+                </table>
+                
+                <div class="warning-box" style="margin-top: 15px;">
+                    <strong>Ubers may be hard to get due to poor cell reception in the area.</strong> Calling a cab ahead to reserve is strongly recommended!
+                </div>
+                
+                <h4>Other Options:</h4>
+                <p><strong>Option 1: Ask Airport Shuttle Driver</strong><br>
+                When picked up on Jan 6, ask if they offer local transport on Jan 7 or can recommend someone.</p>
+                
+                <p><strong>Option 2: Coordinate with Diane (Concierge)</strong><br>
+                Email: dcawley@destinationhotels.com | Phone: (877) 291-3781<br>
+                Request transportation for 4 guests on Jan 7.</p>
+                
+                <p><strong>Option 3: Car Rental for the Day</strong><br>
+                Already need cars for Fri & Sat - could add Wednesday to rental. Ask Diane about pickup/dropoff at Lodge.</p>
+            </div>
+
+            <!-- LODGE AMENITIES -->
+            <h2>🏨 THE LODGE AMENITIES</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>✓ Heated Outdoor Pool:</strong> 9 AM - 10 PM daily</li>
+                    <li><strong>✓ Hot Tubs:</strong> 2 hot tubs at base of Mount Mansfield</li>
+                    <li><strong>✓ Ice Skating Rink:</strong> Noon - 6 PM daily (complimentary, skate rentals at Adventure Center)</li>
+                    <li><strong>✓ Full Service Spa:</strong> Massages, facials, cryo-therapy (advance booking recommended)</li>
+                    <li><strong>✓ Hair & Nail Salon:</strong> On-site</li>
+                    <li><strong>✓ State-of-the-Art Fitness Center:</strong> Daily classes, cardio, weights, Peloton bikes</li>
+                </ul>
+                <p><strong>Events Calendar:</strong> <a href="https://www.sprucepeak.com/explore/events-calendar/" target="_blank">Check for activities during your stay!</a></p>
+            </div>
+
+            <!-- DAILY ITINERARY -->
+            <h2>📅 DAILY ITINERARY</h2>
+            
+            <!-- Day 1 -->
+            <div class="day-header">
+                <h3>Tuesday, January 6 - ARRIVAL</h3>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <p><span class="time">12:45 PM:</span> Depart Mobile Regional Airport (MOB)</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">6:54 PM:</span> Arrive Burlington International Airport (BTV)</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">~7:00 PM:</span> Meet Stowe Airport Shuttle at Burlington Airport</p>
+                    <p>Reserve: www.stoweairportshuttle.com | (802) 338-8426</p>
+                    <p><strong>PAY AT PICKUP</strong></p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">~7:45-8:00 PM:</span> Arrive The Lodge, check in</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">Evening:</span> Casual dinner in Stowe village (Farmhouse Tap & Grill or Piecasso)</p>
+                </div>
+            </div>
+            
+            <!-- Day 2 -->
+            <div class="day-header">
+                <h3>Wednesday, January 7 - SNOWMOBILE TOUR + SLEIGH RIDE</h3>
+            </div>
+            
+            <div class="warning-box">
+                <strong>TRANSPORTATION NEEDED:</strong> Arrange transport from The Lodge to both activities. Options: Ask airport shuttle driver, coordinate with Diane (concierge), or rent a car for the day. See Transportation section above for details.
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item highlight">
+                    <p><span class="time">~8:00 AM:</span> Depart The Lodge for snowmobile location</p>
+                    <p><strong>Transportation must be arranged in advance!</strong></p>
+                </div>
+                <div class="timeline-item highlight">
+                    <p><span class="time">9:00 AM:</span> ARRIVE at tour location (1 hour before departure)</p>
+                    <p>56 Old Farm Rd, First Floor Suite, Stowe, VT 05672</p>
+                    <p><span class="badge confirmed">✓ CONFIRMED</span> Booking #325470696 | $695.54 (PAID)</p>
+                </div>
+                <div class="timeline-item highlight">
+                    <p><span class="time">10:00 AM - 12:00 PM:</span> Two Hour Backcountry Tour</p>
+                    <p>2 Double Snowmobiles (4 people total)</p>
+                    <p>⚠️ Double riders CANNOT switch drivers during tour</p>
+                    <p><strong>DRESS CODE:</strong> Warm winter gear (snow pants, parka, gloves, boots). Dress as if going skiing, but sitting on chairlift for 2 hours. DOT approved helmets provided.</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">~12:30 PM:</span> Return to The Lodge, lunch, freshen up</p>
+                </div>
+                <div class="timeline-item highlight">
+                    <p><span class="time">~3:00 PM:</span> Depart Lodge for Sleigh Ride</p>
+                    <p><strong>Transportation must be arranged in advance!</strong></p>
+                </div>
+                <div class="timeline-item highlight">
+                    <p><span class="time">3:30 PM:</span> Gentle Giants Sleigh Ride</p>
+                    <p><span class="badge confirmed">✓ CONFIRMED</span> with Mike Martell</p>
+                    <p>Cost: $40/person ($160 for 4 people)</p>
+                    <p><strong>⚠️ CASH ONLY - Bring $160</strong></p>
+                    <p>Phone: (802) 734-1070</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">Evening:</span> Dinner in Stowe (consider Grail Restaurant - make reservation!)</p>
+                </div>
+            </div>
+            
+            <!-- Day 3 -->
+            <div class="day-header">
+                <h3>Thursday, January 8 - SKI DAY</h3>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <p><span class="time">Morning:</span> Pick up ski rentals at TrueNorth (in The Lodge)</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">Full Day:</span> Skiing on Stowe Mountain (Spruce Peak)</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">Afternoon:</span> Continue skiing, break for lunch at mountain lodge</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">Late Afternoon:</span> Apres-ski at The Shed or lodge</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">Evening:</span> Casual dinner in Stowe village (Farmhouse Tap & Grill, Piecasso, or Cactus Cafe)</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">Night:</span> Low-key evening - recover from ski day, relax at pool/hot tubs, early night</p>
+                </div>
+            </div>
+            
+            <!-- Day 4 -->
+            <div class="day-header">
+                <h3>Friday, January 9 - WOODSTOCK DAY TRIP</h3>
+            </div>
+            <div class="warning-box">
+                <strong>🚗 CAR REQUIRED:</strong> Contact Diane (concierge) to coordinate car rental
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <p><span class="time">Morning:</span> Drive ~1 hour south to Woodstock</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">Morning/Afternoon:</span> Explore covered bridges:</p>
+                    <ul>
+                        <li>Middle Covered Bridge (139 ft, near village green)</li>
+                        <li>Taftsville Covered Bridge (189 ft, 5 min east, 1836)</li>
+                        <li>Lincoln Covered Bridge (136 ft, 5 min west, 1877)</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">~12:30 PM:</span> Lunch at Worthy Kitchen</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">Afternoon (2-3 hours):</span> Shopping on Central & Elm Streets</p>
+                    <ul>
+                        <li><strong>Artisans:</strong> Collective, Simon Pearce, Farmhouse Pottery</li>
+                        <li><strong>Galleries:</strong> Woodstock Gallery, Focus Vermont</li>
+                        <li><strong>Clothing:</strong> 37 Central Clothiers, Sudie's, Vermont Flannel</li>
+                        <li><strong>Gifts:</strong> Clover, Woody's Mercantile, Danforth Pewter</li>
+                        <li><strong>Must-visit:</strong> FH Gillingham & Sons (1886 general store)</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">~4:00 PM:</span> Return to Stowe (1 hour)</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">Evening:</span> Dinner in Stowe, nightlife</p>
+                </div>
+            </div>
+            
+            <!-- Day 5 -->
+            <div class="day-header">
+                <h3>Saturday, January 10 - QUECHEE GORGE DAY TRIP / OPTIONAL ACTIVITIES</h3>
+            </div>
+            <div class="success-box">
+                <strong>⏰ 2:04 PM:</strong> ONLINE CHECK-IN FOR RETURN FLIGHT (Jan 11) - Log into United.com or app with confirmation CJ9DN3
+            </div>
+            <div class="info-box">
+                <strong>⏳ DOGSLED STATUS:</strong> WAITLISTED for 7:20 PM (Stowe will contact if availability opens). Allow time for dogsled if space becomes available.
+            </div>
+            <div class="warning-box">
+                <strong>🚗 NOTE:</strong> Car reservation needed through The Lodge concierge (Diane) for flexible routing on this day
+            </div>
+            
+            <h4>OPTION A - Quechee Gorge Route:</h4>
+            <ul>
+                <li>Drive ~45 min east to Quechee Gorge</li>
+                <li>Explore gorge - scenic overlook, short hike</li>
+                <li>~1:00 PM: LUNCH - Simon Pearce Restaurant</li>
+                <li>Browse artisan shops, scenic walk</li>
+                <li>Return to Stowe (~45 min)</li>
+            </ul>
+            
+            <h4>OPTION B - Route 100 Corridor (Local Attractions):</h4>
+            <p>Explore Route 100 N from I-89 to Stowe - local shops with tours/samples:</p>
+            <ul>
+                <li>Ben & Jerry's Factory Tour</li>
+                <li>Cold Hollow Cider Mill (cider donuts!)</li>
+                <li>Boyden Valley Winery</li>
+                <li>Danforth Pewter</li>
+                <li>Cabot Creamery</li>
+                <li>Smugglers Notch Distillery</li>
+                <li>Vermont Artisan Coffee Roasters</li>
+                <li>Stowe Maple Products</li>
+            </ul>
+            
+            <h4>OPTION C - Trapp Family Lodge Visit:</h4>
+            <p><em>"Always fun! One of the prettiest properties in town."</em></p>
+            <p>The Sound of Music inspired family property - still owned and operated by the family that inspired the movie</p>
+            <ul>
+                <li>Location: 2600 acres on Luce Hill (5-10 min from The Lodge)</li>
+                <li>Meet the Highland cattle herd (they come when called!)</li>
+                <li>Family history & cow tours offered several times weekly</li>
+                <li>Kaffee Haus with homemade pastries & cold drinks</li>
+                <li>The Trapp Bier Hall with amazing schnitzels & charcuterie boards</li>
+            </ul>
+            <p>Website: <a href="https://www.trappfamily.com" target="_blank">www.trappfamily.com</a></p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <p><span class="time">Evening:</span> Final night out - dinner & nightlife in Stowe</p>
+                    <p>If dogsled becomes available (7:20-7:55 PM): $90/person for 4 people (2 sleds)</p>
+                </div>
+            </div>
+            
+            <!-- Day 6 -->
+            <div class="day-header">
+                <h3>Sunday, January 11 - CHECKOUT & DEPART</h3>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <p><span class="time">11:00 AM:</span> Check out of The Lodge</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">~11:30 AM:</span> Meet Stowe Airport Shuttle for drive to Burlington</p>
+                    <p>www.stoweairportshuttle.com | (802) 338-8426</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">~12:15 PM:</span> Arrive Burlington Airport</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">2:04 PM:</span> Depart Burlington (BTV)</p>
+                </div>
+                <div class="timeline-item">
+                    <p><span class="time">7:51 PM:</span> Arrive Mobile Regional Airport (MOB)</p>
+                </div>
+            </div>
+
+            <!-- COST BREAKDOWN -->
+            <h2>💰 COST BREAKDOWN</h2>
+            <table class="cost-table">
+                <tr>
+                    <td>Lodging</td>
+                    <td>$3,724.74</td>
+                </tr>
+                <tr>
+                    <td>Airfare</td>
+                    <td>$5,010.20</td>
+                </tr>
+                <tr>
+                    <td>Snowmobile Tour (PAID)</td>
+                    <td>$695.54</td>
+                </tr>
+                <tr>
+                    <td>Sleigh Ride (CASH - bring to trip)</td>
+                    <td>$160.00</td>
+                </tr>
+                <tr>
+                    <td>Travel Protection Insurance</td>
+                    <td>$0.00 (DECLINED)</td>
+                </tr>
+                <tr>
+                    <td>Airport Transfers (to/from BTV)</td>
+                    <td>TBD</td>
+                </tr>
+                <tr>
+                    <td>Ski Rental (1 day)</td>
+                    <td>$220.00</td>
+                </tr>
+                <tr>
+                    <td>Epic Day Pass (1 day)</td>
+                    <td>$372.00</td>
+                </tr>
+                <tr class="total-row">
+                    <td>TOTAL (excl. transfers)</td>
+                    <td>$10,182.48</td>
+                </tr>
+                <tr class="total-row">
+                    <td>Per Person</td>
+                    <td>$2,545.62</td>
+                </tr>
+            </table>
+            
+            <h3>Additional Costs (Not Included)</h3>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>Airport Transfers (both ways)</td>
+                    <td>www.stoweairportshuttle.com | (802) 338-8426 | Pay at pickup</td>
+                </tr>
+                <tr>
+                    <td>Jan 7 Local Transportation</td>
+                    <td>Coordinate with airport driver, Diane, or rent car</td>
+                </tr>
+                <tr>
+                    <td>Meals & Dining</td>
+                    <td>Budget per person estimate</td>
+                </tr>
+                <tr>
+                    <td>Shopping & Gifts</td>
+                    <td>Per person preference</td>
+                </tr>
+                <tr>
+                    <td>Nightlife & Apres-Ski</td>
+                    <td>$50-75/person estimate</td>
+                </tr>
+                <tr>
+                    <td>Optional: Dogsled (Jan 10)</td>
+                    <td>WAITLISTED - $90/person if available</td>
+                </tr>
+            </table>
+
+            <!-- IMPORTANT CONTACTS -->
+            <h2>📞 IMPORTANT CONTACTS</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h4>Pre-Arrival Concierge</h4>
+                    <p><strong>Name:</strong> Diane Cawley</p>
+                    <p><strong>Email:</strong> dcawley@destinationhotels.com</p>
+                    <p><strong>Phone:</strong> (877) 291-3781</p>
+                    <p>For dining, activity suggestions, spa bookings, car rentals, local transportation</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Airport Transfers ✓ RESERVED</h4>
+                    <p><strong>Service:</strong> Stowe Airport Shuttle</p>
+                    <p><strong>Website:</strong> www.stoweairportshuttle.com</p>
+                    <p><strong>Phone:</strong> (802) 338-8426</p>
+                    <p>Payment due at pickup | Ask about Jan 7 local transport!</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Local Taxi - Stowe Mountain Top Taxi</h4>
+                    <p><strong>Phone:</strong> (802) 696-4984</p>
+                    <p><strong>Email:</strong> info@stowesmountaintoptaxi.com</p>
+                    <p>Call ahead to reserve - Uber unreliable due to poor reception</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Local Taxi - Neil's Wheels</h4>
+                    <p><strong>Phone:</strong> (802) 338-8426</p>
+                    <p><strong>Email:</strong> neilswheels805@gmail.com</p>
+                    <p><strong>Address:</strong> 1880 Mountain Rd, Stowe, VT 05672</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>The Lodge Front Desk</h4>
+                    <p><strong>Phone:</strong> (802) 760-4700</p>
+                    <p>Check-in, amenities, general questions</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Ski Rentals - TrueNorth</h4>
+                    <p><strong>Location:</strong> In The Lodge</p>
+                    <p><strong>Phone:</strong> (802) 760-4608</p>
+                    <p>Book online for best prices</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Stowe Mountain Resort</h4>
+                    <p><strong>Phone:</strong> (802) 253-3000</p>
+                    <p>Lift tickets, mountain info</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>United Airlines</h4>
+                    <p><strong>Customer Service:</strong> (800) 241-6522</p>
+                    <p>Download app for real-time updates</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Snowmobile Vermont</h4>
+                    <p><strong>Phone:</strong> (802) 253-6221</p>
+                    <p>Booking #325470696</p>
+                    <p>Location: 56 Old Farm Rd, Stowe</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Sleigh Ride - Gentle Giants</h4>
+                    <p><strong>Operator:</strong> Mike Martell</p>
+                    <p><strong>Phone:</strong> (802) 734-1070</p>
+                    <p><strong>⚠️ CASH ONLY:</strong> $160 total</p>
+                    <p>Confirmed: Wed Jan 7 at 3:30 PM</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>Trapp Family Lodge</h4>
+                    <p><strong>Website:</strong> www.trappfamily.com</p>
+                    <p>5-10 min from The Lodge | Highland cattle, tours, dining</p>
+                </div>
+            </div>
+
+            <!-- PRE-TRIP CHECKLIST -->
+            <h2>✅ PRE-TRIP CHECKLIST</h2>
+            
+            <h3>BEFORE TRIP (ASAP)</h3>
+            <ul class="checklist">
+                <li><strong>VERIFY ALL 4 PASSENGERS HAVE STAR IDs</strong> - Valid REAL ID or passport required</li>
+                <li>Assign outbound seats online (United.com, Confirmation CJ9DN3)</li>
+                <li>Download United Airlines app and add confirmation number</li>
+                <li>Share flight details with all 4 passengers</li>
+                <li class="done"><strong>AIRPORT TRANSPORTATION RESERVED:</strong> Stowe Airport Shuttle (802) 338-8426</li>
+                <li><strong>BOOK JAN 7 LOCAL TRANSPORTATION:</strong> Call Stowe Mountain Top Taxi (802) 696-4984 or Neil's Wheels (802) 338-8426 to reserve. Uber unreliable due to poor reception!</li>
+                <li class="done"><strong>SLEIGH RIDE CONFIRMED:</strong> Wed Jan 7 at 3:30 PM - Bring $160 CASH</li>
+            </ul>
+            
+            <h3>1 WEEK BEFORE TRIP</h3>
+            <ul class="checklist">
+                <li class="done"><strong>SNOWMOBILE CONFIRMED:</strong> Booking #325470696 | Wed Jan 7, 10 AM-12 PM | Arrive 9 AM | $695.54 PAID</li>
+                <li class="done"><strong>SLEIGH RIDE CONFIRMED:</strong> Gentle Giants | Wed Jan 7 at 3:30 PM | $160 CASH ONLY</li>
+                <li>Book ski rentals at TrueNorth (online for best price)</li>
+                <li>Purchase Epic Day Passes online at stowe.com</li>
+                <li><strong>MAKE DINNER RESERVATIONS:</strong> Grail Restaurant (Wed) & Simon Pearce (Fri)</li>
+                <li><strong>RESERVE CAR FOR JAN 9 & JAN 10:</strong> Contact Diane - car needed for day trips</li>
+                <li><strong>CONFIRM JAN 7 TRANSPORTATION:</strong> Verify arrangements for snowmobile & sleigh ride transport</li>
+            </ul>
+            
+            <h3>3 DAYS BEFORE TRIP</h3>
+            <ul class="checklist">
+                <li>Check in online 24 hours before departure (Jan 5 at 12:45 PM)</li>
+                <li>Select outbound seats during online check-in</li>
+                <li>Pack luggage for 4 people in 1 double room</li>
+                <li>Confirm all passengers have STAR IDs and flight confirmations</li>
+                <li>Check weather forecast for Stowe</li>
+                <li><strong>GET $160 CASH for sleigh ride</strong></li>
+            </ul>
+            
+            <h3>DAY OF DEPARTURE (JANUARY 6)</h3>
+            <ul class="checklist">
+                <li>Arrive at Mobile Regional Airport 2 hours early (10:45 AM)</li>
+                <li>All 4 passengers present with valid IDs</li>
+                <li>Download mobile boarding passes</li>
+                <li>Monitor flight status on United app</li>
+                <li>Have tight connection in Dulles (1 hr 2 min) - boarding passes ready</li>
+                <li>Meet Stowe Airport Transfers at Burlington ~7:00 PM - HAVE PAYMENT READY</li>
+            </ul>
+
+            <!-- TRANSPORTATION GUIDE -->
+            <h2>🚗 TRANSPORTATION GUIDE</h2>
+            
+            <h3>Burlington Airport (BTV) → The Lodge at Spruce Peak, Stowe</h3>
+            <p><strong>Distance:</strong> 34 miles | <strong>Travel Time:</strong> ~45-60 minutes | <strong>Route:</strong> I-89 South</p>
+            
+            <div class="warning-box">
+                <strong>Route 108 through Smugglers' Notch is CLOSED in winter</strong> – all traffic uses I-89 via Waterbury
+            </div>
+            
+            <h4>Lodge at Spruce Peak Private Transfer (RECOMMENDED)</h4>
+            <p><strong>Cost:</strong> $200/vehicle, one-way (same rate for children)</p>
+            <p><strong>Why Choose This:</strong> Most convenient option for seamless arrival | Cost-effective for groups of 3-4 travelers</p>
+            <p><strong>⚠️ IMPORTANT:</strong> Must contact the property <strong>48 hours prior</strong> to arrival to arrange</p>
+            <p><strong>To Book:</strong> Call (802) 253-3560 or contact The Lodge directly</p>
+            
+            <h4>Stowe Airport Shuttle ✓ RESERVED</h4>
+            <p><strong>Cost:</strong> TBD - Pay at pickup</p>
+            <p><strong>Website:</strong> www.stoweairportshuttle.com</p>
+            <p><strong>Phone:</strong> (802) 338-8426</p>
+            <p><strong>💡 TIP:</strong> Ask driver about local transportation options for January 7!</p>
+
+            <h4>Local Taxi Services (for Jan 7 - Call Ahead!)</h4>
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                </tr>
+                <tr>
+                    <td><strong>Stowe Mountain Top Taxi</strong></td>
+                    <td>(802) 696-4984</td>
+                    <td>info@stowesmountaintoptaxi.com</td>
+                </tr>
+                <tr>
+                    <td><strong>Neil's Wheels</strong></td>
+                    <td>(802) 338-8426</td>
+                    <td>neilswheels805@gmail.com</td>
+                </tr>
+            </table>
+            <div class="warning-box">
+                <strong>Ubers may be hard to get due to poor cell reception.</strong> Call a cab ahead to reserve!
+            </div>
+            
+            <h4>FREE Mountain Road Shuttle (Getting Around Stowe)</h4>
+            <p>Complimentary service connecting Stowe Village to Stowe Mountain Resort throughout winter.</p>
+            <p><strong>Frequency:</strong> Every 30 minutes (off-peak) | Every 20 minutes (peak periods)</p>
+            <p><strong>Key Stops:</strong> Stowe Village, Commodores Inn, Mountain Road lodging, Spruce Peak Base, Mansfield Base</p>
+
+            <h3>🚗 January 7 Local Transportation</h3>
+            <div class="card action-needed">
+                <p><strong>Two activities need transport from The Lodge:</strong></p>
+                <ol>
+                    <li><strong>8:00 AM:</strong> Depart for Snowmobile Tour (56 Old Farm Rd)</li>
+                    <li><strong>3:00 PM:</strong> Depart for Sleigh Ride (Gentle Giants)</li>
+                </ol>
+                <p><strong>Action Items:</strong></p>
+                <ul>
+                    <li>When booking airport shuttle, ask driver if they offer local transport or recommendations</li>
+                    <li>Contact Diane (dcawley@destinationhotels.com) to arrange transport or car rental</li>
+                    <li>Consider adding Wednesday to Fri/Sat car rental reservation</li>
+                </ul>
+            </div>
+
+            <!-- CRITICAL REMINDERS -->
+            <h2>⚠️ CRITICAL REMINDERS</h2>
+            
+            <div class="warning-box">
+                <strong>STAR IDs:</strong> All 4 passengers MUST have valid REAL ID-compliant photo IDs. No ID = No flight. Verify NOW at <a href="https://www.tsa.gov/real-id" target="_blank">https://www.tsa.gov/real-id</a>
+            </div>
+            
+            <div class="warning-box">
+                <strong>TIGHT CONNECTION:</strong> 1 hour 2 minutes between flights in Dulles on Tues, Jan 6 - have mobile boarding passes ready!
+            </div>
+            
+            <div class="warning-box">
+                <strong>CASH FOR SLEIGH RIDE:</strong> Bring $160 cash for Gentle Giants sleigh ride on Wednesday - NO CARDS ACCEPTED
+            </div>
+            
+            <div class="info-box">
+                <strong>DINNER RESERVATIONS:</strong> Book Grail Restaurant & Simon Pearce ASAP - January is a busy month
+            </div>
+            
+            <div class="info-box">
+                <strong>AIRPORT TRANSFERS:</strong> ✓ Reserved with Stowe Airport Shuttle (802) 338-8426. Payment due at pickup. Ask driver about Jan 7 local transport!
+            </div>
+            
+            <div class="info-box">
+                <strong>JAN 7 LOCAL TRANSPORT:</strong> Book taxi for snowmobile (8 AM departure) and sleigh ride (3 PM departure). Call Stowe Mountain Top Taxi (802) 696-4984 or Neil's Wheels (802) 338-8426. Uber unreliable!
+            </div>
+
+        </div>
+        
+        <div class="footer">
             <p>Stowe Ski Trip | January 6-11, 2026 | 4 Adults</p>
-    
+            <p>Questions? Contact Kim Henderson, Somo Travel Associate</p>
+            <p>(251) 508-6921 | kim.henderson@cruiseplanners.com</p>
+        </div>
+    </div>
+</body>
+</html>
