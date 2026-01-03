@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonesta Resort Comparison - St. Maarten</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+        .subtitle {
+            text-align: center;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .resort-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .card-header {
+            padding: 25px;
+            color: #fff;
+            text-align: center;
+        }
+        .maho .card-header {
+            background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+        }
+        .ocean-point .card-header {
+            background: linear-gradient(135deg, #b8860b 0%, #daa520 100%);
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        .card-header .room-type {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        .price-section {
+            background: #f8f9fa;
+            padding: 20px 25px;
+            border-bottom: 1px solid #eee;
+        }
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.95rem;
+        }
+        .price-row.total {
+            border-top: 2px solid #ddd;
+            margin-top: 10px;
+            padding-top: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .maho .price-row.total .amount {
+            color: #2193b0;
+        }
+        .ocean-point .price-row.total .amount {
+            color: #b8860b;
+        }
+        .features-section {
+            padding: 25px;
+        }
+        .features-section h3 {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .feature-category {
+            margin-bottom: 20px;
+        }
+        .feature-category h4 {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .feature-list {
+            list-style: none;
+        }
+        .feature-list li {
+            padding: 6px 0;
+            font-size: 0.9rem;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+        }
+        .feature-list li::before {
+            content: "✓";
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .maho .feature-list li::before {
+            color: #2193b0;
+        }
+        .ocean-point .feature-list li::before {
+            color: #b8860b;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .summary-section {
+            margin-top: 40px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .summary-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        .difference-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .difference-box .amount {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .difference-box .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .pros-cons-card {
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .pros-cons-card.maho-card {
+            background: #e8f4f8;
+            border-left: 4px solid #2193b0;
+        }
+        .pros-cons-card.ocean-card {
+            background: #fdf6e3;
+            border-left: 4px solid #b8860b;
+        }
+        .pros-cons-card h4 {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        .pros-cons-card ul {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+        .pros-cons-card ul li {
+            padding: 5px 0;
+            color: #555;
+        }
+        .room-amenities {
+            font-size: 0.85rem;
+            color: #777;
+            line-height: 1.6;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+        .maho .badge {
+            background: rgba(255,255,255,0.2);
+        }
+        .ocean-point .badge {
+            background: rgba(255,255,255,0.2);
+        }
+        @media (max-width: 768px) {
+            .comparison-grid, .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌴 Sonesta St. Maarten Resort Comparison</h1>
+        <p class="subtitle">David & Kelley's Trip Planning</p>
+        
+        <div class="comparison-grid">
+            <!-- Maho Beach Card -->
+            <div class="resort-card maho">
+                <div class="card-header">
+                    <h2>Sonesta Maho Beach</h2>
+                    <div class="room-type">Ultimate Adults Only Club Room</div>
+                    <span class="badge">Adults-Only Section</span>
+                </div>
+                <div class="price-section">
+                    <div class="price-row">
+                        <span>Base Rate + Transfer</span>
+                        <span>$4,130.00</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Shared Transportation</span>
+                        <span>Included</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Trip Protection Insurance</span>
+                        <span>$201.03</span>
+                    </div>
+                    <div class="price-row total">
+                        <span>Total</span>
+                        <span class="amount">$4,243.41</span>
+                    </div>
+                </div>
+                <div class="features-section">
+                    <h3>What's Included</h3>
+                    
+                    <div class="feature-category">
+                        <h4>Property Type</h4>
+                        <ul class="feature-list">
+                            <li>Adults-only floors within larger family resort</li>
+                            <li>Top two floors of hotel tower</li>
+                            <li>Standard club room</li>
+                            <li>Maximum 2 adults</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-category">
+                        <h4>Ultimate Club Benefits</h4>
+                        <ul class="feature-list">
+                            <li>Cloud9 Rooftop Bar access</li>
+                            <li>Cloud9 Kitchen (light fare)</li>
+                            <li>Ultimate Club Lounge</li>
+                            <li>Seascape pool with swim-up bar</li>
+                            <li>Adults-only gym</li>
+                            <li>Priority check-in/check-out</li>
+                            <li>Concierge service</li>
+                            <li>All-night in-room dining</li>
+                            <li>Enhanced in-room entertainment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-category">
+                        <h4>Room Amenities</h4>
+                        <ul class="feature-list">
+                            <li>Frette Italian sheets</li>
+                            <li>Stocked mini-bar (spirits & beer)</li>
+                            <li>Upgraded in-room amenities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-category">
+                        <h4>All-Inclusive Features</h4>
+                        <ul class="feature-list">
+                            <li>Unlimited breakfast, lunch, dinner & snacks</li>
+                            <li>International & domestic drinks</li>
+                            <li>Mini-bar refreshed daily</li>
+                            <li>Weekly manager's cocktail party</li>
+                            <li>Beach dinner party</li>
+                            <li>Water activities & equipment</li>
+                            <li>Nightly entertainment</li>
+                            <li>Free WiFi throughout</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ocean Point Card -->
+            <div class="resort-card ocean-point">
+                <div class="card-header">
+                    <h2>Sonesta Ocean Point</h2>
+                    <div class="room-type">Rooftop Butler Suite</div>
+                    <span class="badge">Fully Adults-Only Resort</span>
+                </div>
+                <div class="price-section">
+                    <div class="price-row">
+                        <span>Base Rate</span>
+                        <span>$6,800.00</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Transportation</span>
+                        <span>TBD</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Trip Protection Insurance</span>
+                        <span>$324.59</span>
+                    </div>
+                    <div class="price-row total">
+                        <span>Total</span>
+                        <span class="amount">$7,124.59+</span>
+                    </div>
+                </div>
+                <div class="features-section">
+                    <h3>What's Included</h3>
+                    
+                    <div class="feature-category">
+                        <h4>Property Type</h4>
+                        <ul class="feature-list">
+                            <li><span class="highlight">Entirely adults-only boutique resort</span></li>
+                            <li>Rooftop suite location</li>
+                            <li>Full suite (not standard room)</li>
+                            <li>Maximum 2 adults</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-category">
+                        <h4>Butler Suite Benefits</h4>
+                        <ul class="feature-list">
+                            <li><span class="highlight">Dedicated personal butler service</span></li>
+                            <li>Balcony/Lanai/Terrace</li>
+                            <li>Separate tub and shower</li>
+                            <li>More intimate atmosphere</li>
+                            <li>Boutique resort experience</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-category">
+                        <h4>Room Amenities</h4>
+                        <p class="room-amenities">
+                            King bed • Air conditioning • Balcony/Terrace • Bathrobe & Slippers • 
+                            Bathroom amenities • Coffee/Tea Maker • Hair Dryer • Internet access • 
+                            Iron & Ironing board • Mini Refrigerator • Safe • Satellite TV • 
+                            Separate tub and shower • Telephone
+                        </p>
+                    </div>
+                    
+                    <div class="feature-category">
+                        <h4>Note on Availability</h4>
+                        <ul class="feature-list">
+                            <li>Only room type available for your dates</li>
+                            <li>No availability 1-2 days before/after</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <h3>💰 Bottom Line Comparison</h3>
+            
+            <div class="difference-box">
+                <div class="amount">$2,881.18</div>
+                <div class="label">Price Difference (Ocean Point costs more)</div>
+            </div>
+            
+            <div class="pros-cons">
+                <div class="pros-cons-card maho-card">
+                    <h4>🏖️ Choose Maho Beach If...</h4>
+                    <ul>
+                        <li>✓ Budget is a priority (~$2,900 savings)</li>
+                        <li>✓ Adults-only section is sufficient</li>
+                        <li>✓ You want more dining/entertainment variety</li>
+                        <li>✓ Concierge service meets your needs</li>
+                        <li>✓ Top-floor quiet location works for you</li>
+                    </ul>
+                </div>
+                
+                <div class="pros-cons-card ocean-card">
+                    <h4>🌟 Choose Ocean Point If...</h4>
+                    <ul>
+                        <li>✓ You want a completely adults-only property</li>
+                        <li>✓ Butler service is important to you</li>
+                        <li>✓ Suite space matters (vs. standard room)</li>
+                        <li>✓ More intimate boutique experience preferred</li>
+                        <li>✓ This is a special occasion splurge</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
