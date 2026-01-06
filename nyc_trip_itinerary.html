@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC 16th Birthday Trip Planner | Family of 4 | December 3-6, 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 50%, #ff6b9d 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+        
+        .header .dates {
+            font-size: 1.1em;
+            margin-top: 15px;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+        }
+        
+        .emoji-large {
+            font-size: 1.5em;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .section h2 {
+            color: #c44569;
+            border-bottom: 3px solid #ff6b9d;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .section h3 {
+            color: #667eea;
+            margin: 20px 0 10px 0;
+            font-size: 1.2em;
+        }
+        
+        .section h4 {
+            color: #764ba2;
+            margin: 15px 0 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9ff;
+        }
+        
+        tr:hover {
+            background-color: #fff0f5;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe6f0 100%);
+            border-left: 5px solid #ff6b9d;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 5px solid #4caf50;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 5px solid #ff9800;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .anniversary-banner {
+            background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+            color: #333;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 3px 15px rgba(255,215,0,0.4);
+        }
+        
+        .day-card {
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #667eea;
+        }
+        
+        .day-card h3 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin: -20px -20px 20px -20px;
+            font-size: 1.3em;
+        }
+        
+        .day-card.birthday {
+            border-color: #ff6b9d;
+            background: linear-gradient(135deg, #fff5f8 0%, #ffe6ee 100%);
+        }
+        
+        .day-card.birthday h3 {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+        }
+        
+        ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .viator-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #00a699 0%, #008f82 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin: 5px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .viator-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,166,153,0.4);
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .price-tag.free {
+            background: #2196f3;
+        }
+        
+        .restaurant-card {
+            display: inline-block;
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 5px;
+            width: calc(50% - 15px);
+            vertical-align: top;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .restaurant-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border-color: #ff6b9d;
+        }
+        
+        .restaurant-card h4 {
+            color: #c44569;
+            margin-bottom: 8px;
+        }
+        
+        .restaurant-card p {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .flight-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        
+        .flight-info .flight {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed #90caf9;
+        }
+        
+        .flight-info .flight:last-child {
+            border-bottom: none;
+        }
+        
+        .hotel-card {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .hotel-card h4 {
+            color: #880e4f;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .budget-total {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .budget-total h3 {
+            color: white;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .checklist {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .checklist h4 {
+            margin-bottom: 15px;
+        }
+        
+        .checklist ul li {
+            padding: 5px 0 5px 30px;
+        }
+        
+        .checklist ul li:before {
+            content: "☐";
+            color: #667eea;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 0.9em;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                max-width: 100%;
+            }
+            .section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+            .header {
+                background: #c44569 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .restaurant-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎂 NYC 16th Birthday Trip 🗽</h1>
+            <p class="subtitle">Family of 4 Celebration</p>
+            <p class="dates">📅 December 3-6, 2026 | Mobile, AL → New York City</p>
+        </div>
+
+        <!-- Trip Overview -->
+        <div class="section">
+            <h2>✈️ Trip Overview</h2>
+            
+            <div class="flight-info">
+                <h4>🛫 Outbound Flights - December 3, 2026</h4>
+                <div class="flight">
+                    <span><strong>United #4844</strong></span>
+                    <span>MOB → IAH</span>
+                    <span>7:00 AM - 8:35 AM</span>
+                </div>
+                <div class="flight">
+                    <span><strong>United #678</strong></span>
+                    <span>IAH → LGA</span>
+                    <span>9:50 AM - 2:15 PM</span>
+                </div>
+            </div>
+            
+            <div class="flight-info">
+                <h4>🛬 Return Flights - December 6, 2026</h4>
+                <div class="flight">
+                    <span><strong>United #3688</strong></span>
+                    <span>LGA → IAD</span>
+                    <span>2:32 PM - 4:04 PM</span>
+                </div>
+                <div class="flight">
+                    <span><strong>United #4295</strong></span>
+                    <span>IAD → MOB</span>
+                    <span>5:35 PM - 7:10 PM</span>
+                </div>
+            </div>
+            
+            <div class="warning-box" style="margin-top: 20px;">
+                <h4>✈️ Airport Comparison - Potential Savings!</h4>
+                <table style="margin-top: 10px;">
+                    <tr>
+                        <th>Airport</th>
+                        <th>Code</th>
+                        <th>Price Difference</th>
+                        <th>Flight Times</th>
+                        <th>Drive from Mobile</th>
+                    </tr>
+                    <tr style="background: #e8f5e9;">
+                        <td><strong>Mobile (Selected)</strong></td>
+                        <td>MOB</td>
+                        <td>Base Price</td>
+                        <td>7:00 AM</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>Gulfport-Biloxi</td>
+                        <td>GPT</td>
+                        <td style="color: #c62828;">+$188 more</td>
+                        <td>—</td>
+                        <td>~1.5 hrs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>New Orleans</strong></td>
+                        <td>MSY</td>
+                        <td style="color: #2e7d32;"><strong>-$800 savings!</strong></td>
+                        <td>5:00 AM or 7:00 AM</td>
+                        <td>~2 hrs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pensacola</strong></td>
+                        <td>PNS</td>
+                        <td style="color: #2e7d32;"><strong>-$600 savings!</strong></td>
+                        <td>7:00 AM</td>
+                        <td>~1 hr</td>
+                    </tr>
+                </table>
+                <p style="margin-top: 15px;"><strong>💡 Considerations:</strong></p>
+                <ul style="margin-top: 5px;">
+                    <li><strong>MSY (New Orleans):</strong> Save $800, but 5 AM flight = leave Mobile ~2:30 AM; 7 AM = leave ~4:30 AM. Add ~$50 parking.</li>
+                    <li><strong>PNS (Pensacola):</strong> Save $600, shorter 1-hr drive, 7 AM flight = leave Mobile ~5:00 AM. Add ~$45 parking.</li>
+                    <li><strong>MOB (Mobile):</strong> Most convenient, no early drive, stress-free start to birthday trip!</li>
+                </ul>
+                <p style="margin-top: 10px;"><em>For a Sweet 16 celebration, convenience may be worth the extra cost - but Pensacola offers a good middle ground!</em></p>
+            </div>
+            
+            <div class="hotel-card">
+                <h4>🏨 Riu Plaza New York Times Square</h4>
+                <p><strong>Room:</strong> Deluxe Family Full with Breakfast</p>
+                <p><strong>Check-in:</strong> December 3, 2026 | <strong>Check-out:</strong> December 6, 2026</p>
+                <p><strong>Location:</strong> Times Square - Heart of NYC!</p>
+                <p style="margin-top: 10px;"><strong>Total Package Price:</strong> $10,155.87 ($2,538.97 per person)</p>
+            </div>
+        </div>
+
+        <!-- Airport Transportation -->
+        <div class="section">
+            <h2>🚕 Airport Transportation</h2>
+            
+            <div class="highlight-box">
+                <h4>✨ Recommended: Viator Luxury VIP Transfer</h4>
+                <p><strong>Mercedes-Benz Sprinter Van</strong> - Up to 14 passengers</p>
+                <ul>
+                    <li>Leather seats, WiFi, bottled water</li>
+                    <li>Meet & greet at arrivals</li>
+                    <li>Door-to-door service</li>
+                    <li>Professional chauffeur</li>
+                </ul>
+                <a href="https://www.viator.com/tours/Long-Island/Luxury-VIP-New-York-City-Airport-Arrival-Transfer-by-Mercedes-Benz-Sprinter-WIFI/d23788-165675P2" class="viator-link" target="_blank">📱 Book on Viator</a>
+            </div>
+            
+            <h3>Other Private Options</h3>
+            <table>
+                <tr>
+                    <th>Option</th>
+                    <th>Cost (Total)</th>
+                    <th>Time</th>
+                </tr>
+                <tr>
+                    <td>Yellow Taxi</td>
+                    <td>$55-85</td>
+                    <td>30-60 min</td>
+                </tr>
+                <tr>
+                    <td>UberXL / Lyft XL</td>
+                    <td>$60-90</td>
+                    <td>30-60 min</td>
+                </tr>
+                <tr>
+                    <td>Private SUV (GO Airlink)</td>
+                    <td>$100-130</td>
+                    <td>30-60 min</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Shows & Entertainment -->
+        <div class="section">
+            <h2>🎭 Shows & Entertainment</h2>
+            
+            <div class="anniversary-banner">
+                ✨ ROCKETTES 100th ANNIVERSARY SEASON! ✨
+            </div>
+            
+            <h3>🎄 Radio City Christmas Spectacular</h3>
+            <p>The iconic Rockettes perform their legendary holiday show - and 2026 marks their centennial celebration!</p>
+            
+            <table>
+                <tr>
+                    <th>Seat Level</th>
+                    <th>Price Range</th>
+                </tr>
+                <tr>
+                    <td>3rd Mezzanine</td>
+                    <td><span class="price-tag">$65-85</span></td>
+                </tr>
+                <tr>
+                    <td>2nd Mezzanine</td>
+                    <td><span class="price-tag">$85-110</span></td>
+                </tr>
+                <tr>
+                    <td>1st Mezzanine</td>
+                    <td><span class="price-tag">$110-125</span></td>
+                </tr>
+                <tr>
+                    <td>Orchestra</td>
+                    <td><span class="price-tag">$125-134+</span></td>
+                </tr>
+            </table>
+            
+            <div class="tip-box">
+                <strong>💡 Tip:</strong> Book NOW! The 100th anniversary season will sell out fast. 90-minute show, no intermission.
+            </div>
+            
+            <h3>🧙‍♀️ WICKED (Optional Broadway Add-On)</h3>
+            <table>
+                <tr>
+                    <th>Seat Level</th>
+                    <th>Price Range</th>
+                </tr>
+                <tr>
+                    <td>Rear Mezzanine / Partial View</td>
+                    <td><span class="price-tag">$110.75</span></td>
+                </tr>
+                <tr>
+                    <td>Mid Orchestra / Front Mezzanine</td>
+                    <td><span class="price-tag">$175-200</span></td>
+                </tr>
+                <tr>
+                    <td>Premium Orchestra</td>
+                    <td><span class="price-tag">$252.50</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Viator Tours -->
+        <div class="section">
+            <h2>🎟️ Viator Tours & Experiences</h2>
+            
+            <h3>🚴 Central Park Pedicab Guided Tour</h3>
+            <p>A fun, eco-friendly alternative to carriage rides! Private tour with knowledgeable guides.</p>
+            
+            <table>
+                <tr>
+                    <th>Duration</th>
+                    <th>What You'll See</th>
+                </tr>
+                <tr>
+                    <td>1 Hour</td>
+                    <td>Bethesda Fountain, Strawberry Fields, Bow Bridge</td>
+                </tr>
+                <tr>
+                    <td>1.5 Hours</td>
+                    <td>+ Belvedere Castle, The Lake</td>
+                </tr>
+                <tr>
+                    <td>2 Hours</td>
+                    <td>30+ attractions, comprehensive tour</td>
+                </tr>
+            </table>
+            
+            <ul>
+                <li>Each pedicab seats up to 3 adults</li>
+                <li>Warm blankets provided in winter! ❄️</li>
+                <li>Photo stops throughout</li>
+                <li>⭐ 7,000+ 5-star reviews!</li>
+            </ul>
+            
+            <a href="https://www.viator.com/tours/New-York-City/Central-Park-Pedicab-Guided-Tours/d687-147315P1" class="viator-link" target="_blank">📱 Book Central Park Pedicab Tour</a>
+            
+            <h3>🚶 SoHo, Little Italy & Chinatown Walking Tour</h3>
+            <p>Explore three iconic NYC neighborhoods in 2 hours with an expert guide.</p>
+            
+            <table>
+                <tr>
+                    <th>Neighborhood</th>
+                    <th>Highlights</th>
+                </tr>
+                <tr>
+                    <td><strong>SoHo</strong></td>
+                    <td>Cast Iron Historic District, designer boutiques, celebrity sightings</td>
+                </tr>
+                <tr>
+                    <td><strong>Little Italy</strong></td>
+                    <td>Authentic Italian eateries, mob history, John Gotti stories</td>
+                </tr>
+                <tr>
+                    <td><strong>Chinatown</strong></td>
+                    <td>Bustling markets, Canal & Mott Streets, cultural immersion</td>
+                </tr>
+            </table>
+            
+            <ul>
+                <li>2-3 miles at moderate pace</li>
+                <li>Film locations: Ghost, Sex and the City, Men in Black</li>
+                <li>⭐ 2,900+ 5-star reviews!</li>
+            </ul>
+            
+            <a href="https://www.viator.com/tours/New-York-City/SoHo-Little-Italy-and-Chinatown-Walking-Tour/d687-5250SOHO" class="viator-link" target="_blank">📱 Book Walking Tour</a>
+        </div>
+
+        <!-- Must-See Attractions -->
+        <div class="section">
+            <h2>🏛️ Must-See Attractions</h2>
+            
+            <h3>🕊️ 9/11 Memorial & Museum</h3>
+            <div class="warning-box">
+                <strong>⚠️ Important Tips:</strong>
+                <ul>
+                    <li>Book early morning to avoid crowds</li>
+                    <li>Not recommended for children under 12</li>
+                    <li>Allow 2-3 hours minimum</li>
+                    <li>Timed entry required - book in advance!</li>
+                </ul>
+            </div>
+            <p><strong>📍 Location:</strong> 180 Greenwich Street, Lower Manhattan</p>
+            
+            <h3>🖼️ The Metropolitan Museum of Art (The MET)</h3>
+            <ul>
+                <li>One of the world's greatest art museums</li>
+                <li>Must-sees: Egyptian Temple of Dendur, European paintings</li>
+                <li>Allow 2-4 hours (you can't see it all!)</li>
+                <li>Great gift shop for souvenirs</li>
+            </ul>
+            <p><strong>📍 Location:</strong> 1000 Fifth Avenue (at 82nd Street)</p>
+            
+            <h3>🌿 The High Line</h3>
+            <div class="highlight-box">
+                <span class="price-tag free">FREE!</span>
+                <p><strong>Elevated park on former rail line</strong></p>
+                <ul>
+                    <li>1.45 miles from Meatpacking District to Hudson Yards</li>
+                    <li>30-45 minute walk</li>
+                    <li>Art installations, gardens, city views</li>
+                    <li>Best in morning or at sunset</li>
+                </ul>
+                <p><strong>Hours (Dec):</strong> 7am - 8pm</p>
+            </div>
+            
+            <h3>🚂 Grand Central Terminal</h3>
+            <ul>
+                <li>Stunning Beaux-Arts architecture</li>
+                <li>Famous celestial ceiling</li>
+                <li>Whispering Gallery - try it!</li>
+                <li>Free to visit - great for photos!</li>
+            </ul>
+            <p><strong>📍 Location:</strong> 89 E 42nd Street (at Park Avenue)</p>
+            
+            <h3>🗽 Staten Island Ferry</h3>
+            <div class="highlight-box">
+                <span class="price-tag free">FREE!</span>
+                <p><strong>Best free attraction in NYC!</strong></p>
+                <ul>
+                    <li>25-minute ride each way</li>
+                    <li>Amazing Statue of Liberty views</li>
+                    <li>Runs 24/7, every 15-30 minutes</li>
+                    <li>Sit on RIGHT side going to Staten Island for best views</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Ice Skating -->
+        <div class="section">
+            <h2>⛸️ Ice Skating Options</h2>
+            
+            <table>
+                <tr>
+                    <th>Rink</th>
+                    <th>Experience</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td><strong>Rockefeller Center</strong></td>
+                    <td>Iconic! Under the Christmas tree</td>
+                    <td>$22-124 (60 min)</td>
+                </tr>
+                <tr>
+                    <td><strong>Wollman Rink (Central Park)</strong></td>
+                    <td>Larger rink, skyline views</td>
+                    <td>$15-20</td>
+                </tr>
+                <tr>
+                    <td><strong>Bryant Park</strong></td>
+                    <td>FREE admission (rental ~$25)</td>
+                    <td>FREE + rental</td>
+                </tr>
+            </table>
+            
+            <div class="tip-box">
+                <strong>💡 Recommendation:</strong> Rockefeller is iconic for photos, but Wollman Rink in Central Park offers more space and less crowds!
+            </div>
+        </div>
+
+        <!-- Shopping -->
+        <div class="section">
+            <h2>🛍️ Shopping Suggestions</h2>
+            
+            <h3>Flagship Stores</h3>
+            <table>
+                <tr>
+                    <th>Store</th>
+                    <th>Location</th>
+                    <th>Why Visit</th>
+                </tr>
+                <tr>
+                    <td>🏃 <strong>Nike NYC</strong></td>
+                    <td>650 5th Avenue</td>
+                    <td>5 floors, customization studio</td>
+                </tr>
+                <tr>
+                    <td>💎 <strong>Tiffany & Co.</strong></td>
+                    <td>727 5th Avenue</td>
+                    <td>Perfect Sweet 16 gift!</td>
+                </tr>
+                <tr>
+                    <td>🍎 <strong>Apple Fifth Avenue</strong></td>
+                    <td>767 5th Avenue</td>
+                    <td>24/7 glass cube store</td>
+                </tr>
+                <tr>
+                    <td>💄 <strong>Sephora Times Square</strong></td>
+                    <td>1535 Broadway</td>
+                    <td>Beauty paradise</td>
+                </tr>
+                <tr>
+                    <td>🧸 <strong>FAO Schwarz</strong></td>
+                    <td>30 Rockefeller Plaza</td>
+                    <td>Famous toy store</td>
+                </tr>
+            </table>
+            
+            <h3>🎄 5th Avenue Holiday Windows (FREE!)</h3>
+            <ul>
+                <li><strong>Saks Fifth Avenue</strong> - Light show on building</li>
+                <li><strong>Bergdorf Goodman</strong> - Artistic displays</li>
+                <li><strong>Macy's Herald Square</strong> - Classic Christmas scenes</li>
+            </ul>
+        </div>
+
+        <!-- Dining -->
+        <div class="section">
+            <h2>🍝 Dining Recommendations</h2>
+            
+            <div class="restaurant-card" style="border-color: #ff6b9d; background: linear-gradient(135deg, #fff5f8 0%, #ffe6ee 100%);">
+                <h4>🍕 John's of Times Square</h4>
+                <p><strong>260 W 44th Street</strong></p>
+                <p>Authentic coal-fired brick oven pizza in a stunning 19th-century former church! Cathedral ceilings & stained glass.</p>
+                <p><em>Celebrity favorite - Jonas Brothers, Simone Biles, Michelle Obama!</em></p>
+            </div>
+            
+            <div class="restaurant-card">
+                <h4>🍝 Carmine's</h4>
+                <p><strong>Times Square</strong></p>
+                <p>Family-style Italian, huge portions for sharing. Perfect for groups!</p>
+                <p><em>"Milton made sure this was unforgettable for our daughters celebrating 16th birthdays"</em></p>
+            </div>
+            
+            <div class="restaurant-card">
+                <h4>🎤 Ellen's Stardust Diner</h4>
+                <p><strong>1650 Broadway</strong></p>
+                <p>Singing waitstaff perform Broadway tunes all day! Fun, theatrical atmosphere.</p>
+            </div>
+            
+            <div class="restaurant-card">
+                <h4>🌳 Tavern on the Green</h4>
+                <p><strong>Central Park</strong></p>
+                <p>Elegant landmark restaurant. "Like stepping into a holiday movie" - perfect for birthday dinner!</p>
+            </div>
+            
+            <div class="restaurant-card">
+                <h4>🍰 Angelina Bakery</h4>
+                <p><strong>Times Square</strong></p>
+                <p>Famous for Bomboloni (Italian donuts) & Nutella pastries. Must-try Nutella Croissant!</p>
+            </div>
+            
+            <div class="restaurant-card">
+                <h4>🍨 Serendipity 3</h4>
+                <p><strong>Upper East Side</strong></p>
+                <p>Famous Frozen Hot Chocolate. Whimsical, perfect for teens!</p>
+            </div>
+            
+            <div class="restaurant-card">
+                <h4>🍝 Elio's</h4>
+                <p><strong>Upper East Side</strong></p>
+                <p>Classic Italian, celebrity spot. Upscale casual dining.</p>
+            </div>
+        </div>
+
+        <!-- Authentic Pizza -->
+        <div class="section">
+            <h2>🍕 Authentic NYC Pizza</h2>
+            
+            <div class="highlight-box" style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%); border-left-color: #ff9800;">
+                <h3 style="color: #e65100; margin-bottom: 15px;">⭐ John's of Times Square</h3>
+                <p><strong>📍 Address:</strong> 260 West 44th Street (between Broadway & 8th Ave)</p>
+                <p><strong>🎭 Perfect for:</strong> Pre or post-theater dinner</p>
+                <p><strong>💵 Price:</strong> $$ Moderate</p>
+                
+                <h4 style="margin-top: 15px; color: #bf360c;">Why It's Special:</h4>
+                <ul>
+                    <li><strong>Historic Setting:</strong> Located inside a stunning 19th-century former Gospel Tabernacle Church with soaring cathedral ceilings and stained glass windows</li>
+                    <li><strong>Coal-Fired Perfection:</strong> Four 800°F coal-fired brick ovens create perfectly charred, thin-crust pizzas</li>
+                    <li><strong>Largest Pizzeria:</strong> 400+ seats - can handle any group size!</li>
+                    <li><strong>Celebrity Approved:</strong> Jonas Brothers, Simone Biles, Michelle Obama have all dined here</li>
+                </ul>
+                
+                <h4 style="margin-top: 15px; color: #bf360c;">What to Order:</h4>
+                <ul>
+                    <li>🍕 <strong>The Traditional</strong> - Fresh mozzarella, tomato sauce, basil</li>
+                    <li>🍕 <strong>Margherita</strong> - Classic Italian favorite</li>
+                    <li>🍕 <strong>Pizza Bruschetta</strong> - Their signature twist</li>
+                    <li>🥖 <strong>Garlic Rolls</strong> - Perfect starter!</li>
+                </ul>
+                
+                <div class="tip-box" style="margin-top: 15px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left-color: #1976d2;">
+                    <strong>💡 Tips:</strong>
+                    <ul>
+                        <li>No slices - only whole pies (perfect for sharing!)</li>
+                        <li>Reservations for 15+ only; otherwise first-come-first-served</li>
+                        <li>Gets busy before/after Broadway shows - arrive early</li>
+                        <li>Gluten-free options available</li>
+                    </ul>
+                </div>
+                
+                <p style="margin-top: 15px;"><a href="https://www.johnspizzerianyc.com" class="viator-link" target="_blank" style="background: linear-gradient(135deg, #ff5722 0%, #e64a19 100%);">🍕 Visit John's Pizzeria Website</a></p>
+            </div>
+        </div>
+
+        <!-- Daily Itinerary -->
+        <div class="section">
+            <h2>📋 Day-by-Day Itinerary</h2>
+            
+            <div class="day-card">
+                <h3>Day 1 (Dec 3) - Arrival & Times Square</h3>
+                <table>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                    </tr>
+                    <tr>
+                        <td>~2:15 PM</td>
+                        <td>Arrive LGA → Luxury Sprinter Transfer to hotel</td>
+                    </tr>
+                    <tr>
+                        <td>3:30 PM</td>
+                        <td>Check in at Riu Plaza Times Square</td>
+                    </tr>
+                    <tr>
+                        <td>4:30 PM</td>
+                        <td>Walk Times Square, Nike store, holiday lights</td>
+                    </tr>
+                    <tr>
+                        <td>5:30 PM</td>
+                        <td>🍩 Angelina Bakery - bomboloni treat!</td>
+                    </tr>
+                    <tr>
+                        <td>7:00 PM</td>
+                        <td>🎤 Dinner: Ellen's Stardust Diner</td>
+                    </tr>
+                    <tr>
+                        <td>9:00 PM</td>
+                        <td>5th Avenue holiday windows, Rockefeller Tree</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="day-card birthday">
+                <h3>🎂 Day 2 (Dec 4) - Downtown & Birthday Celebration</h3>
+                <table>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                    </tr>
+                    <tr>
+                        <td>8:30 AM</td>
+                        <td>🕊️ 9/11 Memorial & Museum (book early!)</td>
+                    </tr>
+                    <tr>
+                        <td>12:00 PM</td>
+                        <td>Lunch in Lower Manhattan</td>
+                    </tr>
+                    <tr>
+                        <td>1:30 PM</td>
+                        <td>🗽 Staten Island Ferry (FREE Statue views)</td>
+                    </tr>
+                    <tr>
+                        <td>3:30 PM</td>
+                        <td>🚶 SoHo, Little Italy & Chinatown Walking Tour</td>
+                    </tr>
+                    <tr>
+                        <td>5:30 PM</td>
+                        <td>Return to hotel to freshen up</td>
+                    </tr>
+                    <tr>
+                        <td>7:00 PM</td>
+                        <td>🎂✨ Birthday Dinner: Tavern on the Green</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="day-card">
+                <h3>Day 3 (Dec 5) - Central Park, Culture & Rockettes</h3>
+                <table>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                    </tr>
+                    <tr>
+                        <td>9:00 AM</td>
+                        <td>🚴 Central Park Pedicab Tour (1-2 hours)</td>
+                    </tr>
+                    <tr>
+                        <td>11:30 AM</td>
+                        <td>⛸️ Ice skating at Wollman Rink or Rockefeller</td>
+                    </tr>
+                    <tr>
+                        <td>1:00 PM</td>
+                        <td>🍝 Lunch: Carmine's (family-style feast)</td>
+                    </tr>
+                    <tr>
+                        <td>3:00 PM</td>
+                        <td>🛍️ 5th Avenue shopping - Tiffany's, Nike, Saks</td>
+                    </tr>
+                    <tr>
+                        <td>5:00 PM</td>
+                        <td>📸 Grand Central Terminal photo stop</td>
+                    </tr>
+                    <tr>
+                        <td>7:00 PM</td>
+                        <td>🎄 Radio City Christmas Spectacular (100th Anniversary!)</td>
+                    </tr>
+                    <tr>
+                        <td>9:30 PM</td>
+                        <td>🍨 Hot chocolate at Serendipity 3 (optional)</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="day-card">
+                <h3>Day 4 (Dec 6) - Final Morning & Departure</h3>
+                <table>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                    </tr>
+                    <tr>
+                        <td>8:00 AM</td>
+                        <td>Breakfast at hotel (included)</td>
+                    </tr>
+                    <tr>
+                        <td>9:30 AM</td>
+                        <td>🌿 Walk the High Line (FREE) → Hudson Yards</td>
+                    </tr>
+                    <tr>
+                        <td>11:00 AM</td>
+                        <td>Last shopping or The MET quick visit</td>
+                    </tr>
+                    <tr>
+                        <td>12:30 PM</td>
+                        <td>🚕 Luxury Sprinter Transfer to LGA</td>
+                    </tr>
+                    <tr>
+                        <td>2:32 PM</td>
+                        <td>✈️ Flight departs</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Key Tips -->
+        <div class="section">
+            <h2>💡 Key Tips & Reminders</h2>
+            
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Important Details</th>
+                </tr>
+                <tr>
+                    <td>🎫 9/11 Museum</td>
+                    <td>Book early morning; not recommended under 12; allow 2-3 hours</td>
+                </tr>
+                <tr>
+                    <td>🎄 Rockettes</td>
+                    <td>100th Anniversary - book NOW before it sells out!</td>
+                </tr>
+                <tr>
+                    <td>🚴 Pedicab Tour</td>
+                    <td>Great Central Park alternative to carriage rides</td>
+                </tr>
+                <tr>
+                    <td>🍩 Angelina Bakery</td>
+                    <td>Must-try Nutella bombolone & croissant</td>
+                </tr>
+                <tr>
+                    <td>🌿 High Line</td>
+                    <td>FREE - perfect morning activity before departure</td>
+                </tr>
+                <tr>
+                    <td>🚂 Grand Central</td>
+                    <td>Don't miss the whispering gallery!</td>
+                </tr>
+                <tr>
+                    <td>🚕 Airport Transfer</td>
+                    <td>Pre-book Viator Sprinter for stress-free travel</td>
+                </tr>
+                <tr>
+                    <td>❄️ December Weather</td>
+                    <td>Pack layers, warm coat, comfortable walking shoes</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Booking Checklist -->
+        <div class="section">
+            <h2>✅ Booking Checklist</h2>
+            
+            <div class="checklist">
+                <h4>Priority Bookings (Do These NOW!)</h4>
+                <ul>
+                    <li>🎄 Rockettes tickets (100th Anniversary!)</li>
+                    <li>🧙‍♀️ Wicked tickets (if adding Broadway)</li>
+                    <li>🍽️ Tavern on the Green - birthday dinner reservation</li>
+                    <li>🍝 Carmine's dinner reservation</li>
+                    <li>🎫 9/11 Museum timed entry tickets</li>
+                    <li>🚕 Viator airport transfer (both ways)</li>
+                    <li>🚴 Central Park Pedicab Tour</li>
+                    <li>🚶 SoHo/Little Italy/Chinatown Walking Tour</li>
+                    <li>⛸️ Ice skating reservations (if Rockefeller)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Budget Summary -->
+        <div class="section">
+            <h2>💰 Budget Estimates (Per Person)</h2>
+            
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Estimated Cost</th>
+                </tr>
+                <tr>
+                    <td>Rockettes tickets (100th Anniversary)</td>
+                    <td>$65-134</td>
+                </tr>
+                <tr>
+                    <td>Wicked tickets (optional)</td>
+                    <td>$110.75-252.50</td>
+                </tr>
+                <tr>
+                    <td>9/11 Memorial & Museum</td>
+                    <td>$33-95</td>
+                </tr>
+                <tr>
+                    <td>Ice skating</td>
+                    <td>$20-124</td>
+                </tr>
+                <tr>
+                    <td>Central Park Pedicab (split 4 ways)</td>
+                    <td>~$25-50</td>
+                </tr>
+                <tr>
+                    <td>Walking Tour</td>
+                    <td>~$30-40</td>
+                </tr>
+                <tr>
+                    <td>Airport Transfer RT (split 4 ways)</td>
+                    <td>~$40-60</td>
+                </tr>
+                <tr>
+                    <td>Staten Island Ferry</td>
+                    <td>FREE</td>
+                </tr>
+                <tr>
+                    <td>High Line</td>
+                    <td>FREE</td>
+                </tr>
+                <tr>
+                    <td>Holiday Windows Walk</td>
+                    <td>FREE</td>
+                </tr>
+                <tr>
+                    <td>Meals (3 days)</td>
+                    <td>$150-250</td>
+                </tr>
+                <tr>
+                    <td>Shopping Budget</td>
+                    <td>Variable 💸</td>
+                </tr>
+            </table>
+            
+            <div class="budget-total">
+                <h3>Trip Package Total</h3>
+                <p style="font-size: 1.5em;">$10,155.87</p>
+                <p>($2,538.97 per person for flights + hotel)</p>
+            </div>
+        </div>
+
+        <!-- Useful Links -->
+        <div class="section">
+            <h2>🔗 Useful Booking Links</h2>
+            
+            <p><a href="https://www.viator.com/tours/Long-Island/Luxury-VIP-New-York-City-Airport-Arrival-Transfer-by-Mercedes-Benz-Sprinter-WIFI/d23788-165675P2" class="viator-link" target="_blank">🚕 Airport Transfer - Mercedes Sprinter</a></p>
+            
+            <p><a href="https://www.viator.com/tours/New-York-City/Central-Park-Pedicab-Guided-Tours/d687-147315P1" class="viator-link" target="_blank">🚴 Central Park Pedicab Tour</a></p>
+            
+            <p><a href="https://www.viator.com/tours/New-York-City/SoHo-Little-Italy-and-Chinatown-Walking-Tour/d687-5250SOHO" class="viator-link" target="_blank">🚶 SoHo, Little Italy & Chinatown Tour</a></p>
+            
+            <p><a href="https://www.rockettes.com/christmas/" class="viator-link" target="_blank" style="background: linear-gradient(135deg, #c44569 0%, #ff6b9d 100%);">🎄 Rockettes Official Site</a></p>
+            
+            <p><a href="https://www.911memorial.org/visit" class="viator-link" target="_blank" style="background: linear-gradient(135deg, #333 0%, #555 100%);">🕊️ 9/11 Memorial & Museum</a></p>
+            
+            <p><a href="https://www.thehighline.org/visit/" class="viator-link" target="_blank" style="background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);">🌿 The High Line</a></p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>🎂 Happy 16th Birthday! 🎂</p>
+            <p>Have an amazing NYC adventure!</p>
+            <p style="margin-top: 15px; opacity: 0.8;">Created with ❤️ for your special celebration</p>
+        </div>
+    </div>
+</body>
+</html>
