@@ -12,548 +12,118 @@
             --navy: #1a2744;
             --navy-light: #2d3e5f;
             --cream: #faf8f5;
-            --rose: #e8b4b8;
             --sage: #9caf88;
             --coral: #ff6b6b;
             --ice-blue: #a8d8ea;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--cream);
-            color: var(--navy);
-            line-height: 1.6;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #3d5a80 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "🗽 ✨ 🎂 ✨ 🗽";
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 24px;
-            letter-spacing: 20px;
-            opacity: 0.6;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
-            color: var(--gold-light);
-            font-weight: 300;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .hero .dates {
-            margin-top: 20px;
-            font-size: 1.1rem;
-            background: rgba(255,255,255,0.1);
-            display: inline-block;
-            padding: 10px 30px;
-            border-radius: 30px;
-            border: 1px solid var(--gold);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Section Headers */
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--navy);
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--gold);
-        }
-
-        /* Flight Card */
-        .flight-section {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 40px rgba(26, 39, 68, 0.1);
-        }
-
-        .flight-card {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            gap: 20px;
-            padding: 25px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 15px;
-            margin-bottom: 20px;
-        }
-
-        .flight-card:last-child {
-            margin-bottom: 0;
-        }
-
-        .flight-endpoint {
-            text-align: center;
-        }
-
-        .flight-endpoint .code {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--navy);
-        }
-
-        .flight-endpoint .city {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .flight-endpoint .time {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-top: 5px;
-        }
-
-        .flight-middle {
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .flight-middle .airline {
-            font-weight: 600;
-            color: var(--navy);
-        }
-
-        .flight-middle .flight-num {
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        .flight-arrow {
-            color: var(--gold);
-            font-size: 1.5rem;
-            margin: 10px 0;
-        }
-
-        .flight-date-badge {
-            background: var(--navy);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        /* Hotel Comparison */
-        .hotel-comparison {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .hotel-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(26, 39, 68, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-
-        .hotel-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(26, 39, 68, 0.15);
-        }
-
-        .hotel-card.recommended {
-            border: 3px solid var(--gold);
-        }
-
-        .hotel-card.recommended::before {
-            content: '⭐ BEST VALUE';
-            position: absolute;
-            top: 15px;
-            right: -35px;
-            background: var(--gold);
-            color: var(--navy);
-            padding: 5px 40px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            transform: rotate(45deg);
-            z-index: 10;
-        }
-
-        .hotel-header {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .hotel-card.recommended .hotel-header {
-            background: linear-gradient(135deg, var(--gold-light) 0%, #fff 100%);
-        }
-
-        .hotel-card:not(.recommended) .hotel-header {
-            background: linear-gradient(135deg, var(--ice-blue) 0%, #fff 100%);
-        }
-
-        .hotel-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--navy);
-            margin-bottom: 5px;
-        }
-
-        .hotel-location {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .hotel-price {
-            background: var(--navy);
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
-
-        .hotel-price .total {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .hotel-price .per-person {
-            font-size: 0.95rem;
-            opacity: 0.8;
-            margin-top: 5px;
-        }
-
-        .hotel-details {
-            padding: 25px;
-        }
-
-        .hotel-detail-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .hotel-detail-row:last-child {
-            border-bottom: none;
-        }
-
-        .detail-label {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .detail-value {
-            font-weight: 600;
-            color: var(--navy);
-        }
-
-        .detail-value.included {
-            color: var(--sage);
-        }
-
-        .detail-value.partial {
-            color: #e9a825;
-        }
-
-        .detail-value.extra {
-            color: var(--coral);
-        }
-
-        .hotel-pros {
-            background: #f8f9fa;
-            padding: 20px 25px;
-            border-top: 2px solid #eee;
-        }
-
-        .hotel-pros h4 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--navy);
-            margin-bottom: 10px;
-        }
-
-        .hotel-pros ul {
-            list-style: none;
-        }
-
-        .hotel-pros li {
-            padding: 5px 0;
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        .hotel-pros li::before {
-            content: '✓ ';
-            color: var(--sage);
-            font-weight: 700;
-        }
-
-        /* Price Comparison Banner */
-        .price-banner {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-            color: white;
-            padding: 25px 30px;
-            border-radius: 15px;
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .price-banner h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .price-banner p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        .price-banner .savings {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--navy);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: 700;
-            margin-top: 15px;
-        }
-
-        /* Excursions Section */
-        .excursions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .excursion-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(26, 39, 68, 0.08);
-            transition: transform 0.3s ease;
-        }
-
-        .excursion-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .excursion-icon {
-            font-size: 3rem;
-            text-align: center;
-            padding: 25px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .excursion-content {
-            padding: 20px;
-        }
-
-        .excursion-content h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: var(--navy);
-            margin-bottom: 10px;
-        }
-
-        .excursion-content p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .excursion-price {
-            display: inline-block;
-            background: var(--navy);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .excursion-price.free {
-            background: var(--sage);
-        }
-
-        /* Dining Section */
-        .dining-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .dining-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(26, 39, 68, 0.08);
-            border-left: 4px solid var(--gold);
-        }
-
-        .dining-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: var(--navy);
-            margin-bottom: 5px;
-        }
-
-        .dining-card .cuisine {
-            font-size: 0.85rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        .dining-card p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .dining-card .highlight {
-            background: var(--gold-light);
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-size: 0.85rem;
-            color: var(--navy);
-        }
-
-        /* Free Activities */
-        .free-section {
-            background: linear-gradient(135deg, var(--sage) 0%, #7a9568 100%);
-            border-radius: 20px;
-            padding: 40px;
-            color: white;
-            margin-top: 40px;
-        }
-
-        .free-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .free-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .free-item {
-            background: rgba(255,255,255,0.15);
-            padding: 20px;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-        }
-
-        .free-item h4 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-
-        .free-item p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--navy);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        .footer p {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-
-        .footer .tagline {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--gold-light);
-        }
-
-        /* Responsive */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--navy); line-height: 1.6; }
+        .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #3d5a80 100%); color: white; padding: 60px 20px; text-align: center; position: relative; }
+        .hero::before { content: "🗽 ✨ 🎂 ✨ 🗽"; position: absolute; top: 20px; left: 50%; transform: translateX(-50%); font-size: 24px; letter-spacing: 20px; opacity: 0.6; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hero .subtitle { font-size: 1.3rem; color: var(--gold-light); font-weight: 300; letter-spacing: 3px; text-transform: uppercase; }
+        .hero .dates { margin-top: 20px; font-size: 1.1rem; background: rgba(255,255,255,0.1); display: inline-block; padding: 10px 30px; border-radius: 30px; border: 1px solid var(--gold); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--navy); position: relative; display: inline-block; }
+        .section-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background: var(--gold); }
+        .flight-section { background: white; border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(26, 39, 68, 0.1); }
+        .flight-card { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; margin-bottom: 20px; }
+        .flight-endpoint { text-align: center; }
+        .flight-endpoint .code { font-size: 2rem; font-weight: 700; color: var(--navy); }
+        .flight-endpoint .city { font-size: 0.9rem; color: #666; }
+        .flight-endpoint .time { font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-top: 5px; }
+        .flight-middle { text-align: center; padding: 0 20px; }
+        .flight-middle .airline { font-weight: 600; color: var(--navy); }
+        .flight-middle .flight-num { font-size: 0.85rem; color: #666; }
+        .flight-arrow { color: var(--gold); font-size: 1.5rem; margin: 10px 0; }
+        .flight-date-badge { background: var(--navy); color: white; padding: 8px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; display: inline-block; margin-bottom: 20px; }
+        .hotel-comparison { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 30px; }
+        .hotel-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(26, 39, 68, 0.1); transition: transform 0.3s ease; position: relative; }
+        .hotel-card:hover { transform: translateY(-5px); }
+        .hotel-card.recommended { border: 3px solid var(--gold); }
+        .hotel-card.recommended::before { content: '⭐ BEST VALUE'; position: absolute; top: 15px; right: -35px; background: var(--gold); color: var(--navy); padding: 5px 40px; font-size: 0.75rem; font-weight: 700; transform: rotate(45deg); z-index: 10; }
+        .hotel-header { padding: 30px; text-align: center; }
+        .hotel-card.recommended .hotel-header { background: linear-gradient(135deg, var(--gold-light) 0%, #fff 100%); }
+        .hotel-card:not(.recommended) .hotel-header { background: linear-gradient(135deg, var(--ice-blue) 0%, #fff 100%); }
+        .hotel-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 5px; }
+        .hotel-location { color: #666; font-size: 0.9rem; }
+        .hotel-price { background: var(--navy); color: white; padding: 25px; text-align: center; }
+        .hotel-price .total { font-size: 2rem; font-weight: 700; }
+        .hotel-price .per-person { font-size: 0.95rem; opacity: 0.8; margin-top: 5px; }
+        .hotel-details { padding: 25px; }
+        .hotel-detail-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #eee; }
+        .hotel-detail-row:last-child { border-bottom: none; }
+        .detail-label { color: #666; font-size: 0.9rem; }
+        .detail-value { font-weight: 600; color: var(--navy); }
+        .detail-value.included { color: var(--sage); }
+        .detail-value.partial { color: #e9a825; }
+        .detail-value.extra { color: var(--coral); }
+        .hotel-pros { background: #f8f9fa; padding: 20px 25px; border-top: 2px solid #eee; }
+        .hotel-pros h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--navy); margin-bottom: 10px; }
+        .hotel-pros ul { list-style: none; }
+        .hotel-pros li { padding: 5px 0; font-size: 0.9rem; color: #555; }
+        .hotel-pros li::before { content: '✓ '; color: var(--sage); font-weight: 700; }
+        .price-banner { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: white; padding: 25px 30px; border-radius: 15px; margin-top: 30px; text-align: center; }
+        .price-banner h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 10px; }
+        .price-banner .savings { display: inline-block; background: var(--gold); color: var(--navy); padding: 8px 20px; border-radius: 20px; font-weight: 700; margin-top: 15px; }
+        .viator-section { background: white; border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(26, 39, 68, 0.1); }
+        .viator-card { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px; padding: 20px; background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%); border-radius: 12px; margin-bottom: 15px; border-left: 4px solid var(--gold); transition: transform 0.2s ease; }
+        .viator-card:hover { transform: translateX(5px); }
+        .viator-icon { font-size: 2.5rem; }
+        .viator-info h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); margin-bottom: 5px; }
+        .viator-info p { font-size: 0.85rem; color: #666; }
+        .viator-link { display: inline-block; background: linear-gradient(135deg, #ff5722 0%, #e64a19 100%); color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: transform 0.2s ease; }
+        .viator-link:hover { transform: scale(1.05); }
+        .day-card { background: white; border-radius: 20px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(26, 39, 68, 0.1); }
+        .day-header { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: white; padding: 20px 30px; }
+        .day-header h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
+        .day-header .day-theme { font-size: 0.9rem; opacity: 0.8; margin-top: 5px; }
+        .day-content { padding: 30px; }
+        .itinerary-item { display: grid; grid-template-columns: 80px 1fr; gap: 20px; padding: 15px 0; border-bottom: 1px solid #eee; }
+        .itinerary-item:last-child { border-bottom: none; }
+        .itinerary-time { font-weight: 700; color: var(--gold); font-size: 0.95rem; }
+        .itinerary-activity .note { font-size: 0.85rem; color: #888; margin-top: 5px; }
+        .meal-tag { display: inline-block; background: var(--coral); color: white; padding: 3px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: 600; margin-left: 10px; }
+        .meal-tag.lunch { background: var(--sage); }
+        .meal-tag.dinner { background: #9b59b6; }
+        .shopping-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
+        .shop-card { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(26, 39, 68, 0.08); text-align: center; transition: transform 0.3s ease; }
+        .shop-card:hover { transform: translateY(-3px); }
+        .shop-card .icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .shop-card h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); margin-bottom: 5px; }
+        .shop-card .location { font-size: 0.85rem; color: var(--gold); margin-bottom: 10px; }
+        .shop-card p { font-size: 0.9rem; color: #666; }
+        .dining-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+        .dining-card { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(26, 39, 68, 0.08); border-left: 4px solid var(--gold); }
+        .dining-card h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: 5px; }
+        .dining-card .cuisine { font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .dining-card p { font-size: 0.9rem; color: #666; }
+        .dining-card .highlight { background: var(--gold-light); padding: 10px 15px; border-radius: 8px; margin-top: 15px; font-size: 0.85rem; color: var(--navy); }
+        .free-section { background: linear-gradient(135deg, var(--sage) 0%, #7a9568 100%); border-radius: 20px; padding: 40px; color: white; margin-top: 40px; }
+        .free-section h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; text-align: center; margin-bottom: 30px; }
+        .free-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .free-item { background: rgba(255,255,255,0.15); padding: 20px; border-radius: 12px; }
+        .free-item h4 { font-size: 1.1rem; margin-bottom: 8px; }
+        .free-item p { font-size: 0.9rem; opacity: 0.9; }
+        .notice-box { border-radius: 15px; padding: 30px; margin-bottom: 25px; }
+        .notice-box.insurance { background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); border-left: 5px solid var(--coral); }
+        .notice-box.disclaimer { background: linear-gradient(135deg, #fff8e6 0%, #fff3cc 100%); border-left: 5px solid var(--gold); }
+        .notice-box h3 { font-family: 'Playfair Display', serif; color: var(--navy); margin-bottom: 15px; }
+        .notice-box p { font-size: 1rem; color: #555; line-height: 1.7; }
+        .estimate-box { background: white; padding: 20px; border-radius: 10px; display: inline-block; margin-top: 15px; }
+        .estimate-box .amount { font-size: 1.5rem; font-weight: 700; color: var(--navy); }
+        .footer { background: var(--navy); color: white; padding: 40px 20px; text-align: center; margin-top: 60px; }
+        .footer .tagline { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--gold-light); }
+        .footer p { opacity: 0.8; font-size: 0.9rem; }
         @media (max-width: 768px) {
-            .flight-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hotel-comparison {
-                grid-template-columns: 1fr;
-            }
-
-            .hotel-card.recommended::before {
-                right: -40px;
-                font-size: 0.65rem;
-            }
+            .flight-card, .viator-card { grid-template-columns: 1fr; text-align: center; }
+            .hotel-comparison { grid-template-columns: 1fr; }
+            .itinerary-item { grid-template-columns: 1fr; gap: 5px; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Hero Section -->
     <header class="hero">
         <h1>🎂 NYC 16th Birthday Trip 🗽</h1>
         <p class="subtitle">Family of 4 Celebration</p>
@@ -561,384 +131,271 @@
     </header>
 
     <div class="container">
-
-        <!-- Flights Section -->
+        <!-- Flights -->
         <section class="flight-section">
-            <div class="section-header">
-                <h2>✈️ Flight Itinerary</h2>
-            </div>
-
+            <div class="section-header"><h2>✈️ Flight Itinerary</h2></div>
             <div class="flight-date-badge">🛫 OUTBOUND — Wednesday, December 3rd</div>
-            
             <div class="flight-card">
-                <div class="flight-endpoint">
-                    <div class="code">MOB</div>
-                    <div class="city">Mobile, AL</div>
-                    <div class="time">7:00 AM</div>
-                </div>
-                <div class="flight-middle">
-                    <div class="airline">United Airlines</div>
-                    <div class="flight-num">UA #4844</div>
-                    <div class="flight-arrow">→</div>
-                    <div class="flight-num" style="font-size: 0.75rem; color: #999;">Operated by CommuteAir</div>
-                </div>
-                <div class="flight-endpoint">
-                    <div class="code">IAH</div>
-                    <div class="city">Houston, TX</div>
-                    <div class="time">8:35 AM</div>
-                </div>
+                <div class="flight-endpoint"><div class="code">MOB</div><div class="city">Mobile, AL</div><div class="time">7:00 AM</div></div>
+                <div class="flight-middle"><div class="airline">United Airlines</div><div class="flight-num">UA #4844</div><div class="flight-arrow">→</div></div>
+                <div class="flight-endpoint"><div class="code">IAH</div><div class="city">Houston, TX</div><div class="time">8:35 AM</div></div>
             </div>
-
             <div class="flight-card">
-                <div class="flight-endpoint">
-                    <div class="code">IAH</div>
-                    <div class="city">Houston, TX</div>
-                    <div class="time">9:50 AM</div>
-                </div>
-                <div class="flight-middle">
-                    <div class="airline">United Airlines</div>
-                    <div class="flight-num">UA #678</div>
-                    <div class="flight-arrow">→</div>
-                </div>
-                <div class="flight-endpoint">
-                    <div class="code">LGA</div>
-                    <div class="city">New York, NY</div>
-                    <div class="time">2:15 PM</div>
-                </div>
+                <div class="flight-endpoint"><div class="code">IAH</div><div class="city">Houston, TX</div><div class="time">9:50 AM</div></div>
+                <div class="flight-middle"><div class="airline">United Airlines</div><div class="flight-num">UA #678</div><div class="flight-arrow">→</div></div>
+                <div class="flight-endpoint"><div class="code">LGA</div><div class="city">New York, NY</div><div class="time">2:15 PM</div></div>
             </div>
-
             <div class="flight-date-badge" style="margin-top: 30px;">🛬 RETURN — Sunday, December 6th</div>
-
             <div class="flight-card">
-                <div class="flight-endpoint">
-                    <div class="code">LGA</div>
-                    <div class="city">New York, NY</div>
-                    <div class="time">2:32 PM</div>
-                </div>
-                <div class="flight-middle">
-                    <div class="airline">United Airlines</div>
-                    <div class="flight-num">UA #3688</div>
-                    <div class="flight-arrow">→</div>
-                    <div class="flight-num" style="font-size: 0.75rem; color: #999;">Operated by Republic Airways</div>
-                </div>
-                <div class="flight-endpoint">
-                    <div class="code">IAD</div>
-                    <div class="city">Washington, DC</div>
-                    <div class="time">4:04 PM</div>
-                </div>
+                <div class="flight-endpoint"><div class="code">LGA</div><div class="city">New York, NY</div><div class="time">2:32 PM</div></div>
+                <div class="flight-middle"><div class="airline">United Airlines</div><div class="flight-num">UA #3688</div><div class="flight-arrow">→</div></div>
+                <div class="flight-endpoint"><div class="code">IAD</div><div class="city">Washington, DC</div><div class="time">4:04 PM</div></div>
             </div>
-
             <div class="flight-card">
-                <div class="flight-endpoint">
-                    <div class="code">IAD</div>
-                    <div class="city">Washington, DC</div>
-                    <div class="time">5:35 PM</div>
-                </div>
-                <div class="flight-middle">
-                    <div class="airline">United Airlines</div>
-                    <div class="flight-num">UA #4295</div>
-                    <div class="flight-arrow">→</div>
-                    <div class="flight-num" style="font-size: 0.75rem; color: #999;">Operated by CommuteAir</div>
-                </div>
-                <div class="flight-endpoint">
-                    <div class="code">MOB</div>
-                    <div class="city">Mobile, AL</div>
-                    <div class="time">7:10 PM</div>
-                </div>
+                <div class="flight-endpoint"><div class="code">IAD</div><div class="city">Washington, DC</div><div class="time">5:35 PM</div></div>
+                <div class="flight-middle"><div class="airline">United Airlines</div><div class="flight-num">UA #4295</div><div class="flight-arrow">→</div></div>
+                <div class="flight-endpoint"><div class="code">MOB</div><div class="city">Mobile, AL</div><div class="time">7:10 PM</div></div>
             </div>
         </section>
 
-        <!-- Hotel Comparison Section -->
+        <!-- Hotels -->
         <section>
-            <div class="section-header">
-                <h2>🏨 Hotel Options</h2>
-            </div>
-
+            <div class="section-header"><h2>🏨 Hotel Options</h2></div>
             <div class="hotel-comparison">
-                <!-- Option 1: Riu Plaza - Recommended -->
                 <div class="hotel-card recommended">
-                    <div class="hotel-header">
-                        <h3 class="hotel-name">Riu Plaza New York Times Square</h3>
-                        <p class="hotel-location">📍 Times Square</p>
-                    </div>
-                    <div class="hotel-price">
-                        <div class="total">$10,155.87</div>
-                        <div class="per-person">$2,538.97 per person</div>
-                    </div>
+                    <div class="hotel-header"><h3 class="hotel-name">Riu Plaza New York Times Square</h3><p class="hotel-location">📍 Times Square</p></div>
+                    <div class="hotel-price"><div class="total">$10,155.87</div><div class="per-person">$2,538.97 per person</div></div>
                     <div class="hotel-details">
-                        <div class="hotel-detail-row">
-                            <span class="detail-label">Room Type</span>
-                            <span class="detail-value">Deluxe Family Full</span>
-                        </div>
-                        <div class="hotel-detail-row">
-                            <span class="detail-label">Breakfast</span>
-                            <span class="detail-value included">✓ Included (4 guests)</span>
-                        </div>
-                        <div class="hotel-detail-row">
-                            <span class="detail-label">WiFi</span>
-                            <span class="detail-value included">✓ Included</span>
-                        </div>
-                        <div class="hotel-detail-row">
-                            <span class="detail-label">Resort Fee</span>
-                            <span class="detail-value">$99.83</span>
-                        </div>
-                        <div class="hotel-detail-row">
-                            <span class="detail-label">View</span>
-                            <span class="detail-value">Standard</span>
-                        </div>
+                        <div class="hotel-detail-row"><span class="detail-label">Room Type</span><span class="detail-value">Deluxe Family Full</span></div>
+                        <div class="hotel-detail-row"><span class="detail-label">Breakfast</span><span class="detail-value included">✓ Included (4 guests)</span></div>
+                        <div class="hotel-detail-row"><span class="detail-label">WiFi</span><span class="detail-value included">✓ Included</span></div>
+                        <div class="hotel-detail-row"><span class="detail-label">Resort Fee</span><span class="detail-value">$99.83</span></div>
                     </div>
-                    <div class="hotel-pros">
-                        <h4>Why Choose Riu?</h4>
-                        <ul>
-                            <li>Breakfast for ALL 4 guests included</li>
-                            <li>Lower total price</li>
-                            <li>WiFi included at no extra charge</li>
-                            <li>Modern Spanish hotel chain</li>
-                        </ul>
-                    </div>
+                    <div class="hotel-pros"><h4>Why Choose Riu?</h4><ul><li>Breakfast for ALL 4 guests</li><li>Lower total price</li><li>WiFi included</li></ul></div>
                 </div>
-
-                <!-- Option 2: Marriott Marquis -->
                 <div class="hotel-card">
-                    <div class="hotel-header">
-                        <h3 class="hotel-name">New York Marriott Marquis</h3>
-                        <p class="hotel-location">📍 Times Square</p>
-                    </div>
-                    <div class="hotel-price">
-                        <div class="total">$11,554.17</div>
-                        <div class="per-person">$2,888.54 per person</div>
-                    </div>
+                    <div class="hotel-header"><h3 class="hotel-name">New York Marriott Marquis</h3><p class="hotel-location">📍 Times Square</p></div>
+                    <div class="hotel-price"><div class="total">$11,554.17</div><div class="per-person">$2,888.54 per person</div></div>
                     <div class="hotel-details">
-                        <div class="hotel-detail-row">
-                            <span class="detail-label">Room Type</span>
-                            <span class="detail-value">Times Square View, 2 Doubles</span>
-                        </div>
-                        <div class="hotel-detail-row">
-                            <span class="detail-label">Room Size</span>
-                            <span class="detail-value">392 sq ft</span>
-                        </div>
-                        <div class="hotel-detail-row">
-                            <span class="detail-label">Breakfast</span>
-                            <span class="detail-value partial">✓ Included (2 guests)</span>
-                        </div>
-                        <div class="hotel-detail-row">
-                            <span class="detail-label">WiFi</span>
-                            <span class="detail-value extra">Extra fee</span>
-                        </div>
-                        <div class="hotel-detail-row">
-                            <span class="detail-label">Resort Fee</span>
-                            <span class="detail-value">$120.00</span>
-                        </div>
-                        <div class="hotel-detail-row">
-                            <span class="detail-label">View</span>
-                            <span class="detail-value included">✓ Times Square View!</span>
-                        </div>
-                        <div class="hotel-detail-row">
-                            <span class="detail-label">Amenities</span>
-                            <span class="detail-value">Mini fridge, Coffee maker</span>
-                        </div>
+                        <div class="hotel-detail-row"><span class="detail-label">Room Type</span><span class="detail-value">Times Square View, 2 Doubles</span></div>
+                        <div class="hotel-detail-row"><span class="detail-label">Room Size</span><span class="detail-value">392 sq ft</span></div>
+                        <div class="hotel-detail-row"><span class="detail-label">Breakfast</span><span class="detail-value partial">✓ Included (2 guests)</span></div>
+                        <div class="hotel-detail-row"><span class="detail-label">WiFi</span><span class="detail-value extra">Extra fee</span></div>
+                        <div class="hotel-detail-row"><span class="detail-label">View</span><span class="detail-value included">✓ Times Square View!</span></div>
                     </div>
-                    <div class="hotel-pros">
-                        <h4>Why Choose Marriott?</h4>
-                        <ul>
-                            <li>Iconic Times Square view from room</li>
-                            <li>Marriott Bonvoy loyalty points</li>
-                            <li>World-renowned brand</li>
-                            <li>Larger room (392 sq ft)</li>
-                        </ul>
-                    </div>
+                    <div class="hotel-pros"><h4>Why Choose Marriott?</h4><ul><li>Iconic Times Square view</li><li>Marriott Bonvoy points</li><li>Larger room</li></ul></div>
                 </div>
             </div>
+            <div class="price-banner"><h3>💰 Price Comparison</h3><p>Riu saves money AND includes breakfast for all 4. Marriott covers 2 — budget ~$90-150 extra.</p><div class="savings">Riu saves ~$1,400+</div></div>
+        </section>
 
-            <div class="price-banner">
-                <h3>💰 Price Comparison</h3>
-                <p>The Riu Plaza saves you money upfront AND includes breakfast for all 4 guests.<br>
-                With Marriott, you'll need to purchase breakfast for 2 additional guests (~$90-150 for 3 mornings).</p>
-                <div class="savings">Riu saves ~$1,400 + breakfast costs</div>
+        <!-- Viator -->
+        <section class="viator-section" style="margin-top: 60px;">
+            <div class="section-header"><h2>🚕 Viator Tours & Transfers</h2></div>
+            <div class="viator-card">
+                <div class="viator-icon">🚐</div>
+                <div class="viator-info"><h4>Luxury VIP Airport Transfer</h4><p>Mercedes-Benz Sprinter with WiFi • Meet & greet • Door-to-door</p></div>
+                <a href="https://www.viator.com/tours/Long-Island/Luxury-VIP-New-York-City-Airport-Arrival-Transfer-by-Mercedes-Benz-Sprinter-WIFI/d23788-165675P2?pid=P00005400&uid=U00232400&mcid=58086&currency=USD" target="_blank" class="viator-link">Book Transfer →</a>
+            </div>
+            <div class="viator-card">
+                <div class="viator-icon">🚴</div>
+                <div class="viator-info"><h4>Central Park Pedicab Guided Tour</h4><p>Fun alternative to carriage rides • Bethesda Fountain, Bow Bridge, Strawberry Fields</p></div>
+                <a href="https://www.viator.com/tours/New-York-City/Central-Park-Pedicab-Guided-Tours/d687-147315P1?pid=P00005400&uid=U00232400&mcid=58086&currency=USD" target="_blank" class="viator-link">Book Pedicab →</a>
+            </div>
+            <div class="viator-card">
+                <div class="viator-icon">🚶</div>
+                <div class="viator-info"><h4>SoHo, Little Italy & Chinatown Walking Tour</h4><p>Explore NYC's vibrant neighborhoods • Local guides • Food & culture</p></div>
+                <a href="https://www.viator.com/tours/New-York-City/SoHo-Little-Italy-and-Chinatown-Walking-Tour/d687-5250SOHO?pid=P00005400&uid=U00232400&mcid=58086&currency=USD" target="_blank" class="viator-link">Book Walking Tour →</a>
+            </div>
+
+            <div class="viator-card">
+                <div class="viator-icon">🧙‍♀️</div>
+                <div class="viator-info"><h4>Wicked on Broadway</h4><p>The untold story of the Witches of Oz • Gershwin Theatre • 2hr 45min with intermission</p></div>
+                <a href="https://www.viator.com/tours/New-York-City/Wicked-on-Broadway/d687-3242NYCWIC?pid=P00005400&uid=U00232400&mcid=58086&currency=USD" target="_blank" class="viator-link">Book Wicked →</a>
+            </div>
+
+            <div class="viator-card" style="border-left-color: #c0392b;">
+                <div class="viator-icon">🎄</div>
+                <div class="viator-info"><h4>Radio City Christmas Spectacular — 100th Anniversary!</h4><p>The legendary Rockettes • Radio City Music Hall • 90 min, no intermission</p><p style="color: #c0392b; font-weight: 600; margin-top: 5px;">📅 Tickets go on sale MAY/JUNE 2026 — Book directly at rockettes.com</p></div>
+                <span style="background: #95a5a6; color: white; padding: 10px 20px; border-radius: 25px; font-size: 0.85rem; font-weight: 600;">Coming Soon</span>
             </div>
         </section>
 
-        <!-- Excursions Section -->
+        <!-- Show Options -->
         <section style="margin-top: 60px;">
-            <div class="section-header">
-                <h2>🎟️ Excursions & Experiences</h2>
+            <div class="section-header"><h2>🎭 Show Options</h2></div>
+            
+            <div style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); border-radius: 20px; padding: 30px; color: white; margin-bottom: 30px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; text-align: center;">✨ DOUBLE FEATURE DAY — See BOTH Shows! ✨</h3>
+                <p style="text-align: center; margin-bottom: 20px;">Want to see both Wicked AND the Rockettes? Here's how to make it work on Day 3:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 12px;">
+                        <h4 style="margin-bottom: 10px;">🧙‍♀️ WICKED — Matinee</h4>
+                        <p style="font-size: 0.9rem;"><strong>Time:</strong> 2:00 PM (Wed or Sat matinee)</p>
+                        <p style="font-size: 0.9rem;"><strong>Duration:</strong> 2hr 45min</p>
+                        <p style="font-size: 0.9rem;"><strong>Ends:</strong> ~4:45 PM</p>
+                        <p style="font-size: 0.9rem;"><strong>Tickets:</strong> $110.75 - $252.50</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 12px;">
+                        <h4 style="margin-bottom: 10px;">🎄 ROCKETTES — Afternoon/Evening</h4>
+                        <p style="font-size: 0.9rem;"><strong>Time:</strong> 5:00 PM or 7:00 PM show</p>
+                        <p style="font-size: 0.9rem;"><strong>Duration:</strong> 90 min (no intermission)</p>
+                        <p style="font-size: 0.9rem;"><strong>100th Anniversary Season!</strong></p>
+                        <p style="font-size: 0.9rem;"><strong>Tickets:</strong> $65 - $134</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; opacity: 0.9;">💡 <strong>Tip:</strong> Grab a quick bite between shows — theaters are just blocks apart in Midtown!</p>
             </div>
 
-            <div class="excursions-grid">
-                <div class="excursion-card">
-                    <div class="excursion-icon">🏛️</div>
-                    <div class="excursion-content">
-                        <h4>9/11 Memorial & Museum</h4>
-                        <p>Moving tribute with guided tours available. Allow 2-3 hours for the full experience.</p>
-                        <span class="excursion-price">~$35-95/person</span>
-                    </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                <div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(26, 39, 68, 0.08);">
+                    <h4 style="font-family: 'Playfair Display', serif; color: var(--navy); margin-bottom: 15px;">Option A: Rockettes Only</h4>
+                    <p style="color: #666; margin-bottom: 10px;">Radio City Christmas Spectacular</p>
+                    <p style="color: #666; margin-bottom: 10px;"><strong>100th Anniversary Season!</strong></p>
+                    <p style="font-size: 1.3rem; font-weight: 700; color: var(--navy);">$65 - $134/person</p>
                 </div>
-
-                <div class="excursion-card">
-                    <div class="excursion-icon">🎄</div>
-                    <div class="excursion-content">
-                        <h4>Radio City Rockettes</h4>
-                        <p>Christmas Spectacular! A MUST for December NYC. 90-minute show, no intermission.</p>
-                        <span class="excursion-price">~$50-200/person</span>
-                    </div>
+                <div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(26, 39, 68, 0.08);">
+                    <h4 style="font-family: 'Playfair Display', serif; color: var(--navy); margin-bottom: 15px;">Option B: Wicked Only</h4>
+                    <p style="color: #666; margin-bottom: 10px;">Broadway's beloved musical at Gershwin Theatre</p>
+                    <p style="color: #666; margin-bottom: 10px;">Perfect for a 16th birthday!</p>
+                    <p style="font-size: 1.3rem; font-weight: 700; color: var(--navy);">$110.75 - $252.50/person</p>
                 </div>
-
-                <div class="excursion-card">
-                    <div class="excursion-icon">⛸️</div>
-                    <div class="excursion-content">
-                        <h4>Ice Skating</h4>
-                        <p>Rockefeller Center or Central Park's Wollman Rink. Magical holiday experience!</p>
-                        <span class="excursion-price">~$20-35/person</span>
-                    </div>
-                </div>
-
-                <div class="excursion-card">
-                    <div class="excursion-icon">🚌</div>
-                    <div class="excursion-content">
-                        <h4>Hop-On/Hop-Off Bus</h4>
-                        <p>See all major landmarks at your own pace. Great for first-time visitors!</p>
-                        <span class="excursion-price">~$55-75/person</span>
-                    </div>
-                </div>
-
-                <div class="excursion-card">
-                    <div class="excursion-icon">🗽</div>
-                    <div class="excursion-content">
-                        <h4>Staten Island Ferry</h4>
-                        <p>FREE ferry with stunning views of the Statue of Liberty & Manhattan skyline!</p>
-                        <span class="excursion-price free">FREE!</span>
-                    </div>
-                </div>
-
-                <div class="excursion-card">
-                    <div class="excursion-icon">🚶</div>
-                    <div class="excursion-content">
-                        <h4>Self-Guided Walking Tours</h4>
-                        <p>Times Square, Central Park, High Line, Brooklyn Bridge. Download free apps!</p>
-                        <span class="excursion-price free">FREE!</span>
-                    </div>
+                <div style="background: linear-gradient(135deg, var(--gold-light) 0%, #fff 100%); border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(26, 39, 68, 0.08); border: 2px solid var(--gold);">
+                    <h4 style="font-family: 'Playfair Display', serif; color: var(--navy); margin-bottom: 15px;">⭐ Option C: BOTH Shows!</h4>
+                    <p style="color: #666; margin-bottom: 10px;">Wicked matinee + Rockettes evening</p>
+                    <p style="color: #666; margin-bottom: 10px;">Ultimate Sweet 16 experience!</p>
+                    <p style="font-size: 1.3rem; font-weight: 700; color: var(--navy);">~$175 - $385/person</p>
                 </div>
             </div>
         </section>
 
-        <!-- Dining Section -->
+        <!-- Daily Itinerary -->
         <section style="margin-top: 60px;">
-            <div class="section-header">
-                <h2>🍽️ Restaurant Recommendations</h2>
+            <div class="section-header"><h2>📅 Daily Itinerary</h2></div>
+
+            <div class="day-card">
+                <div class="day-header"><h3>Day 1 — Wednesday, December 3rd</h3><div class="day-theme">Arrival & Times Square Exploration</div></div>
+                <div class="day-content">
+                    <div class="itinerary-item"><div class="itinerary-time">2:15 PM</div><div class="itinerary-activity"><strong>✈️ Arrive LGA</strong><div class="note">Viator Luxury Sprinter transfer to hotel</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">3:30 PM</div><div class="itinerary-activity"><strong>🏨 Hotel Check-in</strong></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">4:30 PM</div><div class="itinerary-activity"><strong>🚶 Walk Times Square</strong><div class="note">M&M's World, Hershey's, Nike, holiday lights</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">5:30 PM</div><div class="itinerary-activity"><strong>🥐 Angelina Bakery</strong> <span class="meal-tag">SNACK</span><div class="note">Must-try: Nutella bomboloni!</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">7:00 PM</div><div class="itinerary-activity"><strong>🎤 Ellen's Stardust Diner</strong> <span class="meal-tag dinner">DINNER</span><div class="note">Singing waitstaff perform Broadway hits!</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">9:00 PM</div><div class="itinerary-activity"><strong>🎄 5th Ave Holiday Windows & Rockefeller Tree</strong></div></div>
+                </div>
             </div>
 
+            <div class="day-card">
+                <div class="day-header" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);"><h3>Day 2 — Thursday, December 4th 🎂</h3><div class="day-theme">Downtown NYC & Birthday Celebration</div></div>
+                <div class="day-content">
+                    <div class="itinerary-item"><div class="itinerary-time">8:30 AM</div><div class="itinerary-activity"><strong>🏛️ 9/11 Memorial & Museum</strong><div class="note">⏰ Book early AM to avoid crowds. Allow 2-3 hours.</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">12:00 PM</div><div class="itinerary-activity"><strong>🍕 Lunch in Lower Manhattan</strong> <span class="meal-tag lunch">LUNCH</span></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">1:30 PM</div><div class="itinerary-activity"><strong>🗽 Staten Island Ferry</strong><div class="note">FREE! Stunning Statue of Liberty views</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">3:30 PM</div><div class="itinerary-activity"><strong>🚶 SoHo, Little Italy & Chinatown Walking Tour</strong><div class="note">Viator guided tour</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">5:30 PM</div><div class="itinerary-activity"><strong>🏨 Return to hotel</strong><div class="note">Freshen up for birthday dinner</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">7:00 PM</div><div class="itinerary-activity"><strong>🎂✨ Birthday Dinner: Tavern on the Green</strong> <span class="meal-tag dinner">DINNER</span><div class="note">Reserve in advance — mention Sweet 16!</div></div></div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header" style="background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);"><h3>Day 3 — Friday, December 5th</h3><div class="day-theme">Central Park, Shopping & Rockettes</div></div>
+                <div class="day-content">
+                    <div class="itinerary-item"><div class="itinerary-time">9:00 AM</div><div class="itinerary-activity"><strong>🚴 Central Park Pedicab Tour</strong><div class="note">Bethesda Fountain, Bow Bridge, Strawberry Fields</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">11:30 AM</div><div class="itinerary-activity"><strong>⛸️ Ice Skating</strong><div class="note">Wollman Rink or Rockefeller Center</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">1:00 PM</div><div class="itinerary-activity"><strong>🍝 Lunch: Carmine's</strong> <span class="meal-tag lunch">LUNCH</span><div class="note">Family-style Italian feast!</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">3:00 PM</div><div class="itinerary-activity"><strong>🛍️ 5th Avenue Shopping</strong><div class="note">Tiffany's, Nike, Saks, Apple, FAO Schwarz</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">5:00 PM</div><div class="itinerary-activity"><strong>📸 Grand Central Terminal</strong><div class="note">Don't miss the whispering gallery!</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">7:00 PM</div><div class="itinerary-activity"><strong>🎄 Radio City Christmas Spectacular</strong><div class="note">The Rockettes! 100th Anniversary — book early!</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">9:30 PM</div><div class="itinerary-activity"><strong>🍫 Optional: Serendipity 3</strong><div class="note">Famous Frozen Hot Chocolate!</div></div></div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header" style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);"><h3>Day 4 — Saturday, December 6th</h3><div class="day-theme">Final Morning & Departure</div></div>
+                <div class="day-content">
+                    <div class="itinerary-item"><div class="itinerary-time">8:00 AM</div><div class="itinerary-activity"><strong>🥐 Breakfast at hotel</strong><div class="note">Included!</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">9:30 AM</div><div class="itinerary-activity"><strong>🌿 Walk the High Line</strong><div class="note">FREE elevated park → Hudson Yards</div></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">11:00 AM</div><div class="itinerary-activity"><strong>🎨 The MET or Last Shopping</strong></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">12:30 PM</div><div class="itinerary-activity"><strong>🚐 Viator Transfer to LGA</strong></div></div>
+                    <div class="itinerary-item"><div class="itinerary-time">2:32 PM</div><div class="itinerary-activity"><strong>✈️ Flight Departs</strong><div class="note">Home by 7:10 PM!</div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shopping -->
+        <section style="margin-top: 60px;">
+            <div class="section-header"><h2>🛍️ Shopping Recommendations</h2></div>
+            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 20px;">5th Avenue Flagship Stores</h3>
+            <div class="shopping-grid">
+                <div class="shop-card"><div class="icon">💎</div><h4>Tiffany & Co.</h4><div class="location">727 5th Avenue</div><p>Perfect Sweet 16 gift!</p></div>
+                <div class="shop-card"><div class="icon">🏃</div><h4>Nike NYC</h4><div class="location">650 5th Avenue</div><p>5 floors, customization studio</p></div>
+                <div class="shop-card"><div class="icon">🍎</div><h4>Apple Fifth Avenue</h4><div class="location">767 5th Avenue</div><p>24/7 glass cube store</p></div>
+                <div class="shop-card"><div class="icon">🧸</div><h4>FAO Schwarz</h4><div class="location">30 Rockefeller Plaza</div><p>Giant floor piano!</p></div>
+                <div class="shop-card"><div class="icon">💄</div><h4>Sephora</h4><div class="location">Times Square</div><p>Beauty paradise</p></div>
+                <div class="shop-card"><div class="icon">🎮</div><h4>Nintendo NY</h4><div class="location">10 Rockefeller Plaza</div><p>Gaming experiences</p></div>
+            </div>
+            <h3 style="font-family: 'Playfair Display', serif; margin: 40px 0 20px;">SoHo Shopping District</h3>
+            <div class="shopping-grid">
+                <div class="shop-card"><div class="icon">👟</div><h4>Nike SoHo</h4><div class="location">529 Broadway</div><p>Larger than 5th Ave!</p></div>
+                <div class="shop-card"><div class="icon">💕</div><h4>Glossier</h4><div class="location">123 Lafayette St</div><p>Instagram-famous beauty</p></div>
+                <div class="shop-card"><div class="icon">🛒</div><h4>Brandy Melville</h4><div class="location">499 Broadway</div><p>Teen fashion favorite</p></div>
+                <div class="shop-card"><div class="icon">🎨</div><h4>Urban Outfitters</h4><div class="location">628 Broadway</div><p>Trendy clothing & decor</p></div>
+            </div>
+        </section>
+
+        <!-- Dining -->
+        <section style="margin-top: 60px;">
+            <div class="section-header"><h2>🍽️ Restaurant Recommendations</h2></div>
             <div class="dining-grid">
-                <div class="dining-card">
-                    <h4>🍝 Carmine's</h4>
-                    <div class="cuisine">Family-Style Italian</div>
-                    <p>Huge portions perfect for sharing! Classic red-sauce Italian in Times Square.</p>
-                    <div class="highlight">💡 Perfect for groups — order family-style platters!</div>
-                </div>
-
-                <div class="dining-card">
-                    <h4>🌳 Tavern on the Green</h4>
-                    <div class="cuisine">American • Central Park</div>
-                    <p>Iconic restaurant in Central Park. Magical holiday decorations in December!</p>
-                    <div class="highlight">💡 Reserve in advance — stunning for a birthday dinner!</div>
-                </div>
-
-                <div class="dining-card">
-                    <h4>🎤 Ellen's Stardust Diner</h4>
-                    <div class="cuisine">American Diner • Times Square</div>
-                    <p>Singing waitstaff perform Broadway hits! Fun, energetic atmosphere.</p>
-                    <div class="highlight">💡 Perfect for a 16th birthday — no reservations, expect a wait!</div>
-                </div>
-
-                <div class="dining-card">
-                    <h4>🇮🇹 Elio's</h4>
-                    <div class="cuisine">Italian • Upper East Side</div>
-                    <p>Classic NYC Italian, celebrity favorite. Sophisticated but welcoming.</p>
-                    <div class="highlight">💡 Great for a special dinner out!</div>
-                </div>
-
-                <div class="dining-card">
-                    <h4>🍕 John's of Times Square</h4>
-                    <div class="cuisine">Coal-Fired Pizza</div>
-                    <p>Authentic pizza in a stunning former church! Cathedral ceilings & stained glass.</p>
-                    <div class="highlight">💡 Celebrity favorite — Jonas Brothers, Simone Biles!</div>
-                </div>
-
-                <div class="dining-card">
-                    <h4>🥯 Junior's</h4>
-                    <div class="cuisine">Deli • Cheesecake</div>
-                    <p>Famous NYC cheesecake! Great for breakfast or dessert stop.</p>
-                    <div class="highlight">💡 Must try their legendary cheesecake!</div>
-                </div>
+                <div class="dining-card"><h4>🍝 Carmine's</h4><div class="cuisine">Family-Style Italian • Times Square</div><p>Huge portions for sharing!</p><div class="highlight">💡 Perfect for groups</div></div>
+                <div class="dining-card"><h4>🌳 Tavern on the Green</h4><div class="cuisine">American • Central Park</div><p>Magical holiday decorations!</p><div class="highlight">💡 Reserve for birthday dinner</div></div>
+                <div class="dining-card"><h4>🎤 Ellen's Stardust Diner</h4><div class="cuisine">American Diner • Times Square</div><p>Singing waitstaff!</p><div class="highlight">💡 No reservations, expect a wait</div></div>
+                <div class="dining-card"><h4>🇮🇹 Elio's</h4><div class="cuisine">Italian • Upper East Side</div><p>Celebrity favorite</p><div class="highlight">💡 Upscale casual</div></div>
+                <div class="dining-card"><h4>🍕 John's of Times Square</h4><div class="cuisine">Coal-Fired Pizza</div><p>In a former church!</p><div class="highlight">💡 Jonas Brothers favorite!</div></div>
+                <div class="dining-card"><h4>🥐 Angelina Bakery</h4><div class="cuisine">Italian Pastries • Times Square</div><p>Famous Parisian bakery</p><div class="highlight">💡 Nutella bomboloni!</div></div>
+                <div class="dining-card"><h4>🍫 Serendipity 3</h4><div class="cuisine">Desserts • Upper East Side</div><p>Frozen Hot Chocolate!</p><div class="highlight">💡 Perfect after-show treat</div></div>
+                <div class="dining-card"><h4>🥯 Junior's</h4><div class="cuisine">Deli & Cheesecake</div><p>Legendary NYC cheesecake!</p><div class="highlight">💡 Must try!</div></div>
             </div>
         </section>
 
-        <!-- Free Activities Section -->
+        <!-- Free Activities -->
         <section class="free-section">
             <h3>🆓 Free Things to Do</h3>
             <div class="free-grid">
-                <div class="free-item">
-                    <h4>🗽 Staten Island Ferry</h4>
-                    <p>Free 25-minute ride with amazing Statue of Liberty views!</p>
-                </div>
-                <div class="free-item">
-                    <h4>🌳 Central Park</h4>
-                    <p>Walk, explore, see Bethesda Fountain & holiday decorations!</p>
-                </div>
-                <div class="free-item">
-                    <h4>🌉 Brooklyn Bridge Walk</h4>
-                    <p>Iconic walk with stunning Manhattan skyline views.</p>
-                </div>
-                <div class="free-item">
-                    <h4>🎄 Holiday Windows</h4>
-                    <p>5th Avenue store displays — Saks, Macy's, Bergdorf Goodman!</p>
-                </div>
-                <div class="free-item">
-                    <h4>🌿 The High Line</h4>
-                    <p>Elevated park on former railway — unique NYC experience!</p>
-                </div>
-                <div class="free-item">
-                    <h4>🌲 Rockefeller Center Tree</h4>
-                    <p>See the famous Christmas tree (get there early for fewer crowds!)</p>
-                </div>
+                <div class="free-item"><h4>🗽 Staten Island Ferry</h4><p>Free Statue of Liberty views!</p></div>
+                <div class="free-item"><h4>🌳 Central Park</h4><p>Bethesda Fountain, holiday decorations</p></div>
+                <div class="free-item"><h4>🌉 Brooklyn Bridge Walk</h4><p>Stunning skyline views</p></div>
+                <div class="free-item"><h4>🎄 Holiday Windows</h4><p>Saks, Macy's, Bergdorf Goodman</p></div>
+                <div class="free-item"><h4>🌿 The High Line</h4><p>Elevated park experience</p></div>
+                <div class="free-item"><h4>🌲 Rockefeller Tree</h4><p>Famous Christmas tree</p></div>
+                <div class="free-item"><h4>🚂 Grand Central</h4><p>Whispering gallery!</p></div>
+                <div class="free-item"><h4>🎨 The MET</h4><p>Pay what you wish for NY residents</p></div>
             </div>
         </section>
 
-    </div>
-
-    <!-- Travel Insurance & Important Notes -->
+        <!-- Important Info -->
         <section style="margin-top: 60px;">
-            <div class="section-header">
-                <h2>🛡️ Important Information</h2>
-            </div>
-            
-            <div style="background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); border-radius: 15px; padding: 30px; border-left: 5px solid var(--coral); margin-bottom: 25px;">
-                <h3 style="font-family: 'Playfair Display', serif; color: var(--navy); margin-bottom: 15px;">🛡️ Travel Insurance — RECOMMENDED</h3>
-                <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">
-                    We strongly recommend purchasing travel insurance to protect your trip investment. Coverage typically includes trip cancellation, medical emergencies, lost luggage, and travel delays.
-                </p>
-                <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block;">
-                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">Estimated Cost (~5% of trip):</p>
-                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--navy);">$500 - $600 for 4 guests</p>
-                    <p style="font-size: 0.85rem; color: #888; margin-top: 5px;">*Final quote based on traveler ages</p>
+            <div class="section-header"><h2>🛡️ Important Information</h2></div>
+            <div class="notice-box insurance">
+                <h3>🛡️ Travel Insurance — RECOMMENDED</h3>
+                <p>Protect your trip investment with coverage for cancellation, medical emergencies, lost luggage, and delays.</p>
+                <div class="estimate-box">
+                    <p style="font-size: 0.9rem; color: #666;">Estimated Cost (~5% of trip):</p>
+                    <p class="amount">$500 - $600 for 4 guests</p>
+                    <p style="font-size: 0.85rem; color: #888;">*Final quote based on traveler ages</p>
                 </div>
             </div>
-
-            <div style="background: linear-gradient(135deg, #fff8e6 0%, #fff3cc 100%); border-radius: 15px; padding: 30px; border-left: 5px solid var(--gold);">
-                <h3 style="font-family: 'Playfair Display', serif; color: var(--navy); margin-bottom: 15px;">⚠️ Pricing Disclaimer</h3>
-                <p style="font-size: 1rem; color: #555; line-height: 1.7;">
-                    <strong>Prices are NOT guaranteed until a deposit is made.</strong><br>
-                    Airline fares and hotel rates are subject to change based on availability. To lock in these rates, a deposit is required. Once we finalize your trip details, a formal quote with exact pricing will be provided.
-                </p>
+            <div class="notice-box disclaimer">
+                <h3>⚠️ Pricing Disclaimer</h3>
+                <p><strong>Prices are NOT guaranteed until a deposit is made.</strong><br>Rates subject to change based on availability. Deposit required to lock in pricing.</p>
             </div>
         </section>
-
     </div>
 
     <footer class="footer">
         <p class="tagline">✨ Happy Sweet 16 in the Big Apple! ✨</p>
         <p>Quote prepared for Family of 4 • December 3-6, 2026</p>
-        <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.6;">Prices subject to availability. Deposit required to guarantee rates.</p>
+        <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.6;">Deposit required to guarantee rates.</p>
     </footer>
-
 </body>
 </html>
