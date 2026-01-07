@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediterranean Cruise Proposal | Mother-Daughter Greek Adventure 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --aegean-deep: #1a3a52;
+            --aegean-medium: #2d5a7b;
+            --santorini-white: #fafbfc;
+            --santorini-blue: #4a90b8;
+            --sunset-gold: #d4a853;
+            --sunset-coral: #e07b54;
+            --olive-green: #6b7c5e;
+            --stone-gray: #8a9199;
+            --warm-sand: #f5f0e8;
+            --text-primary: #2c3e50;
+            --text-secondary: #5a6c7d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--santorini-white);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--aegean-deep) 0%, var(--aegean-medium) 50%, var(--santorini-blue) 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sunset-gold);
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 400;
+            color: white;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--sunset-gold);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 50px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-details {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-detail {
+            text-align: center;
+        }
+
+        .hero-detail-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        .hero-detail-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.5);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Navigation */
+        .nav {
+            background: white;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: var(--aegean-deep);
+            border-bottom-color: var(--sunset-gold);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--warm-sand);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            color: var(--aegean-deep);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Recommendation Card */
+        .recommendation {
+            background: linear-gradient(135deg, var(--aegean-deep) 0%, var(--aegean-medium) 100%);
+            border-radius: 24px;
+            padding: 60px;
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recommendation::before {
+            content: '★';
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 3rem;
+            color: var(--sunset-gold);
+            opacity: 0.3;
+        }
+
+        .recommendation-badge {
+            display: inline-block;
+            background: var(--sunset-gold);
+            color: var(--aegean-deep);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .recommendation h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .recommendation p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        .recommendation-price {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .price-option {
+            background: rgba(255,255,255,0.1);
+            padding: 25px 35px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .price-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .price-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--sunset-gold);
+            font-weight: 700;
+        }
+
+        .price-note {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Comparison Table */
+        .comparison-wrapper {
+            overflow-x: auto;
+            margin: 40px 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 60px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            min-width: 800px;
+        }
+
+        .comparison-table th {
+            background: var(--aegean-deep);
+            color: white;
+            padding: 20px 25px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .comparison-table th:first-child {
+            border-radius: 20px 0 0 0;
+        }
+
+        .comparison-table th:last-child {
+            border-radius: 0 20px 0 0;
+        }
+
+        .comparison-table td {
+            padding: 20px 25px;
+            border-bottom: 1px solid #eef2f5;
+            vertical-align: top;
+        }
+
+        .comparison-table tr:hover td {
+            background: var(--warm-sand);
+        }
+
+        .comparison-table .highlight-row td {
+            background: rgba(212, 168, 83, 0.1);
+            border-left: 4px solid var(--sunset-gold);
+        }
+
+        .comparison-table .cruise-name {
+            font-weight: 600;
+            color: var(--aegean-deep);
+        }
+
+        .comparison-table .price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--aegean-medium);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-best {
+            background: var(--sunset-gold);
+            color: var(--aegean-deep);
+        }
+
+        .badge-good {
+            background: var(--olive-green);
+            color: white;
+        }
+
+        .badge-caution {
+            background: var(--sunset-coral);
+            color: white;
+        }
+
+        /* Itinerary */
+        .itinerary-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 900px) {
+            .itinerary-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .itinerary-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .itinerary-header {
+            background: var(--aegean-deep);
+            padding: 30px;
+            color: white;
+        }
+
+        .itinerary-header h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .itinerary-header p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .itinerary-day {
+            display: flex;
+            padding: 20px 30px;
+            border-bottom: 1px solid #eef2f5;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .itinerary-day:last-child {
+            border-bottom: none;
+        }
+
+        .day-number {
+            background: var(--warm-sand);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--aegean-deep);
+            flex-shrink: 0;
+        }
+
+        .day-content h5 {
+            font-weight: 600;
+            color: var(--aegean-deep);
+            margin-bottom: 4px;
+        }
+
+        .day-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .overnight-badge {
+            background: var(--sunset-coral);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: 10px;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.06);
+            border: 1px solid #eef2f5;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--aegean-medium), var(--santorini-blue));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .feature-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--aegean-deep);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Why Celestyal Section */
+        .why-section {
+            background: var(--warm-sand);
+            padding: 100px 40px;
+            margin: 0;
+            max-width: none;
+        }
+
+        .why-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 900px) {
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .why-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--aegean-deep);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .why-content p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .why-list {
+            list-style: none;
+        }
+
+        .why-list li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: var(--text-primary);
+        }
+
+        .why-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--olive-green);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .why-image {
+            background: linear-gradient(135deg, var(--aegean-deep), var(--santorini-blue));
+            border-radius: 24px;
+            padding: 50px;
+            color: white;
+            text-align: center;
+        }
+
+        .why-image blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .why-image cite {
+            font-style: normal;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Cost Summary */
+        .cost-summary {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 60px rgba(0,0,0,0.1);
+            margin-top: 50px;
+        }
+
+        .cost-header {
+            background: linear-gradient(135deg, var(--aegean-deep), var(--aegean-medium));
+            padding: 40px;
+            color: white;
+            text-align: center;
+        }
+
+        .cost-header h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .cost-body {
+            padding: 40px;
+        }
+
+        .cost-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 0;
+            border-bottom: 1px solid #eef2f5;
+            align-items: center;
+        }
+
+        .cost-row:last-child {
+            border-bottom: none;
+        }
+
+        .cost-row.total {
+            background: var(--warm-sand);
+            margin: 20px -40px -40px;
+            padding: 25px 40px;
+            font-weight: 600;
+        }
+
+        .cost-item {
+            color: var(--text-primary);
+        }
+
+        .cost-item span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .cost-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--aegean-medium);
+        }
+
+        .cost-row.total .cost-value {
+            font-size: 1.8rem;
+            color: var(--aegean-deep);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--aegean-deep), var(--aegean-medium));
+            padding: 100px 40px;
+            text-align: center;
+            margin: 0;
+            max-width: none;
+        }
+
+        .cta-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--sunset-gold);
+            color: var(--aegean-deep);
+        }
+
+        .btn-primary:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--aegean-deep);
+            padding: 40px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav, .scroll-indicator, .cta-section {
+                display: none;
+            }
+            
+            .hero {
+                min-height: auto;
+                padding: 40px;
+            }
+            
+            section {
+                padding: 40px 20px;
+            }
+            
+            .comparison-wrapper {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Travel Proposal 2026</div>
+            <h1>Your <em>Greek Island</em> Adventure Awaits</h1>
+            <p class="hero-subtitle">A curated Mediterranean cruise experience for a mother-daughter journey through ancient history, stunning sunsets, and authentic Greek culture.</p>
+            <div class="hero-details">
+                <div class="hero-detail">
+                    <div class="hero-detail-value">7</div>
+                    <div class="hero-detail-label">Nights</div>
+                </div>
+                <div class="hero-detail">
+                    <div class="hero-detail-value">6</div>
+                    <div class="hero-detail-label">Destinations</div>
+                </div>
+                <div class="hero-detail">
+                    <div class="hero-detail-value">2</div>
+                    <div class="hero-detail-label">Countries</div>
+                </div>
+                <div class="hero-detail">
+                    <div class="hero-detail-value">May</div>
+                    <div class="hero-detail-label">2026</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#recommendation">Recommendation</a>
+            <a href="#comparison">Cruise Comparison</a>
+            <a href="#itinerary">Itineraries</a>
+            <a href="#why-celestyal">Why Celestyal</a>
+            <a href="#pricing">Investment</a>
+        </div>
+    </nav>
+
+    <!-- Recommendation Section -->
+    <section id="recommendation">
+        <div class="section-header">
+            <div class="section-number">01</div>
+            <h2 class="section-title">Our Recommendation</h2>
+            <p class="section-subtitle">After analyzing 6 cruise options, one stands out for your cultural immersion goals.</p>
+        </div>
+
+        <div class="recommendation">
+            <div class="recommendation-badge">★ Top Choice</div>
+            <h3>Celestyal Journey — "Idyllic Greece"</h3>
+            <p>A Greek-owned cruise line offering authentic cultural immersion with overnight stays in Santorini and Mykonos, included shore excursions, and the warm hospitality Greece is famous for. Perfect for first-time Europe travelers seeking culture over crowds.</p>
+            <div class="recommendation-price">
+                <div class="price-option">
+                    <div class="price-label">Ocean View + Hotel Package</div>
+                    <div class="price-value">$4,268</div>
+                    <div class="price-note">Total for 2 travelers</div>
+                </div>
+                <div class="price-option">
+                    <div class="price-label">Jr Suite Balcony + Hotel Package</div>
+                    <div class="price-value">$5,488</div>
+                    <div class="price-note">Total for 2 travelers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison">
+        <div class="section-header">
+            <div class="section-number">02</div>
+            <h2 class="section-title">Cruise Comparison</h2>
+            <p class="section-subtitle">Six Mediterranean cruises analyzed for your specific travel priorities.</p>
+        </div>
+
+        <div class="comparison-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Cruise Line</th>
+                        <th>Dates</th>
+                        <th>Route</th>
+                        <th>Ocean View/pp</th>
+                        <th>Balcony/pp</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td><span class="cruise-name">Celestyal Journey</span><br><small>Idyllic Greece 7-Night</small></td>
+                        <td>May 23-30 or<br>May 30-Jun 6</td>
+                        <td>Kusadasi roundtrip<br><small>Greece + Turkey</small></td>
+                        <td><span class="price">$1,769</span></td>
+                        <td><span class="price">$2,379</span><br><small>Jr Suite</small></td>
+                        <td><span class="badge badge-best">Best Fit</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="cruise-name">Norwegian Pearl</span><br><small>Greek Isles 7-Night</small></td>
+                        <td>May 24-31</td>
+                        <td>Athens → Ravenna<br><small>5 Countries</small></td>
+                        <td><span class="price">$1,596</span></td>
+                        <td><span class="price">$2,001</span></td>
+                        <td><span class="badge badge-good">Good Value</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="cruise-name">Costa Fortuna</span><br><small>Mediterranean 7-Night</small></td>
+                        <td>May 29-Jun 5</td>
+                        <td>Athens roundtrip</td>
+                        <td><span class="price">$1,290</span></td>
+                        <td><span class="price">Call</span></td>
+                        <td><span class="badge badge-caution">Party Crowd</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="cruise-name">Virgin Scarlet Lady</span><br><small>Mediterranean 7-Night</small></td>
+                        <td>May 24-31</td>
+                        <td>Athens roundtrip</td>
+                        <td><span class="price">$2,007</span></td>
+                        <td><span class="price">$1,953</span></td>
+                        <td><span class="badge badge-caution">Wrong Vibe</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="cruise-name">Royal Caribbean</span><br><small>Brilliance of the Seas</small></td>
+                        <td>May 25-Jun 1</td>
+                        <td>Rome → Athens</td>
+                        <td><span class="price">$2,184</span></td>
+                        <td><span class="price">$3,497</span></td>
+                        <td><span class="badge badge-good">Rome Start</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="cruise-name">Celestyal Journey</span><br><small>From Crete 7-Night</small></td>
+                        <td>May 26-Jun 2</td>
+                        <td>Crete roundtrip</td>
+                        <td colspan="2"><span class="price">Call for pricing</span></td>
+                        <td><span class="badge badge-good">Alternative</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌙</div>
+                <h4>Overnight Port Stays</h4>
+                <p>Only Celestyal offers overnight stays in Santorini and Mykonos — experience sunset dinners and evening strolls that day-visitors miss.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎫</div>
+                <h4>Included Excursions</h4>
+                <p>Celestyal includes guided tours to Ephesus and the Acropolis of Lindos — worth $150-200 value that other lines charge extra.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h4>Intimate Ship Size</h4>
+                <p>1,260 passengers vs. 2,500+ on competitors means less crowded ports, personal service, and a boutique atmosphere.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h4>True All-Inclusive</h4>
+                <p>Gratuities, port charges, Wi-Fi, drinks with meals — all included. No surprise charges or nickel-and-diming.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Itinerary Section -->
+    <section id="itinerary">
+        <div class="section-header">
+            <div class="section-number">03</div>
+            <h2 class="section-title">Day-by-Day Itineraries</h2>
+            <p class="section-subtitle">Compare what you'll experience on each cruise option.</p>
+        </div>
+
+        <div class="itinerary-container">
+            <div class="itinerary-card">
+                <div class="itinerary-header">
+                    <h4>Celestyal Journey</h4>
+                    <p>"Idyllic Greece" — Kusadasi Roundtrip</p>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">1</div>
+                    <div class="day-content">
+                        <h5>Kusadasi, Turkey</h5>
+                        <p>Embarkation • Gateway to ancient Ephesus</p>
+                    </div>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">2</div>
+                    <div class="day-content">
+                        <h5>Rhodes, Greece</h5>
+                        <p>8am-midnight • Medieval Old Town, Lindos Acropolis (included tour)</p>
+                    </div>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">3</div>
+                    <div class="day-content">
+                        <h5>Agios Nikolaos, Crete</h5>
+                        <p>8am-midnight • Charming harbor, Palace of Knossos access</p>
+                    </div>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">4-5</div>
+                    <div class="day-content">
+                        <h5>Santorini, Greece <span class="overnight-badge">Overnight</span></h5>
+                        <p>7am-12:30am • Sunset views, blue domes, caldera dining</p>
+                    </div>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">5-6</div>
+                    <div class="day-content">
+                        <h5>Mykonos, Greece <span class="overnight-badge">Overnight</span></h5>
+                        <p>8am-2am • Windmills, Little Venice, Delos island</p>
+                    </div>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">7</div>
+                    <div class="day-content">
+                        <h5>Milos, Greece</h5>
+                        <p>9am-7pm • Volcanic beaches, fishing villages</p>
+                    </div>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">8</div>
+                    <div class="day-content">
+                        <h5>Piraeus (Athens)</h5>
+                        <p>Morning arrival • Optional Athens exploration</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="itinerary-card">
+                <div class="itinerary-header" style="background: var(--aegean-medium);">
+                    <h4>Norwegian Pearl</h4>
+                    <p>"Greek Isles to Venice" — Athens to Ravenna</p>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">1</div>
+                    <div class="day-content">
+                        <h5>Athens, Greece</h5>
+                        <p>Embarkation 5pm</p>
+                    </div>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">2</div>
+                    <div class="day-content">
+                        <h5>Santorini, Greece</h5>
+                        <p>7am-6pm • Caldera views, Oia village</p>
+                    </div>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">3</div>
+                    <div class="day-content">
+                        <h5>Katakolon, Greece</h5>
+                        <p>9am-7pm • Gateway to Ancient Olympia</p>
+                    </div>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">4</div>
+                    <div class="day-content">
+                        <h5>Corfu, Greece</h5>
+                        <p>7am-5pm • Venetian architecture, Old Town</p>
+                    </div>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">5</div>
+                    <div class="day-content">
+                        <h5>Kotor, Montenegro</h5>
+                        <p>7:30am-6pm • UNESCO fjord town</p>
+                    </div>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">6</div>
+                    <div class="day-content">
+                        <h5>Split, Croatia</h5>
+                        <p>7am-5pm • Diocletian's Palace</p>
+                    </div>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">7</div>
+                    <div class="day-content">
+                        <h5>Koper, Slovenia</h5>
+                        <p>8am-7pm • Venetian Gothic architecture</p>
+                    </div>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-number">8</div>
+                    <div class="day-content">
+                        <h5>Ravenna, Italy</h5>
+                        <p>6am disembark • Byzantine mosaics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Celestyal Section -->
+    <section class="why-section" id="why-celestyal">
+        <div class="why-inner">
+            <div class="section-header">
+                <div class="section-number">04</div>
+                <h2 class="section-title">Why Celestyal Is Perfect for You</h2>
+                <p class="section-subtitle">Greek-owned, Greek-operated, Greek soul — this isn't a cruise that visits Greece, it <em>is</em> Greece.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-content">
+                    <h3>Authentic Greek Experience</h3>
+                    <p>Celestyal is headquartered in Athens and is the only cruise line that homeports in Greece year-round. The crew is predominantly Greek, sharing their homeland with genuine pride and warmth.</p>
+                    <ul class="why-list">
+                        <li><strong>"Kali Orexi" culinary program</strong> — Greek chefs prepare traditional family recipes with local ingredients</li>
+                        <li><strong>Greek dancing lessons</strong> — Learn syrtaki and hasapiko from locals</li>
+                        <li><strong>Regional wine tastings</strong> — Santorini wines, Peloponnese vintages</li>
+                        <li><strong>Cultural lectures</strong> — History and mythology of each destination</li>
+                        <li><strong>Live bouzouki music</strong> — Traditional performances, not cruise ship covers</li>
+                    </ul>
+                </div>
+                <div class="why-image">
+                    <blockquote>"The staff remembered our names and preferences within 24 hours. What really makes it for us is the Celestyal people."</blockquote>
+                    <cite>— Verified Guest Review</cite>
+                </div>
+            </div>
+
+            <div class="why-grid" style="margin-top: 60px;">
+                <div class="why-image" style="order: -1;">
+                    <blockquote>"Filoxenia" — φιλοξενία<br><small style="font-size: 1rem; font-style: normal;">The Greek concept of hospitality, meaning "love of strangers" — a 3,000-year-old cultural value.</small></blockquote>
+                </div>
+                <div class="why-content">
+                    <h3>Perfect for Mother-Daughter Travel</h3>
+                    <p>The intimate ship size, relaxed pace, and cultural programming create ideal conditions for meaningful shared experiences.</p>
+                    <ul class="why-list">
+                        <li><strong>Not too young, not too old</strong> — Warm atmosphere welcoming to all ages</li>
+                        <li><strong>Shared discovery</strong> — Cooking demos, dancing lessons, sunset watching together</li>
+                        <li><strong>No stress</strong> — All-inclusive means no budget negotiations</li>
+                        <li><strong>Overnight magic</strong> — Evening strolls in Santorini and Mykonos</li>
+                        <li><strong>First-timer friendly</strong> — Greek crew guides you through their homeland</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="features-grid" style="margin-top: 60px;">
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h4>60+ Awards</h4>
+                    <p>Including "Platinum Guest Experience" and "Best Itinerary" — recognized excellence in just 7 years.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚢</div>
+                    <h4>30+ Years Experience</h4>
+                    <p>They know every hidden gem, best local taverna, and quietest beach in the Aegean.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <h4>Sustainable Tourism</h4>
+                    <p>Committed to ethical practices and giving back to Greek island communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="section-header">
+            <div class="section-number">05</div>
+            <h2 class="section-title">Your Investment</h2>
+            <p class="section-subtitle">Complete pricing for 2 travelers including pre-cruise hotel stay.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            <div class="cost-summary">
+                <div class="cost-header">
+                    <h3>Ocean View Package</h3>
+                </div>
+                <div class="cost-body">
+                    <div class="cost-row">
+                        <div class="cost-item">7-Night Cruise (Ocean View)<span>Per person rate: $1,769</span></div>
+                        <div class="cost-value">$3,538</div>
+                    </div>
+                    <div class="cost-row">
+                        <div class="cost-item">2-Night Pre-Cruise Hotel<span>4-star Athens + all transfers</span></div>
+                        <div class="cost-value">$730</div>
+                    </div>
+                    <div class="cost-row">
+                        <div class="cost-item">Included in Cruise<span>Excursions, gratuities, Wi-Fi, drinks</span></div>
+                        <div class="cost-value">$0</div>
+                    </div>
+                    <div class="cost-row total">
+                        <div class="cost-item">Total (2 Travelers)</div>
+                        <div class="cost-value">$4,268</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cost-summary">
+                <div class="cost-header" style="background: linear-gradient(135deg, var(--sunset-coral), var(--sunset-gold));">
+                    <h3>Jr Suite Balcony Package ★</h3>
+                </div>
+                <div class="cost-body">
+                    <div class="cost-row">
+                        <div class="cost-item">7-Night Cruise (Jr Suite Balcony)<span>Per person rate: $2,379</span></div>
+                        <div class="cost-value">$4,758</div>
+                    </div>
+                    <div class="cost-row">
+                        <div class="cost-item">2-Night Pre-Cruise Hotel<span>4-star Athens + all transfers</span></div>
+                        <div class="cost-value">$730</div>
+                    </div>
+                    <div class="cost-row">
+                        <div class="cost-item">Included in Cruise<span>Excursions, gratuities, Wi-Fi, drinks</span></div>
+                        <div class="cost-value">$0</div>
+                    </div>
+                    <div class="cost-row total">
+                        <div class="cost-item">Total (2 Travelers)</div>
+                        <div class="cost-value">$5,488</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: var(--warm-sand); border-radius: 16px; padding: 30px 40px; margin-top: 40px;">
+            <h4 style="color: var(--aegean-deep); margin-bottom: 15px; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;">Additional Costs to Consider</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div>
+                    <strong style="color: var(--text-primary);">Roundtrip Airfare (2 pax)</strong>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 5px;">Estimated $2,000-2,800 from US to Athens, depending on departure city</p>
+                </div>
+                <div>
+                    <strong style="color: var(--text-primary);">Travel Insurance</strong>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 5px;">Recommended for international travel — approximately $150-300 for the trip</p>
+                </div>
+                <div>
+                    <strong style="color: var(--text-primary);">Personal Expenses</strong>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 5px;">Shopping, additional excursions, specialty dining upgrades</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding: 40px; background: white; border-radius: 20px; box-shadow: 0 5px 30px rgba(0,0,0,0.06);">
+            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--aegean-deep); margin-bottom: 15px;">Estimated Total Trip Cost</h4>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">Cruise + Hotel + Airfare for 2 travelers</p>
+            <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;">
+                <div>
+                    <div style="font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Ocean View</div>
+                    <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--aegean-deep); font-weight: 700;">$6,268 - $7,068</div>
+                </div>
+                <div>
+                    <div style="font-size: 0.9rem; color: var(--sunset-coral); text-transform: uppercase; letter-spacing: 1px;">Jr Suite Balcony ★</div>
+                    <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--sunset-coral); font-weight: 700;">$7,488 - $8,288</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-inner">
+            <h2>Ready to Begin Your Greek Adventure?</h2>
+            <p>Sailing dates: May 23-30 or May 30-June 6, 2026<br>Early booking recommended for best cabin selection.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Book Now</a>
+                <a href="#" class="btn btn-secondary">Request More Info</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Proposal prepared on <strong>January 6, 2026</strong><br>
+        Prices and availability subject to change. Contact your travel advisor for current rates.</p>
+    </footer>
+
+</body>
+</html>
