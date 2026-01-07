@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italy Itinerary Alternatives | SOMO Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F9F6F0;
+            --terracotta: #C4654A;
+            --terracotta-dark: #A34D35;
+            --olive: #6B7B5E;
+            --olive-light: #8A9A7C;
+            --charcoal: #2D2D2D;
+            --warm-gray: #7A7670;
+            --gold: #D4A853;
+            --sand: #E8E2D6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #3D3D3D 100%);
+            color: var(--cream);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--sand);
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--sand);
+        }
+
+        .intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+        }
+
+        .intro p {
+            color: var(--warm-gray);
+            font-size: 1.05rem;
+        }
+
+        /* Options Grid */
+        .options {
+            display: grid;
+            gap: 2.5rem;
+        }
+
+        .option {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .option:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .option-number {
+            background: linear-gradient(180deg, var(--olive) 0%, var(--olive-light) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            color: white;
+        }
+
+        .option-number span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .option-number small {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .option:nth-child(2) .option-number {
+            background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-dark) 100%);
+        }
+
+        .option:nth-child(3) .option-number {
+            background: linear-gradient(180deg, #5B6E8A 0%, #7A8DA6 100%);
+        }
+
+        .option:nth-child(4) .option-number {
+            background: linear-gradient(180deg, #8B7355 0%, #A68B6A 100%);
+        }
+
+        .option:nth-child(5) .option-number {
+            background: linear-gradient(180deg, var(--gold) 0%, #E0BC6D 100%);
+        }
+
+        .option-content {
+            padding: 2rem 2.5rem;
+        }
+
+        .option-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.75rem;
+        }
+
+        .option-tagline {
+            font-size: 0.85rem;
+            color: var(--terracotta);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .option-content p {
+            color: var(--warm-gray);
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: var(--sand);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--charcoal);
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--sand);
+        }
+
+        .pros h4, .cons h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .pros h4 {
+            color: var(--olive);
+        }
+
+        .cons h4 {
+            color: var(--terracotta);
+        }
+
+        .pros ul, .cons ul {
+            list-style: none;
+            font-size: 0.85rem;
+            color: var(--warm-gray);
+        }
+
+        .pros li::before {
+            content: '✓ ';
+            color: var(--olive);
+            font-weight: 600;
+        }
+
+        .cons li::before {
+            content: '— ';
+            color: var(--terracotta);
+        }
+
+        /* Recommendation */
+        .recommendation {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #3D3D3D 100%);
+            color: var(--cream);
+            padding: 3rem;
+            border-radius: 16px;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recommendation::before {
+            content: '★';
+            position: absolute;
+            top: -20px;
+            right: 40px;
+            font-size: 120px;
+            color: var(--gold);
+            opacity: 0.1;
+        }
+
+        .recommendation h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .recommendation p {
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            opacity: 0.9;
+        }
+
+        .recommendation strong {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--sand);
+            margin-top: 3rem;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .consultants {
+            color: var(--terracotta);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--warm-gray);
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .option {
+                grid-template-columns: 1fr;
+            }
+
+            .option-number {
+                flex-direction: row;
+                gap: 1rem;
+                padding: 1.25rem;
+            }
+
+            .option-number small {
+                margin-top: 0;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .recommendation {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="brand">SOMO Travel Specialists</div>
+            <h1>Alternative Destinations</h1>
+            <p class="subtitle">Options to Replace Naples in Your Italy Itinerary</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="intro">
+            <h2>Curated Alternatives for Your Journey</h2>
+            <p>Each of these options maintains smooth logistics while offering a unique Italian experience. They all connect seamlessly between Rome and the Amalfi Coast.</p>
+        </div>
+
+        <div class="options">
+            <!-- Option 1 -->
+            <article class="option">
+                <div class="option-number">
+                    <span>1</span>
+                    <small>Option</small>
+                </div>
+                <div class="option-content">
+                    <div class="option-tagline">Extended Stay</div>
+                    <h3>Extra Time in Rome + Direct to Amalfi</h3>
+                    <p>Skip Naples entirely and savor three full days in the Eternal City instead of two. Dive deeper into Rome's treasures before heading directly to the coast.</p>
+                    <div class="highlights">
+                        <span class="highlight">Borghese Gallery</span>
+                        <span class="highlight">Appian Way</span>
+                        <span class="highlight">Jewish Ghetto</span>
+                        <span class="highlight">Day Trip to Tivoli</span>
+                    </div>
+                    <p>Take the high-speed train from Rome to Salerno, then ferry or private transfer to Positano. Pompeii remains accessible as a day trip from the coast.</p>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Advantages</h4>
+                            <ul>
+                                <li>Less packing and unpacking</li>
+                                <li>More relaxed pace in Rome</li>
+                                <li>Deeper exploration of one city</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Considerations</h4>
+                            <ul>
+                                <li>Misses distinct destination variety</li>
+                                <li>Pompeii becomes day trip only</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Option 2 -->
+            <article class="option">
+                <div class="option-number">
+                    <span>2</span>
+                    <small>Option</small>
+                </div>
+                <div class="option-content">
+                    <div class="option-tagline">Coastal Charm</div>
+                    <h3>Sorrento Base</h3>
+                    <p>Replace Naples with two nights in this charming cliffside town perched above the Bay of Naples. Sorrento offers an easier pace, excellent food scene, and the scent of lemon groves around every corner.</p>
+                    <div class="highlights">
+                        <span class="highlight">Lemon Groves</span>
+                        <span class="highlight">Cliffside Views</span>
+                        <span class="highlight">Walkable Center</span>
+                        <span class="highlight">Easy Pompeii Access</span>
+                    </div>
+                    <p>Pompeii is just 20 minutes by Circumvesuviana train. Herculaneum—smaller and less crowded—is also within reach. Ferry connections to Capri and Positano are easy and frequent.</p>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Advantages</h4>
+                            <ul>
+                                <li>Relaxed, walkable atmosphere</li>
+                                <li>Gorgeous sunset views</li>
+                                <li>Great food and limoncello</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Considerations</h4>
+                            <ul>
+                                <li>More touristy than Naples</li>
+                                <li>Less "authentic" grit</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Option 3 -->
+            <article class="option">
+                <div class="option-number">
+                    <span>3</span>
+                    <small>Option</small>
+                </div>
+                <div class="option-content">
+                    <div class="option-tagline">Unforgettable Detour</div>
+                    <h3>Matera — The Ancient Cave City</h3>
+                    <p>Swap Naples for one or two nights in this UNESCO World Heritage site. Matera's ancient <em>sassi</em> (cave dwellings) carved into limestone cliffs create one of the most dramatic townscapes in all of Europe.</p>
+                    <div class="highlights">
+                        <span class="highlight">UNESCO Heritage</span>
+                        <span class="highlight">Cave Hotels</span>
+                        <span class="highlight">Stunning Photography</span>
+                        <span class="highlight">Off the Beaten Path</span>
+                    </div>
+                    <p>Route: Rome → Matera (4 hours by car or train+bus) → Amalfi Coast. Stay in a converted cave dwelling for a truly once-in-a-lifetime experience.</p>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Advantages</h4>
+                            <ul>
+                                <li>Absolutely unforgettable</li>
+                                <li>Dramatic, unique scenery</li>
+                                <li>Fewer tourists</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Considerations</h4>
+                            <ul>
+                                <li>Adds driving time</li>
+                                <li>Slightly off the direct route</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Option 4 -->
+            <article class="option">
+                <div class="option-number">
+                    <span>4</span>
+                    <small>Option</small>
+                </div>
+                <div class="option-content">
+                    <div class="option-tagline">Island Wellness</div>
+                    <h3>Ischia Island</h3>
+                    <p>Replace Naples with two nights on this volcanic island famous for natural thermal spas and hot springs. More authentic and less crowded than Capri, Ischia offers a true escape.</p>
+                    <div class="highlights">
+                        <span class="highlight">Thermal Spas</span>
+                        <span class="highlight">La Mortella Gardens</span>
+                        <span class="highlight">Aragonese Castle</span>
+                        <span class="highlight">Beautiful Beaches</span>
+                    </div>
+                    <p>Access via ferry from Naples port (you'd pass through briefly) or potentially from Civitavecchia. Enjoy the healing waters, explore the castle, and experience island life before continuing to Positano.</p>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Advantages</h4>
+                            <ul>
+                                <li>Relaxing, wellness-focused</li>
+                                <li>Authentic local atmosphere</li>
+                                <li>Natural thermal experiences</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Considerations</h4>
+                            <ul>
+                                <li>Requires ferry logistics</li>
+                                <li>May overlap with Capri day trip</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Option 5 -->
+            <article class="option">
+                <div class="option-number">
+                    <span>5</span>
+                    <small>Option</small>
+                </div>
+                <div class="option-content">
+                    <div class="option-tagline">Maximum Relaxation</div>
+                    <h3>Extended Amalfi Coast</h3>
+                    <p>Skip Naples and head straight to the coast for four nights instead of three. Begin in elegant, mountaintop Ravello before moving to Positano, or simply enjoy more leisure time in one location.</p>
+                    <div class="highlights">
+                        <span class="highlight">4 Nights on the Coast</span>
+                        <span class="highlight">Ravello's Gardens</span>
+                        <span class="highlight">Unhurried Pace</span>
+                        <span class="highlight">Pompeii Day Trip Option</span>
+                    </div>
+                    <p>Day trips to Pompeii remain possible via ferry to Sorrento plus train. This option maximizes your time in one of Italy's most beautiful regions with zero rushing.</p>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Advantages</h4>
+                            <ul>
+                                <li>Ultimate coastal relaxation</li>
+                                <li>Simpler logistics</li>
+                                <li>Flexibility each day</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Considerations</h4>
+                            <ul>
+                                <li>Misses a distinct destination</li>
+                                <li>Less variety overall</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="recommendation">
+            <h3>Our Recommendation</h3>
+            <p>For most travelers skipping Naples, we suggest <strong>Option 2 (Sorrento)</strong> or <strong>Option 5 (Extended Amalfi Coast)</strong> — both keep logistics simple while maintaining easy access to Pompeii if desired.</p>
+            <p style="margin-top: 1rem;">However, if you're seeking something <strong>truly special and unforgettable</strong>, <strong>Option 3 (Matera)</strong> is a showstopper that most tourists never experience. The ancient cave city creates memories that last a lifetime.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-brand">SOMO Travel Specialists / Cruise Planners</div>
+        <div class="consultants">Kim Henderson • Susie Jones</div>
+        <p class="tagline">"Your adventure, your way — we're here to make it happen!"</p>
+    </footer>
+</body>
+</html>
