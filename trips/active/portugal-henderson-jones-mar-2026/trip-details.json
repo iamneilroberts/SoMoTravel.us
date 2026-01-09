@@ -4,38 +4,121 @@
     "clientName": "Henderson & Jones",
     "destination": "Portugal",
     "dates": "March 22-31, 2026",
-    "occasion": null,
-    "phase": "proposal",
-    "lastUpdated": "2026-01-09T00:00:00Z",
-    "status": "Proposal",
+    "occasion": "Business scouting trip + BFF adventure",
+    "phase": "flights",
+    "lastUpdated": "2026-01-09T10:30:00Z",
+    "status": "Planning",
     "quotesConfirmed": false
   },
   "travelers": {
-    "count": null,
-    "adults": null,
+    "count": 2,
+    "adults": 2,
     "children": [],
-    "names": ["Henderson", "Jones"],
-    "notes": "Details TBD"
+    "names": ["Kim Henderson", "Susie Jones"],
+    "notes": "Business partners (travel agents) and BFFs. Both in 50s, experienced travelers, foodies, good physical health. First time to Portugal. Scouting trip to learn destination for future client sales."
   },
   "preferences": {
-    "vibe": "Cultural exploration, Portuguese cuisine, historic sites",
-    "budget": "TBD",
-    "mobility": "No restrictions noted",
-    "transportation": "TBD",
-    "mustHave": [],
-    "avoid": []
+    "vibe": "Pack it full — culture, food, scenic villages, beaches, shopping. Dual purpose: personal adventure + business reconnaissance.",
+    "budget": "Cost-conscious with selective splurges for right experiences",
+    "mobility": "No restrictions. Kim prefers shorter car rides (no long drives).",
+    "transportation": "Rental car for flexibility + trains + small group tours. Keep driving segments short.",
+    "mustHave": [
+      "Mountains/villages/hiking (Kim)",
+      "Beaches (Susie)",
+      "Shopping - fashion for Susie, unique/off-beaten-path for Kim",
+      "Great food experiences (both foodies)",
+      "See key tourist spots to understand for future clients"
+    ],
+    "avoid": [
+      "Wine tours/tastings (Susie is recovering alcoholic)",
+      "Excessive crowds (except for client reconnaissance)",
+      "Long car rides"
+    ],
+    "kimPreferences": "Mountains, villages, hiking, unique finds, shorter drives",
+    "susiePreferences": "Beaches, fashion/shopping, no alcohol-focused activities"
+  },
+  "flights": {
+    "confirmed": false,
+    "source": "TBD",
+    "notes": "Flying from Mobile, AL area. Open question: round-trip Lisbon or multi-city (Lisbon in, Porto out)?",
+    "outbound": {
+      "route": "",
+      "airline": "",
+      "flightNumbers": "",
+      "departure": "",
+      "arrival": "",
+      "class": "",
+      "price": 0,
+      "notes": ""
+    },
+    "return": {
+      "route": "",
+      "airline": "",
+      "flightNumbers": "",
+      "departure": "",
+      "arrival": "",
+      "class": "",
+      "price": 0,
+      "notes": ""
+    }
   },
   "locations": [
     {
-      "name": "Portugal",
-      "nights": 9,
-      "dates": "March 22-31, 2026",
-      "purpose": "Cultural exploration"
+      "name": "Lisbon",
+      "nights": 3,
+      "dates": "TBD",
+      "purpose": "Must-know for clients, food scene, Sintra day trip, shopping (Chiado, LX Factory)",
+      "status": "proposed"
+    },
+    {
+      "name": "Évora or Óbidos",
+      "nights": 1,
+      "dates": "TBD",
+      "purpose": "Stop en route, off-beaten-path village feel",
+      "status": "proposed"
+    },
+    {
+      "name": "Porto",
+      "nights": 3,
+      "dates": "TBD",
+      "purpose": "Walkable, great food, Douro views, unique shopping",
+      "status": "proposed"
+    },
+    {
+      "name": "Sintra or Cascais",
+      "nights": 2,
+      "dates": "TBD",
+      "purpose": "Fairy-tale palaces OR beach town before departure",
+      "status": "proposed"
     }
   ],
   "lodging": {
     "confirmed": [],
     "options": []
+  },
+  "tours": [],
+  "transport": {
+    "rentalCar": {
+      "needed": true,
+      "notes": "For flexibility, but keep segments short. Combine with trains."
+    },
+    "trains": {
+      "needed": true,
+      "notes": "Lisbon-Porto train is scenic and avoids long drive"
+    },
+    "transfers": []
+  },
+  "extras": {
+    "dining": [],
+    "freeActivities": [],
+    "hiddenGems": [],
+    "kims_gem": null,
+    "photoOps": [],
+    "shopping": {
+      "susie": "Fashion, designer",
+      "kim": "Unique, off-beaten-path finds",
+      "areas_to_research": ["Chiado", "LX Factory", "Porto boutiques"]
+    }
   },
   "packingGuide": {
     "weather": "March temperatures range from 55-65°F",
@@ -71,14 +154,47 @@
     ],
     "proTip": "A lightweight, wrinkle-resistant wardrobe will serve you well. Choose fabrics that travel easily and can be dressed up or down!"
   },
-  "preTripChecklist": [
-    { "item": "Confirm travel dates", "completed": false },
-    { "item": "Book accommodations", "completed": false },
-    { "item": "Plan daily itinerary", "completed": false }
-  ],
+  "pricing": {
+    "value": {
+      "flights": 0,
+      "lodging": 0,
+      "tours": 0,
+      "transport": 0,
+      "total": 0,
+      "perPerson": 0,
+      "confirmed": false
+    },
+    "premium": {
+      "flights": 0,
+      "lodging": 0,
+      "tours": 0,
+      "transport": 0,
+      "total": 0,
+      "perPerson": 0,
+      "confirmed": false
+    },
+    "luxury": {
+      "flights": 0,
+      "lodging": 0,
+      "tours": 0,
+      "transport": 0,
+      "total": 0,
+      "perPerson": 0,
+      "confirmed": false
+    }
+  },
   "openQuestions": [
-    "Confirm traveler details",
-    "Confirm accommodations",
-    "Plan detailed itinerary"
+    "Confirm itinerary flow: Lisbon → Évora/Óbidos → Porto → Sintra/Cascais?",
+    "Round-trip Lisbon or multi-city (Lisbon in, Porto out)?",
+    "More beach time needed? Consider Algarve or Nazaré?",
+    "Specific shopping goals? (Leather, ceramics, cork, designer, vintage?)"
+  ],
+  "preTripChecklist": [
+    { "item": "Confirm travel dates", "completed": true },
+    { "item": "Book flights", "completed": false },
+    { "item": "Book accommodations", "completed": false },
+    { "item": "Plan daily itinerary", "completed": false },
+    { "item": "Research non-wine food experiences", "completed": false },
+    { "item": "Identify key tourist spots for client reconnaissance", "completed": false }
   ]
 }
