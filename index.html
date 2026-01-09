@@ -46,6 +46,15 @@
     .actions .btn{font-size:14px; padding:8px 10px}
     .tag-new{background:#fee2e2; color:#b91c1c; border:1px solid #fecaca}
 
+    /* Move-to dropdown */
+    .move-dropdown{position:relative; display:inline-block}
+    .move-dropdown-content{display:none; position:absolute; bottom:100%; left:0; background:#fff; min-width:140px; box-shadow:0 -4px 16px rgba(0,0,0,.15); border-radius:10px; z-index:100; padding:6px 0; margin-bottom:4px}
+    .move-dropdown-content.show{display:block}
+    .move-dropdown-content button{display:block; width:100%; text-align:left; padding:8px 14px; border:none; background:none; cursor:pointer; font-size:13px; color:#374151}
+    .move-dropdown-content button:hover{background:#f3f4f6}
+    .move-dropdown-content button.current{color:#9ca3af; cursor:default}
+    .move-dropdown-content button.current:hover{background:none}
+
     #emptyState{color:var(--muted); margin-top:20px}
 
     /* Backdrop + modal */
@@ -270,11 +279,27 @@ function createTripCard(trip,index){
     const badge=document.createElement('span'); badge.className='tag tag-new'; badge.textContent='New message'; tags.appendChild(badge);
   }
   const view=document.createElement('a'); view.href=`/${trip.filename}`; view.target='_blank'; view.rel='noopener'; view.className='btn btn-secondary'; view.textContent='View';
-  const histBtn=document.createElement('button'); histBtn.className='btn btn-secondary'; histBtn.textContent='Version history'; histBtn.onclick=()=>openHistoryModal(trip);
+  const histBtn=document.createElement('button'); histBtn.className='btn btn-secondary'; histBtn.textContent='History'; histBtn.onclick=()=>openHistoryModal(trip);
   const editBtn=document.createElement('button'); editBtn.className='btn btn-secondary'; editBtn.textContent='Edit'; editBtn.onclick=()=>openEditModal(trip,index);
   const delBtn=document.createElement('button'); delBtn.className='btn btn-secondary'; delBtn.textContent='Delete'; delBtn.onclick=()=>confirmDeleteTrip(trip,index);
+
+  // Move to dropdown
+  const moveDropdown=document.createElement('div'); moveDropdown.className='move-dropdown';
+  const moveBtn=document.createElement('button'); moveBtn.className='btn btn-secondary'; moveBtn.textContent='Move to ▾';
+  const dropdownContent=document.createElement('div'); dropdownContent.className='move-dropdown-content';
+  const currentCat=normalizeCategory(trip.category);
+  CATEGORY_ORDER.forEach(cat=>{
+    const opt=document.createElement('button');
+    opt.textContent=CATEGORY_LABELS[cat];
+    if(cat===currentCat){ opt.className='current'; opt.disabled=true; }
+    else { opt.onclick=()=>moveTripToCategory(trip, cat); }
+    dropdownContent.appendChild(opt);
+  });
+  moveBtn.onclick=(e)=>{ e.stopPropagation(); document.querySelectorAll('.move-dropdown-content.show').forEach(d=>d.classList.remove('show')); dropdownContent.classList.toggle('show'); };
+  moveDropdown.append(moveBtn, dropdownContent);
+
   const actions=document.createElement('div'); actions.className='actions';
-  actions.append(view,histBtn,editBtn,delBtn);
+  actions.append(view, moveDropdown, histBtn, editBtn, delBtn);
   // Add link to Formspree submissions if highlighted
   if(MSG_HIGHLIGHT && (MSG_HIGHLIGHT.trip===trip.filename)){
     const dash=formDashboardUrl(MSG_HIGHLIGHT.kind);
@@ -310,6 +335,30 @@ async function onSubmitTrip(e){ e.preventDefault(); try{ const i=document.getEle
   await saveTripsJsonToGitHub(trips, sha); await waitForFile(`${location.origin}/trips.json`); hideSpinner(); alert('Saved.'); closeModal(); await loadTripsPublic(); }
   catch(err){ hideSpinner(); console.error(err); alert('Save failed: '+(err?.message||err)); }
 }
+
+/***** MOVE TO CATEGORY *****/
+async function moveTripToCategory(trip, newCategory){
+  if(!confirm(`Move "${trip.title||trip.filename}" to ${CATEGORY_LABELS[newCategory]}?`)) return;
+  try{
+    showSpinner('Moving trip…');
+    const {sha,trips}=await getTripsJsonFromGitHub();
+    const idx=trips.findIndex(t=>t.filename===trip.filename);
+    if(idx<0){ hideSpinner(); alert('Trip not found in metadata.'); return; }
+    trips[idx].category=newCategory;
+    trips[idx].lastModified=new Date().toISOString().slice(0,10);
+    await saveTripsJsonToGitHub(trips, sha);
+    await waitForFile(`${location.origin}/trips.json`);
+    hideSpinner();
+    await loadTripsPublic();
+  }catch(err){ hideSpinner(); alert('Move failed: '+(err?.message||err)); }
+}
+
+// Close move dropdowns when clicking outside
+document.addEventListener('click', (e)=>{
+  if(!e.target.closest('.move-dropdown')){
+    document.querySelectorAll('.move-dropdown-content.show').forEach(d=>d.classList.remove('show'));
+  }
+});
 
 /***** DELETE *****/
 async function confirmDeleteTrip(trip,index){ 

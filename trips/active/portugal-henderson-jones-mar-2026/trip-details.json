@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "tripId": "portugal-henderson-jones-mar-2026",
+    "clientName": "Henderson & Jones",
+    "destination": "Portugal",
+    "dates": "March 22-31, 2026",
+    "occasion": null,
+    "phase": "proposal",
+    "lastUpdated": "2026-01-09T00:00:00Z",
+    "status": "Proposal",
+    "quotesConfirmed": false
+  },
+  "travelers": {
+    "count": null,
+    "adults": null,
+    "children": [],
+    "names": ["Henderson", "Jones"],
+    "notes": "Details TBD"
+  },
+  "preferences": {
+    "vibe": "Cultural exploration, Portuguese cuisine, historic sites",
+    "budget": "TBD",
+    "mobility": "No restrictions noted",
+    "transportation": "TBD",
+    "mustHave": [],
+    "avoid": []
+  },
+  "locations": [
+    {
+      "name": "Portugal",
+      "nights": 9,
+      "dates": "March 22-31, 2026",
+      "purpose": "Cultural exploration"
+    }
+  ],
+  "lodging": {
+    "confirmed": [],
+    "options": []
+  },
+  "packingGuide": {
+    "weather": "March temperatures range from 55-65°F",
+    "daytime": {
+      "footwear": [
+        "Comfortable walking shoes essential - cobblestone streets everywhere",
+        "Stylish sneakers or supportive flats work perfectly",
+        "Avoid flip-flops which mark you as a tourist"
+      ],
+      "clothing": [
+        "Well-fitted jeans, chinos, capris, or casual dresses",
+        "Linen pants for warmer days",
+        "Layers essential - light jacket, cardigan, or versatile scarf",
+        "Modest tops for church visits - shoulders should be covered"
+      ]
+    },
+    "evening": {
+      "standard": "Smart casual is the standard",
+      "suggestions": [
+        "Nice blouse or sweater with dark jeans or tailored pants",
+        "Casual dress with cardigan or blazer",
+        "Comfortable but stylish low heels, ankle boots, or dressy flats"
+      ],
+      "avoid": [
+        "Athletic wear, shorts, or overly casual clothing at dinner"
+      ]
+    },
+    "generalTips": [
+      "Stick to neutrals and earthy tones - black, navy, olive, cream blend in well",
+      "Portuguese women tend toward classic, understated elegance over flashy",
+      "Versatile scarf doubles as style piece and cover-up for churches",
+      "Pack pieces that mix and match easily"
+    ],
+    "proTip": "A lightweight, wrinkle-resistant wardrobe will serve you well. Choose fabrics that travel easily and can be dressed up or down!"
+  },
+  "preTripChecklist": [
+    { "item": "Confirm travel dates", "completed": false },
+    { "item": "Book accommodations", "completed": false },
+    { "item": "Plan daily itinerary", "completed": false }
+  ],
+  "openQuestions": [
+    "Confirm traveler details",
+    "Confirm accommodations",
+    "Plan detailed itinerary"
+  ]
+}

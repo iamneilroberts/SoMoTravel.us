@@ -38,7 +38,7 @@
       "title": "Chisholm Travel Confirmation Details",
       "dates": "September 18-28, 2025",
       "status": "Travel Proposal",
-      "category": "proposal",
+      "category": "past",
       "filename": "chisolm-trip-details.html",
       "tags": [
         "Updated"
@@ -50,7 +50,7 @@
       "title": "Chisholm Family European Adventure - Luxury Travel Theme",
       "dates": "September 18-28, 2025",
       "filename": "chisholm-luxury-travel-theme",
-      "category": "confirmed",
+      "category": "past",
       "tags": [
         "luxury",
         "premium",
@@ -65,7 +65,7 @@
       "title": "Chisholm Family European Adventure - Minimal Clean Theme",
       "dates": "September 18-28, 2025",
       "filename": "chisholm-minimal-clean-theme",
-      "category": "confirmed",
+      "category": "past",
       "tags": [
         "minimal",
         "clean",
@@ -80,7 +80,7 @@
       "title": "Chisholm Family European Adventure - MVP Professional (Real Data)",
       "dates": "September 18-28, 2025",
       "filename": "chisholm-mvp-professional-real-data",
-      "category": "confirmed",
+      "category": "past",
       "tags": [
         "mvp",
         "real-data",
@@ -95,7 +95,7 @@
       "title": "Chisholm Family European Adventure - Luxury Edition",
       "dates": "September 18-28, 2025",
       "filename": "chisholm-mvp-luxury-real-data",
-      "category": "confirmed",
+      "category": "past",
       "tags": [
         "mvp",
         "luxury-theme",
@@ -110,7 +110,7 @@
       "title": "Chisholm Family European Adventure",
       "dates": "September 18-28, 2025",
       "filename": "chisholm-family-european-adventure",
-      "category": "confirmed",
+      "category": "past",
       "tags": [
         "europe",
         "ireland",
@@ -126,7 +126,7 @@
       "filename": "sara-darren-jones-anniversary-itinerary.html",
       "title": "Sara & Darren Jones: 25th Anniversary Celebration",
       "dates": "October 5-15, 2025",
-      "category": "confirmed",
+      "category": "past",
       "tags": [
         "anniversary",
         "25th",
@@ -335,7 +335,7 @@
       "filename": "vegas_itinerary_henderson_21st.html",
       "title": "Henderson's 21st Birthday - Las Vegas Trip",
       "dates": "October 8-12, 2025",
-      "category": "proposal",
+      "category": "past",
       "tags": [],
       "lastModified": "2025-10-01"
     },
@@ -409,7 +409,7 @@
       "filename": "stowe_trip (2).html",
       "title": "Stowe Vermont Ski Trip - January 2026",
       "dates": "January 6-11, 2026",
-      "category": "proposal",
+      "category": "confirmed",
       "tags": [],
       "lastModified": "2025-12-30"
     },
@@ -428,7 +428,7 @@
       "filename": "Breckenridge_2025_Itinerary_Updated (5).html",
       "title": "Breckenridge Winter Vacation 2025",
       "dates": "December 18-23, 2025",
-      "category": "proposal",
+      "category": "past",
       "tags": [],
       "lastModified": "2025-12-16"
     },
@@ -436,7 +436,7 @@
       "filename": "Breckenridge_2025_Itinerary.html",
       "title": "Breckenridge Family Ski Trip - December 18-23, 2025",
       "dates": "December 18-23, 2025",
-      "category": "paid_in_full",
+      "category": "past",
       "tags": [
         "Updated"
       ],
@@ -446,23 +446,26 @@
       "filename": "Breckenridge.html",
       "title": "Breckenridge Winter Vacation 2025",
       "dates": "December 18-23, 2025",
-      "category": "proposal",
+      "category": "past",
       "tags": [],
       "lastModified": "2025-12-16"
     },
     {
-      "filename": "Portugal_Itinerary_Henderson_Jones.html",
-      "title": "Portugal Itinerary - Henderson & Jones",
-      "dates": "March 22 - 31, 2026",
+      "id": "portugal-henderson-jones-mar-2026",
+      "filename": "trips/active/portugal-henderson-jones-mar-2026/itinerary.html",
+      "detailsFile": "trips/active/portugal-henderson-jones-mar-2026/trip-details.json",
+      "title": "Portugal - Henderson & Jones",
+      "dates": "March 22-31, 2026",
       "category": "proposal",
-      "tags": [],
-      "lastModified": "2025-12-24"
+      "tags": ["Portugal", "Lisbon", "Porto"],
+      "lastModified": "2026-01-09",
+      "hasStructuredData": true
     },
     {
       "filename": "St_Maarten_Resort_Map.html",
       "title": "St. Maarten Resort Locations",
       "dates": "April 2025",
-      "category": "proposal",
+      "category": "past",
       "tags": [],
       "lastModified": "2025-12-30"
     },
@@ -470,7 +473,7 @@
       "filename": "St_Maarten_Resort_Comparison.html",
       "title": "St. Maarten Resort Comparison | April 2025",
       "dates": "April 20, 2025",
-      "category": "proposal",
+      "category": "past",
       "tags": [],
       "lastModified": "2025-12-30"
     },
@@ -529,10 +532,11 @@
     {
       "filename": "italy-alternatives.html",
       "title": "Italy Itinerary Alternatives | SOMO Travel",
-      "dates": "",
-      "category": "proposal",
-      "tags": [],
-      "lastModified": "2026-01-07"
+      "dates": "Reference Material",
+      "category": "past",
+      "tags": ["reference", "Italy", "alternatives"],
+      "lastModified": "2026-01-07",
+      "description": "Reference document - alternative destinations to replace Naples"
     }
   ]
 }
