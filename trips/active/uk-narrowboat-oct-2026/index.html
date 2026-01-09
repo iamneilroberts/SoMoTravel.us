@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Narrowboat Adventure | Roberts & Jones | October 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F1E8;
+            --dark-green: #1A3C34;
+            --canal-blue: #2D5A6B;
+            --copper: #B87333;
+            --rust: #8B4513;
+            --gold: #C9A227;
+            --soft-white: #FDFCFA;
+            --charcoal: #2C2C2C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--canal-blue) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            color: var(--soft-white);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-style: italic;
+            color: var(--gold);
+            font-size: 0.5em;
+            margin-top: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-details {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-detail {
+            color: var(--soft-white);
+            text-align: center;
+        }
+
+        .hero-detail-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-detail-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.5);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--canal-blue);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Overview Cards */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .overview-card {
+            background: var(--soft-white);
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-left: 3px solid var(--copper);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .overview-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+
+        .overview-card p {
+            color: var(--charcoal);
+            font-size: 0.95rem;
+        }
+
+        /* Route Section */
+        .route-section {
+            background: var(--dark-green);
+            padding: 5rem 2rem;
+            margin: 0;
+            max-width: 100%;
+        }
+
+        .route-section .section-header h2 {
+            color: var(--soft-white);
+        }
+
+        .route-section .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .route-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .stop-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .stop-card:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--gold);
+        }
+
+        .stop-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stop-card .distance {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .stop-card p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .stop-card .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .stop-card .highlight-tag {
+            background: rgba(201,162,39,0.2);
+            color: var(--gold);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        /* Bikes Section */
+        .bikes-section {
+            background: linear-gradient(180deg, var(--cream) 0%, #E8E4DB 100%);
+        }
+
+        .bike-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .bike-card {
+            background: var(--soft-white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .bike-card-header {
+            background: var(--canal-blue);
+            color: var(--soft-white);
+            padding: 1.5rem;
+        }
+
+        .bike-card-header h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .bike-card-header .from {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .bike-card-body {
+            padding: 1.5rem;
+        }
+
+        .bike-card-body .distance {
+            display: inline-block;
+            background: var(--copper);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .bike-card-body p {
+            color: var(--charcoal);
+            font-size: 0.95rem;
+        }
+
+        .must-do {
+            border: 2px solid var(--gold);
+        }
+
+        .must-do .bike-card-header {
+            background: var(--rust);
+        }
+
+        .must-do-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--charcoal);
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Pubs Section */
+        .pubs-section {
+            background: var(--soft-white);
+        }
+
+        .pubs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .pub-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--cream);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .pub-item:hover {
+            background: #EBE7DE;
+        }
+
+        .pub-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--copper);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .pub-info h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--dark-green);
+            margin-bottom: 0.25rem;
+        }
+
+        .pub-info .location {
+            font-size: 0.8rem;
+            color: var(--canal-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .pub-info .notes {
+            font-size: 0.85rem;
+            color: var(--charcoal);
+        }
+
+        .must-visit {
+            border-left: 3px solid var(--gold);
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: var(--charcoal);
+            color: var(--soft-white);
+        }
+
+        .pricing-section .section-header h2 {
+            color: var(--soft-white);
+        }
+
+        .pricing-section .section-header p {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .pricing-table {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .pricing-row:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-row.total {
+            background: var(--gold);
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
+        .pricing-row .label {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .pricing-row.total .label,
+        .pricing-row.total .amount {
+            color: var(--charcoal);
+        }
+
+        .pricing-row .amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+
+        .per-person {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(201,162,39,0.1);
+            border-radius: 4px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .per-person .amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+        }
+
+        .per-person .label {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Next Steps */
+        .next-steps-section {
+            background: var(--cream);
+        }
+
+        .steps-list {
+            max-width: 700px;
+            margin: 3rem auto 0;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--dark-green);
+            color: var(--soft-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-green);
+            margin-bottom: 0.25rem;
+        }
+
+        .step-content p {
+            color: var(--charcoal);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-green);
+            color: var(--soft-white);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer p {
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--charcoal);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-details {
+                gap: 1.5rem;
+            }
+            
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .stops-grid,
+            .bike-highlights,
+            .pubs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                Oxford Canal
+                <span>A Narrowboat Adventure</span>
+            </h1>
+            <p class="hero-subtitle">Roberts & Jones • October 2026</p>
+            
+            <div class="hero-details">
+                <div class="hero-detail">
+                    <div class="hero-detail-label">Duration</div>
+                    <div class="hero-detail-value">12 Days</div>
+                </div>
+                <div class="hero-detail">
+                    <div class="hero-detail-label">Travelers</div>
+                    <div class="hero-detail-value">4 Adults</div>
+                </div>
+                <div class="hero-detail">
+                    <div class="hero-detail-label">Base</div>
+                    <div class="hero-detail-value">Lower Heyford</div>
+                </div>
+                <div class="hero-detail">
+                    <div class="hero-detail-label">Transport</div>
+                    <div class="hero-detail-value">Boat + E-Bikes</div>
+                </div>
+            </div>
+
+            <div class="status-badge">Discovery Phase • Base Confirmed</div>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview-section">
+        <div class="section-header">
+            <h2>The Experience</h2>
+            <p>A leisurely journey through England's most beautiful canal, combining narrowboat living with e-bike adventures into the Cotswolds</p>
+        </div>
+
+        <div class="overview-grid">
+            <div class="overview-card">
+                <h3>The Boat</h3>
+                <p>4-berth narrowboat with 2 private double cabins and 2 bathrooms. Full galley, central heating, and roof rack for bikes. Departing from Lower Heyford—train station steps from the marina.</p>
+            </div>
+            <div class="overview-card">
+                <h3>The Route</h3>
+                <p>The Oxford Canal, completed in 1790, winds through the landscape rather than cutting through it. South to the dreaming spires of Oxford, north through market towns and Civil War villages.</p>
+            </div>
+            <div class="overview-card">
+                <h3>The Bikes</h3>
+                <p>4 e-bikes for the full 12 days, delivered to the boat. Explore destinations unreachable by canal: Hook Norton Brewery, Blenheim Palace, hidden Cotswolds villages.</p>
+            </div>
+            <div class="overview-card">
+                <h3>The Vibe</h3>
+                <p>Relaxed pace, real ale pubs, farm-to-table dining, quirky village shops, live folk music. No rental cars, no rushing. Authentic England at 4 mph.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Route Section -->
+    <section class="route-section">
+        <div class="route-content">
+            <div class="section-header">
+                <h2>Canal Stops</h2>
+                <p>Key moorings along the Oxford Canal, each with its own character</p>
+            </div>
+
+            <div class="stops-grid">
+                <div class="stop-card">
+                    <h4>Oxford</h4>
+                    <div class="distance">7-8 hours south from base</div>
+                    <p>The city of dreaming spires. University colleges, the Covered Market (since 1774), Jericho's trendy pubs and restaurants.</p>
+                    <div class="highlights">
+                        <span class="highlight-tag">Bodleian Library</span>
+                        <span class="highlight-tag">Covered Market</span>
+                        <span class="highlight-tag">Jericho Pubs</span>
+                    </div>
+                </div>
+
+                <div class="stop-card">
+                    <h4>Thrupp</h4>
+                    <div class="distance">Near Oxford</div>
+                    <p>Charming canal hamlet with rose-covered cottages and a 15th century limestone cross. The Jolly Boatman pub—moor right outside.</p>
+                    <div class="highlights">
+                        <span class="highlight-tag">The Jolly Boatman</span>
+                        <span class="highlight-tag">Canal Cottages</span>
+                    </div>
+                </div>
+
+                <div class="stop-card">
+                    <h4>Lower Heyford</h4>
+                    <div class="distance">Base location</div>
+                    <p>Ancient village in the Domesday Book (1086). 12th century St Mary's Church. Start and end point for your adventure.</p>
+                    <div class="highlights">
+                        <span class="highlight-tag">The Bell Inn</span>
+                        <span class="highlight-tag">Rousham Gardens (bike)</span>
+                    </div>
+                </div>
+
+                <div class="stop-card">
+                    <h4>Banbury</h4>
+                    <div class="distance">~4 hours north</div>
+                    <p>Medieval market town. Tooley's Historic Boatyard—the oldest working dry dock on the canal system, operating since 1790.</p>
+                    <div class="highlights">
+                        <span class="highlight-tag">Tooley's Boatyard</span>
+                        <span class="highlight-tag">Hook Norton (bike)</span>
+                        <span class="highlight-tag">Market Days</span>
+                    </div>
+                </div>
+
+                <div class="stop-card">
+                    <h4>Cropredy</h4>
+                    <div class="distance">North of Banbury</div>
+                    <p>THE star village of the canal. Civil War battle site, thatched cottages, and two exceptional pubs. Folk music culture year-round.</p>
+                    <div class="highlights">
+                        <span class="highlight-tag">The Red Lion</span>
+                        <span class="highlight-tag">The Brasenose Arms</span>
+                        <span class="highlight-tag">Battle Site</span>
+                    </div>
+                </div>
+
+                <div class="stop-card">
+                    <h4>Napton-on-the-Hill</h4>
+                    <div class="distance">Northern limit</div>
+                    <p>Watch the famous windmill for hours as the canal circles the hill. Junction with the Grand Union Canal.</p>
+                    <div class="highlights">
+                        <span class="highlight-tag">Napton Windmill</span>
+                        <span class="highlight-tag">The Folly Inn</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bikes Section -->
+    <section class="bikes-section">
+        <div class="section-header">
+            <h2>E-Bike Adventures</h2>
+            <p>The e-bikes open up destinations unreachable by canal—into the Cotswolds hills and beyond</p>
+        </div>
+
+        <div class="bike-highlights">
+            <div class="bike-card must-do">
+                <div class="bike-card-header">
+                    <div class="must-do-badge">Must Do</div>
+                    <h4>Hook Norton Brewery</h4>
+                    <div class="from">From Banbury moorings</div>
+                </div>
+                <div class="bike-card-body">
+                    <span class="distance">6 miles each way</span>
+                    <p>Famous Victorian tower brewery, still steam-powered. Brewery tours, the Pear Tree pub on-site, and rolling Cotswolds countryside. Book tour in advance.</p>
+                </div>
+            </div>
+
+            <div class="bike-card must-do">
+                <div class="bike-card-header">
+                    <div class="must-do-badge">Must Do</div>
+                    <h4>Blenheim Palace & Woodstock</h4>
+                    <div class="from">From Oxford moorings</div>
+                </div>
+                <div class="bike-card-body">
+                    <span class="distance">8 miles each way</span>
+                    <p>UNESCO World Heritage Site. Winston Churchill's birthplace. Capability Brown gardens. Woodstock is a charming market town with antiques and pubs.</p>
+                </div>
+            </div>
+
+            <div class="bike-card must-do">
+                <div class="bike-card-header">
+                    <div class="must-do-badge">Must Do</div>
+                    <h4>Rousham House & Gardens</h4>
+                    <div class="from">From Lower Heyford base</div>
+                </div>
+                <div class="bike-card-body">
+                    <span class="distance">2 miles each way</span>
+                    <p>Beautifully preserved 18th century William Kent gardens with cascades, walled garden, and parterre. Quick morning ride from base.</p>
+                </div>
+            </div>
+
+            <div class="bike-card">
+                <div class="bike-card-header">
+                    <h4>Deddington</h4>
+                    <div class="from">From Lower Heyford</div>
+                </div>
+                <div class="bike-card-body">
+                    <span class="distance">5 miles each way</span>
+                    <p>Larger Cotswolds village with castle ruins, farmers market (4th Saturday), excellent pubs and independent shops.</p>
+                </div>
+            </div>
+
+            <div class="bike-card">
+                <div class="bike-card-header">
+                    <h4>Burton Dassett Hills</h4>
+                    <div class="from">From Fenny Compton</div>
+                </div>
+                <div class="bike-card-body">
+                    <span class="distance">4 miles each way</span>
+                    <p>Panoramic views over Warwickshire, medieval beacon tower, Iron Age hill fort. Best viewpoint of the trip.</p>
+                </div>
+            </div>
+
+            <div class="bike-card">
+                <div class="bike-card-header">
+                    <h4>Aynho Village</h4>
+                    <div class="from">From Aynho Wharf</div>
+                </div>
+                <div class="bike-card-body">
+                    <span class="distance">1 mile each way</span>
+                    <p>Picture-perfect Cotswolds limestone village. Famous for apricot trees growing on cottage walls—unique microclimate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pubs Section -->
+    <section class="pubs-section">
+        <div class="section-header">
+            <h2>Real Ale Pubs</h2>
+            <p>The Oxford Canal is famous for its canalside pubs—many serving Hook Norton and other local ales</p>
+        </div>
+
+        <div class="pubs-grid">
+            <div class="pub-item must-visit">
+                <div class="pub-icon">🍺</div>
+                <div class="pub-info">
+                    <h5>The Red Lion</h5>
+                    <div class="location">Cropredy</div>
+                    <div class="notes">CAMRA listed. Part-thatched, log fires. Must visit.</div>
+                </div>
+            </div>
+
+            <div class="pub-item must-visit">
+                <div class="pub-icon">🍺</div>
+                <div class="pub-info">
+                    <h5>The Great Western Arms</h5>
+                    <div class="location">Aynho Wharf</div>
+                    <div class="notes">Between canal and railway. Hook Norton ales. Excellent food.</div>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-icon">🍺</div>
+                <div class="pub-info">
+                    <h5>The Jolly Boatman</h5>
+                    <div class="location">Thrupp</div>
+                    <div class="notes">Moor right outside. Real ales, great food.</div>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-icon">🍺</div>
+                <div class="pub-info">
+                    <h5>The Brasenose Arms</h5>
+                    <div class="location">Cropredy</div>
+                    <div class="notes">17th century. Great food, rooms available.</div>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-icon">🍺</div>
+                <div class="pub-info">
+                    <h5>The Old Auctioneer</h5>
+                    <div class="location">Banbury</div>
+                    <div class="notes">Third oldest building in Banbury (1596).</div>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-icon">🍺</div>
+                <div class="pub-info">
+                    <h5>The Wharf Inn</h5>
+                    <div class="location">Fenny Compton</div>
+                    <div class="notes">Leather sofas, beer garden, excellent food.</div>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-icon">🍺</div>
+                <div class="pub-info">
+                    <h5>The Bell Inn</h5>
+                    <div class="location">Lower Heyford</div>
+                    <div class="notes">Near base. Good food and beer on tap.</div>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-icon">🍺</div>
+                <div class="pub-info">
+                    <h5>The Pear Tree</h5>
+                    <div class="location">Hook Norton (bike)</div>
+                    <div class="notes">At the brewery. Fresh Hook Norton ales.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="section-header">
+            <h2>Investment</h2>
+            <p>Preliminary estimates—final quotes pending</p>
+        </div>
+
+        <div class="pricing-table">
+            <div class="pricing-row">
+                <span class="label">Flights (4 passengers, Delta)</span>
+                <span class="amount">$3,000</span>
+            </div>
+            <div class="pricing-row">
+                <span class="label">Narrowboat (12 days, 2 bathrooms)</span>
+                <span class="amount">$3,000</span>
+            </div>
+            <div class="pricing-row">
+                <span class="label">E-Bikes (4 bikes, 12 days)</span>
+                <span class="amount">$600</span>
+            </div>
+            <div class="pricing-row">
+                <span class="label">Train (Heathrow ↔ Lower Heyford)</span>
+                <span class="amount">$200</span>
+            </div>
+            <div class="pricing-row">
+                <span class="label">Food & Dining</span>
+                <span class="amount">$1,500</span>
+            </div>
+            <div class="pricing-row">
+                <span class="label">Activities & Attractions</span>
+                <span class="amount">$400</span>
+            </div>
+            <div class="pricing-row total">
+                <span class="label">Estimated Total</span>
+                <span class="amount">$8,700</span>
+            </div>
+        </div>
+
+        <div class="per-person">
+            <div class="amount">$2,175</div>
+            <div class="label">per person (4 travelers)</div>
+        </div>
+    </section>
+
+    <!-- Next Steps Section -->
+    <section class="next-steps-section">
+        <div class="section-header">
+            <h2>Next Steps</h2>
+            <p>What we need to finalize this adventure</p>
+        </div>
+
+        <div class="steps-list">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Confirm Dates</h4>
+                    <p>Late September or early October? Any dates to avoid?</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Flight Quotes</h4>
+                    <p>Price Delta MOB→ATL→LHR for 4 passengers, compare with PNS/GPT/MSY</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Book Narrowboat</h4>
+                    <p>Contact Black Prince or Oxfordshire Narrowboats at Lower Heyford. Confirm 4-berth/2-bath and bike storage.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>E-Bike Rental</h4>
+                    <p>Get quotes from Bainton Bikes (Oxford) or boat company partner for delivery to base.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Advance Bookings</h4>
+                    <p>Hook Norton Brewery tour and Blenheim Palace tickets once dates confirmed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">SOMO Travel Specialists</div>
+        <p>Prepared January 2026 • Discovery Phase</p>
+    </footer>
+</body>
+</html>
