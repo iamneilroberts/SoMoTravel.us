@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonesta Maho Beach - Trip Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+        .subtitle {
+            text-align: center;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        .main-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+        .card-header {
+            background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+            padding: 30px;
+            color: #fff;
+            text-align: center;
+        }
+        .card-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+        .card-header .room-type {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        .card-header .location {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-top: 5px;
+        }
+        
+        /* Pricing Section */
+        .price-section {
+            background: #f8f9fa;
+            padding: 25px 30px;
+            border-bottom: 1px solid #eee;
+        }
+        .price-section h3 {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .price-row:last-child {
+            border-bottom: none;
+        }
+        .price-row.total {
+            border-top: 2px solid #2193b0;
+            margin-top: 10px;
+            padding-top: 15px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            border-bottom: none;
+        }
+        .price-row.total .amount {
+            color: #2193b0;
+        }
+        
+        /* Info Sections */
+        .info-section {
+            padding: 25px 30px;
+            border-bottom: 1px solid #eee;
+        }
+        .info-section:last-child {
+            border-bottom: none;
+        }
+        .info-section h3 {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        .info-item .icon {
+            font-size: 1.5rem;
+            margin-right: 12px;
+        }
+        .info-item .details {
+            flex: 1;
+        }
+        .info-item .label {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        .info-item .value {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        /* Feature Lists */
+        .feature-list {
+            list-style: none;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            font-size: 0.95rem;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        .feature-list li::before {
+            content: "✓";
+            margin-right: 12px;
+            color: #2193b0;
+            font-weight: bold;
+        }
+        
+        /* Cancellation Policy */
+        .cancellation-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .cancel-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+        .cancel-item.free {
+            background: #d4edda;
+            color: #155724;
+        }
+        .cancel-item.partial {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .cancel-item.full {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .cancel-item .dates {
+            flex: 1;
+        }
+        .cancel-item .penalty {
+            font-weight: bold;
+        }
+        
+        /* Optional Fees */
+        .fees-list {
+            list-style: none;
+        }
+        .fees-list li {
+            padding: 10px 0;
+            font-size: 0.95rem;
+            color: #555;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .fees-list li:last-child {
+            border-bottom: none;
+        }
+        .fee-amount {
+            color: #888;
+        }
+        
+        /* Attractions */
+        .attractions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .attraction-item {
+            font-size: 0.9rem;
+            color: #555;
+            padding: 6px 0;
+        }
+        .attraction-item .distance {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        
+        /* Airport Info */
+        .airport-box {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2193b0;
+        }
+        .airport-box .name {
+            font-weight: 600;
+            color: #333;
+        }
+        .airport-box .distance {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Dining Section */
+        .dining-highlight {
+            background: #f0f7fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* Note Box */
+        .note-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #856404;
+        }
+        
+        /* Contact Info */
+        .contact-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .contact-box .phone-icon {
+            font-size: 1.5rem;
+        }
+        .contact-box .phone-number {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2193b0;
+        }
+        
+        @media (max-width: 600px) {
+            .info-grid, .attractions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌴 St. Maarten Trip Confirmed</h1>
+        <p class="subtitle">Neil & Kelley</p>
+        
+        <div class="main-card">
+            <div class="card-header">
+                <h2>Sonesta Maho Beach All Inclusive Resort</h2>
+                <div class="room-type">Ultimate Adults Only Club Room – Double Beds</div>
+                <div class="location">📍 Maho Beach, St. Maarten</div>
+            </div>
+            
+            <!-- Pricing -->
+            <div class="price-section">
+                <h3>💰 Pricing Summary</h3>
+                <div class="price-row">
+                    <span>Resort Package (includes shared transfer)</span>
+                    <span>$3,841.54</span>
+                </div>
+                <div class="price-row">
+                    <span>Trip Protection Insurance</span>
+                    <span>$366.99</span>
+                </div>
+                <div class="price-row total">
+                    <span>Total</span>
+                    <span class="amount">$4,208.53</span>
+                </div>
+            </div>
+            
+            <!-- Check-in/Check-out -->
+            <div class="info-section">
+                <h3>🕐 Check-In & Check-Out</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="icon">📥</div>
+                        <div class="details">
+                            <div class="label">Check-In</div>
+                            <div class="value">4:00 PM</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">📤</div>
+                        <div class="details">
+                            <div class="label">Check-Out</div>
+                            <div class="value">11:00 AM</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🎂</div>
+                        <div class="details">
+                            <div class="label">Minimum Age</div>
+                            <div class="value">18 years</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">📧</div>
+                        <div class="details">
+                            <div class="label">Check-In Instructions</div>
+                            <div class="value">Email sent 24 hrs before arrival</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="note-box">
+                    <strong>Note:</strong> Online registration required prior to arrival. You'll receive an email with check-in instructions within 24 hours before arrival.
+                </div>
+            </div>
+            
+            <!-- Ultimate Club Benefits -->
+            <div class="info-section">
+                <h3>✨ Ultimate Adults Only Club Benefits</h3>
+                <ul class="feature-list">
+                    <li>Exclusive access to Club floors (top two floors)</li>
+                    <li>Cloud9 Rooftop Bar access</li>
+                    <li>Cloud9 Kitchen for light fare</li>
+                    <li>Ultimate Club Lounge</li>
+                    <li>Priority check-in and check-out</li>
+                    <li>Concierge service</li>
+                    <li>All-night in-room dining</li>
+                    <li>Enhanced in-room entertainment</li>
+                    <li>Upgraded in-room amenities</li>
+                    <li>Access to Adults-Only gym</li>
+                    <li>Seascape pool with swim-up bar at Sonesta Ocean Point</li>
+                    <li>Frette Italian sheets</li>
+                    <li>Mini-bar with spirits and beer (refreshed daily)</li>
+                </ul>
+            </div>
+            
+            <!-- All-Inclusive -->
+            <div class="info-section">
+                <h3>🍽️ Limitless All-Inclusive</h3>
+                <div class="dining-highlight">
+                    <strong>5 Restaurants + Coffee Shop/Café</strong> including The Village Tavern (American cuisine), plus 5 bars/lounges, beach bar, and poolside bar with swim-up service.
+                </div>
+                <ul class="feature-list">
+                    <li>Unlimited breakfast, lunch, dinner & snacks</li>
+                    <li>International and domestic beer, wine & spirits</li>
+                    <li>Fruit drinks and soft drinks at all bars</li>
+                    <li>Welcome drink and cold towel at check-in</li>
+                    <li>Weekly manager's cocktail party</li>
+                    <li>Beach dinner party</li>
+                    <li>Free WiFi in rooms and common areas</li>
+                    <li>Daytime activities (water aerobics, snorkeling equipment, volleyball, ping pong, pool table)</li>
+                    <li>2 outdoor swimming pools</li>
+                    <li>Nightly theme parties, live entertainment & outdoor movies</li>
+                </ul>
+            </div>
+            
+            <!-- Room Features -->
+            <div class="info-section">
+                <h3>🛏️ Room Features</h3>
+                <ul class="feature-list">
+                    <li>Double beds</li>
+                    <li>Private furnished balcony</li>
+                    <li>LCD television with satellite programming</li>
+                    <li>Complimentary WiFi</li>
+                    <li>Free minibar items</li>
+                    <li>Private bathroom with rainfall showerhead</li>
+                    <li>Designer toiletries</li>
+                </ul>
+            </div>
+            
+            <!-- Cancellation Policy -->
+            <div class="info-section">
+                <h3>📋 Cancellation Policy</h3>
+                <div class="cancellation-timeline">
+                    <div class="cancel-item free">
+                        <div class="dates">Jan 5, 2026 – Apr 13, 2026</div>
+                        <div class="penalty">0% Penalty (FREE)</div>
+                    </div>
+                    <div class="cancel-item partial">
+                        <div class="dates">Apr 14, 2026 – Apr 15, 2026</div>
+                        <div class="penalty">28% Penalty</div>
+                    </div>
+                    <div class="cancel-item full">
+                        <div class="dates">Apr 16, 2026 – Apr 18, 2026</div>
+                        <div class="penalty">100% Penalty</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Optional Fees -->
+            <div class="info-section">
+                <h3>💵 Optional Fees</h3>
+                <ul class="fees-list">
+                    <li>
+                        <span>Covered self parking (in/out privileges)</span>
+                        <span class="fee-amount">$10/day</span>
+                    </li>
+                    <li>
+                        <span>Early check-in</span>
+                        <span class="fee-amount">Fee (subject to availability)</span>
+                    </li>
+                    <li>
+                        <span>Late check-out</span>
+                        <span class="fee-amount">Fee (subject to availability)</span>
+                    </li>
+                    <li>
+                        <span>Spa treatments & massages</span>
+                        <span class="fee-amount">Reservations required</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Resort Amenities -->
+            <div class="info-section">
+                <h3>🏨 Resort Amenities</h3>
+                <ul class="feature-list">
+                    <li>Full-service spa (massages, body treatments, facials)</li>
+                    <li>Casino on-site</li>
+                    <li>2 outdoor swimming pools</li>
+                    <li>Fitness center</li>
+                    <li>24-hour front desk</li>
+                    <li>Concierge services</li>
+                    <li>Dry cleaning/laundry services</li>
+                    <li>Multilingual staff</li>
+                    <li>420 guestrooms</li>
+                </ul>
+            </div>
+            
+            <!-- Nearby Attractions -->
+            <div class="info-section">
+                <h3>📍 Nearby Attractions</h3>
+                <div class="attractions-grid">
+                    <div class="attraction-item">Casino Royale <span class="distance">– 0.1 mi</span></div>
+                    <div class="attraction-item">Maho Beach <span class="distance">– 0.1 mi</span></div>
+                    <div class="attraction-item">Mullet Bay Golf <span class="distance">– 0.1 mi</span></div>
+                    <div class="attraction-item">Dunes Casino <span class="distance">– 0.4 mi</span></div>
+                    <div class="attraction-item">Mullet Bay Beach <span class="distance">– 0.5 mi</span></div>
+                    <div class="attraction-item">Simpson Bay Beach <span class="distance">– 0.8 mi</span></div>
+                    <div class="attraction-item">Cupecoy Beach <span class="distance">– 1.5 mi</span></div>
+                    <div class="attraction-item">Kim Sha Beach <span class="distance">– 2.8 mi</span></div>
+                </div>
+            </div>
+            
+            <!-- Airport -->
+            <div class="info-section">
+                <h3>✈️ Airport Information</h3>
+                <div class="airport-box">
+                    <div class="name">Princess Juliana International Airport (SXM)</div>
+                    <div class="distance">0.9 miles from resort – Shared transfer included</div>
+                </div>
+            </div>
+            
+            <!-- Contact -->
+            <div class="info-section">
+                <h3>📞 Property Contact</h3>
+                <div class="contact-box">
+                    <div class="phone-icon">📞</div>
+                    <div>
+                        <div class="phone-number">1-721-545-2115</div>
+                        <div style="font-size: 0.85rem; color: #666;">For spa reservations, special requests, or questions</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recommended Excursions -->
+            <div class="info-section" style="background: linear-gradient(135deg, #e8f4f8 0%, #f0f7fa 100%);">
+                <h3>🌊 Recommended Excursions</h3>
+                
+                <!-- TOP PICKS -->
+                <div style="background: #2193b0; color: #fff; padding: 10px 15px; border-radius: 8px 8px 0 0; font-weight: 600; font-size: 0.9rem;">⭐ TOP PICKS FOR SNORKELING & WATER ACTIVITIES</div>
+                
+                <div style="background: #fff; border-radius: 0 0 10px 10px; padding: 20px; margin-bottom: 20px; border: 2px solid #2193b0;">
+                    
+                    <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+                            <strong style="color: #333; font-size: 1rem;">The Best Catamaran Day Sail</strong>
+                            <span style="background: #e8f5e9; color: #2e7d32; padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">~$130-150/person</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">⏱️ 5 hours | ⭐ 1,650+ Reviews | 📍 Random Wind Charters</div>
+                        <p style="font-size: 0.85rem; color: #555; line-height: 1.5; margin-bottom: 8px;">
+                            Top-rated sailing on the 52-foot Random Wind catamaran. Famous "Tarzan Swing," snorkeling over sunken helicopter & submarine, paddleboarding, fresh homemade Caribbean lunch. Open bar all day. Visits Mullet Bay and Little Bay.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px;">
+                            <span style="background: #fff3e0; color: #e65100; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Tarzan Swing</span>
+                            <span style="background: #fff3e0; color: #e65100; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Homemade Lunch</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Open Bar</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Max 30 Guests</span>
+                        </div>
+                        <a href="https://www.viator.com/tours/St-Maarten/Small-Group-Day-Sail-in-St-Maarten/d728-6239SGSAIL" target="_blank" style="color: #2193b0; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Book on Viator →</a>
+                    </div>
+                    
+                    <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+                            <strong style="color: #333; font-size: 1rem;">Captain Alan's 3 Islands Snorkeling Adventure</strong>
+                            <span style="background: #e8f5e9; color: #2e7d32; padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">~$89 + $5 tax</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">⏱️ 4 hours | ⭐ 610+ Reviews (4.9 stars) | 📍 Oyster Bay Marina</div>
+                        <p style="font-size: 0.85rem; color: #555; line-height: 1.5; margin-bottom: 8px;">
+                            Family-run powerboat adventure to Tintamarre Island (swim with turtles!), Pinel Island (beach bar, iguanas), and Creole Rock/Green Key. Small group (max 12), crew goes in water with you! Fresh French bread sandwiches included.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px;">
+                            <span style="background: #fff3e0; color: #e65100; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Swim with Turtles</span>
+                            <span style="background: #fff3e0; color: #e65100; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">3 Islands</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Max 12 Guests</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Family-Owned</span>
+                        </div>
+                        <a href="https://www.viator.com/tours/St-Maarten/Three-island-snorkeling-and-Beach/d728-126621P1" target="_blank" style="color: #2193b0; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Book on Viator →</a>
+                    </div>
+                    
+                    <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+                            <strong style="color: #333; font-size: 1rem;">Rhino Rider Safari – Self-Drive Boat Tour</strong>
+                            <span style="background: #e8f5e9; color: #2e7d32; padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">$159-185</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">⏱️ 2.5-3 hours | ⭐ #1 Water Activity 19 Years | 📍 Simpson Bay</div>
+                        <p style="font-size: 0.85rem; color: #555; line-height: 1.5; margin-bottom: 8px;">
+                            Pilot your own 10-foot inflatable speedboat along St. Maarten's coastline! No experience needed. Pass mega-yachts in Simpson Bay, then snorkel at Creole Rock or relax at Happy Bay beach.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px;">
+                            <span style="background: #fff3e0; color: #e65100; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Drive Your Own Boat</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Creole Rock Snorkeling</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Mega-Yacht Marina</span>
+                        </div>
+                        <a href="https://rhinotours.com/" target="_blank" style="color: #2193b0; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Book on Rhino Safari →</a>
+                    </div>
+                    
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+                            <strong style="color: #333; font-size: 1rem;">French & Dutch Sides Sightseeing Tour</strong>
+                            <span style="background: #e8f5e9; color: #2e7d32; padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">~$70-95/person</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">⏱️ 4.5-5 hours | ⭐ 600+ Reviews | 📍 Viator</div>
+                        <p style="font-size: 0.85rem; color: #555; line-height: 1.5; margin-bottom: 8px;">
+                            Comprehensive tour of both sides of the island. Visit Coralita Bay lookout, Orient Beach (45 min), Marigot for French shopping, and Maho Beach for plane watching. Local guides share island history.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px;">
+                            <span style="background: #fff3e0; color: #e65100; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Maho Beach Planes</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Orient Beach</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Marigot Shopping</span>
+                        </div>
+                        <a href="https://www.viator.com/tours/St-Maarten/St-Martin-and-St-Maarten-Sightseeing-Tour-of-the-French-and-Dutch-Sides-of-the-Island/d728-5755H001" target="_blank" style="color: #2193b0; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Book on Viator →</a>
+                    </div>
+                </div>
+                
+                <!-- MORE SNORKELING OPTIONS -->
+                <div style="background: #006d77; color: #fff; padding: 10px 15px; border-radius: 8px 8px 0 0; font-weight: 600; font-size: 0.9rem;">🤿 MORE SNORKELING OPTIONS</div>
+                
+                <div style="background: #fff; border-radius: 0 0 10px 10px; padding: 20px; margin-bottom: 20px; border: 2px solid #006d77;">
+                    
+                    <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+                            <strong style="color: #333; font-size: 1rem;">Billy Bones St. Maarten Getaway – Snorkeling with Turtles</strong>
+                            <span style="background: #e8f5e9; color: #2e7d32; padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">~$130-160/person</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">⏱️ 6-7 hours | ⭐ 323+ Reviews | 📍 Viator</div>
+                        <p style="font-size: 0.85rem; color: #555; line-height: 1.5; margin-bottom: 8px;">
+                            Popular tour to Tintamarre Island, Creole Rock, and Grand Case. Swim with sea turtles at Tintamarre's pristine waters. Includes snorkeling gear, lunch, and beverages. Hotel pickup available.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px;">
+                            <span style="background: #e0f2f1; color: #00695c; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Tintamarre Island</span>
+                            <span style="background: #e0f2f1; color: #00695c; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Creole Rock</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Grand Case Lunch</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Hotel Pickup</span>
+                        </div>
+                        <a href="https://www.viator.com/tours/St-Maarten/Eco-Snorkeling-and-Beach-Excursion-with-Lunch/d728-8148P6" target="_blank" style="color: #006d77; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Book on Viator →</a>
+                    </div>
+                    
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+                            <strong style="color: #333; font-size: 1rem;">Catamaran Snorkel & Beach Tour</strong>
+                            <span style="background: #e8f5e9; color: #2e7d32; padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">~$100-130/person</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">⏱️ 6 hours | ⭐ Popular Choice | 📍 Tropical Sailing SXM</div>
+                        <p style="font-size: 0.85rem; color: #555; line-height: 1.5; margin-bottom: 8px;">
+                            Sail along St. Maarten's leeward coast on a catamaran. Snorkel at Divi Little Bay (sunken submarine & helicopter!), visit Long Bay or Mullet Bay beaches. Includes BBQ lunch, open bar with rum punch.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px;">
+                            <span style="background: #e0f2f1; color: #00695c; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Underwater Museum</span>
+                            <span style="background: #e0f2f1; color: #00695c; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Catamaran Sailing</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">BBQ Lunch</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Maho Beach Pass-by</span>
+                        </div>
+                        <a href="https://sailingsxm.com/tours/tropical-sailing-catamaran-beach-snorkel-tour" target="_blank" style="color: #006d77; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Book on Tropical Sailing →</a>
+                    </div>
+                </div>
+                
+                <!-- MORE WATER SPORTS -->
+                <div style="background: #e07a5f; color: #fff; padding: 10px 15px; border-radius: 8px 8px 0 0; font-weight: 600; font-size: 0.9rem;">🚤 MORE WATER SPORTS</div>
+                
+                <div style="background: #fff; border-radius: 0 0 10px 10px; padding: 20px; margin-bottom: 20px; border: 2px solid #e07a5f;">
+                    
+                    <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+                            <strong style="color: #333; font-size: 1rem;">Kayak & Snorkel Adventure – Simpson Bay</strong>
+                            <span style="background: #e8f5e9; color: #2e7d32; padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">~$65-80/person</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">⏱️ 2.5 hours | ⭐ Great for Beginners | 📍 Viator / TriSport</div>
+                        <p style="font-size: 0.85rem; color: #555; line-height: 1.5; margin-bottom: 8px;">
+                            Leisurely kayaking and snorkeling in Simpson Bay. Perfect for beginners with 45 min snorkeling and 40 min kayaking. See parrot fish, trumpet fish, and coral. Ends with drinks at a beachside bar.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px;">
+                            <span style="background: #fbe9e7; color: #bf360c; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Beginner Friendly</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Live Coral</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Beach Bar Finish</span>
+                        </div>
+                        <a href="https://www.viator.com/tours/St-Maarten/St-Maarten-Kayak-and-Snorkel-Adventure-in-Simpson-Bay/d728-7120P3" target="_blank" style="color: #e07a5f; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Book on Viator →</a>
+                    </div>
+                    
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+                            <strong style="color: #333; font-size: 1rem;">Jet Ski Island Tour</strong>
+                            <span style="background: #e8f5e9; color: #2e7d32; padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">~$120-180</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">⏱️ 30 min - 2 hours | ⭐ Thrilling | 📍 Various Operators</div>
+                        <p style="font-size: 0.85rem; color: #555; line-height: 1.5; margin-bottom: 8px;">
+                            Explore both Dutch and French sides of St. Maarten on a jet ski. Guided tours take you along the coastline with stops for photos and swimming. Great for adrenaline seekers.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px;">
+                            <span style="background: #fbe9e7; color: #bf360c; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Both Sides of Island</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Guided Tour</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Coastal Views</span>
+                        </div>
+                        <a href="https://www.viator.com/St-Maarten-tours/Waterskiing-and-Jetskiing/d728-g17-c104" target="_blank" style="color: #e07a5f; text-decoration: none; font-size: 0.85rem; font-weight: 500;">View Jet Ski Options →</a>
+                    </div>
+                </div>
+                
+                <!-- SCENIC & FOOD TOURS -->
+                <div style="background: #7b2cbf; color: #fff; padding: 10px 15px; border-radius: 8px 8px 0 0; font-weight: 600; font-size: 0.9rem;">🍷 SCENIC & FOOD TOURS</div>
+                
+                <div style="background: #fff; border-radius: 0 0 10px 10px; padding: 20px; margin-bottom: 20px; border: 2px solid #7b2cbf;">
+                    
+                    <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+                            <strong style="color: #333; font-size: 1rem;">Taste of St. Maarten – Food & Wine Tour</strong>
+                            <span style="background: #e8f5e9; color: #2e7d32; padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">~$150-200/person</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">⏱️ 5-6 hours | ⭐ Private Tour | 📍 Bernard's Tours</div>
+                        <p style="font-size: 0.85rem; color: #555; line-height: 1.5; margin-bottom: 8px;">
+                            Private culinary tour featuring wine & cheese tasting, Marigot Market visit, and lunch at a local restaurant in Grand Case (the "Gourmet Capital of the Caribbean"). Scenic drive through French Quarter included.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px;">
+                            <span style="background: #f3e5f5; color: #6a1b9a; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Wine & Cheese</span>
+                            <span style="background: #f3e5f5; color: #6a1b9a; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Grand Case Lunch</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Marigot Market</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Private Experience</span>
+                        </div>
+                        <a href="https://www.bernardstours.com/tours/taste-of-st-maartenmartin" target="_blank" style="color: #7b2cbf; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Book on Bernard's Tours →</a>
+                    </div>
+                    
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+                            <strong style="color: #333; font-size: 1rem;">Top Ten Highlights Island Tour</strong>
+                            <span style="background: #e8f5e9; color: #2e7d32; padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">~$85-110/person</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">⏱️ 5-6 hours | ⭐ Comprehensive | 📍 GetYourGuide</div>
+                        <p style="font-size: 0.85rem; color: #555; line-height: 1.5; margin-bottom: 8px;">
+                            Hit all the major highlights: Corilita Beach, iguana stop, Orient Beach (1hr 15min), Grand Case, Marigot (45min for Fort Louis or shopping), Maho Beach plane spotting (45min), and rum tasting at Topper's.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px;">
+                            <span style="background: #f3e5f5; color: #6a1b9a; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Rum Tasting</span>
+                            <span style="background: #f3e5f5; color: #6a1b9a; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">10 Stops</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Iguana Encounter</span>
+                            <span style="background: #f0f4f8; color: #555; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem;">Fort Louis</span>
+                        </div>
+                        <a href="https://www.getyourguide.com/marigot-l353/stmaarten-top-ten-highlights-island-tour-t555308/" target="_blank" style="color: #7b2cbf; text-decoration: none; font-size: 0.85rem; font-weight: 500;">Book on GetYourGuide →</a>
+                    </div>
+                </div>
+                
+                <div style="background: #fffde7; border-left: 4px solid #fbc02d; padding: 15px; border-radius: 0 8px 8px 0;">
+                    <strong style="color: #f57f17;">💡 Tip:</strong>
+                    <span style="color: #5d4037; font-size: 0.9rem;"> Book excursions 30-60 days in advance – popular tours like Rhino Riders and the Catamaran Day Sail fill up quickly!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

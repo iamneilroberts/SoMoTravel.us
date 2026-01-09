@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC Sweet 16 Birthday Trip - December 2026</title>
+    <style>
+        :root {
+            --navy: #1a365d;
+            --gold: #d4a04d;
+            --gold-light: #f0d78c;
+            --cream: #faf8f5;
+            --light-blue: #e8f4f8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--navy) 0%, #2d4a6f 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            padding: 40px;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "🗽";
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.1;
+            right: -20px;
+            top: -20px;
+        }
+        
+        .header h1 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.3);
+        }
+        
+        .header .subtitle {
+            color: var(--navy);
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .header .dates {
+            background: var(--navy);
+            color: white;
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 30px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        
+        .main-content {
+            background: white;
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: var(--navy);
+            font-size: 1.5rem;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .flight-card {
+            background: var(--light-blue);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--navy);
+        }
+        
+        .flight-card h4 {
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .flight-leg {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+        
+        .flight-leg:last-child {
+            border-bottom: none;
+        }
+        
+        .flight-time {
+            font-weight: bold;
+            color: var(--navy);
+            min-width: 140px;
+        }
+        
+        .flight-route {
+            background: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .flight-details {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .hotel-card {
+            background: linear-gradient(135deg, var(--cream) 0%, #fff 100%);
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .hotel-card h4 {
+            color: var(--navy);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .hotel-card.recommended {
+            border: 3px solid var(--gold);
+            position: relative;
+        }
+        
+        .hotel-card.recommended::before {
+            content: "✓ RECOMMENDED";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 3px 15px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .price-highlight {
+            background: var(--navy);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .price-highlight .total {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .price-highlight .per-person {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th {
+            background: var(--navy);
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: var(--cream);
+        }
+        
+        .savings-badge {
+            background: #27ae60;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        
+        .day-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .day-header {
+            background: var(--navy);
+            color: white;
+            padding: 15px 20px;
+            font-weight: bold;
+        }
+        
+        .day-content {
+            padding: 20px;
+        }
+        
+        .activity-item {
+            display: flex;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-time {
+            color: var(--gold);
+            font-weight: bold;
+            min-width: 80px;
+        }
+        
+        .activity-desc {
+            flex: 1;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid var(--gold);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .show-option {
+            background: var(--cream);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .show-option h5 {
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            background: var(--navy);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .footer .tagline {
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            margin-bottom: 10px;
+        }
+        
+        .viator-link {
+            color: var(--navy);
+            background: var(--gold-light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .viator-link:hover {
+            background: var(--gold);
+        }
+
+        .airport-comparison {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .airport-comparison h5 {
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎂 Sweet 16 in NYC! 🎄</h1>
+            <p class="subtitle">A Magical Birthday Adventure in the Big Apple</p>
+            <div class="dates">December 3-6, 2026 • 3 Nights</div>
+        </header>
+        
+        <main class="main-content">
+            <!-- TRIP OVERVIEW -->
+            <section class="section">
+                <h2 class="section-title">✈️ Trip Overview</h2>
+                
+                <div class="flight-card">
+                    <h4>🛫 OUTBOUND FLIGHTS - Thursday, December 3, 2026</h4>
+                    <div class="flight-leg">
+                        <span class="flight-time">5:55 AM → 8:17 AM</span>
+                        <span class="flight-route">MOB → ATL</span>
+                        <span class="flight-details">Delta Air Lines #1721 • Delta Main Classic</span>
+                    </div>
+                    <div class="flight-leg">
+                        <span class="flight-time">10:30 AM → 12:41 PM</span>
+                        <span class="flight-route">ATL → LGA</span>
+                        <span class="flight-details">Delta Air Lines #371 • Delta Main Classic</span>
+                    </div>
+                    <p style="margin-top: 15px; color: #666;"><strong>Total Travel Time:</strong> ~7 hours (including 2+ hour layover in Atlanta)</p>
+                </div>
+                
+                <div class="flight-card">
+                    <h4>🛬 RETURN FLIGHTS - Sunday, December 6, 2026</h4>
+                    <div class="flight-leg">
+                        <span class="flight-time">10:00 AM → 1:20 PM</span>
+                        <span class="flight-route">LGA → IAH</span>
+                        <span class="flight-details">United Airlines #2617 • Economy</span>
+                    </div>
+                    <div class="flight-leg">
+                        <span class="flight-time">2:40 PM → 4:09 PM</span>
+                        <span class="flight-route">IAH → MOB</span>
+                        <span class="flight-details">United Airlines #4307 • Economy (Operated by CommutAir)</span>
+                    </div>
+                    <p style="margin-top: 15px; color: #666;"><strong>Total Travel Time:</strong> ~6 hours (including 1+ hour layover in Houston)</p>
+                </div>
+
+                <!-- HOTEL OPTIONS -->
+                <div class="hotel-card recommended">
+                    <h4>🏨 Option 1: Riu Plaza New York Times Square</h4>
+                    <p><strong>Room:</strong> Deluxe Family Full with Breakfast</p>
+                    <p><strong>Check-in:</strong> December 3, 2026 | <strong>Check-out:</strong> December 6, 2026</p>
+                    <p><strong>Location:</strong> Times Square - Heart of NYC!</p>
+                    <p style="color: #27ae60; font-weight: bold; margin-top: 10px;">✓ Breakfast Included!</p>
+                    <div class="price-highlight">
+                        <div>
+                            <div class="total">$7,501.36</div>
+                            <div class="per-person">Total Package Price (4 travelers)</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 1.2rem;">$1,875.34</div>
+                            <div class="per-person">per person</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.85rem; margin-top: 10px; color: #666;">Pay in Destination: $99.83 (Resort Fee) • Included in total</p>
+                </div>
+                
+                <div class="hotel-card">
+                    <h4>🏨 Option 2: New York Marriott Marquis</h4>
+                    <p><strong>Room:</strong> Times Square View Room, 2 Double Beds</p>
+                    <p><strong>Features:</strong> Overlooking Times Square, Mini Fridge, 392 sq ft, WiFi (fee), Coffee</p>
+                    <p><strong>Check-in:</strong> December 3, 2026 | <strong>Check-out:</strong> December 6, 2026</p>
+                    <p style="color: #f39c12; margin-top: 10px;">⚠️ Breakfast for 2 Included (not all 4)</p>
+                    <div class="price-highlight" style="background: #5a6c7d;">
+                        <div>
+                            <div class="total">$8,865.75</div>
+                            <div class="per-person">Total Package Price (4 travelers)</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 1.2rem;">$2,216.44</div>
+                            <div class="per-person">per person</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.85rem; margin-top: 10px; color: #666;">Pay in Destination: $120.00 • Included in total</p>
+                </div>
+
+                <div class="tip-box">
+                    <strong>💡 Hotel Comparison:</strong><br>
+                    <table class="comparison-table" style="margin-top: 10px;">
+                        <tr>
+                            <th>Hotel</th>
+                            <th>Breakfast</th>
+                            <th>Total Price</th>
+                            <th>Per Person</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Riu Plaza ✓</strong></td>
+                            <td style="color: #27ae60;">✓ Included</td>
+                            <td><strong>$7,501.36</strong></td>
+                            <td>$1,875.34</td>
+                        </tr>
+                        <tr>
+                            <td>Marriott Marquis</td>
+                            <td style="color: #f39c12;">⚠️ For 2 only</td>
+                            <td>$8,865.75</td>
+                            <td>$2,216.44</td>
+                        </tr>
+                    </table>
+                    <p style="margin-top: 10px;"><span class="savings-badge">Save $1,364.39!</span> <strong>Riu Plaza saves money AND includes breakfast for all 4 guests</strong> (Marriott only covers 2).</p>
+                </div>
+            </section>
+
+            <!-- AIRPORT TRANSFERS -->
+            <section class="section">
+                <h2 class="section-title">🚕 Airport Transportation</h2>
+                <p>Recommended transfers to/from LaGuardia Airport:</p>
+                
+                <div class="show-option">
+                    <h5>Viator Luxury Transfer Options</h5>
+                    <p><strong>Private Luxury Sprinter Van:</strong> Comfortable for family of 4 with luggage</p>
+                    <a href="https://www.viator.com/tours/New-York-City/Private-Transfer-New-York-LaGuardia-Airport-to-Manhattan/d687-5765LGAMANHATTAN?pid=P00005400&uid=U00232400&mcid=58086" class="viator-link" target="_blank">Book LGA Transfer →</a>
+                </div>
+                
+                <div class="tip-box">
+                    <strong>💡 Other Options:</strong> NYC Taxi (~$35-45 + toll/tip), Uber/Lyft (~$40-60), NYC Airporter Bus (~$19/person)
+                </div>
+            </section>
+
+            <!-- DAILY ITINERARY -->
+            <section class="section">
+                <h2 class="section-title">📅 Daily Itinerary</h2>
+                
+                <div class="day-card">
+                    <div class="day-header">Day 1 (Dec 3) – Arrival & Times Square Magic ✨</div>
+                    <div class="day-content">
+                        <div class="activity-item">
+                            <span class="activity-time">12:41 PM</span>
+                            <span class="activity-desc"><strong>Arrive LGA</strong> - Transfer to hotel</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">2:30 PM</span>
+                            <span class="activity-desc"><strong>Check in</strong> at hotel, freshen up</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">3:30 PM</span>
+                            <span class="activity-desc"><strong>Times Square exploration</strong> - M&M's World, Disney Store, Hershey's 🍫</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">5:00 PM</span>
+                            <span class="activity-desc"><strong>Top of the Rock</strong> at sunset 🌅</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">6:30 PM</span>
+                            <span class="activity-desc"><strong>Angelina Bakery</strong> - Famous Nutella bombolone! 🍩</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">7:00 PM</span>
+                            <span class="activity-desc"><strong>Dinner:</strong> Ellen's Stardust Diner 🎤 (singing waitstaff!)</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">9:00 PM</span>
+                            <span class="activity-desc"><strong>Evening stroll:</strong> 5th Avenue holiday windows, Rockefeller Tree 🎄</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">Day 2 (Dec 4) – Downtown & Birthday Celebration 🎂</div>
+                    <div class="day-content">
+                        <div class="activity-item">
+                            <span class="activity-time">8:00 AM</span>
+                            <span class="activity-desc"><strong>Breakfast</strong> at hotel (included with Riu Plaza!)</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">9:00 AM</span>
+                            <span class="activity-desc"><strong>9/11 Memorial & Museum</strong> ⏰ (book early entry)</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">12:00 PM</span>
+                            <span class="activity-desc"><strong>Lunch</strong> in Lower Manhattan</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">1:30 PM</span>
+                            <span class="activity-desc"><strong>Staten Island Ferry</strong> - FREE Statue of Liberty views! 🗽</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">3:30 PM</span>
+                            <span class="activity-desc"><strong>SoHo, Little Italy & Chinatown Walking Tour</strong></span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">5:30 PM</span>
+                            <span class="activity-desc">Return to hotel to freshen up</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">7:00 PM</span>
+                            <span class="activity-desc"><strong>🎂 Birthday Dinner:</strong> Tavern on the Green ✨</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">Day 3 (Dec 5) – Central Park, Culture & Rockettes 🎄</div>
+                    <div class="day-content">
+                        <div class="activity-item">
+                            <span class="activity-time">8:00 AM</span>
+                            <span class="activity-desc"><strong>Breakfast</strong> at hotel</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">9:00 AM</span>
+                            <span class="activity-desc"><strong>Central Park Pedicab Tour</strong> (1-2 hours) 🚴</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">11:30 AM</span>
+                            <span class="activity-desc"><strong>Ice skating</strong> at Wollman Rink or Rockefeller Center ⛸️</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">1:00 PM</span>
+                            <span class="activity-desc"><strong>Lunch:</strong> Carmine's (family-style Italian feast!) 🍝</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">3:00 PM</span>
+                            <span class="activity-desc"><strong>5th Avenue Shopping</strong> - Tiffany's, Nike, Saks 💎</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">5:00 PM</span>
+                            <span class="activity-desc"><strong>Grand Central Terminal</strong> photo stop 📸</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">7:00 PM</span>
+                            <span class="activity-desc"><strong>🎄 Radio City Christmas Spectacular!</strong> (100th Anniversary!)</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">9:30 PM</span>
+                            <span class="activity-desc"><strong>Optional:</strong> Hot chocolate at Serendipity 3 🍫</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">Day 4 (Dec 6) – Final Morning & Departure 👋</div>
+                    <div class="day-content">
+                        <div class="activity-item">
+                            <span class="activity-time">8:00 AM</span>
+                            <span class="activity-desc"><strong>Breakfast</strong> at hotel</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">9:00 AM</span>
+                            <span class="activity-desc"><strong>Walk the High Line</strong> (FREE!) → Hudson Yards 🌿</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">7:30 AM</span>
+                            <span class="activity-desc"><strong>Depart for LGA</strong> (allow 60-90 min)</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">10:00 AM</span>
+                            <span class="activity-desc"><strong>Flight departs</strong> LGA → IAH → MOB</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">4:09 PM</span>
+                            <span class="activity-desc"><strong>Arrive Mobile</strong> 🏠</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SHOW OPTIONS -->
+            <section class="section">
+                <h2 class="section-title">🎭 Show Options</h2>
+                
+                <div class="show-option">
+                    <h5>🎄 Radio City Christmas Spectacular (Rockettes)</h5>
+                    <p><strong>100th Anniversary Season!</strong> A must-see NYC tradition.</p>
+                    <p>Tickets: $65-134/person | Duration: ~90 minutes</p>
+                    <a href="https://www.viator.com/tours/New-York-City/Radio-City-Christmas-Spectacular/d687-2660ROCK?pid=P00005400&uid=U00232400&mcid=58086" class="viator-link" target="_blank">Book Rockettes Tickets →</a>
+                </div>
+                
+                <div class="show-option">
+                    <h5>🧙‍♀️ Wicked on Broadway (Optional)</h5>
+                    <p>Add Broadway magic to the birthday celebration!</p>
+                    <p>Tickets: $110-250/person | Duration: ~2 hours 45 min</p>
+                    <a href="https://www.viator.com/tours/New-York-City/Wicked-on-Broadway/d687-3664WICKED?pid=P00005400&uid=U00232400&mcid=58086" class="viator-link" target="_blank">Book Wicked Tickets →</a>
+                </div>
+            </section>
+
+            <!-- ATTRACTION LINKS -->
+            <section class="section">
+                <h2 class="section-title">🎟️ Attraction Booking Links</h2>
+                <p style="margin-bottom: 15px;">Pre-book these activities for the best experience:</p>
+                
+                <a href="https://www.viator.com/tours/New-York-City/Top-of-the-Rock-Observation-Deck/d687-3523TOPR?pid=P00005400&uid=U00232400&mcid=58086" class="viator-link" target="_blank">Top of the Rock 🌆</a>
+                <a href="https://www.viator.com/tours/New-York-City/9-11-Memorial-Museum-Admission/d687-5998SEPT11?pid=P00005400&uid=U00232400&mcid=58086" class="viator-link" target="_blank">9/11 Memorial & Museum</a>
+                <a href="https://www.viator.com/tours/New-York-City/Central-Park-Pedicab-Tours/d687-5518CPPT?pid=P00005400&uid=U00232400&mcid=58086" class="viator-link" target="_blank">Central Park Pedicab 🚴</a>
+                <a href="https://www.viator.com/tours/New-York-City/SoHo-Little-Italy-and-Chinatown-Walking-Tour/d687-3475SOLITCHI?pid=P00005400&uid=U00232400&mcid=58086" class="viator-link" target="_blank">SoHo Walking Tour 🚶</a>
+            </section>
+
+            <!-- KEY TIPS -->
+            <section class="section">
+                <h2 class="section-title">💡 Key Tips & Reminders</h2>
+                
+                <div class="tip-box">
+                    <strong>🎫 9/11 Museum:</strong> Book early morning to avoid crowds. Allow 2-3 hours. May not be suitable for children under 12.
+                </div>
+                
+                <div class="tip-box">
+                    <strong>🎄 Rockettes:</strong> 100th Anniversary Season - book NOW! These tickets sell out fast.
+                </div>
+                
+                <div class="tip-box">
+                    <strong>🍽️ Reservations:</strong> Book Tavern on the Green and Carmine's in advance - mention it's a Sweet 16!
+                </div>
+                
+                <div class="tip-box">
+                    <strong>🚂 Grand Central:</strong> Don't miss the whispering gallery - it's magical!
+                </div>
+                
+                <div class="tip-box">
+                    <strong>🌿 High Line:</strong> FREE activity - perfect for the morning before departure!
+                </div>
+            </section>
+
+            <!-- PRICING DISCLAIMER -->
+            <section class="section">
+                <h2 class="section-title">📋 Important Notes</h2>
+                <p style="font-size: 0.9rem; color: #666;">
+                    • Prices quoted via Apple Vacations as of January 2025<br>
+                    • Deposit required to guarantee rates<br>
+                    • Travel insurance recommended<br>
+                    • Activity prices are estimates and subject to change<br>
+                    • Book shows and attractions in advance for best availability
+                </p>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p class="tagline">✨ Happy Sweet 16 in the Big Apple! ✨</p>
+            <p>Quote prepared for Family of 4 • December 3-6, 2026</p>
+            <p style="margin-top: 20px; font-size: 1rem; color: var(--gold-light);">Created for <strong>Bethany Lightsey</strong></p>
+            <p style="font-size: 0.95rem;">by <strong>Kim Henderson</strong> — Cruise Planners d/b/a Somo Travel Specialists</p>
+            <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.6;">Deposit required to guarantee rates.</p>
+        </footer>
+    </div>
+</body>
+</html>

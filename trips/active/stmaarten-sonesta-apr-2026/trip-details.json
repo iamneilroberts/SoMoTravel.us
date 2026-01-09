@@ -1,0 +1,235 @@
+{
+  "meta": {
+    "tripId": "stmaarten-sonesta-apr-2026",
+    "clientName": "Niwana & Jon",
+    "destination": "St. Maarten (Dutch Side)",
+    "dates": "April 2026",
+    "occasion": null,
+    "phase": "proposal",
+    "lastUpdated": "2026-01-05T00:00:00Z",
+    "status": "Proposal",
+    "quotesConfirmed": false
+  },
+  "travelers": {
+    "count": 2,
+    "adults": 2,
+    "children": [],
+    "names": ["Niwana", "Jon"],
+    "notes": "Adults-only trip"
+  },
+  "preferences": {
+    "vibe": "Beach relaxation, all-inclusive luxury, water activities",
+    "budget": "Premium (All-Inclusive)",
+    "mobility": "No restrictions noted",
+    "transportation": "Flights + Shared airport transfer included",
+    "mustHave": ["All-inclusive", "Adults-only", "Beach access", "Snorkeling"],
+    "avoid": []
+  },
+  "flights": {
+    "confirmed": false,
+    "source": null,
+    "outbound": {
+      "route": "TBD → SXM",
+      "notes": "Princess Juliana International Airport (SXM) - 0.9 miles from resort"
+    },
+    "return": {
+      "route": "SXM → TBD"
+    }
+  },
+  "locations": [
+    {
+      "name": "Maho Beach, St. Maarten",
+      "nights": "TBD",
+      "dates": "April 2026",
+      "purpose": "Beach resort relaxation, water activities"
+    }
+  ],
+  "lodging": {
+    "confirmed": [
+      {
+        "location": "Maho Beach, St. Maarten",
+        "property": "Sonesta Maho Beach All Inclusive Resort",
+        "nights": "TBD",
+        "dates": "April 2026",
+        "roomType": "Ultimate Adults Only Club Room – Double Beds",
+        "checkIn": "4:00 PM",
+        "checkOut": "11:00 AM",
+        "url": null,
+        "confirmed": false,
+        "phone": "1-721-545-2115",
+        "pricing": {
+          "resortPackage": 3841.54,
+          "tripProtection": 366.99,
+          "total": 4208.53,
+          "notes": "Includes shared airport transfer"
+        },
+        "amenities": [
+          "Exclusive Club floors (top two floors)",
+          "Cloud9 Rooftop Bar access",
+          "Cloud9 Kitchen for light fare",
+          "Ultimate Club Lounge",
+          "Priority check-in/check-out",
+          "Concierge service",
+          "All-night in-room dining",
+          "Enhanced in-room entertainment",
+          "Adults-Only gym access",
+          "Seascape pool with swim-up bar at Sonesta Ocean Point",
+          "Frette Italian sheets",
+          "Mini-bar with spirits/beer (refreshed daily)",
+          "Private furnished balcony",
+          "LCD TV with satellite",
+          "Complimentary WiFi",
+          "Rainfall showerhead",
+          "Designer toiletries"
+        ],
+        "notes": "Minimum age 18 years. Online registration required prior to arrival."
+      }
+    ]
+  },
+  "allInclusive": {
+    "included": [
+      "5 restaurants + coffee shop/café",
+      "The Village Tavern (American cuisine)",
+      "5 bars/lounges, beach bar, poolside bar with swim-up",
+      "Unlimited breakfast, lunch, dinner & snacks",
+      "International and domestic beer, wine & spirits",
+      "Fruit drinks and soft drinks at all bars",
+      "Welcome drink and cold towel at check-in",
+      "Weekly manager's cocktail party",
+      "Beach dinner party",
+      "Free WiFi in rooms and common areas",
+      "Daytime activities (water aerobics, snorkeling equipment, volleyball, ping pong, pool table)",
+      "2 outdoor swimming pools",
+      "Nightly theme parties, live entertainment & outdoor movies"
+    ]
+  },
+  "tours": [
+    {
+      "name": "The Best Catamaran Day Sail",
+      "provider": "Random Wind Charters",
+      "duration": "5 hours",
+      "pricePerPerson": "130-150",
+      "url": "https://www.viator.com/tours/St-Maarten/Small-Group-Day-Sail-in-St-Maarten/d728-6239SGSAIL",
+      "confirmed": false,
+      "notes": "Top-rated! 52-foot catamaran, Tarzan Swing, snorkeling over sunken helicopter & submarine, paddleboarding, homemade Caribbean lunch, open bar. Max 30 guests.",
+      "highlights": ["Tarzan Swing", "Sunken helicopter/submarine snorkeling", "Homemade lunch", "Open bar"]
+    },
+    {
+      "name": "Captain Alan's 3 Islands Snorkeling Adventure",
+      "provider": "Captain Alan",
+      "duration": "4 hours",
+      "pricePerPerson": "89 + $5 tax",
+      "url": "https://www.viator.com/tours/St-Maarten/Three-island-snorkeling-and-Beach/d728-126621P1",
+      "confirmed": false,
+      "notes": "Family-run powerboat. Tintamarre Island (swim with turtles!), Pinel Island (beach bar, iguanas), Creole Rock/Green Key. Max 12 guests, crew goes in water with you!",
+      "highlights": ["Swim with turtles", "3 islands", "Small group (max 12)"]
+    },
+    {
+      "name": "Rhino Rider Safari – Self-Drive Boat Tour",
+      "provider": "Rhino Safari",
+      "duration": "2.5-3 hours",
+      "pricePerPerson": "159-185",
+      "url": "https://rhinotours.com/",
+      "confirmed": false,
+      "notes": "#1 Water Activity 19 years running! Pilot your own 10-foot inflatable speedboat along coastline. Snorkel at Creole Rock or Happy Bay beach.",
+      "highlights": ["Drive your own boat", "Creole Rock snorkeling", "Mega-yacht marina"]
+    },
+    {
+      "name": "French & Dutch Sides Sightseeing Tour",
+      "provider": "Viator",
+      "duration": "4.5-5 hours",
+      "pricePerPerson": "70-95",
+      "url": "https://www.viator.com/tours/St-Maarten/St-Martin-and-St-Maarten-Sightseeing-Tour-of-the-French-and-Dutch-Sides-of-the-Island/d728-5755H001",
+      "confirmed": false,
+      "notes": "Coralita Bay lookout, Orient Beach (45 min), Marigot for French shopping, Maho Beach plane watching.",
+      "highlights": ["Maho Beach planes", "Orient Beach", "Marigot shopping"]
+    },
+    {
+      "name": "Billy Bones Snorkeling with Turtles",
+      "provider": "Viator",
+      "duration": "6-7 hours",
+      "pricePerPerson": "130-160",
+      "url": "https://www.viator.com/tours/St-Maarten/Eco-Snorkeling-and-Beach-Excursion-with-Lunch/d728-8148P6",
+      "confirmed": false,
+      "notes": "Tintamarre Island, Creole Rock, Grand Case. Includes snorkeling gear, lunch, beverages, hotel pickup.",
+      "highlights": ["Tintamarre Island", "Creole Rock", "Grand Case lunch"]
+    },
+    {
+      "name": "Kayak & Snorkel Adventure – Simpson Bay",
+      "provider": "Viator/TriSport",
+      "duration": "2.5 hours",
+      "pricePerPerson": "65-80",
+      "url": "https://www.viator.com/tours/St-Maarten/St-Maarten-Kayak-and-Snorkel-Adventure-in-Simpson-Bay/d728-7120P3",
+      "confirmed": false,
+      "notes": "Beginner friendly. 45 min snorkeling, 40 min kayaking. Ends at beachside bar.",
+      "highlights": ["Beginner friendly", "Live coral", "Beach bar finish"]
+    },
+    {
+      "name": "Taste of St. Maarten – Food & Wine Tour",
+      "provider": "Bernard's Tours",
+      "duration": "5-6 hours",
+      "pricePerPerson": "150-200",
+      "url": "https://www.bernardstours.com/tours/taste-of-st-maartenmartin",
+      "confirmed": false,
+      "notes": "Private culinary tour. Wine & cheese tasting, Marigot Market, lunch in Grand Case (Gourmet Capital of Caribbean).",
+      "highlights": ["Wine & cheese", "Grand Case lunch", "Marigot Market", "Private tour"]
+    }
+  ],
+  "extras": {
+    "nearbyAttractions": [
+      { "name": "Casino Royale", "distance": "0.1 mi" },
+      { "name": "Maho Beach", "distance": "0.1 mi", "note": "Famous for plane spotting!" },
+      { "name": "Mullet Bay Golf", "distance": "0.1 mi" },
+      { "name": "Dunes Casino", "distance": "0.4 mi" },
+      { "name": "Mullet Bay Beach", "distance": "0.5 mi" },
+      { "name": "Simpson Bay Beach", "distance": "0.8 mi" },
+      { "name": "Cupecoy Beach", "distance": "1.5 mi" },
+      { "name": "Kim Sha Beach", "distance": "2.8 mi" }
+    ],
+    "resortAmenities": [
+      "Full-service spa (massages, body treatments, facials)",
+      "Casino on-site",
+      "2 outdoor swimming pools",
+      "Fitness center",
+      "24-hour front desk",
+      "Concierge services",
+      "Dry cleaning/laundry services",
+      "Multilingual staff",
+      "420 guestrooms"
+    ],
+    "optionalFees": [
+      { "item": "Covered self parking", "price": "$10/day" },
+      { "item": "Early check-in", "price": "Fee (subject to availability)" },
+      { "item": "Late check-out", "price": "Fee (subject to availability)" },
+      { "item": "Spa treatments", "price": "Reservations required" }
+    ]
+  },
+  "cancellationPolicy": [
+    { "dates": "Jan 5, 2026 – Apr 13, 2026", "penalty": "0% (FREE)" },
+    { "dates": "Apr 14, 2026 – Apr 15, 2026", "penalty": "28%" },
+    { "dates": "Apr 16, 2026 – Apr 18, 2026", "penalty": "100%" }
+  ],
+  "pricing": {
+    "resortPackage": 3841.54,
+    "tripProtection": 366.99,
+    "total": 4208.53,
+    "notes": "Package includes shared airport transfer. Trip protection insurance included."
+  },
+  "preTripChecklist": [
+    { "item": "Confirm booking and pay deposit", "completed": false },
+    { "item": "Book excursions 30-60 days in advance", "completed": false },
+    { "item": "Complete online registration before arrival", "completed": false }
+  ],
+  "travelEssentials": [
+    "Passport (valid 6+ months)",
+    "Reef-safe sunscreen",
+    "Snorkeling mask (or use resort equipment)",
+    "Water shoes for beach",
+    "Light coverups for restaurants"
+  ],
+  "openQuestions": [
+    "Confirm exact travel dates",
+    "Which excursions to book?",
+    "Flight arrangements needed"
+  ]
+}

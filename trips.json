@@ -480,20 +480,26 @@
       "lastModified": "2026-01-03"
     },
     {
-      "filename": "sonesta_maho_details.html",
+      "id": "stmaarten-sonesta-apr-2026",
+      "filename": "trips/active/stmaarten-sonesta-apr-2026/itinerary.html",
+      "detailsFile": "trips/active/stmaarten-sonesta-apr-2026/trip-details.json",
       "title": "Sonesta Maho Beach - Niwana & Jon",
-      "dates": "",
+      "dates": "April 2026",
       "category": "proposal",
-      "tags": [],
-      "lastModified": "2026-01-05"
+      "tags": ["all-inclusive", "adults-only", "beach"],
+      "lastModified": "2026-01-05",
+      "hasStructuredData": true
     },
     {
-      "filename": "nyc_trip_itinerary.html",
-      "title": "NYC 16th Birthday Trip Planner | Family of 4 | December 3-6, 2026",
+      "id": "nyc-sweet16-dec-2026",
+      "filename": "trips/active/nyc-sweet16-dec-2026/itinerary.html",
+      "detailsFile": "trips/active/nyc-sweet16-dec-2026/trip-details.json",
+      "title": "NYC Sweet 16 Birthday Trip - Bethany Lightsey",
       "dates": "December 3-6, 2026",
       "category": "proposal",
-      "tags": [],
-      "lastModified": "2026-01-07"
+      "tags": ["birthday", "NYC", "holiday"],
+      "lastModified": "2026-01-07",
+      "hasStructuredData": true
     },
     {
       "filename": "Mediterranean_Cruise_Proposal_2026.html",

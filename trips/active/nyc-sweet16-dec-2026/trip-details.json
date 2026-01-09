@@ -1,0 +1,390 @@
+{
+  "meta": {
+    "tripId": "nyc-sweet16-dec-2026",
+    "clientName": "Bethany Lightsey Family",
+    "destination": "New York City, USA",
+    "dates": "December 3-6, 2026",
+    "occasion": "Sweet 16 Birthday",
+    "phase": "proposal",
+    "lastUpdated": "2026-01-07T00:00:00Z",
+    "status": "Proposal",
+    "quotesConfirmed": false
+  },
+  "travelers": {
+    "count": 4,
+    "adults": 2,
+    "children": [
+      { "age": 16, "note": "Birthday girl" }
+    ],
+    "names": [],
+    "notes": "Family of 4 - Sweet 16 birthday celebration"
+  },
+  "preferences": {
+    "vibe": "Birthday celebration, holiday magic, NYC experience",
+    "budget": "Mid-range to Premium",
+    "mobility": "No restrictions noted",
+    "transportation": "Flights + Airport transfers",
+    "mustHave": ["Times Square", "Rockefeller Christmas Tree", "Radio City Rockettes", "Birthday dinner"],
+    "avoid": []
+  },
+  "flights": {
+    "confirmed": false,
+    "source": "Delta/United via Apple Vacations",
+    "outbound": {
+      "route": "MOB → ATL → LGA",
+      "airline": "Delta Air Lines",
+      "flightNumbers": "DL1721, DL371",
+      "confirmationCode": null,
+      "departure": "2026-12-03T05:55",
+      "arrival": "2026-12-03T12:41",
+      "class": "Delta Main Classic",
+      "price": null,
+      "notes": "2+ hour layover in Atlanta. Total travel ~7 hours."
+    },
+    "return": {
+      "route": "LGA → IAH → MOB",
+      "airline": "United Airlines",
+      "flightNumbers": "UA2617, UA4307",
+      "departure": "2026-12-06T10:00",
+      "arrival": "2026-12-06T16:09",
+      "price": null,
+      "notes": "1+ hour layover in Houston. UA4307 operated by CommutAir."
+    }
+  },
+  "locations": [
+    {
+      "name": "New York City - Times Square",
+      "nights": 3,
+      "dates": "December 3-6, 2026",
+      "purpose": "Sweet 16 birthday celebration, holiday sightseeing"
+    }
+  ],
+  "lodging": {
+    "options": [
+      {
+        "location": "Times Square",
+        "property": "Riu Plaza New York Times Square",
+        "nights": 3,
+        "dates": "December 3-6, 2026",
+        "roomType": "Deluxe Family Full with Breakfast",
+        "checkIn": "December 3, 2026",
+        "checkOut": "December 6, 2026",
+        "url": null,
+        "confirmed": false,
+        "recommended": true,
+        "pricing": {
+          "total": 7501.36,
+          "perPerson": 1875.34,
+          "resortFee": 99.83,
+          "notes": "Breakfast included for all 4 guests"
+        },
+        "notes": "Heart of Times Square location"
+      },
+      {
+        "location": "Times Square",
+        "property": "New York Marriott Marquis",
+        "nights": 3,
+        "dates": "December 3-6, 2026",
+        "roomType": "Times Square View Room, 2 Double Beds",
+        "checkIn": "December 3, 2026",
+        "checkOut": "December 6, 2026",
+        "url": null,
+        "confirmed": false,
+        "recommended": false,
+        "pricing": {
+          "total": 8865.75,
+          "perPerson": 2216.44,
+          "resortFee": 120.00,
+          "notes": "Breakfast for 2 only (not all 4)"
+        },
+        "notes": "Times Square views, 392 sq ft, Mini fridge"
+      }
+    ],
+    "confirmed": []
+  },
+  "tours": [
+    {
+      "name": "Top of the Rock Observation Deck",
+      "provider": "Viator",
+      "date": "December 3, 2026",
+      "time": "5:00 PM (sunset)",
+      "duration": "1-2 hours",
+      "pricePerPerson": null,
+      "url": "https://www.viator.com/tours/New-York-City/Top-of-the-Rock-Observation-Deck/d687-3523TOPR",
+      "confirmed": false,
+      "notes": "Sunset views recommended"
+    },
+    {
+      "name": "9/11 Memorial & Museum",
+      "provider": "Viator",
+      "date": "December 4, 2026",
+      "time": "9:00 AM",
+      "duration": "2-3 hours",
+      "pricePerPerson": null,
+      "url": "https://www.viator.com/tours/New-York-City/9-11-Memorial-Museum-Admission/d687-5998SEPT11",
+      "confirmed": false,
+      "notes": "Book early morning entry. May not be suitable for children under 12."
+    },
+    {
+      "name": "Staten Island Ferry",
+      "provider": "NYC Ferry",
+      "date": "December 4, 2026",
+      "time": "1:30 PM",
+      "pricePerPerson": 0,
+      "confirmed": false,
+      "notes": "FREE! Great Statue of Liberty views"
+    },
+    {
+      "name": "SoHo, Little Italy & Chinatown Walking Tour",
+      "provider": "Viator",
+      "date": "December 4, 2026",
+      "time": "3:30 PM",
+      "url": "https://www.viator.com/tours/New-York-City/SoHo-Little-Italy-and-Chinatown-Walking-Tour/d687-3475SOLITCHI",
+      "confirmed": false
+    },
+    {
+      "name": "Central Park Pedicab Tour",
+      "provider": "Viator",
+      "date": "December 5, 2026",
+      "time": "9:00 AM",
+      "duration": "1-2 hours",
+      "url": "https://www.viator.com/tours/New-York-City/Central-Park-Pedicab-Tours/d687-5518CPPT",
+      "confirmed": false
+    },
+    {
+      "name": "Radio City Christmas Spectacular (Rockettes)",
+      "provider": "Viator",
+      "date": "December 5, 2026",
+      "time": "7:00 PM",
+      "duration": "90 minutes",
+      "pricePerPerson": "65-134",
+      "url": "https://www.viator.com/tours/New-York-City/Radio-City-Christmas-Spectacular/d687-2660ROCK",
+      "confirmed": false,
+      "notes": "100th Anniversary Season! Book early - sells out fast."
+    }
+  ],
+  "transport": {
+    "airportTransfer": {
+      "recommended": "Private Luxury Sprinter Van",
+      "provider": "Viator",
+      "url": "https://www.viator.com/tours/New-York-City/Private-Transfer-New-York-LaGuardia-Airport-to-Manhattan/d687-5765LGAMANHATTAN",
+      "alternatives": [
+        "NYC Taxi (~$35-45 + toll/tip)",
+        "Uber/Lyft (~$40-60)",
+        "NYC Airporter Bus (~$19/person)"
+      ]
+    }
+  },
+  "itinerary": {
+    "day1": {
+      "date": "December 3, 2026",
+      "title": "Arrival & Times Square Magic",
+      "activities": [
+        "5:55 AM: Depart Mobile (MOB) on Delta DL1721",
+        "8:17 AM: Arrive Atlanta (ATL) - 2hr layover",
+        "10:30 AM: Depart Atlanta on Delta DL371",
+        "12:41 PM: Arrive LaGuardia (LGA)",
+        "1:00 PM: Transfer to hotel",
+        "2:30 PM: Check in at hotel, freshen up",
+        "3:30 PM: Times Square exploration - M&M's World, Disney Store, Hershey's",
+        "5:00 PM: Top of the Rock at sunset",
+        "6:30 PM: Angelina Bakery - Famous Nutella bombolone!",
+        "7:00 PM: Dinner at Ellen's Stardust Diner (singing waitstaff!)",
+        "9:00 PM: Evening stroll - 5th Avenue holiday windows, Rockefeller Tree"
+      ]
+    },
+    "day2": {
+      "date": "December 4, 2026",
+      "title": "Downtown & Birthday Celebration",
+      "activities": [
+        "8:00 AM: Breakfast at hotel",
+        "9:00 AM: 9/11 Memorial & Museum (book early entry)",
+        "12:00 PM: Lunch in Lower Manhattan",
+        "1:30 PM: Staten Island Ferry - FREE Statue of Liberty views!",
+        "3:30 PM: SoHo, Little Italy & Chinatown Walking Tour",
+        "5:30 PM: Return to hotel to freshen up",
+        "7:00 PM: Birthday Dinner at Tavern on the Green"
+      ]
+    },
+    "day3": {
+      "date": "December 5, 2026",
+      "title": "Central Park, Culture & Rockettes",
+      "activities": [
+        "8:00 AM: Breakfast at hotel",
+        "9:00 AM: Central Park Pedicab Tour (1-2 hours)",
+        "11:30 AM: Ice skating at Wollman Rink or Rockefeller Center",
+        "1:00 PM: Lunch at Carmine's (family-style Italian feast!)",
+        "3:00 PM: 5th Avenue Shopping - Tiffany's, Nike, Saks",
+        "5:00 PM: Grand Central Terminal photo stop",
+        "7:00 PM: Radio City Christmas Spectacular! (100th Anniversary!)",
+        "9:30 PM: Optional: Hot chocolate at Serendipity 3"
+      ]
+    },
+    "day4": {
+      "date": "December 6, 2026",
+      "title": "Final Morning & Departure",
+      "activities": [
+        "7:30 AM: Depart for LGA (allow 60-90 min)",
+        "8:00 AM: Breakfast at hotel (if time permits)",
+        "10:00 AM: Flight departs LGA on United UA2617",
+        "1:20 PM: Arrive Houston (IAH) - 1hr layover",
+        "2:40 PM: Depart Houston on United UA4307",
+        "4:09 PM: Arrive Mobile (MOB)"
+      ]
+    }
+  },
+  "extras": {
+    "dining": [
+      {
+        "name": "Ellen's Stardust Diner",
+        "location": "Times Square",
+        "type": "American - Singing waitstaff!",
+        "url": null
+      },
+      {
+        "name": "Angelina Bakery",
+        "location": "Times Square",
+        "type": "Bakery - Famous Nutella bombolone",
+        "url": null
+      },
+      {
+        "name": "Tavern on the Green",
+        "location": "Central Park",
+        "type": "Birthday Dinner - upscale American",
+        "url": null,
+        "note": "Book in advance, mention Sweet 16!"
+      },
+      {
+        "name": "Carmine's",
+        "location": "Times Square",
+        "type": "Family-style Italian",
+        "url": null,
+        "note": "Book in advance"
+      },
+      {
+        "name": "Serendipity 3",
+        "location": "Upper East Side",
+        "type": "Desserts - Famous frozen hot chocolate",
+        "url": null
+      }
+    ],
+    "attractions": [
+      {
+        "name": "Times Square",
+        "location": "Midtown",
+        "price": "Free",
+        "note": "M&M's World, Disney Store, Hershey's"
+      },
+      {
+        "name": "Top of the Rock",
+        "location": "Rockefeller Center",
+        "url": "https://www.viator.com/tours/New-York-City/Top-of-the-Rock-Observation-Deck/d687-3523TOPR"
+      },
+      {
+        "name": "Rockefeller Center Christmas Tree",
+        "location": "Midtown",
+        "price": "Free"
+      },
+      {
+        "name": "5th Avenue Holiday Windows",
+        "location": "Midtown",
+        "price": "Free"
+      },
+      {
+        "name": "Grand Central Terminal",
+        "location": "Midtown",
+        "price": "Free",
+        "note": "Don't miss the whispering gallery!"
+      },
+      {
+        "name": "High Line",
+        "location": "Chelsea/Hudson Yards",
+        "price": "Free"
+      },
+      {
+        "name": "Ice Skating - Wollman Rink or Rockefeller Center",
+        "location": "Central Park / Rockefeller Center",
+        "price": "Varies"
+      }
+    ],
+    "shopping": [
+      {
+        "name": "5th Avenue",
+        "location": "Midtown",
+        "note": "Tiffany's, Nike, Saks Fifth Avenue"
+      }
+    ],
+    "freeActivities": [
+      {
+        "name": "Staten Island Ferry",
+        "location": "Lower Manhattan",
+        "note": "FREE Statue of Liberty views!"
+      },
+      {
+        "name": "High Line Walk",
+        "location": "Chelsea",
+        "note": "Elevated park to Hudson Yards"
+      },
+      {
+        "name": "Rockefeller Tree & 5th Ave Windows",
+        "location": "Midtown"
+      }
+    ],
+    "showOptions": [
+      {
+        "name": "Radio City Christmas Spectacular (Rockettes)",
+        "price": "$65-134/person",
+        "duration": "90 minutes",
+        "url": "https://www.viator.com/tours/New-York-City/Radio-City-Christmas-Spectacular/d687-2660ROCK",
+        "note": "100th Anniversary Season - MUST book early!"
+      },
+      {
+        "name": "Wicked on Broadway",
+        "price": "$110-250/person",
+        "duration": "2 hours 45 min",
+        "url": "https://www.viator.com/tours/New-York-City/Wicked-on-Broadway/d687-3664WICKED",
+        "note": "Optional add-on"
+      }
+    ]
+  },
+  "pricing": {
+    "packageOptions": {
+      "riuPlaza": {
+        "description": "Riu Plaza New York Times Square - Recommended",
+        "total": 7501.36,
+        "perPerson": 1875.34,
+        "includes": ["Flights", "3 nights hotel", "Breakfast for 4"]
+      },
+      "marriottMarquis": {
+        "description": "New York Marriott Marquis",
+        "total": 8865.75,
+        "perPerson": 2216.44,
+        "includes": ["Flights", "3 nights hotel", "Breakfast for 2 only"]
+      }
+    },
+    "savings": {
+      "riuVsMarriott": 1364.39,
+      "note": "Riu Plaza saves $1,364 AND includes breakfast for all 4 guests"
+    },
+    "notes": "Prices quoted via Apple Vacations as of January 2025. Deposit required to guarantee rates. Activity prices are estimates."
+  },
+  "preTripChecklist": [
+    { "item": "Book hotel package (deposit required)", "completed": false },
+    { "item": "Book Radio City Rockettes tickets", "completed": false },
+    { "item": "Book 9/11 Memorial early entry", "completed": false },
+    { "item": "Make dinner reservation at Tavern on the Green", "completed": false },
+    { "item": "Make dinner reservation at Carmine's", "completed": false },
+    { "item": "Book Top of the Rock tickets", "completed": false }
+  ],
+  "travelEssentials": [
+    "Warm winter clothing (December in NYC!)",
+    "Comfortable walking shoes",
+    "Layers for indoor/outdoor transitions",
+    "Camera for holiday photos"
+  ],
+  "openQuestions": [
+    "Which hotel package to book?",
+    "Add Wicked on Broadway?",
+    "Specific show times for Rockettes?"
+  ]
+}
