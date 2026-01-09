@@ -5,8 +5,8 @@
     "destination": "Portugal",
     "dates": "March 22-31, 2026",
     "occasion": "Business scouting trip + BFF adventure",
-    "phase": "flights",
-    "lastUpdated": "2026-01-09T10:30:00Z",
+    "phase": "locations",
+    "lastUpdated": "2026-01-09T11:15:00Z",
     "status": "Planning",
     "quotesConfirmed": false
   },
@@ -39,27 +39,39 @@
   },
   "flights": {
     "confirmed": false,
-    "source": "TBD",
-    "notes": "Flying from Mobile, AL area. Open question: round-trip Lisbon or multi-city (Lisbon in, Porto out)?",
+    "source": "web research - needs CP quote",
+    "notes": "Round-trip Lisbon recommended. Delta JFK-Porto doesn't start until May 2026, so open-jaw not practical for March dates.",
+    "routing": {
+      "recommended": "MOB → ATL → JFK → LIS (Delta)",
+      "alternatives": ["MSY → JFK → LIS could save money but 2hr drive"],
+      "reasoning": "Kim has Delta status, earns miles. JFK has premium lounges. Overnight transatlantic preferred."
+    },
     "outbound": {
-      "route": "",
-      "airline": "",
-      "flightNumbers": "",
-      "departure": "",
-      "arrival": "",
-      "class": "",
+      "date": "2026-03-22",
+      "route": "MOB → ATL → JFK → LIS",
+      "airline": "Delta",
+      "flightNumbers": "TBD - need to quote",
+      "departure": "Afternoon from MOB",
+      "arrival": "March 23 ~8:00am LIS",
+      "class": "Main Cabin (consider Comfort+ for transatlantic)",
       "price": 0,
-      "notes": ""
+      "notes": "Overnight flight JFK-LIS. DL272 departs JFK ~8:15pm, arrives LIS 8:00am."
     },
     "return": {
-      "route": "",
-      "airline": "",
-      "flightNumbers": "",
-      "departure": "",
-      "arrival": "",
-      "class": "",
+      "date": "2026-03-31",
+      "route": "LIS → JFK → ATL → MOB",
+      "airline": "Delta",
+      "flightNumbers": "TBD - need to quote",
+      "departure": "Morning from LIS",
+      "arrival": "Evening March 31 MOB",
+      "class": "Main Cabin",
       "price": 0,
-      "notes": ""
+      "notes": "DL273 departs LIS ~10:00am, arrives JFK ~1:00pm. Connect home same day."
+    },
+    "estimatedTotal": {
+      "range": "$1,200-1,600 for 2 passengers",
+      "source": "web research Jan 2026",
+      "needsQuote": true
     }
   },
   "locations": [
@@ -104,7 +116,7 @@
     },
     "trains": {
       "needed": true,
-      "notes": "Lisbon-Porto train is scenic and avoids long drive"
+      "notes": "Lisbon-Porto train is scenic and avoids long drive (~3 hrs)"
     },
     "transfers": []
   },
@@ -184,9 +196,9 @@
     }
   },
   "openQuestions": [
+    "Get Delta quote for MOB-ATL-JFK-LIS round trip March 22-31",
     "Confirm itinerary flow: Lisbon → Évora/Óbidos → Porto → Sintra/Cascais?",
-    "Round-trip Lisbon or multi-city (Lisbon in, Porto out)?",
-    "More beach time needed? Consider Algarve or Nazaré?",
+    "More beach time needed? Consider Cascais over Sintra?",
     "Specific shopping goals? (Leather, ceramics, cork, designer, vintage?)"
   ],
   "preTripChecklist": [
