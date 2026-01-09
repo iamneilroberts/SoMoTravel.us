@@ -132,6 +132,14 @@
                 <option value="no_sale">No Sale</option>
               </select>
             </div>
+            <div style="flex:1 1 180px">
+              <label class="form-label" for="tripFolder">Folder Location</label>
+              <select id="tripFolder" class="form-control">
+                <option value="">Root (legacy)</option>
+                <option value="trips/active/">trips/active/</option>
+                <option value="trips/past/">trips/past/</option>
+              </select>
+            </div>
             <div style="flex:2 1 320px">
               <label class="form-label" for="tripTags">Tags (comma separated)</label>
               <input id="tripTags" class="form-control" type="text" placeholder="e.g., family, europe">
@@ -278,8 +286,8 @@ function createTripCard(trip,index){
 
 
 /***** MODAL OPEN/CLOSE *****/
-function openAddModal(){ document.getElementById('tripForm').reset(); document.getElementById('editIndex').value=''; document.getElementById('modalTitle').textContent='Add Trip'; document.getElementById('fileInfo').textContent='Click or drop a .html file here'; document.getElementById('tripModal').style.display='flex'; }
-function openEditModal(trip,index){ document.getElementById('modalTitle').textContent='Edit Trip'; document.getElementById('tripTitle').value=trip.title||''; document.getElementById('tripDates').value=trip.dates||''; document.getElementById('tripCategory').value=normalizeCategory(trip.category); document.getElementById('tripTags').value=(trip.tags||[]).join(', '); document.getElementById('tripFilename').value=trip.filename||''; document.getElementById('fileInfo').textContent='(Optional) choose a new HTML to replace existing'; document.getElementById('editIndex').value=String(index); document.getElementById('tripModal').style.display='flex'; }
+function openAddModal(){ document.getElementById('tripForm').reset(); document.getElementById('editIndex').value=''; document.getElementById('modalTitle').textContent='Add Trip'; document.getElementById('fileInfo').textContent='Click or drop a .html file here'; const folderEl=document.getElementById('tripFolder'); folderEl.value='trips/active/'; folderEl.disabled=false; /* Enable folder selection for new trips */ document.getElementById('tripModal').style.display='flex'; }
+function openEditModal(trip,index){ document.getElementById('modalTitle').textContent='Edit Trip'; document.getElementById('tripTitle').value=trip.title||''; document.getElementById('tripDates').value=trip.dates||''; document.getElementById('tripCategory').value=normalizeCategory(trip.category); document.getElementById('tripTags').value=(trip.tags||[]).join(', '); document.getElementById('tripFilename').value=trip.filename||''; /* Extract folder from existing filename path */ const fn=trip.filename||''; const folderEl=document.getElementById('tripFolder'); if(fn.startsWith('trips/active/')){ folderEl.value='trips/active/'; } else if(fn.startsWith('trips/past/')){ folderEl.value='trips/past/'; } else { folderEl.value=''; } folderEl.disabled=true; /* Disable folder change during edit */ document.getElementById('fileInfo').textContent='(Optional) choose a new HTML to replace existing'; document.getElementById('editIndex').value=String(index); document.getElementById('tripModal').style.display='flex'; }
 function closeModal(){ document.getElementById('tripModal').style.display='none'; }
 
 /***** UPLOAD + AUTOFILL *****/
@@ -291,7 +299,10 @@ function extractDatesFromHtml(html){ const text=html.replace(/<[^>]+>/g,' ').rep
 
 /***** FORM SUBMIT *****/
 (function initForm(){ document.getElementById('tripForm').addEventListener('submit', onSubmitTrip); })();
-async function onSubmitTrip(e){ e.preventDefault(); try{ const i=document.getElementById('editIndex').value; const isEdit=i!==''; const title=document.getElementById('tripTitle').value.trim(); const dates=document.getElementById('tripDates').value.trim(); const category=normalizeCategory(document.getElementById('tripCategory').value); const tags=parseTagsInput(document.getElementById('tripTags').value); const filename=document.getElementById('tripFilename').value.trim(); let fileContent=null; const fileInput=document.getElementById('htmlFile'); if(fileInput.files && fileInput.files[0]){ fileContent= await fileInput.files[0].text(); }
+async function onSubmitTrip(e){ e.preventDefault(); try{ const i=document.getElementById('editIndex').value; const isEdit=i!==''; const title=document.getElementById('tripTitle').value.trim(); const dates=document.getElementById('tripDates').value.trim(); const category=normalizeCategory(document.getElementById('tripCategory').value); const tags=parseTagsInput(document.getElementById('tripTags').value); const rawFilename=document.getElementById('tripFilename').value.trim(); const folder=document.getElementById('tripFolder').value; // Get folder path
+  // Build full path: folder + filename (only for new files, edits keep original path)
+  const filename = isEdit ? rawFilename : (folder + rawFilename);
+  let fileContent=null; const fileInput=document.getElementById('htmlFile'); if(fileInput.files && fileInput.files[0]){ fileContent= await fileInput.files[0].text(); }
   if(!isEdit && fileContent===null){ if(!confirm('No HTML selected. Save metadata only?')) return; }
   if(fileContent!==null){ showSpinner('Uploading itinerary…'); await uploadToGitHub(filename, fileContent); const fileUrl=`${location.origin}/${filename}`; await waitForFile(fileUrl); hideSpinner(); }
   showSpinner('Updating metadata…'); const {sha,trips}= await getTripsJsonFromGitHub(); const idx = trips.findIndex(t=>t.filename===filename); const entry={ filename, title, dates, category, tags, lastModified: new Date().toISOString().slice(0,10) };
