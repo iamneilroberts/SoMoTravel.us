@@ -217,35 +217,28 @@ Example:
 https://www.viator.com/tours/Lisbon/Sintra-Tour/d538-33844P1?pid=P00005400&uid=U00386675&mcid=58086
 ```
 
-## Generating and Publishing the HTML Proposal
+## Publishing the Proposal
 
-When the trip planning is complete and ready for client presentation:
+A GitHub Action automatically generates `proposal.html` whenever `trip-details.json` is pushed. You just need to commit and push.
 
-### Step 1: Generate the HTML
+### To publish or update a proposal:
 ```bash
-node /home/neil/dev/SoMoTravel.us/scripts/generate-proposal.js /home/neil/dev/SoMoTravel.us/trips/active/{trip-id}
+cd /path/to/SoMoTravel.us && git add . && git commit -m "Update {trip-id}" && git push
 ```
 
-### Step 2: Push to GitHub (makes it live on somotravel.us)
-```bash
-cd /home/neil/dev/SoMoTravel.us && git add . && git commit -m "Update {trip-id} proposal" && git push
-```
+**What happens:**
+1. You push `trip-details.json` to GitHub
+2. GitHub Action detects the change (~30 seconds)
+3. Action runs `generate-proposal.js` automatically
+4. Action commits `proposal.html` back to the repo
+5. Proposal is live at `somotravel.us/trips/active/{trip-id}/proposal.html`
 
-### Combined Example:
-```bash
-node /home/neil/dev/SoMoTravel.us/scripts/generate-proposal.js /home/neil/dev/SoMoTravel.us/trips/active/portugal-henderson-jones-mar-2026 && cd /home/neil/dev/SoMoTravel.us && git add . && git commit -m "Update portugal-henderson-jones-mar-2026 proposal" && git push
-```
-
-**When to generate & publish:**
+**When to publish:**
 - After all sections of trip-details.json are complete
 - After client has approved the itinerary
 - When ready to send a polished proposal
 
-**Output:**
-- Creates `proposal.html` in the trip folder
-- Pushes to GitHub, making it live at `somotravel.us/trips/active/{trip-id}/proposal.html`
-
-**Re-generating:** If you update the JSON after publishing, run both commands again to update the live site.
+**Re-publishing:** Just push updated JSON. The Action regenerates HTML automatically.
 
 ## Quick Commands
 
@@ -254,8 +247,7 @@ node /home/neil/dev/SoMoTravel.us/scripts/generate-proposal.js /home/neil/dev/So
 - "Add tours" → Research Viator tours, add with affiliate links
 - "Add dining" → Research restaurants, add with URLs
 - "Build itinerary" → Create day-by-day plan
-- "Generate proposal" → Run node script to create HTML
-- "Publish proposal" → Generate HTML + git push to make live on somotravel.us
+- "Publish proposal" → Git push (GitHub Action auto-generates HTML)
 - "Update pricing" → Recalculate totals
 
 ## Important Notes

@@ -1,0 +1,59 @@
+name: Generate Proposals
+
+on:
+  push:
+    paths:
+      - 'trips/**/trip-details.json'
+  workflow_dispatch:
+    inputs:
+      trip_id:
+        description: 'Trip folder name (e.g., portugal-henderson-jones-mar-2026)'
+        required: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need previous commit to detect changes
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Find changed trip-details.json files
+        id: changed
+        run: |
+          if [ -n "${{ github.event.inputs.trip_id }}" ]; then
+            # Manual trigger with specific trip
+            echo "trips=trips/active/${{ github.event.inputs.trip_id }}" >> $GITHUB_OUTPUT
+          else
+            # Auto-detect changed files
+            CHANGED=$(git diff --name-only HEAD~1 HEAD | grep 'trip-details.json' | xargs -I {} dirname {} | tr '\n' ' ')
+            echo "trips=$CHANGED" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate proposals
+        run: |
+          for trip_folder in ${{ steps.changed.outputs.trips }}; do
+            if [ -d "$trip_folder" ] && [ -f "$trip_folder/trip-details.json" ]; then
+              echo "Generating proposal for: $trip_folder"
+              node scripts/generate-proposal.js "$trip_folder"
+            fi
+          done
+
+      - name: Commit and push generated proposals
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add trips/**/proposal.html
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-generate proposal HTML"
+            git push
+          fi
