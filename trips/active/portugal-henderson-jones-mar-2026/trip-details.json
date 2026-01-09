@@ -5,8 +5,8 @@
     "destination": "Portugal",
     "dates": "March 22-31, 2026",
     "occasion": "Business scouting trip + BFF adventure",
-    "phase": "locations",
-    "lastUpdated": "2026-01-09T11:15:00Z",
+    "phase": "lodging",
+    "lastUpdated": "2026-01-09T12:00:00Z",
     "status": "Planning",
     "quotesConfirmed": false
   },
@@ -21,7 +21,7 @@
     "vibe": "Pack it full — culture, food, scenic villages, beaches, shopping. Dual purpose: personal adventure + business reconnaissance.",
     "budget": "Cost-conscious with selective splurges for right experiences",
     "mobility": "No restrictions. Kim prefers shorter car rides (no long drives).",
-    "transportation": "Rental car for flexibility + trains + small group tours. Keep driving segments short.",
+    "transportation": "Train-based itinerary. No rental car. Day trips from two bases.",
     "mustHave": [
       "Mountains/villages/hiking (Kim)",
       "Beaches (Susie)",
@@ -32,7 +32,8 @@
     "avoid": [
       "Wine tours/tastings (Susie is recovering alcoholic)",
       "Excessive crowds (except for client reconnaissance)",
-      "Long car rides"
+      "Long car rides",
+      "Rental car if practical to skip"
     ],
     "kimPreferences": "Mountains, villages, hiking, unique finds, shorter drives",
     "susiePreferences": "Beaches, fashion/shopping, no alcohol-focused activities"
@@ -74,51 +75,156 @@
       "needsQuote": true
     }
   },
+  "itinerary": {
+    "summary": "Two bases (Lisbon 4 nights, Porto 4 nights) with day trips by train. No rental car.",
+    "days": [
+      {
+        "day": 1,
+        "date": "2026-03-23",
+        "title": "Arrive Lisbon",
+        "location": "Lisbon",
+        "activities": ["Arrive LIS ~8am", "Check into hotel (early check-in if possible)", "Light exploration of neighborhood", "Early dinner, early bed to recover"],
+        "overnight": "Lisbon"
+      },
+      {
+        "day": 2,
+        "date": "2026-03-24",
+        "title": "Lisbon Exploration",
+        "location": "Lisbon",
+        "activities": ["Alfama neighborhood", "Baixa district", "Chiado shopping (fashion for Susie)", "LX Factory (unique finds for Kim)", "Fado show or nice dinner"],
+        "overnight": "Lisbon"
+      },
+      {
+        "day": 3,
+        "date": "2026-03-25",
+        "title": "Sintra Day Trip",
+        "location": "Sintra (day trip)",
+        "activities": ["Train from Rossio (40 min, every 20 min)", "Pena Palace", "Moorish Castle or Quinta da Regaleira", "Mountain views and hiking trails (Kim)", "Return to Lisbon evening"],
+        "transport": "Train ~€5 round trip per person",
+        "overnight": "Lisbon"
+      },
+      {
+        "day": 4,
+        "date": "2026-03-26",
+        "title": "Cascais Beach Day",
+        "location": "Cascais (day trip)",
+        "activities": ["Train from Cais do Sodré (35 min scenic coastal route)", "Beach time (Susie)", "Old town exploration and shopping", "Boca do Inferno cliffs", "Seafood lunch", "Optional: walk to Estoril", "Return to Lisbon evening"],
+        "transport": "Train ~€5 round trip per person",
+        "overnight": "Lisbon"
+      },
+      {
+        "day": 5,
+        "date": "2026-03-27",
+        "title": "Train to Porto",
+        "location": "Porto",
+        "activities": ["Morning in Lisbon (pack, breakfast)", "Alfa Pendular train to Porto (~3 hrs)", "Check into Porto hotel", "Evening walk in Ribeira district", "Dinner with Douro River views"],
+        "transport": "Alfa Pendular ~€27-34 per person",
+        "overnight": "Porto"
+      },
+      {
+        "day": 6,
+        "date": "2026-03-28",
+        "title": "Porto Exploration",
+        "location": "Porto",
+        "activities": ["Livraria Lello (famous bookstore)", "Clérigos Tower", "São Bento Station (azulejo tiles)", "Rua de Santa Catarina shopping", "Ribeira waterfront", "Dom Luís I Bridge walk"],
+        "overnight": "Porto"
+      },
+      {
+        "day": 7,
+        "date": "2026-03-29",
+        "title": "Douro or Beach Day",
+        "location": "Porto area",
+        "activities": ["OPTION A: Scenic Douro Valley tour (non-wine focused) or train to Peso da Régua", "OPTION B: Foz do Douro beach day (tram from center)", "TBD based on weather and preferences"],
+        "notes": "Leave flexible - decide closer to date",
+        "overnight": "Porto"
+      },
+      {
+        "day": 8,
+        "date": "2026-03-30",
+        "title": "Porto Free Day",
+        "location": "Porto",
+        "activities": ["Return to favorite spots", "Additional shopping", "Hidden gems exploration", "Last special dinner in Porto"],
+        "overnight": "Porto"
+      },
+      {
+        "day": 9,
+        "date": "2026-03-31",
+        "title": "Depart",
+        "location": "Porto → Lisbon → Home",
+        "activities": ["Morning in Porto", "Train Porto → Lisbon Oriente (~3 hrs)", "Metro to Lisbon Airport", "Flight home"],
+        "transport": "Alfa Pendular + Metro ~€30-35 per person"
+      }
+    ]
+  },
   "locations": [
     {
       "name": "Lisbon",
-      "nights": 3,
-      "dates": "TBD",
-      "purpose": "Must-know for clients, food scene, Sintra day trip, shopping (Chiado, LX Factory)",
-      "status": "proposed"
-    },
-    {
-      "name": "Évora or Óbidos",
-      "nights": 1,
-      "dates": "TBD",
-      "purpose": "Stop en route, off-beaten-path village feel",
-      "status": "proposed"
+      "nights": 4,
+      "dates": "March 23-27, 2026",
+      "purpose": "Capital city base. Day trips to Sintra and Cascais.",
+      "neighborhoods": ["Chiado/Baixa (central, shopping)", "Alfama (historic)", "Príncipe Real (boutiques)"],
+      "status": "confirmed"
     },
     {
       "name": "Porto",
-      "nights": 3,
-      "dates": "TBD",
-      "purpose": "Walkable, great food, Douro views, unique shopping",
-      "status": "proposed"
-    },
-    {
-      "name": "Sintra or Cascais",
-      "nights": 2,
-      "dates": "TBD",
-      "purpose": "Fairy-tale palaces OR beach town before departure",
-      "status": "proposed"
+      "nights": 4,
+      "dates": "March 27-31, 2026",
+      "purpose": "Northern base. Walkable city, possible Douro day trip.",
+      "neighborhoods": ["Ribeira (waterfront)", "Baixa (center)", "Foz do Douro (beach)"],
+      "status": "confirmed"
     }
   ],
   "lodging": {
-    "confirmed": [],
-    "options": []
+    "requirements": {
+      "lisbon": "Central location (Chiado, Baixa, or Alfama). Walking distance to Rossio and Cais do Sodré stations for day trips. 4 nights.",
+      "porto": "Ribeira or Baixa area. Walking distance to São Bento station. 4 nights."
+    },
+    "value": [],
+    "premium": [],
+    "luxury": []
   },
   "tours": [],
   "transport": {
     "rentalCar": {
-      "needed": true,
-      "notes": "For flexibility, but keep segments short. Combine with trains."
+      "needed": false,
+      "notes": "Skipping rental car. Train-based itinerary is more practical and cost-effective."
     },
     "trains": {
-      "needed": true,
-      "notes": "Lisbon-Porto train is scenic and avoids long drive (~3 hrs)"
+      "lisbonToSintra": {
+        "station": "Rossio",
+        "duration": "40 min",
+        "frequency": "Every 20 min",
+        "cost": "~€2.30 each way"
+      },
+      "lisbonToCascais": {
+        "station": "Cais do Sodré",
+        "duration": "35 min",
+        "frequency": "Every 20 min",
+        "cost": "~€2.30 each way",
+        "notes": "Scenic coastal route - sit on left side going out"
+      },
+      "lisbonToPorto": {
+        "train": "Alfa Pendular high-speed",
+        "stations": "Lisboa Oriente → Porto Campanhã (free transfer to São Bento)",
+        "duration": "~3 hours",
+        "cost": "~€27-34 per person",
+        "notes": "Book in advance for best price. Café-bar on board, WiFi, power outlets."
+      },
+      "portoToLisbonAirport": {
+        "route": "Porto Campanhã → Lisboa Oriente → Metro to Airport",
+        "duration": "~3.5 hours total",
+        "cost": "~€30-35 per person"
+      }
     },
-    "transfers": []
+    "localTransport": {
+      "lisbon": "Metro, trams (especially 28E), walking. Consider Lisboa Card for unlimited transport + attractions.",
+      "porto": "Metro, trams, walking. Very walkable city center."
+    },
+    "estimatedTransportTotal": {
+      "trains": "~€150-185 for both travelers",
+      "local": "~€30-50",
+      "total": "~€180-235 (~$195-255)"
+    }
   },
   "extras": {
     "dining": [],
@@ -127,13 +233,21 @@
     "kims_gem": null,
     "photoOps": [],
     "shopping": {
-      "susie": "Fashion, designer",
-      "kim": "Unique, off-beaten-path finds",
-      "areas_to_research": ["Chiado", "LX Factory", "Porto boutiques"]
+      "lisbon": {
+        "susie": ["Chiado (fashion)", "Avenida da Liberdade (designer)"],
+        "kim": ["LX Factory (unique/trendy)", "Príncipe Real (boutiques)", "Feira da Ladra flea market"]
+      },
+      "cascais": {
+        "both": ["Old town boutiques", "Upscale shopping"]
+      },
+      "porto": {
+        "susie": ["Rua de Santa Catarina"],
+        "kim": ["Ribeira artisan shops", "Clérigos area ceramics"]
+      }
     }
   },
   "packingGuide": {
-    "weather": "March temperatures range from 55-65°F",
+    "weather": "March temperatures range from 55-65°F (12-18°C). Chance of rain.",
     "daytime": {
       "footwear": [
         "Comfortable walking shoes essential - cobblestone streets everywhere",
@@ -162,7 +276,8 @@
       "Stick to neutrals and earthy tones - black, navy, olive, cream blend in well",
       "Portuguese women tend toward classic, understated elegance over flashy",
       "Versatile scarf doubles as style piece and cover-up for churches",
-      "Pack pieces that mix and match easily"
+      "Pack pieces that mix and match easily",
+      "Bring a compact umbrella for March"
     ],
     "proTip": "A lightweight, wrinkle-resistant wardrobe will serve you well. Choose fabrics that travel easily and can be dressed up or down!"
   },
@@ -171,7 +286,7 @@
       "flights": 0,
       "lodging": 0,
       "tours": 0,
-      "transport": 0,
+      "transport": 200,
       "total": 0,
       "perPerson": 0,
       "confirmed": false
@@ -180,7 +295,7 @@
       "flights": 0,
       "lodging": 0,
       "tours": 0,
-      "transport": 0,
+      "transport": 200,
       "total": 0,
       "perPerson": 0,
       "confirmed": false
@@ -189,7 +304,7 @@
       "flights": 0,
       "lodging": 0,
       "tours": 0,
-      "transport": 0,
+      "transport": 250,
       "total": 0,
       "perPerson": 0,
       "confirmed": false
@@ -197,16 +312,17 @@
   },
   "openQuestions": [
     "Get Delta quote for MOB-ATL-JFK-LIS round trip March 22-31",
-    "Confirm itinerary flow: Lisbon → Évora/Óbidos → Porto → Sintra/Cascais?",
-    "More beach time needed? Consider Cascais over Sintra?",
-    "Specific shopping goals? (Leather, ceramics, cork, designer, vintage?)"
+    "Day 7: Douro Valley scenic tour vs Foz do Douro beach - decide closer to trip based on weather/mood",
+    "Lisboa Card worth it? (24/48/72 hr options - unlimited transport + attraction discounts)"
   ],
   "preTripChecklist": [
     { "item": "Confirm travel dates", "completed": true },
+    { "item": "Finalize itinerary structure", "completed": true },
     { "item": "Book flights", "completed": false },
-    { "item": "Book accommodations", "completed": false },
-    { "item": "Plan daily itinerary", "completed": false },
-    { "item": "Research non-wine food experiences", "completed": false },
+    { "item": "Book Lisbon hotel (4 nights)", "completed": false },
+    { "item": "Book Porto hotel (4 nights)", "completed": false },
+    { "item": "Book Lisbon-Porto train", "completed": false },
+    { "item": "Research non-wine Douro options", "completed": false },
     { "item": "Identify key tourist spots for client reconnaissance", "completed": false }
   ]
 }
