@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portugal — Henderson &amp; Jones | Somo Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #003399;
+            --accent: #d4a574;
+            --highlight-bg: #e8f4f8;
+            --terracotta: #c4704b;
+            --olive: #6b7c4c;
+            --cream: #faf8f5;
+            --card: #ffffff;
+            --text: #2d2d2d;
+            --muted: #6b6b6b;
+            --border: #e5e0db;
+            --shadow: rgba(0, 51, 153, 0.08);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --cream: #1a1a1f;
+                --card: #252529;
+                --text: #e8e6e3;
+                --muted: #9a9a9a;
+                --border: #3a3a40;
+                --highlight-bg: #1e2530;
+                --shadow: rgba(0, 0, 0, 0.3);
+            }
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Outfit', sans-serif; font-weight: 300; background: var(--cream); color: var(--text); line-height: 1.7; }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, #1a4d8c 50%, var(--terracotta) 100%); color: white; padding: 3rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.5; }
+        .hero-content { position: relative; z-index: 1; }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; letter-spacing: 0.02em; }
+        .hero .subtitle { font-size: 1.1rem; opacity: 0.95; margin-bottom: 0.5rem; }
+        .hero .dates { font-size: 1rem; opacity: 0.85; font-weight: 400; }
+        .hero .tagline { margin-top: 1.5rem; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; opacity: 0.9; }
+        .container { max-width: 800px; margin: 0 auto; padding: 1.5rem 1rem; }
+        .section { background: var(--card); border-radius: 16px; margin-bottom: 1.25rem; overflow: hidden; box-shadow: 0 2px 12px var(--shadow); border: 1px solid var(--border); }
+        .section-header { padding: 1.25rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; }
+        .section-header:hover { background: var(--highlight-bg); }
+        .section-header h2 { font-size: 1.2rem; display: flex; align-items: center; gap: 0.6rem; color: var(--primary); }
+        .section-content { padding: 0 1.5rem 1.5rem; display: none; }
+        .section.open .section-content { display: block; }
+        .chevron { transition: transform 0.3s ease; color: var(--muted); font-size: 0.9rem; }
+        .section.open .chevron { transform: rotate(180deg); }
+        .overview-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1rem; }
+        .overview-item { background: var(--highlight-bg); padding: 1rem; border-radius: 12px; text-align: center; }
+        .overview-item .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.25rem; }
+        .overview-item .value { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--primary); }
+        .day { border-left: 3px solid var(--accent); padding-left: 1.25rem; margin-bottom: 1.75rem; }
+        .day:last-child { margin-bottom: 0; }
+        .day-header { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem; }
+        .day-number { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; font-weight: 600; color: var(--terracotta); text-transform: uppercase; letter-spacing: 0.05em; }
+        .day-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--text); }
+        .day-date { font-size: 0.8rem; color: var(--muted); }
+        .day-content { font-size: 0.95rem; color: var(--muted); }
+        .day-content p { margin-bottom: 0.5rem; }
+        .day-highlight { background: linear-gradient(135deg, var(--highlight-bg) 0%, rgba(212, 165, 116, 0.1) 100%); padding: 0.75rem 1rem; border-radius: 8px; margin-top: 0.75rem; font-size: 0.9rem; }
+        .day-highlight strong { color: var(--primary); }
+        .card { background: var(--highlight-bg); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+        .card:last-child { margin-bottom: 0; }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem; }
+        .card h3 { font-size: 1.05rem; color: var(--text); }
+        .card .price { font-weight: 500; color: var(--terracotta); font-size: 0.95rem; }
+        .card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.35rem; }
+        .card a { color: var(--primary); text-decoration: none; font-size: 0.85rem; }
+        .card a:hover { text-decoration: underline; }
+        .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        .badge.tour { background: rgba(0, 51, 153, 0.1); color: var(--primary); }
+        .badge.free { background: rgba(107, 124, 76, 0.15); color: var(--olive); }
+        .badge.included { background: rgba(0, 51, 153, 0.1); color: var(--primary); }
+        .callout { background: linear-gradient(135deg, rgba(212, 165, 116, 0.15) 0%, rgba(212, 165, 116, 0.05) 100%); border-left: 4px solid var(--accent); padding: 1.25rem; border-radius: 0 12px 12px 0; margin: 1.25rem 0; }
+        .callout h4 { color: var(--terracotta); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; }
+        .callout p { font-size: 0.9rem; color: var(--muted); }
+        .pricing-summary { background: var(--highlight-bg); border-radius: 12px; overflow: hidden; }
+        .pricing-header { background: var(--primary); color: white; padding: 1rem 1.25rem; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; }
+        .pricing-row { display: flex; justify-content: space-between; padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+        .pricing-row:last-child { border-bottom: none; }
+        .pricing-row.total { background: rgba(0, 51, 153, 0.05); font-weight: 500; font-size: 1.1rem; }
+        .pricing-row.total .amount { color: var(--primary); font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; }
+        .dining-grid { display: grid; gap: 0.75rem; }
+        .dining-item { display: flex; gap: 1rem; padding: 0.75rem; background: var(--highlight-bg); border-radius: 10px; }
+        .dining-item .name { font-weight: 500; color: var(--text); font-size: 0.95rem; }
+        .dining-item .type { font-size: 0.8rem; color: var(--muted); }
+        .dining-item .note { font-size: 0.8rem; color: var(--terracotta); font-style: italic; }
+        .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+        .photo-item { background: var(--highlight-bg); padding: 0.75rem; border-radius: 10px; font-size: 0.85rem; }
+        .photo-item .location { font-weight: 500; color: var(--primary); }
+        .photo-item .tip { color: var(--muted); font-size: 0.8rem; }
+        .list-simple { padding-left: 1.25rem; color: var(--muted); font-size: 0.95rem; line-height: 2; }
+        .footer { text-align: center; padding: 2.5rem 1.5rem; background: var(--primary); color: white; }
+        .footer .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .footer .franchise { font-size: 0.85rem; opacity: 0.8; margin-bottom: 1.25rem; }
+        .footer .contact { font-size: 0.9rem; opacity: 0.9; line-height: 1.8; }
+        .footer .generated { margin-top: 1.5rem; font-size: 0.75rem; opacity: 0.6; }
+        @media (max-width: 600px) { .hero h1 { font-size: 1.8rem; } .overview-grid { grid-template-columns: 1fr; } .photo-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>🇵🇹 Portugal</h1>
+            <div class="subtitle">Kim Henderson &amp; Susie Jones</div>
+            <div class="dates">March 22-31, 2026 • 9 Days</div>
+            <div class="tagline">Lisbon • Porto</div>
+        </div>
+    </header>
+    <div class="container">
+        <!-- Trip Overview -->
+        <div class="section open">
+            <div class="section-header" onclick="toggleSection(this)"><h2>✨ Trip Overview</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                <div class="overview-grid">
+                    
+                    <div class="overview-item"><div class="label">Duration</div><div class="value">9 Days</div></div>
+                    
+                    <div class="overview-item"><div class="label">Travelers</div><div class="value">2 Adults</div></div>
+                    
+                    <div class="overview-item"><div class="label">Bases</div><div class="value">Lisbon &amp; Porto</div></div>
+                    
+                    <div class="overview-item"><div class="label">Style</div><div class="value">Train-based itinerary. No rental car. Day trips from two bases.</div></div>
+                    
+                </div>
+                <p style="font-size: 0.95rem; color: var(--muted); margin-top: 1rem;">Two bases (Lisbon 4 nights, Porto 4 nights) with day trips by train. No rental car.</p>
+                
+                <div class="callout"><h4>💡 Trip Purpose</h4><p>Business scouting trip + BFF adventure</p></div>
+                
+            </div>
+        </div>
+
+        <!-- Flights -->
+        
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#9992;&#65039; Flights</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                <div class="card">
+                    <div class="card-header"><h3>Delta &mdash; MOB to Portugal</h3><span class="badge tour">Round Trip</span></div>
+                    <p><strong>Outbound:</strong> March 21 &bull; MOB → ATL → JFK → LIS</p>
+                    <p>Overnight flight JFK-LIS</p>
+                    <p style="margin-top: 0.75rem;"><strong>Return:</strong> March 30 &bull; LIS → JFK → ATL → MOB</p>
+                    <p>Morning from LIS</p>
+                    <p class="price" style="margin-top: 1rem;">Estimated: $1,200-1,600 for 2 passengers</p>
+                    {{#if flights.note}}
+                    <p style="font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem;">web research - needs CP quote</p>
+                    
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Accommodations -->
+        
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#127976; Accommodations</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                
+                <div class="card">
+                    <div class="card-header"><h3>Hotel da Baixa &mdash; Lisbon</h3><span class="price">€140-160/night</span></div>
+                    <p><strong>4 nights</strong> &bull; </p>
+                    <p></p>
+                    {{#if this.perks}}
+                    <p style="margin-top: 0.5rem;"><strong>Perks:</strong> </p>
+                    
+                    
+                </div>
+                
+                <div class="card">
+                    <div class="card-header"><h3>Exmo. Hotel by Olivia &mdash; Porto</h3><span class="price">€150-190/night</span></div>
+                    <p><strong>4 nights</strong> &bull; </p>
+                    <p></p>
+                    
+                    
+                </div>
+                
+                
+                <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem; text-align: center;"><strong>Estimated lodging total:</strong> ~$1,280 for 8 nights</p>
+                
+            </div>
+        </div>
+        
+
+        <!-- Day-by-Day Itinerary -->
+        
+        <div class="section open">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#128197; Day-by-Day Itinerary</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-number">Day 1</span>
+                        <span class="day-title">Arrive Lisbon</span>
+                    </div>
+                    <span class="day-date">Sunday, March 22</span>
+                    <div class="day-content">
+                        &lt;p&gt;Arrive LIS ~8am&lt;/p&gt;&lt;p&gt;Check into hotel&lt;/p&gt;&lt;p&gt;Light exploration&lt;/p&gt;&lt;p&gt;Early dinner, early bed&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Dining:&lt;/strong&gt; Easy dinner near hotel - try Martinho da Arcada (Lisbon&#039;s oldest café, since 1782)&lt;/p&gt;
+                    </div>
+                    {{#if this.highlight}}
+                    <div class="day-highlight">{}</div>
+                    
+                </div>
+                
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-number">Day 2</span>
+                        <span class="day-title">Lisbon Exploration + Food Tour</span>
+                    </div>
+                    <span class="day-date">Monday, March 23</span>
+                    <div class="day-content">
+                        &lt;p&gt;Morning: Self-guided Alfama&lt;/p&gt;&lt;p&gt;11am: Devour Lisbon Food Tour&lt;/p&gt;&lt;p&gt;Afternoon: Chiado shopping&lt;/p&gt;&lt;p&gt;LX Factory&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Dining:&lt;/strong&gt; Food tour covers lunch. Evening: Taberna da Rua das Flores or Cervejaria Ramiro (seafood)&lt;/p&gt;
+                    </div>
+                    
+                </div>
+                
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-number">Day 3</span>
+                        <span class="day-title">Sintra Day Trip</span>
+                    </div>
+                    <span class="day-date">Tuesday, March 24</span>
+                    <div class="day-content">
+                        &lt;p&gt;Small-group guided tour&lt;/p&gt;&lt;p&gt;Pena Palace&lt;/p&gt;&lt;p&gt;Quinta da Regaleira&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Dining:&lt;/strong&gt; Lunch in Sintra village. Dinner back in Lisbon: Prado (farm-to-table, vegan options)&lt;/p&gt;
+                    </div>
+                    
+                </div>
+                
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-number">Day 4</span>
+                        <span class="day-title">Cascais Beach Day</span>
+                    </div>
+                    <span class="day-date">Wednesday, March 25</span>
+                    <div class="day-content">
+                        &lt;p&gt;Train to Cascais&lt;/p&gt;&lt;p&gt;Beach time&lt;/p&gt;&lt;p&gt;Old town shopping&lt;/p&gt;&lt;p&gt;Boca do Inferno cliffs&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Dining:&lt;/strong&gt; Seafood lunch in Cascais. Dinner: Fado show at Tasca do Chico or Sr. Fado&lt;/p&gt;
+                    </div>
+                    
+                </div>
+                
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-number">Day 5</span>
+                        <span class="day-title">Train to Porto</span>
+                    </div>
+                    <span class="day-date">Thursday, March 26</span>
+                    <div class="day-content">
+                        &lt;p&gt;Morning pack/breakfast&lt;/p&gt;&lt;p&gt;Alfa Pendular to Porto&lt;/p&gt;&lt;p&gt;Evening Ribeira walk&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Dining:&lt;/strong&gt; Dinner with river views: Bacalhau or Adega São Nicolau&lt;/p&gt;
+                    </div>
+                    
+                </div>
+                
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-number">Day 6</span>
+                        <span class="day-title">Porto Exploration + Food Tour</span>
+                    </div>
+                    <span class="day-date">Friday, March 27</span>
+                    <div class="day-content">
+                        &lt;p&gt;São Bento Station&lt;/p&gt;&lt;p&gt;Clérigos Tower&lt;/p&gt;&lt;p&gt;Food Tour&lt;/p&gt;&lt;p&gt;Livraria Lello&lt;/p&gt;&lt;p&gt;Dom Luís I Bridge sunset&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Dining:&lt;/strong&gt; Food tour covers tastings. Dinner: Tapabento at São Bento Station&lt;/p&gt;
+                    </div>
+                    
+                </div>
+                
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-number">Day 7</span>
+                        <span class="day-title">Douro Valley Scenic Train</span>
+                    </div>
+                    <span class="day-date">Saturday, March 28</span>
+                    <div class="day-content">
+                        &lt;p&gt;Scenic train to Pinhão&lt;/p&gt;&lt;p&gt;Explore village&lt;/p&gt;&lt;p&gt;Optional river cruise&lt;/p&gt;&lt;p&gt;Train back&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Dining:&lt;/strong&gt; Lunch in Pinhão riverside. Dinner: Francesinha at Café Santiago or Lado B&lt;/p&gt;
+                    </div>
+                    
+                </div>
+                
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-number">Day 8</span>
+                        <span class="day-title">Porto Free Day</span>
+                    </div>
+                    <span class="day-date">Sunday, March 29</span>
+                    <div class="day-content">
+                        &lt;p&gt;Return to favorites&lt;/p&gt;&lt;p&gt;Shopping&lt;/p&gt;&lt;p&gt;Hidden gems&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Dining:&lt;/strong&gt; Special farewell dinner: Raiz or Ora Viva&lt;/p&gt;
+                    </div>
+                    
+                </div>
+                
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-number">Day 9</span>
+                        <span class="day-title">Depart</span>
+                    </div>
+                    <span class="day-date">Monday, March 30</span>
+                    <div class="day-content">
+                        &lt;p&gt;Morning Porto&lt;/p&gt;&lt;p&gt;Train to Lisbon Oriente&lt;/p&gt;&lt;p&gt;Metro to airport&lt;/p&gt;&lt;p&gt;Flight home&lt;/p&gt;
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <!-- Tours & Activities -->
+        
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#127917; Tours &amp; Activities</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                
+                <div class="card">
+                    <div class="card-header"><h3>Devour Lisbon Food Tour</h3><span class="badge free">DIY</span></div>
+                    <p>Day 2 (March 24) &bull; </p>
+                    <p></p>
+                    <p class="price">~$150-170</p>
+                    {{#if this.note}}
+                    <p style="font-size: 0.8rem; color: var(--olive); margin-top: 0.5rem;">Non-alcoholic options available</p>
+                    
+                    
+                </div>
+                
+                <div class="card">
+                    <div class="card-header"><h3>Sintra Small-Group Tour</h3><span class="badge free">DIY</span></div>
+                    <p>Day 3 (March 25) &bull; </p>
+                    <p></p>
+                    <p class="price">~$170-220</p>
+                    
+                    
+                </div>
+                
+                <div class="card">
+                    <div class="card-header"><h3>Porto Secret Food Tour</h3><span class="badge free">DIY</span></div>
+                    <p>Day 6 (March 28) &bull; </p>
+                    <p></p>
+                    <p class="price">~$140-170</p>
+                    
+                    
+                </div>
+                
+                <div class="card">
+                    <div class="card-header"><h3>DIY Douro Valley Scenic Train</h3><span class="badge free">DIY</span></div>
+                    <p>Day 7 (March 29) &bull; </p>
+                    <p></p>
+                    <p class="price">~$55-60</p>
+                    
+                    
+                </div>
+                
+                
+                <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem; text-align: center;"><strong>Estimated tours total:</strong> ~$520 for both travelers</p>
+                
+            </div>
+        </div>
+        
+
+        <!-- Dining Recommendations -->
+        
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#127869;&#65039; Dining Recommendations</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                
+                <h4 style="color: var(--primary); margin-bottom: 0.75rem; ">Lisbon</h4>
+                <div class="dining-grid">
+                    {{#each this.restaurants}}
+                    <div class="dining-item">
+                        <div>
+                            <div class="name">{{#if this.url}}<a href="" target="_blank"></a></div>
+                            <div class="type"> &bull; </div>
+                            
+                        </div>
+                    </div>
+                    
+                <h4 style="color: var(--primary); margin-bottom: 0.75rem; margin-top: 1.25rem;">Porto</h4>
+                <div class="dining-grid">
+                    {{#each this.restaurants}}
+                    <div class="dining-item">
+                        <div>
+                            <div class="name"></div>
+                            <div class="type"> &bull; </div>
+                            
+                        </div>
+                    </div>
+                    
+                <h4 style="color: var(--primary); margin-bottom: 0.75rem; margin-top: 1.25rem;">Fado</h4>
+                <div class="dining-grid">
+                    {{#each this.restaurants}}
+                    <div class="dining-item">
+                        <div>
+                            <div class="name"></div>
+                            <div class="type"> &bull; </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                
+                <div class="callout"><h4>&#128142; Kim's Hidden Gem</h4><p><strong>Taberna Albricoque</strong> &mdash; Hidden Algarve-inspired tavern by chef Bertílio Gomes. Cockle pastries, oysters, razor clams in garlic. Feels like stepping into old Portugal.</p></div>
+                
+            </div>
+        </div>
+        
+
+        <!-- Hidden Gems & Photo Ops -->
+        
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#128142; Hidden Gems &amp; Photo Ops</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                {{#if extras.hiddenGems}}
+                <h4 style="color: var(--primary); margin-bottom: 0.75rem;">Don't Miss</h4>
+                
+                <div class="card">
+                    <h3>LX Factory</h3>
+                    <p>Lisbon &bull; Former industrial complex, now creative hub with boutiques, food, bookshop</p>
+                    {{#if this.tip}}<p style="color: var(--terracotta);">Sunday brunch market is great</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Livraria Lello</h3>
+                    <p>Porto &bull; Stunning 1906 bookstore, allegedly inspired Harry Potter stairs</p>
+                    
+                </div>
+                
+                <div class="card">
+                    <h3>Pinhão Station tiles</h3>
+                    <p>Douro Valley &bull; Beautiful azulejo tiles depicting wine harvest scenes</p>
+                    
+                </div>
+                
+                <div class="card">
+                    <h3>Feira da Ladra flea market</h3>
+                    <p>Lisbon - Alfama &bull; Lisbon&#039;s oldest flea market, Tuesdays and Saturdays</p>
+                    
+                </div>
+                
+                <div class="card">
+                    <h3>Mercado do Bolhão</h3>
+                    <p>Porto &bull; Recently renovated historic market, local produce, food stalls</p>
+                    
+                </div>
+                
+                
+                
+                <h4 style="color: var(--primary); margin: 1.25rem 0 0.75rem;">&#128247; Best Photo Spots</h4>
+                <div class="photo-grid">
+                    
+                    <div class="photo-item">
+                        <div class="location">Pena Palace</div>
+                        <div class="tip">Morning light is best</div>
+                    </div>
+                    
+                    <div class="photo-item">
+                        <div class="location">Miradouro das Portas do Sol</div>
+                        <div class="tip">Terrace overlooking rooftops and river</div>
+                    </div>
+                    
+                    <div class="photo-item">
+                        <div class="location">Dom Luís I Bridge at sunset</div>
+                        <div class="tip">Bridge with Ribeira behind - postcard shot</div>
+                    </div>
+                    
+                    <div class="photo-item">
+                        <div class="location">Tram 28</div>
+                        <div class="tip">Don&#039;t need to ride - just photograph</div>
+                    </div>
+                    
+                    <div class="photo-item">
+                        <div class="location">Douro Valley terraces</div>
+                        <div class="tip">Sit on right side going to Pinhão</div>
+                    </div>
+                    
+                    <div class="photo-item">
+                        <div class="location">Boca do Inferno</div>
+                        <div class="tip">Dramatic cliff formations, waves crashing</div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <!-- Pricing Summary -->
+        
+        <div class="section open">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#128176; Pricing Summary</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                <div class="pricing-summary">
+                    <div class="pricing-header">Premium Package &mdash; 2 Travelers</div>
+                    
+                    <div class="pricing-row"><span>Flights</span><span>~$1,400</span></div>
+                    
+                    <div class="pricing-row"><span>Accommodations</span><span>~$1,280</span></div>
+                    
+                    <div class="pricing-row"><span>Tours &amp; Activities</span><span>~$520</span></div>
+                    
+                    <div class="pricing-row"><span>Transportation</span><span>~$225</span></div>
+                    
+                    <div class="pricing-row"><span>Meals (estimate)</span><span>~$400</span></div>
+                    
+                    <div class="pricing-row total"><span>Estimated Total</span><span class="amount">~$3,825</span></div>
+                    <div class="pricing-row"><span>Per Person</span><span>~$1,913</span></div>
+                </div>
+                {{#if pricing.insuranceNote}}
+                <div class="card" style="margin-top: 1.25rem;">
+                    <h3>Travel Insurance</h3>
+                    <p>Highly recommended! Typical cost: ~10% of package. Kim will provide a quote with your booking confirmation.</p>
+                </div>
+                
+                <p style="font-size: 0.85rem; color: var(--muted); margin-top: 1rem; text-align: center;">* Prices are estimates. Final pricing confirmed upon booking.</p>
+            </div>
+        </div>
+        
+
+        <!-- What's Not Included -->
+        
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#128221; What's Not Included</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                <ul class="list-simple">
+                    
+                    <li></li>
+                    
+                    <li></li>
+                    
+                    <li></li>
+                    
+                    <li></li>
+                    
+                    <li></li>
+                    
+                    <li></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+
+        <!-- Packing Tips -->
+        
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#129523; Packing Tips</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                <div class="card">
+                    <h3>March Weather</h3>
+                    <p>March: 55-65°F (12-18°C). Chance of rain.</p>
+                </div>
+                <div class="card">
+                    <h3>Essentials</h3>
+                    
+                    <p></p>
+                    
+                    <p></p>
+                    
+                    <p></p>
+                    
+                    <p></p>
+                    
+                </div>
+                {{#if packingGuide.style}}
+                <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.75rem;"><strong>Pro tip:</strong> Smart casual. Portuguese women favor understated elegance.</p>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    <footer class="footer">
+        <div class="brand">Somo Travel</div>
+        <div class="franchise">A Cruise Planners Franchise</div>
+        <div class="contact">Questions? Contact Kim<br>&#128231; kim.henderson@cruiseplanners.com<br>&#128241; 251-289-1505</div>
+        <div class="generated">Proposal generated January 9, 2026<br>Prices subject to availability at time of booking</div>
+    </footer>
+
+    <script>
+        function toggleSection(header) { header.parentElement.classList.toggle('open'); }
+    </script>
+</body>
+</html>

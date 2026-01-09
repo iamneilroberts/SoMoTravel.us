@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{meta.destination}} — {{meta.clientName}} | Somo Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #003399;
+            --accent: #d4a574;
+            --highlight-bg: #e8f4f8;
+            --terracotta: #c4704b;
+            --olive: #6b7c4c;
+            --cream: #faf8f5;
+            --card: #ffffff;
+            --text: #2d2d2d;
+            --muted: #6b6b6b;
+            --border: #e5e0db;
+            --shadow: rgba(0, 51, 153, 0.08);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --cream: #1a1a1f;
+                --card: #252529;
+                --text: #e8e6e3;
+                --muted: #9a9a9a;
+                --border: #3a3a40;
+                --highlight-bg: #1e2530;
+                --shadow: rgba(0, 0, 0, 0.3);
+            }
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Outfit', sans-serif; font-weight: 300; background: var(--cream); color: var(--text); line-height: 1.7; }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, #1a4d8c 50%, var(--terracotta) 100%); color: white; padding: 3rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.5; }
+        .hero-content { position: relative; z-index: 1; }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; letter-spacing: 0.02em; }
+        .hero .subtitle { font-size: 1.1rem; opacity: 0.95; margin-bottom: 0.5rem; }
+        .hero .dates { font-size: 1rem; opacity: 0.85; font-weight: 400; }
+        .hero .tagline { margin-top: 1.5rem; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; opacity: 0.9; }
+        .container { max-width: 800px; margin: 0 auto; padding: 1.5rem 1rem; }
+        .section { background: var(--card); border-radius: 16px; margin-bottom: 1.25rem; overflow: hidden; box-shadow: 0 2px 12px var(--shadow); border: 1px solid var(--border); }
+        .section-header { padding: 1.25rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; }
+        .section-header:hover { background: var(--highlight-bg); }
+        .section-header h2 { font-size: 1.2rem; display: flex; align-items: center; gap: 0.6rem; color: var(--primary); }
+        .section-content { padding: 0 1.5rem 1.5rem; display: none; }
+        .section.open .section-content { display: block; }
+        .chevron { transition: transform 0.3s ease; color: var(--muted); font-size: 0.9rem; }
+        .section.open .chevron { transform: rotate(180deg); }
+        .overview-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1rem; }
+        .overview-item { background: var(--highlight-bg); padding: 1rem; border-radius: 12px; text-align: center; }
+        .overview-item .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.25rem; }
+        .overview-item .value { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--primary); }
+        .day { border-left: 3px solid var(--accent); padding-left: 1.25rem; margin-bottom: 1.75rem; }
+        .day:last-child { margin-bottom: 0; }
+        .day-header { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem; }
+        .day-number { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; font-weight: 600; color: var(--terracotta); text-transform: uppercase; letter-spacing: 0.05em; }
+        .day-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--text); }
+        .day-date { font-size: 0.8rem; color: var(--muted); }
+        .day-content { font-size: 0.95rem; color: var(--muted); }
+        .day-content p { margin-bottom: 0.5rem; }
+        .day-highlight { background: linear-gradient(135deg, var(--highlight-bg) 0%, rgba(212, 165, 116, 0.1) 100%); padding: 0.75rem 1rem; border-radius: 8px; margin-top: 0.75rem; font-size: 0.9rem; }
+        .day-highlight strong { color: var(--primary); }
+        .card { background: var(--highlight-bg); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+        .card:last-child { margin-bottom: 0; }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem; }
+        .card h3 { font-size: 1.05rem; color: var(--text); }
+        .card .price { font-weight: 500; color: var(--terracotta); font-size: 0.95rem; }
+        .card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.35rem; }
+        .card a { color: var(--primary); text-decoration: none; font-size: 0.85rem; }
+        .card a:hover { text-decoration: underline; }
+        .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        .badge.tour { background: rgba(0, 51, 153, 0.1); color: var(--primary); }
+        .badge.free { background: rgba(107, 124, 76, 0.15); color: var(--olive); }
+        .badge.included { background: rgba(0, 51, 153, 0.1); color: var(--primary); }
+        .callout { background: linear-gradient(135deg, rgba(212, 165, 116, 0.15) 0%, rgba(212, 165, 116, 0.05) 100%); border-left: 4px solid var(--accent); padding: 1.25rem; border-radius: 0 12px 12px 0; margin: 1.25rem 0; }
+        .callout h4 { color: var(--terracotta); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; }
+        .callout p { font-size: 0.9rem; color: var(--muted); }
+        .pricing-summary { background: var(--highlight-bg); border-radius: 12px; overflow: hidden; }
+        .pricing-header { background: var(--primary); color: white; padding: 1rem 1.25rem; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; }
+        .pricing-row { display: flex; justify-content: space-between; padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+        .pricing-row:last-child { border-bottom: none; }
+        .pricing-row.total { background: rgba(0, 51, 153, 0.05); font-weight: 500; font-size: 1.1rem; }
+        .pricing-row.total .amount { color: var(--primary); font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; }
+        .dining-grid { display: grid; gap: 0.75rem; }
+        .dining-item { display: flex; gap: 1rem; padding: 0.75rem; background: var(--highlight-bg); border-radius: 10px; }
+        .dining-item .name { font-weight: 500; color: var(--text); font-size: 0.95rem; }
+        .dining-item .type { font-size: 0.8rem; color: var(--muted); }
+        .dining-item .note { font-size: 0.8rem; color: var(--terracotta); font-style: italic; }
+        .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+        .photo-item { background: var(--highlight-bg); padding: 0.75rem; border-radius: 10px; font-size: 0.85rem; }
+        .photo-item .location { font-weight: 500; color: var(--primary); }
+        .photo-item .tip { color: var(--muted); font-size: 0.8rem; }
+        .list-simple { padding-left: 1.25rem; color: var(--muted); font-size: 0.95rem; line-height: 2; }
+        .footer { text-align: center; padding: 2.5rem 1.5rem; background: var(--primary); color: white; }
+        .footer .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .footer .franchise { font-size: 0.85rem; opacity: 0.8; margin-bottom: 1.25rem; }
+        .footer .contact { font-size: 0.9rem; opacity: 0.9; line-height: 1.8; }
+        .footer .generated { margin-top: 1.5rem; font-size: 0.75rem; opacity: 0.6; }
+        @media (max-width: 600px) { .hero h1 { font-size: 1.8rem; } .overview-grid { grid-template-columns: 1fr; } .photo-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>{{hero.emoji}} {{meta.destination}}</h1>
+            <div class="subtitle">{{travelers.names}}</div>
+            <div class="dates">{{meta.dates}} {{hero.duration}}</div>
+            <div class="tagline">{{hero.tagline}}</div>
+        </div>
+    </header>
+    <div class="container">
+        <!-- Trip Overview -->
+        <div class="section open">
+            <div class="section-header" onclick="toggleSection(this)"><h2>{{overview.icon}} Trip Overview</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                <div class="overview-grid">
+                    {{#each overview.items}}
+                    <div class="overview-item"><div class="label">{{this.label}}</div><div class="value">{{this.value}}</div></div>
+                    {{/each}}
+                </div>
+                <p style="font-size: 0.95rem; color: var(--muted); margin-top: 1rem;">{{overview.description}}</p>
+                {{#if overview.purpose}}
+                <div class="callout"><h4>{{overview.purposeIcon}} Trip Purpose</h4><p>{{overview.purpose}}</p></div>
+                {{/if}}
+            </div>
+        </div>
+
+        <!-- Flights -->
+        {{#if flights}}
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#9992;&#65039; Flights</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                <div class="card">
+                    <div class="card-header"><h3>{{flights.airline}} &mdash; {{flights.route}}</h3><span class="badge tour">Round Trip</span></div>
+                    <p><strong>Outbound:</strong> {{flights.outbound.date}} &bull; {{flights.outbound.route}}</p>
+                    <p>{{flights.outbound.notes}}</p>
+                    <p style="margin-top: 0.75rem;"><strong>Return:</strong> {{flights.return.date}} &bull; {{flights.return.route}}</p>
+                    <p>{{flights.return.notes}}</p>
+                    <p class="price" style="margin-top: 1rem;">Estimated: {{flights.estimatedTotal}}</p>
+                    {{#if flights.note}}
+                    <p style="font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem;">{{flights.note}}</p>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Accommodations -->
+        {{#if lodging}}
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#127976; Accommodations</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                {{#each lodging.properties}}
+                <div class="card">
+                    <div class="card-header"><h3>{{this.property}} &mdash; {{this.location}}</h3><span class="price">{{this.priceRange}}</span></div>
+                    <p><strong>{{this.nights}} nights</strong> &bull; {{this.dates}}</p>
+                    <p>{{this.description}}</p>
+                    {{#if this.perks}}
+                    <p style="margin-top: 0.5rem;"><strong>Perks:</strong> {{this.perks}}</p>
+                    {{/if}}
+                    {{#if this.url}}
+                    <a href="{{this.url}}" target="_blank">View property &rarr;</a>
+                    {{/if}}
+                </div>
+                {{/each}}
+                {{#if lodging.totalEstimate}}
+                <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem; text-align: center;"><strong>Estimated lodging total:</strong> {{lodging.totalEstimate}}</p>
+                {{/if}}
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Day-by-Day Itinerary -->
+        {{#if itinerary.days}}
+        <div class="section open">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#128197; Day-by-Day Itinerary</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                {{#each itinerary.days}}
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-number">Day {{this.day}}</span>
+                        <span class="day-title">{{this.title}}</span>
+                    </div>
+                    <span class="day-date">{{this.dateFormatted}}</span>
+                    <div class="day-content">
+                        {{this.content}}
+                    </div>
+                    {{#if this.highlight}}
+                    <div class="day-highlight">{{{this.highlight}}}</div>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Tours & Activities -->
+        {{#if tours}}
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#127917; Tours &amp; Activities</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                {{#each tours}}
+                <div class="card">
+                    <div class="card-header"><h3>{{this.name}}</h3><span class="badge {{this.badgeClass}}">{{this.badge}}</span></div>
+                    <p>{{this.day}} &bull; {{this.duration}}</p>
+                    <p>{{this.description}}</p>
+                    <p class="price">{{this.price}}</p>
+                    {{#if this.note}}
+                    <p style="font-size: 0.8rem; color: var(--olive); margin-top: 0.5rem;">{{this.note}}</p>
+                    {{/if}}
+                    {{#if this.url}}
+                    <a href="{{this.url}}" target="_blank">Book on {{this.provider}} &rarr;</a>
+                    {{/if}}
+                </div>
+                {{/each}}
+                {{#if toursTotal}}
+                <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem; text-align: center;"><strong>Estimated tours total:</strong> {{toursTotal}}</p>
+                {{/if}}
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Dining Recommendations -->
+        {{#if dining}}
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#127869;&#65039; Dining Recommendations</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                {{#each dining}}
+                <h4 style="color: var(--primary); margin-bottom: 0.75rem; {{#unless @first}}margin-top: 1.25rem;{{/unless}}">{{this.city}}</h4>
+                <div class="dining-grid">
+                    {{#each this.restaurants}}
+                    <div class="dining-item">
+                        <div>
+                            <div class="name">{{#if this.url}}<a href="{{this.url}}" target="_blank">{{this.name}}</a>{{else}}{{this.name}}{{/if}}</div>
+                            <div class="type">{{this.type}} &bull; {{this.price}}</div>
+                            {{#if this.note}}<div class="note">{{this.note}}</div>{{/if}}
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                {{/each}}
+                {{#if kimsGem}}
+                <div class="callout"><h4>&#128142; Kim's Hidden Gem</h4><p><strong>{{kimsGem.name}}</strong> &mdash; {{kimsGem.description}}</p></div>
+                {{/if}}
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Hidden Gems & Photo Ops -->
+        {{#if extras}}
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#128142; Hidden Gems &amp; Photo Ops</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                {{#if extras.hiddenGems}}
+                <h4 style="color: var(--primary); margin-bottom: 0.75rem;">Don't Miss</h4>
+                {{#each extras.hiddenGems}}
+                <div class="card">
+                    <h3>{{this.name}}</h3>
+                    <p>{{this.location}} &bull; {{this.description}}</p>
+                    {{#if this.tip}}<p style="color: var(--terracotta);">{{this.tip}}</p>{{/if}}
+                </div>
+                {{/each}}
+                {{/if}}
+                {{#if extras.photoOps}}
+                <h4 style="color: var(--primary); margin: 1.25rem 0 0.75rem;">&#128247; Best Photo Spots</h4>
+                <div class="photo-grid">
+                    {{#each extras.photoOps}}
+                    <div class="photo-item">
+                        <div class="location">{{this.name}}</div>
+                        <div class="tip">{{this.tip}}</div>
+                    </div>
+                    {{/each}}
+                </div>
+                {{/if}}
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Pricing Summary -->
+        {{#if pricing}}
+        <div class="section open">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#128176; Pricing Summary</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                <div class="pricing-summary">
+                    <div class="pricing-header">{{pricing.packageName}} &mdash; {{pricing.travelers}} Travelers</div>
+                    {{#each pricing.lineItems}}
+                    <div class="pricing-row"><span>{{this.label}}</span><span>{{this.amount}}</span></div>
+                    {{/each}}
+                    <div class="pricing-row total"><span>Estimated Total</span><span class="amount">{{pricing.total}}</span></div>
+                    <div class="pricing-row"><span>Per Person</span><span>{{pricing.perPerson}}</span></div>
+                </div>
+                {{#if pricing.insuranceNote}}
+                <div class="card" style="margin-top: 1.25rem;">
+                    <h3>Travel Insurance</h3>
+                    <p>{{pricing.insuranceNote}}</p>
+                </div>
+                {{/if}}
+                <p style="font-size: 0.85rem; color: var(--muted); margin-top: 1rem; text-align: center;">* Prices are estimates. Final pricing confirmed upon booking.</p>
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- What's Not Included -->
+        {{#if notIncluded}}
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#128221; What's Not Included</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                <ul class="list-simple">
+                    {{#each notIncluded}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Packing Tips -->
+        {{#if packingGuide}}
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)"><h2>&#129523; Packing Tips</h2><span class="chevron">&#9660;</span></div>
+            <div class="section-content">
+                <div class="card">
+                    <h3>{{packingGuide.season}} Weather</h3>
+                    <p>{{packingGuide.weather}}</p>
+                </div>
+                <div class="card">
+                    <h3>Essentials</h3>
+                    {{#each packingGuide.essentials}}
+                    <p>{{this}}</p>
+                    {{/each}}
+                </div>
+                {{#if packingGuide.style}}
+                <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.75rem;"><strong>Pro tip:</strong> {{packingGuide.style}}</p>
+                {{/if}}
+            </div>
+        </div>
+        {{/if}}
+    </div>
+
+    <footer class="footer">
+        <div class="brand">Somo Travel</div>
+        <div class="franchise">A Cruise Planners Franchise</div>
+        <div class="contact">Questions? Contact Kim<br>&#128231; kim.henderson@cruiseplanners.com<br>&#128241; 251-289-1505</div>
+        <div class="generated">Proposal generated {{generatedDate}}<br>Prices subject to availability at time of booking</div>
+    </footer>
+
+    <script>
+        function toggleSection(header) { header.parentElement.classList.toggle('open'); }
+    </script>
+</body>
+</html>
