@@ -2,12 +2,12 @@
   "meta": {
     "tripId": "uk-narrowboat-oct-2026",
     "clientName": "Roberts & Jones",
-    "destination": "UK Canals - Narrowboat",
-    "dates": "October 2026 (12 days TBD)",
+    "destination": "UK - Oxford Canal Narrowboat",
+    "dates": "Late September / Early October 2026 (12 days TBD)",
     "occasion": "Friends vacation - narrowboat adventure",
     "phase": "discovery",
-    "lastUpdated": "2026-01-09T23:00:00Z",
-    "status": "Discovery",
+    "lastUpdated": "2026-01-09T23:30:00Z",
+    "status": "Discovery - Route Selected",
     "quotesConfirmed": false
   },
   "travelers": {
@@ -48,20 +48,20 @@
       "reasoning": "Kim has Delta status and prefers to accumulate miles. ATL has direct Delta flights to London Heathrow (~9 hours). Check alternate Gulf Coast airports for significant savings."
     },
     "outbound": {
-      "date": "TBD October 2026",
+      "date": "TBD Late Sept / Early Oct 2026",
       "route": "MOB → ATL → LHR",
       "airline": "Delta preferred",
       "notes": "Overnight flight, arrive London morning"
     },
     "return": {
-      "date": "TBD October 2026 (12 days later)",
+      "date": "TBD (12 days later)",
       "route": "LHR → ATL → MOB",
       "airline": "Delta preferred"
     },
     "estimatedTotal": {
       "range": "$2,400-3,600 for 4 passengers",
       "needsQuote": true,
-      "notes": "October is shoulder season, prices should be reasonable"
+      "notes": "Late Sept/early Oct is shoulder season, prices should be reasonable"
     }
   },
   "narrowboat": {
@@ -70,151 +70,317 @@
       "berths": "4 (two couples)",
       "cabins": "2 separate double cabins",
       "bathrooms": "2 preferred (one per couple)",
-      "heating": "Required for October",
+      "heating": "Required for late Sept/early Oct",
       "amenities": ["Full galley", "Central heating", "Hot water", "TV optional"]
     },
     "duration": "12 days (11 nights aboard)",
     "recommendedCompanies": [
       {
-        "name": "Anglo Welsh",
-        "url": "https://www.anglowelsh.co.uk/",
-        "notes": "60 years experience, 150 boats at 9 bases. Bond 4 Class 65ft boats have 2 bedrooms + 2 bathrooms - PERFECT for two couples.",
-        "recommendedBoat": "Bond 4 Class (Gloria, Trossachs, etc.) - Premium 65ft, semi-traditional stern, 2 cabins, 2 full bathrooms, multi-fuel stove",
-        "bases": ["Bath (Kennet & Avon)", "Bunbury (Shropshire Union/Cheshire)", "Great Haywood (Trent & Mersey)"]
+        "name": "Black Prince - Lower Heyford Base",
+        "url": "https://www.black-prince.com/hire-bases/lower-heyford/",
+        "notes": "IDEAL for Oxford Canal. Base is ON the Oxford Canal at Lower Heyford. Direct access to route. Season ends Oct 30, 2026.",
+        "trainAccess": "Heyford Station is RIGHT NEXT to the base - trains from Oxford (~15 min) or Banbury (~15 min)",
+        "recommendedBoat": "4-berth with 2 bathrooms (check availability)",
+        "phone": "01527 575 115"
       },
       {
-        "name": "Black Prince",
-        "url": "https://www.black-prince.com/",
-        "notes": "Quality boats, good locations. Season ends Oct 30, 2026. Multiple bases including Napton (Warwickshire).",
-        "bases": ["Napton (Oxford/Grand Union)", "Stoke Prior (Worcester)", "Chirk (Llangollen)"]
+        "name": "Black Prince - Napton Base",
+        "url": "https://www.black-prince.com/hire-bases/napton-hire-base/",
+        "notes": "At junction of Oxford and Grand Union canals. Access to both south to Oxford and north toward Coventry.",
+        "trainAccess": "Leamington Spa station (~9 miles) - taxi/transfer needed",
+        "phone": "01527 575 115"
       },
       {
         "name": "Napton Narrowboats",
         "url": "https://www.napton-marina.co.uk/",
-        "notes": "Family company, high-end boats. 1st Class Fleet has King-Size beds, two bathrooms. Bases at Napton and Autherley Junction.",
-        "recommendedBoat": "1st Class Fleet with reverse layout, two full bathrooms"
+        "notes": "Family company, high-end boats. 1st Class Fleet has King-Size beds, two bathrooms. 10/11 night holidays available.",
+        "recommendedBoat": "1st Class Fleet with reverse layout, two full bathrooms",
+        "trainAccess": "Leamington Spa station (~9 miles)"
       },
       {
-        "name": "Drifters",
-        "url": "https://www.drifters.co.uk/",
-        "notes": "Consortium of 40+ bases, 500+ boats. Price match guarantee."
+        "name": "Oxfordshire Narrowboats",
+        "url": "https://www.oxfordshire-narrowboats.co.uk/",
+        "notes": "Based at Lower Heyford AND Bradford on Avon. 4-8 berth boats with option for 2 en-suite bathrooms.",
+        "recommendedBoat": "4-berth 'Stylish and Spacious for Two Couples' boats with two full bathrooms",
+        "trainAccess": "Heyford Station adjacent to base"
+      },
+      {
+        "name": "College Cruisers",
+        "url": "https://www.collegecruisers.com/",
+        "notes": "Based in Oxford. Fleet of 10 narrowboats. Outstanding customer service reputation.",
+        "trainAccess": "Oxford - direct trains from London Paddington (1 hour)"
       }
     ],
     "estimatedCost": {
       "range": "£1,800 - £2,800 for 12 days",
-      "notes": "October is end of season - good availability, reasonable prices. Premium boats with 2 bathrooms at higher end."
+      "notes": "Late Sept/early Oct is end of season - good availability, reasonable prices. Premium boats with 2 bathrooms at higher end."
     }
   },
-  "routes": {
-    "topRecommendations": [
-      {
-        "name": "Oxford Canal (South)",
-        "base": "Napton or Oxford area",
-        "description": "One of the most beautiful and popular canals. Early contour canal winding through villages. Known for hearty pubs and scenic countryside.",
-        "highlights": ["Historic Oxford", "Banbury (market town, Tooley's Boatyard)", "Pretty villages like Thrupp and Cropredy", "Rolling Cotswold countryside"],
-        "duration": "Week+ for out-and-back",
-        "locks": "Single locks, manageable",
-        "pubDensity": "HIGH - 'a pub every 3 miles' reputation",
-        "historyRating": "Excellent",
-        "trainAccess": "Oxford has direct trains from London Paddington (~1 hour)"
-      },
-      {
-        "name": "Warwickshire Ring",
-        "base": "Napton",
-        "description": "104 miles, 120 locks, circular route through Grand Union, Oxford, Coventry and Birmingham & Fazeley canals.",
-        "highlights": ["Warwick Castle", "Royal Leamington Spa", "Birmingham Gas Street Basin", "Braunston (historic canal village)", "Hatton Flight (21 locks)"],
-        "duration": "10-14 days ideal",
-        "locks": "120 locks - active but doable",
-        "pubDensity": "Good",
-        "historyRating": "Excellent - industrial heritage meets Shakespeare country",
-        "trainAccess": "Leamington Spa station ~9 miles from Napton"
-      },
-      {
-        "name": "Kennet & Avon Canal",
-        "base": "Bath or Bradford on Avon",
-        "description": "Stunning canal combining countryside, market towns, and the gorgeous city of Bath.",
-        "highlights": ["City of Bath (Georgian architecture, Roman Baths)", "Bradford on Avon", "Devizes (flight of 29 locks)", "Downs countryside"],
-        "duration": "Week+ for sections",
-        "locks": "Varies - Caen Hill flight is famous",
-        "pubDensity": "Good",
-        "historyRating": "Excellent",
-        "trainAccess": "Bath Spa has direct trains from London Paddington (~1.5 hours)"
-      },
-      {
-        "name": "Cheshire Ring",
-        "base": "Anderton or Middlewich area",
-        "description": "97-mile circular through bustling towns, sleepy villages, and heart of Manchester.",
-        "highlights": ["Anderton Boat Lift", "Macclesfield (medieval market)", "Manchester (Old Trafford area)", "Rolling Pennines"],
-        "duration": "7-10 days",
-        "locks": "Good variety",
-        "pubDensity": "Good",
-        "historyRating": "Industrial heritage strong",
-        "trainAccess": "Manchester area well-connected"
-      }
-    ],
-    "recommendation": "Oxford Canal or Warwickshire Ring from Napton base - excellent train access via Leamington Spa, fantastic pubs, rich history, manageable locks, beautiful countryside. Perfect fit for the group's interests."
-  },
-  "trainTravel": {
-    "londonToBase": {
+  "route": {
+    "selected": "Oxford Canal (South)",
+    "description": "One of the most beautiful and historic canals in England. Completed in 1790, it's an early contour canal that winds through the landscape rather than cutting through it. Famous for its pretty villages, excellent canalside pubs, and rich history.",
+    "stats": {
+      "totalLength": "77 miles (full canal)",
+      "locks": "43 narrow locks (single-width, manageable for beginners)",
+      "typicalWeek": "Napton to Oxford and return: ~100 miles, ~45 hours cruising, 78 locks",
+      "cruisingSpeed": "~3-4 mph"
+    },
+    "suggestedItinerary": {
+      "base": "Lower Heyford (Black Prince or Oxfordshire Narrowboats)",
       "option1": {
-        "route": "London Paddington → Oxford",
-        "duration": "~1 hour",
-        "notes": "Direct GWR trains, frequent service"
+        "name": "South to Oxford + North to Banbury",
+        "description": "12 days allows both directions from Lower Heyford. South to Oxford (7-8 hours), explore city, then north through Banbury to Cropredy and beyond.",
+        "highlights": ["Oxford (dreaming spires, covered market, pubs)", "Thrupp (charming canal village)", "Banbury (market town, Tooley's Boatyard)", "Cropredy (folk festival village, great pubs)", "Fenny Compton (tunnel cutting)"]
       },
       "option2": {
-        "route": "London Euston → Rugby or Leamington Spa",
-        "duration": "~1 hour to Rugby, ~1.5 hours to Leamington",
-        "notes": "For Napton-based trips. Would need taxi/transfer from station to marina."
-      },
-      "option3": {
-        "route": "London Paddington → Bath Spa",
-        "duration": "~1.5 hours",
-        "notes": "Direct GWR trains for Kennet & Avon trips"
+        "name": "Lower Heyford to Napton and back",
+        "description": "North from Lower Heyford through Banbury, Cropredy, Fenny Compton to Napton Junction (connects to Grand Union). Return same route.",
+        "highlights": ["Banbury", "Cropredy", "Claydon Locks", "Fenny Compton", "Napton-on-the-Hill (windmill views)", "Braunston (historic canal village)"]
       }
     },
-    "heathrowConnections": {
-      "heathrowExpress": "Heathrow → Paddington in 15 mins",
-      "elizabethLine": "Heathrow → Paddington in ~30 mins (cheaper)",
-      "notes": "From Paddington, connect to Oxford, Bath, or cross to Euston for Rugby/Leamington"
+    "keyStops": [
+      {
+        "name": "Oxford",
+        "distance": "South from Lower Heyford",
+        "cruisingTime": "7-8 hours",
+        "highlights": ["University colleges", "Covered Market (since 1774)", "Bodleian Library", "Ashmolean Museum", "Jericho (trendy neighborhood)"],
+        "moorings": "Visitor moorings near city center",
+        "pubNote": "Many excellent pubs in Jericho area"
+      },
+      {
+        "name": "Thrupp",
+        "distance": "Near Oxford",
+        "highlights": ["Charming hamlet", "Rose-covered cottages", "The Jolly Boatman pub (real ales, great food)", "15th century limestone cross"],
+        "pubNote": "The Jolly Boatman - moor right outside"
+      },
+      {
+        "name": "Lower Heyford",
+        "distance": "Base location",
+        "highlights": ["Ancient village (Domesday Book 1086)", "12th century St Mary's Church", "Former USAF base at Upper Heyford"],
+        "pubs": ["The Bell Inn (Lower Heyford)", "The Barley Mow (Upper Heyford)"]
+      },
+      {
+        "name": "Aynho Wharf",
+        "distance": "North of Lower Heyford",
+        "highlights": ["The Great Western Arms - excellent canalside pub", "Hook Norton ales"],
+        "pubNote": "Great Western Arms highly recommended - between canal and railway"
+      },
+      {
+        "name": "Banbury",
+        "distance": "~4 hours north of Lower Heyford",
+        "highlights": ["Banbury Cross (Victorian replica of medieval original)", "Castle Quays Shopping", "Tooley's Historic Boatyard (oldest working dry dock, tours available)", "Banbury Museum", "Medieval market town"],
+        "moorings": "Extensive visitor moorings in town center",
+        "pubs": ["The Olde Reindeer Inn (coaching inn)", "The Unicorn", "The Old Auctioneer (1596 building)"],
+        "shopping": "Castle Quays, traditional market, antique shops"
+      },
+      {
+        "name": "Cropredy",
+        "distance": "North of Banbury",
+        "highlights": ["Battle of Cropredy Bridge (1644 Civil War)", "600-year-old church", "Thatched cottages", "Annual Fairport Convention folk festival (August)", "Quintessential English village"],
+        "pubs": ["The Red Lion (CAMRA listed, part-thatched, log fires)", "The Brasenose Arms (17th century, great food)"],
+        "pubNote": "THE star village of the South Oxford Canal. Multiple excellent real ale pubs."
+      },
+      {
+        "name": "Fenny Compton",
+        "distance": "North of Cropredy",
+        "highlights": ["'Tunnel Straight' - former tunnel now deep cutting", "Remote countryside", "Access to isolated villages"],
+        "pubs": ["The Wharf Inn (leather sofas, beer garden, excellent food)"],
+        "note": "Last good supply stop before remote section"
+      },
+      {
+        "name": "Napton-on-the-Hill",
+        "distance": "Northern limit of South Oxford Canal",
+        "highlights": ["Napton Windmill (visible for hours as canal circles the hill)", "Junction with Grand Union Canal", "9 locks"],
+        "pubs": ["The Folly Inn (canalside)"]
+      },
+      {
+        "name": "Braunston",
+        "distance": "Via Grand Union from Napton",
+        "highlights": ["Famous canal town", "Historic Stop House (toll collection)", "Annual Historic Narrowboat Rally", "Boat chandleries", "Canal museum"],
+        "pubs": ["The Admiral Nelson", "The Boathouse"],
+        "note": "Worth the detour for canal history enthusiasts"
+      }
+    ],
+    "history": {
+      "opened": "1790",
+      "designer": "James Brindley (succeeded by Samuel Simcock and Robert Whitworth)",
+      "purpose": "Bringing coal from Coventry coalfields to Oxford and London via Thames",
+      "significance": "Part of Brindley's grand plan for waterway 'cross' linking Thames, Mersey, Trent and Severn. Was main canal artery to London until Grand Junction Canal opened in 1805.",
+      "funFact": "Last horse-drawn freight narrowboat in Britain (Friendship) operated on Oxford Canal until 1959 - now preserved at National Waterways Museum"
     }
   },
   "extras": {
-    "dining": [],
     "pubs": {
-      "notes": "Real ale pubs are a KEY priority. Will research specific canalside pubs once route is selected.",
-      "generalInfo": "CAMRA (Campaign for Real Ale) Good Beer Guide is the definitive resource. Many canal pubs serve locally brewed real ales."
+      "priority": "HIGH - Key to trip experience",
+      "oxfordCanalHighlights": [
+        {
+          "name": "The Jolly Boatman",
+          "location": "Thrupp",
+          "notes": "Right on canal, real ales, great food. Moor outside.",
+          "type": "Canalside classic"
+        },
+        {
+          "name": "The Bell Inn",
+          "location": "Lower Heyford",
+          "notes": "Good food and beer on tap. Near base.",
+          "type": "Village pub"
+        },
+        {
+          "name": "The Barley Mow",
+          "location": "Upper Heyford",
+          "notes": "Popular with boaters",
+          "type": "Village pub"
+        },
+        {
+          "name": "The Great Western Arms",
+          "location": "Aynho Wharf",
+          "notes": "Between canal and railway. Excellent food, Hook Norton ales. Highly recommended.",
+          "type": "Country pub"
+        },
+        {
+          "name": "The Olde Reindeer Inn",
+          "location": "Banbury",
+          "notes": "Historic coaching inn",
+          "type": "Town pub"
+        },
+        {
+          "name": "The Old Auctioneer",
+          "location": "Banbury",
+          "notes": "Third oldest building in Banbury (1596). Fascinating decor, Savoy Hotel doors.",
+          "type": "Historic pub"
+        },
+        {
+          "name": "The Red Lion",
+          "location": "Cropredy",
+          "notes": "CAMRA listed. Part-thatched, log fires in winter, 3 changing beers + 2 regular (Butcombe). Few yards from towpath. Garden hosts fringe bands during folk festival.",
+          "type": "Village pub - MUST VISIT"
+        },
+        {
+          "name": "The Brasenose Arms",
+          "location": "Cropredy",
+          "notes": "17th century. Great food, perfect for lunch or dinner. Rooms available.",
+          "type": "Country pub"
+        },
+        {
+          "name": "The Wharf Inn",
+          "location": "Fenny Compton",
+          "notes": "Traditional canalside. Leather sofas, beer garden, excellent food. Also has hair salon and launderette!",
+          "type": "Canalside classic"
+        },
+        {
+          "name": "Rock of Gibraltar",
+          "location": "Enslow (near Shipton-on-Cherwell)",
+          "notes": "Named after the Satellite Earth Station nearby",
+          "type": "Canalside pub"
+        }
+      ],
+      "realAleNote": "Many pubs serve Hook Norton ales (local Oxfordshire brewery) and other regional real ales. Look for CAMRA Good Beer Guide listings."
     },
     "shopping": {
-      "notes": "Quirky, unique shopping is a priority. Canal towns often have antique shops, vintage stores, artisan markets.",
-      "potentialSpots": ["Oxford covered market", "Banbury market", "Leamington Spa boutiques", "Bath shops", "Canal-side antique shops"]
+      "spots": [
+        {
+          "name": "Oxford Covered Market",
+          "location": "Oxford",
+          "type": "Historic market since 1774",
+          "notes": "Food, crafts, unique shops. Authentic and quirky."
+        },
+        {
+          "name": "Banbury Market",
+          "location": "Banbury",
+          "type": "Traditional market town",
+          "notes": "Thursday and Saturday markets"
+        },
+        {
+          "name": "Castle Quays",
+          "location": "Banbury",
+          "type": "Modern shopping",
+          "notes": "Adjacent to canal basin"
+        },
+        {
+          "name": "Tooley's Boatyard Shop",
+          "location": "Banbury",
+          "type": "Canal heritage",
+          "notes": "Unique canal-related items"
+        },
+        {
+          "name": "Village antique shops",
+          "location": "Various",
+          "notes": "Many villages have small antique/vintage stores"
+        }
+      ]
     },
+    "attractions": [
+      {
+        "name": "Tooley's Historic Boatyard",
+        "location": "Banbury",
+        "url": "https://www.tooleys-boatyard.co.uk/",
+        "description": "Oldest continuously working dry dock on canal system (since 1790). Tours available showing forge, workshops.",
+        "note": "Where canal pioneer Tom Rolt set out in 1930s - his book 'Narrow Boat' led to formation of Inland Waterways Association"
+      },
+      {
+        "name": "Blenheim Palace",
+        "location": "Woodstock (near Oxford)",
+        "description": "UNESCO World Heritage Site. Winston Churchill's birthplace. Capability Brown gardens.",
+        "access": "Short taxi from Oxford moorings"
+      },
+      {
+        "name": "Rousham House & Gardens",
+        "location": "Near Lower Heyford",
+        "description": "Beautifully preserved 18th century gardens with cascades, walled garden, parterre, pigeon house.",
+        "access": "Short walk from moorings"
+      },
+      {
+        "name": "Battle of Cropredy Bridge Site",
+        "location": "Cropredy",
+        "description": "English Civil War battle site (1644). Royalist army under Charles I vs Parliamentary force.",
+        "access": "Walk from Cropredy moorings"
+      }
+    ],
     "liveMusic": {
-      "notes": "Traditional pub music, folk sessions. Will research specific venues once route/dates confirmed."
+      "notes": "Traditional pub music and folk sessions common in canal pubs. Cropredy is famous for Fairport Convention festival (August) but will have folk music culture year-round.",
+      "venues": ["Check Red Lion and Brasenose Arms in Cropredy", "Oxford has many live music venues"]
     },
-    "freeActivities": [],
-    "hiddenGems": [],
     "photoOps": [
-      "Lock operations",
-      "Narrowboat on canal",
-      "English countryside",
-      "Historic canal architecture",
-      "Canalside pubs"
+      "Narrowboat on winding Oxford Canal",
+      "Working through locks",
+      "Napton Windmill from canal (visible for hours)",
+      "Cropredy village",
+      "Oxford dreaming spires from canal",
+      "Thrupp canal cottages",
+      "Tooley's Boatyard",
+      "Autumn colors along towpath"
     ]
   },
+  "trainTravel": {
+    "recommendedRoute": {
+      "outbound": "Heathrow → Paddington (Elizabeth Line, ~30 min) → Oxford (~1 hour) → Heyford Station (~15 min)",
+      "return": "Same in reverse",
+      "totalTime": "About 2 hours Heathrow to Lower Heyford base",
+      "notes": "Heyford Station is RIGHT NEXT to Black Prince and Oxfordshire Narrowboats bases. Very convenient."
+    },
+    "alternative": {
+      "route": "If using Napton base: Heathrow → Paddington → Leamington Spa (via Marylebone or cross to Euston), then taxi (~9 miles)",
+      "notes": "Less convenient than Lower Heyford"
+    },
+    "heathrowConnections": {
+      "heathrowExpress": "Heathrow → Paddington in 15 mins (expensive)",
+      "elizabethLine": "Heathrow → Paddington in ~30 mins (much cheaper, recommended)"
+    }
+  },
   "weather": {
-    "october": {
-      "temperature": "8-15°C (46-59°F)",
-      "conditions": "Autumn colors, possible rain, shorter days",
-      "daylight": "Sunrise ~7am, Sunset ~6pm",
+    "lateSeptEarlyOct": {
+      "temperature": "10-17°C (50-63°F)",
+      "conditions": "Beginning of autumn colors, generally mild, some rain possible",
+      "daylight": "Late Sept: Sunrise ~7am, Sunset ~7pm. Early Oct: ~7:15am / ~6:30pm",
       "clothing": "Layers, waterproof jacket, warm fleece, sturdy shoes for lock work"
     },
-    "notes": "October is end of narrowboat season (most companies close late October). Book early for best boat selection. Autumn foliage can be spectacular along canals."
+    "notes": "Late September often has good weather - 'Indian summer' possible. Early October still pleasant. Better weather odds than late October."
   },
   "pricing": {
     "preliminary": {
       "flights": {
         "estimate": "$3,000",
-        "notes": "4 passengers MOB-LHR round trip, October rates"
+        "notes": "4 passengers MOB-LHR round trip, late Sept/early Oct rates"
       },
       "narrowboat": {
         "estimate": "$3,000",
@@ -222,15 +388,15 @@
       },
       "trains": {
         "estimate": "$200",
-        "notes": "Heathrow to base and return for 4"
+        "notes": "Heathrow to Lower Heyford and return for 4"
       },
       "food": {
         "estimate": "$1,500",
-        "notes": "Mix of pub meals, onboard cooking, and special dinners"
+        "notes": "Mix of pub meals, onboard cooking, and special dinners. Budget ~$25-40/person/day"
       },
       "activities": {
         "estimate": "$300",
-        "notes": "Attractions, tips, misc"
+        "notes": "Attractions (Blenheim, Tooley's tours), tips, misc"
       },
       "total": {
         "estimate": "$8,000",
@@ -240,19 +406,19 @@
     }
   },
   "openQuestions": [
-    "Confirm exact October dates (early, mid, or late October?)",
+    "Confirm exact dates (late September vs early October?)",
+    "Prefer Lower Heyford base (best train access) or Napton (more route options)?",
     "Get Delta flight quotes from MOB, PNS, GPT, MSY to compare",
-    "Which route appeals most? Oxford Canal, Warwickshire Ring, or Kennet & Avon?",
     "Any specific dates to avoid?",
     "Any dietary restrictions for pub/restaurant planning?",
-    "Interest in any specific activities? (e.g., visiting Warwick Castle, Roman Baths in Bath)",
+    "Interest in Blenheim Palace day trip?",
     "Budget ceiling?"
   ],
   "nextSteps": [
-    "Client to confirm preferred dates in October",
-    "Client to choose preferred route/region",
+    "Client to confirm preferred dates",
+    "Client to confirm Lower Heyford as preferred base",
     "Get Delta flight quotes",
-    "Contact Anglo Welsh or Napton Narrowboats for availability and quotes on 4-berth/2-bathroom boats",
-    "Research specific pubs and dining along chosen route"
+    "Contact Black Prince or Oxfordshire Narrowboats for 4-berth/2-bathroom boat availability at Lower Heyford",
+    "Book once dates and boat confirmed"
   ]
 }
