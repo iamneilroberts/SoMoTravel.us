@@ -6,7 +6,7 @@
     "dates": "March 22-31, 2026",
     "occasion": "Business scouting trip + BFF adventure",
     "phase": "extras",
-    "lastUpdated": "2026-01-09T20:45:00Z",
+    "lastUpdated": "2026-01-09T21:30:00Z",
     "status": "Planning",
     "quotesConfirmed": false
   },
@@ -80,7 +80,8 @@
         "location": "Lisbon",
         "activities": ["Morning: Self-guided Alfama", "11am: Devour Lisbon Food Tour", "Afternoon: Chiado shopping", "LX Factory"],
         "dining": "Food tour covers lunch. Evening: Taberna da Rua das Flores or Cervejaria Ramiro (seafood)",
-        "overnight": "Lisbon"
+        "overnight": "Lisbon",
+        "valueTierNote": "Value option: Skip food tour, do DIY food crawl instead"
       },
       {
         "day": 3,
@@ -98,7 +99,8 @@
         "location": "Cascais (day trip)",
         "activities": ["Train to Cascais", "Beach time", "Old town shopping", "Boca do Inferno cliffs"],
         "dining": "Seafood lunch in Cascais. Dinner: Fado show at Tasca do Chico or Sr. Fado",
-        "overnight": "Lisbon"
+        "overnight": "Lisbon",
+        "valueTierNote": "Value option: Tasca do Chico fado bar (~€5 cover + drinks) vs dinner show"
       },
       {
         "day": 5,
@@ -107,7 +109,8 @@
         "location": "Porto",
         "activities": ["Morning pack/breakfast", "Alfa Pendular to Porto", "Evening Ribeira walk"],
         "dining": "Dinner with river views: Bacalhau or Adega São Nicolau",
-        "overnight": "Porto"
+        "overnight": "Porto",
+        "valueTierNote": "Value option: Book Promo fare (as low as €9.50/person vs €34)"
       },
       {
         "day": 6,
@@ -160,23 +163,50 @@
     }
   ],
   "lodging": {
-    "recommendation": "Premium tier - best value for quality/location balance",
+    "recommendation": "Premium tier recommended - best value for quality/location balance. Value tier available for budget-conscious option.",
+    "preferredTier": "premium",
     "premium": [
       {
         "location": "Lisbon",
         "property": "Hotel da Baixa",
+        "url": "https://www.hoteldabaixa.com/",
         "nights": 4,
         "priceRange": "€140-160/night",
         "total": 600,
+        "perks": ["Central Baixa location", "Rooftop bar", "Modern boutique style", "Excellent breakfast"],
         "recommended": true
       },
       {
         "location": "Porto",
         "property": "Exmo. Hotel by Olivia",
+        "url": "https://www.exmohotel.com/",
         "nights": 4,
         "priceRange": "€150-190/night",
         "total": 680,
+        "perks": ["Design hotel", "Near São Bento", "Rooftop pool", "Great restaurant"],
         "recommended": true
+      }
+    ],
+    "value": [
+      {
+        "location": "Lisbon",
+        "property": "My Story Hotel Rossio",
+        "url": "https://www.mystoryhotels.com/rossio/",
+        "nights": 4,
+        "priceRange": "€80-100/night",
+        "total": 360,
+        "perks": ["Central Rossio location", "Clean and modern", "Good reviews", "Near train stations"],
+        "notes": "Solid 3-star, less charm but great location. Walking distance to everything."
+      },
+      {
+        "location": "Porto",
+        "property": "Moov Hotel Porto Centro",
+        "url": "https://www.hotelmoov.com/porto-centro/",
+        "nights": 4,
+        "priceRange": "€70-90/night",
+        "total": 320,
+        "perks": ["Modern design", "Central location", "Good value", "Near Aliados"],
+        "notes": "Budget-friendly without feeling cheap. 10-min walk to Ribeira."
       }
     ]
   },
@@ -184,38 +214,88 @@
     "lisbon": [
       {
         "name": "Devour Lisbon Food Tour",
+        "url": "https://www.viator.com/tours/Lisbon/Tastes-and-Traditions-of-Lisbon-Food-Tour/d538-170816P1?pid=P00005400&uid=U00386675&mcid=58086",
         "price": "$75-85/person",
         "totalFor2": "~$150-170",
         "day": "Day 2 (March 24)",
-        "alcoholNote": "Non-alcoholic options available",
-        "recommended": true
+        "duration": "3.5 hours",
+        "includes": ["10+ tastings", "Local guide", "History & culture", "Non-alcoholic options"],
+        "alcoholNote": "Non-alcoholic options available for Susie",
+        "recommended": true,
+        "tier": "both",
+        "valueTierAlternative": {
+          "name": "DIY Lisbon Food Crawl",
+          "cost": "~$40-50 for 2",
+          "stops": ["Pastéis de Belém (pastéis de nata)", "Cervejaria Ramiro (seafood)", "Time Out Market (variety)", "Manteigaria (more nata!)"],
+          "note": "Save ~$100-120 but miss the guided context and hidden spots"
+        }
       },
       {
         "name": "Sintra Small-Group Tour",
+        "url": "https://www.viator.com/tours/Lisbon/Sintra-Tour/d538-33844P1?pid=P00005400&uid=U00386675&mcid=58086",
         "price": "$85-110/person",
         "totalFor2": "~$170-220",
         "day": "Day 3 (March 25)",
-        "recommended": true
+        "duration": "8 hours",
+        "includes": ["Transport from Lisbon", "Pena Palace entry", "Quinta da Regaleira entry", "Guide", "Small group (max 8)"],
+        "recommended": true,
+        "tier": "both",
+        "note": "Keep this for both tiers - logistics in Sintra are tricky and palaces require advance booking"
       }
     ],
     "porto": [
       {
         "name": "Porto Secret Food Tour",
+        "url": "https://www.viator.com/tours/Porto/Porto-Food-Tour/d573-44179P1?pid=P00005400&uid=U00386675&mcid=58086",
         "price": "$70-85/person",
         "totalFor2": "~$140-170",
         "day": "Day 6 (March 28)",
-        "alcoholNote": "Non-alcoholic options available",
-        "recommended": true
+        "duration": "3.5 hours",
+        "includes": ["8+ tastings", "Local guide", "History & culture", "Non-alcoholic options"],
+        "alcoholNote": "Non-alcoholic options available for Susie",
+        "recommended": true,
+        "tier": "premium",
+        "valueTierAlternative": {
+          "name": "DIY Porto Food Crawl",
+          "cost": "~$30-40 for 2",
+          "stops": ["Café Santiago (francesinha)", "Mercado do Bolhão (market grazing)", "Café Gazela (cachorrinhos)", "Confeitaria do Bolhão (pastries)"],
+          "note": "Great option since they'll have done a guided tour in Lisbon already"
+        }
       },
       {
         "name": "DIY Douro Valley Scenic Train",
+        "url": "https://www.cp.pt",
         "price": "~€24 RT/person",
         "totalFor2": "~$55-60",
         "day": "Day 7 (March 29)",
-        "note": "Perfect for Susie - scenic without wine focus",
-        "recommended": true
+        "duration": "Full day",
+        "includes": ["Train tickets only - self-guided"],
+        "note": "Perfect for Susie - scenic without wine focus. Same for both tiers.",
+        "recommended": true,
+        "tier": "both",
+        "warning": "⚠️ Track work until April 2, 2026 - verify closer to trip"
       }
-    ]
+    ],
+    "fado": {
+      "premium": {
+        "name": "Sr. Fado Dinner Show",
+        "location": "Lisbon - Alfama",
+        "price": "~$50-60/person",
+        "totalFor2": "~$100-120",
+        "day": "Day 4 (March 26)",
+        "includes": ["Dinner", "Fado performance", "Wine (skip for Susie)"],
+        "note": "More formal, excellent performers, full dinner included"
+      },
+      "value": {
+        "name": "Tasca do Chico",
+        "location": "Lisbon - Bairro Alto",
+        "price": "~€5 cover + drinks",
+        "totalFor2": "~$25-35",
+        "day": "Day 4 (March 26)",
+        "includes": ["Cover charge", "Drinks (order food separately)"],
+        "note": "More authentic amateur fado. Reserve ahead. Eat dinner elsewhere first, then go for the show."
+      }
+    }
   },
   "transport": {
     "rentalCar": {
@@ -229,6 +309,20 @@
           "standard": "€33.90 per person",
           "conforto": "€47.40 per person (1st class)",
           "promo": "Up to 65% off if booked 5-60 days advance"
+        },
+        "tiers": {
+          "premium": {
+            "class": "Conforto (1st class)",
+            "cost": "€47.40/person",
+            "totalFor2": "~€95",
+            "perks": ["Larger seats", "More legroom", "Quieter car", "Complimentary snack"]
+          },
+          "value": {
+            "class": "Turística with Promo fare",
+            "cost": "€9.50-20/person if booked early",
+            "totalFor2": "~€20-40",
+            "note": "Book 30-60 days ahead at cp.pt for best prices"
+          }
         },
         "booking": {
           "official": "www.cp.pt (book up to 60 days ahead)",
@@ -276,9 +370,17 @@
       "porto": "Metro, Tram 1 to Foz, walking"
     },
     "estimatedTotal": {
-      "allTrains": "~€150-200 for both",
-      "local": "~€30-50",
-      "total": "~$195-275"
+      "premium": {
+        "allTrains": "~€200 for both",
+        "local": "~€40",
+        "total": "~$260"
+      },
+      "value": {
+        "allTrains": "~€130 for both",
+        "local": "~€35",
+        "total": "~$180",
+        "savings": "~$80"
+      }
     }
   },
   "extras": {
@@ -291,7 +393,7 @@
           "price": "€€",
           "mustTry": "Bulhão Pato clams, prawns",
           "note": "Famous - go for lunch to avoid crowds",
-          "url": "cervejaria-ramiro.pt"
+          "url": "https://cervejariaramiro.com/"
         },
         {
           "name": "Taberna da Rua das Flores",
@@ -308,7 +410,7 @@
           "price": "€€",
           "mustTry": "Seasonal menu, vegan tasting available",
           "note": "Chef António Galapito - excellent",
-          "url": "pradorestaurante.com"
+          "url": "https://pradorestaurante.com/"
         },
         {
           "name": "Martinho da Arcada",
@@ -343,7 +445,7 @@
           "price": "€",
           "mustTry": "Classic francesinha with egg",
           "note": "THE francesinha spot. Long lines - worth it",
-          "url": "cafesantiago.pt"
+          "url": "https://www.cafesantiago.pt/"
         },
         {
           "name": "Lado B",
@@ -407,13 +509,15 @@
           "name": "Tasca do Chico",
           "location": "Lisbon - Bairro Alto",
           "type": "Intimate fado tavern",
-          "note": "Authentic amateur fado. Reserve ahead"
+          "note": "Authentic amateur fado. Reserve ahead",
+          "tier": "value"
         },
         {
           "name": "Sr. Fado",
           "location": "Lisbon - Alfama",
           "type": "Fado dinner show",
-          "note": "More formal, excellent performers"
+          "note": "More formal, excellent performers",
+          "tier": "premium"
         }
       ]
     },
@@ -562,23 +666,84 @@
     "style": "Smart casual. Portuguese women favor understated elegance."
   },
   "pricing": {
+    "preferredTier": "premium",
     "premium": {
       "flights": 1400,
       "lodging": 1280,
       "tours": 520,
-      "transport": 225,
+      "transport": 260,
       "meals": 400,
-      "total": 3825,
-      "perPerson": 1913,
+      "fado": 120,
+      "total": 3980,
+      "perPerson": 1990,
       "confirmed": false,
-      "notes": "Recommended tier. Estimates only - need CP quotes"
+      "notes": "Recommended tier. Boutique hotels, both food tours, fado dinner show, 1st class train. Best experience for business scouting trip.",
+      "breakdown": {
+        "lodging": "Hotel da Baixa (€600) + Exmo. Hotel (€680)",
+        "tours": "Devour Lisbon ($160) + Sintra ($195) + Porto Food Tour ($155) + Douro Train ($55)",
+        "transport": "1st class Lisbon→Porto (€95) + Douro RT (€50) + day trips (€20) + departure (€70) + local (€40)",
+        "fado": "Sr. Fado dinner show (~$120)"
+      }
+    },
+    "value": {
+      "flights": 1400,
+      "lodging": 680,
+      "tours": 310,
+      "transport": 180,
+      "meals": 350,
+      "fado": 35,
+      "total": 2955,
+      "perPerson": 1478,
+      "confirmed": false,
+      "notes": "Budget-friendly option. Clean, central hotels. Keep Lisbon food tour + Sintra (best business value). DIY Porto food crawl. Fado bar vs dinner show. Promo train fares.",
+      "breakdown": {
+        "lodging": "My Story Rossio (€360) + Moov Porto Centro (€320)",
+        "tours": "Devour Lisbon ($160) + Sintra ($195) + DIY Porto food crawl (~$35) + Douro Train ($55)",
+        "transport": "Promo Lisbon→Porto (€40) + Douro RT (€50) + day trips (€20) + departure (€70) + local (€35)",
+        "fado": "Tasca do Chico bar (~$35)"
+      },
+      "savings": {
+        "vsPremuim": 1025,
+        "perPerson": 512
+      }
     }
+  },
+  "tierComparison": {
+    "summary": "Premium saves $512/person with boutique hotels, all guided tours, dinner fado show, and 1st class train. Value tier offers same great itinerary with smart swaps.",
+    "keyDifferences": [
+      {
+        "category": "Hotels",
+        "premium": "Boutique hotels with rooftop bars, design details, excellent locations",
+        "value": "Clean, modern 3-star hotels, still central, less charm",
+        "savings": "$600"
+      },
+      {
+        "category": "Food Tours",
+        "premium": "Both Lisbon + Porto guided tours",
+        "value": "Lisbon guided tour only, DIY Porto food crawl",
+        "savings": "$120"
+      },
+      {
+        "category": "Fado",
+        "premium": "Sr. Fado dinner show (formal, included meal)",
+        "value": "Tasca do Chico bar (authentic, €5 cover + drinks)",
+        "savings": "$85"
+      },
+      {
+        "category": "Train",
+        "premium": "Conforto 1st class",
+        "value": "Turística with Promo fare (book early)",
+        "savings": "$60"
+      }
+    ],
+    "recommendation": "For a business scouting trip, Premium tier is worth it — the guided food tours provide intel they can share with clients, and boutique hotels are properties they might recommend. However, Value tier still delivers an excellent Portugal experience."
   },
   "openQuestions": [
     "Get Delta quote for MOB-ATL-JFK-LIS round trip March 22-31",
-    "Verify lodging in CP Maxx for Hotel da Baixa + Exmo Hotel",
-    "Book Alfa Pendular Lisbon→Porto (Promo fare if available)",
-    "Verify Douro train status for March 29 (track work until April 2)"
+    "Verify lodging in CP Maxx for both tier options",
+    "Book Alfa Pendular Lisbon→Porto (Promo fare if available for Value tier)",
+    "Verify Douro train status for March 29 (track work until April 2)",
+    "Confirm which tier client prefers"
   ],
   "preTripChecklist": [
     { "item": "Confirm travel dates", "completed": true },
@@ -587,6 +752,7 @@
     { "item": "Research tours", "completed": true },
     { "item": "Research transport", "completed": true },
     { "item": "Research dining/extras", "completed": true },
+    { "item": "Add Value tier option", "completed": true },
     { "item": "Book flights", "completed": false },
     { "item": "Book Lisbon hotel", "completed": false },
     { "item": "Book Porto hotel", "completed": false },
