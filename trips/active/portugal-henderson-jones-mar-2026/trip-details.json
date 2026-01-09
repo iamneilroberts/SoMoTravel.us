@@ -6,7 +6,7 @@
     "dates": "March 22-31, 2026",
     "occasion": "Business scouting trip + BFF adventure",
     "phase": "lodging",
-    "lastUpdated": "2026-01-09T12:00:00Z",
+    "lastUpdated": "2026-01-09T15:30:00Z",
     "status": "Planning",
     "quotesConfirmed": false
   },
@@ -36,7 +36,8 @@
       "Rental car if practical to skip"
     ],
     "kimPreferences": "Mountains, villages, hiking, unique finds, shorter drives",
-    "susiePreferences": "Beaches, fashion/shopping, no alcohol-focused activities"
+    "susiePreferences": "Beaches, fashion/shopping, no alcohol-focused activities",
+    "lodgingPreferences": "Boutique hotels or small B&Bs preferred, one room with two beds, reasonably priced"
   },
   "flights": {
     "confirmed": false,
@@ -177,11 +178,200 @@
   "lodging": {
     "requirements": {
       "lisbon": "Central location (Chiado, Baixa, or Alfama). Walking distance to Rossio and Cais do Sodré stations for day trips. 4 nights.",
-      "porto": "Ribeira or Baixa area. Walking distance to São Bento station. 4 nights."
+      "porto": "Ribeira or Baixa area. Walking distance to São Bento station. 4 nights.",
+      "roomType": "One room with two beds (twin preferred)",
+      "style": "Boutique hotel or small B&B preferred"
     },
-    "value": [],
-    "premium": [],
-    "luxury": []
+    "recommendation": "Premium tier - best value for quality/location balance",
+    "value": [
+      {
+        "location": "Lisbon",
+        "property": "My Story Hotel Ouro",
+        "starRating": "3-star boutique",
+        "nights": 4,
+        "pricePerNight": 100,
+        "priceRange": "€90-110/night",
+        "total": 400,
+        "totalRange": "€360-440 for 4 nights",
+        "url": "https://www.booking.com/hotel/pt/my-story-ouro.html",
+        "address": "Baixa district, near Rossio",
+        "roomType": "Twin room available",
+        "amenities": ["Free WiFi", "Air conditioning", "Central location"],
+        "whyItWorks": "18th-century building, excellent reviews, 5-min walk to both Rossio and Cais do Sodré stations",
+        "cpBookable": "Check CP Maxx availability",
+        "confirmed": false,
+        "source": "web research Jan 2026"
+      },
+      {
+        "location": "Porto",
+        "property": "Oca Ribeira do Porto Hotel",
+        "starRating": "3-star",
+        "nights": 4,
+        "pricePerNight": 100,
+        "priceRange": "€90-115/night",
+        "total": 400,
+        "totalRange": "€360-460 for 4 nights",
+        "url": "https://www.booking.com/hotel/pt/ribeira-do-porto.html",
+        "address": "Ribeira district",
+        "roomType": "Twin room available",
+        "amenities": ["Free WiFi", "Breakfast included", "River views possible"],
+        "whyItWorks": "Historic Ribeira location, walking distance to São Bento, 18 rooms, cozy atmosphere",
+        "cpBookable": "Check CP Maxx availability",
+        "confirmed": false,
+        "source": "web research Jan 2026"
+      }
+    ],
+    "premium": [
+      {
+        "location": "Lisbon",
+        "property": "Hotel da Baixa",
+        "starRating": "4-star boutique",
+        "nights": 4,
+        "pricePerNight": 150,
+        "priceRange": "€140-160/night",
+        "total": 600,
+        "totalRange": "€560-640 for 4 nights",
+        "url": "https://www.hoteldabaixa.com/en/",
+        "bookingUrl": "https://www.booking.com/hotel/pt/da-baixa.html",
+        "address": "Rua da Prata 231, Baixa district",
+        "roomType": "Classic Twin Room or Superior Twin Room",
+        "amenities": [
+          "Free WiFi",
+          "Buffet breakfast (€25/person, vegetarian/gluten-free options)",
+          "Free smartphone with unlimited data during stay",
+          "Nespresso machine in room",
+          "4K TV with internet",
+          "Free minibar",
+          "Library with fireplace",
+          "Walking tours with Guest Manager Pedro"
+        ],
+        "whyItWorks": "Perfect location between Rossio (Sintra trains) and Cais do Sodré (Cascais trains). Larger-than-average rooms for Lisbon. Free smartphone = great for navigating. TripAdvisor Travelers' Choice. Great reviews for staff.",
+        "pricingSource": "Kayak shows €146-187/night recent bookings. Direct booking often best rate.",
+        "verified": "Jan 2026",
+        "cpBookable": "4-star likely in CP Maxx - verify availability",
+        "recommended": true,
+        "confirmed": false,
+        "source": "web research Jan 2026"
+      },
+      {
+        "location": "Porto",
+        "property": "Exmo. Hotel by Olivia",
+        "starRating": "4-star boutique",
+        "nights": 4,
+        "pricePerNight": 170,
+        "priceRange": "€150-190/night",
+        "total": 680,
+        "totalRange": "€600-760 for 4 nights",
+        "url": "https://exmohotelbyolivia.com-hotel.com/",
+        "bookingUrl": "https://www.booking.com/hotel/pt/exmo.html",
+        "address": "Rua do Infante D. Henrique 55-61, Ribeira",
+        "roomType": "Premium Twin/Double Room",
+        "amenities": [
+          "Free WiFi",
+          "Free buffet breakfast (served until 1pm - brunch!)",
+          "Heated bathroom floors",
+          "Minibar with some free items",
+          "Soundproof rooms",
+          "City/river views available",
+          "Restaurant serves brunch, lunch, dinner",
+          "24-hour front desk"
+        ],
+        "whyItWorks": "Only 16 rooms - intimate boutique feel. 14th-century restored building. 2-min walk to Ribeira Square. Brunch until 1pm perfect for late mornings. TripAdvisor rated 4.8/5. Excellent reviews for staff, location, breakfast.",
+        "pricingSource": "Travelocity shows $271/night. Hotels.com/Booking similar range.",
+        "verified": "Jan 2026",
+        "cpBookable": "4-star boutique - verify CP Maxx availability",
+        "recommended": true,
+        "confirmed": false,
+        "source": "web research Jan 2026",
+        "note": "Property closed Jan 18-29, 2026 but open for March dates"
+      },
+      {
+        "location": "Porto",
+        "property": "Hotel Carris Porto Ribeira",
+        "starRating": "4-star boutique",
+        "nights": 4,
+        "pricePerNight": 140,
+        "priceRange": "€112-160/night",
+        "total": 560,
+        "totalRange": "€448-640 for 4 nights",
+        "url": "https://hotelcarrisportoribeira.com-hotel.com/",
+        "bookingUrl": "https://www.booking.com/hotel/pt/carris-porto-ribeira.en-gb.html",
+        "address": "Rua do Infante D. Henrique 1, Ribeira",
+        "roomType": "Carris Twin Room (street view or river view)",
+        "amenities": [
+          "Free WiFi",
+          "Buffet breakfast",
+          "Gym/fitness center",
+          "On-site restaurant (Forno Velho) and bar",
+          "Room service",
+          "Elevator",
+          "Business center"
+        ],
+        "whyItWorks": "90 rooms in refurbished historic building overlooking Douro. 5-min walk to São Bento Station. More amenities than Exmo (gym, larger restaurant). Booking.com rated 8.4. Good value option in premium tier.",
+        "pricingSource": "Kayak shows $159-264 recent bookings. Starting price €112/night.",
+        "verified": "Jan 2026",
+        "cpBookable": "4-star chain - likely in CP Maxx",
+        "alternativeTo": "Exmo Hotel",
+        "confirmed": false,
+        "source": "web research Jan 2026"
+      }
+    ],
+    "luxury": [
+      {
+        "location": "Lisbon",
+        "property": "AlmaLusa Baixa/Chiado",
+        "starRating": "4-star boutique luxury",
+        "nights": 4,
+        "pricePerNight": 180,
+        "priceRange": "€170-200/night",
+        "total": 720,
+        "totalRange": "€680-800 for 4 nights",
+        "url": "https://www.almalusahotels.com/baixachiado/",
+        "address": "Praça do Município, Baixa/Chiado",
+        "roomType": "Superior Twin Room",
+        "amenities": ["On-site Portuguese restaurant (Delfina)", "Concierge", "2 min from Tagus River", "Local Portuguese brands throughout"],
+        "whyItWorks": "Only 28 rooms. Renovated 18th-century building on emblematic square. Strong Portuguese cultural focus. Excellent restaurant on-site.",
+        "cpBookable": "Boutique - verify availability",
+        "confirmed": false,
+        "source": "web research Jan 2026"
+      },
+      {
+        "location": "Porto",
+        "property": "ICON Duplo Ribeira",
+        "starRating": "4-star boutique luxury",
+        "nights": 4,
+        "pricePerNight": 220,
+        "priceRange": "€180-250/night",
+        "total": 880,
+        "totalRange": "€720-1000 for 4 nights",
+        "url": "https://www.iconhotels.com/en/icon-duplo-ribeira/",
+        "address": "Calle São João, Ribeira",
+        "roomType": "Twin room in Original or Custom building",
+        "amenities": ["Two distinct buildings (Original = classic, Custom = modern)", "Restaurant with petiscos", "Pet-friendly", "Terrace", "Near Maria Pia Bridge"],
+        "whyItWorks": "Brand new (opened 2024). TripAdvisor ranked #16 best hotel worldwide. Two buildings offer different vibes - choose classic Portuguese or contemporary.",
+        "cpBookable": "New boutique - may need direct booking",
+        "confirmed": false,
+        "source": "web research Jan 2026"
+      }
+    ],
+    "pricingSummary": {
+      "value": {
+        "lisbon4nights": "€360-440 (~$390-480)",
+        "porto4nights": "€360-460 (~$390-500)",
+        "total": "€720-900 (~$780-980)"
+      },
+      "premium": {
+        "lisbon4nights": "€560-640 (~$610-700)",
+        "porto4nights": "€520-680 (~$565-740)",
+        "total": "€1,080-1,320 (~$1,175-1,440)",
+        "recommended": true
+      },
+      "luxury": {
+        "lisbon4nights": "€680-800 (~$740-870)",
+        "porto4nights": "€720-1,000 (~$785-1,090)",
+        "total": "€1,400-1,800 (~$1,525-1,960)"
+      }
+    }
   },
   "tours": [],
   "transport": {
@@ -283,41 +473,46 @@
   },
   "pricing": {
     "value": {
-      "flights": 0,
-      "lodging": 0,
+      "flights": 1400,
+      "lodging": 850,
       "tours": 0,
       "transport": 200,
-      "total": 0,
-      "perPerson": 0,
-      "confirmed": false
+      "total": 2450,
+      "perPerson": 1225,
+      "confirmed": false,
+      "notes": "Estimates only - need CP quotes"
     },
     "premium": {
-      "flights": 0,
-      "lodging": 0,
+      "flights": 1400,
+      "lodging": 1200,
       "tours": 0,
       "transport": 200,
-      "total": 0,
-      "perPerson": 0,
-      "confirmed": false
+      "total": 2800,
+      "perPerson": 1400,
+      "confirmed": false,
+      "notes": "Recommended tier. Estimates only - need CP quotes"
     },
     "luxury": {
-      "flights": 0,
-      "lodging": 0,
+      "flights": 1600,
+      "lodging": 1750,
       "tours": 0,
       "transport": 250,
-      "total": 0,
-      "perPerson": 0,
-      "confirmed": false
+      "total": 3600,
+      "perPerson": 1800,
+      "confirmed": false,
+      "notes": "Estimates only - need CP quotes"
     }
   },
   "openQuestions": [
     "Get Delta quote for MOB-ATL-JFK-LIS round trip March 22-31",
+    "Verify lodging availability in CP Maxx for recommended hotels",
     "Day 7: Douro Valley scenic tour vs Foz do Douro beach - decide closer to trip based on weather/mood",
     "Lisboa Card worth it? (24/48/72 hr options - unlimited transport + attraction discounts)"
   ],
   "preTripChecklist": [
     { "item": "Confirm travel dates", "completed": true },
     { "item": "Finalize itinerary structure", "completed": true },
+    { "item": "Research lodging options", "completed": true },
     { "item": "Book flights", "completed": false },
     { "item": "Book Lisbon hotel (4 nights)", "completed": false },
     { "item": "Book Porto hotel (4 nights)", "completed": false },
