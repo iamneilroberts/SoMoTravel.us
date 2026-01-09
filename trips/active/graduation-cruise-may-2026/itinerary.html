@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnival Cruise Excursion Guide | May 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ocean-deep: #0a1628;
+            --ocean-mid: #1a3a5c;
+            --ocean-light: #2d5a87;
+            --sunset-orange: #ff6b35;
+            --sunset-coral: #f7931e;
+            --sunset-pink: #ff8c94;
+            --sand: #f5e6d3;
+            --sand-light: #faf6f1;
+            --foam: #ffffff;
+            --palm: #2d5a3d;
+            --adventure: #e63946;
+            --relax: #48cae4;
+            --text-dark: #1a1a2e;
+            --text-muted: #4a5568;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: var(--sand-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 50%, var(--ocean-light) 100%);
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23faf6f1' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--foam);
+            margin-bottom: 10px;
+            text-shadow: 2px 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: var(--sunset-coral);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero .dates {
+            margin-top: 20px;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+        }
+
+        /* Navigation Tabs */
+        .nav-container {
+            background: var(--foam);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            padding: 15px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: 2px solid var(--ocean-light);
+            color: var(--ocean-mid);
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            background: var(--ocean-mid);
+            color: var(--foam);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section Styles */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--ocean-deep);
+            margin-bottom: 10px;
+        }
+
+        .section-header .port-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--ocean-deep);
+            color: var(--foam);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .section-header .port-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Cruise Comparison Table */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .cruise-card {
+            background: var(--foam);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cruise-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .cruise-card-header {
+            background: linear-gradient(135deg, var(--ocean-mid), var(--ocean-light));
+            color: var(--foam);
+            padding: 25px;
+            text-align: center;
+        }
+
+        .cruise-card-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .cruise-card-header .ship-name {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .cruise-card-body {
+            padding: 25px;
+        }
+
+        .cruise-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cruise-detail:last-child {
+            border-bottom: none;
+        }
+
+        .cruise-detail .label {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .cruise-detail .value {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .price-highlight {
+            background: linear-gradient(135deg, var(--sunset-orange), var(--sunset-coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.3rem;
+        }
+
+        .best-value-badge {
+            background: var(--sunset-orange);
+            color: var(--foam);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Excursion Categories */
+        .category-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .category-tab.adventure {
+            background: rgba(230, 57, 70, 0.1);
+            color: var(--adventure);
+        }
+
+        .category-tab.adventure:hover, .category-tab.adventure.active {
+            background: var(--adventure);
+            color: var(--foam);
+        }
+
+        .category-tab.relax {
+            background: rgba(72, 202, 228, 0.1);
+            color: var(--relax);
+        }
+
+        .category-tab.relax:hover, .category-tab.relax.active {
+            background: var(--relax);
+            color: var(--foam);
+        }
+
+        /* Excursion Cards */
+        .excursion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .excursion-card {
+            background: var(--foam);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .excursion-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+        }
+
+        .excursion-card.adventure-card {
+            border-top: 4px solid var(--adventure);
+        }
+
+        .excursion-card.relax-card {
+            border-top: 4px solid var(--relax);
+        }
+
+        .excursion-content {
+            padding: 25px;
+        }
+
+        .excursion-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .excursion-badge.adventure {
+            background: rgba(230, 57, 70, 0.1);
+            color: var(--adventure);
+        }
+
+        .excursion-badge.relax {
+            background: rgba(72, 202, 228, 0.1);
+            color: var(--relax);
+        }
+
+        .excursion-badge.bucket-list {
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--sunset-orange);
+        }
+
+        .excursion-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .excursion-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .excursion-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .excursion-description {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .excursion-includes {
+            background: var(--sand-light);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .excursion-includes h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .excursion-includes ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .excursion-includes li {
+            background: var(--foam);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+        }
+
+        .excursion-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .excursion-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ocean-deep);
+        }
+
+        .excursion-price span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .book-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--ocean-mid);
+            color: var(--foam);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .book-btn:hover {
+            background: var(--ocean-deep);
+            transform: scale(1.05);
+        }
+
+        .guarantee-badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--palm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Mom Activities Section */
+        .mom-section {
+            background: linear-gradient(135deg, rgba(72, 202, 228, 0.05), rgba(248, 180, 180, 0.05));
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .mom-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--ocean-deep);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .mom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .mom-card {
+            background: var(--foam);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--relax);
+        }
+
+        .mom-card h4 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .mom-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .mom-card .price-tag {
+            font-weight: 700;
+            color: var(--ocean-mid);
+        }
+
+        /* Sample Day Schedule */
+        .sample-day {
+            background: var(--foam);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .sample-day h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--ocean-deep);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--sunset-orange), var(--relax));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 25px;
+            padding-left: 25px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: var(--foam);
+            border: 3px solid var(--sunset-orange);
+            border-radius: 50%;
+        }
+
+        .timeline-item.relax::before {
+            border-color: var(--relax);
+        }
+
+        .timeline-time {
+            font-weight: 700;
+            color: var(--ocean-mid);
+            font-size: 1rem;
+        }
+
+        .timeline-activity {
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .timeline-who {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .timeline-who.everyone {
+            background: rgba(45, 90, 61, 0.1);
+            color: var(--palm);
+        }
+
+        .timeline-who.teens {
+            background: rgba(230, 57, 70, 0.1);
+            color: var(--adventure);
+        }
+
+        .timeline-who.moms {
+            background: rgba(72, 202, 228, 0.1);
+            color: var(--relax);
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-mid));
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+            color: var(--foam);
+        }
+
+        .tips-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .tip-card h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--sunset-coral);
+        }
+
+        .tip-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ocean-deep);
+            color: var(--foam);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-tabs {
+                gap: 8px;
+            }
+
+            .nav-tab {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+
+            .excursion-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header .port-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav-container, .book-btn {
+                display: none;
+            }
+
+            .section {
+                display: block !important;
+                page-break-inside: avoid;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>🚢 Cruise Excursion Guide</h1>
+        <p class="subtitle">Carnival Cruises from New Orleans</p>
+        <p class="dates">May 2026 • For Moms & 18-Year-Olds • Up to 6 People</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('compare')">📊 Compare Cruises</button>
+            <button class="nav-tab" onclick="showSection('keywest')">🌴 Key West</button>
+            <button class="nav-tab" onclick="showSection('cozumel')">🇲🇽 Cozumel</button>
+            <button class="nav-tab" onclick="showSection('progreso')">🏛️ Progreso</button>
+            <button class="nav-tab" onclick="showSection('nassau')">🏝️ Nassau</button>
+            <button class="nav-tab" onclick="showSection('tips')">💡 Booking Tips</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Compare Cruises Section -->
+        <section id="compare" class="section active">
+            <div class="section-header">
+                <h2>Compare Your Options</h2>
+                <p style="color: var(--text-muted); margin-top: 10px;">All cruises depart from New Orleans</p>
+            </div>
+
+            <div class="comparison-grid">
+                <!-- 7-Night Bahamas -->
+                <div class="cruise-card">
+                    <div class="cruise-card-header">
+                        <h3>7-Night Bahamas</h3>
+                        <p class="ship-name">Carnival Liberty</p>
+                    </div>
+                    <div class="cruise-card-body">
+                        <div class="cruise-detail">
+                            <span class="label">Dates</span>
+                            <span class="value">May 24 - 31, 2026</span>
+                        </div>
+                        <div class="cruise-detail">
+                            <span class="label">Ports</span>
+                            <span class="value">Key West • Nassau • Celebration Key</span>
+                        </div>
+                        <div class="cruise-detail">
+                            <span class="label">Ocean View</span>
+                            <span class="value price-highlight">$1,079/pp</span>
+                        </div>
+                        <div class="cruise-detail">
+                            <span class="label">Balcony</span>
+                            <span class="value price-highlight">$1,489/pp</span>
+                        </div>
+                        <div class="cruise-detail">
+                            <span class="label">Best For</span>
+                            <span class="value">Beach lovers, U.S. waters</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5-Night Western Caribbean -->
+                <div class="cruise-card">
+                    <div class="cruise-card-header" style="background: linear-gradient(135deg, var(--sunset-orange), var(--sunset-coral));">
+                        <span class="best-value-badge">Best Value</span>
+                        <h3>5-Night Western Caribbean</h3>
+                        <p class="ship-name">Carnival Valor</p>
+                    </div>
+                    <div class="cruise-card-body">
+                        <div class="cruise-detail">
+                            <span class="label">Dates</span>
+                            <span class="value">May 25 - 30, 2026</span>
+                        </div>
+                        <div class="cruise-detail">
+                            <span class="label">Ports</span>
+                            <span class="value">Cozumel • Progreso</span>
+                        </div>
+                        <div class="cruise-detail">
+                            <span class="label">Ocean View</span>
+                            <span class="value price-highlight">$899/pp</span>
+                        </div>
+                        <div class="cruise-detail">
+                            <span class="label">Balcony</span>
+                            <span class="value price-highlight">$1,044/pp</span>
+                        </div>
+                        <div class="cruise-detail">
+                            <span class="label">Best For</span>
+                            <span class="value">Budget + Chichen Itza!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7-Night Western Caribbean -->
+                <div class="cruise-card">
+                    <div class="cruise-card-header">
+                        <h3>7-Night Western Caribbean</h3>
+                        <p class="ship-name">Carnival Liberty</p>
+                    </div>
+                    <div class="cruise-card-body">
+                        <div class="cruise-detail">
+                            <span class="label">Dates</span>
+                            <span class="value">May 31 - June 7, 2026</span>
+                        </div>
+                        <div class="cruise-detail">
+                            <span class="label">Ports</span>
+                            <span class="value">Cozumel • Belize • Mahogany Bay</span>
+                        </div>
+                        <div class="cruise-detail">
+                            <span class="label">Ocean View</span>
+                            <span class="value price-highlight">$924/pp</span>
+                        </div>
+                        <div class="cruise-detail">
+                            <span class="label">Balcony</span>
+                            <span class="value price-highlight">$1,264/pp</span>
+                        </div>
+                        <div class="cruise-detail">
+                            <span class="label">Best For</span>
+                            <span class="value">Adventure variety</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h3>💰 Quick Price Comparison</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4>Balcony Savings</h4>
+                        <p>The 5-Night balcony ($1,044/pp) costs LESS than the 7-Night Bahamas ocean view ($1,079/pp)!</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Best 7-Night Value</h4>
+                        <p>May 31 Western Caribbean saves $225/pp on balcony vs. the Bahamas cruise.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Bucket List Factor</h4>
+                        <p>Only the 5-Night cruise visits Progreso, your gateway to Chichen Itza!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key West Section -->
+        <section id="keywest" class="section">
+            <div class="section-header">
+                <h2>🌴 Key West, Florida</h2>
+                <p style="color: var(--text-muted);">7-Night Bahamas Cruise</p>
+                <div class="port-info">
+                    <span>⏰ In Port: ~9 hours</span>
+                    <span>🚢 8:00 AM - 5:00 PM</span>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--adventure); margin-bottom: 20px;">🔥 Adventure Excursions (18-Year-Olds)</h3>
+
+            <div class="excursion-grid">
+                <!-- Ultimate Express Water Adventure -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">⚡ Top Pick</span>
+                        <h3 class="excursion-title">Ultimate Express Water Adventure</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 3.5 hours</span>
+                            <span>📍 Historic Seaport</span>
+                        </div>
+                        <p class="excursion-description">Action-packed catamaran cruise with multiple water activities. Perfect for thrill-seekers!</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🚤 Jet Ski</li>
+                                <li>🪂 Parasailing</li>
+                                <li>🤿 Snorkeling</li>
+                                <li>🎪 Water Trampoline</li>
+                                <li>🍺 Beer & Wine</li>
+                                <li>🍎 Snacks</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$165 <span>/person</span></div>
+                                <div class="guarantee-badge">✓ Guaranteed Return to Ship</div>
+                            </div>
+                            <a href="https://www.viator.com/tours/Key-West/Key-West-Shore-Excursion-Ultimate-Express-Water-Adventure/d661-5264PRTKEYREEF" target="_blank" class="book-btn">Book on Viator →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Watersports Partyboat -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">🎉 All-Day Fun</span>
+                        <h3 class="excursion-title">Watersports Partyboat</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 6 hours</span>
+                            <span>📍 Historic Seaport</span>
+                        </div>
+                        <p class="excursion-description">12 different watersports in one epic day! BBQ lunch and beer included on return.</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🚤 Jet Ski</li>
+                                <li>🍌 Banana Boat</li>
+                                <li>🛶 Kayak</li>
+                                <li>🏄 Paddleboard</li>
+                                <li>🎿 Waterski</li>
+                                <li>🤿 Snorkel</li>
+                                <li>🍔 BBQ Lunch</li>
+                                <li>🍺 Beer</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$190 <span>/person</span></div>
+                                <div class="guarantee-badge">✓ Guaranteed Return to Ship</div>
+                            </div>
+                            <a href="https://www.viator.com/tours/Key-West/Key-West-Shore-Excursion-Watersports-Partyboat/d661-2642PRTKEYPARTY" target="_blank" class="book-btn">Book on Viator →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dolphin Watch + Snorkel -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">🐬 Wildlife</span>
+                        <h3 class="excursion-title">Dolphin Watch & Shipwreck Snorkel</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 3 hours</span>
+                            <span>📍 Key West Seaport</span>
+                        </div>
+                        <p class="excursion-description">See wild dolphins in their natural habitat, then snorkel over a shipwreck or coral reef.</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🐬 Dolphin Watching</li>
+                                <li>🤿 Snorkel Gear</li>
+                                <li>🚢 Shipwreck Site</li>
+                                <li>🥤 Drinks & Snacks</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$85 <span>/person</span></div>
+                                <div class="guarantee-badge">✓ Cruise-Friendly Timing</div>
+                            </div>
+                            <a href="https://www.viator.com/tours/Key-West/Key-West-Shore-Excursion-Shipwreck-Snorkel-and-Wild-Dolphin-Encounter/d661-3172PRTEYWSSWDE" target="_blank" class="book-btn">Book on Viator →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jet Ski Island Tour -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">🚤 Speed</span>
+                        <h3 class="excursion-title">Jet Ski Island Tour</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 1.5 hours</span>
+                            <span>📍 Near Cruise Port</span>
+                        </div>
+                        <p class="excursion-description">Guided jet ski adventure around the entire island. Feel the speed on crystal-clear water!</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🚤 Jet Ski Rental</li>
+                                <li>👨‍✈️ Guide</li>
+                                <li>🦺 Safety Gear</li>
+                                <li>📸 Photo Ops</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$150 <span>/person</span></div>
+                                <div class="guarantee-badge">✓ Guaranteed Return to Ship</div>
+                            </div>
+                            <a href="https://www.shoreexcursionsgroup.com/port/key-west-excursions" target="_blank" class="book-btn">Book Now →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mom Section for Key West -->
+            <div class="mom-section">
+                <h3>🌺 For Moms (Relaxation & Exploration)</h3>
+                <div class="mom-grid">
+                    <div class="mom-card">
+                        <h4>🚃 Hop-On Hop-Off Trolley</h4>
+                        <p>See all the sights at your own pace. Hop off for shopping, lunch, or photos!</p>
+                        <span class="price-tag">~$45/person • 1.5+ hours</span>
+                    </div>
+                    <div class="mom-card">
+                        <h4>🏖️ Fort Zachary Taylor Beach</h4>
+                        <p>Best beach in Key West! Snorkel rentals, shaded areas, Cayo Hueso snack bar.</p>
+                        <span class="price-tag">$2.50 entry</span>
+                    </div>
+                    <div class="mom-card">
+                        <h4>🍽️ Food & Culture Walking Tour</h4>
+                        <p>Cuban coffee, fish tacos, rum cocktails, and the famous Key Lime Pie!</p>
+                        <span class="price-tag">~$85/person • 3 hours</span>
+                    </div>
+                    <div class="mom-card">
+                        <h4>🥧 Blue Heaven Restaurant</h4>
+                        <p>Outdoor dining under the trees with roosters roaming. Best Key Lime Pie!</p>
+                        <span class="price-tag">Pay as you go</span>
+                    </div>
+                    <div class="mom-card">
+                        <h4>🦋 Butterfly Conservatory</h4>
+                        <p>Walk through a tropical glass garden with 50+ butterfly species. Peaceful escape.</p>
+                        <span class="price-tag">~$15/person</span>
+                    </div>
+                    <div class="mom-card">
+                        <h4>🛍️ Duval Street Shopping</h4>
+                        <p>Art galleries, Lilly Pulitzer, Key West Aloe, Kino handmade sandals.</p>
+                        <span class="price-tag">Free to browse!</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Day -->
+            <div class="sample-day">
+                <h3>📅 Sample Day: Split & Meet Up</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">8:30 AM</div>
+                        <div class="timeline-activity">
+                            Disembark ship, grab Cuban coffee at <strong>Cuban Coffee Queen</strong>
+                            <span class="timeline-who everyone">Everyone</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">9:00 AM</div>
+                        <div class="timeline-activity">
+                            18yo heads to <strong>Ultimate Express Water Adventure</strong>
+                            <span class="timeline-who teens">18yo</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item relax">
+                        <div class="timeline-time">9:00 AM</div>
+                        <div class="timeline-activity">
+                            Moms take trolley to <strong>Fort Zachary Taylor Beach</strong>
+                            <span class="timeline-who moms">Moms</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item relax">
+                        <div class="timeline-time">12:30 PM</div>
+                        <div class="timeline-activity">
+                            Meet up for lunch at <strong>Blue Heaven</strong> for Key Lime Pie
+                            <span class="timeline-who everyone">Everyone</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item relax">
+                        <div class="timeline-time">2:00 PM</div>
+                        <div class="timeline-activity">
+                            Stroll <strong>Duval Street</strong>, stop at Kermit's for frozen pie on a stick
+                            <span class="timeline-who everyone">Everyone</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">4:00 PM</div>
+                        <div class="timeline-activity">
+                            Head back to ship (All Aboard: 4:30 PM)
+                            <span class="timeline-who everyone">Everyone</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cozumel Section -->
+        <section id="cozumel" class="section">
+            <div class="section-header">
+                <h2>🇲🇽 Cozumel, Mexico</h2>
+                <p style="color: var(--text-muted);">Both Western Caribbean Cruises</p>
+                <div class="port-info">
+                    <span>⏰ In Port: ~8 hours</span>
+                    <span>🚢 8:00 AM - 4:00 PM</span>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--adventure); margin-bottom: 20px;">🔥 Adventure Excursions (18-Year-Olds)</h3>
+
+            <div class="excursion-grid">
+                <!-- ATV + Cenote + Beach -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">⚡ Top Pick</span>
+                        <h3 class="excursion-title">ATV + Jade Cenote + Beach + Snorkel</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 5 hours</span>
+                            <span>📍 Near Cruise Terminal</span>
+                        </div>
+                        <p class="excursion-description">Off-road through the jungle, swim in a sacred cenote, then relax at a beach club with snorkeling and lunch!</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🏍️ ATV Ride</li>
+                                <li>💎 Cenote Swim</li>
+                                <li>🏖️ Beach Club</li>
+                                <li>🤿 Snorkel Gear</li>
+                                <li>🌮 Lunch</li>
+                                <li>🚐 Transport</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$95 <span>/person</span></div>
+                                <div class="guarantee-badge">✓ Guaranteed Return to Ship</div>
+                            </div>
+                            <a href="https://www.shoreexcursioneer.com/cozumel" target="_blank" class="book-btn">Book Now →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parasailing + Beach -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">🪂 Sky High</span>
+                        <h3 class="excursion-title">Parasailing + Mr. Sanchos Beach</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 4 hours</span>
+                            <span>📍 Mr. Sanchos</span>
+                        </div>
+                        <p class="excursion-description">Soar 600 feet above the Caribbean, then enjoy all-inclusive beach club access!</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🪂 Parasail Flight</li>
+                                <li>🏖️ Beach Access</li>
+                                <li>🍹 All-Inclusive Drinks</li>
+                                <li>🍽️ All-Inclusive Food</li>
+                                <li>🏊 Pool Access</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$110 <span>/person</span></div>
+                                <div class="guarantee-badge">✓ Guaranteed Return to Ship</div>
+                            </div>
+                            <a href="https://www.shoreexcursioneer.com/cozumel" target="_blank" class="book-btn">Book Now →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- El Cielo Snorkel -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">⭐ Must-Do</span>
+                        <h3 class="excursion-title">El Cielo Snorkel + Starfish Sandbar</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 3-4 hours</span>
+                            <span>📍 Boat Departure</span>
+                        </div>
+                        <p class="excursion-description">Snorkel famous Palancar Reef, then visit the legendary El Cielo sandbar with starfish!</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🚤 Boat Trip</li>
+                                <li>🤿 Snorkel 2 Reefs</li>
+                                <li>⭐ Starfish Sandbar</li>
+                                <li>🥑 Fresh Guacamole</li>
+                                <li>🍺 Open Bar</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$55 <span>/person</span></div>
+                                <div class="guarantee-badge">✓ Cruise-Friendly Timing</div>
+                            </div>
+                            <a href="https://www.viator.com/Cozumel-tours/Shore-Excursions/d632-g24" target="_blank" class="book-btn">Book on Viator →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ATV + Clear Boat -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">🔥 Combo</span>
+                        <h3 class="excursion-title">ATV + Clear Boat + Beach Club</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 5 hours</span>
+                            <span>📍 Near Terminal</span>
+                        </div>
+                        <p class="excursion-description">ATV off-road adventure, glass-bottom kayak experience, then Playa Uvas beach with tacos!</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🏍️ ATV Ride</li>
+                                <li>🛶 Clear Boat Tour</li>
+                                <li>🏖️ Beach Club</li>
+                                <li>🌮 Tacos</li>
+                                <li>🤿 Snorkel</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$99 <span>/person</span></div>
+                                <div class="guarantee-badge">✓ Guaranteed Return to Ship</div>
+                            </div>
+                            <a href="https://www.shoreexcursioneer.com/cozumel" target="_blank" class="book-btn">Book Now →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mom Section for Cozumel -->
+            <div class="mom-section">
+                <h3>🌺 For Moms (Beach & Chill)</h3>
+                <div class="mom-grid">
+                    <div class="mom-card">
+                        <h4>🏖️ Mr. Sanchos All-Inclusive</h4>
+                        <p>Unlimited food, drinks, beach, pools, and hammocks. The #1 rated beach club!</p>
+                        <span class="price-tag">~$65/person • All Day</span>
+                    </div>
+                    <div class="mom-card">
+                        <h4>🦭 Chankanaab Park Day Pass</h4>
+                        <p>Beach, sea lion show, botanical gardens, snorkel from shore. Great variety!</p>
+                        <span class="price-tag">~$45/person • All Day</span>
+                    </div>
+                    <div class="mom-card">
+                        <h4>🤫 Nachi Cocom Beach Club</h4>
+                        <p>Quieter all-inclusive with limited daily guests. More peaceful atmosphere.</p>
+                        <span class="price-tag">~$55/person • All Day</span>
+                    </div>
+                    <div class="mom-card">
+                        <h4>💆 Beachside Massage</h4>
+                        <p>Available at Mr. Sanchos and other beach clubs. Pure relaxation!</p>
+                        <span class="price-tag">~$60-80 add-on</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Combo Option -->
+            <div class="sample-day">
+                <h3>💡 Best Combo: Everyone at Mr. Sanchos!</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">8:30 AM</div>
+                        <div class="timeline-activity">
+                            Everyone arrives at <strong>Mr. Sanchos Beach Club</strong> (10 min taxi)
+                            <span class="timeline-who everyone">Everyone</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">9:00 AM</div>
+                        <div class="timeline-activity">
+                            18yo does <strong>Parasailing</strong> ($45 add-on right there!)
+                            <span class="timeline-who teens">18yo</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item relax">
+                        <div class="timeline-time">9:00 AM</div>
+                        <div class="timeline-activity">
+                            Moms claim beach chairs, order first round of drinks 🍹
+                            <span class="timeline-who moms">Moms</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">10:00 AM</div>
+                        <div class="timeline-activity">
+                            Everyone snorkels together from the beach
+                            <span class="timeline-who everyone">Everyone</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">11:00 AM</div>
+                        <div class="timeline-activity">
+                            18yo does <strong>Jet Ski Tour</strong> ($80), moms get massages
+                            <span class="timeline-who teens">Split Up</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item relax">
+                        <div class="timeline-time">12:30 PM</div>
+                        <div class="timeline-activity">
+                            Lunch together (all-inclusive buffet!)
+                            <span class="timeline-who everyone">Everyone</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item relax">
+                        <div class="timeline-time">1:30 PM</div>
+                        <div class="timeline-activity">
+                            Pool time, hammocks, more drinks 🍹
+                            <span class="timeline-who everyone">Everyone</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">3:00 PM</div>
+                        <div class="timeline-activity">
+                            Head back to ship (15 min taxi)
+                            <span class="timeline-who everyone">Everyone</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progreso Section -->
+        <section id="progreso" class="section">
+            <div class="section-header">
+                <h2>🏛️ Progreso, Mexico</h2>
+                <p style="color: var(--text-muted);">5-Night Western Caribbean Cruise Only</p>
+                <div class="port-info">
+                    <span>⏰ In Port: ~8 hours</span>
+                    <span>🚢 8:00 AM - 4:00 PM</span>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--sunset-orange); margin-bottom: 20px;">🌟 Bucket List Excursions (For Everyone!)</h3>
+
+            <div class="excursion-grid">
+                <!-- Chichen Itza + Cenote -->
+                <div class="excursion-card" style="border-top: 4px solid var(--sunset-orange);">
+                    <div class="excursion-content">
+                        <span class="excursion-badge bucket-list">🏆 Bucket List</span>
+                        <h3 class="excursion-title">Chichen Itza + Cenote Ik Kil</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 7 hours</span>
+                            <span>📍 2 hr drive each way</span>
+                        </div>
+                        <p class="excursion-description">Visit one of the New 7 Wonders of the World, then cool off with a swim in a sacred cenote! Buffet lunch included.</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🏛️ Chichen Itza Entry</li>
+                                <li>👨‍🏫 English Guide</li>
+                                <li>💎 Cenote Ik Kil Swim</li>
+                                <li>🍽️ Buffet Lunch</li>
+                                <li>🚐 A/C Transport</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$99-140 <span>/person</span></div>
+                                <div class="guarantee-badge">✓ Guaranteed Return to Ship</div>
+                            </div>
+                            <a href="https://www.shoreexcursionsgroup.com/tour/chichen-itza-cenote-ik-kil/caprchichencen" target="_blank" class="book-btn">Book Now →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Group Chichen Itza -->
+                <div class="excursion-card" style="border-top: 4px solid var(--sunset-orange);">
+                    <div class="excursion-content">
+                        <span class="excursion-badge bucket-list">👥 Small Group</span>
+                        <h3 class="excursion-title">Chichen Itza (Max 8 People)</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 6-7 hours</span>
+                            <span>📍 Mercedes Minivan</span>
+                        </div>
+                        <p class="excursion-description">Skip-the-line access through Mayaland Resort. More intimate experience with personal attention.</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🏛️ Skip-the-Line Entry</li>
+                                <li>👨‍🏫 Expert Guide</li>
+                                <li>🚐 Mercedes Transport</li>
+                                <li>🥪 Box Lunch</li>
+                                <li>👥 Max 8 People</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$89 <span>/person</span></div>
+                                <div class="guarantee-badge">✓ Cruise-Friendly Timing</div>
+                            </div>
+                            <a href="https://www.viator.com/tours/Progreso/Progreso-Shore-Excursion-Small-Group-Chichen-Itza-Mayan-Ruins/d4351-89829P32" target="_blank" class="book-btn">Book on Viator →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--adventure); margin-top: 40px; margin-bottom: 20px;">🔥 Adventure Alternative (Skip the Ruins)</h3>
+
+            <div class="excursion-grid">
+                <!-- Cuzama Cenotes -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">💦 Pure Adventure</span>
+                        <h3 class="excursion-title">Cuzama Cenotes Adventure</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 5 hours</span>
+                            <span>📍 Jungle</span>
+                        </div>
+                        <p class="excursion-description">Horse-drawn cart through the jungle to swim in 3 different cenotes with cliff jumps!</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🐴 Horse Cart Ride</li>
+                                <li>💎 3 Cenotes</li>
+                                <li>🏊 Cliff Jumping</li>
+                                <li>🚐 Transport</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$69 <span>/person</span></div>
+                                <div class="guarantee-badge">✓ Guaranteed Return to Ship</div>
+                            </div>
+                            <a href="https://shoreexcursioneer.com/progreso" target="_blank" class="book-btn">Book Now →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eco Reserve + Beach -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">🌿 Nature</span>
+                        <h3 class="excursion-title">Eco Reserve + Cenote + Beach</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 5 hours</span>
+                            <span>📍 Nature Reserve</span>
+                        </div>
+                        <p class="excursion-description">Explore an ecological reserve, swim in a cenote, then relax at a private beach.</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🌿 Nature Reserve</li>
+                                <li>💎 Cenote Swim</li>
+                                <li>🏖️ Private Beach</li>
+                                <li>🚐 Transport</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$65 <span>/person</span></div>
+                                <div class="guarantee-badge">✓ Guaranteed Return to Ship</div>
+                            </div>
+                            <a href="https://shoreexcursioneer.com/progreso" target="_blank" class="book-btn">Book Now →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Note -->
+            <div class="tips-section" style="margin-top: 40px;">
+                <h3>⚠️ Important Notes for Progreso</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4>Long Drive</h4>
+                        <p>Chichen Itza is ~2 hours each way. It's a long day but WORTH IT for this once-in-a-lifetime experience!</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Bring Cash</h4>
+                        <p>$5 USD fee for video equipment inside ruins. Bring extra for souvenirs and tips.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Wear Comfy Shoes</h4>
+                        <p>Lots of walking on uneven terrain. Skip the sandals for this one!</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Book Ship or Guaranteed</h4>
+                        <p>This is one port where booking a guaranteed-return excursion is CRITICAL due to the long drive.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nassau Section -->
+        <section id="nassau" class="section">
+            <div class="section-header">
+                <h2>🏝️ Nassau, Bahamas</h2>
+                <p style="color: var(--text-muted);">7-Night Bahamas Cruise</p>
+                <div class="port-info">
+                    <span>⏰ In Port: ~9 hours</span>
+                    <span>🚢 8:00 AM - 5:00 PM</span>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--adventure); margin-bottom: 20px;">🔥 Adventure Excursions (18-Year-Olds)</h3>
+
+            <div class="excursion-grid">
+                <!-- Atlantis Aquaventure -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">🎢 Epic Thrills</span>
+                        <h3 class="excursion-title">Atlantis Aquaventure Water Park</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 6-7 hours</span>
+                            <span>📍 Paradise Island</span>
+                        </div>
+                        <p class="excursion-description">Insane waterslides (including one through a SHARK TANK!), lazy river, beach access, and marine habitats.</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🎢 All Waterslides</li>
+                                <li>🦈 Shark Tank Slide</li>
+                                <li>🌊 Lazy River</li>
+                                <li>🏖️ Beach Access</li>
+                                <li>🐠 Marine Habitats</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$180-220 <span>/person</span></div>
+                            </div>
+                            <a href="https://www.viator.com/Nassau-tours/Shore-Excursions/d652-g24" target="_blank" class="book-btn">Book on Viator →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swimming with Pigs -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">🐷 Iconic</span>
+                        <h3 class="excursion-title">Swimming with the Famous Pigs</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 4-5 hours</span>
+                            <span>📍 Boat Trip</span>
+                        </div>
+                        <p class="excursion-description">Boat to a private island and swim with the famous Bahama pigs! Ultimate Instagram moment.</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🚤 Boat Trip</li>
+                                <li>🐷 Pig Swim</li>
+                                <li>🏖️ Beach Time</li>
+                                <li>📸 Photo Ops</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$175 <span>/person</span></div>
+                            </div>
+                            <a href="https://www.viator.com/Nassau-tours/Shore-Excursions/d652-g24" target="_blank" class="book-btn">Book on Viator →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Powerboat Party -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">🎉 Party</span>
+                        <h3 class="excursion-title">Powerboat to Rose Island + Party</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 4 hours</span>
+                            <span>📍 Nassau Harbor</span>
+                        </div>
+                        <p class="excursion-description">Speedboat to a floating beach club with DJ, waterslides, snorkeling, and Bahamian hors d'oeuvres!</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🚤 Speedboat</li>
+                                <li>🎵 DJ & Music</li>
+                                <li>🎢 Waterslides</li>
+                                <li>🤿 Snorkeling</li>
+                                <li>🍢 Food</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$120 <span>/person</span></div>
+                            </div>
+                            <a href="https://www.viator.com/Nassau-tours/Shore-Excursions/d652-g24" target="_blank" class="book-btn">Book on Viator →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Snorkel with Sharks -->
+                <div class="excursion-card adventure-card">
+                    <div class="excursion-content">
+                        <span class="excursion-badge adventure">🦈 Brave</span>
+                        <h3 class="excursion-title">Snorkel with Nurse Sharks</h3>
+                        <div class="excursion-meta">
+                            <span>⏱️ 3 hours</span>
+                            <span>📍 Blue Lagoon Island</span>
+                        </div>
+                        <p class="excursion-description">Guided swim with gentle nurse sharks at Blue Lagoon Island. Thrilling but safe!</p>
+                        <div class="excursion-includes">
+                            <h4>What's Included</h4>
+                            <ul>
+                                <li>🚤 Ferry</li>
+                                <li>🦈 Shark Swim</li>
+                                <li>🤿 Snorkel Gear</li>
+                                <li>👨‍🏫 Expert Guide</li>
+                            </ul>
+                        </div>
+                        <div class="excursion-footer">
+                            <div>
+                                <div class="excursion-price">~$140 <span>/person</span></div>
+                            </div>
+                            <a href="https://www.viator.com/Nassau-tours/Shore-Excursions/d652-g24" target="_blank" class="book-btn">Book on Viator →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mom Section for Nassau -->
+            <div class="mom-section">
+                <h3>🌺 For Moms (Relaxation & Exploration)</h3>
+                <div class="mom-grid">
+                    <div class="mom-card">
+                        <h4>🏖️ Blue Lagoon Beach Day</h4>
+                        <p>Ferry to private island with beach, pools, and grilled lunch. Pure paradise!</p>
+                        <span class="price-tag">~$90/person • 5-6 hours</span>
+                    </div>
+                    <div class="mom-card">
+                        <h4>🍹 Nassau Food & Rum Tour</h4>
+                        <p>Conch salad, rum cake, local tastings. Taste the real Bahamas!</p>
+                        <span class="price-tag">~$80/person • 3 hours</span>
+                    </div>
+                    <div class="mom-card">
+                        <h4>⛵ Catamaran Harbor Sail</h4>
+                        <p>Views of Atlantis, celebrity homes, tropical drinks. Relaxing cruise!</p>
+                        <span class="price-tag">~$70/person • 2-3 hours</span>
+                    </div>
+                    <div class="mom-card">
+                        <h4>🛍️ Downtown & Straw Market</h4>
+                        <p>Colonial architecture, Queen's Staircase, famous Straw Market shopping.</p>
+                        <span class="price-tag">Free to explore!</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section id="tips" class="section">
+            <div class="section-header">
+                <h2>💡 Booking Tips & Advice</h2>
+            </div>
+
+            <div class="tips-section" style="background: var(--foam); color: var(--text-dark);">
+                <h3 style="color: var(--ocean-deep);">🎯 Why Book with Viator or Shore Excursions Group?</h3>
+                <div class="tips-grid">
+                    <div class="tip-card" style="background: rgba(10, 22, 40, 0.05);">
+                        <h4 style="color: var(--ocean-mid);">✓ Guaranteed Return to Ship</h4>
+                        <p style="color: var(--text-muted);">If anything goes wrong, they'll get you to the next port. Peace of mind!</p>
+                    </div>
+                    <div class="tip-card" style="background: rgba(10, 22, 40, 0.05);">
+                        <h4 style="color: var(--ocean-mid);">✓ Lower Prices</h4>
+                        <p style="color: var(--text-muted);">Often 20-40% cheaper than booking through the cruise line.</p>
+                    </div>
+                    <div class="tip-card" style="background: rgba(10, 22, 40, 0.05);">
+                        <h4 style="color: var(--ocean-mid);">✓ Smaller Groups</h4>
+                        <p style="color: var(--text-muted);">More personalized experience than massive cruise ship tours.</p>
+                    </div>
+                    <div class="tip-card" style="background: rgba(10, 22, 40, 0.05);">
+                        <h4 style="color: var(--ocean-mid);">✓ Free Cancellation</h4>
+                        <p style="color: var(--text-muted);">Most tours offer full refund if cancelled 24+ hours in advance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-section" style="margin-top: 30px;">
+                <h3>📋 General Booking Checklist</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4>📅 Book Early</h4>
+                        <p>Popular excursions (especially Chichen Itza) sell out! Book at least 2-4 weeks ahead.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>💵 Bring Cash</h4>
+                        <p>For tips, taxis, and beach add-ons. USD accepted everywhere.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>⏰ All-Aboard Time</h4>
+                        <p>Be back 30-60 minutes before departure. Don't cut it close!</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>📱 Download Tickets</h4>
+                        <p>Save confirmation emails offline. Wi-Fi may not work in port!</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>☀️ Sun Protection</h4>
+                        <p>Reef-safe sunscreen required for snorkeling. Bring a hat!</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>💧 Stay Hydrated</h4>
+                        <p>Caribbean heat is intense. Bring a refillable water bottle.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sample-day" style="margin-top: 30px;">
+                <h3>🔗 Helpful Booking Links</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+                    <a href="https://www.viator.com" target="_blank" class="book-btn" style="justify-content: center; padding: 15px 25px;">Viator.com →</a>
+                    <a href="https://www.shoreexcursionsgroup.com" target="_blank" class="book-btn" style="justify-content: center; padding: 15px 25px;">Shore Excursions Group →</a>
+                    <a href="https://www.shoreexcursioneer.com" target="_blank" class="book-btn" style="justify-content: center; padding: 15px 25px;">Shore Excursioneer →</a>
+                    <a href="https://www.carnival.com/shore-excursions" target="_blank" class="book-btn" style="justify-content: center; padding: 15px 25px; background: var(--sunset-orange);">Carnival Excursions →</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Created for your Carnival Cruise adventure • May 2026</p>
+        <p style="margin-top: 10px;">Prices are approximate and subject to change. Always verify with the booking provider.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Scroll to top of main content
+            document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

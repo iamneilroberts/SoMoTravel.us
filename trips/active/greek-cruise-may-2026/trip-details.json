@@ -1,0 +1,250 @@
+{
+  "meta": {
+    "tripId": "greek-cruise-may-2026",
+    "clientName": "Mother-Daughter Trip",
+    "destination": "Greek Islands (Mediterranean Cruise)",
+    "dates": "May 30 - June 6, 2026",
+    "occasion": "Mother-Daughter Adventure",
+    "phase": "proposal",
+    "lastUpdated": "2026-01-09T00:00:00Z",
+    "status": "Proposal",
+    "quotesConfirmed": false
+  },
+  "travelers": {
+    "count": 2,
+    "adults": 2,
+    "children": [],
+    "names": [],
+    "notes": "Mother-daughter trip, first-time Europe travelers"
+  },
+  "preferences": {
+    "vibe": "Cultural immersion, ancient history, stunning sunsets, authentic Greek culture",
+    "budget": "Mid-range to Premium",
+    "mobility": "No restrictions noted",
+    "transportation": "Cruise + pre-cruise hotel in Athens",
+    "mustHave": ["Greek islands", "Santorini sunset", "Cultural experiences", "Authentic Greek food"],
+    "avoid": ["Party crowds", "Mega-ship atmosphere"]
+  },
+  "recommendation": {
+    "cruiseLine": "Celestyal Journey",
+    "itinerary": "Idyllic Greece",
+    "duration": "7 Nights",
+    "dates": ["May 23-30, 2026", "May 30-June 6, 2026"],
+    "route": "Kusadasi roundtrip (Greece + Turkey)",
+    "whyRecommended": [
+      "Greek-owned cruise line offering authentic cultural immersion",
+      "Overnight stays in Santorini and Mykonos",
+      "Included shore excursions (Ephesus, Acropolis of Lindos)",
+      "Intimate ship size (1,260 passengers vs 2,500+ on competitors)",
+      "True all-inclusive (gratuities, port charges, Wi-Fi, drinks with meals)",
+      "Warm Greek hospitality from predominantly Greek crew"
+    ]
+  },
+  "cruiseComparison": [
+    {
+      "cruiseLine": "Celestyal Journey",
+      "itinerary": "Idyllic Greece 7-Night",
+      "dates": "May 23-30 or May 30-Jun 6",
+      "route": "Kusadasi roundtrip (Greece + Turkey)",
+      "oceanViewPerPerson": 1769,
+      "balconyPerPerson": 2379,
+      "balconyType": "Jr Suite",
+      "rating": "Best Fit",
+      "recommended": true
+    },
+    {
+      "cruiseLine": "Norwegian Pearl",
+      "itinerary": "Greek Isles 7-Night",
+      "dates": "May 24-31",
+      "route": "Athens → Ravenna (5 Countries)",
+      "oceanViewPerPerson": 1596,
+      "balconyPerPerson": 2001,
+      "rating": "Good Value"
+    },
+    {
+      "cruiseLine": "Costa Fortuna",
+      "itinerary": "Mediterranean 7-Night",
+      "dates": "May 29-Jun 5",
+      "route": "Athens roundtrip",
+      "oceanViewPerPerson": 1290,
+      "balconyPerPerson": null,
+      "rating": "Party Crowd"
+    },
+    {
+      "cruiseLine": "Virgin Scarlet Lady",
+      "itinerary": "Mediterranean 7-Night",
+      "dates": "May 24-31",
+      "route": "Athens roundtrip",
+      "oceanViewPerPerson": 2007,
+      "balconyPerPerson": 1953,
+      "rating": "Wrong Vibe"
+    },
+    {
+      "cruiseLine": "Royal Caribbean",
+      "itinerary": "Brilliance of the Seas",
+      "dates": "May 25-Jun 1",
+      "route": "Rome → Athens",
+      "oceanViewPerPerson": 2184,
+      "balconyPerPerson": 3497,
+      "rating": "Rome Start"
+    }
+  ],
+  "itinerary": {
+    "celestyalJourney": {
+      "name": "Celestyal Journey - Idyllic Greece",
+      "route": "Kusadasi Roundtrip",
+      "days": [
+        {
+          "day": 1,
+          "port": "Kusadasi, Turkey",
+          "activities": ["Embarkation", "Gateway to ancient Ephesus"]
+        },
+        {
+          "day": 2,
+          "port": "Rhodes, Greece",
+          "time": "8am-midnight",
+          "activities": ["Medieval Old Town", "Lindos Acropolis (included tour)"]
+        },
+        {
+          "day": 3,
+          "port": "Agios Nikolaos, Crete",
+          "time": "8am-midnight",
+          "activities": ["Charming harbor", "Palace of Knossos access"]
+        },
+        {
+          "day": "4-5",
+          "port": "Santorini, Greece",
+          "time": "7am-12:30am",
+          "overnight": true,
+          "activities": ["Sunset views", "Blue domes", "Caldera dining"]
+        },
+        {
+          "day": "5-6",
+          "port": "Mykonos, Greece",
+          "time": "8am-2am",
+          "overnight": true,
+          "activities": ["Windmills", "Little Venice", "Delos island"]
+        },
+        {
+          "day": 7,
+          "port": "Milos, Greece",
+          "time": "9am-7pm",
+          "activities": ["Volcanic beaches", "Fishing villages"]
+        },
+        {
+          "day": 8,
+          "port": "Piraeus (Athens)",
+          "activities": ["Morning arrival", "Optional Athens exploration"]
+        }
+      ]
+    },
+    "norwegianPearl": {
+      "name": "Norwegian Pearl - Greek Isles to Venice",
+      "route": "Athens to Ravenna",
+      "days": [
+        { "day": 1, "port": "Athens, Greece", "activities": ["Embarkation 5pm"] },
+        { "day": 2, "port": "Santorini, Greece", "time": "7am-6pm", "activities": ["Caldera views", "Oia village"] },
+        { "day": 3, "port": "Katakolon, Greece", "time": "9am-7pm", "activities": ["Gateway to Ancient Olympia"] },
+        { "day": 4, "port": "Corfu, Greece", "time": "7am-5pm", "activities": ["Venetian architecture", "Old Town"] },
+        { "day": 5, "port": "Kotor, Montenegro", "time": "7:30am-6pm", "activities": ["UNESCO fjord town"] },
+        { "day": 6, "port": "Split, Croatia", "time": "7am-5pm", "activities": ["Diocletian's Palace"] },
+        { "day": 7, "port": "Koper, Slovenia", "time": "8am-7pm", "activities": ["Venetian Gothic architecture"] },
+        { "day": 8, "port": "Ravenna, Italy", "activities": ["6am disembark", "Byzantine mosaics"] }
+      ]
+    }
+  },
+  "whyCelestyalFeatures": [
+    {
+      "title": "Overnight Port Stays",
+      "description": "Only Celestyal offers overnight stays in Santorini and Mykonos — experience sunset dinners and evening strolls that day-visitors miss."
+    },
+    {
+      "title": "Included Excursions",
+      "description": "Celestyal includes guided tours to Ephesus and the Acropolis of Lindos — worth $150-200 value that other lines charge extra."
+    },
+    {
+      "title": "Intimate Ship Size",
+      "description": "1,260 passengers vs. 2,500+ on competitors means less crowded ports, personal service, and a boutique atmosphere."
+    },
+    {
+      "title": "True All-Inclusive",
+      "description": "Gratuities, port charges, Wi-Fi, drinks with meals — all included. No surprise charges or nickel-and-diming."
+    }
+  ],
+  "culturalExperiences": [
+    "Kali Orexi culinary program — Greek chefs prepare traditional family recipes",
+    "Greek dancing lessons — Learn syrtaki and hasapiko from locals",
+    "Regional wine tastings — Santorini wines, Peloponnese vintages",
+    "Cultural lectures — History and mythology of each destination",
+    "Live bouzouki music — Traditional performances, not cruise ship covers"
+  ],
+  "pricing": {
+    "oceanViewPackage": {
+      "cruise": 3538,
+      "cruisePerPerson": 1769,
+      "preCruiseHotel": 730,
+      "hotelNights": 2,
+      "hotelDescription": "4-star Athens + all transfers",
+      "total": 4268,
+      "currency": "USD",
+      "travelers": 2
+    },
+    "jrSuiteBalconyPackage": {
+      "cruise": 4758,
+      "cruisePerPerson": 2379,
+      "preCruiseHotel": 730,
+      "hotelNights": 2,
+      "hotelDescription": "4-star Athens + all transfers",
+      "total": 5488,
+      "currency": "USD",
+      "travelers": 2
+    },
+    "additionalCosts": [
+      {
+        "item": "Roundtrip Airfare (2 pax)",
+        "estimate": "2000-2800",
+        "notes": "From US to Athens, depending on departure city"
+      },
+      {
+        "item": "Travel Insurance",
+        "estimate": "150-300",
+        "notes": "Recommended for international travel"
+      },
+      {
+        "item": "Personal Expenses",
+        "notes": "Shopping, additional excursions, specialty dining upgrades"
+      }
+    ],
+    "estimatedTotalTrip": {
+      "oceanView": {
+        "low": 6268,
+        "high": 7068
+      },
+      "jrSuiteBalcony": {
+        "low": 7488,
+        "high": 8288
+      },
+      "notes": "Cruise + Hotel + Airfare for 2 travelers"
+    }
+  },
+  "preTripChecklist": [
+    { "item": "Choose cabin type (Ocean View vs Jr Suite Balcony)", "completed": false },
+    { "item": "Select sailing date (May 23-30 or May 30-June 6)", "completed": false },
+    { "item": "Book cruise package", "completed": false },
+    { "item": "Book flights to Athens", "completed": false },
+    { "item": "Purchase travel insurance", "completed": false }
+  ],
+  "travelEssentials": [
+    "Passport (valid 6+ months)",
+    "Comfortable walking shoes",
+    "Light layers for Mediterranean climate",
+    "Camera for stunning island views",
+    "Euros for shopping and tips"
+  ],
+  "openQuestions": [
+    "Confirm traveler names",
+    "Select sailing date",
+    "Choose cabin category (Ocean View or Jr Suite Balcony)",
+    "Book flights"
+  ]
+}

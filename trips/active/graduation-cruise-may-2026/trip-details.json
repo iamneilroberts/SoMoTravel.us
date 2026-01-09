@@ -1,0 +1,367 @@
+{
+  "meta": {
+    "tripId": "graduation-cruise-may-2026",
+    "clientName": "TBD",
+    "destination": "Caribbean (Carnival Cruises from New Orleans)",
+    "dates": "May 2026",
+    "occasion": "Graduation Celebration",
+    "phase": "proposal",
+    "lastUpdated": "2026-01-09T00:00:00Z",
+    "status": "Proposal",
+    "quotesConfirmed": false
+  },
+  "travelers": {
+    "count": 6,
+    "adults": null,
+    "children": [],
+    "names": [],
+    "notes": "For Moms & 18-Year-Olds, Up to 6 People"
+  },
+  "preferences": {
+    "vibe": "Mix of adventure for young adults and relaxation for moms",
+    "budget": "Flexible - multiple cruise options compared",
+    "mobility": "No restrictions noted",
+    "transportation": "Cruise from New Orleans",
+    "mustHave": ["Adventure excursions for 18-year-olds", "Beach relaxation for moms", "Bucket list experiences"],
+    "avoid": []
+  },
+  "cruiseOptions": [
+    {
+      "name": "7-Night Bahamas",
+      "ship": "Carnival Liberty",
+      "dates": "May 24-31, 2026",
+      "ports": ["Key West", "Nassau", "Celebration Key"],
+      "pricing": {
+        "oceanView": 1079,
+        "balcony": 1489,
+        "currency": "USD",
+        "perPerson": true
+      },
+      "bestFor": "Beach lovers, U.S. waters"
+    },
+    {
+      "name": "5-Night Western Caribbean",
+      "ship": "Carnival Valor",
+      "dates": "May 25-30, 2026",
+      "ports": ["Cozumel", "Progreso"],
+      "pricing": {
+        "oceanView": 899,
+        "balcony": 1044,
+        "currency": "USD",
+        "perPerson": true
+      },
+      "bestFor": "Budget + Chichen Itza!",
+      "recommended": true,
+      "notes": "Best Value - Only cruise with Chichen Itza access via Progreso"
+    },
+    {
+      "name": "7-Night Western Caribbean",
+      "ship": "Carnival Liberty",
+      "dates": "May 31-June 7, 2026",
+      "ports": ["Cozumel", "Belize", "Mahogany Bay"],
+      "pricing": {
+        "oceanView": 924,
+        "balcony": 1264,
+        "currency": "USD",
+        "perPerson": true
+      },
+      "bestFor": "Adventure variety"
+    }
+  ],
+  "portExcursions": {
+    "keyWest": {
+      "portName": "Key West, Florida",
+      "cruise": "7-Night Bahamas",
+      "inPort": "8:00 AM - 5:00 PM (~9 hours)",
+      "adventureExcursions": [
+        {
+          "name": "Ultimate Express Water Adventure",
+          "provider": "Viator",
+          "duration": "3.5 hours",
+          "pricePerPerson": "~$165",
+          "url": "https://www.viator.com/tours/Key-West/Key-West-Shore-Excursion-Ultimate-Express-Water-Adventure/d661-5264PRTKEYREEF",
+          "includes": ["Jet Ski", "Parasailing", "Snorkeling", "Water Trampoline", "Beer & Wine", "Snacks"],
+          "notes": "Action-packed catamaran cruise. Top Pick for 18-year-olds!"
+        },
+        {
+          "name": "Watersports Partyboat",
+          "provider": "Viator",
+          "duration": "6 hours",
+          "pricePerPerson": "~$190",
+          "url": "https://www.viator.com/tours/Key-West/Key-West-Shore-Excursion-Watersports-Partyboat/d661-2642PRTKEYPARTY",
+          "includes": ["Jet Ski", "Banana Boat", "Kayak", "Paddleboard", "Waterski", "Snorkel", "BBQ Lunch", "Beer"],
+          "notes": "12 different watersports in one epic day!"
+        },
+        {
+          "name": "Dolphin Watch & Shipwreck Snorkel",
+          "provider": "Viator",
+          "duration": "3 hours",
+          "pricePerPerson": "~$85",
+          "url": "https://www.viator.com/tours/Key-West/Key-West-Shore-Excursion-Shipwreck-Snorkel-and-Wild-Dolphin-Encounter/d661-3172PRTEYWSSWDE",
+          "includes": ["Dolphin Watching", "Snorkel Gear", "Shipwreck Site", "Drinks & Snacks"]
+        },
+        {
+          "name": "Jet Ski Island Tour",
+          "provider": "Shore Excursions Group",
+          "duration": "1.5 hours",
+          "pricePerPerson": "~$150",
+          "url": "https://www.shoreexcursionsgroup.com/port/key-west-excursions",
+          "includes": ["Jet Ski Rental", "Guide", "Safety Gear"]
+        }
+      ],
+      "momActivities": [
+        {
+          "name": "Hop-On Hop-Off Trolley",
+          "pricePerPerson": "~$45",
+          "duration": "1.5+ hours"
+        },
+        {
+          "name": "Fort Zachary Taylor Beach",
+          "pricePerPerson": "$2.50 entry",
+          "notes": "Best beach in Key West! Snorkel rentals, shaded areas."
+        },
+        {
+          "name": "Food & Culture Walking Tour",
+          "pricePerPerson": "~$85",
+          "duration": "3 hours",
+          "notes": "Cuban coffee, fish tacos, rum cocktails, Key Lime Pie!"
+        },
+        {
+          "name": "Blue Heaven Restaurant",
+          "notes": "Outdoor dining under the trees. Best Key Lime Pie!"
+        },
+        {
+          "name": "Butterfly Conservatory",
+          "pricePerPerson": "~$15",
+          "notes": "50+ butterfly species. Peaceful escape."
+        },
+        {
+          "name": "Duval Street Shopping",
+          "notes": "Art galleries, Lilly Pulitzer, Key West Aloe, Kino sandals"
+        }
+      ]
+    },
+    "cozumel": {
+      "portName": "Cozumel, Mexico",
+      "cruise": "Both Western Caribbean Cruises",
+      "inPort": "8:00 AM - 4:00 PM (~8 hours)",
+      "adventureExcursions": [
+        {
+          "name": "ATV + Jade Cenote + Beach + Snorkel",
+          "provider": "Shore Excursioneer",
+          "duration": "5 hours",
+          "pricePerPerson": "~$95",
+          "url": "https://www.shoreexcursioneer.com/cozumel",
+          "includes": ["ATV Ride", "Cenote Swim", "Beach Club", "Snorkel Gear", "Lunch", "Transport"],
+          "notes": "Top Pick! Off-road through the jungle, swim in a sacred cenote."
+        },
+        {
+          "name": "Parasailing + Mr. Sanchos Beach",
+          "provider": "Shore Excursioneer",
+          "duration": "4 hours",
+          "pricePerPerson": "~$110",
+          "url": "https://www.shoreexcursioneer.com/cozumel",
+          "includes": ["Parasail Flight", "Beach Access", "All-Inclusive Drinks", "All-Inclusive Food", "Pool Access"],
+          "notes": "Soar 600 feet above the Caribbean!"
+        },
+        {
+          "name": "El Cielo Snorkel + Starfish Sandbar",
+          "provider": "Viator",
+          "duration": "3-4 hours",
+          "pricePerPerson": "~$55",
+          "url": "https://www.viator.com/Cozumel-tours/Shore-Excursions/d632-g24",
+          "includes": ["Boat Trip", "Snorkel 2 Reefs", "Starfish Sandbar", "Fresh Guacamole", "Open Bar"],
+          "notes": "Must-Do! Famous Palancar Reef + El Cielo sandbar."
+        },
+        {
+          "name": "ATV + Clear Boat + Beach Club",
+          "provider": "Shore Excursioneer",
+          "duration": "5 hours",
+          "pricePerPerson": "~$99",
+          "url": "https://www.shoreexcursioneer.com/cozumel",
+          "includes": ["ATV Ride", "Clear Boat Tour", "Beach Club", "Tacos", "Snorkel"]
+        }
+      ],
+      "momActivities": [
+        {
+          "name": "Mr. Sanchos All-Inclusive",
+          "pricePerPerson": "~$65",
+          "duration": "All Day",
+          "notes": "#1 rated beach club! Unlimited food, drinks, beach, pools, hammocks."
+        },
+        {
+          "name": "Chankanaab Park Day Pass",
+          "pricePerPerson": "~$45",
+          "duration": "All Day",
+          "notes": "Beach, sea lion show, botanical gardens, snorkel from shore."
+        },
+        {
+          "name": "Nachi Cocom Beach Club",
+          "pricePerPerson": "~$55",
+          "duration": "All Day",
+          "notes": "Quieter all-inclusive with limited daily guests."
+        },
+        {
+          "name": "Beachside Massage",
+          "pricePerPerson": "~$60-80",
+          "notes": "Available at Mr. Sanchos and other beach clubs."
+        }
+      ]
+    },
+    "progreso": {
+      "portName": "Progreso, Mexico",
+      "cruise": "5-Night Western Caribbean Only",
+      "inPort": "8:00 AM - 4:00 PM (~8 hours)",
+      "bucketListExcursions": [
+        {
+          "name": "Chichen Itza + Cenote Ik Kil",
+          "provider": "Shore Excursions Group",
+          "duration": "7 hours",
+          "pricePerPerson": "~$99-140",
+          "url": "https://www.shoreexcursionsgroup.com/tour/chichen-itza-cenote-ik-kil/caprchichencen",
+          "includes": ["Chichen Itza Entry", "English Guide", "Cenote Ik Kil Swim", "Buffet Lunch", "A/C Transport"],
+          "notes": "BUCKET LIST! One of the New 7 Wonders of the World!"
+        },
+        {
+          "name": "Chichen Itza Small Group (Max 8 People)",
+          "provider": "Viator",
+          "duration": "6-7 hours",
+          "pricePerPerson": "~$89",
+          "url": "https://www.viator.com/tours/Progreso/Progreso-Shore-Excursion-Small-Group-Chichen-Itza-Mayan-Ruins/d4351-89829P32",
+          "includes": ["Skip-the-Line Entry", "Expert Guide", "Mercedes Transport", "Box Lunch"],
+          "notes": "Skip-the-line access through Mayaland Resort. More intimate experience."
+        }
+      ],
+      "adventureExcursions": [
+        {
+          "name": "Cuzama Cenotes Adventure",
+          "provider": "Shore Excursioneer",
+          "duration": "5 hours",
+          "pricePerPerson": "~$69",
+          "url": "https://shoreexcursioneer.com/progreso",
+          "includes": ["Horse Cart Ride", "3 Cenotes", "Cliff Jumping", "Transport"],
+          "notes": "Horse-drawn cart through the jungle to swim in 3 different cenotes!"
+        },
+        {
+          "name": "Eco Reserve + Cenote + Beach",
+          "provider": "Shore Excursioneer",
+          "duration": "5 hours",
+          "pricePerPerson": "~$65",
+          "url": "https://shoreexcursioneer.com/progreso",
+          "includes": ["Nature Reserve", "Cenote Swim", "Private Beach", "Transport"]
+        }
+      ],
+      "importantNotes": [
+        "Chichen Itza is ~2 hours each way - long day but WORTH IT!",
+        "$5 USD fee for video equipment inside ruins",
+        "Wear comfy shoes - lots of walking on uneven terrain",
+        "Book ship or guaranteed-return excursion - CRITICAL due to long drive"
+      ]
+    },
+    "nassau": {
+      "portName": "Nassau, Bahamas",
+      "cruise": "7-Night Bahamas",
+      "inPort": "8:00 AM - 5:00 PM (~9 hours)",
+      "adventureExcursions": [
+        {
+          "name": "Atlantis Aquaventure Water Park",
+          "provider": "Viator",
+          "duration": "6-7 hours",
+          "pricePerPerson": "~$180-220",
+          "url": "https://www.viator.com/Nassau-tours/Shore-Excursions/d652-g24",
+          "includes": ["All Waterslides", "Shark Tank Slide", "Lazy River", "Beach Access", "Marine Habitats"],
+          "notes": "Epic Thrills! Insane waterslides including one through a SHARK TANK!"
+        },
+        {
+          "name": "Swimming with the Famous Pigs",
+          "provider": "Viator",
+          "duration": "4-5 hours",
+          "pricePerPerson": "~$175",
+          "url": "https://www.viator.com/Nassau-tours/Shore-Excursions/d652-g24",
+          "includes": ["Boat Trip", "Pig Swim", "Beach Time", "Photo Ops"],
+          "notes": "Iconic! Ultimate Instagram moment!"
+        },
+        {
+          "name": "Powerboat to Rose Island + Party",
+          "provider": "Viator",
+          "duration": "4 hours",
+          "pricePerPerson": "~$120",
+          "url": "https://www.viator.com/Nassau-tours/Shore-Excursions/d652-g24",
+          "includes": ["Speedboat", "DJ & Music", "Waterslides", "Snorkeling", "Food"],
+          "notes": "Speedboat to a floating beach club with DJ!"
+        },
+        {
+          "name": "Snorkel with Nurse Sharks",
+          "provider": "Viator",
+          "duration": "3 hours",
+          "pricePerPerson": "~$140",
+          "url": "https://www.viator.com/Nassau-tours/Shore-Excursions/d652-g24",
+          "includes": ["Ferry", "Shark Swim", "Snorkel Gear", "Expert Guide"],
+          "notes": "Guided swim with gentle nurse sharks at Blue Lagoon Island."
+        }
+      ],
+      "momActivities": [
+        {
+          "name": "Blue Lagoon Beach Day",
+          "pricePerPerson": "~$90",
+          "duration": "5-6 hours",
+          "notes": "Ferry to private island with beach, pools, and grilled lunch."
+        },
+        {
+          "name": "Nassau Food & Rum Tour",
+          "pricePerPerson": "~$80",
+          "duration": "3 hours",
+          "notes": "Conch salad, rum cake, local tastings."
+        },
+        {
+          "name": "Catamaran Harbor Sail",
+          "pricePerPerson": "~$70",
+          "duration": "2-3 hours",
+          "notes": "Views of Atlantis, celebrity homes, tropical drinks."
+        },
+        {
+          "name": "Downtown & Straw Market",
+          "notes": "Colonial architecture, Queen's Staircase, famous Straw Market shopping. Free to explore!"
+        }
+      ]
+    }
+  },
+  "bookingTips": [
+    "Book early - popular excursions (especially Chichen Itza) sell out!",
+    "Bring cash for tips, taxis, and beach add-ons. USD accepted everywhere.",
+    "Be back 30-60 minutes before departure. Don't cut it close!",
+    "Download tickets offline - Wi-Fi may not work in port!",
+    "Reef-safe sunscreen required for snorkeling",
+    "Stay hydrated - Caribbean heat is intense"
+  ],
+  "bookingResources": [
+    {
+      "name": "Viator",
+      "url": "https://www.viator.com",
+      "notes": "Guaranteed return to ship, lower prices, smaller groups, free cancellation"
+    },
+    {
+      "name": "Shore Excursions Group",
+      "url": "https://www.shoreexcursionsgroup.com"
+    },
+    {
+      "name": "Shore Excursioneer",
+      "url": "https://www.shoreexcursioneer.com"
+    },
+    {
+      "name": "Carnival Excursions",
+      "url": "https://www.carnival.com/shore-excursions"
+    }
+  ],
+  "preTripChecklist": [
+    { "item": "Decide on cruise option", "completed": false },
+    { "item": "Book cruise package", "completed": false },
+    { "item": "Book Chichen Itza excursion early (if 5-Night)", "completed": false },
+    { "item": "Plan excursions for each port", "completed": false }
+  ],
+  "openQuestions": [
+    "Which cruise option to book?",
+    "Confirm traveler names",
+    "Which excursions for each port?"
+  ]
+}

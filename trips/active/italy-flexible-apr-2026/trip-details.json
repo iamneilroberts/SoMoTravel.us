@@ -1,0 +1,441 @@
+{
+  "meta": {
+    "tripId": "italy-flexible-apr-2026",
+    "clientName": "TBD",
+    "destination": "Italy (Rome, Naples, Positano, Tuscany, Florence)",
+    "dates": "April 14-23, 2026",
+    "occasion": null,
+    "phase": "proposal",
+    "lastUpdated": "2026-01-09T00:00:00Z",
+    "status": "Proposal",
+    "quotesConfirmed": false
+  },
+  "travelers": {
+    "count": null,
+    "adults": null,
+    "children": [],
+    "names": [],
+    "notes": "Client details TBD"
+  },
+  "preferences": {
+    "vibe": "Cultural immersion, historic exploration, authentic Italian experience",
+    "budget": "Flexible (Mid-Luxury to Very Good Value options)",
+    "mobility": "No restrictions noted",
+    "transportation": "Flights + trains + private transfers",
+    "mustHave": ["Rome sightseeing", "Pompeii", "Amalfi Coast", "Tuscan wine country"],
+    "avoid": []
+  },
+  "flights": {
+    "confirmed": false,
+    "source": null,
+    "outbound": {
+      "route": "Birmingham (BHM) → Atlanta → Rome Fiumicino (FCO)",
+      "notes": "Arrival late afternoon/early evening (~4:00-6:00 PM)"
+    },
+    "return": {
+      "route": "Florence (FLR) → Frankfurt/Munich → Atlanta → Birmingham",
+      "notes": "Open-jaw itinerary recommended"
+    }
+  },
+  "locations": [
+    {
+      "name": "Rome (Trastevere/Monti)",
+      "nights": 2,
+      "dates": "April 14-16, 2026",
+      "purpose": "Vatican, Historic Center, Colosseum"
+    },
+    {
+      "name": "Naples",
+      "nights": 1,
+      "dates": "April 16-17, 2026",
+      "purpose": "Naples Underground, Pompeii day trip"
+    },
+    {
+      "name": "Positano (Amalfi Coast)",
+      "nights": 3,
+      "dates": "April 18-21, 2026",
+      "purpose": "Capri day trip, Amalfi & Ravello, Path of the Gods"
+    },
+    {
+      "name": "Tuscany (Chianti)",
+      "nights": 2,
+      "dates": "April 21-23, 2026",
+      "purpose": "Wine tasting, hilltop towns, Orvieto stop"
+    },
+    {
+      "name": "Florence",
+      "nights": 0,
+      "dates": "April 23, 2026",
+      "purpose": "Final morning exploration, departure"
+    }
+  ],
+  "lodging": {
+    "options": {
+      "rome": {
+        "midLuxury": [
+          {
+            "property": "Donna Camilla Savelli",
+            "stars": 4,
+            "priceRange": "350-500/night",
+            "notes": "17th-century monastery by Borromini. Tranquil gardens, rooftop terrace with Vatican views.",
+            "url": "https://www.vretreats.com/en/donna-camilla-savelli/"
+          },
+          {
+            "property": "Horti 14 Borgo Trastevere",
+            "stars": 4,
+            "priceRange": "220-280/night",
+            "notes": "Modern boutique with lush garden, 7th-floor panoramic terrace. 15 min walk to Vatican.",
+            "url": "https://www.horti14.com/en/"
+          }
+        ],
+        "veryGoodValue": [
+          {
+            "property": "Nerva Boutique Hotel",
+            "stars": 3,
+            "priceRange": "150-220/night",
+            "notes": "Charming boutique in Monti district, 5-min walk to Colosseum & Roman Forum.",
+            "url": "https://www.hotelnerva.com/en/"
+          }
+        ]
+      },
+      "naples": {
+        "midLuxury": [
+          {
+            "property": "Grand Hotel Vesuvio",
+            "stars": 5,
+            "priceRange": "400-600/night",
+            "notes": "Legendary waterfront landmark since 1882. Bay views, full spa, rooftop dining.",
+            "url": "https://www.vesuvio.it/en/"
+          },
+          {
+            "property": "Palazzo Caracciolo",
+            "stars": 4,
+            "priceRange": "180-280/night",
+            "notes": "Restored 13th-century palazzo with tranquil courtyard.",
+            "url": "https://www.palazzocaracciolo.com/en/"
+          }
+        ],
+        "veryGoodValue": [
+          {
+            "property": "Hotel Piazza Bellini",
+            "stars": 4,
+            "priceRange": "100-160/night",
+            "notes": "Stylish boutique in 16th-century building, steps from Metro.",
+            "url": "https://www.hotelpiazzabellini.com/"
+          }
+        ]
+      },
+      "positano": {
+        "midLuxury": [
+          {
+            "property": "Il San Pietro di Positano",
+            "stars": 5,
+            "priceRange": "800-1500/night",
+            "notes": "Legendary cliffside icon. Private beach, Michelin-starred dining.",
+            "url": "https://www.ilsanpietro.com/"
+          },
+          {
+            "property": "Hotel Eden Roc",
+            "stars": 4,
+            "priceRange": "350-550/night",
+            "notes": "Modern cliffside hotel with cave spa, infinity pool. Restaurant ranked #1 in Positano.",
+            "url": "https://www.edenroc.it/en/"
+          }
+        ],
+        "veryGoodValue": [
+          {
+            "property": "Hotel Savoia",
+            "stars": 4,
+            "priceRange": "180-280/night",
+            "notes": "Family-run gem in central Positano. Sea-view balconies, rooftop terrace.",
+            "url": "https://www.savoiapositano.it/en/"
+          }
+        ]
+      },
+      "tuscany": {
+        "midLuxury": [
+          {
+            "property": "Castello La Leccia",
+            "stars": 4,
+            "priceRange": "350-550/night",
+            "notes": "11th-century castle on organic vineyard. Infinity pool, award-winning wines.",
+            "url": "https://www.castellolaleccia.com/en/"
+          },
+          {
+            "property": "Locanda Le Piazze",
+            "stars": 4,
+            "priceRange": "220-350/night",
+            "notes": "Peaceful countryside retreat with vineyard views, heated pool, spa.",
+            "url": "https://locandalepiazze.com/"
+          }
+        ],
+        "veryGoodValue": [
+          {
+            "property": "Agriturismo Panzanello",
+            "stars": 3,
+            "priceRange": "100-150/night",
+            "notes": "Authentic family farm in Panzano. Wine cellar tastings, home cooking, pool.",
+            "url": "https://panzanello.net/"
+          }
+        ]
+      }
+    },
+    "confirmed": []
+  },
+  "tours": [
+    {
+      "name": "Vatican Museums, Sistine Chapel & St. Peter's – Skip the Line",
+      "location": "Rome",
+      "provider": "Viator",
+      "duration": "3.5 hours",
+      "pricePerPerson": "~$75",
+      "confirmed": false,
+      "notes": "Expert guide, early access or evening tours avoid crowds."
+    },
+    {
+      "name": "Colosseum Arena Floor + Roman Forum with Guide",
+      "location": "Rome",
+      "provider": "Viator",
+      "duration": "3 hours",
+      "pricePerPerson": "~$65",
+      "confirmed": false,
+      "notes": "Walk where gladiators fought! Special access to Arena Floor."
+    },
+    {
+      "name": "Naples Underground + Pizza Making Class",
+      "location": "Naples",
+      "provider": "Viator",
+      "duration": "3 hours",
+      "pricePerPerson": "~$75",
+      "confirmed": false,
+      "notes": "Explore the underground, then learn authentic Neapolitan pizza."
+    },
+    {
+      "name": "Pompeii with Archaeologist Guide",
+      "location": "Naples/Pompeii",
+      "provider": "Viator",
+      "duration": "4 hours",
+      "pricePerPerson": "~$85",
+      "confirmed": false,
+      "notes": "An archaeologist brings ruins to life. Skip-the-line + round-trip transport."
+    },
+    {
+      "name": "Path of the Gods Guided Hike",
+      "location": "Positano",
+      "provider": "Viator",
+      "duration": "5 hours",
+      "pricePerPerson": "~$150",
+      "confirmed": false,
+      "notes": "Private guide handles logistics. 7 km scenic trail."
+    },
+    {
+      "name": "Capri Small-Group Boat Tour from Positano",
+      "location": "Positano",
+      "provider": "Viator",
+      "duration": "8 hours",
+      "pricePerPerson": "~$175",
+      "confirmed": false,
+      "notes": "Sail directly from Positano, circumnavigate Capri, swimming stops, prosecco."
+    },
+    {
+      "name": "Amalfi Coast Private Boat Tour",
+      "location": "Positano",
+      "provider": "Viator",
+      "duration": "6 hours",
+      "pricePerPerson": "~$350/boat (2-4 people)",
+      "confirmed": false,
+      "notes": "Private boat along the coast with stops at Amalfi, Conca dei Marini, Furore Fjord."
+    },
+    {
+      "name": "Orvieto Truffle Hunting Experience",
+      "location": "Orvieto",
+      "provider": "Viator",
+      "duration": "4 hours",
+      "pricePerPerson": "~$120",
+      "confirmed": false,
+      "notes": "Join a truffle hunter and his Lagotto dogs. Truffle-infused brunch with local wines."
+    },
+    {
+      "name": "Tuscan Wine Safari (Full Day)",
+      "location": "Chianti",
+      "provider": "Viator",
+      "duration": "8 hours",
+      "pricePerPerson": "~$225",
+      "confirmed": false,
+      "notes": "Travel in 4WD through off-road vineyard routes. Visit 2 prestigious wineries."
+    },
+    {
+      "name": "Chianti Cooking Class",
+      "location": "Chianti",
+      "provider": "Viator",
+      "duration": "3.5 hours",
+      "pricePerPerson": "~$95",
+      "confirmed": false,
+      "notes": "Farmhouse kitchen – learn fresh pasta, traditional sauces, tiramisu."
+    }
+  ],
+  "itinerary": {
+    "day1": {
+      "date": "April 14, 2026",
+      "title": "Arrival in Rome",
+      "location": "Rome",
+      "activities": [
+        "Flight: Birmingham (BHM) → Atlanta → Rome Fiumicino (FCO)",
+        "Arrival late afternoon/early evening (~4:00-6:00 PM)",
+        "Airport transfer to Trastevere hotel",
+        "Evening stroll through Trastevere's cobblestone streets",
+        "Piazza di Santa Maria in Trastevere",
+        "Gelato at Fatamorgana",
+        "Dinner: Da Enzo al 29 or Tonnarello"
+      ]
+    },
+    "day2": {
+      "date": "April 15, 2026",
+      "title": "Rome Highlights",
+      "location": "Rome",
+      "activities": [
+        "Morning: Piazza Navona, Pantheon, coffee at Sant'Eustachio",
+        "Trevi Fountain, Spanish Steps",
+        "Afternoon/Evening: Vatican Museums & Sistine Chapel (pre-book)",
+        "St. Peter's Basilica, climb the dome"
+      ],
+      "hiddenGems": ["Aventine Keyhole (Buco della Serratura)", "Quartiere Coppede"]
+    },
+    "day3": {
+      "date": "April 16, 2026",
+      "title": "Ancient Rome + Train to Naples",
+      "location": "Rome → Naples",
+      "activities": [
+        "Morning: Colosseum & Roman Forum (pre-book at coopculture.it)",
+        "Walk through Roman Forum – Temple of Saturn, Arch of Titus",
+        "Climb Palatine Hill for panoramic views",
+        "Afternoon: Frecciarossa high-speed train to Naples (1hr 10min, €45-80)",
+        "Evening: Wander Spaccanapoli, Pizza at L'Antica Pizzeria da Michele",
+        "Castel dell'Ovo at Sunset"
+      ]
+    },
+    "day4": {
+      "date": "April 17, 2026",
+      "title": "Naples & Pompeii",
+      "location": "Naples",
+      "activities": [
+        "Morning: Naples Underground, San Gregorio Armeno",
+        "Afternoon: Pompeii via Circumvesuviana train (35-40 min)",
+        "Must-see: Forum, House of the Faun, Garden of the Fugitives, Villa of the Mysteries"
+      ],
+      "hiddenGems": ["Cimitero delle Fontanelle", "Villa of the Mysteries (Pompeii)"]
+    },
+    "day5": {
+      "date": "April 18, 2026",
+      "title": "Naples to Positano",
+      "location": "Naples → Positano",
+      "activities": [
+        "Transfer to Positano (private ~€120-150 or ferry ~€25-30)",
+        "Afternoon: Settle into Positano",
+        "Wander the steep staircases, Chiesa di Santa Maria Assunta",
+        "Spiaggia Grande beach, shop for handmade sandals",
+        "Sunset aperitivo at Franco's Bar"
+      ],
+      "hiddenGems": ["Fornillo Beach", "Montepertuso Village"]
+    },
+    "day6": {
+      "date": "April 19, 2026",
+      "title": "Capri Island",
+      "location": "Capri",
+      "activities": [
+        "Ferry Positano → Capri (~1 hour, €22-25/person)",
+        "Morning: Attempt Blue Grotto if weather permits",
+        "Bus to Anacapri, Monte Solaro chairlift",
+        "Villa San Michele, Piazzetta, Gardens of Augustus"
+      ],
+      "hiddenGems": ["Arco Naturale & Pizzolungo Trail", "Anacapri's Sunset at Faro"]
+    },
+    "day7": {
+      "date": "April 20, 2026",
+      "title": "Amalfi Coast & Ravello",
+      "location": "Amalfi Coast",
+      "activities": [
+        "Morning: Amalfi Town – Duomo di Amalfi, Cloister of Paradise",
+        "Paper Museum, Limoncello tasting",
+        "Afternoon: Ravello – Villa Rufolo, Villa Cimbrone (Terrace of Infinity)"
+      ],
+      "hiddenGems": ["Atrani Village", "Valle delle Ferriere (Valley of the Mills)"]
+    },
+    "day8": {
+      "date": "April 21, 2026",
+      "title": "Positano to Tuscany via Orvieto",
+      "location": "Positano → Tuscany",
+      "activities": [
+        "Private driver Positano → Chianti with Orvieto stop (~€350-400)",
+        "Midday Stop: Orvieto – Orvieto Duomo, Orvieto Underground",
+        "Try Orvieto Classico white wine",
+        "Evening: Arrive at agriturismo, farm dinner with house wines"
+      ],
+      "hiddenGems": ["Civita di Bagnoregio (The Dying City)", "Pozzo di San Patrizio (St. Patrick's Well)"]
+    },
+    "day9": {
+      "date": "April 22, 2026",
+      "title": "Tuscan Wine Country",
+      "location": "Chianti",
+      "activities": [
+        "Morning: Visit 1-2 Chianti Classico wineries (pre-book!)",
+        "Lunch: Dario Cecchini in Panzano (famous butcher)",
+        "Afternoon: Hilltop town visit – San Gimignano, Monteriggioni, or Radda",
+        "Evening: Dinner at agriturismo or cooking class"
+      ],
+      "hiddenGems": ["Abbazia di Sant'Antimo", "Bagno Vignoni thermal pool"]
+    },
+    "day10": {
+      "date": "April 23, 2026",
+      "title": "Florence & Departure",
+      "location": "Florence",
+      "activities": [
+        "Drive Chianti → Florence (~45 min to 1 hour)",
+        "Drop rental car at Florence Airport or city center",
+        "Duomo & Brunelleschi's Dome (pre-book climb)",
+        "Piazza della Signoria, Ponte Vecchio",
+        "Leather shopping at San Lorenzo Market",
+        "Final gelato at Vivoli or Perche No!",
+        "Flight: Florence → Frankfurt/Munich → Atlanta → Birmingham"
+      ],
+      "hiddenGems": ["San Miniato al Monte", "Officina Profumo-Farmaceutica di Santa Maria Novella"]
+    }
+  },
+  "pricing": {
+    "accommodationEstimates": {
+      "midLuxury": {
+        "total": "2110-7200",
+        "currency": "EUR",
+        "notes": "9 nights at mid-luxury properties"
+      },
+      "veryGoodValue": {
+        "total": "1140-1740",
+        "currency": "EUR",
+        "notes": "9 nights at very good value properties"
+      }
+    },
+    "excursionEstimate": {
+      "perPerson": "300-500",
+      "currency": "USD",
+      "notes": "Select 3-5 experiences based on interests"
+    },
+    "overallEstimate": {
+      "perPerson": "5000-7500",
+      "currency": "USD",
+      "notes": "Includes flights, accommodations, transport, meals, and 3-5 excursions"
+    }
+  },
+  "travelEssentials": [
+    "Passport (valid 6+ months)",
+    "Comfortable walking shoes (lots of cobblestones!)",
+    "Light layers for variable weather",
+    "Camera for endless photo ops",
+    "Pre-book Vatican, Colosseum, and Duomo climb tickets"
+  ],
+  "openQuestions": [
+    "Confirm client name and traveler count",
+    "Select hotel tier preference (mid-luxury vs. very good value)",
+    "Which excursions to book?",
+    "Flight arrangements needed"
+  ]
+}

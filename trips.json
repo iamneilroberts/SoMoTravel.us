@@ -414,12 +414,15 @@
       "lastModified": "2025-12-30"
     },
     {
-      "filename": "Italy-Flexible-Proposal-April2026.html",
-      "title": "Italy Adventure Proposal - April 2026",
+      "id": "italy-flexible-apr-2026",
+      "filename": "trips/active/italy-flexible-apr-2026/itinerary.html",
+      "detailsFile": "trips/active/italy-flexible-apr-2026/trip-details.json",
+      "title": "Italy Adventure - 10 Days (Rome, Naples, Positano, Tuscany)",
       "dates": "April 14-23, 2026",
       "category": "proposal",
-      "tags": [],
-      "lastModified": "2025-12-14"
+      "tags": ["Italy", "Rome", "Amalfi Coast", "Tuscany"],
+      "lastModified": "2026-01-09",
+      "hasStructuredData": true
     },
     {
       "filename": "Breckenridge_2025_Itinerary_Updated (5).html",
@@ -502,20 +505,26 @@
       "hasStructuredData": true
     },
     {
-      "filename": "Mediterranean_Cruise_Proposal_2026.html",
-      "title": "Mediterranean Cruise Proposal | Mother-Daughter Greek Adventure 2026",
-      "dates": "May 30-June 6, 2026",
+      "id": "greek-cruise-may-2026",
+      "filename": "trips/active/greek-cruise-may-2026/itinerary.html",
+      "detailsFile": "trips/active/greek-cruise-may-2026/trip-details.json",
+      "title": "Greek Islands Cruise - Mother-Daughter Adventure",
+      "dates": "May 30 - June 6, 2026",
       "category": "proposal",
-      "tags": [],
-      "lastModified": "2026-01-07"
+      "tags": ["cruise", "Greece", "Mediterranean", "Celestyal"],
+      "lastModified": "2026-01-09",
+      "hasStructuredData": true
     },
     {
-      "filename": "cruise-excursion-guide (1).html",
-      "title": "Carnival Cruise Excursion Guide | May 2026",
-      "dates": "May 24 - 31, 2026",
+      "id": "graduation-cruise-may-2026",
+      "filename": "trips/active/graduation-cruise-may-2026/itinerary.html",
+      "detailsFile": "trips/active/graduation-cruise-may-2026/trip-details.json",
+      "title": "Graduation Cruise - Carnival from New Orleans",
+      "dates": "May 2026",
       "category": "proposal",
-      "tags": [],
-      "lastModified": "2026-01-07"
+      "tags": ["cruise", "Caribbean", "graduation", "excursions"],
+      "lastModified": "2026-01-09",
+      "hasStructuredData": true
     },
     {
       "filename": "italy-alternatives.html",
