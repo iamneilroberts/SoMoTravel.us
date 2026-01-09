@@ -1,0 +1,482 @@
+{
+  "meta": {
+    "clientName": "Sara & Darren Jones",
+    "destination": "England (Bath, Winchester, London)",
+    "dates": "October 5-15, 2025",
+    "occasion": "25th Wedding Anniversary",
+    "phase": "complete",
+    "lastUpdated": "2025-01-09T00:00:00Z",
+    "status": "Confirmed",
+    "quotesConfirmed": true
+  },
+  "travelers": {
+    "count": 2,
+    "adults": 2,
+    "children": [],
+    "notes": "Anniversary couple, Jane Austen enthusiasts"
+  },
+  "preferences": {
+    "vibe": "Romance, history, literature (Jane Austen focus)",
+    "budget": "Premium",
+    "mobility": "No restrictions noted",
+    "transportation": "Rental car + trains",
+    "mustHave": ["Jane Austen sites", "Stonehenge", "Historic cathedrals"],
+    "avoid": []
+  },
+  "flights": {
+    "confirmed": true,
+    "source": "Delta/KLM",
+    "outbound": {
+      "route": "IAD → AMS → Bristol",
+      "airline": "Delta/KLM",
+      "flightNumbers": "DL9447",
+      "confirmationCode": "GFHM85",
+      "departure": "2025-10-05T17:25",
+      "arrival": "2025-10-06T09:05",
+      "class": "Economy",
+      "price": null,
+      "notes": "Overnight flight, arrives Bristol Airport"
+    },
+    "return": {
+      "route": "Bristol → AMS → IAD",
+      "airline": "KLM",
+      "flightNumbers": "KL1076",
+      "departure": "2025-10-15T09:20",
+      "arrival": "2025-10-15T15:35",
+      "price": null,
+      "notes": "Local time arrival EDT"
+    }
+  },
+  "locations": [
+    {
+      "name": "Bath",
+      "nights": 3,
+      "dates": "October 6-9",
+      "purpose": "Jane Austen exploration, Roman history, shopping"
+    },
+    {
+      "name": "Winchester",
+      "nights": 5,
+      "dates": "October 9-14",
+      "purpose": "Historic sites, day trips to London and countryside"
+    },
+    {
+      "name": "Bristol area",
+      "nights": 1,
+      "dates": "October 14-15",
+      "purpose": "Final night near airport"
+    }
+  ],
+  "lodging": {
+    "confirmed": [
+      {
+        "location": "Bath",
+        "property": "The Kennard Hotel",
+        "nights": 3,
+        "dates": "October 6-9",
+        "roomType": "King bed upgrade",
+        "checkIn": "2:00 PM",
+        "url": "https://www.kennard.co.uk/",
+        "confirmed": true,
+        "notes": "Central Bath location"
+      },
+      {
+        "location": "Winchester",
+        "property": "The Old Granary",
+        "nights": 5,
+        "dates": "October 9-14",
+        "roomType": "Luxury converted granary",
+        "checkIn": "4:00-8:00 PM",
+        "checkOut": "10:00 AM",
+        "url": null,
+        "confirmed": true,
+        "notes": "Winchester location"
+      },
+      {
+        "location": "Bristol",
+        "property": "Berwick Lodge",
+        "nights": 1,
+        "dates": "October 14-15",
+        "roomType": "Garden Suite",
+        "checkOut": "5:45 AM (early)",
+        "url": "https://www.berwicklodge.co.uk/",
+        "confirmed": true,
+        "notes": "Near Bristol Airport for early departure"
+      }
+    ]
+  },
+  "tours": [
+    {
+      "name": "Bath City Highlights Walk (Private Jane Austen Focus)",
+      "provider": "ToursByLocals",
+      "guide": "Susan Swainbank",
+      "date": "October 6, 2025",
+      "time": "3:00 PM",
+      "meetingPoint": "11 Henrietta Street",
+      "confirmationCode": "CLJGGR",
+      "pricePerPerson": null,
+      "totalPrice": null,
+      "url": "https://www.toursbylocals.com/",
+      "confirmed": true
+    },
+    {
+      "name": "Roman Baths Tour",
+      "provider": "Roman Baths",
+      "date": "October 7, 2025",
+      "duration": "2 hours",
+      "pricePerPerson": null,
+      "url": "https://www.romanbaths.co.uk/",
+      "confirmed": false,
+      "notes": "Guided experience, ancient Roman history"
+    },
+    {
+      "name": "Private Stonehenge Tour",
+      "provider": "Viator/GetYourGuide",
+      "date": "October 9, 2025",
+      "confirmationCode": "BR-1225055703",
+      "totalPrice": 125.98,
+      "url": null,
+      "confirmed": true,
+      "notes": "IMPORTANT: Bring photo ID. NO REFUNDS policy."
+    },
+    {
+      "name": "Tower of London & Thames Tour",
+      "provider": "Tour Guy",
+      "date": "October 10, 2025",
+      "time": "9:30 AM",
+      "meetingPoint": "Tower Place West - look for red 'Tour Guy' sign",
+      "confirmationCode": "BR-1225055701",
+      "totalPrice": 197.91,
+      "url": null,
+      "confirmed": true
+    },
+    {
+      "name": "Private Black Taxi Tour of London",
+      "provider": "Viator",
+      "date": "October 10, 2025",
+      "time": "2:00 PM",
+      "confirmationCode": "BR-1225055697",
+      "totalPrice": 258.81,
+      "url": null,
+      "confirmed": true,
+      "notes": "Private London highlights tour"
+    }
+  ],
+  "transport": {
+    "rentalCar": {
+      "pickup": "Bristol Airport, October 6, 9:30 AM",
+      "dropoff": "Bristol Airport, October 15, 7:00 AM",
+      "type": "Compact SUV",
+      "company": null,
+      "confirmationNumber": null,
+      "priceEstimate": null,
+      "confirmed": true
+    },
+    "trains": [
+      {
+        "date": "October 10, 2025",
+        "route": "Winchester → London Waterloo",
+        "departure": "8:05 AM",
+        "arrival": "9:17 AM",
+        "notes": "Day trip to London"
+      },
+      {
+        "date": "October 10, 2025",
+        "route": "London Waterloo → Winchester",
+        "departure": "7:30 PM",
+        "notes": "Return from London day trip"
+      }
+    ]
+  },
+  "itinerary": {
+    "day1": {
+      "date": "October 5, 2025",
+      "title": "Departure Day",
+      "activities": [
+        "2:25 PM: Check-in opens at Washington Dulles (IAD)",
+        "5:25 PM: Depart on Delta/KLM DL9447 to Amsterdam",
+        "Overnight flight"
+      ]
+    },
+    "day2": {
+      "date": "October 6, 2025",
+      "title": "Bath Arrival",
+      "activities": [
+        "9:05 AM: Land at Bristol Airport",
+        "9:30 AM: Pick up rental car",
+        "10:30 AM: Drive to Bath (45 min)",
+        "Check-in at The Kennard Hotel (after 2 PM)",
+        "3:00 PM: Bath City Highlights Walk with Susan Swainbank",
+        "Evening: Orientation walk - Pulteney Bridge → Bath Abbey",
+        "Dinner: Woods or Joya"
+      ]
+    },
+    "day3": {
+      "date": "October 7, 2025",
+      "title": "Bath Exploration",
+      "activities": [
+        "Morning: Free exploration of Bath",
+        "Lunch: Roman Baths Kitchen or Coraggio Restaurant",
+        "Afternoon: Roman Baths Tour (2 hours)"
+      ]
+    },
+    "day4": {
+      "date": "October 8, 2025",
+      "title": "Jane Austen & Shopping",
+      "activities": [
+        "Morning: No.1 Royal Crescent (£12.50), The Circus, Gay Street, Sydney Gardens (free)",
+        "Afternoon: Topping & Company bookshop, Mr B's Emporium, Walcot Street antiques"
+      ]
+    },
+    "day5": {
+      "date": "October 9, 2025",
+      "title": "Stonehenge & Winchester",
+      "activities": [
+        "Morning: Hotel checkout, optional Bishop's Palace or Old Sarum",
+        "Afternoon: Private Stonehenge Tour ($125.98) - BRING PHOTO ID",
+        "Evening: Check-in to The Old Granary (4-8 PM)"
+      ]
+    },
+    "day6": {
+      "date": "October 10, 2025",
+      "title": "London Day Trip",
+      "activities": [
+        "8:05 AM: Train from Winchester",
+        "9:17 AM: Arrive London Waterloo",
+        "9:30 AM: Tower of London & Thames Tour ($197.91)",
+        "2:00 PM: Private Black Taxi Tour ($258.81)",
+        "7:30 PM: Return train to Winchester"
+      ]
+    },
+    "day7": {
+      "date": "October 11, 2025",
+      "title": "Winchester Historic Sites",
+      "activities": [
+        "Morning: Winchester Cathedral (£10), Winchester College (£10), Jane Austen's resting place",
+        "Afternoon: Great Hall & Round Table (£4), Hospital of St Cross (£5), Wolvesey Castle Ruins (free)"
+      ]
+    },
+    "day8": {
+      "date": "October 12, 2025",
+      "title": "Choose Your Adventure",
+      "activities": [
+        "Option A: Oxford - University Colleges, Bodleian Library, Christ Church College",
+        "Option B: Jane Austen's Hampshire - Jane Austen's House Museum, Chawton House, P&G Wells Booksellers"
+      ]
+    },
+    "day9": {
+      "date": "October 13, 2025",
+      "title": "Film Locations Tour",
+      "activities": [
+        "Wilton House (Pemberley from Pride & Prejudice)",
+        "Stourhead Gardens",
+        "Lacock Village"
+      ]
+    },
+    "day10": {
+      "date": "October 14, 2025",
+      "title": "Winchester to Bristol",
+      "activities": [
+        "10:00 AM: Check-out from The Old Granary",
+        "Drive to Bristol via A34",
+        "Afternoon: Highclere Castle (Downton Abbey)",
+        "Lunch: The Fox and Hounds",
+        "Evening: Check-in to Berwick Lodge (Garden Suite)"
+      ]
+    },
+    "day11": {
+      "date": "October 15, 2025",
+      "title": "Return Home",
+      "activities": [
+        "5:45 AM: Hotel checkout",
+        "6:30 AM: Arrive Bristol Airport",
+        "7:00 AM: Return rental car",
+        "9:20 AM: Depart on KLM KL1076",
+        "3:35 PM EDT: Arrive Washington Dulles"
+      ]
+    }
+  },
+  "extras": {
+    "dining": [
+      {
+        "name": "Woods Restaurant",
+        "location": "Bath",
+        "type": "Fine dining",
+        "url": "https://www.woodsrestaurant.com/"
+      },
+      {
+        "name": "Joya",
+        "location": "Bath",
+        "type": "Restaurant",
+        "url": null
+      },
+      {
+        "name": "Roman Baths Kitchen",
+        "location": "Bath",
+        "type": "Lunch spot",
+        "url": "https://www.romanbaths.co.uk/roman-baths-kitchen"
+      },
+      {
+        "name": "Coraggio Restaurant",
+        "location": "Bath",
+        "type": "Italian",
+        "url": null
+      },
+      {
+        "name": "The Fox and Hounds",
+        "location": "Near Highclere",
+        "type": "Pub lunch",
+        "url": null
+      }
+    ],
+    "attractions": [
+      {
+        "name": "No.1 Royal Crescent",
+        "location": "Bath",
+        "price": "£12.50",
+        "url": "https://no1royalcrescent.org.uk/"
+      },
+      {
+        "name": "Winchester Cathedral",
+        "location": "Winchester",
+        "price": "£10",
+        "url": "https://www.winchester-cathedral.org.uk/"
+      },
+      {
+        "name": "Winchester College",
+        "location": "Winchester",
+        "price": "£10",
+        "url": "https://www.winchestercollege.org/"
+      },
+      {
+        "name": "Great Hall & Round Table",
+        "location": "Winchester",
+        "price": "£4",
+        "url": "https://www.hants.gov.uk/greathall"
+      },
+      {
+        "name": "Hospital of St Cross",
+        "location": "Winchester",
+        "price": "£5",
+        "url": "https://www.hospitalofstcross.co.uk/"
+      },
+      {
+        "name": "Wolvesey Castle Ruins",
+        "location": "Winchester",
+        "price": "Free",
+        "url": "https://www.english-heritage.org.uk/visit/places/wolvesey-castle-old-bishops-palace/"
+      },
+      {
+        "name": "Highclere Castle",
+        "location": "Hampshire",
+        "note": "Downton Abbey filming location",
+        "url": "https://www.highclerecastle.co.uk/"
+      },
+      {
+        "name": "Wilton House",
+        "location": "Wiltshire",
+        "note": "Pemberley in Pride & Prejudice",
+        "url": "https://www.wiltonhouse.co.uk/"
+      },
+      {
+        "name": "Jane Austen's House Museum",
+        "location": "Chawton",
+        "url": "https://janeaustens.house/"
+      }
+    ],
+    "shopping": [
+      {
+        "name": "Topping & Company Booksellers",
+        "location": "Bath",
+        "url": "https://www.toppingbooks.co.uk/"
+      },
+      {
+        "name": "Mr B's Emporium of Reading Delights",
+        "location": "Bath",
+        "url": "https://www.mrbsemporium.com/"
+      },
+      {
+        "name": "Walcot Street Antiques",
+        "location": "Bath",
+        "note": "Antique shops area"
+      },
+      {
+        "name": "P&G Wells Booksellers",
+        "location": "Winchester",
+        "url": "https://www.bookwells.co.uk/"
+      }
+    ],
+    "freeActivities": [
+      {
+        "name": "Sydney Gardens",
+        "location": "Bath",
+        "note": "Jane Austen walked here"
+      },
+      {
+        "name": "Pulteney Bridge & Bath Abbey Walk",
+        "location": "Bath",
+        "note": "Evening orientation walk"
+      },
+      {
+        "name": "The Circus & Gay Street",
+        "location": "Bath",
+        "note": "Jane Austen locations"
+      },
+      {
+        "name": "Wolvesey Castle Ruins",
+        "location": "Winchester"
+      },
+      {
+        "name": "Lacock Village",
+        "location": "Wiltshire",
+        "note": "Film location, National Trust"
+      }
+    ],
+    "hiddenGems": [],
+    "kims_gem": null,
+    "photoOps": []
+  },
+  "preTripChecklist": [
+    {
+      "item": "Verify passports valid through March 2026",
+      "completed": false
+    },
+    {
+      "item": "Complete UK Electronic Travel Authorization (ETA)",
+      "completed": false
+    },
+    {
+      "item": "Select flight meals",
+      "completed": false
+    },
+    {
+      "item": "Notify bank of travel dates",
+      "completed": false
+    }
+  ],
+  "travelEssentials": [
+    "Passports",
+    "UK ETA confirmation",
+    "Booking confirmations",
+    "Travel insurance documents",
+    "Credit cards",
+    "Power adapters (UK 3-pin)",
+    "Comfortable walking shoes"
+  ],
+  "recommendedApps": [
+    "Google Maps (download offline maps)",
+    "WhatsApp",
+    "Currency converter"
+  ],
+  "pricing": {
+    "tours": {
+      "stogehenge": 125.98,
+      "towerOfLondon": 197.91,
+      "blackTaxi": 258.81,
+      "subtotal": 582.70
+    },
+    "confirmedTotal": null,
+    "notes": "Flight and lodging costs not captured in original document"
+  },
+  "openQuestions": []
+}
