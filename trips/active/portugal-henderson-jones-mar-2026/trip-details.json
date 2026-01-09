@@ -5,8 +5,8 @@
     "destination": "Portugal",
     "dates": "March 22-31, 2026",
     "occasion": "Business scouting trip + BFF adventure",
-    "phase": "lodging",
-    "lastUpdated": "2026-01-09T15:30:00Z",
+    "phase": "tours",
+    "lastUpdated": "2026-01-09T20:15:00Z",
     "status": "Planning",
     "quotesConfirmed": false
   },
@@ -90,9 +90,10 @@
       {
         "day": 2,
         "date": "2026-03-24",
-        "title": "Lisbon Exploration",
+        "title": "Lisbon Exploration + Food Tour",
         "location": "Lisbon",
-        "activities": ["Alfama neighborhood", "Baixa district", "Chiado shopping (fashion for Susie)", "LX Factory (unique finds for Kim)", "Fado show or nice dinner"],
+        "activities": ["Morning: Alfama neighborhood self-guided", "11am: Devour Lisbon Food Tour (3.5 hrs)", "Afternoon: Chiado shopping (fashion for Susie)", "LX Factory (unique finds for Kim)", "Evening: Fado show or nice dinner"],
+        "suggestedTour": "Devour Lisbon: The Ultimate Portuguese Food Tour",
         "overnight": "Lisbon"
       },
       {
@@ -100,8 +101,9 @@
         "date": "2026-03-25",
         "title": "Sintra Day Trip",
         "location": "Sintra (day trip)",
-        "activities": ["Train from Rossio (40 min, every 20 min)", "Pena Palace", "Moorish Castle or Quinta da Regaleira", "Mountain views and hiking trails (Kim)", "Return to Lisbon evening"],
-        "transport": "Train ~€5 round trip per person",
+        "activities": ["Option A: Self-guided by train from Rossio", "Option B: Small-group guided tour (recommended)", "Pena Palace", "Quinta da Regaleira", "Mountain views and hiking trails (Kim)", "Return to Lisbon evening"],
+        "suggestedTour": "Sintra Small-Group Tour with Pena Palace & Regaleira",
+        "transport": "Included in tour OR Train ~€5 round trip per person",
         "overnight": "Lisbon"
       },
       {
@@ -111,7 +113,8 @@
         "location": "Cascais (day trip)",
         "activities": ["Train from Cais do Sodré (35 min scenic coastal route)", "Beach time (Susie)", "Old town exploration and shopping", "Boca do Inferno cliffs", "Seafood lunch", "Optional: walk to Estoril", "Return to Lisbon evening"],
         "transport": "Train ~€5 round trip per person",
-        "overnight": "Lisbon"
+        "overnight": "Lisbon",
+        "notes": "Self-guided - no tour needed. Easy train ride, walkable town."
       },
       {
         "day": 5,
@@ -125,19 +128,21 @@
       {
         "day": 6,
         "date": "2026-03-28",
-        "title": "Porto Exploration",
+        "title": "Porto Exploration + Food Tour",
         "location": "Porto",
-        "activities": ["Livraria Lello (famous bookstore)", "Clérigos Tower", "São Bento Station (azulejo tiles)", "Rua de Santa Catarina shopping", "Ribeira waterfront", "Dom Luís I Bridge walk"],
+        "activities": ["Morning: São Bento Station, Clérigos Tower", "11am or 3pm: Porto Food Tour (3 hrs)", "Livraria Lello (famous bookstore)", "Rua de Santa Catarina shopping", "Ribeira waterfront evening", "Dom Luís I Bridge walk at sunset"],
+        "suggestedTour": "Porto Food Tour (Secret Food Tours or Taste Porto)",
         "overnight": "Porto"
       },
       {
         "day": 7,
         "date": "2026-03-29",
-        "title": "Douro or Beach Day",
-        "location": "Porto area",
-        "activities": ["OPTION A: Scenic Douro Valley tour (non-wine focused) or train to Peso da Régua", "OPTION B: Foz do Douro beach day (tram from center)", "TBD based on weather and preferences"],
-        "notes": "Leave flexible - decide closer to date",
-        "overnight": "Porto"
+        "title": "Douro Valley Scenic Train Day",
+        "location": "Douro Valley (day trip)",
+        "activities": ["Take scenic train from São Bento to Pinhão (2.5 hrs)", "Stunning river and vineyard views", "Explore Pinhão village and famous azulejo-tiled station", "Optional: 1-hr river cruise from Pinhão", "Lunch at riverside restaurant", "Train back to Porto", "Alternative: Foz do Douro beach day if weather poor"],
+        "transport": "Train ~€12 each way per person",
+        "overnight": "Porto",
+        "notes": "DIY train trip = scenic without wine-focus. Perfect for Susie. Kim gets mountain/valley views."
       },
       {
         "day": 8,
@@ -373,7 +378,216 @@
       }
     }
   },
-  "tours": [],
+  "tours": {
+    "recommendation": "Food tours are perfect for you both as foodies. Sintra tour saves logistics hassle. Douro DIY train = scenic without wine focus.",
+    "lisbon": [
+      {
+        "name": "Devour Lisbon: The Ultimate Portuguese Food Tour",
+        "provider": "Devour Tours / Viator",
+        "type": "Food walking tour",
+        "duration": "3.5 hours",
+        "groupSize": "Max 10 people",
+        "price": "$75-85 per person",
+        "totalFor2": "~$150-170",
+        "suggestedDay": "Day 2 (March 24) - 11am departure",
+        "meetingPoint": "Baixa district (red Devour Tours sign)",
+        "includes": [
+          "9 food tastings at 7 local spots",
+          "3 drinks (ginjinha cherry liqueur, wine, coffee)",
+          "Local guide",
+          "Enough food for a full meal"
+        ],
+        "highlights": [
+          "Classic Portuguese codfish",
+          "Famous pastel de nata custard tarts",
+          "Bifana sandwich",
+          "Traditional tasca meal",
+          "Walks through Baixa, Chiado, Cais do Sodré"
+        ],
+        "alcoholNote": "Tour includes wine/ginjinha but NON-ALCOHOLIC OPTIONS AVAILABLE - just notify when booking. They accommodate dietary needs.",
+        "viatorUrl": "https://www.viator.com/tours/Lisbon/Tastes-and-Traditions-of-Lisbon-Food-Tour/d538-170816P1",
+        "reviews": "1925+ reviews, 4.95/5 average",
+        "whyForYou": "Perfect for foodies! Get oriented on Day 2, learn local food spots for rest of trip. Non-alcoholic options for Susie.",
+        "clientValue": "Great tour to recommend to future clients - excellent reviews, reasonable price",
+        "tier": "all",
+        "recommended": true,
+        "confirmed": false
+      },
+      {
+        "name": "Sintra Small-Group Tour with Pena Palace & Regaleira",
+        "provider": "Various / Viator",
+        "type": "Full-day guided tour",
+        "duration": "8-9 hours",
+        "groupSize": "Max 8 people",
+        "price": "$85-110 per person",
+        "totalFor2": "~$170-220",
+        "suggestedDay": "Day 3 (March 25) - 8am pickup",
+        "includes": [
+          "Round-trip transport from Lisbon",
+          "Entrance tickets to Pena Palace & Park",
+          "Entrance to Quinta da Regaleira",
+          "English-speaking guide",
+          "Stops at Cabo da Roca and/or Cascais"
+        ],
+        "highlights": [
+          "UNESCO World Heritage Sintra",
+          "Colorful Pena Palace",
+          "Mystical Quinta da Regaleira (tunnels, gardens)",
+          "Skip-the-line entry",
+          "Continental Europe's westernmost point (Cabo da Roca)"
+        ],
+        "viatorUrl": "https://www.viator.com/tours/Lisbon/Sintra-Tour/d538-33844P1",
+        "reviews": "7000+ reviews across similar tours",
+        "whyForYou": "Removes logistics hassle for mountainous area. Guide handles crowds and timing. Kim gets mountain views, both get fairytale palaces.",
+        "clientValue": "TOP recommendation for future clients - Sintra is a must-see, guided tour is worth it for first-timers",
+        "alternativeOption": "DIY by train (~€5 RT) + palace tickets (~€30-35) saves ~$50 but requires more planning and lines",
+        "tier": "premium",
+        "recommended": true,
+        "confirmed": false
+      },
+      {
+        "name": "Lisbon Essential Walking Tour",
+        "provider": "Various / Viator",
+        "type": "Walking tour",
+        "duration": "2-3 hours",
+        "groupSize": "Small group",
+        "price": "$25-35 per person",
+        "totalFor2": "~$50-70",
+        "includes": ["Local guide", "Walking tour of historic neighborhoods", "History and culture insights"],
+        "highlights": ["Chiado", "Bairro Alto", "Alfama", "Miradouro viewpoints", "Local tips"],
+        "viatorUrl": "https://www.viator.com/tours/Lisbon/Lisbon-Essential-Tour-History-Stories-Lifestyle/d538-17498P1",
+        "reviews": "530+ reviews",
+        "whyForYou": "Budget option if you want a guide for orientation. Could do arrival day afternoon if not too tired.",
+        "clientValue": "Good budget option for clients, but food tour provides more value",
+        "tier": "value",
+        "recommended": false,
+        "confirmed": false
+      }
+    ],
+    "porto": [
+      {
+        "name": "Porto Secret Food Tour",
+        "provider": "Secret Food Tours / Viator",
+        "type": "Food walking tour",
+        "duration": "3 hours",
+        "groupSize": "Small group",
+        "price": "$70-85 per person",
+        "totalFor2": "~$140-170",
+        "suggestedDay": "Day 6 (March 28) - 11am or 3pm",
+        "meetingPoint": "Coliseu Porto, Rua Passos Manuel",
+        "includes": [
+          "8 food tastings",
+          "Local drinks",
+          "Expert local guide"
+        ],
+        "highlights": [
+          "Portuguese sardines",
+          "Local sponge cakes",
+          "Bifana sandwich",
+          "Custard tarts",
+          "Downtown & Ribeira neighborhoods",
+          "Views of Dom Luis I Bridge"
+        ],
+        "alcoholNote": "Includes wine but alternatives available on request",
+        "viatorUrl": "https://www.viator.com/tours/Porto/Secret-Food-Tours-Porto/d26879-7812P85",
+        "reviews": "465+ reviews",
+        "whyForYou": "Get oriented to Porto's food scene on first full day. Same company as other great food tours worldwide.",
+        "clientValue": "Excellent tour to recommend - Porto food scene is incredible",
+        "tier": "all",
+        "recommended": true,
+        "confirmed": false
+      },
+      {
+        "name": "Taste Porto Food Tours",
+        "provider": "Taste Porto / Direct booking",
+        "type": "Food & wine walking tour",
+        "duration": "3-4 hours",
+        "groupSize": "Small group",
+        "price": "$75-95 per person",
+        "totalFor2": "~$150-190",
+        "includes": ["Multiple food stops", "History and culture", "Local guide"],
+        "highlights": ["Featured on Anthony Bourdain's Parts Unknown", "Lonely Planet recommended", "Guardian recommended"],
+        "alcoholNote": "Wine-focused but can accommodate non-drinkers",
+        "website": "https://www.tasteporto.com/",
+        "reviews": "TripAdvisor top-rated for Porto",
+        "whyForYou": "Alternative to Secret Food Tours - more prestigious reputation. Better for wine-loving clients.",
+        "clientValue": "Premium option for clients who want elevated experience",
+        "tier": "premium",
+        "alternativeTo": "Secret Food Tours",
+        "recommended": false,
+        "confirmed": false
+      }
+    ],
+    "douro": [
+      {
+        "name": "DIY Douro Valley Scenic Train",
+        "provider": "CP (Portuguese Railways)",
+        "type": "Self-guided scenic train ride",
+        "duration": "Full day (leave ~9am, return ~6pm)",
+        "price": "~€12 each way per person (~€24 RT)",
+        "totalFor2": "~$55-60",
+        "suggestedDay": "Day 7 (March 29)",
+        "route": "Porto São Bento → Pinhão (2.5 hrs)",
+        "includes": ["Round-trip train ticket only"],
+        "highlights": [
+          "One of Europe's most scenic train rides",
+          "Follows Douro River through wine country",
+          "Terraced vineyards, tunnels, bridges",
+          "Famous azulejo-tiled Pinhão station",
+          "Free time to explore Pinhão village",
+          "Optional: 1-hr river cruise from Pinhão (~€15-20)",
+          "Lunch at riverside restaurant"
+        ],
+        "importantNote": "⚠️ TRACK WORK: Trains replaced by buses between Caide & Régua until April 2, 2026. Your dates (March 29) may be affected - verify closer to trip!",
+        "trainInfo": {
+          "website": "www.cp.pt",
+          "departure": "~9:20am from São Bento (direct service)",
+          "arrival": "~11:45am Pinhão",
+          "return": "Multiple options, last train ~5pm",
+          "tips": "Sit on RIGHT side going out for best river views"
+        },
+        "whyForYou": "PERFECT for Susie - scenic valley experience WITHOUT wine tour focus. Kim gets mountain/valley views. Budget-friendly. Authentic local experience.",
+        "clientValue": "Budget alternative to wine tours for clients who don't drink or want DIY adventure",
+        "tier": "value",
+        "recommended": true,
+        "confirmed": false
+      },
+      {
+        "name": "Douro Valley Small-Group Tour (Non-Wine Focus Option)",
+        "provider": "Various / Viator",
+        "type": "Full-day guided tour",
+        "duration": "9-10 hours",
+        "price": "$100-150 per person",
+        "totalFor2": "~$200-300",
+        "includes": ["Transport", "Lunch", "River cruise", "1-2 winery visits"],
+        "highlights": ["Scenic viewpoints", "River cruise", "Traditional lunch", "Village stops"],
+        "alcoholNote": "⚠️ MOST tours are wine-focused. Would need to request non-wine alternatives or skip tastings. Not ideal for Susie.",
+        "whyForYou": "Only if train service disrupted. Otherwise DIY train is better fit.",
+        "clientValue": "Great for wine-loving clients",
+        "tier": "premium",
+        "recommended": false,
+        "confirmed": false
+      }
+    ],
+    "freeAlternatives": [
+      {
+        "name": "Foz do Douro Beach Day",
+        "location": "Porto",
+        "cost": "Free (tram fare ~€3)",
+        "duration": "Half or full day",
+        "description": "Beach neighborhood at mouth of Douro River. Take Tram 1 from Ribeira. Beaches, seafood restaurants, lighthouse, relaxed vibe.",
+        "whyForYou": "Backup for Day 7 if weather poor or train disrupted. Susie gets beach time!"
+      },
+      {
+        "name": "Self-Guided Alfama Walking",
+        "location": "Lisbon",
+        "cost": "Free",
+        "duration": "2-3 hours",
+        "description": "Wander narrow streets of Lisbon's oldest neighborhood. Miradouros (viewpoints), street art, local life, Fado bars.",
+        "whyForYou": "Do this morning of Day 2 before food tour"
+      }
+    ]
+  },
   "transport": {
     "rentalCar": {
       "needed": false,
@@ -399,6 +613,13 @@
         "duration": "~3 hours",
         "cost": "~€27-34 per person",
         "notes": "Book in advance for best price. Café-bar on board, WiFi, power outlets."
+      },
+      "portoToDouro": {
+        "train": "Regional IR train",
+        "stations": "Porto São Bento → Pinhão",
+        "duration": "~2.5 hours",
+        "cost": "~€12 each way",
+        "notes": "One of Europe's most scenic train rides. ⚠️ Track work may affect until April 2, 2026."
       },
       "portoToLisbonAirport": {
         "route": "Porto Campanhã → Lisboa Oriente → Metro to Airport",
@@ -475,30 +696,30 @@
     "value": {
       "flights": 1400,
       "lodging": 850,
-      "tours": 0,
+      "tours": 260,
       "transport": 200,
-      "total": 2450,
-      "perPerson": 1225,
+      "total": 2710,
+      "perPerson": 1355,
       "confirmed": false,
-      "notes": "Estimates only - need CP quotes"
+      "notes": "Estimates only - need CP quotes. Tours: Lisbon food ($150) + DIY Sintra + Porto food ($110)"
     },
     "premium": {
       "flights": 1400,
       "lodging": 1200,
-      "tours": 0,
+      "tours": 420,
       "transport": 200,
-      "total": 2800,
-      "perPerson": 1400,
+      "total": 3220,
+      "perPerson": 1610,
       "confirmed": false,
-      "notes": "Recommended tier. Estimates only - need CP quotes"
+      "notes": "Recommended tier. Tours: Lisbon food ($170) + Sintra guided ($190) + Porto food ($60)"
     },
     "luxury": {
       "flights": 1600,
       "lodging": 1750,
-      "tours": 0,
+      "tours": 420,
       "transport": 250,
-      "total": 3600,
-      "perPerson": 1800,
+      "total": 4020,
+      "perPerson": 2010,
       "confirmed": false,
       "notes": "Estimates only - need CP quotes"
     }
@@ -506,18 +727,20 @@
   "openQuestions": [
     "Get Delta quote for MOB-ATL-JFK-LIS round trip March 22-31",
     "Verify lodging availability in CP Maxx for recommended hotels",
-    "Day 7: Douro Valley scenic tour vs Foz do Douro beach - decide closer to trip based on weather/mood",
+    "Check if Douro train track work affects March 29 dates",
     "Lisboa Card worth it? (24/48/72 hr options - unlimited transport + attraction discounts)"
   ],
   "preTripChecklist": [
     { "item": "Confirm travel dates", "completed": true },
     { "item": "Finalize itinerary structure", "completed": true },
     { "item": "Research lodging options", "completed": true },
+    { "item": "Research tour options", "completed": true },
     { "item": "Book flights", "completed": false },
     { "item": "Book Lisbon hotel (4 nights)", "completed": false },
     { "item": "Book Porto hotel (4 nights)", "completed": false },
     { "item": "Book Lisbon-Porto train", "completed": false },
-    { "item": "Research non-wine Douro options", "completed": false },
-    { "item": "Identify key tourist spots for client reconnaissance", "completed": false }
+    { "item": "Book food tours (Lisbon + Porto)", "completed": false },
+    { "item": "Book Sintra tour if doing guided", "completed": false },
+    { "item": "Verify Douro train status for March 29", "completed": false }
   ]
 }
