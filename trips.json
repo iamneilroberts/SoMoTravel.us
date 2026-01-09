@@ -16,12 +16,12 @@
       "filename": "Chastain_2026-styled.html",
       "title": "Chastain 2026 (styled)",
       "dates": "May 5-15, 2026",
-      "category": "proposal",
+      "category": "past",
       "tags": [
         "new",
         "six people"
       ],
-      "lastModified": "2025-08-31"
+      "lastModified": "2026-01-09"
     },
     {
       "filename": "Chastain2026.html",
@@ -420,7 +420,12 @@
       "title": "Italy Adventure - 10 Days (Rome, Naples, Positano, Tuscany)",
       "dates": "April 14-23, 2026",
       "category": "proposal",
-      "tags": ["Italy", "Rome", "Amalfi Coast", "Tuscany"],
+      "tags": [
+        "Italy",
+        "Rome",
+        "Amalfi Coast",
+        "Tuscany"
+      ],
       "lastModified": "2026-01-09",
       "hasStructuredData": true
     },
@@ -457,7 +462,11 @@
       "title": "Portugal - Henderson & Jones",
       "dates": "March 22-31, 2026",
       "category": "proposal",
-      "tags": ["Portugal", "Lisbon", "Porto"],
+      "tags": [
+        "Portugal",
+        "Lisbon",
+        "Porto"
+      ],
       "lastModified": "2026-01-09",
       "hasStructuredData": true
     },
@@ -492,7 +501,11 @@
       "title": "Sonesta Maho Beach - Niwana & Jon",
       "dates": "April 2026",
       "category": "proposal",
-      "tags": ["all-inclusive", "adults-only", "beach"],
+      "tags": [
+        "all-inclusive",
+        "adults-only",
+        "beach"
+      ],
       "lastModified": "2026-01-05",
       "hasStructuredData": true
     },
@@ -503,7 +516,11 @@
       "title": "NYC Sweet 16 Birthday Trip - Bethany Lightsey",
       "dates": "December 3-6, 2026",
       "category": "proposal",
-      "tags": ["birthday", "NYC", "holiday"],
+      "tags": [
+        "birthday",
+        "NYC",
+        "holiday"
+      ],
       "lastModified": "2026-01-07",
       "hasStructuredData": true
     },
@@ -514,7 +531,12 @@
       "title": "Greek Islands Cruise - Mother-Daughter Adventure",
       "dates": "May 30 - June 6, 2026",
       "category": "proposal",
-      "tags": ["cruise", "Greece", "Mediterranean", "Celestyal"],
+      "tags": [
+        "cruise",
+        "Greece",
+        "Mediterranean",
+        "Celestyal"
+      ],
       "lastModified": "2026-01-09",
       "hasStructuredData": true
     },
@@ -525,7 +547,12 @@
       "title": "Graduation Cruise - Carnival from New Orleans",
       "dates": "May 2026",
       "category": "proposal",
-      "tags": ["cruise", "Caribbean", "graduation", "excursions"],
+      "tags": [
+        "cruise",
+        "Caribbean",
+        "graduation",
+        "excursions"
+      ],
       "lastModified": "2026-01-09",
       "hasStructuredData": true
     },
@@ -534,7 +561,11 @@
       "title": "Italy Itinerary Alternatives | SOMO Travel",
       "dates": "Reference Material",
       "category": "past",
-      "tags": ["reference", "Italy", "alternatives"],
+      "tags": [
+        "reference",
+        "Italy",
+        "alternatives"
+      ],
       "lastModified": "2026-01-07",
       "description": "Reference document - alternative destinations to replace Naples"
     }
