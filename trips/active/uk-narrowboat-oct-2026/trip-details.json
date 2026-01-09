@@ -6,8 +6,8 @@
     "dates": "Late September / Early October 2026 (12 days TBD)",
     "occasion": "Friends vacation - narrowboat adventure",
     "phase": "discovery",
-    "lastUpdated": "2026-01-09T23:30:00Z",
-    "status": "Discovery - Route Selected",
+    "lastUpdated": "2026-01-09T16:00:00Z",
+    "status": "Discovery - Base Confirmed, Planning Bikes",
     "quotesConfirmed": false
   },
   "travelers": {
@@ -21,10 +21,11 @@
     "vibe": "Relaxed pace, authentic UK experience. History, real ale pubs, quirky shopping, farm-to-table dining, live music.",
     "budget": "TBD - looking for comfortable but not luxury",
     "mobility": "All in good health, no restrictions",
-    "transportation": "NO rental car. Train from London to narrowboat base. Narrowboat for 12 days.",
+    "transportation": "NO rental car. Train from London to narrowboat base. Narrowboat for 12 days. E-bikes for full trip.",
     "mustHave": [
       "Narrowboat with 2 private double cabins (ideally 2 bathrooms for couples' comfort)",
       "Round-trip route from single base",
+      "E-bikes for full 12-day rental",
       "Real ale pubs along the route",
       "Historic villages and towns",
       "Quirky/unique shopping opportunities",
@@ -66,49 +67,33 @@
   },
   "narrowboat": {
     "confirmed": false,
+    "baseConfirmed": "Lower Heyford",
     "requirements": {
       "berths": "4 (two couples)",
       "cabins": "2 separate double cabins",
       "bathrooms": "2 preferred (one per couple)",
       "heating": "Required for late Sept/early Oct",
-      "amenities": ["Full galley", "Central heating", "Hot water", "TV optional"]
+      "amenities": ["Full galley", "Central heating", "Hot water", "TV optional"],
+      "bikeStorage": "Roof rack for 4 e-bikes"
     },
     "duration": "12 days (11 nights aboard)",
     "recommendedCompanies": [
       {
         "name": "Black Prince - Lower Heyford Base",
         "url": "https://www.black-prince.com/hire-bases/lower-heyford/",
-        "notes": "IDEAL for Oxford Canal. Base is ON the Oxford Canal at Lower Heyford. Direct access to route. Season ends Oct 30, 2026.",
+        "notes": "CONFIRMED BASE CHOICE. ON the Oxford Canal at Lower Heyford. Direct access to route. Season ends Oct 30, 2026.",
         "trainAccess": "Heyford Station is RIGHT NEXT to the base - trains from Oxford (~15 min) or Banbury (~15 min)",
         "recommendedBoat": "4-berth with 2 bathrooms (check availability)",
-        "phone": "01527 575 115"
-      },
-      {
-        "name": "Black Prince - Napton Base",
-        "url": "https://www.black-prince.com/hire-bases/napton-hire-base/",
-        "notes": "At junction of Oxford and Grand Union canals. Access to both south to Oxford and north toward Coventry.",
-        "trainAccess": "Leamington Spa station (~9 miles) - taxi/transfer needed",
-        "phone": "01527 575 115"
-      },
-      {
-        "name": "Napton Narrowboats",
-        "url": "https://www.napton-marina.co.uk/",
-        "notes": "Family company, high-end boats. 1st Class Fleet has King-Size beds, two bathrooms. 10/11 night holidays available.",
-        "recommendedBoat": "1st Class Fleet with reverse layout, two full bathrooms",
-        "trainAccess": "Leamington Spa station (~9 miles)"
+        "phone": "01527 575 115",
+        "bikeNote": "Ask about bike rack/storage and e-bike rental partnerships"
       },
       {
         "name": "Oxfordshire Narrowboats",
         "url": "https://www.oxfordshire-narrowboats.co.uk/",
-        "notes": "Based at Lower Heyford AND Bradford on Avon. 4-8 berth boats with option for 2 en-suite bathrooms.",
+        "notes": "Also based at Lower Heyford. 4-8 berth boats with option for 2 en-suite bathrooms.",
         "recommendedBoat": "4-berth 'Stylish and Spacious for Two Couples' boats with two full bathrooms",
-        "trainAccess": "Heyford Station adjacent to base"
-      },
-      {
-        "name": "College Cruisers",
-        "url": "https://www.collegecruisers.com/",
-        "notes": "Based in Oxford. Fleet of 10 narrowboats. Outstanding customer service reputation.",
-        "trainAccess": "Oxford - direct trains from London Paddington (1 hour)"
+        "trainAccess": "Heyford Station adjacent to base",
+        "bikeNote": "Ask about bike rack/storage and e-bike rental partnerships"
       }
     ],
     "estimatedCost": {
@@ -116,8 +101,47 @@
       "notes": "Late Sept/early Oct is end of season - good availability, reasonable prices. Premium boats with 2 bathrooms at higher end."
     }
   },
+  "bikes": {
+    "confirmed": true,
+    "type": "E-bikes",
+    "quantity": 4,
+    "duration": "Full 12-day trip",
+    "delivery": "To Lower Heyford base at trip start, pickup at end",
+    "storage": "Narrowboat roof rack (confirm with boat company)",
+    "rentalOptions": [
+      {
+        "name": "Bainton Bikes",
+        "location": "Oxford",
+        "url": "https://www.baintonbikes.com/",
+        "notes": "High-quality bikes, delivery available. Well-reviewed. Contact for e-bike availability and delivery to Lower Heyford.",
+        "needsQuote": true
+      },
+      {
+        "name": "Bike Zone Banbury",
+        "location": "Banbury",
+        "notes": "Local shop, may arrange delivery to Lower Heyford",
+        "needsQuote": true
+      },
+      {
+        "name": "Boat company arrangement",
+        "notes": "Ask Black Prince or Oxfordshire Narrowboats if they have e-bike rental partnerships",
+        "needsQuote": true
+      }
+    ],
+    "estimatedCost": {
+      "range": "£400-600 for 4 e-bikes x 12 days",
+      "notes": "E-bikes typically £15-25/day each. Need quotes.",
+      "perPerson": "~£100-150 per person"
+    },
+    "accessories": {
+      "helmets": "TBD - bring own or rent?",
+      "locks": "Included with rental",
+      "panniers": "Request if available - useful for pub stops and shopping"
+    }
+  },
   "route": {
     "selected": "Oxford Canal (South)",
+    "baseConfirmed": "Lower Heyford",
     "description": "One of the most beautiful and historic canals in England. Completed in 1790, it's an early contour canal that winds through the landscape rather than cutting through it. Famous for its pretty villages, excellent canalside pubs, and rich history.",
     "stats": {
       "totalLength": "77 miles (full canal)",
@@ -126,16 +150,18 @@
       "cruisingSpeed": "~3-4 mph"
     },
     "suggestedItinerary": {
-      "base": "Lower Heyford (Black Prince or Oxfordshire Narrowboats)",
+      "base": "Lower Heyford (Black Prince or Oxfordshire Narrowboats) - CONFIRMED",
       "option1": {
         "name": "South to Oxford + North to Banbury",
         "description": "12 days allows both directions from Lower Heyford. South to Oxford (7-8 hours), explore city, then north through Banbury to Cropredy and beyond.",
-        "highlights": ["Oxford (dreaming spires, covered market, pubs)", "Thrupp (charming canal village)", "Banbury (market town, Tooley's Boatyard)", "Cropredy (folk festival village, great pubs)", "Fenny Compton (tunnel cutting)"]
+        "highlights": ["Oxford (dreaming spires, covered market, pubs)", "Thrupp (charming canal village)", "Banbury (market town, Tooley's Boatyard)", "Cropredy (folk festival village, great pubs)", "Fenny Compton (tunnel cutting)"],
+        "bikeOpportunities": ["Blenheim Palace from Oxford moorings (~8 miles)", "Woodstock village", "Cotswolds villages from various moorings"]
       },
       "option2": {
         "name": "Lower Heyford to Napton and back",
         "description": "North from Lower Heyford through Banbury, Cropredy, Fenny Compton to Napton Junction (connects to Grand Union). Return same route.",
-        "highlights": ["Banbury", "Cropredy", "Claydon Locks", "Fenny Compton", "Napton-on-the-Hill (windmill views)", "Braunston (historic canal village)"]
+        "highlights": ["Banbury", "Cropredy", "Claydon Locks", "Fenny Compton", "Napton-on-the-Hill (windmill views)", "Braunston (historic canal village)"],
+        "bikeOpportunities": ["Hook Norton Brewery from Banbury area (~6 miles)", "Cotswolds villages", "Braunston historic village"]
       }
     },
     "keyStops": [
@@ -145,25 +171,83 @@
         "cruisingTime": "7-8 hours",
         "highlights": ["University colleges", "Covered Market (since 1774)", "Bodleian Library", "Ashmolean Museum", "Jericho (trendy neighborhood)"],
         "moorings": "Visitor moorings near city center",
-        "pubNote": "Many excellent pubs in Jericho area"
+        "pubNote": "Many excellent pubs in Jericho area",
+        "bikeDestinations": [
+          {
+            "name": "Blenheim Palace & Woodstock",
+            "distance": "~8 miles from Oxford moorings",
+            "description": "UNESCO World Heritage Site. Winston Churchill's birthplace. Capability Brown gardens. Woodstock is a charming market town with pubs and shops.",
+            "route": "Cycle path and quiet roads through Wolvercote and Begbroke",
+            "difficulty": "Easy to moderate"
+          },
+          {
+            "name": "Port Meadow",
+            "distance": "2-3 miles",
+            "description": "Ancient common land, wild horses, great for easy cycling",
+            "difficulty": "Easy, flat"
+          }
+        ]
       },
       {
         "name": "Thrupp",
         "distance": "Near Oxford",
         "highlights": ["Charming hamlet", "Rose-covered cottages", "The Jolly Boatman pub (real ales, great food)", "15th century limestone cross"],
-        "pubNote": "The Jolly Boatman - moor right outside"
+        "pubNote": "The Jolly Boatman - moor right outside",
+        "bikeDestinations": [
+          {
+            "name": "Kidlington and surrounding villages",
+            "distance": "2-5 miles",
+            "description": "Easy towpath and village lane cycling",
+            "difficulty": "Easy"
+          }
+        ]
       },
       {
         "name": "Lower Heyford",
-        "distance": "Base location",
+        "distance": "Base location - START/END",
         "highlights": ["Ancient village (Domesday Book 1086)", "12th century St Mary's Church", "Former USAF base at Upper Heyford"],
-        "pubs": ["The Bell Inn (Lower Heyford)", "The Barley Mow (Upper Heyford)"]
+        "pubs": ["The Bell Inn (Lower Heyford)", "The Barley Mow (Upper Heyford)"],
+        "bikeDestinations": [
+          {
+            "name": "Rousham House & Gardens",
+            "distance": "~2 miles",
+            "description": "Beautifully preserved 18th century gardens with cascades, walled garden, parterre, pigeon house. William Kent design.",
+            "difficulty": "Easy",
+            "note": "HIGHLY RECOMMENDED - not accessible by canal, perfect bike trip"
+          },
+          {
+            "name": "Steeple Aston",
+            "distance": "~3 miles",
+            "description": "Pretty Cotswolds village with good pub (Red Lion)",
+            "difficulty": "Easy with one hill"
+          },
+          {
+            "name": "Deddington",
+            "distance": "~5 miles",
+            "description": "Larger Cotswolds village, castle ruins, farmers market (4th Saturday), excellent pubs and cafes",
+            "difficulty": "Moderate - some hills"
+          }
+        ]
       },
       {
         "name": "Aynho Wharf",
         "distance": "North of Lower Heyford",
         "highlights": ["The Great Western Arms - excellent canalside pub", "Hook Norton ales"],
-        "pubNote": "Great Western Arms highly recommended - between canal and railway"
+        "pubNote": "Great Western Arms highly recommended - between canal and railway",
+        "bikeDestinations": [
+          {
+            "name": "Aynho Village",
+            "distance": "~1 mile",
+            "description": "Picture-perfect Cotswolds limestone village. Apricot trees on cottage walls (unique microclimate). St Michael's Church.",
+            "difficulty": "Easy"
+          },
+          {
+            "name": "Kings Sutton",
+            "distance": "~2 miles",
+            "description": "Historic village with famous church spire",
+            "difficulty": "Easy"
+          }
+        ]
       },
       {
         "name": "Banbury",
@@ -171,34 +255,100 @@
         "highlights": ["Banbury Cross (Victorian replica of medieval original)", "Castle Quays Shopping", "Tooley's Historic Boatyard (oldest working dry dock, tours available)", "Banbury Museum", "Medieval market town"],
         "moorings": "Extensive visitor moorings in town center",
         "pubs": ["The Olde Reindeer Inn (coaching inn)", "The Unicorn", "The Old Auctioneer (1596 building)"],
-        "shopping": "Castle Quays, traditional market, antique shops"
+        "shopping": "Castle Quays, traditional market, antique shops",
+        "bikeDestinations": [
+          {
+            "name": "Hook Norton Brewery",
+            "distance": "~6 miles",
+            "description": "Famous Victorian tower brewery, still steam-powered. Brewery tours, visitor center, excellent ales. The Pear Tree pub attached.",
+            "difficulty": "Moderate - rolling Cotswolds hills",
+            "note": "MUST DO - not accessible any other way from canal. Book brewery tour in advance.",
+            "url": "https://www.hooknortonbrewery.co.uk/"
+          },
+          {
+            "name": "Hook Norton Village",
+            "distance": "~6 miles (same trip)",
+            "description": "Charming ironstone village with multiple pubs serving Hook Norton ales",
+            "difficulty": "Moderate"
+          },
+          {
+            "name": "Broughton Castle",
+            "distance": "~3 miles",
+            "description": "Medieval moated castle, beautiful gardens, used in Shakespeare in Love film",
+            "difficulty": "Easy to moderate"
+          }
+        ]
       },
       {
         "name": "Cropredy",
         "distance": "North of Banbury",
         "highlights": ["Battle of Cropredy Bridge (1644 Civil War)", "600-year-old church", "Thatched cottages", "Annual Fairport Convention folk festival (August)", "Quintessential English village"],
         "pubs": ["The Red Lion (CAMRA listed, part-thatched, log fires)", "The Brasenose Arms (17th century, great food)"],
-        "pubNote": "THE star village of the South Oxford Canal. Multiple excellent real ale pubs."
+        "pubNote": "THE star village of the South Oxford Canal. Multiple excellent real ale pubs.",
+        "bikeDestinations": [
+          {
+            "name": "Wardington & Williamscot",
+            "distance": "2-4 miles",
+            "description": "Quiet estate villages, rolling farmland",
+            "difficulty": "Easy"
+          },
+          {
+            "name": "Edgehill (Battle site)",
+            "distance": "~8 miles",
+            "description": "First major battle of English Civil War (1642). Castle Inn pub built on battlefield.",
+            "difficulty": "Moderate - hilly"
+          }
+        ]
       },
       {
         "name": "Fenny Compton",
         "distance": "North of Cropredy",
         "highlights": ["'Tunnel Straight' - former tunnel now deep cutting", "Remote countryside", "Access to isolated villages"],
         "pubs": ["The Wharf Inn (leather sofas, beer garden, excellent food)"],
-        "note": "Last good supply stop before remote section"
+        "note": "Last good supply stop before remote section",
+        "bikeDestinations": [
+          {
+            "name": "Burton Dassett Hills Country Park",
+            "distance": "~4 miles",
+            "description": "Panoramic views, beacon tower, Iron Age hill fort. Great picnic spot.",
+            "difficulty": "Moderate - it's hills!"
+          },
+          {
+            "name": "Avon Dassett",
+            "distance": "~3 miles",
+            "description": "Tiny village, thatched cottages, The Avon pub",
+            "difficulty": "Moderate"
+          }
+        ]
       },
       {
         "name": "Napton-on-the-Hill",
         "distance": "Northern limit of South Oxford Canal",
         "highlights": ["Napton Windmill (visible for hours as canal circles the hill)", "Junction with Grand Union Canal", "9 locks"],
-        "pubs": ["The Folly Inn (canalside)"]
+        "pubs": ["The Folly Inn (canalside)"],
+        "bikeDestinations": [
+          {
+            "name": "Napton Village (up the hill)",
+            "distance": "~1 mile but steep!",
+            "description": "Village at top of hill with windmill views. The King's Head pub.",
+            "difficulty": "Challenging - steep hill (e-bike helps!)"
+          }
+        ]
       },
       {
         "name": "Braunston",
         "distance": "Via Grand Union from Napton",
         "highlights": ["Famous canal town", "Historic Stop House (toll collection)", "Annual Historic Narrowboat Rally", "Boat chandleries", "Canal museum"],
         "pubs": ["The Admiral Nelson", "The Boathouse"],
-        "note": "Worth the detour for canal history enthusiasts"
+        "note": "Worth the detour for canal history enthusiasts",
+        "bikeDestinations": [
+          {
+            "name": "Braunston Village",
+            "distance": "~0.5 miles from marina",
+            "description": "Walk or quick ride to village center, All Saints Church (ironstone tower)",
+            "difficulty": "Easy"
+          }
+        ]
       }
     ],
     "history": {
@@ -272,6 +422,13 @@
           "location": "Enslow (near Shipton-on-Cherwell)",
           "notes": "Named after the Satellite Earth Station nearby",
           "type": "Canalside pub"
+        },
+        {
+          "name": "The Pear Tree (Hook Norton Brewery)",
+          "location": "Hook Norton (bike ride from Banbury)",
+          "notes": "Attached to the brewery. Fresh Hook Norton ales. BIKE DESTINATION.",
+          "type": "Brewery pub",
+          "accessNote": "Only accessible by bike or car - not on canal"
         }
       ],
       "realAleNote": "Many pubs serve Hook Norton ales (local Oxfordshire brewery) and other regional real ales. Look for CAMRA Good Beer Guide listings."
@@ -303,6 +460,20 @@
           "notes": "Unique canal-related items"
         },
         {
+          "name": "Woodstock",
+          "location": "Near Oxford (bike ride)",
+          "type": "Cotswolds market town",
+          "notes": "Antiques, galleries, boutiques. Combine with Blenheim Palace visit.",
+          "accessNote": "BIKE DESTINATION from Oxford moorings"
+        },
+        {
+          "name": "Deddington",
+          "location": "Near Lower Heyford (bike ride)",
+          "type": "Cotswolds village",
+          "notes": "Antiques, farmers market (4th Saturday), independent shops",
+          "accessNote": "BIKE DESTINATION from Lower Heyford"
+        },
+        {
           "name": "Village antique shops",
           "location": "Various",
           "notes": "Many villages have small antique/vintage stores"
@@ -315,30 +486,99 @@
         "location": "Banbury",
         "url": "https://www.tooleys-boatyard.co.uk/",
         "description": "Oldest continuously working dry dock on canal system (since 1790). Tours available showing forge, workshops.",
-        "note": "Where canal pioneer Tom Rolt set out in 1930s - his book 'Narrow Boat' led to formation of Inland Waterways Association"
+        "note": "Where canal pioneer Tom Rolt set out in 1930s - his book 'Narrow Boat' led to formation of Inland Waterways Association",
+        "access": "Canal - moor in Banbury"
       },
       {
         "name": "Blenheim Palace",
         "location": "Woodstock (near Oxford)",
         "description": "UNESCO World Heritage Site. Winston Churchill's birthplace. Capability Brown gardens.",
-        "access": "Short taxi from Oxford moorings"
+        "access": "BIKE from Oxford moorings (~8 miles) - RECOMMENDED",
+        "bikeNote": "Perfect half-day bike excursion from Oxford"
       },
       {
         "name": "Rousham House & Gardens",
         "location": "Near Lower Heyford",
-        "description": "Beautifully preserved 18th century gardens with cascades, walled garden, parterre, pigeon house.",
-        "access": "Short walk from moorings"
+        "description": "Beautifully preserved 18th century William Kent gardens with cascades, walled garden, parterre, pigeon house. House also open some days.",
+        "access": "BIKE from Lower Heyford (~2 miles) - EASY",
+        "bikeNote": "Quick morning or afternoon ride from base"
+      },
+      {
+        "name": "Hook Norton Brewery",
+        "location": "Hook Norton village",
+        "url": "https://www.hooknortonbrewery.co.uk/",
+        "description": "Victorian tower brewery, still uses steam engine. Brewery tours available (book ahead). Visitor center and shop. The Pear Tree pub on site.",
+        "access": "BIKE from Banbury moorings (~6 miles) - MODERATE",
+        "bikeNote": "MUST DO bike excursion. Rolling Cotswolds hills but e-bikes handle it easily.",
+        "note": "One of few remaining tower breweries in UK. Famous real ales."
+      },
+      {
+        "name": "Broughton Castle",
+        "location": "Near Banbury",
+        "description": "Medieval moated castle, beautiful gardens, used in Shakespeare in Love and other films.",
+        "access": "BIKE from Banbury (~3 miles)",
+        "bikeNote": "Easy ride, can combine with other Banbury-area cycling"
       },
       {
         "name": "Battle of Cropredy Bridge Site",
         "location": "Cropredy",
         "description": "English Civil War battle site (1644). Royalist army under Charles I vs Parliamentary force.",
         "access": "Walk from Cropredy moorings"
+      },
+      {
+        "name": "Burton Dassett Hills Country Park",
+        "location": "Near Fenny Compton",
+        "description": "Panoramic views over Warwickshire, medieval beacon tower, Iron Age hill fort remains.",
+        "access": "BIKE from Fenny Compton (~4 miles) - MODERATE",
+        "bikeNote": "Great picnic spot with views"
       }
     ],
+    "bikeHighlights": {
+      "note": "E-bikes open up destinations not accessible from the canal. These are the top bike excursions:",
+      "mustDo": [
+        {
+          "name": "Hook Norton Brewery",
+          "from": "Banbury",
+          "distance": "6 miles each way",
+          "why": "World-class brewery tour, excellent pub, can't reach any other way from canal"
+        },
+        {
+          "name": "Blenheim Palace & Woodstock",
+          "from": "Oxford",
+          "distance": "8 miles each way",
+          "why": "UNESCO site, stunning palace and gardens, charming market town"
+        },
+        {
+          "name": "Rousham House & Gardens",
+          "from": "Lower Heyford",
+          "distance": "2 miles each way",
+          "why": "Gorgeous historic gardens, very close to base, easy ride"
+        }
+      ],
+      "recommended": [
+        {
+          "name": "Deddington",
+          "from": "Lower Heyford",
+          "distance": "5 miles each way",
+          "why": "Great Cotswolds village, farmers market, good pubs"
+        },
+        {
+          "name": "Aynho Village",
+          "from": "Aynho Wharf",
+          "distance": "1 mile each way",
+          "why": "Picture-perfect village, unique apricot trees"
+        },
+        {
+          "name": "Burton Dassett Hills",
+          "from": "Fenny Compton",
+          "distance": "4 miles each way",
+          "why": "Best views of the trip, historic beacon tower"
+        }
+      ]
+    },
     "liveMusic": {
       "notes": "Traditional pub music and folk sessions common in canal pubs. Cropredy is famous for Fairport Convention festival (August) but will have folk music culture year-round.",
-      "venues": ["Check Red Lion and Brasenose Arms in Cropredy", "Oxford has many live music venues"]
+      "venues": ["Check Red Lion and Brasenose Arms in Cropredy", "Oxford has many live music venues", "Hook Norton Brewery sometimes has events"]
     },
     "photoOps": [
       "Narrowboat on winding Oxford Canal",
@@ -348,7 +588,12 @@
       "Oxford dreaming spires from canal",
       "Thrupp canal cottages",
       "Tooley's Boatyard",
-      "Autumn colors along towpath"
+      "Autumn colors along towpath",
+      "E-bikes on narrowboat roof",
+      "Blenheim Palace (bike trip)",
+      "Hook Norton Brewery tower (bike trip)",
+      "Rousham Gardens (bike trip)",
+      "Burton Dassett views (bike trip)"
     ]
   },
   "trainTravel": {
@@ -358,10 +603,7 @@
       "totalTime": "About 2 hours Heathrow to Lower Heyford base",
       "notes": "Heyford Station is RIGHT NEXT to Black Prince and Oxfordshire Narrowboats bases. Very convenient."
     },
-    "alternative": {
-      "route": "If using Napton base: Heathrow → Paddington → Leamington Spa (via Marylebone or cross to Euston), then taxi (~9 miles)",
-      "notes": "Less convenient than Lower Heyford"
-    },
+    "bikeNote": "E-bikes will be delivered to the narrowboat base - no need to transport on train",
     "heathrowConnections": {
       "heathrowExpress": "Heathrow → Paddington in 15 mins (expensive)",
       "elizabethLine": "Heathrow → Paddington in ~30 mins (much cheaper, recommended)"
@@ -374,6 +616,7 @@
       "daylight": "Late Sept: Sunrise ~7am, Sunset ~7pm. Early Oct: ~7:15am / ~6:30pm",
       "clothing": "Layers, waterproof jacket, warm fleece, sturdy shoes for lock work"
     },
+    "bikeGear": "Waterproof jacket essential for cycling. Gloves recommended for cooler mornings.",
     "notes": "Late September often has good weather - 'Indian summer' possible. Early October still pleasant. Better weather odds than late October."
   },
   "pricing": {
@@ -386,6 +629,10 @@
         "estimate": "$3,000",
         "notes": "~£2,400 for 12 days on premium 4-berth with 2 bathrooms"
       },
+      "bikes": {
+        "estimate": "$600",
+        "notes": "4 e-bikes x 12 days @ ~£12-15/day each = ~£500-700"
+      },
       "trains": {
         "estimate": "$200",
         "notes": "Heathrow to Lower Heyford and return for 4"
@@ -395,30 +642,30 @@
         "notes": "Mix of pub meals, onboard cooking, and special dinners. Budget ~$25-40/person/day"
       },
       "activities": {
-        "estimate": "$300",
-        "notes": "Attractions (Blenheim, Tooley's tours), tips, misc"
+        "estimate": "$400",
+        "notes": "Attractions (Blenheim, Tooley's tours, Hook Norton brewery tour), tips, misc"
       },
       "total": {
-        "estimate": "$8,000",
-        "perPerson": "$2,000",
-        "notes": "Very preliminary - needs quotes"
+        "estimate": "$8,700",
+        "perPerson": "$2,175",
+        "notes": "Preliminary - needs quotes for boats and bikes"
       }
     }
   },
   "openQuestions": [
     "Confirm exact dates (late September vs early October?)",
-    "Prefer Lower Heyford base (best train access) or Napton (more route options)?",
     "Get Delta flight quotes from MOB, PNS, GPT, MSY to compare",
     "Any specific dates to avoid?",
     "Any dietary restrictions for pub/restaurant planning?",
-    "Interest in Blenheim Palace day trip?",
+    "Helmets - bring own or rent with bikes?",
     "Budget ceiling?"
   ],
   "nextSteps": [
     "Client to confirm preferred dates",
-    "Client to confirm Lower Heyford as preferred base",
     "Get Delta flight quotes",
-    "Contact Black Prince or Oxfordshire Narrowboats for 4-berth/2-bathroom boat availability at Lower Heyford",
-    "Book once dates and boat confirmed"
+    "Contact Black Prince or Oxfordshire Narrowboats for 4-berth/2-bathroom boat availability at Lower Heyford - ask about bike storage",
+    "Get e-bike rental quotes (Bainton Bikes or boat company partner)",
+    "Book Hook Norton Brewery tour once dates confirmed",
+    "Book Blenheim Palace tickets once dates confirmed"
   ]
 }
