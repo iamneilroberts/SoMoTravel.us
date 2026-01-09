@@ -5,8 +5,8 @@
     "destination": "Portugal",
     "dates": "March 22-31, 2026",
     "occasion": "Business scouting trip + BFF adventure",
-    "phase": "tours",
-    "lastUpdated": "2026-01-09T20:15:00Z",
+    "phase": "extras",
+    "lastUpdated": "2026-01-09T20:45:00Z",
     "status": "Planning",
     "quotesConfirmed": false
   },
@@ -34,45 +34,30 @@
       "Excessive crowds (except for client reconnaissance)",
       "Long car rides",
       "Rental car if practical to skip"
-    ],
-    "kimPreferences": "Mountains, villages, hiking, unique finds, shorter drives",
-    "susiePreferences": "Beaches, fashion/shopping, no alcohol-focused activities",
-    "lodgingPreferences": "Boutique hotels or small B&Bs preferred, one room with two beds, reasonably priced"
+    ]
   },
   "flights": {
     "confirmed": false,
     "source": "web research - needs CP quote",
-    "notes": "Round-trip Lisbon recommended. Delta JFK-Porto doesn't start until May 2026, so open-jaw not practical for March dates.",
     "routing": {
       "recommended": "MOB → ATL → JFK → LIS (Delta)",
-      "alternatives": ["MSY → JFK → LIS could save money but 2hr drive"],
-      "reasoning": "Kim has Delta status, earns miles. JFK has premium lounges. Overnight transatlantic preferred."
+      "reasoning": "Kim has Delta status, earns miles. JFK has premium lounges."
     },
     "outbound": {
       "date": "2026-03-22",
       "route": "MOB → ATL → JFK → LIS",
       "airline": "Delta",
-      "flightNumbers": "TBD - need to quote",
-      "departure": "Afternoon from MOB",
       "arrival": "March 23 ~8:00am LIS",
-      "class": "Main Cabin (consider Comfort+ for transatlantic)",
-      "price": 0,
-      "notes": "Overnight flight JFK-LIS. DL272 departs JFK ~8:15pm, arrives LIS 8:00am."
+      "notes": "Overnight flight JFK-LIS"
     },
     "return": {
       "date": "2026-03-31",
       "route": "LIS → JFK → ATL → MOB",
       "airline": "Delta",
-      "flightNumbers": "TBD - need to quote",
-      "departure": "Morning from LIS",
-      "arrival": "Evening March 31 MOB",
-      "class": "Main Cabin",
-      "price": 0,
-      "notes": "DL273 departs LIS ~10:00am, arrives JFK ~1:00pm. Connect home same day."
+      "departure": "Morning from LIS"
     },
     "estimatedTotal": {
       "range": "$1,200-1,600 for 2 passengers",
-      "source": "web research Jan 2026",
       "needsQuote": true
     }
   },
@@ -84,7 +69,8 @@
         "date": "2026-03-23",
         "title": "Arrive Lisbon",
         "location": "Lisbon",
-        "activities": ["Arrive LIS ~8am", "Check into hotel (early check-in if possible)", "Light exploration of neighborhood", "Early dinner, early bed to recover"],
+        "activities": ["Arrive LIS ~8am", "Check into hotel", "Light exploration", "Early dinner, early bed"],
+        "dining": "Easy dinner near hotel - try Martinho da Arcada (Lisbon's oldest café, since 1782)",
         "overnight": "Lisbon"
       },
       {
@@ -92,8 +78,8 @@
         "date": "2026-03-24",
         "title": "Lisbon Exploration + Food Tour",
         "location": "Lisbon",
-        "activities": ["Morning: Alfama neighborhood self-guided", "11am: Devour Lisbon Food Tour (3.5 hrs)", "Afternoon: Chiado shopping (fashion for Susie)", "LX Factory (unique finds for Kim)", "Evening: Fado show or nice dinner"],
-        "suggestedTour": "Devour Lisbon: The Ultimate Portuguese Food Tour",
+        "activities": ["Morning: Self-guided Alfama", "11am: Devour Lisbon Food Tour", "Afternoon: Chiado shopping", "LX Factory"],
+        "dining": "Food tour covers lunch. Evening: Taberna da Rua das Flores or Cervejaria Ramiro (seafood)",
         "overnight": "Lisbon"
       },
       {
@@ -101,9 +87,8 @@
         "date": "2026-03-25",
         "title": "Sintra Day Trip",
         "location": "Sintra (day trip)",
-        "activities": ["Option A: Self-guided by train from Rossio", "Option B: Small-group guided tour (recommended)", "Pena Palace", "Quinta da Regaleira", "Mountain views and hiking trails (Kim)", "Return to Lisbon evening"],
-        "suggestedTour": "Sintra Small-Group Tour with Pena Palace & Regaleira",
-        "transport": "Included in tour OR Train ~€5 round trip per person",
+        "activities": ["Small-group guided tour", "Pena Palace", "Quinta da Regaleira"],
+        "dining": "Lunch in Sintra village. Dinner back in Lisbon: Prado (farm-to-table, vegan options)",
         "overnight": "Lisbon"
       },
       {
@@ -111,18 +96,17 @@
         "date": "2026-03-26",
         "title": "Cascais Beach Day",
         "location": "Cascais (day trip)",
-        "activities": ["Train from Cais do Sodré (35 min scenic coastal route)", "Beach time (Susie)", "Old town exploration and shopping", "Boca do Inferno cliffs", "Seafood lunch", "Optional: walk to Estoril", "Return to Lisbon evening"],
-        "transport": "Train ~€5 round trip per person",
-        "overnight": "Lisbon",
-        "notes": "Self-guided - no tour needed. Easy train ride, walkable town."
+        "activities": ["Train to Cascais", "Beach time", "Old town shopping", "Boca do Inferno cliffs"],
+        "dining": "Seafood lunch in Cascais. Dinner: Fado show at Tasca do Chico or Sr. Fado",
+        "overnight": "Lisbon"
       },
       {
         "day": 5,
         "date": "2026-03-27",
         "title": "Train to Porto",
         "location": "Porto",
-        "activities": ["Morning in Lisbon (pack, breakfast)", "Alfa Pendular train to Porto (~3 hrs)", "Check into Porto hotel", "Evening walk in Ribeira district", "Dinner with Douro River views"],
-        "transport": "Alfa Pendular ~€27-34 per person",
+        "activities": ["Morning pack/breakfast", "Alfa Pendular to Porto", "Evening Ribeira walk"],
+        "dining": "Dinner with river views: Bacalhau or Adega São Nicolau",
         "overnight": "Porto"
       },
       {
@@ -130,26 +114,26 @@
         "date": "2026-03-28",
         "title": "Porto Exploration + Food Tour",
         "location": "Porto",
-        "activities": ["Morning: São Bento Station, Clérigos Tower", "11am or 3pm: Porto Food Tour (3 hrs)", "Livraria Lello (famous bookstore)", "Rua de Santa Catarina shopping", "Ribeira waterfront evening", "Dom Luís I Bridge walk at sunset"],
-        "suggestedTour": "Porto Food Tour (Secret Food Tours or Taste Porto)",
+        "activities": ["São Bento Station", "Clérigos Tower", "Food Tour", "Livraria Lello", "Dom Luís I Bridge sunset"],
+        "dining": "Food tour covers tastings. Dinner: Tapabento at São Bento Station",
         "overnight": "Porto"
       },
       {
         "day": 7,
         "date": "2026-03-29",
-        "title": "Douro Valley Scenic Train Day",
+        "title": "Douro Valley Scenic Train",
         "location": "Douro Valley (day trip)",
-        "activities": ["Take scenic train from São Bento to Pinhão (2.5 hrs)", "Stunning river and vineyard views", "Explore Pinhão village and famous azulejo-tiled station", "Optional: 1-hr river cruise from Pinhão", "Lunch at riverside restaurant", "Train back to Porto", "Alternative: Foz do Douro beach day if weather poor"],
-        "transport": "Train ~€12 each way per person",
-        "overnight": "Porto",
-        "notes": "DIY train trip = scenic without wine-focus. Perfect for Susie. Kim gets mountain/valley views."
+        "activities": ["Scenic train to Pinhão", "Explore village", "Optional river cruise", "Train back"],
+        "dining": "Lunch in Pinhão riverside. Dinner: Francesinha at Café Santiago or Lado B",
+        "overnight": "Porto"
       },
       {
         "day": 8,
         "date": "2026-03-30",
         "title": "Porto Free Day",
         "location": "Porto",
-        "activities": ["Return to favorite spots", "Additional shopping", "Hidden gems exploration", "Last special dinner in Porto"],
+        "activities": ["Return to favorites", "Shopping", "Hidden gems"],
+        "dining": "Special farewell dinner: Raiz or Ora Viva",
         "overnight": "Porto"
       },
       {
@@ -157,8 +141,7 @@
         "date": "2026-03-31",
         "title": "Depart",
         "location": "Porto → Lisbon → Home",
-        "activities": ["Morning in Porto", "Train Porto → Lisbon Oriente (~3 hrs)", "Metro to Lisbon Airport", "Flight home"],
-        "transport": "Alfa Pendular + Metro ~€30-35 per person"
+        "activities": ["Morning Porto", "Train to Lisbon Oriente", "Metro to airport", "Flight home"]
       }
     ]
   },
@@ -167,580 +150,448 @@
       "name": "Lisbon",
       "nights": 4,
       "dates": "March 23-27, 2026",
-      "purpose": "Capital city base. Day trips to Sintra and Cascais.",
-      "neighborhoods": ["Chiado/Baixa (central, shopping)", "Alfama (historic)", "Príncipe Real (boutiques)"],
-      "status": "confirmed"
+      "purpose": "Capital city base. Day trips to Sintra and Cascais."
     },
     {
       "name": "Porto",
       "nights": 4,
       "dates": "March 27-31, 2026",
-      "purpose": "Northern base. Walkable city, possible Douro day trip.",
-      "neighborhoods": ["Ribeira (waterfront)", "Baixa (center)", "Foz do Douro (beach)"],
-      "status": "confirmed"
+      "purpose": "Northern base. Walkable city, Douro day trip."
     }
   ],
   "lodging": {
-    "requirements": {
-      "lisbon": "Central location (Chiado, Baixa, or Alfama). Walking distance to Rossio and Cais do Sodré stations for day trips. 4 nights.",
-      "porto": "Ribeira or Baixa area. Walking distance to São Bento station. 4 nights.",
-      "roomType": "One room with two beds (twin preferred)",
-      "style": "Boutique hotel or small B&B preferred"
-    },
     "recommendation": "Premium tier - best value for quality/location balance",
-    "value": [
-      {
-        "location": "Lisbon",
-        "property": "My Story Hotel Ouro",
-        "starRating": "3-star boutique",
-        "nights": 4,
-        "pricePerNight": 100,
-        "priceRange": "€90-110/night",
-        "total": 400,
-        "totalRange": "€360-440 for 4 nights",
-        "url": "https://www.booking.com/hotel/pt/my-story-ouro.html",
-        "address": "Baixa district, near Rossio",
-        "roomType": "Twin room available",
-        "amenities": ["Free WiFi", "Air conditioning", "Central location"],
-        "whyItWorks": "18th-century building, excellent reviews, 5-min walk to both Rossio and Cais do Sodré stations",
-        "cpBookable": "Check CP Maxx availability",
-        "confirmed": false,
-        "source": "web research Jan 2026"
-      },
-      {
-        "location": "Porto",
-        "property": "Oca Ribeira do Porto Hotel",
-        "starRating": "3-star",
-        "nights": 4,
-        "pricePerNight": 100,
-        "priceRange": "€90-115/night",
-        "total": 400,
-        "totalRange": "€360-460 for 4 nights",
-        "url": "https://www.booking.com/hotel/pt/ribeira-do-porto.html",
-        "address": "Ribeira district",
-        "roomType": "Twin room available",
-        "amenities": ["Free WiFi", "Breakfast included", "River views possible"],
-        "whyItWorks": "Historic Ribeira location, walking distance to São Bento, 18 rooms, cozy atmosphere",
-        "cpBookable": "Check CP Maxx availability",
-        "confirmed": false,
-        "source": "web research Jan 2026"
-      }
-    ],
     "premium": [
       {
         "location": "Lisbon",
         "property": "Hotel da Baixa",
-        "starRating": "4-star boutique",
         "nights": 4,
-        "pricePerNight": 150,
         "priceRange": "€140-160/night",
         "total": 600,
-        "totalRange": "€560-640 for 4 nights",
-        "url": "https://www.hoteldabaixa.com/en/",
-        "bookingUrl": "https://www.booking.com/hotel/pt/da-baixa.html",
-        "address": "Rua da Prata 231, Baixa district",
-        "roomType": "Classic Twin Room or Superior Twin Room",
-        "amenities": [
-          "Free WiFi",
-          "Buffet breakfast (€25/person, vegetarian/gluten-free options)",
-          "Free smartphone with unlimited data during stay",
-          "Nespresso machine in room",
-          "4K TV with internet",
-          "Free minibar",
-          "Library with fireplace",
-          "Walking tours with Guest Manager Pedro"
-        ],
-        "whyItWorks": "Perfect location between Rossio (Sintra trains) and Cais do Sodré (Cascais trains). Larger-than-average rooms for Lisbon. Free smartphone = great for navigating. TripAdvisor Travelers' Choice. Great reviews for staff.",
-        "pricingSource": "Kayak shows €146-187/night recent bookings. Direct booking often best rate.",
-        "verified": "Jan 2026",
-        "cpBookable": "4-star likely in CP Maxx - verify availability",
-        "recommended": true,
-        "confirmed": false,
-        "source": "web research Jan 2026"
+        "recommended": true
       },
       {
         "location": "Porto",
         "property": "Exmo. Hotel by Olivia",
-        "starRating": "4-star boutique",
         "nights": 4,
-        "pricePerNight": 170,
         "priceRange": "€150-190/night",
         "total": 680,
-        "totalRange": "€600-760 for 4 nights",
-        "url": "https://exmohotelbyolivia.com-hotel.com/",
-        "bookingUrl": "https://www.booking.com/hotel/pt/exmo.html",
-        "address": "Rua do Infante D. Henrique 55-61, Ribeira",
-        "roomType": "Premium Twin/Double Room",
-        "amenities": [
-          "Free WiFi",
-          "Free buffet breakfast (served until 1pm - brunch!)",
-          "Heated bathroom floors",
-          "Minibar with some free items",
-          "Soundproof rooms",
-          "City/river views available",
-          "Restaurant serves brunch, lunch, dinner",
-          "24-hour front desk"
-        ],
-        "whyItWorks": "Only 16 rooms - intimate boutique feel. 14th-century restored building. 2-min walk to Ribeira Square. Brunch until 1pm perfect for late mornings. TripAdvisor rated 4.8/5. Excellent reviews for staff, location, breakfast.",
-        "pricingSource": "Travelocity shows $271/night. Hotels.com/Booking similar range.",
-        "verified": "Jan 2026",
-        "cpBookable": "4-star boutique - verify CP Maxx availability",
-        "recommended": true,
-        "confirmed": false,
-        "source": "web research Jan 2026",
-        "note": "Property closed Jan 18-29, 2026 but open for March dates"
-      },
-      {
-        "location": "Porto",
-        "property": "Hotel Carris Porto Ribeira",
-        "starRating": "4-star boutique",
-        "nights": 4,
-        "pricePerNight": 140,
-        "priceRange": "€112-160/night",
-        "total": 560,
-        "totalRange": "€448-640 for 4 nights",
-        "url": "https://hotelcarrisportoribeira.com-hotel.com/",
-        "bookingUrl": "https://www.booking.com/hotel/pt/carris-porto-ribeira.en-gb.html",
-        "address": "Rua do Infante D. Henrique 1, Ribeira",
-        "roomType": "Carris Twin Room (street view or river view)",
-        "amenities": [
-          "Free WiFi",
-          "Buffet breakfast",
-          "Gym/fitness center",
-          "On-site restaurant (Forno Velho) and bar",
-          "Room service",
-          "Elevator",
-          "Business center"
-        ],
-        "whyItWorks": "90 rooms in refurbished historic building overlooking Douro. 5-min walk to São Bento Station. More amenities than Exmo (gym, larger restaurant). Booking.com rated 8.4. Good value option in premium tier.",
-        "pricingSource": "Kayak shows $159-264 recent bookings. Starting price €112/night.",
-        "verified": "Jan 2026",
-        "cpBookable": "4-star chain - likely in CP Maxx",
-        "alternativeTo": "Exmo Hotel",
-        "confirmed": false,
-        "source": "web research Jan 2026"
-      }
-    ],
-    "luxury": [
-      {
-        "location": "Lisbon",
-        "property": "AlmaLusa Baixa/Chiado",
-        "starRating": "4-star boutique luxury",
-        "nights": 4,
-        "pricePerNight": 180,
-        "priceRange": "€170-200/night",
-        "total": 720,
-        "totalRange": "€680-800 for 4 nights",
-        "url": "https://www.almalusahotels.com/baixachiado/",
-        "address": "Praça do Município, Baixa/Chiado",
-        "roomType": "Superior Twin Room",
-        "amenities": ["On-site Portuguese restaurant (Delfina)", "Concierge", "2 min from Tagus River", "Local Portuguese brands throughout"],
-        "whyItWorks": "Only 28 rooms. Renovated 18th-century building on emblematic square. Strong Portuguese cultural focus. Excellent restaurant on-site.",
-        "cpBookable": "Boutique - verify availability",
-        "confirmed": false,
-        "source": "web research Jan 2026"
-      },
-      {
-        "location": "Porto",
-        "property": "ICON Duplo Ribeira",
-        "starRating": "4-star boutique luxury",
-        "nights": 4,
-        "pricePerNight": 220,
-        "priceRange": "€180-250/night",
-        "total": 880,
-        "totalRange": "€720-1000 for 4 nights",
-        "url": "https://www.iconhotels.com/en/icon-duplo-ribeira/",
-        "address": "Calle São João, Ribeira",
-        "roomType": "Twin room in Original or Custom building",
-        "amenities": ["Two distinct buildings (Original = classic, Custom = modern)", "Restaurant with petiscos", "Pet-friendly", "Terrace", "Near Maria Pia Bridge"],
-        "whyItWorks": "Brand new (opened 2024). TripAdvisor ranked #16 best hotel worldwide. Two buildings offer different vibes - choose classic Portuguese or contemporary.",
-        "cpBookable": "New boutique - may need direct booking",
-        "confirmed": false,
-        "source": "web research Jan 2026"
-      }
-    ],
-    "pricingSummary": {
-      "value": {
-        "lisbon4nights": "€360-440 (~$390-480)",
-        "porto4nights": "€360-460 (~$390-500)",
-        "total": "€720-900 (~$780-980)"
-      },
-      "premium": {
-        "lisbon4nights": "€560-640 (~$610-700)",
-        "porto4nights": "€520-680 (~$565-740)",
-        "total": "€1,080-1,320 (~$1,175-1,440)",
         "recommended": true
-      },
-      "luxury": {
-        "lisbon4nights": "€680-800 (~$740-870)",
-        "porto4nights": "€720-1,000 (~$785-1,090)",
-        "total": "€1,400-1,800 (~$1,525-1,960)"
       }
-    }
+    ]
   },
   "tours": {
-    "recommendation": "Food tours are perfect for you both as foodies. Sintra tour saves logistics hassle. Douro DIY train = scenic without wine focus.",
     "lisbon": [
       {
-        "name": "Devour Lisbon: The Ultimate Portuguese Food Tour",
-        "provider": "Devour Tours / Viator",
-        "type": "Food walking tour",
-        "duration": "3.5 hours",
-        "groupSize": "Max 10 people",
-        "price": "$75-85 per person",
+        "name": "Devour Lisbon Food Tour",
+        "price": "$75-85/person",
         "totalFor2": "~$150-170",
-        "suggestedDay": "Day 2 (March 24) - 11am departure",
-        "meetingPoint": "Baixa district (red Devour Tours sign)",
-        "includes": [
-          "9 food tastings at 7 local spots",
-          "3 drinks (ginjinha cherry liqueur, wine, coffee)",
-          "Local guide",
-          "Enough food for a full meal"
-        ],
-        "highlights": [
-          "Classic Portuguese codfish",
-          "Famous pastel de nata custard tarts",
-          "Bifana sandwich",
-          "Traditional tasca meal",
-          "Walks through Baixa, Chiado, Cais do Sodré"
-        ],
-        "alcoholNote": "Tour includes wine/ginjinha but NON-ALCOHOLIC OPTIONS AVAILABLE - just notify when booking. They accommodate dietary needs.",
-        "viatorUrl": "https://www.viator.com/tours/Lisbon/Tastes-and-Traditions-of-Lisbon-Food-Tour/d538-170816P1",
-        "reviews": "1925+ reviews, 4.95/5 average",
-        "whyForYou": "Perfect for foodies! Get oriented on Day 2, learn local food spots for rest of trip. Non-alcoholic options for Susie.",
-        "clientValue": "Great tour to recommend to future clients - excellent reviews, reasonable price",
-        "tier": "all",
-        "recommended": true,
-        "confirmed": false
+        "day": "Day 2 (March 24)",
+        "alcoholNote": "Non-alcoholic options available",
+        "recommended": true
       },
       {
-        "name": "Sintra Small-Group Tour with Pena Palace & Regaleira",
-        "provider": "Various / Viator",
-        "type": "Full-day guided tour",
-        "duration": "8-9 hours",
-        "groupSize": "Max 8 people",
-        "price": "$85-110 per person",
+        "name": "Sintra Small-Group Tour",
+        "price": "$85-110/person",
         "totalFor2": "~$170-220",
-        "suggestedDay": "Day 3 (March 25) - 8am pickup",
-        "includes": [
-          "Round-trip transport from Lisbon",
-          "Entrance tickets to Pena Palace & Park",
-          "Entrance to Quinta da Regaleira",
-          "English-speaking guide",
-          "Stops at Cabo da Roca and/or Cascais"
-        ],
-        "highlights": [
-          "UNESCO World Heritage Sintra",
-          "Colorful Pena Palace",
-          "Mystical Quinta da Regaleira (tunnels, gardens)",
-          "Skip-the-line entry",
-          "Continental Europe's westernmost point (Cabo da Roca)"
-        ],
-        "viatorUrl": "https://www.viator.com/tours/Lisbon/Sintra-Tour/d538-33844P1",
-        "reviews": "7000+ reviews across similar tours",
-        "whyForYou": "Removes logistics hassle for mountainous area. Guide handles crowds and timing. Kim gets mountain views, both get fairytale palaces.",
-        "clientValue": "TOP recommendation for future clients - Sintra is a must-see, guided tour is worth it for first-timers",
-        "alternativeOption": "DIY by train (~€5 RT) + palace tickets (~€30-35) saves ~$50 but requires more planning and lines",
-        "tier": "premium",
-        "recommended": true,
-        "confirmed": false
-      },
-      {
-        "name": "Lisbon Essential Walking Tour",
-        "provider": "Various / Viator",
-        "type": "Walking tour",
-        "duration": "2-3 hours",
-        "groupSize": "Small group",
-        "price": "$25-35 per person",
-        "totalFor2": "~$50-70",
-        "includes": ["Local guide", "Walking tour of historic neighborhoods", "History and culture insights"],
-        "highlights": ["Chiado", "Bairro Alto", "Alfama", "Miradouro viewpoints", "Local tips"],
-        "viatorUrl": "https://www.viator.com/tours/Lisbon/Lisbon-Essential-Tour-History-Stories-Lifestyle/d538-17498P1",
-        "reviews": "530+ reviews",
-        "whyForYou": "Budget option if you want a guide for orientation. Could do arrival day afternoon if not too tired.",
-        "clientValue": "Good budget option for clients, but food tour provides more value",
-        "tier": "value",
-        "recommended": false,
-        "confirmed": false
+        "day": "Day 3 (March 25)",
+        "recommended": true
       }
     ],
     "porto": [
       {
         "name": "Porto Secret Food Tour",
-        "provider": "Secret Food Tours / Viator",
-        "type": "Food walking tour",
-        "duration": "3 hours",
-        "groupSize": "Small group",
-        "price": "$70-85 per person",
+        "price": "$70-85/person",
         "totalFor2": "~$140-170",
-        "suggestedDay": "Day 6 (March 28) - 11am or 3pm",
-        "meetingPoint": "Coliseu Porto, Rua Passos Manuel",
-        "includes": [
-          "8 food tastings",
-          "Local drinks",
-          "Expert local guide"
-        ],
-        "highlights": [
-          "Portuguese sardines",
-          "Local sponge cakes",
-          "Bifana sandwich",
-          "Custard tarts",
-          "Downtown & Ribeira neighborhoods",
-          "Views of Dom Luis I Bridge"
-        ],
-        "alcoholNote": "Includes wine but alternatives available on request",
-        "viatorUrl": "https://www.viator.com/tours/Porto/Secret-Food-Tours-Porto/d26879-7812P85",
-        "reviews": "465+ reviews",
-        "whyForYou": "Get oriented to Porto's food scene on first full day. Same company as other great food tours worldwide.",
-        "clientValue": "Excellent tour to recommend - Porto food scene is incredible",
-        "tier": "all",
-        "recommended": true,
-        "confirmed": false
+        "day": "Day 6 (March 28)",
+        "alcoholNote": "Non-alcoholic options available",
+        "recommended": true
       },
-      {
-        "name": "Taste Porto Food Tours",
-        "provider": "Taste Porto / Direct booking",
-        "type": "Food & wine walking tour",
-        "duration": "3-4 hours",
-        "groupSize": "Small group",
-        "price": "$75-95 per person",
-        "totalFor2": "~$150-190",
-        "includes": ["Multiple food stops", "History and culture", "Local guide"],
-        "highlights": ["Featured on Anthony Bourdain's Parts Unknown", "Lonely Planet recommended", "Guardian recommended"],
-        "alcoholNote": "Wine-focused but can accommodate non-drinkers",
-        "website": "https://www.tasteporto.com/",
-        "reviews": "TripAdvisor top-rated for Porto",
-        "whyForYou": "Alternative to Secret Food Tours - more prestigious reputation. Better for wine-loving clients.",
-        "clientValue": "Premium option for clients who want elevated experience",
-        "tier": "premium",
-        "alternativeTo": "Secret Food Tours",
-        "recommended": false,
-        "confirmed": false
-      }
-    ],
-    "douro": [
       {
         "name": "DIY Douro Valley Scenic Train",
-        "provider": "CP (Portuguese Railways)",
-        "type": "Self-guided scenic train ride",
-        "duration": "Full day (leave ~9am, return ~6pm)",
-        "price": "~€12 each way per person (~€24 RT)",
+        "price": "~€24 RT/person",
         "totalFor2": "~$55-60",
-        "suggestedDay": "Day 7 (March 29)",
-        "route": "Porto São Bento → Pinhão (2.5 hrs)",
-        "includes": ["Round-trip train ticket only"],
-        "highlights": [
-          "One of Europe's most scenic train rides",
-          "Follows Douro River through wine country",
-          "Terraced vineyards, tunnels, bridges",
-          "Famous azulejo-tiled Pinhão station",
-          "Free time to explore Pinhão village",
-          "Optional: 1-hr river cruise from Pinhão (~€15-20)",
-          "Lunch at riverside restaurant"
-        ],
-        "importantNote": "⚠️ TRACK WORK: Trains replaced by buses between Caide & Régua until April 2, 2026. Your dates (March 29) may be affected - verify closer to trip!",
-        "trainInfo": {
-          "website": "www.cp.pt",
-          "departure": "~9:20am from São Bento (direct service)",
-          "arrival": "~11:45am Pinhão",
-          "return": "Multiple options, last train ~5pm",
-          "tips": "Sit on RIGHT side going out for best river views"
-        },
-        "whyForYou": "PERFECT for Susie - scenic valley experience WITHOUT wine tour focus. Kim gets mountain/valley views. Budget-friendly. Authentic local experience.",
-        "clientValue": "Budget alternative to wine tours for clients who don't drink or want DIY adventure",
-        "tier": "value",
-        "recommended": true,
-        "confirmed": false
-      },
-      {
-        "name": "Douro Valley Small-Group Tour (Non-Wine Focus Option)",
-        "provider": "Various / Viator",
-        "type": "Full-day guided tour",
-        "duration": "9-10 hours",
-        "price": "$100-150 per person",
-        "totalFor2": "~$200-300",
-        "includes": ["Transport", "Lunch", "River cruise", "1-2 winery visits"],
-        "highlights": ["Scenic viewpoints", "River cruise", "Traditional lunch", "Village stops"],
-        "alcoholNote": "⚠️ MOST tours are wine-focused. Would need to request non-wine alternatives or skip tastings. Not ideal for Susie.",
-        "whyForYou": "Only if train service disrupted. Otherwise DIY train is better fit.",
-        "clientValue": "Great for wine-loving clients",
-        "tier": "premium",
-        "recommended": false,
-        "confirmed": false
-      }
-    ],
-    "freeAlternatives": [
-      {
-        "name": "Foz do Douro Beach Day",
-        "location": "Porto",
-        "cost": "Free (tram fare ~€3)",
-        "duration": "Half or full day",
-        "description": "Beach neighborhood at mouth of Douro River. Take Tram 1 from Ribeira. Beaches, seafood restaurants, lighthouse, relaxed vibe.",
-        "whyForYou": "Backup for Day 7 if weather poor or train disrupted. Susie gets beach time!"
-      },
-      {
-        "name": "Self-Guided Alfama Walking",
-        "location": "Lisbon",
-        "cost": "Free",
-        "duration": "2-3 hours",
-        "description": "Wander narrow streets of Lisbon's oldest neighborhood. Miradouros (viewpoints), street art, local life, Fado bars.",
-        "whyForYou": "Do this morning of Day 2 before food tour"
+        "day": "Day 7 (March 29)",
+        "note": "Perfect for Susie - scenic without wine focus",
+        "recommended": true
       }
     ]
   },
   "transport": {
     "rentalCar": {
-      "needed": false,
-      "notes": "Skipping rental car. Train-based itinerary is more practical and cost-effective."
+      "needed": false
     },
     "trains": {
-      "lisbonToSintra": {
-        "station": "Rossio",
-        "duration": "40 min",
-        "frequency": "Every 20 min",
-        "cost": "~€2.30 each way"
-      },
-      "lisbonToCascais": {
-        "station": "Cais do Sodré",
-        "duration": "35 min",
-        "frequency": "Every 20 min",
-        "cost": "~€2.30 each way",
-        "notes": "Scenic coastal route - sit on left side going out"
-      },
       "lisbonToPorto": {
         "train": "Alfa Pendular high-speed",
-        "stations": "Lisboa Oriente → Porto Campanhã (free transfer to São Bento)",
-        "duration": "~3 hours",
-        "cost": "~€27-34 per person",
-        "notes": "Book in advance for best price. Café-bar on board, WiFi, power outlets."
+        "duration": "2h 50min - 3h 15min",
+        "pricing": {
+          "standard": "€33.90 per person",
+          "conforto": "€47.40 per person (1st class)",
+          "promo": "Up to 65% off if booked 5-60 days advance"
+        },
+        "booking": {
+          "official": "www.cp.pt (book up to 60 days ahead)",
+          "thirdParty": "Omio.com (only authorized reseller)",
+          "tip": "Book early for Promo fares - can be as low as €9.50"
+        },
+        "stations": {
+          "lisbon": "Lisboa Oriente or Santa Apolónia",
+          "porto": "Porto Campanhã (transfer to São Bento)"
+        },
+        "amenities": ["Free WiFi", "Power outlets all seats", "Café-bar car", "Reclining seats"],
+        "note": "Seat reservation included. No standing allowed."
       },
       "portoToDouro": {
-        "train": "Regional IR train",
-        "stations": "Porto São Bento → Pinhão",
-        "duration": "~2.5 hours",
+        "train": "Regional IR",
+        "route": "Porto São Bento → Pinhão",
+        "duration": "2h 30min",
         "cost": "~€12 each way",
-        "notes": "One of Europe's most scenic train rides. ⚠️ Track work may affect until April 2, 2026."
+        "booking": "www.cp.pt or at station",
+        "tip": "Sit on RIGHT side for best river views",
+        "warning": "⚠️ Track work until April 2, 2026 - verify closer to trip"
       },
-      "portoToLisbonAirport": {
+      "dayTrips": {
+        "sintra": {
+          "from": "Rossio Station",
+          "duration": "40 min",
+          "cost": "€2.30 each way",
+          "frequency": "Every 20 min"
+        },
+        "cascais": {
+          "from": "Cais do Sodré",
+          "duration": "35 min",
+          "cost": "€2.30 each way",
+          "tip": "Scenic coastal route - sit on left"
+        }
+      },
+      "departureDay": {
         "route": "Porto Campanhã → Lisboa Oriente → Metro to Airport",
         "duration": "~3.5 hours total",
-        "cost": "~€30-35 per person"
+        "cost": "~€35 per person"
       }
     },
     "localTransport": {
-      "lisbon": "Metro, trams (especially 28E), walking. Consider Lisboa Card for unlimited transport + attractions.",
-      "porto": "Metro, trams, walking. Very walkable city center."
+      "lisbon": "Metro, Tram 28E, walking",
+      "porto": "Metro, Tram 1 to Foz, walking"
     },
-    "estimatedTransportTotal": {
-      "trains": "~€150-185 for both travelers",
+    "estimatedTotal": {
+      "allTrains": "~€150-200 for both",
       "local": "~€30-50",
-      "total": "~€180-235 (~$195-255)"
+      "total": "~$195-275"
     }
   },
   "extras": {
-    "dining": [],
-    "freeActivities": [],
-    "hiddenGems": [],
-    "kims_gem": null,
-    "photoOps": [],
+    "dining": {
+      "lisbon": [
+        {
+          "name": "Cervejaria Ramiro",
+          "type": "Iconic seafood",
+          "neighborhood": "Intendente",
+          "price": "€€",
+          "mustTry": "Bulhão Pato clams, prawns",
+          "note": "Famous - go for lunch to avoid crowds",
+          "url": "cervejaria-ramiro.pt"
+        },
+        {
+          "name": "Taberna da Rua das Flores",
+          "type": "Modern Portuguese petiscos",
+          "neighborhood": "Chiado",
+          "price": "€€",
+          "mustTry": "Seasonal small plates, croquettes",
+          "note": "No reservations - arrive early"
+        },
+        {
+          "name": "Prado",
+          "type": "Farm-to-table, Michelin-quality casual",
+          "neighborhood": "Alfama/Santa Apolónia",
+          "price": "€€",
+          "mustTry": "Seasonal menu, vegan tasting available",
+          "note": "Chef António Galapito - excellent",
+          "url": "pradorestaurante.com"
+        },
+        {
+          "name": "Martinho da Arcada",
+          "type": "Historic café (since 1782)",
+          "neighborhood": "Praça do Comércio",
+          "price": "€€",
+          "mustTry": "Portuguese classics",
+          "note": "Lisbon's oldest café - great for arrival day"
+        },
+        {
+          "name": "Alfama Cellar",
+          "type": "Contemporary Portuguese",
+          "neighborhood": "Alfama",
+          "price": "€€",
+          "mustTry": "Best seafood rice in Lisbon, oxtail",
+          "note": "Hidden gem with great wines (Susie can skip wine)"
+        },
+        {
+          "name": "Farol de Santa Luzia",
+          "type": "Traditional seafood",
+          "neighborhood": "Alfama",
+          "price": "€€",
+          "mustTry": "Grilled fish, mussels",
+          "note": "Family restaurant since 1973"
+        }
+      ],
+      "porto": [
+        {
+          "name": "Café Santiago",
+          "type": "Famous francesinha",
+          "neighborhood": "Downtown",
+          "price": "€",
+          "mustTry": "Classic francesinha with egg",
+          "note": "THE francesinha spot. Long lines - worth it",
+          "url": "cafesantiago.pt"
+        },
+        {
+          "name": "Lado B",
+          "type": "Modern francesinha",
+          "neighborhood": "Downtown (near Coliseum)",
+          "price": "€",
+          "mustTry": "Francesinha - they claim 'best in world'",
+          "note": "Half portions available. Ask for extra sauce"
+        },
+        {
+          "name": "Tapabento",
+          "type": "Portuguese tapas with Asian twist",
+          "neighborhood": "São Bento Station",
+          "price": "€€",
+          "mustTry": "Fish soup, croquettes",
+          "note": "Inside the beautiful train station!"
+        },
+        {
+          "name": "Bacalhau",
+          "type": "Cod specialist, riverside",
+          "neighborhood": "Ribeira",
+          "price": "€€",
+          "mustTry": "Bacalhau dishes with Douro views",
+          "note": "Try for riverside terrace seat"
+        },
+        {
+          "name": "Adega São Nicolau",
+          "type": "Traditional Portuguese",
+          "neighborhood": "Ribeira",
+          "price": "€€",
+          "mustTry": "Polvo à lagareiro (octopus)",
+          "note": "Keeps standards high despite tourist area"
+        },
+        {
+          "name": "Ora Viva",
+          "type": "Traditional, family-run",
+          "neighborhood": "Ribeira",
+          "price": "€€",
+          "mustTry": "Grilled sardines, bacalhau à brás",
+          "note": "Hidden gem - feels like old Porto. Reservations essential"
+        },
+        {
+          "name": "Raiz",
+          "type": "Modern Portuguese",
+          "neighborhood": "Near Clérigos",
+          "price": "€€",
+          "mustTry": "Oxtail croquettes, octopus",
+          "note": "Great for vegetarians too. Views of Clérigos Tower"
+        },
+        {
+          "name": "Café Gazela",
+          "type": "Street food legend",
+          "neighborhood": "Downtown",
+          "price": "€",
+          "mustTry": "Cachorrinhos (mini spicy hot dogs)",
+          "note": "Tiny, no-frills, legendary. Perfect beer snack (for Kim)"
+        }
+      ],
+      "fado": [
+        {
+          "name": "Tasca do Chico",
+          "location": "Lisbon - Bairro Alto",
+          "type": "Intimate fado tavern",
+          "note": "Authentic amateur fado. Reserve ahead"
+        },
+        {
+          "name": "Sr. Fado",
+          "location": "Lisbon - Alfama",
+          "type": "Fado dinner show",
+          "note": "More formal, excellent performers"
+        }
+      ]
+    },
+    "freeActivities": [
+      {
+        "name": "Walk Alfama neighborhood",
+        "location": "Lisbon",
+        "description": "Wander narrow streets, find miradouros (viewpoints), street art",
+        "tip": "Morning of Day 2 before food tour"
+      },
+      {
+        "name": "Miradouro da Senhora do Monte",
+        "location": "Lisbon",
+        "description": "Best panoramic view of Lisbon - less crowded than others",
+        "tip": "Sunset is magical"
+      },
+      {
+        "name": "Walk across Dom Luís I Bridge",
+        "location": "Porto",
+        "description": "Upper level for views, lower for Ribeira access",
+        "tip": "Sunset walk on upper level"
+      },
+      {
+        "name": "Ribeira waterfront stroll",
+        "location": "Porto",
+        "description": "UNESCO area, colorful buildings, river views",
+        "tip": "Evening golden hour is gorgeous"
+      },
+      {
+        "name": "São Bento Station tiles",
+        "location": "Porto",
+        "description": "20,000 azulejo tiles depicting Portuguese history",
+        "tip": "Free! Just walk in"
+      },
+      {
+        "name": "Foz do Douro beach & lighthouse",
+        "location": "Porto",
+        "description": "Take Tram 1 from Ribeira. Beaches, cafes, relaxed vibe",
+        "tip": "Backup beach day if Douro train affected"
+      },
+      {
+        "name": "Praça do Comércio & Arco da Rua Augusta",
+        "location": "Lisbon",
+        "description": "Grand waterfront square, walk through the arch"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "LX Factory",
+        "location": "Lisbon",
+        "description": "Former industrial complex, now creative hub with boutiques, food, bookshop",
+        "whyGem": "Unique shopping for Kim - not typical tourist stuff",
+        "tip": "Sunday brunch market is great"
+      },
+      {
+        "name": "Livraria Lello",
+        "location": "Porto",
+        "description": "Stunning 1906 bookstore, allegedly inspired Harry Potter stairs",
+        "whyGem": "Iconic for photos and book lovers",
+        "tip": "Buy ticket online (€8) - redeemable against book purchase. Go early"
+      },
+      {
+        "name": "Pinhão Station tiles",
+        "location": "Douro Valley",
+        "description": "Beautiful azulejo tiles depicting wine harvest scenes",
+        "whyGem": "Free, uncrowded, incredible photo op",
+        "tip": "You'll stop here on scenic train"
+      },
+      {
+        "name": "Feira da Ladra flea market",
+        "location": "Lisbon - Alfama",
+        "description": "Lisbon's oldest flea market, Tuesdays and Saturdays",
+        "whyGem": "Perfect for Kim's unique finds",
+        "tip": "Go Tuesday for smaller crowds"
+      },
+      {
+        "name": "Mercado do Bolhão",
+        "location": "Porto",
+        "description": "Recently renovated historic market, local produce, food stalls",
+        "whyGem": "Authentic food shopping experience",
+        "tip": "2nd floor has restaurants"
+      }
+    ],
+    "kims_gem": {
+      "name": "Taberna Albricoque",
+      "location": "Lisbon - Santa Apolónia (near Alfama)",
+      "description": "Hidden Algarve-inspired tavern by chef Bertílio Gomes. Cockle pastries, oysters, razor clams in garlic. Feels like stepping into old Portugal.",
+      "whySpecial": "Locals-only vibe, exceptional seafood petiscos, right near train station. Perfect pre-Porto departure lunch spot.",
+      "url": "Not well-known online - that's the point"
+    },
+    "photoOps": [
+      {
+        "name": "Pena Palace",
+        "location": "Sintra",
+        "description": "Colorful fairytale palace - iconic Portugal photo",
+        "tip": "Morning light is best"
+      },
+      {
+        "name": "Miradouro das Portas do Sol",
+        "location": "Lisbon - Alfama",
+        "description": "Terrace overlooking rooftops and river"
+      },
+      {
+        "name": "Dom Luís I Bridge at sunset",
+        "location": "Porto",
+        "description": "Bridge with Ribeira behind - postcard shot"
+      },
+      {
+        "name": "Tram 28",
+        "location": "Lisbon",
+        "description": "Yellow tram on narrow streets",
+        "tip": "Don't need to ride - just photograph"
+      },
+      {
+        "name": "Douro Valley terraces",
+        "location": "On scenic train",
+        "description": "Vineyard terraces from train window",
+        "tip": "Sit on right side going to Pinhão"
+      },
+      {
+        "name": "Boca do Inferno",
+        "location": "Cascais",
+        "description": "Dramatic cliff formations, waves crashing"
+      }
+    ],
     "shopping": {
       "lisbon": {
         "susie": ["Chiado (fashion)", "Avenida da Liberdade (designer)"],
-        "kim": ["LX Factory (unique/trendy)", "Príncipe Real (boutiques)", "Feira da Ladra flea market"]
+        "kim": ["LX Factory", "Príncipe Real boutiques", "Feira da Ladra flea market"]
       },
-      "cascais": {
-        "both": ["Old town boutiques", "Upscale shopping"]
-      },
+      "cascais": ["Old town boutiques"],
       "porto": {
         "susie": ["Rua de Santa Catarina"],
-        "kim": ["Ribeira artisan shops", "Clérigos area ceramics"]
+        "kim": ["Ribeira artisan shops", "Clérigos area ceramics", "Mercado do Bolhão"]
       }
     }
   },
   "packingGuide": {
-    "weather": "March temperatures range from 55-65°F (12-18°C). Chance of rain.",
-    "daytime": {
-      "footwear": [
-        "Comfortable walking shoes essential - cobblestone streets everywhere",
-        "Stylish sneakers or supportive flats work perfectly",
-        "Avoid flip-flops which mark you as a tourist"
-      ],
-      "clothing": [
-        "Well-fitted jeans, chinos, capris, or casual dresses",
-        "Linen pants for warmer days",
-        "Layers essential - light jacket, cardigan, or versatile scarf",
-        "Modest tops for church visits - shoulders should be covered"
-      ]
-    },
-    "evening": {
-      "standard": "Smart casual is the standard",
-      "suggestions": [
-        "Nice blouse or sweater with dark jeans or tailored pants",
-        "Casual dress with cardigan or blazer",
-        "Comfortable but stylish low heels, ankle boots, or dressy flats"
-      ],
-      "avoid": [
-        "Athletic wear, shorts, or overly casual clothing at dinner"
-      ]
-    },
-    "generalTips": [
-      "Stick to neutrals and earthy tones - black, navy, olive, cream blend in well",
-      "Portuguese women tend toward classic, understated elegance over flashy",
-      "Versatile scarf doubles as style piece and cover-up for churches",
-      "Pack pieces that mix and match easily",
-      "Bring a compact umbrella for March"
+    "weather": "March: 55-65°F (12-18°C). Chance of rain.",
+    "essentials": [
+      "Comfortable walking shoes - cobblestones everywhere",
+      "Layers - light jacket, cardigan, scarf",
+      "Compact umbrella",
+      "Mix-and-match neutrals"
     ],
-    "proTip": "A lightweight, wrinkle-resistant wardrobe will serve you well. Choose fabrics that travel easily and can be dressed up or down!"
+    "style": "Smart casual. Portuguese women favor understated elegance."
   },
   "pricing": {
-    "value": {
-      "flights": 1400,
-      "lodging": 850,
-      "tours": 260,
-      "transport": 200,
-      "total": 2710,
-      "perPerson": 1355,
-      "confirmed": false,
-      "notes": "Estimates only - need CP quotes. Tours: Lisbon food ($150) + DIY Sintra + Porto food ($110)"
-    },
     "premium": {
       "flights": 1400,
-      "lodging": 1200,
-      "tours": 420,
-      "transport": 200,
-      "total": 3220,
-      "perPerson": 1610,
+      "lodging": 1280,
+      "tours": 520,
+      "transport": 225,
+      "meals": 400,
+      "total": 3825,
+      "perPerson": 1913,
       "confirmed": false,
-      "notes": "Recommended tier. Tours: Lisbon food ($170) + Sintra guided ($190) + Porto food ($60)"
-    },
-    "luxury": {
-      "flights": 1600,
-      "lodging": 1750,
-      "tours": 420,
-      "transport": 250,
-      "total": 4020,
-      "perPerson": 2010,
-      "confirmed": false,
-      "notes": "Estimates only - need CP quotes"
+      "notes": "Recommended tier. Estimates only - need CP quotes"
     }
   },
   "openQuestions": [
     "Get Delta quote for MOB-ATL-JFK-LIS round trip March 22-31",
-    "Verify lodging availability in CP Maxx for recommended hotels",
-    "Check if Douro train track work affects March 29 dates",
-    "Lisboa Card worth it? (24/48/72 hr options - unlimited transport + attraction discounts)"
+    "Verify lodging in CP Maxx for Hotel da Baixa + Exmo Hotel",
+    "Book Alfa Pendular Lisbon→Porto (Promo fare if available)",
+    "Verify Douro train status for March 29 (track work until April 2)"
   ],
   "preTripChecklist": [
     { "item": "Confirm travel dates", "completed": true },
-    { "item": "Finalize itinerary structure", "completed": true },
-    { "item": "Research lodging options", "completed": true },
-    { "item": "Research tour options", "completed": true },
+    { "item": "Finalize itinerary", "completed": true },
+    { "item": "Research lodging", "completed": true },
+    { "item": "Research tours", "completed": true },
+    { "item": "Research transport", "completed": true },
+    { "item": "Research dining/extras", "completed": true },
     { "item": "Book flights", "completed": false },
-    { "item": "Book Lisbon hotel (4 nights)", "completed": false },
-    { "item": "Book Porto hotel (4 nights)", "completed": false },
+    { "item": "Book Lisbon hotel", "completed": false },
+    { "item": "Book Porto hotel", "completed": false },
     { "item": "Book Lisbon-Porto train", "completed": false },
-    { "item": "Book food tours (Lisbon + Porto)", "completed": false },
-    { "item": "Book Sintra tour if doing guided", "completed": false },
-    { "item": "Verify Douro train status for March 29", "completed": false }
+    { "item": "Book food tours", "completed": false },
+    { "item": "Book Sintra tour", "completed": false }
   ]
 }
