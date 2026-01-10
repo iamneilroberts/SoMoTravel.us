@@ -6,7 +6,7 @@
     "dates": "Late September / Early October 2026 (12 days TBD)",
     "occasion": "Friends vacation - narrowboat adventure",
     "phase": "discovery",
-    "lastUpdated": "2026-01-09T16:00:00Z",
+    "lastUpdated": "2026-01-10T15:30:00Z",
     "status": "Discovery - Base Confirmed, Planning Bikes",
     "quotesConfirmed": false
   },
@@ -23,7 +23,7 @@
     "mobility": "All in good health, no restrictions",
     "transportation": "NO rental car. Train from London to narrowboat base. Narrowboat for 12 days. E-bikes for full trip.",
     "mustHave": [
-      "Narrowboat with 2 private double cabins (ideally 2 bathrooms for couples' comfort)",
+      "Narrowboat with 2 private double cabins",
       "Round-trip route from single base",
       "E-bikes for full 12-day rental",
       "Real ale pubs along the route",
@@ -70,8 +70,8 @@
     "baseConfirmed": "Lower Heyford",
     "requirements": {
       "berths": "4 (two couples)",
-      "cabins": "2 separate double cabins",
-      "bathrooms": "2 preferred (one per couple)",
+      "cabins": "2 separate double cabins (PRIORITY)",
+      "bathrooms": "1 acceptable - priority is 2 private double cabins",
       "heating": "Required for late Sept/early Oct",
       "amenities": ["Full galley", "Central heating", "Hot water", "TV optional"],
       "bikeStorage": "Roof rack for 4 e-bikes"
@@ -83,22 +83,22 @@
         "url": "https://www.black-prince.com/hire-bases/lower-heyford/",
         "notes": "CONFIRMED BASE CHOICE. ON the Oxford Canal at Lower Heyford. Direct access to route. Season ends Oct 30, 2026.",
         "trainAccess": "Heyford Station is RIGHT NEXT to the base - trains from Oxford (~15 min) or Banbury (~15 min)",
-        "recommendedBoat": "4-berth with 2 bathrooms (check availability)",
+        "recommendedBoat": "Any 4-berth with 2 separate double cabins",
         "phone": "01527 575 115",
         "bikeNote": "Ask about bike rack/storage and e-bike rental partnerships"
       },
       {
         "name": "Oxfordshire Narrowboats",
         "url": "https://www.oxfordshire-narrowboats.co.uk/",
-        "notes": "Also based at Lower Heyford. 4-8 berth boats with option for 2 en-suite bathrooms.",
-        "recommendedBoat": "4-berth 'Stylish and Spacious for Two Couples' boats with two full bathrooms",
+        "notes": "Also based at Lower Heyford. 4-8 berth boats available.",
+        "recommendedBoat": "Any 4-berth with 2 separate double cabins",
         "trainAccess": "Heyford Station adjacent to base",
         "bikeNote": "Ask about bike rack/storage and e-bike rental partnerships"
       }
     ],
     "estimatedCost": {
-      "range": "£1,800 - £2,800 for 12 days",
-      "notes": "Late Sept/early Oct is end of season - good availability, reasonable prices. Premium boats with 2 bathrooms at higher end."
+      "range": "£1,500 - £2,400 for 12 days",
+      "notes": "Late Sept/early Oct is end of season - good availability, reasonable prices. Standard 4-berth boats now in range (relaxed 2-bathroom requirement)."
     }
   },
   "bikes": {
@@ -626,8 +626,8 @@
         "notes": "4 passengers MOB-LHR round trip, late Sept/early Oct rates"
       },
       "narrowboat": {
-        "estimate": "$3,000",
-        "notes": "~£2,400 for 12 days on premium 4-berth with 2 bathrooms"
+        "estimate": "$2,500",
+        "notes": "~£1,800-2,000 for 12 days on standard 4-berth (relaxed 2-bathroom requirement = lower cost)"
       },
       "bikes": {
         "estimate": "$600",
@@ -646,9 +646,9 @@
         "notes": "Attractions (Blenheim, Tooley's tours, Hook Norton brewery tour), tips, misc"
       },
       "total": {
-        "estimate": "$8,700",
-        "perPerson": "$2,175",
-        "notes": "Preliminary - needs quotes for boats and bikes"
+        "estimate": "$8,200",
+        "perPerson": "$2,050",
+        "notes": "Preliminary - needs quotes for boats and bikes. Reduced ~$500 by relaxing bathroom requirement."
       }
     }
   },
@@ -663,7 +663,7 @@
   "nextSteps": [
     "Client to confirm preferred dates",
     "Get Delta flight quotes",
-    "Contact Black Prince or Oxfordshire Narrowboats for 4-berth/2-bathroom boat availability at Lower Heyford - ask about bike storage",
+    "Contact Black Prince or Oxfordshire Narrowboats for 4-berth boat availability at Lower Heyford (2 cabins required, 1 bathroom OK) - ask about bike storage",
     "Get e-bike rental quotes (Bainton Bikes or boat company partner)",
     "Book Hook Norton Brewery tour once dates confirmed",
     "Book Blenheim Palace tickets once dates confirmed"
