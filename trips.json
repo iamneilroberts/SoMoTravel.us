@@ -7,22 +7,12 @@
       "dates": "Fall 2026 (October recommended)",
       "category": "testing",
       "tags": [
-        "RoatÃ¡n, Honduras"
+        "RoatÃÂ¡n, Honduras"
       ],
       "lastModified": "2026-01-11"
     },
     {
       "filename": "uk-narrowboat-cruisemasters-test.html",
-      "title": "Roberts & Jones",
-      "dates": "Target start Oct 26, 2026 (12 days / 11 nights aboard)",
-      "category": "testing",
-      "tags": [
-        "UK - Oxford Canal Narrowboat"
-      ],
-      "lastModified": "2026-01-11"
-    },
-    {
-      "filename": "uk-narrowboat-oct-2026.html",
       "title": "Roberts & Jones",
       "dates": "Target start Oct 26, 2026 (12 days / 11 nights aboard)",
       "category": "testing",
@@ -370,16 +360,6 @@
       "lastModified": "2025-10-01"
     },
     {
-      "filename": "Rodney Miller",
-      "title": "Nepal-Rodney Miller",
-      "dates": "April 15-21, 2026 (6 nights)",
-      "category": "proposal",
-      "tags": [
-        "couple"
-      ],
-      "lastModified": "2025-10-17"
-    },
-    {
       "filename": "RodneyMillerNepal.html",
       "title": "Nepal",
       "dates": "April 15-21, 2026 (6 nights)",
@@ -458,14 +438,6 @@
       ],
       "lastModified": "2026-01-09",
       "hasStructuredData": true
-    },
-    {
-      "filename": "Breckenridge_2025_Itinerary_Updated (5).html",
-      "title": "Breckenridge Winter Vacation 2025",
-      "dates": "December 18-23, 2025",
-      "category": "past",
-      "tags": [],
-      "lastModified": "2025-12-16"
     },
     {
       "filename": "Breckenridge_2025_Itinerary.html",
