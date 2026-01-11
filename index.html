@@ -423,57 +423,54 @@ async function cleanUpIndex(){
 
     showSpinner('Scanning repository files...');
     const headers = ghHeaders();
+    const existingFiles = new Set();
 
-    // Get all files in repo root
-    const contentsUrl = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents?ref=${GITHUB_CONFIG.branch}`;
-    const contentsResp = await fetch(contentsUrl, { headers });
-    if(!contentsResp.ok) throw new Error('Failed to list repository contents');
-    const contents = await contentsResp.json();
+    // Recursive function to scan directories
+    async function scanDirectory(path = '') {
+      const url = path
+        ? `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${path}?ref=${GITHUB_CONFIG.branch}`
+        : `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents?ref=${GITHUB_CONFIG.branch}`;
 
-    // Get HTML files that exist
-    const existingFiles = new Set(
-      contents
-        .filter(f => f.type === 'file' && f.name.endsWith('.html') && f.name !== 'index.html')
-        .map(f => f.name)
-    );
+      const resp = await fetch(url, { headers });
+      if(!resp.ok) return;
 
-    // Also check trips/ subdirectory if it exists
-    const tripsDir = contents.find(f => f.type === 'dir' && f.name === 'trips');
-    if(tripsDir) {
-      const tripsDirUrl = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips?ref=${GITHUB_CONFIG.branch}`;
-      const tripsDirResp = await fetch(tripsDirUrl, { headers });
-      if(tripsDirResp.ok) {
-        const tripsDirContents = await tripsDirResp.json();
-        // Recursively check subdirectories
-        for(const item of tripsDirContents) {
-          if(item.type === 'dir') {
-            const subUrl = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${item.path}?ref=${GITHUB_CONFIG.branch}`;
-            const subResp = await fetch(subUrl, { headers });
-            if(subResp.ok) {
-              const subContents = await subResp.json();
-              subContents
-                .filter(f => f.type === 'file' && f.name.endsWith('.html'))
-                .forEach(f => existingFiles.add(f.path));
-            }
-          } else if(item.type === 'file' && item.name.endsWith('.html')) {
-            existingFiles.add(item.path);
-          }
+      const contents = await resp.json();
+      for(const item of contents) {
+        if(item.type === 'file' && item.name.endsWith('.html') && item.name !== 'index.html') {
+          existingFiles.add(item.path);
+        } else if(item.type === 'dir' && (item.name === 'trips' || path.startsWith('trips'))) {
+          // Recursively scan trips directory and its subdirectories
+          await scanDirectory(item.path);
         }
       }
     }
 
+    await scanDirectory();
     console.log('Existing HTML files:', [...existingFiles]);
 
     // Get current trips.json
     showSpinner('Checking trips.json...');
     const { sha, trips } = await getTripsJsonFromGitHub();
 
+    // Helper to check if a filename exists (handles various formats)
+    function fileExists(filename) {
+      if(!filename) return false;
+      // Try exact match
+      if(existingFiles.has(filename)) return true;
+      // Try without leading slash
+      if(existingFiles.has(filename.replace(/^\//, ''))) return true;
+      // Try with .html extension
+      if(!filename.endsWith('.html') && existingFiles.has(filename + '.html')) return true;
+      // Try the basename in root (for old-style entries)
+      const basename = filename.split('/').pop();
+      if(existingFiles.has(basename)) return true;
+      return false;
+    }
+
     // Find orphaned entries (in trips.json but file doesn't exist)
-    const orphaned = trips.filter(t => {
-      const filename = t.filename;
-      // Check both exact match and with path
-      return !existingFiles.has(filename) && !existingFiles.has(filename.replace(/^\//, ''));
-    });
+    const orphaned = trips.filter(t => !fileExists(t.filename));
+
+    console.log('Trips checked:', trips.map(t => ({ filename: t.filename, exists: fileExists(t.filename) })));
 
     if(orphaned.length === 0) {
       hideSpinner();
@@ -490,10 +487,7 @@ async function cleanUpIndex(){
 
     // Remove orphaned entries
     showSpinner('Cleaning up trips.json...');
-    const cleanedTrips = trips.filter(t => {
-      const filename = t.filename;
-      return existingFiles.has(filename) || existingFiles.has(filename.replace(/^\//, ''));
-    });
+    const cleanedTrips = trips.filter(t => fileExists(t.filename));
 
     await saveTripsJsonToGitHub(cleanedTrips, sha);
     await waitForFile(`${location.origin}/trips.json`);
