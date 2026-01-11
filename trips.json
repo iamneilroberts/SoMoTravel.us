@@ -2,12 +2,22 @@
   "version": 1,
   "trips": [
     {
+      "filename": "uk-narrowboat-oct-2026.html",
+      "title": "Roberts & Jones",
+      "dates": "Oct 26 – Nov 6, 2026 (12 days / 11 nights)",
+      "category": "proposal",
+      "tags": [
+        "UK – Oxford Canal Narrowboat"
+      ],
+      "lastModified": "2026-01-11"
+    },
+    {
       "filename": "caribbean-morris-fall-2026.html",
       "title": "Morris Island Escape",
       "dates": "Fall 2026 (October recommended)",
       "category": "testing",
       "tags": [
-        "Roatán, Honduras"
+        "RoatÃ¡n, Honduras"
       ],
       "lastModified": "2026-01-11"
     },
