@@ -2,6 +2,16 @@
   "version": 1,
   "trips": [
     {
+      "filename": "uk-narrowboat-cruisemasters-test.html",
+      "title": "Roberts & Jones",
+      "dates": "Target start Oct 26, 2026 (12 days / 11 nights aboard)",
+      "category": "confirmed",
+      "tags": [
+        "UK - Oxford Canal Narrowboat"
+      ],
+      "lastModified": "2026-01-11"
+    },
+    {
       "filename": "uk-narrowboat-oct-2026.html",
       "title": "Roberts & Jones",
       "dates": "Target start Oct 26, 2026 (12 days / 11 nights aboard)",
