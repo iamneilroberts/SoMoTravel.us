@@ -154,7 +154,7 @@
             margin-bottom: 35px;
         }
 
-        .section-header {
+        .section-header { display: flex; justify-content: space-between; align-items: center;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -644,11 +644,6 @@
             color: var(--primary);
             border-color: var(--primary);
         }
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
         .comment-modal {
             display: none;
             position: fixed;
@@ -682,6 +677,7 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             font-size: 1em;
+            box-sizing: border-box;
         }
         .comment-form textarea {
             min-height: 100px;
@@ -708,21 +704,11 @@
             border: none;
             color: white;
         }
-        .comment-form .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-        .comment-success {
-            text-align: center;
-            padding: 20px;
-            color: var(--primary);
-        }
-        /* Reserve Now button */
         .reserve-btn {
             display: block;
             width: 100%;
             padding: 18px 30px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark, #1a4a6e) 100%);
             color: white;
             text-align: center;
             text-decoration: none;
@@ -731,19 +717,10 @@
             border-radius: var(--radius);
             margin: 30px 0;
             box-shadow: var(--shadow);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .reserve-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         .reserve-section {
             text-align: center;
             margin: 30px 0;
-        }
-        .reserve-section p {
-            color: var(--text-light);
-            margin-bottom: 15px;
         }
         .general-comment {
             text-align: center;
@@ -1003,7 +980,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">📍</div>
-                <h2>Day-by-Day Itinerary</h2>
+                <h2>Day-by-Day Itinerary</h2><button class="comment-btn" onclick="openComment('itinerary', 'Itinerary')">💬 Comment</button>
             </div>
             
             <div class="day-card">
@@ -1405,10 +1382,10 @@
     </div>
 
     <!-- Footer -->
-
+    
     <!-- Reserve Now Section -->
     <div class="reserve-section">
-        <p>Ready to book? Secure your trip with a deposit.</p>
+        <p style="color: var(--text-light); margin-bottom: 15px;">Ready to book? Secure your trip with a deposit.</p>
         <a href="https://www.somotravelspecialist.com" class="reserve-btn" target="_blank">Reserve Now</a>
     </div>
 
@@ -1434,7 +1411,6 @@
     </div>
 
     <script>
-        // Comment functionality
         var commentSection = '';
         var commentItem = '';
         var tripKey = 'susie_star2/uk-narrowboat-oct-2026';
@@ -1478,7 +1454,7 @@
             .then(function(res) { return res.json(); })
             .then(function(data) {
                 if (data.success) {
-                    document.querySelector('.comment-form').innerHTML = '<div class="comment-success"><h3>✓ Comment Sent!</h3><p>Your travel agent will review your message.</p><button class="cancel-btn" onclick="closeComment();location.reload();">Close</button></div>';
+                    document.querySelector('.comment-form').innerHTML = '<div style="text-align:center;padding:20px;color:var(--primary);"><h3>✓ Comment Sent!</h3><p>Your travel agent will review your message.</p><button class="cancel-btn" onclick="closeComment();location.reload();">Close</button></div>';
                 } else {
                     throw new Error('Failed');
                 }
@@ -1519,7 +1495,7 @@
             <div class="footer-bottom">
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
             <p style="margin-top: 5px;">Generated January 11, 2026</p>
-            <p style="margin-top: 5px; font-size: 0.8em; opacity: 0.7;">Template: somotravel-cruisemasters v1.8 | Rendered: 2026-01-11 22:34:52 UTC</p>
+            <p style="margin-top: 5px; font-size: 0.8em; opacity: 0.7;">Template: somotravel-cruisemasters v1.8 | Rendered: 2026-01-11 22:39:41 UTC</p>
         </div>
     </div>
     <script>
