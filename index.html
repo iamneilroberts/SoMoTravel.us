@@ -79,6 +79,7 @@
       <h1>SoMo Travel — Trips</h1>
       <div class="toolbar">
         <button class="btn" onclick="openAddModal()">Add Trip</button>
+        <button class="btn" onclick="cleanUpIndex()">Clean Up Index</button>
         <button class="btn" onclick="setToken()">Set GitHub Token</button>
         <button class="btn" onclick="openMetadataHistory()">Metadata History</button>
       </div>
@@ -406,7 +407,106 @@ async function confirmDeleteTrip(trip,index){
     }
     
     alert(errorMsg + '\n\nCheck the browser console for more details.');
-  } 
+  }
+}
+
+/***** CLEAN UP INDEX *****/
+async function cleanUpIndex(){
+  if(!confirm('This will scan all files in the repository and remove any trips.json entries where the HTML file no longer exists.\n\nContinue?')) return;
+
+  try {
+    const token = getGitHubToken();
+    if(!token) {
+      alert('GitHub token is required.');
+      return;
+    }
+
+    showSpinner('Scanning repository files...');
+    const headers = ghHeaders();
+
+    // Get all files in repo root
+    const contentsUrl = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents?ref=${GITHUB_CONFIG.branch}`;
+    const contentsResp = await fetch(contentsUrl, { headers });
+    if(!contentsResp.ok) throw new Error('Failed to list repository contents');
+    const contents = await contentsResp.json();
+
+    // Get HTML files that exist
+    const existingFiles = new Set(
+      contents
+        .filter(f => f.type === 'file' && f.name.endsWith('.html') && f.name !== 'index.html')
+        .map(f => f.name)
+    );
+
+    // Also check trips/ subdirectory if it exists
+    const tripsDir = contents.find(f => f.type === 'dir' && f.name === 'trips');
+    if(tripsDir) {
+      const tripsDirUrl = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/trips?ref=${GITHUB_CONFIG.branch}`;
+      const tripsDirResp = await fetch(tripsDirUrl, { headers });
+      if(tripsDirResp.ok) {
+        const tripsDirContents = await tripsDirResp.json();
+        // Recursively check subdirectories
+        for(const item of tripsDirContents) {
+          if(item.type === 'dir') {
+            const subUrl = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${item.path}?ref=${GITHUB_CONFIG.branch}`;
+            const subResp = await fetch(subUrl, { headers });
+            if(subResp.ok) {
+              const subContents = await subResp.json();
+              subContents
+                .filter(f => f.type === 'file' && f.name.endsWith('.html'))
+                .forEach(f => existingFiles.add(f.path));
+            }
+          } else if(item.type === 'file' && item.name.endsWith('.html')) {
+            existingFiles.add(item.path);
+          }
+        }
+      }
+    }
+
+    console.log('Existing HTML files:', [...existingFiles]);
+
+    // Get current trips.json
+    showSpinner('Checking trips.json...');
+    const { sha, trips } = await getTripsJsonFromGitHub();
+
+    // Find orphaned entries (in trips.json but file doesn't exist)
+    const orphaned = trips.filter(t => {
+      const filename = t.filename;
+      // Check both exact match and with path
+      return !existingFiles.has(filename) && !existingFiles.has(filename.replace(/^\//, ''));
+    });
+
+    if(orphaned.length === 0) {
+      hideSpinner();
+      alert('Index is clean! All entries have matching files.');
+      return;
+    }
+
+    // Show what will be removed
+    const orphanedNames = orphaned.map(t => `• ${t.title || t.filename}`).join('\n');
+    if(!confirm(`Found ${orphaned.length} orphaned entries (files no longer exist):\n\n${orphanedNames}\n\nRemove these from trips.json?`)) {
+      hideSpinner();
+      return;
+    }
+
+    // Remove orphaned entries
+    showSpinner('Cleaning up trips.json...');
+    const cleanedTrips = trips.filter(t => {
+      const filename = t.filename;
+      return existingFiles.has(filename) || existingFiles.has(filename.replace(/^\//, ''));
+    });
+
+    await saveTripsJsonToGitHub(cleanedTrips, sha);
+    await waitForFile(`${location.origin}/trips.json`);
+
+    hideSpinner();
+    alert(`Cleaned up ${orphaned.length} orphaned entries.`);
+    await loadTripsPublic();
+
+  } catch(err) {
+    hideSpinner();
+    console.error('Cleanup error:', err);
+    alert('Cleanup failed: ' + (err?.message || err));
+  }
 }
 
 /***** HISTORY (file) *****/
