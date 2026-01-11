@@ -34,6 +34,7 @@
     .active{background:linear-gradient(90deg,#fff0f0,#ffd9d9)}
     .past{background:linear-gradient(90deg,#f3f4f6,#e5e7eb)}
     .no_sale{background:linear-gradient(90deg,#fdf2f8,#fce7f3)}
+    .testing{background:linear-gradient(90deg,#f3e8ff,#e9d5ff)}
 
     /* Trip cards */
     .card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:16px; box-shadow:var(--shadow)}
@@ -132,6 +133,7 @@
             <div style="flex:1 1 220px">
               <label class="form-label" for="tripCategory">Category</label>
               <select id="tripCategory" class="form-control">
+                <option value="testing">Testing</option>
                 <option value="proposal">Proposal</option>
                 <option value="confirmed">Confirmed</option>
                 <option value="deposit_paid">Deposit Paid</option>
@@ -193,8 +195,8 @@ const MSG_HIGHLIGHT = parseMsgParams();
 function formDashboardUrl(kind){ try{ const ep = FORM_ENDPOINTS[kind]; if(!ep) return null; const id = new URL(ep).pathname.split('/').filter(Boolean).pop(); return id?`https://formspree.io/forms/${id}/submissions`:null; }catch(_) { return null; } }
 
 /***** CATEGORY CONSTANTS *****/
-const CATEGORY_ORDER = ['proposal','confirmed','deposit_paid','paid_in_full','active','past','no_sale'];
-const CATEGORY_LABELS = { proposal:'Proposal', confirmed:'Confirmed', deposit_paid:'Deposit Paid', paid_in_full:'Paid in Full', active:'Active', past:'Past', no_sale:'No Sale' };
+const CATEGORY_ORDER = ['testing','proposal','confirmed','deposit_paid','paid_in_full','active','past','no_sale'];
+const CATEGORY_LABELS = { testing:'Testing', proposal:'Proposal', confirmed:'Confirmed', deposit_paid:'Deposit Paid', paid_in_full:'Paid in Full', active:'Active', past:'Past', no_sale:'No Sale' };
 
 /***** UTILITIES *****/
 function showSpinner(msg='Working…'){ document.getElementById('spinnerMessage').textContent = msg; document.getElementById('spinnerOverlay').style.display='flex'; }
@@ -207,7 +209,7 @@ function encodeBase64(str){ try{ return btoa(unescape(encodeURIComponent(str)));
 async function waitForFile(url, attempts=6, delay=3000){ for(let i=0;i<attempts;i++){ try{ const r=await fetch(url+`?cb=${Date.now()}`, {cache:'reload'}); if(r.ok) return true; }catch(_){} await new Promise(r=>setTimeout(r,delay)); } return false; }
 async function waitForRemoval(url, attempts=6, delay=3000){ for(let i=0;i<attempts;i++){ try{ const r=await fetch(url+`?cb=${Date.now()}`, {cache:'reload'}); if(!r.ok) return true; }catch(_){ return true; } await new Promise(r=>setTimeout(r,delay)); } return false; }
 function parseTagsInput(str){ return (str||'').split(',').map(s=>s.trim()).filter(Boolean).slice(0,20); }
-function normalizeCategory(old){ const v=(old||'').toLowerCase(); if(v==='proposal')return'proposal'; if(v==='confirmed')return'confirmed'; if(['deposit_paid','deposit-paid','deposit'].includes(v))return'deposit_paid'; if(['paid_in_full','paid-in-full','paid'].includes(v))return'paid_in_full'; if(['active','traveling'].includes(v))return'active'; if(['complete','completed','old','past'].includes(v))return'past'; if(['no_sale','nosale','declined','lost'].includes(v))return'no_sale'; return'proposal'; }
+function normalizeCategory(old){ const v=(old||'').toLowerCase(); if(['testing','test','dev','discovery'].includes(v))return'testing'; if(v==='proposal')return'proposal'; if(v==='confirmed')return'confirmed'; if(['deposit_paid','deposit-paid','deposit'].includes(v))return'deposit_paid'; if(['paid_in_full','paid-in-full','paid'].includes(v))return'paid_in_full'; if(['active','traveling'].includes(v))return'active'; if(['complete','completed','old','past'].includes(v))return'past'; if(['no_sale','nosale','declined','lost'].includes(v))return'no_sale'; return'proposal'; }
 function b64ToUtf8(b64){ const bin=atob(b64.replace(/\n/g,'')); const bytes=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i); return new TextDecoder('utf-8').decode(bytes); }
 
 /***** PUBLIC LOAD (NO TOKEN) *****/
