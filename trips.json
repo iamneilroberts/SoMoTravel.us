@@ -2,6 +2,16 @@
   "version": 1,
   "trips": [
     {
+      "filename": "caribbean-morris-fall-2026.html",
+      "title": "Morris Island Escape",
+      "dates": "Fall 2026 (October recommended)",
+      "category": "testing",
+      "tags": [
+        "Roatán, Honduras"
+      ],
+      "lastModified": "2026-01-11"
+    },
+    {
       "filename": "uk-narrowboat-cruisemasters-test.html",
       "title": "Roberts & Jones",
       "dates": "Target start Oct 26, 2026 (12 days / 11 nights aboard)",
