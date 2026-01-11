@@ -436,6 +436,108 @@
             margin-bottom: 5px;
         }
 
+
+        /* Tiered Pricing Comparison */
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .tier-card {
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .tier-card.recommended {
+            border-color: var(--primary);
+            box-shadow: 0 4px 16px rgba(27, 97, 156, 0.25);
+        }
+
+        .tier-header {
+            padding: 20px;
+            text-align: center;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tier-card.recommended .tier-header {
+            background: var(--primary);
+            color: white;
+        }
+
+        .tier-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .tier-description {
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        .tier-card.recommended .tier-description {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .tier-price {
+            padding: 20px;
+            text-align: center;
+            background: var(--bg-section);
+        }
+
+        .tier-price .total {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .tier-price .per-person {
+            font-size: 0.95em;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        .tier-details {
+            padding: 20px;
+        }
+
+        .tier-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95em;
+        }
+
+        .tier-item:last-child { border-bottom: none; }
+
+        .tier-item .check {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-bar { flex-direction: column; gap: 10px; text-align: center; }
@@ -444,6 +546,9 @@
             .content { padding: 20px 15px; }
             .cards-grid { grid-template-columns: 1fr; }
             .overview-section { grid-template-columns: repeat(2, 1fr); }
+            /* Mobile tiers */
+            .tiers-grid { grid-template-columns: 1fr; gap: 15px; }
+            .tier-card.recommended { order: -1; }
         }
 
         @media print {
@@ -965,17 +1070,67 @@
         <!-- Extras / Recommendations Section -->
         
 
-        <!-- Pricing Section -->
+        <!-- Package Options / Pricing Section -->
         
         <div class="section">
             <div class="section-header">
-                <div class="section-icon">💰</div>
-                <h2>Investment Summary</h2>
+                <div class="section-icon">📦</div>
+                <h2>Package Options</h2>
             </div>
-            <div class="pricing-box">
-                <div class="pricing-row"><span>Per Person</span><span>$1,750</span></div>
-                <div class="pricing-row"><span>Number of Travelers</span><span>2</span></div>
-                <div class="pricing-row total"><span>Total Trip Investment</span><span>$3,500</span></div>
+            <div class="tiers-grid">
+                
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <div class="tier-name">Value</div>
+                        <div class="tier-description">3-star hotels, economy flights - comfortable without the frills</div>
+                    </div>
+                    <div class="tier-price">
+                        <div class="total">$2,800</div>
+                        <div class="per-person">$1,400 per person</div>
+                    </div>
+                    <div class="tier-details">
+                        <div class="tier-item"><span class="check">✓</span><span>Economy Class Flights</span></div>
+                        <div class="tier-item"><span class="check">✓</span><span>Airbnb East End Casita - $85/night</span></div><div class="tier-item"><span class="check">✓</span><span>Marble Hill Farms - $95/night</span></div>
+                        <div class="tier-item"><span class="check">✓</span><span>Self-guided snorkeling, free beach time, minimal tours</span></div>
+                    </div>
+                </div>
+                
+
+                
+                <div class="tier-card recommended">
+                    <div class="tier-header">
+                        <div class="tier-name">Premium<span class="tier-badge">RECOMMENDED</span></div>
+                        <div class="tier-description">4-star hotels, premium economy flights - upgraded comfort and service</div>
+                    </div>
+                    <div class="tier-price">
+                        <div class="total">$4,200</div>
+                        <div class="per-person">$2,100 per person</div>
+                    </div>
+                    <div class="tier-details">
+                        <div class="tier-item"><span class="check">✓</span><span>Premium Economy Class Flights</span></div>
+                        <div class="tier-item"><span class="check">✓</span><span>Camp Bay Lodge - $150/night</span></div><div class="tier-item"><span class="check">✓</span><span>Turquoise Bay Resort - $165/night</span></div>
+                        <div class="tier-item"><span class="check">✓</span><span>1 boat snorkel tour included, airport transfers, upgraded room category</span></div>
+                    </div>
+                </div>
+                
+
+                
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <div class="tier-name">Luxury</div>
+                        <div class="tier-description">5-star resorts, business class flights - the ultimate island escape</div>
+                    </div>
+                    <div class="tier-price">
+                        <div class="total">$8,500</div>
+                        <div class="per-person">$4,250 per person</div>
+                    </div>
+                    <div class="tier-details">
+                        <div class="tier-item"><span class="check">✓</span><span>Business Class Class Flights</span></div>
+                        <div class="tier-item"><span class="check">✓</span><span>Pristine Bay Resort - $385/night</span></div><div class="tier-item"><span class="check">✓</span><span>Las Verandas Hotel & Villas - $325/night</span></div>
+                        <div class="tier-item"><span class="check">✓</span><span>Private boat charter, spa treatment, private snorkel/dive guide, airport VIP transfers, all meals included</span></div>
+                    </div>
+                </div>
+                
             </div>
         </div>
         
