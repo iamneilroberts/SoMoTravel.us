@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mother-Daughter Trip - Greek Islands (Mediterranean Cruise)</title>
+    <style>
+        :root {
+            --primary: #2c5f2d;
+            --primary-light: #4a7c4b;
+            --secondary: #97bc62;
+            --accent: #4a90e2;
+            --bg-light: #f8f9fa;
+            --bg-highlight: #f0f7f0;
+            --text: #333;
+            --text-light: #666;
+            --border: #dee2e6;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --radius: 8px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+        }
+
+        .header h1 { font-size: 2em; margin-bottom: 10px; }
+        .header .subtitle { font-size: 1.2em; opacity: 0.9; }
+        .header .dates {
+            margin-top: 15px;
+            font-size: 1.1em;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .overview-box {
+            background: var(--bg-highlight);
+            border: 2px solid var(--secondary);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .overview-box h2 { color: var(--primary); margin-bottom: 15px; font-size: 1.3em; }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .overview-item {
+            background: white;
+            padding: 12px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
+        }
+
+        .overview-item .label {
+            font-size: 0.85em;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .overview-item .value { font-size: 1.1em; font-weight: 600; color: var(--primary); }
+
+        .section { margin-bottom: 30px; }
+
+        .section-header {
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: var(--radius) var(--radius) 0 0;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .section-content {
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 var(--radius) var(--radius);
+            padding: 20px;
+            background: white;
+        }
+
+        .day-section {
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .day-header {
+            background: var(--bg-light);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .day-number {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .day-info h3 { color: var(--primary); margin-bottom: 2px; }
+        .day-date { color: var(--text-light); font-size: 0.9em; }
+        .day-content { padding: 20px; }
+
+        .activity {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--accent);
+        }
+
+        .activity:last-child { margin-bottom: 0; }
+        .activity-title { font-weight: 600; margin-bottom: 5px; }
+        .activity-details { font-size: 0.95em; color: var(--text-light); }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h4 { color: var(--primary); margin-bottom: 10px; font-size: 1.1em; }
+
+        .card-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95em;
+        }
+
+        .card-detail:last-child { border-bottom: none; }
+        .card-detail .label { color: var(--text-light); }
+        .card-detail .value { font-weight: 500; }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .card-link:hover { text-decoration: underline; }
+
+        .flight-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid var(--accent);
+        }
+
+        .flight-route { font-size: 1.2em; font-weight: 600; color: var(--primary); }
+        .hotel-card { border-left: 4px solid var(--secondary); }
+
+        .pricing-box {
+            background: var(--bg-highlight);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 25px;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-row:last-child { border-bottom: none; }
+
+        .pricing-row.total {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--primary);
+            border-top: 2px solid var(--primary);
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+
+        .notes-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: var(--radius);
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .notes-box h4 { color: #856404; margin-bottom: 10px; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 5px; }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .badge-confirmed { background: #d4edda; color: #155724; }
+        .badge-pending { background: #fff3cd; color: #856404; }
+        .badge-phase { background: var(--primary); color: white; }
+
+        /* Video Embeds */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-caption {
+            padding: 12px 15px;
+            font-size: 0.95em;
+            color: var(--text);
+            background: var(--bg-light);
+        }
+
+        /* Map Section */
+        .map-item {
+            margin-bottom: 20px;
+        }
+        .map-item:last-child {
+            margin-bottom: 0;
+        }
+        .map-label {
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            color: var(--text);
+        }
+        .map-container {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        /* Inline maps and videos (contextual) */
+        .lodging-item {
+            margin-bottom: 25px;
+        }
+        .lodging-item:last-child {
+            margin-bottom: 0;
+        }
+        .inline-map {
+            margin-top: 10px;
+        }
+        .inline-map .map-container iframe {
+            height: 250px;
+        }
+        .inline-videos .video-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-light);
+            font-size: 0.9em;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        .footer .brand { font-weight: 600; color: var(--primary); }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .header h1 { font-size: 1.5em; }
+            .overview-grid, .cards-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { max-width: none; padding: 0; }
+            .header { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+
+        /* Tiered Pricing Comparison */
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .tier-card {
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .tier-card.recommended {
+            border-color: var(--primary);
+            box-shadow: 0 4px 16px rgba(44, 95, 45, 0.2);
+        }
+
+        .tier-header {
+            padding: 20px;
+            text-align: center;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tier-card.recommended .tier-header {
+            background: var(--primary);
+            color: white;
+        }
+
+        .tier-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .tier-description {
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        .tier-card.recommended .tier-description {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .tier-price {
+            padding: 20px;
+            text-align: center;
+            background: var(--bg-highlight);
+        }
+
+        .tier-price .total {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .tier-price .per-person {
+            font-size: 0.95em;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        .tier-details {
+            padding: 20px;
+        }
+
+        .tier-details h5 {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .tier-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95em;
+        }
+
+        .tier-item:last-child { border-bottom: none; }
+
+        .tier-item .check {
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        /* Mobile: Stack tiers vertically with compact layout */
+        @media (max-width: 800px) {
+            .tiers-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .tier-card {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                grid-template-rows: auto auto;
+            }
+
+            .tier-header {
+                grid-column: 1 / -1;
+                padding: 15px;
+            }
+
+            .tier-price {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 15px 20px;
+                border-left: 1px solid var(--border);
+            }
+
+            .tier-price .total {
+                font-size: 1.5em;
+            }
+
+            .tier-details {
+                padding: 15px;
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .tier-card.recommended {
+                order: -1; /* Show recommended first on mobile */
+            }
+        }
+
+        /* Very small screens: Full stack */
+        @media (max-width: 480px) {
+            .tier-card {
+                display: block;
+            }
+
+            .tier-price {
+                border-left: none;
+                border-top: 1px solid var(--border);
+            }
+
+            .tier-name { font-size: 1.1em; }
+            .tier-price .total { font-size: 1.4em; }
+        }
+
+        /* Comment buttons and modal */
+        .comment-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 12px;
+            font-size: 0.85em;
+            color: var(--text-light);
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .comment-btn:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .comment-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .comment-modal.active { display: flex; }
+        .comment-form {
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .comment-form h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1em;
+        }
+        .comment-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .comment-form-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        .comment-form button {
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .comment-form .cancel-btn {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+        .comment-form .submit-btn {
+            background: var(--primary);
+            border: none;
+            color: white;
+        }
+        .comment-form .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .comment-success {
+            text-align: center;
+            padding: 20px;
+            color: var(--primary);
+        }
+
+        /* Reserve Now button */
+        .reserve-btn {
+            display: block;
+            width: 100%;
+            padding: 18px 30px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            border-radius: var(--radius);
+            margin: 30px 0;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .reserve-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .reserve-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .reserve-section p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        /* General comment button */
+        .general-comment {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Mother-Daughter Trip</h1>
+        <div class="subtitle">Greek Islands (Mediterranean Cruise)</div>
+        <div class="dates">May 23 - June 6, 2026</div>
+    </div>
+
+    <div class="overview-box">
+        <h2>Trip Overview</h2>
+        <div class="overview-grid">
+            
+            <div class="overview-item">
+                <div class="label">Travelers</div>
+                <div class="value">2 people</div>
+            </div>
+            
+            
+            <div class="overview-item">
+                <div class="label">Duration</div>
+                <div class="value">9-11 days (2 pre-cruise + 7 cruise) days</div>
+            </div>
+            
+            
+            <div class="overview-item">
+                <div class="label">Status</div>
+                <div class="value"><span class="badge badge-phase">Proposal</span></div>
+            </div>
+            
+            
+            <div class="overview-item">
+                <div class="label">Estimated Budget</div>
+                <div class="value">$4</div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+    
+    <div class="section">
+        <div class="section-header">Maps</div>
+        <div class="section-content">
+            
+            <div class="map-item">
+                <h4 class="map-label">Santorini - Overnight Stay</h4>
+                <div class="map-container">
+                    <iframe
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Santorini%2C%20Greece">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="map-item">
+                <h4 class="map-label">Mykonos - Overnight Stay</h4>
+                <div class="map-container">
+                    <iframe
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Mykonos%2C%20Greece">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="map-item">
+                <h4 class="map-label">Rhodes - Medieval Old Town</h4>
+                <div class="map-container">
+                    <iframe
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Rhodes%20Old%20Town%2C%20Greece">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="map-item">
+                <h4 class="map-label">Ephesus - Included Excursion</h4>
+                <div class="map-container">
+                    <iframe
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Ephesus%2C%20Turkey">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="map-item">
+                <h4 class="map-label">Athens - Pre-Cruise Stay</h4>
+                <div class="map-container">
+                    <iframe
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Athens%2C%20Greece">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="map-item">
+                <h4 class="map-label">Milos - Volcanic Beaches</h4>
+                <div class="map-container">
+                    <iframe
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Milos%2C%20Greece">
+                    </iframe>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+
+    
+
+    
+    <div class="section">
+        <div class="section-header">Trip Preferences</div>
+        <div class="section-content">
+            <p><strong>Vibe:</strong> Cultural immersion, ancient history, stunning sunsets, authentic Greek culture</p>
+            
+            <h4 style="margin-top: 15px;">Must-Haves</h4>
+            <ul><li>Greek islands</li><li>Santorini sunset</li><li>Cultural experiences</li><li>Authentic Greek food</li><li>Smaller ship atmosphere</li></ul>
+            
+            
+            <h4 style="margin-top: 15px;">Avoid</h4>
+            <ul><li>Party crowds</li><li>Mega-ship atmosphere</li><li>Nickel-and-dime pricing</li></ul>
+            
+        </div>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="section">
+        <div class="section-header"><span>Day-by-Day Itinerary</span><button class="comment-btn" onclick="openComment('itinerary', 'Itinerary')">💬 Comment</button></div>
+        <div class="section-content">
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">1</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">May 21 or May 28</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Arrive Athens International Airport</div>
+                        <div class="activity-details">Transfer to hotel included in pre-cruise package</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Check in to 4-star Athens hotel</div>
+                        <div class="activity-details">Part of Celestyal pre-cruise package</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Evening at leisure</div>
+                        <div class="activity-details">Explore Plaka neighborhood, dinner near Acropolis</div>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">2</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">May 22 or May 29</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Breakfast at hotel</div>
+                        <div class="activity-details">Included in package</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Explore Athens</div>
+                        <div class="activity-details">Acropolis, Parthenon, Ancient Agora (self-guided or optional tour)</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Lunch in Monastiraki</div>
+                        <div class="activity-details">Try souvlaki and Greek salad</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Evening at leisure</div>
+                        <div class="activity-details">Last night before cruise</div>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">3</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">May 23 or May 30</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Transfer to port</div>
+                        <div class="activity-details">Included in pre-cruise package (Athens to Kusadasi)</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Board Celestyal Journey</div>
+                        <div class="activity-details">Embarkation, safety drill, explore ship</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Ship departs 11:59pm</div>
+                        <div class="activity-details">Dinner onboard, settle into cabin</div>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">4</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">May 24 or May 31</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Arrive Rhodes 8:00am</div>
+                        <div class="activity-details">Full day in port</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">INCLUDED: Lindos Acropolis Excursion</div>
+                        <div class="activity-details">Ancient temple perched on dramatic clifftop</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Explore Rhodes Medieval Old Town</div>
+                        <div class="activity-details">UNESCO World Heritage Site, Knight's Quarter</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Ship departs 11:59pm</div>
+                        <div class="activity-details">Evening onboard</div>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">5</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">May 25 or June 1</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Arrive Agios Nikolaos 8:00am</div>
+                        <div class="activity-details">Charming harbor town</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Optional: Palace of Knossos excursion</div>
+                        <div class="activity-details">Ancient Minoan civilization, Europe's oldest city</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Explore harbor and lakeside</div>
+                        <div class="activity-details">Bottomless Lake, waterfront cafes</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Ship departs 11:59pm</div>
+                        <div class="activity-details">Evening sailing to Santorini</div>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">6</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">May 26 or June 2</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Arrive Santorini 8:00am</div>
+                        <div class="activity-details">Tender to Fira or Athinios</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Explore Oia and Fira</div>
+                        <div class="activity-details">Blue domes, white buildings, caldera views</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Wine tasting (optional)</div>
+                        <div class="activity-details">Santorini's unique volcanic wines</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">★ OVERNIGHT IN PORT</div>
+                        <div class="activity-details">Watch legendary Santorini sunset from shore!</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Dinner ashore</div>
+                        <div class="activity-details">Romantic caldera-view restaurant</div>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">7</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">May 27 or June 3</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Depart Santorini 12:30am</div>
+                        <div class="activity-details">Sail overnight</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Arrive Mykonos 8:00am</div>
+                        <div class="activity-details">Famous windmills and Little Venice</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Explore Mykonos Town</div>
+                        <div class="activity-details">Iconic windmills, Paraportiani Church, Little Venice</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Optional: Day trip to Delos</div>
+                        <div class="activity-details">UNESCO site, birthplace of Apollo</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">★ OVERNIGHT IN PORT</div>
+                        <div class="activity-details">Experience Mykonos nightlife and late dinner</div>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">8</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">May 28 or June 4</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Depart Mykonos 2:00am</div>
+                        <div class="activity-details">Late night departure after enjoying nightlife</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Arrive Milos 9:00am</div>
+                        <div class="activity-details">Volcanic island with unique beaches</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Explore Milos</div>
+                        <div class="activity-details">Kleftiko sea caves, Sarakiniko lunar beach, fishing villages</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Ship departs 7:00pm</div>
+                        <div class="activity-details">Sunset sailing to Athens</div>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">9</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">May 29 or June 5</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Arrive Piraeus 8:00am</div>
+                        <div class="activity-details">Athens port</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Optional: Athens excursion</div>
+                        <div class="activity-details">If not covered pre-cruise</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Final day onboard</div>
+                        <div class="activity-details">Pack, enjoy ship amenities</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Ship departs 11:59pm</div>
+                        <div class="activity-details">Overnight sailing to Kusadasi</div>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">10</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">May 30 or June 6</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Arrive Kusadasi</div>
+                        <div class="activity-details">Disembarkation</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Optional: Ephesus excursion</div>
+                        <div class="activity-details">INCLUDED in fare - one of world's best-preserved ancient cities</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Transfer to airport</div>
+                        <div class="activity-details">Or extend stay</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Fly home</div>
+                        <div class="activity-details">End of trip</div>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+    <div class="section">
+        <div class="section-header">Helpful Videos</div>
+        <div class="section-content">
+            <div class="video-grid">
+            
+                <div class="video-card">
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/Celestyal-Cruises" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-caption">Celestyal Journey - Greek Islands cruise</div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    
+    
+
+    
+    <div class="section">
+        <div class="section-header"><span>Package Options</span><button class="comment-btn" onclick="openComment('tiers', 'Package Options')">💬 Comment</button></div>
+        <div class="section-content">
+            <div class="tiers-grid">
+                
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <div class="tier-name">Celestyal Ocean View</div>
+                        <div class="tier-description">All-inclusive cruise with exterior cabin, 2 included excursions, pre-cruise Athens package</div>
+                    </div>
+                    <div class="tier-price">
+                        <div class="total">$4,268</div>
+                        <div class="per-person">$2,134 per person</div>
+                    </div>
+                    <div class="tier-details">
+                        
+                        
+                        
+                    </div>
+                </div>
+                
+
+                
+                <div class="tier-card recommended">
+                    <div class="tier-header">
+                        <div class="tier-name">Celestyal Jr Suite Balcony<span class="tier-badge">RECOMMENDED</span></div>
+                        <div class="tier-description">Upgraded suite with private balcony, exclusive dining access, all-inclusive amenities</div>
+                    </div>
+                    <div class="tier-price">
+                        <div class="total">$5,488</div>
+                        <div class="per-person">$2,744 per person</div>
+                    </div>
+                    <div class="tier-details">
+                        
+                        
+                        
+                    </div>
+                </div>
+                
+
+                
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <div class="tier-name">Norwegian Cruise Line</div>
+                        <div class="tier-description">Mega-ship experience with Broadway shows, 20+ dining venues, modern amenities</div>
+                    </div>
+                    <div class="tier-price">
+                        <div class="total">$5</div>
+                        <div class="per-person">$2 per person</div>
+                    </div>
+                    <div class="tier-details">
+                        
+                        
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Reserve Now Section -->
+    <div class="reserve-section">
+        <p>Ready to book? Secure your trip with a deposit.</p>
+        <a href="https://www.somotravelspecialist.com" class="reserve-btn" target="_blank">Reserve Now</a>
+    </div>
+
+    <!-- General Comment -->
+    <div class="general-comment">
+        <button class="comment-btn" onclick="openComment('general', 'Overall Trip')">
+            💬 Questions or changes? Let us know
+        </button>
+    </div>
+
+    <div class="footer">
+        <p>Prepared with care by <span class="brand">SoMo Travel</span></p>
+        <p style="margin-top: 5px;">Questions? We're here to help make your trip unforgettable.</p>
+        <div class="qr-section" id="qr-section" style="margin-top: 20px; text-align: center;">
+            <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 10px;">Scan to view on mobile</p>
+            <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px; border: 1px solid var(--border); border-radius: 8px; padding: 8px; background: white;">
+        </div>
+        <p style="margin-top: 15px; font-size: 0.8em;">Generated January 11, 2026</p>
+        <p style="margin-top: 5px; font-size: 0.7em; color: #999;">Template: default v1.8 | Rendered: 2026-01-11 23:48:41 UTC</p>
+    </div>
+
+    <!-- Comment Modal -->
+    <div id="commentModal" class="comment-modal" onclick="if(event.target===this)closeComment()">
+        <div class="comment-form">
+            <h3 id="commentTitle">Comment on Section</h3>
+            <input type="text" id="commentName" placeholder="Your name (optional)">
+            <input type="email" id="commentEmail" placeholder="Email for reply (optional)">
+            <textarea id="commentMessage" placeholder="Your question, feedback, or requested changes..."></textarea>
+            <div class="comment-form-buttons">
+                <button class="cancel-btn" onclick="closeComment()">Cancel</button>
+                <button class="submit-btn" id="submitComment" onclick="submitComment()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Generate QR code for current page URL
+        (function() {
+            var qrImg = document.getElementById('qr-code');
+            var url = encodeURIComponent(window.location.href);
+            qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + url;
+        })();
+
+        // Comment functionality
+        var commentSection = '';
+        var commentItem = '';
+        var tripKey = 'home_star1/greek-cruise-may-2026';
+        var apiEndpoint = 'https://voygent.somotravel.workers.dev';
+
+        function openComment(section, item) {
+            commentSection = section;
+            commentItem = item || '';
+            document.getElementById('commentTitle').textContent = 'Comment on ' + (item || section);
+            document.getElementById('commentModal').classList.add('active');
+            document.getElementById('commentMessage').focus();
+        }
+
+        function closeComment() {
+            document.getElementById('commentModal').classList.remove('active');
+            document.getElementById('commentName').value = '';
+            document.getElementById('commentEmail').value = '';
+            document.getElementById('commentMessage').value = '';
+        }
+
+        function submitComment() {
+            var message = document.getElementById('commentMessage').value.trim();
+            if (!message) return;
+
+            var btn = document.getElementById('submitComment');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            fetch(apiEndpoint + '/comment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tripKey: tripKey,
+                    section: commentSection,
+                    item: commentItem,
+                    message: message,
+                    name: document.getElementById('commentName').value.trim() || null,
+                    email: document.getElementById('commentEmail').value.trim() || null
+                })
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    document.querySelector('.comment-form').innerHTML = '<div class="comment-success"><h3>✓ Comment Sent!</h3><p>Your travel agent will review your message.</p><button class="cancel-btn" onclick="closeComment();location.reload();">Close</button></div>';
+                } else {
+                    throw new Error('Failed');
+                }
+            })
+            .catch(function() {
+                btn.disabled = false;
+                btn.textContent = 'Send';
+                alert('Failed to send comment. Please try again.');
+            });
+        }
+    </script>
+</body>
+</html>
