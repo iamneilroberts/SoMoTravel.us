@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morris Island Escape - Roatán, Honduras</title>
+    <style>
+        :root {
+            --primary: #2c5f2d;
+            --primary-light: #4a7c4b;
+            --secondary: #97bc62;
+            --accent: #4a90e2;
+            --bg-light: #f8f9fa;
+            --bg-highlight: #f0f7f0;
+            --text: #333;
+            --text-light: #666;
+            --border: #dee2e6;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --radius: 8px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+        }
+
+        .header h1 { font-size: 2em; margin-bottom: 10px; }
+        .header .subtitle { font-size: 1.2em; opacity: 0.9; }
+        .header .dates {
+            margin-top: 15px;
+            font-size: 1.1em;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .overview-box {
+            background: var(--bg-highlight);
+            border: 2px solid var(--secondary);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .overview-box h2 { color: var(--primary); margin-bottom: 15px; font-size: 1.3em; }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .overview-item {
+            background: white;
+            padding: 12px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
+        }
+
+        .overview-item .label {
+            font-size: 0.85em;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .overview-item .value { font-size: 1.1em; font-weight: 600; color: var(--primary); }
+
+        .section { margin-bottom: 30px; }
+
+        .section-header {
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: var(--radius) var(--radius) 0 0;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .section-content {
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 var(--radius) var(--radius);
+            padding: 20px;
+            background: white;
+        }
+
+        .day-section {
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .day-header {
+            background: var(--bg-light);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .day-number {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .day-info h3 { color: var(--primary); margin-bottom: 2px; }
+        .day-date { color: var(--text-light); font-size: 0.9em; }
+        .day-content { padding: 20px; }
+
+        .activity {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--accent);
+        }
+
+        .activity:last-child { margin-bottom: 0; }
+        .activity-title { font-weight: 600; margin-bottom: 5px; }
+        .activity-details { font-size: 0.95em; color: var(--text-light); }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h4 { color: var(--primary); margin-bottom: 10px; font-size: 1.1em; }
+
+        .card-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95em;
+        }
+
+        .card-detail:last-child { border-bottom: none; }
+        .card-detail .label { color: var(--text-light); }
+        .card-detail .value { font-weight: 500; }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .card-link:hover { text-decoration: underline; }
+
+        .flight-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid var(--accent);
+        }
+
+        .flight-route { font-size: 1.2em; font-weight: 600; color: var(--primary); }
+        .hotel-card { border-left: 4px solid var(--secondary); }
+
+        .pricing-box {
+            background: var(--bg-highlight);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 25px;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-row:last-child { border-bottom: none; }
+
+        .pricing-row.total {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--primary);
+            border-top: 2px solid var(--primary);
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+
+        .notes-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: var(--radius);
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .notes-box h4 { color: #856404; margin-bottom: 10px; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 5px; }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .badge-confirmed { background: #d4edda; color: #155724; }
+        .badge-pending { background: #fff3cd; color: #856404; }
+        .badge-phase { background: var(--primary); color: white; }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-light);
+            font-size: 0.9em;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        .footer .brand { font-weight: 600; color: var(--primary); }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .header h1 { font-size: 1.5em; }
+            .overview-grid, .cards-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { max-width: none; padding: 0; }
+            .header { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Morris Island Escape</h1>
+        <div class="subtitle">Roatán, Honduras</div>
+        <div class="dates">Fall 2026 (October recommended)</div>
+    </div>
+
+    <div class="overview-box">
+        <h2>Trip Overview</h2>
+        <div class="overview-grid">
+            
+            <div class="overview-item">
+                <div class="label">Travelers</div>
+                <div class="value">2 people</div>
+            </div>
+            
+            
+            <div class="overview-item">
+                <div class="label">Duration</div>
+                <div class="value">8 days</div>
+            </div>
+            
+            
+            <div class="overview-item">
+                <div class="label">Status</div>
+                <div class="value"><span class="badge badge-phase">Lodging</span></div>
+            </div>
+            
+            
+            <div class="overview-item">
+                <div class="label">Estimated Budget</div>
+                <div class="value">$3,500</div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+    <div class="section">
+        <div class="section-header">Travelers</div>
+        <div class="section-content">
+            <ul>
+            <li>Rosemary Morris</li><li>Matt Morris</li>
+            </ul>
+            
+            <div class="notes-box"><h4>Notes</h4><p>First kid-free getaway in years. Couple in their 40s.</p></div>
+            
+        </div>
+    </div>
+    
+
+    
+    <div class="section">
+        <div class="section-header">Trip Preferences</div>
+        <div class="section-content">
+            <p><strong>Vibe:</strong> Relaxed, off-the-beaten-path</p>
+            
+            <h4 style="margin-top: 15px;">Must-Haves</h4>
+            <ul><li>Avoid crowds</li><li>Authentic experience over resort feel</li><li>Beach access</li><li>Snorkeling</li></ul>
+            
+            
+            <h4 style="margin-top: 15px;">Avoid</h4>
+            <ul><li>Big resorts</li><li>Touristy/crowded destinations</li></ul>
+            
+        </div>
+    </div>
+    
+
+    
+    <div class="section">
+        <div class="section-header">Flights</div>
+        <div class="section-content">
+            <div class="cards-grid">
+                
+                <div class="card flight-card">
+                    <h4>Outbound Flight</h4>
+                    <div class="flight-route">MOB → IAH → RTB</div>
+                    <div class="card-detail"><span class="label">Date</span><span class="value">TBD - October 2026</span></div>
+                    <div class="card-detail"><span class="label">Airline</span><span class="value">United</span></div>
+                    <p style="margin-top: 10px; font-size: 0.9em; color: var(--text-light);">Connect through Houston, ~6-7 hours total</p>
+                </div>
+                
+                
+                <div class="card flight-card">
+                    <h4>Return Flight</h4>
+                    <div class="flight-route">RTB → IAH → MOB</div>
+                    <div class="card-detail"><span class="label">Date</span><span class="value">TBD - 8 days later</span></div>
+                    <div class="card-detail"><span class="label">Airline</span><span class="value">United</span></div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    
+    <div class="section">
+        <div class="section-header">Accommodations</div>
+        <div class="section-content">
+            <div class="cards-grid">
+            
+                <div class="card hotel-card">
+                    <h4>Camp Bay Lodge (Recommended)</h4>
+                    <div class="card-detail"><span class="label">Location</span><span class="value">East End - Camp Bay</span></div>
+                    <div class="card-detail"><span class="label">Dates</span><span class="value">7 nights</span></div>
+                    <div class="card-detail"><span class="label">Rate</span><span class="value">$125/night</span></div>
+                    <a href="https://www.campbaylodgeroatan.com" class="card-link" target="_blank">View Hotel</a>
+                </div>
+            
+                <div class="card hotel-card">
+                    <h4>Cocolobo Condos & Lodging</h4>
+                    <div class="card-detail"><span class="label">Location</span><span class="value">West End - Half Moon Bay</span></div>
+                    <div class="card-detail"><span class="label">Dates</span><span class="value">7 nights</span></div>
+                    <div class="card-detail"><span class="label">Rate</span><span class="value">$110/night</span></div>
+                    <a href="https://cocolobo.com" class="card-link" target="_blank">View Hotel</a>
+                </div>
+            
+                <div class="card hotel-card">
+                    <h4>Airbnb - East End Casitas</h4>
+                    <div class="card-detail"><span class="label">Location</span><span class="value">Camp Bay / Punta Gorda area</span></div>
+                    <div class="card-detail"><span class="label">Dates</span><span class="value">7 nights</span></div>
+                    <div class="card-detail"><span class="label">Rate</span><span class="value">$100/night</span></div>
+                    <a href="https://www.airbnb.com/camp-bay-honduras/stays" class="card-link" target="_blank">View Hotel</a>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+    
+    <div class="section">
+        <div class="section-header">Day-by-Day Itinerary</div>
+        <div class="section-content">
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">1</div>
+                    <div class="day-info">
+                        <h3>Day 1 - Arrival</h3>
+                        <div class="day-date">October 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Fly to Roatán</div>
+                        <div class="activity-details">MOB → Houston → Roatán (RTB)</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Pick up rental car</div>
+                        <div class="activity-details">At Roatán airport</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Drive to East End</div>
+                        <div class="activity-details">Scenic 45-60 min drive to Camp Bay area</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Settle in & sunset swim</div>
+                        <div class="activity-details">Dinner at lodge</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">2</div>
+                    <div class="day-info">
+                        <h3>Day 2 - Beach & Snorkel</h3>
+                        <div class="day-date">October 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Morning at lodge</div>
+                        <div class="activity-details">Coffee and homemade breakfast</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Snorkel Camp Bay Beach</div>
+                        <div class="activity-details">Reef access right from shore - free!</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Lazy beach afternoon</div>
+                        <div class="activity-details">Hammocks, reading, swimming</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Sunset drinks & dinner</div>
+                        <div class="activity-details">Lodge or nearby La Sirena</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">3</div>
+                    <div class="day-info">
+                        <h3>Day 3 - Garifuna Culture</h3>
+                        <div class="day-date">October 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Visit Punta Gorda</div>
+                        <div class="activity-details">Oldest Garifuna settlement on island - hidden gem</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Experience local culture</div>
+                        <div class="activity-details">Traditional music, drumming if timing works</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Fresh seafood lunch</div>
+                        <div class="activity-details">In the village - incredibly affordable</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Afternoon kayak/SUP</div>
+                        <div class="activity-details">Through mangroves</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Evening at lodge</div>
+                        <div class="activity-details">Relaxed dinner</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">4</div>
+                    <div class="day-info">
+                        <h3>Day 4 - West Side Day Trip</h3>
+                        <div class="day-date">October 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Drive to West End/West Bay</div>
+                        <div class="activity-details">Scenic route through island interior</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Snorkel West Bay Beach</div>
+                        <div class="activity-details">More developed but excellent reef</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Beachside lunch</div>
+                        <div class="activity-details">Multiple restaurant options</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Browse West End shops</div>
+                        <div class="activity-details">Sunset drinks before heading back</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Return to East End</div>
+                        <div class="activity-details">Quiet evening at lodge</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">5</div>
+                    <div class="day-info">
+                        <h3>Day 5 - Adventure Day (Choose Your Own)</h3>
+                        <div class="day-date">October 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Option A: Boat Snorkel Tour</div>
+                        <div class="activity-details">Shipwreck + starfish gardens, $45-65/person</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Option B: Zipline & Sloths</div>
+                        <div class="activity-details">Jungle canopy + Daniel Johnson's Monkey & Sloth Hangout, $75-95/person</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Option C: Full Rest Day</div>
+                        <div class="activity-details">Beach and books all day</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Romantic dinner</div>
+                        <div class="activity-details">Maybe sunset boat ride</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">6</div>
+                    <div class="day-info">
+                        <h3>Day 6 - Slow Day</h3>
+                        <div class="day-date">October 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Sleep in</div>
+                        <div class="activity-details">Leisurely breakfast</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Option: Discover Scuba</div>
+                        <div class="activity-details">Intro dive for non-certified, $100-125/person - world-class diving</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Option: Jungle hike</div>
+                        <div class="activity-details">Trails near Camp Bay</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Option: Beach day</div>
+                        <div class="activity-details">Just relax</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Special dinner</div>
+                        <div class="activity-details">Celebrate the trip</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">7</div>
+                    <div class="day-info">
+                        <h3>Day 7 - Last Full Day</h3>
+                        <div class="day-date">October 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Morning snorkel or beach</div>
+                        <div class="activity-details">One last swim</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Pack leisurely</div>
+                        <div class="activity-details">No rush</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Carambola Gardens (optional)</div>
+                        <div class="activity-details">Beautiful tropical flora stop</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Final sunset on beach</div>
+                        <div class="activity-details">Photo op moment</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Early dinner</div>
+                        <div class="activity-details">Rest before travel day</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">8</div>
+                    <div class="day-info">
+                        <h3>Day 8 - Departure</h3>
+                        <div class="day-date">October 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Morning beach time</div>
+                        <div class="activity-details">If time allows</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Drive to airport</div>
+                        <div class="activity-details">Allow extra time from East End</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Fly home</div>
+                        <div class="activity-details">RTB → Houston → Mobile</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+    
+
+    
+    <div class="section">
+        <div class="section-header">Investment Summary</div>
+        <div class="section-content">
+            <div class="pricing-box">
+                <div class="pricing-row"><span>Per Person</span><span>$1,750</span></div>
+                <div class="pricing-row"><span>Number of Travelers</span><span>2</span></div>
+                <div class="pricing-row total"><span>Total Estimated Investment</span><span>$3,500</span></div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="footer">
+        <p>Prepared with care by <span class="brand">SoMo Travel</span></p>
+        <p style="margin-top: 5px;">Questions? We're here to help make your trip unforgettable.</p>
+        <p style="margin-top: 15px; font-size: 0.8em;">Generated January 11, 2026</p>
+    </div>
+</body>
+</html>
