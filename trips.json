@@ -2,6 +2,16 @@
   "version": 1,
   "trips": [
     {
+      "filename": "test-narrowboat-publish.html",
+      "title": "Roberts & Jones",
+      "dates": "Target start Oct 26, 2026 (12 days / 11 nights aboard)",
+      "category": "confirmed",
+      "tags": [
+        "UK - Oxford Canal Narrowboat"
+      ],
+      "lastModified": "2026-01-11"
+    },
+    {
       "filename": "April-2026-Scotland-Ireland.html",
       "title": "Donna, Gloria & Rosemary Scotland & Ireland April 2026",
       "dates": "April 6-17, 2026 (11 nights)",
