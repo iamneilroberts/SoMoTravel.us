@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBD - Caribbean - 5-Night Western Caribbean (Carnival Valor from New Orleans) | SoMo Travel Specialist</title>
+    <style>
+        :root {
+            /* Cruise Planners / SoMo Travel Brand Colors */
+            --primary: #1b619c;
+            --primary-dark: #154a78;
+            --secondary: #90c8ed;
+            --secondary-light: #c5e4f7;
+            --accent: #3baf2a;
+            --accent-dark: #2d8a21;
+
+            /* Neutrals */
+            --white: #ffffff;
+            --bg-light: #f5f9fc;
+            --bg-section: #e8f4fc;
+            --text: #2c3e50;
+            --text-light: #5a6c7d;
+            --border: #d1e3f0;
+            --shadow: 0 4px 12px rgba(27, 97, 156, 0.15);
+            --radius: 10px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--white);
+        }
+
+        /* Header with Logo */
+        .header-bar {
+            background: var(--primary);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .header-contact {
+            color: var(--secondary-light);
+            font-size: 0.9em;
+        }
+
+        .header-contact a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.4em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero .destination {
+            font-size: 1.4em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .hero .dates-badge {
+            display: inline-block;
+            background: var(--accent);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .hero .tagline {
+            margin-top: 25px;
+            font-size: 1em;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Overview Cards */
+        .overview-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .overview-card {
+            background: var(--bg-section);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .overview-card .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .overview-card .label {
+            font-size: 0.85em;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .overview-card .value {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-header { display: flex; justify-content: space-between; align-items: center;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .section-header h2 {
+            color: var(--primary);
+            font-size: 1.4em;
+            font-weight: 700;
+        }
+
+        .section-icon {
+            background: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        /* Content Box */
+        .content-box {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(27, 97, 156, 0.2);
+        }
+
+        .card-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95em;
+        }
+
+        .card-detail:last-child { border-bottom: none; }
+        .card-detail .label { color: var(--text-light); }
+        .card-detail .value { font-weight: 600; color: var(--text); }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+
+        .card-link:hover { background: var(--accent-dark); }
+
+        /* Flight Cards */
+        .flight-card .card-header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+        }
+
+        .flight-route {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Day Itinerary */
+        .day-card {
+            margin-bottom: 20px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .day-header {
+            background: var(--bg-section);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .day-number {
+            background: var(--primary);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .day-info h3 { color: var(--primary); margin-bottom: 3px; }
+        .day-date { color: var(--text-light); font-size: 0.9em; }
+
+        .day-content { padding: 20px; }
+
+        .activity {
+            padding: 15px;
+            margin-bottom: 12px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .activity:last-child { margin-bottom: 0; }
+        .activity-title { font-weight: 600; color: var(--text); margin-bottom: 5px; }
+        .activity-details { font-size: 0.95em; color: var(--text-light); }
+
+        /* Pricing Section */
+        .pricing-box {
+            background: linear-gradient(135deg, var(--bg-section) 0%, var(--secondary-light) 100%);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 30px;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 1.05em;
+        }
+
+        .pricing-row:last-child { border-bottom: none; }
+
+        .pricing-row.total {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--primary);
+            border-top: 3px solid var(--primary);
+            margin-top: 15px;
+            padding-top: 20px;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: var(--secondary-light);
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin: 20px 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .alert-box {
+            background: #fff8e6;
+            border-left: 5px solid #f5a623;
+            padding: 20px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin: 20px 0;
+        }
+
+        .alert-box h4 {
+            color: #c7880a;
+            margin-bottom: 10px;
+        }
+
+        /* Lists */
+        ul { margin-left: 20px; }
+        li { margin-bottom: 8px; }
+
+        /* Traveler Names */
+        .traveler-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .traveler-badge {
+            background: var(--primary);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 40px 30px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 950px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--secondary-light);
+            font-size: 0.95em;
+            line-height: 1.8;
+        }
+
+        .footer-section a {
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.85em;
+            color: var(--secondary-light);
+        }
+
+        .footer-tagline {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+
+        /* Tiered Pricing Comparison */
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .tier-card {
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .tier-card.recommended {
+            border-color: var(--primary);
+            box-shadow: 0 4px 16px rgba(27, 97, 156, 0.25);
+        }
+
+        .tier-header {
+            padding: 20px;
+            text-align: center;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tier-card.recommended .tier-header {
+            background: var(--primary);
+            color: white;
+        }
+
+        .tier-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .tier-description {
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        .tier-card.recommended .tier-description {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .tier-price {
+            padding: 20px;
+            text-align: center;
+            background: var(--bg-section);
+        }
+
+        .tier-price .total {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .tier-price .per-person {
+            font-size: 0.95em;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        .tier-details {
+            padding: 20px;
+        }
+
+        .tier-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95em;
+        }
+
+        .tier-item:last-child { border-bottom: none; }
+
+        .tier-item .check {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+
+
+        /* Map Section */
+        .map-container {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        /* Inline maps and videos (contextual) */
+        .lodging-item {
+            margin-bottom: 25px;
+        }
+        .lodging-item:last-child {
+            margin-bottom: 0;
+        }
+        .inline-map {
+            margin-top: 10px;
+        }
+        .inline-map .map-container iframe {
+            height: 250px;
+        }
+        .inline-videos .video-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* Video Embeds */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-caption {
+            padding: 12px 15px;
+            font-size: 0.95em;
+            color: var(--text);
+            background: var(--bg-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-bar { flex-direction: column; gap: 10px; text-align: center; }
+            .hero h1 { font-size: 1.8em; }
+            .hero .destination { font-size: 1.1em; }
+            .content { padding: 20px 15px; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .overview-section { grid-template-columns: repeat(2, 1fr); }
+            /* Mobile tiers */
+            .tiers-grid { grid-template-columns: 1fr; gap: 15px; }
+            .tier-card.recommended { order: -1; }
+        }
+
+        @media print {
+            .header-bar, .hero { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .card:hover { transform: none; box-shadow: var(--shadow); }
+        }
+
+        /* Comment buttons and modal */
+        .comment-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            font-size: 0.9em;
+            font-weight: 500;
+            color: white;
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(230, 126, 34, 0.3);
+        }
+        .comment-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.4);
+        }
+        .comment-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .comment-modal.active { display: flex; }
+        .comment-form {
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .comment-form h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        .comment-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .comment-form-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        .comment-form button {
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .comment-form .cancel-btn {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+        .comment-form .submit-btn {
+            background: var(--primary);
+            border: none;
+            color: white;
+        }
+        .reserve-btn {
+            display: block;
+            width: 100%;
+            padding: 18px 30px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark, #1a4a6e) 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            border-radius: var(--radius);
+            margin: 30px 0;
+            box-shadow: var(--shadow);
+        }
+        .reserve-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .general-comment {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Bar -->
+    <div class="header-bar">
+        <div class="logo-container">
+            <img src="https://www.somotravelspecialist.com/images/web/svg/logo_white_base.svg" alt="Cruise Planners - SoMo Travel Specialist">
+        </div>
+        <div class="header-contact">
+            Questions? Call <a href="tel:251-293-4992">251-293-4992</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>TBD</h1>
+        <div class="destination">Caribbean - 5-Night Western Caribbean (Carnival Valor from New Orleans)</div>
+        <div class="dates-badge">May 25-30, 2026</div>
+        <div class="tagline">Let's Get You There - Your Adventure Awaits!</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+
+        <!-- Overview Cards -->
+        <div class="overview-section">
+            
+            <div class="overview-card">
+                <div class="icon">👥</div>
+                <div class="label">Travelers</div>
+                <div class="value">6 Guests</div>
+            </div>
+            
+
+            
+
+            
+            <div class="overview-card">
+                <div class="icon">📋</div>
+                <div class="label">Status</div>
+                <div class="value">Proposal</div>
+            </div>
+            
+
+            
+        </div>
+
+
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🗺️</div>
+                <h2>Destination Map</h2>
+            </div>
+            <div class="map-container">
+                <iframe
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Caribbean%20-%205-Night%20Western%20Caribbean%20(Carnival%20Valor%20from%20New%20Orleans)">
+                </iframe>
+            </div>
+        </div>
+        
+
+        <!-- Travelers Section -->
+        
+
+        <!-- Preferences Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">✨</div>
+                <h2>Preferences</h2>
+            </div>
+            <div class="content-box">
+                
+                <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>Vibe:</strong> Mix of adventure for young adults and relaxation for moms</p>
+                
+
+                
+                <h4 style="color: var(--primary); margin-bottom: 10px;">Must-Haves</h4>
+                <ul><li>Adventure excursions for 18-year-olds</li><li>Beach relaxation for moms</li><li>Bucket list experiences</li><li>Chichen Itza</li></ul>
+                
+
+                
+            </div>
+        </div>
+        
+
+        <!-- Flights Section -->
+        
+
+        <!-- Lodging Section -->
+        
+
+        <!-- Narrowboat Section -->
+        
+
+        <!-- Itinerary Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">📍</div>
+                <h2>Day-by-Day Itinerary</h2><button class="comment-btn" onclick="openComment('itinerary', 'Itinerary')">💬 Comment</button>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">1</div>
+                    <div class="day-info">
+                        <h3>New Orleans, LA</h3>
+                        <div class="day-date">May 25, 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Arrive at Port of New Orleans</div>
+                        <div class="activity-details">Check-in opens around 11am. Bring passport, cruise documents, and a carry-on with essentials (swimsuit, meds) in case luggage is delayed.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Board Carnival Valor</div>
+                        <div class="activity-details">Ship boarding begins. Head to the Lido Deck for lunch at Guy's Burger Joint or the buffet while your cabin is prepared.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Explore the Ship</div>
+                        <div class="activity-details">Get your bearings! Find the pools, spa, casino, and dining venues. Download the Carnival Hub app for schedules.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Muster Drill (Safety Briefing)</div>
+                        <div class="activity-details">Required for all passengers. Report to your assigned station.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Sail Away Party 🎉</div>
+                        <div class="activity-details">Grab a drink and wave goodbye to NOLA from the Lido Deck! Great photo op as you cruise down the Mississippi.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">First Dinner</div>
+                        <div class="activity-details">Main Dining Room (Your Time or assigned seating). Dress code: Cruise Casual.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Evening Entertainment</div>
+                        <div class="activity-details">Comedy shows, live music, casino, or teen hangouts. Check Carnival Hub for tonight's schedule.</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">2</div>
+                    <div class="day-info">
+                        <h3>At Sea</h3>
+                        <div class="day-date">May 26, 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Breakfast</div>
+                        <div class="activity-details">Lido Buffet, Blue Iguana Cantina (breakfast burritos!), or sit-down in the Main Dining Room.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Pool & Water Slides</div>
+                        <div class="activity-details">Hit the Twister Waterslide and main pool early before it gets crowded. Perfect for the 18-year-olds!</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Serenity Adult-Only Retreat</div>
+                        <div class="activity-details">Moms — this is YOUR spot! Quiet pool, padded loungers, and no kids allowed.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Guy's Burger Joint</div>
+                        <div class="activity-details">Free burgers designed by Guy Fieri. Consistently rated best food on Carnival ships.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Spa & Salon</div>
+                        <div class="activity-details">Book a massage or facial. Tip: Port days often have spa specials!</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Hasbro Game Show or Trivia</div>
+                        <div class="activity-details">Fun group activities — compete as a team!</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Elegant Night Dinner</div>
+                        <div class="activity-details">Dress to impress! Great night for group photos. Lobster is usually on the menu.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Playlist Productions Show</div>
+                        <div class="activity-details">High-energy song and dance show in the main theater.</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">3</div>
+                    <div class="day-info">
+                        <h3>Cozumel, Mexico</h3>
+                        <div class="day-date">May 27, 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Breakfast on Board</div>
+                        <div class="activity-details">Eat before heading out — long adventure day ahead!</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">OPTION A: Teens — Jeep Safari Adventure</div>
+                        <div class="activity-details">Drive your own Jeep! Includes Punta Sur Park, lighthouse climb, crocodile lagoon, snorkeling, tequila tasting, and lunch. ~$99/pp</div>
+                        <a href="https://www.viator.com/tours/Cozumel/The-Original-Private-Jeep-Safari-All-Inclusive/d632-427966P11?pid=P00005400&uid=U00386675&mcid=58086" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">OPTION B: Teens — ATV + Jade Cenote</div>
+                        <div class="activity-details">Off-road ATV through jungle trails, swim in a cenote, beach club time. ~$94/pp (includes park fee)</div>
+                        <a href="https://www.viator.com/tours/Cozumel/Atv-Tour-To-The-Famous-Wild-Jade-Cavern-With-Transfer/d632-411035P6?pid=P00005400&uid=U00386675&mcid=58086" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Moms — Mr. Sanchos Beach Club</div>
+                        <div class="activity-details">Ultimate relaxation! All-inclusive food & drinks, pools, beach, swim-up bar, kayaks. Taxi from port ~$18 for 4. $79/pp</div>
+                        <a href="https://mrsanchos.com/activity/mr-sanchos-beach-club-all-inclusive-day-pass/" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Return to Ship</div>
+                        <div class="activity-details">⚠️ ALL ABOARD by 3:30 PM! Ship departs at 4:00 PM. Don't be late!</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Sunset Sail Away</div>
+                        <div class="activity-details">Watch Cozumel fade into the sunset from the Lido Deck. Perfect photo moment!</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Dinner & Evening</div>
+                        <div class="activity-details">Share adventure stories over dinner! Catch a comedy show or hit the club.</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">4</div>
+                    <div class="day-info">
+                        <h3>Progreso, Mexico</h3>
+                        <div class="day-date">May 28, 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Early Breakfast</div>
+                        <div class="activity-details">Fuel up! Long day ahead — Chichen Itza is 2+ hours each way.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Chichen Itza Excursion</div>
+                        <div class="activity-details">One of the New 7 Wonders of the World! Walk among ancient Mayan pyramids, temples, and the famous ball court.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Return to Ship</div>
+                        <div class="activity-details">⚠️ CRITICAL: Be back early! If booking independent, build in buffer time. Missing the ship = very expensive!</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Recovery Time</div>
+                        <div class="activity-details">Rest up after a long hot day. Pool, spa, or nap before dinner.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Dinner</div>
+                        <div class="activity-details">Steakhouse upgrade available ($) or Main Dining Room (included).</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Evening Entertainment</div>
+                        <div class="activity-details">Live music, comedy, or dancing. Last night to enjoy the ship!</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">5</div>
+                    <div class="day-info">
+                        <h3>At Sea</h3>
+                        <div class="day-date">May 29, 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Sleep In & Brunch</div>
+                        <div class="activity-details">No rush today! Enjoy a leisurely breakfast or brunch.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Last Pool Day</div>
+                        <div class="activity-details">Soak up the sun one more time. Water slides, hot tubs, frozen drinks.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">BlueIguana Tequila Bar</div>
+                        <div class="activity-details">For the 18+ crowd: tequila tasting flights! (21+ for alcohol)</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Spa Deals</div>
+                        <div class="activity-details">Last day = best spa prices! Moms, treat yourselves.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Pack & Prepare</div>
+                        <div class="activity-details">Set luggage outside cabin door by 10pm for porters. Keep carry-on with essentials.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Captain's Farewell Dinner</div>
+                        <div class="activity-details">Final formal-ish dinner. Baked Alaska parade is a must-see!</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Last Night Party</div>
+                        <div class="activity-details">Dance the night away! Make the most of your last evening on board.</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">6</div>
+                    <div class="day-info">
+                        <h3>New Orleans, LA</h3>
+                        <div class="day-date">May 30, 2026</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+                    <div class="activity">
+                        <div class="activity-title">Early Breakfast</div>
+                        <div class="activity-details">Lido Buffet opens early for disembarkation day.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Disembark</div>
+                        <div class="activity-details">Wait for your color group to be called. Have cruise card & ID ready.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Collect Luggage</div>
+                        <div class="activity-details">Find your bags by color tag in the terminal, then clear customs.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        <div class="activity-title">Optional: Explore New Orleans</div>
+                        <div class="activity-details">Not heading straight home? Beignets at Café Du Monde, French Quarter stroll, or jazz brunch!</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+
+        <!-- Extras / Recommendations Section -->
+        
+
+
+        
+
+        <!-- Package Options / Pricing Section -->
+        
+        
+        
+
+    </div>
+
+    <!-- Footer -->
+    
+    <!-- Reserve Now Section -->
+    <div class="reserve-section">
+        <p style="color: var(--text-light); margin-bottom: 15px;">Ready to book? Secure your trip with a deposit.</p>
+        <a href="https://www.somotravelspecialist.com" class="reserve-btn" target="_blank">Reserve Now</a>
+    </div>
+
+    <!-- General Comment -->
+    <div class="general-comment">
+        <button class="comment-btn" onclick="openComment('general', 'Overall Trip')">
+            💬 Questions or changes? Let us know
+        </button>
+    </div>
+
+    <!-- Comment Modal -->
+    <div id="commentModal" class="comment-modal" onclick="if(event.target===this)closeComment()">
+        <div class="comment-form">
+            <h3 id="commentTitle">Comment on Section</h3>
+            <input type="text" id="commentName" placeholder="Your name (optional)">
+            <input type="email" id="commentEmail" placeholder="Email for reply (optional)">
+            <textarea id="commentMessage" placeholder="Your question, feedback, or requested changes..."></textarea>
+            <div class="comment-form-buttons">
+                <button class="cancel-btn" onclick="closeComment()">Cancel</button>
+                <button class="submit-btn" id="submitComment" onclick="submitComment()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var commentSection = '';
+        var commentItem = '';
+        var tripKey = 'kim_d63b7658/graduation-cruise-may-2026';
+        var apiEndpoint = 'https://voygent.somotravel.workers.dev';
+
+        function openComment(section, item) {
+            commentSection = section;
+            commentItem = item || '';
+            document.getElementById('commentTitle').textContent = 'Comment on ' + (item || section);
+            document.getElementById('commentModal').classList.add('active');
+            document.getElementById('commentMessage').focus();
+        }
+
+        function closeComment() {
+            document.getElementById('commentModal').classList.remove('active');
+            document.getElementById('commentName').value = '';
+            document.getElementById('commentEmail').value = '';
+            document.getElementById('commentMessage').value = '';
+        }
+
+        function submitComment() {
+            var message = document.getElementById('commentMessage').value.trim();
+            if (!message) return;
+
+            var btn = document.getElementById('submitComment');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            fetch(apiEndpoint + '/comment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    tripKey: tripKey,
+                    section: commentSection,
+                    item: commentItem,
+                    message: message,
+                    name: document.getElementById('commentName').value.trim() || null,
+                    email: document.getElementById('commentEmail').value.trim() || null
+                })
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    document.querySelector('.comment-form').innerHTML = '<div style="text-align:center;padding:20px;color:var(--primary);"><h3>✓ Comment Sent!</h3><p>Your travel agent will review your message.</p><button class="cancel-btn" onclick="closeComment();location.reload();">Close</button></div>';
+                } else {
+                    throw new Error('Failed');
+                }
+            })
+            .catch(function() {
+                btn.disabled = false;
+                btn.textContent = 'Send';
+                alert('Failed to send comment. Please try again.');
+            });
+        }
+    </script>
+
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-tagline">Begin Your Adventure Today</div>
+                <p>Travel is our passion, and our area of expertise. Let us help you create memories that last a lifetime.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Your Travel Advisor</h4>
+                <p>
+                    📞 <a href="tel:251-293-4992">251-293-4992</a><br>
+                    🌐 <a href="https://www.somotravelspecialist.com">somotravelspecialist.com</a>
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>Cruise Planners</h4>
+                <p>
+                    FL ST# 39068 | CA ST# 2034468-50<br>
+                    HI ST# TAR-7058 | WA ST# 603-399-504
+                </p>
+            </div>
+        </div>
+        <div class="qr-section" style="text-align: center; padding: 20px 0;">
+                <p style="font-size: 0.9em; color: var(--secondary-light); margin-bottom: 10px;">Scan to view on mobile</p>
+                <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px; border-radius: 8px; padding: 8px; background: white;">
+            </div>
+            <div class="footer-bottom">
+            <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
+            <p style="margin-top: 5px;">Generated January 13, 2026</p>
+            <p style="margin-top: 5px; font-size: 0.8em; opacity: 0.7;">Template: somotravel-cruisemasters v1.8 | Rendered: 2026-01-13 01:46:12 UTC</p>
+        </div>
+    </div>
+    <script>
+        (function() {
+            var qrImg = document.getElementById('qr-code');
+            var url = encodeURIComponent(window.location.href);
+            qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + url;
+        })();
+    </script>
+</body>
+</html>
