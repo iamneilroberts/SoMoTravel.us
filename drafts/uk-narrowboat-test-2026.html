@@ -524,6 +524,29 @@
             .header-bar, .hero { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .card:hover { transform: none; box-shadow: var(--shadow); }
         }
+
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .card:hover { transform: none; }
+            .card-gallery img:hover { transform: none; }
+        }
+
+        /* Utility classes for common inline styles */
+        .mt-1 { margin-top: 8px; }
+        .mt-2 { margin-top: 12px; }
+        .mt-3 { margin-top: 20px; }
+        .mb-2 { margin-bottom: 12px; }
+        .mb-3 { margin-bottom: 20px; }
+        .text-muted { color: var(--text-light); font-size: 0.9em; }
+        .text-primary { color: var(--primary); }
+        .font-bold { font-weight: 600; }
+        .small-link { margin-top: 8px; padding: 6px 12px; font-size: 0.85em; }
     </style>
 </head>
 <body>
@@ -634,7 +657,7 @@
                 <div class="card">
                     
                     
-                    <img src="https://voygent.somotravel.workers.dev/media/uploads/1768413070278_9g5eqf.jpg?w=800" alt="Norwegian Epic Owner Suite - Test Image" class="card-image" onerror="this.style.display='none'">
+                    <img src="https://voygent.somotravel.workers.dev/media/uploads/1768413070278_9g5eqf.jpg?w=800" alt="Norwegian Epic Owner Suite - Test Image" class="card-image" loading="lazy" decoding="async" width="400" height="180" onerror="this.style.display='none'">
                     
                     
                     <div class="card-header">Narrowboat Cabin</div>
@@ -1187,7 +1210,7 @@
                     <div class="card-body">
                         <h4 style="color: var(--primary); margin-bottom: 8px;">Black Prince Narrowboats</h4>
                         <p style="font-size: 0.95em; color: var(--text-light); margin-bottom: 12px;">Recommended hire company - Lower Heyford base</p>
-                        <a href="https://www.black-prince.com" class="card-link" target="_blank">View Resource →</a>
+                        <a href="https://www.black-prince.com" class="card-link" target="_blank" rel="noopener noreferrer">View Resource →</a>
                     </div>
                 </div>
                 
@@ -1195,7 +1218,7 @@
                     <div class="card-body">
                         <h4 style="color: var(--primary); margin-bottom: 8px;">Canal &amp; River Trust</h4>
                         <p style="font-size: 0.95em; color: var(--text-light); margin-bottom: 12px;">Official waterways authority - route planning</p>
-                        <a href="https://canalrivertrust.org.uk" class="card-link" target="_blank">View Resource →</a>
+                        <a href="https://canalrivertrust.org.uk" class="card-link" target="_blank" rel="noopener noreferrer">View Resource →</a>
                     </div>
                 </div>
                 
