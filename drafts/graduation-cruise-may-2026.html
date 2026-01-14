@@ -154,7 +154,7 @@
             margin-bottom: 35px;
         }
 
-        .section-header { display: flex; justify-content: space-between; align-items: center;
+        .section-header {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -260,6 +260,138 @@
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 10px;
+        }
+
+        /* Ship Info Card - Cruise Specific */
+        .ship-card {
+            background: linear-gradient(135deg, var(--bg-section) 0%, var(--secondary-light) 100%);
+            border: 2px solid var(--primary);
+        }
+
+        .ship-name {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .cruise-line {
+            font-size: 1.1em;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        /* Port Card - Cruise Specific */
+        .port-card {
+            border-left: 5px solid var(--secondary);
+        }
+
+        .port-card .card-header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .port-times {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+
+        .excursion-item {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .excursion-item:last-child { margin-bottom: 0; }
+
+        .excursion-status {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-booked { background: #d4edda; color: #155724; }
+        .status-pending { background: #fff3cd; color: #856404; }
+        .status-recommended { background: var(--secondary-light); color: var(--primary); }
+
+        /* Dining Card - Cruise Specific */
+        .dining-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .dining-item:last-child { margin-bottom: 0; }
+
+        .dining-info h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .dining-time {
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        /* Credits/Packages - Cruise Specific */
+        .credits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .credit-item {
+            background: var(--bg-section);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        .credit-amount {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .credit-label {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        /* Insider Tips - Cruise Specific */
+        .tip-card {
+            background: #fff8e6;
+            border-left: 5px solid #f5a623;
+            padding: 20px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin-bottom: 15px;
+        }
+
+        .tip-card:last-child { margin-bottom: 0; }
+
+        .tip-card h4 {
+            color: #c7880a;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .tip-card p {
+            color: var(--text);
+            font-size: 0.95em;
         }
 
         /* Day Itinerary */
@@ -436,175 +568,15 @@
             margin-bottom: 5px;
         }
 
-
-        /* Tiered Pricing Comparison */
-        .tiers-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .tier-card {
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: white;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .tier-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .tier-card.recommended {
-            border-color: var(--primary);
-            box-shadow: 0 4px 16px rgba(27, 97, 156, 0.25);
-        }
-
-        .tier-header {
-            padding: 20px;
+        /* QR Code */
+        .qr-section {
             text-align: center;
-            background: var(--bg-light);
-            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
         }
 
-        .tier-card.recommended .tier-header {
-            background: var(--primary);
-            color: white;
-        }
-
-        .tier-name {
-            font-size: 1.3em;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .tier-description {
+        .qr-section p {
             font-size: 0.9em;
-            color: var(--text-light);
-        }
-
-        .tier-card.recommended .tier-description {
-            color: rgba(255,255,255,0.85);
-        }
-
-        .tier-price {
-            padding: 20px;
-            text-align: center;
-            background: var(--bg-section);
-        }
-
-        .tier-price .total {
-            font-size: 2em;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .tier-price .per-person {
-            font-size: 0.95em;
-            color: var(--text-light);
-            margin-top: 5px;
-        }
-
-        .tier-details {
-            padding: 20px;
-        }
-
-        .tier-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.95em;
-        }
-
-        .tier-item:last-child { border-bottom: none; }
-
-        .tier-item .check {
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .tier-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.75em;
-            font-weight: 600;
-            margin-left: 10px;
-        }
-
-
-
-        /* Map Section */
-        .map-container {
-            border-radius: var(--radius);
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 300px;
-            border: none;
-        }
-
-        /* Inline maps and videos (contextual) */
-        .lodging-item {
-            margin-bottom: 25px;
-        }
-        .lodging-item:last-child {
-            margin-bottom: 0;
-        }
-        .inline-map {
-            margin-top: 10px;
-        }
-        .inline-map .map-container iframe {
-            height: 250px;
-        }
-        .inline-videos .video-grid {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-
-        /* Video Embeds */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .video-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-
-        .video-embed {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-embed iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-caption {
-            padding: 12px 15px;
-            font-size: 0.95em;
-            color: var(--text);
-            background: var(--bg-light);
+            margin-bottom: 10px;
         }
 
         /* Responsive */
@@ -615,117 +587,12 @@
             .content { padding: 20px 15px; }
             .cards-grid { grid-template-columns: 1fr; }
             .overview-section { grid-template-columns: repeat(2, 1fr); }
-            /* Mobile tiers */
-            .tiers-grid { grid-template-columns: 1fr; gap: 15px; }
-            .tier-card.recommended { order: -1; }
+            .credits-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media print {
             .header-bar, .hero { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .card:hover { transform: none; box-shadow: var(--shadow); }
-        }
-
-        /* Comment buttons and modal */
-        .comment-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            font-size: 0.9em;
-            font-weight: 500;
-            color: white;
-            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 2px 8px rgba(230, 126, 34, 0.3);
-        }
-        .comment-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.4);
-        }
-        .comment-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .comment-modal.active { display: flex; }
-        .comment-form {
-            background: white;
-            padding: 25px;
-            border-radius: var(--radius);
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-        .comment-form h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        .comment-form input,
-        .comment-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            font-size: 1em;
-            box-sizing: border-box;
-        }
-        .comment-form textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-        .comment-form-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-        }
-        .comment-form button {
-            padding: 10px 20px;
-            border-radius: var(--radius);
-            font-size: 1em;
-            cursor: pointer;
-        }
-        .comment-form .cancel-btn {
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            color: var(--text);
-        }
-        .comment-form .submit-btn {
-            background: var(--primary);
-            border: none;
-            color: white;
-        }
-        .reserve-btn {
-            display: block;
-            width: 100%;
-            padding: 18px 30px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark, #1a4a6e) 100%);
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: 600;
-            border-radius: var(--radius);
-            margin: 30px 0;
-            box-shadow: var(--shadow);
-        }
-        .reserve-section {
-            text-align: center;
-            margin: 30px 0;
-        }
-        .general-comment {
-            text-align: center;
-            margin: 20px 0;
         }
     </style>
 </head>
@@ -762,6 +629,8 @@
             
 
             
+            
+            
 
             
             <div class="overview-card">
@@ -774,21 +643,66 @@
             
         </div>
 
+        <!-- Ship Info Section - CRUISE SPECIFIC -->
+        
 
+        <!-- Ports of Call Section - CRUISE SPECIFIC -->
+        
+
+        <!-- Onboard Dining Section - CRUISE SPECIFIC -->
+        
+
+        <!-- Onboard Credits & Packages Section - CRUISE SPECIFIC -->
+        
+
+        <!-- Insider Tips Section - CRUISE SPECIFIC -->
         
         <div class="section">
             <div class="section-header">
-                <div class="section-icon">🗺️</div>
-                <h2>Destination Map</h2>
+                <div class="section-icon">💡</div>
+                <h2>Cruise Insider Tips</h2>
             </div>
-            <div class="map-container">
-                <iframe
-                    loading="lazy"
-                    allowfullscreen
-                    referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Caribbean%20-%205-Night%20Western%20Caribbean%20(Carnival%20Valor%20from%20New%20Orleans)">
-                </iframe>
+            
+            <div class="tip-card">
+                <h4></h4>
+                <p></p>
             </div>
+            
+            <div class="tip-card">
+                <h4></h4>
+                <p></p>
+            </div>
+            
+            <div class="tip-card">
+                <h4></h4>
+                <p></p>
+            </div>
+            
+            <div class="tip-card">
+                <h4></h4>
+                <p></p>
+            </div>
+            
+            <div class="tip-card">
+                <h4></h4>
+                <p></p>
+            </div>
+            
+            <div class="tip-card">
+                <h4></h4>
+                <p></p>
+            </div>
+            
+            <div class="tip-card">
+                <h4></h4>
+                <p></p>
+            </div>
+            
+            <div class="tip-card">
+                <h4></h4>
+                <p></p>
+            </div>
+            
         </div>
         
 
@@ -800,7 +714,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">✨</div>
-                <h2>Preferences</h2>
+                <h2>Your Travel Style</h2>
             </div>
             <div class="content-box">
                 
@@ -820,10 +734,7 @@
         <!-- Flights Section -->
         
 
-        <!-- Lodging Section -->
-        
-
-        <!-- Narrowboat Section -->
+        <!-- Lodging Section (Pre/Post Cruise Hotels) -->
         
 
         <!-- Itinerary Section -->
@@ -831,7 +742,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">📍</div>
-                <h2>Day-by-Day Itinerary</h2><button class="comment-btn" onclick="openComment('itinerary', 'Itinerary')">💬 Comment</button>
+                <h2>Day-by-Day Itinerary</h2>
             </div>
             
             <div class="day-card">
@@ -852,7 +763,7 @@
                     
                     <div class="activity">
                         <div class="activity-title">Board Carnival Valor</div>
-                        <div class="activity-details">Ship boarding begins. Head to the Lido Deck for lunch at Guy's Burger Joint or the buffet while your cabin is prepared.</div>
+                        <div class="activity-details">Ship boarding begins. Head to the Lido Deck for lunch at Guy&#39;s Burger Joint or the buffet while your cabin is prepared.</div>
                         
                     </div>
                     
@@ -882,7 +793,7 @@
                     
                     <div class="activity">
                         <div class="activity-title">Evening Entertainment</div>
-                        <div class="activity-details">Comedy shows, live music, casino, or teen hangouts. Check Carnival Hub for tonight's schedule.</div>
+                        <div class="activity-details">Comedy shows, live music, casino, or teen hangouts. Check Carnival Hub for tonight&#39;s schedule.</div>
                         
                     </div>
                     
@@ -906,7 +817,7 @@
                     </div>
                     
                     <div class="activity">
-                        <div class="activity-title">Pool & Water Slides</div>
+                        <div class="activity-title">Pool &amp; Water Slides</div>
                         <div class="activity-details">Hit the Twister Waterslide and main pool early before it gets crowded. Perfect for the 18-year-olds!</div>
                         
                     </div>
@@ -918,13 +829,13 @@
                     </div>
                     
                     <div class="activity">
-                        <div class="activity-title">Guy's Burger Joint</div>
+                        <div class="activity-title">Guy&#39;s Burger Joint</div>
                         <div class="activity-details">Free burgers designed by Guy Fieri. Consistently rated best food on Carnival ships.</div>
                         
                     </div>
                     
                     <div class="activity">
-                        <div class="activity-title">Spa & Salon</div>
+                        <div class="activity-title">Spa &amp; Salon</div>
                         <div class="activity-details">Book a massage or facial. Tip: Port days often have spa specials!</div>
                         
                     </div>
@@ -969,24 +880,24 @@
                     <div class="activity">
                         <div class="activity-title">OPTION A: Teens — Jeep Safari Adventure</div>
                         <div class="activity-details">Drive your own Jeep! Includes Punta Sur Park, lighthouse climb, crocodile lagoon, snorkeling, tequila tasting, and lunch. ~$99/pp</div>
-                        <a href="https://www.viator.com/tours/Cozumel/The-Original-Private-Jeep-Safari-All-Inclusive/d632-427966P11?pid=P00005400&uid=U00386675&mcid=58086" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
+                        <a href="https://www.viator.com/tours/Cozumel/The-Original-Private-Jeep-Safari-All-Inclusive/d632-427966P11?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
                     </div>
                     
                     <div class="activity">
                         <div class="activity-title">OPTION B: Teens — ATV + Jade Cenote</div>
                         <div class="activity-details">Off-road ATV through jungle trails, swim in a cenote, beach club time. ~$94/pp (includes park fee)</div>
-                        <a href="https://www.viator.com/tours/Cozumel/Atv-Tour-To-The-Famous-Wild-Jade-Cavern-With-Transfer/d632-411035P6?pid=P00005400&uid=U00386675&mcid=58086" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
+                        <a href="https://www.viator.com/tours/Cozumel/Atv-Tour-To-The-Famous-Wild-Jade-Cavern-With-Transfer/d632-411035P6?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
                     </div>
                     
                     <div class="activity">
                         <div class="activity-title">Moms — Mr. Sanchos Beach Club</div>
-                        <div class="activity-details">Ultimate relaxation! All-inclusive food & drinks, pools, beach, swim-up bar, kayaks. Taxi from port ~$18 for 4. $79/pp</div>
+                        <div class="activity-details">Ultimate relaxation! All-inclusive food &amp; drinks, pools, beach, swim-up bar, kayaks. Taxi from port ~$18 for 4. $79/pp</div>
                         <a href="https://mrsanchos.com/activity/mr-sanchos-beach-club-all-inclusive-day-pass/" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
                     </div>
                     
                     <div class="activity">
                         <div class="activity-title">Return to Ship</div>
-                        <div class="activity-details">⚠️ ALL ABOARD by 3:30 PM! Ship departs at 4:00 PM. Don't be late!</div>
+                        <div class="activity-details">⚠️ ALL ABOARD by 3:30 PM! Ship departs at 4:00 PM. Don&#39;t be late!</div>
                         
                     </div>
                     
@@ -997,7 +908,7 @@
                     </div>
                     
                     <div class="activity">
-                        <div class="activity-title">Dinner & Evening</div>
+                        <div class="activity-title">Dinner &amp; Evening</div>
                         <div class="activity-details">Share adventure stories over dinner! Catch a comedy show or hit the club.</div>
                         
                     </div>
@@ -1065,7 +976,7 @@
                 <div class="day-content">
                     
                     <div class="activity">
-                        <div class="activity-title">Sleep In & Brunch</div>
+                        <div class="activity-title">Sleep In &amp; Brunch</div>
                         <div class="activity-details">No rush today! Enjoy a leisurely breakfast or brunch.</div>
                         
                     </div>
@@ -1089,13 +1000,13 @@
                     </div>
                     
                     <div class="activity">
-                        <div class="activity-title">Pack & Prepare</div>
+                        <div class="activity-title">Pack &amp; Prepare</div>
                         <div class="activity-details">Set luggage outside cabin door by 10pm for porters. Keep carry-on with essentials.</div>
                         
                     </div>
                     
                     <div class="activity">
-                        <div class="activity-title">Captain's Farewell Dinner</div>
+                        <div class="activity-title">Captain&#39;s Farewell Dinner</div>
                         <div class="activity-details">Final formal-ish dinner. Baked Alaska parade is a must-see!</div>
                         
                     </div>
@@ -1127,7 +1038,7 @@
                     
                     <div class="activity">
                         <div class="activity-title">Disembark</div>
-                        <div class="activity-details">Wait for your color group to be called. Have cruise card & ID ready.</div>
+                        <div class="activity-details">Wait for your color group to be called. Have cruise card &amp; ID ready.</div>
                         
                     </div>
                     
@@ -1152,173 +1063,17 @@
         <!-- Extras / Recommendations Section -->
         
 
-
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🎬</div>
-                <h2>Helpful Videos</h2>
-            </div>
-            <div class="video-grid">
-            
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/BSp9Q0FAzlE" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">Carnival Valor Full Ship Tour - Deck by Deck (175K views)</div>
-                </div>
-            
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/zHpn3vHATHk" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">Things to Know Before Sailing Carnival Valor in 2025</div>
-                </div>
-            
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/T276GXGFVaU" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">10 Things They Don't Tell You About Chichen Itza (207K views)</div>
-                </div>
-            
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/T7_K7gYdpgg" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">How to Visit Chichen Itza the Best Way in 2025</div>
-                </div>
-            
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/X6zVLUi4kOI" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">Don't Fall for These Cozumel Tourist Traps! (503K views)</div>
-                </div>
-            
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/a6mAhU6zs0A" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">Best Cozumel Cruise Excursions - Don't Miss These! (172K views)</div>
-                </div>
-            
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/84lUSXixzDc" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">Mr Sanchos Cozumel Review - Everything You Need to Know</div>
-                </div>
-            
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/QRQX_8sR2r0" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">Swimming in Cenote Ik Kil - Most Beautiful Cenotes in Yucatan</div>
-                </div>
-            
-            </div>
-        </div>
-        
-
-        <!-- Package Options / Pricing Section -->
-        
-        
+        <!-- Pricing Section -->
         
 
     </div>
 
     <!-- Footer -->
-    
-    <!-- Reserve Now Section -->
-    <div class="reserve-section">
-        <p style="color: var(--text-light); margin-bottom: 15px;">Ready to book? Secure your trip with a deposit.</p>
-        <a href="" class="reserve-btn" target="_blank">Reserve Now</a>
-    </div>
-
-    <!-- General Comment -->
-    <div class="general-comment">
-        <button class="comment-btn" onclick="openComment('general', 'Overall Trip')">
-            💬 Questions or changes? Let us know
-        </button>
-    </div>
-
-    <!-- Comment Modal -->
-    <div id="commentModal" class="comment-modal" onclick="if(event.target===this)closeComment()">
-        <div class="comment-form">
-            <h3 id="commentTitle">Comment on Section</h3>
-            <input type="text" id="commentName" placeholder="Your name (optional)">
-            <input type="email" id="commentEmail" placeholder="Email for reply (optional)">
-            <textarea id="commentMessage" placeholder="Your question, feedback, or requested changes..."></textarea>
-            <div class="comment-form-buttons">
-                <button class="cancel-btn" onclick="closeComment()">Cancel</button>
-                <button class="submit-btn" id="submitComment" onclick="submitComment()">Send</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        var commentSection = '';
-        var commentItem = '';
-        var tripKey = 'kim_d63b7658/graduation-cruise-may-2026';
-        var apiEndpoint = 'https://voygent.somotravel.workers.dev';
-
-        function openComment(section, item) {
-            commentSection = section;
-            commentItem = item || '';
-            document.getElementById('commentTitle').textContent = 'Comment on ' + (item || section);
-            document.getElementById('commentModal').classList.add('active');
-            document.getElementById('commentMessage').focus();
-        }
-
-        function closeComment() {
-            document.getElementById('commentModal').classList.remove('active');
-            document.getElementById('commentName').value = '';
-            document.getElementById('commentEmail').value = '';
-            document.getElementById('commentMessage').value = '';
-        }
-
-        function submitComment() {
-            var message = document.getElementById('commentMessage').value.trim();
-            if (!message) return;
-
-            var btn = document.getElementById('submitComment');
-            btn.disabled = true;
-            btn.textContent = 'Sending...';
-
-            fetch(apiEndpoint + '/comment', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    tripKey: tripKey,
-                    section: commentSection,
-                    item: commentItem,
-                    message: message,
-                    name: document.getElementById('commentName').value.trim() || null,
-                    email: document.getElementById('commentEmail').value.trim() || null
-                })
-            })
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
-                if (data.success) {
-                    document.querySelector('.comment-form').innerHTML = '<div style="text-align:center;padding:20px;color:var(--primary);"><h3>✓ Comment Sent!</h3><p>Your travel agent will review your message.</p><button class="cancel-btn" onclick="closeComment();location.reload();">Close</button></div>';
-                } else {
-                    throw new Error('Failed');
-                }
-            })
-            .catch(function() {
-                btn.disabled = false;
-                btn.textContent = 'Send';
-                alert('Failed to send comment. Please try again.');
-            });
-        }
-    </script>
-
     <div class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <div class="footer-tagline">Begin Your Adventure Today</div>
-                <p>Travel is our passion, and our area of expertise. Let us help you create memories that last a lifetime.</p>
+                <div class="footer-tagline">Set Sail on Your Dream Cruise</div>
+                <p>Cruising is our specialty. Let us help you create an unforgettable voyage.</p>
             </div>
             <div class="footer-section">
                 <h4>Contact Your Travel Advisor</h4>
@@ -1335,21 +1090,23 @@
                 </p>
             </div>
         </div>
-        <div class="qr-section" style="text-align: center; padding: 20px 0;">
-                <p style="font-size: 0.9em; color: var(--secondary-light); margin-bottom: 10px;">Scan to view on mobile</p>
-                <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px; border-radius: 8px; padding: 8px; background: white;">
+        <div class="footer-bottom">
+            <div class="qr-section">
+                <p>Scan to view on mobile</p>
+                <img id="qr-code" alt="QR Code" style="width: 100px; height: 100px;">
             </div>
-            <div class="footer-bottom">
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
-            <p style="margin-top: 5px;">Generated January 14, 2026</p>
-            <p style="margin-top: 5px; font-size: 0.8em; opacity: 0.7;">Template: somotravel-cruisemasters v1.8 | Rendered: 2026-01-14 00:05:34 UTC</p>
+            <p style="margin-top: 5px;">Template: cruise v1.0 | Generated January 14, 2026</p>
         </div>
     </div>
+
     <script>
         (function() {
-            var qrImg = document.getElementById('qr-code');
             var url = encodeURIComponent(window.location.href);
-            qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + url;
+            var qrImg = document.getElementById('qr-code');
+            if (qrImg) {
+                qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=' + url;
+            }
         })();
     </script>
 </body>
