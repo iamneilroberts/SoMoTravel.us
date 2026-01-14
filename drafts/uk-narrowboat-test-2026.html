@@ -381,7 +381,174 @@
 
         .activity:last-child { margin-bottom: 0; }
         .activity-title { font-weight: 600; color: var(--text); margin-bottom: 5px; }
+        .activity-time { font-size: 0.85em; color: var(--primary); font-weight: 600; margin-bottom: 3px; }
         .activity-details { font-size: 0.95em; color: var(--text-light); }
+
+        /* Day Description & Info Boxes */
+        .day-description {
+            font-size: 1.05em;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .cruise-info-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            background: var(--bg-section);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .cruise-info-item {
+            text-align: center;
+        }
+
+        .cruise-info-item .label {
+            font-size: 0.75em;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .cruise-info-item .value {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95em;
+        }
+
+        /* Dining Section */
+        .dining-section {
+            background: linear-gradient(135deg, #fff8f0 0%, #fff 100%);
+            border: 1px solid #f0d9c0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+        }
+
+        .dining-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #c7880a;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .dining-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0d9c0;
+            font-size: 0.95em;
+        }
+
+        .dining-item:last-child { border-bottom: none; }
+
+        .dining-item .meal-type {
+            font-weight: 600;
+            color: var(--text);
+            margin-right: 8px;
+        }
+
+        .dining-item .meal-desc {
+            color: var(--text-light);
+        }
+
+        /* Highlights & Tips */
+        .day-highlights {
+            background: var(--secondary-light);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+        }
+
+        .day-highlights h5 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .day-highlights ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .day-highlights li {
+            margin-bottom: 5px;
+            font-size: 0.95em;
+            color: var(--text);
+        }
+
+        .day-tips {
+            background: #fff8e6;
+            border-left: 4px solid #f5a623;
+            border-radius: 0 8px 8px 0;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-tips h5 {
+            color: #c7880a;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .day-tips ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .day-tips li {
+            margin-bottom: 4px;
+            font-size: 0.9em;
+            color: var(--text);
+        }
+
+        /* Shopping Section */
+        .day-shopping {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-shopping h5 {
+            color: var(--text);
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .shopping-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .shopping-tag {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            color: var(--text);
+        }
 
         /* Pricing Section */
         .pricing-box {
@@ -604,7 +771,7 @@
             <div class="overview-card">
                 <div class="icon">💰</div>
                 <div class="label">Investment</div>
-                <div class="value">$6,180</div>
+                <div class="value">$6,485</div>
             </div>
             
         </div>
@@ -692,7 +859,7 @@
                 <div class="overview-section" style="margin-bottom: 25px;">
                     <div class="overview-card">
                         <div class="label">Duration</div>
-                        <div class="value">7 nights aboard</div>
+                        <div class="value">7 nights aboard (Sat 3 Oct - Sat 10 Oct pickup dates)</div>
                     </div>
                     
                     
@@ -717,8 +884,9 @@
                 <div class="day-header">
                     <div class="day-number">1</div>
                     <div class="day-info">
-                        <h3>Mobile → London</h3>
+                        <h3></h3>
                         <div class="day-date">2026-10-01</div>
+                        <div class="day-date">Mobile → London</div>
                     </div>
                 </div>
                 <div class="day-content">
@@ -735,27 +903,50 @@
                         
                     </div>
                     
+
+                    
+                    <div class="day-description">Depart Mobile Regional Airport for your transatlantic journey. Connect through Atlanta Hartsfield-Jackson for your overnight flight to London Heathrow. Get some rest on the plane—tomorrow the adventure begins on the historic Oxford Canal.</div>
+                    
+
+                    
+
+                    
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Afternoon</div>
                         <div class="activity-title">Depart Mobile (MOB)</div>
+                        <div class="activity-details">Check in 2 hours early for international flight</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Evening</div>
                         <div class="activity-title">Connect in Atlanta (ATL)</div>
+                        <div class="activity-details">Brief layover before overnight transatlantic flight</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Overnight</div>
                         <div class="activity-title">Flight to London</div>
+                        <div class="activity-details">Try to sleep—you&#39;ll arrive early morning UK time</div>
                         
                         
                     </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -764,8 +955,9 @@
                 <div class="day-header">
                     <div class="day-number">2</div>
                     <div class="day-info">
-                        <h3>London → Lower Heyford</h3>
+                        <h3></h3>
                         <div class="day-date">2026-10-02</div>
+                        <div class="day-date">London → Lower Heyford</div>
                     </div>
                 </div>
                 <div class="day-content">
@@ -782,48 +974,106 @@
                         
                     </div>
                     
+
+                    
+                    <div class="day-description">Touch down at Heathrow and make your way through the English countryside to your floating home for the week. The journey itself is part of the experience—watch the landscape transform from urban London to rolling Oxfordshire farmland. After your boat orientation, celebrate your first evening aboard with a proper English pub dinner.</div>
+                    
+
+                    
+
+                    
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Morning</div>
                         <div class="activity-title">Arrive London Heathrow</div>
+                        <div class="activity-details">Clear customs, collect luggage, grab a coffee to shake off the jet lag</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Late Morning</div>
                         <div class="activity-title">Heathrow Express to Paddington</div>
+                        <div class="activity-details">15-minute express train to central London (£25/person or £10-16 if booked in advance)</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Midday</div>
                         <div class="activity-title">Underground to Marylebone</div>
+                        <div class="activity-details">Short Tube ride on Bakerloo Line, or walk 20 minutes through lovely Marylebone neighborhood</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Early Afternoon</div>
                         <div class="activity-title">Train to Heyford Station</div>
+                        <div class="activity-details">Chiltern Railways through the Chiltern Hills—watch for red kites soaring overhead (~1hr 15min, one change)</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">2:30 PM</div>
                         <div class="activity-title">Boat Handover at Black Prince</div>
+                        <div class="activity-details">Meet the crew for your comprehensive orientation: steering, locks, mooring, safety equipment, and route planning tips</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Evening</div>
                         <div class="activity-title">Dinner at The Bell Inn</div>
+                        <div class="activity-details">Walk into Lower Heyford village for your first pub meal. This historic inn serves excellent local ales and hearty British fare. Try the pie of the day or a classic fish &amp; chips.</div>
                         
                         
                     </div>
+                    
+                    
+
+                    
+                    <div class="dining-section">
+                        <div class="dining-header">🍽️ Dining</div>
+                        
+                        <div class="dining-item">
+                            <span class="meal-type">Recommended:</span>
+                            <span class="meal-desc">The Bell Inn, Lower Heyford</span>
+                        </div>
+                        
+                        
+                        <div class="dining-item">
+                            <span class="meal-desc">Family-friendly village pub with large garden, local ales, farmhouse ciders, and an eclectic wine list. Known for their unique &#39;Board &amp; Plank&#39; menu.</span>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+
+                    
+
+                    
+                    <div class="day-tips">
+                        <h5>💡 Tips</h5>
+                        <ul>
+                        
+                            <li>Stock up on basics at Banbury tomorrow—limited shops until then</li>
+                        
+                            <li>The boat galley is well-equipped for self-catering breakfast and lunch</li>
+                        
+                        </ul>
+                    </div>
+                    
+
                     
                 </div>
             </div>
@@ -832,8 +1082,9 @@
                 <div class="day-header">
                     <div class="day-number">3</div>
                     <div class="day-info">
-                        <h3>Lower Heyford → Banbury</h3>
+                        <h3></h3>
                         <div class="day-date">2026-10-03</div>
+                        <div class="day-date">Lower Heyford → Banbury</div>
                     </div>
                 </div>
                 <div class="day-content">
@@ -850,54 +1101,151 @@
                         
                     </div>
                     
+
+                    
+                    <div class="day-description">Your first day at the helm! Cruise north through the beautiful Cherwell Valley, passing pretty thatched cottages in Upper Heyford and stopping at Aynho Wharf for a canalside lunch. The pace is gentle—just 4 mph—giving you time to master steering, work your first locks, and wave to fellow boaters. Arrive in Banbury, the largest town on your route, famous for its medieval cross and excellent shopping.</div>
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Distance</div>
+                            <div class="value">~8 miles</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Locks</div>
+                            <div class="value">Several lift bridges and locks</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Cruise Time</div>
+                            <div class="value">4-5 hours cruising</div>
+                        </div>
+                        
+                    </div>
+                    
+
+                    
                     
                     <div class="activity">
                         
+                        <div class="activity-time">8:00 AM</div>
                         <div class="activity-title">Breakfast aboard</div>
+                        <div class="activity-details">Coffee on the stern deck watching the morning mist rise from the canal</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">9:30 AM</div>
                         <div class="activity-title">Cast off from Lower Heyford</div>
+                        <div class="activity-details">Your first time at the tiller! Take it slow through the village</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Late Morning</div>
                         <div class="activity-title">Cruise through Upper Heyford</div>
+                        <div class="activity-details">Pass pretty thatched cottages and the former USAF airbase</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">12:30 PM</div>
                         <div class="activity-title">Lunch stop at Aynho Wharf</div>
+                        <div class="activity-details">Moor up at the Great Western Arms for a proper pub lunch</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Afternoon</div>
                         <div class="activity-title">Continue to Banbury</div>
+                        <div class="activity-details">Work through several locks—teamwork makes it easy</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">4:00 PM</div>
                         <div class="activity-title">Moor in Banbury</div>
+                        <div class="activity-details">Visitor moorings near Castle Quay shopping center</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Evening</div>
                         <div class="activity-title">Explore Banbury town</div>
+                        <div class="activity-details">Visit the famous Banbury Cross, browse Castle Quay shops, enjoy dinner in the Old Town</div>
                         
                         
+                    </div>
+                    
+                    
+
+                    
+                    <div class="dining-section">
+                        <div class="dining-header">🍽️ Dining</div>
+                        
+                        
+                        
+                        
+                        <div class="dining-item">
+                            <span class="meal-type">Lunch:</span>
+                            <span class="meal-desc">Great Western Arms, Aynho Wharf—excellent canalside pub with good food, nestled between canal and railway</span>
+                        </div>
+                        
+                        
+                        <div class="dining-item">
+                            <span class="meal-type">Dinner:</span>
+                            <span class="meal-desc">The Old Auctioneer, Banbury—historic pub in third-oldest building in town (built 1596), fascinating decor and great atmosphere</span>
+                        </div>
+                        
+                    </div>
+                    
+
+                    
+                    <div class="day-highlights">
+                        <h5>⭐ Highlights</h5>
+                        <ul>
+                        
+                            <li>Banbury Cross (from the nursery rhyme 'Ride a Cock Horse')</li>
+                        
+                            <li>Tooley's Boatyard—free to browse, fascinating canal heritage</li>
+                        
+                            <li>Castle Quay waterside restaurants</li>
+                        
+                        </ul>
+                    </div>
+                    
+
+                    
+
+                    
+                    <div class="day-shopping">
+                        <h5>🛍️ Shopping</h5>
+                        <div class="shopping-tags">
+                        
+                            <span class="shopping-tag">Castle Quay Shopping Centre</span>
+                        
+                            <span class="shopping-tag">Banbury Market (Thursday is main market day)</span>
+                        
+                            <span class="shopping-tag">Tooley's Boatyard & Museum—oldest working dry dock on the inland waterways</span>
+                        
+                        </div>
                     </div>
                     
                 </div>
@@ -907,8 +1255,9 @@
                 <div class="day-header">
                     <div class="day-number">4</div>
                     <div class="day-info">
-                        <h3>Banbury → Cropredy</h3>
+                        <h3></h3>
                         <div class="day-date">2026-10-04</div>
+                        <div class="day-date">Banbury → Cropredy</div>
                     </div>
                 </div>
                 <div class="day-content">
@@ -925,41 +1274,120 @@
                         
                     </div>
                     
+
+                    
+                    <div class="day-description">A short, leisurely cruise today allows time to explore both Banbury in the morning and the charming village of Cropredy in the afternoon. This tiny village punches above its weight—site of a pivotal English Civil War battle in 1644 and now famous for hosting the annual Fairport Convention folk festival each August. The 14th-century church and pretty stone cottages are picture-perfect.</div>
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Distance</div>
+                            <div class="value">~5 miles</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Locks</div>
+                            <div class="value">3 locks</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Cruise Time</div>
+                            <div class="value">2-3 hours cruising</div>
+                        </div>
+                        
+                    </div>
+                    
+
+                    
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Morning</div>
                         <div class="activity-title">Explore Banbury at leisure</div>
+                        <div class="activity-details">Visit Tooley&#39;s Boatyard museum, browse the market if Thursday, grab supplies at Sainsbury&#39;s near the canal</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">11:00 AM</div>
                         <div class="activity-title">Depart Banbury</div>
+                        <div class="activity-details">Head north through the town—wave to shoppers on the bridges</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Early Afternoon</div>
                         <div class="activity-title">Arrive Cropredy</div>
+                        <div class="activity-details">Moor near Cropredy Lock—plenty of good spots along the village stretch</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Afternoon</div>
                         <div class="activity-title">Walk the village</div>
+                        <div class="activity-details">Visit St Mary&#39;s Church (14th century), see the Civil War battle site markers, browse the antique shop</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Evening</div>
                         <div class="activity-title">Dinner at The Brasenose Arms</div>
+                        <div class="activity-details">17th-century pub steeped in history with excellent food and cask ales</div>
                         
                         
                     </div>
+                    
+                    
+
+                    
+                    <div class="dining-section">
+                        <div class="dining-header">🍽️ Dining</div>
+                        
+                        <div class="dining-item">
+                            <span class="meal-type">Recommended:</span>
+                            <span class="meal-desc">The Brasenose Arms, Cropredy</span>
+                        </div>
+                        
+                        
+                        <div class="dining-item">
+                            <span class="meal-desc">Classic 17th-century village pub just 4 miles from Banbury. Perfect for lunch or dinner with a country pub atmosphere and excellent menu. Also has rooms if you ever want to return by car!</span>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+
+                    
+                    <div class="day-highlights">
+                        <h5>⭐ Highlights</h5>
+                        <ul>
+                        
+                            <li>St Mary's Church—beautiful 14th-century church with Civil War history</li>
+                        
+                            <li>Battle of Cropredy Bridge site</li>
+                        
+                            <li>Cropredy Festival grounds (if you're a folk music fan, come back in August!)</li>
+                        
+                        </ul>
+                    </div>
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -968,8 +1396,9 @@
                 <div class="day-header">
                     <div class="day-number">5</div>
                     <div class="day-info">
-                        <h3>Cropredy → Fenny Compton</h3>
+                        <h3></h3>
                         <div class="day-date">2026-10-05</div>
+                        <div class="day-date">Cropredy → Fenny Compton</div>
                     </div>
                 </div>
                 <div class="day-content">
@@ -986,48 +1415,129 @@
                         
                     </div>
                     
+
+                    
+                    <div class="day-description">Today you&#39;ll tackle the famous Claydon flight of locks and cruise through some of the most remote, beautiful countryside on the Oxford Canal. The stretch past Wormleighton is gloriously isolated—rolling hills, grazing sheep, and not a building in sight. Reward your efforts at The Wharf Inn, a quirky canalside pub with a legendary reputation among boaters.</div>
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Distance</div>
+                            <div class="value">~7 miles</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Locks</div>
+                            <div class="value">Claydon flight (5 locks) plus others</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Cruise Time</div>
+                            <div class="value">5-6 hours cruising</div>
+                        </div>
+                        
+                    </div>
+                    
+
+                    
                     
                     <div class="activity">
                         
+                        <div class="activity-time">8:30 AM</div>
                         <div class="activity-title">Early start from Cropredy</div>
+                        <div class="activity-details">Get going before the crowds—Claydon locks can get busy</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Mid-Morning</div>
                         <div class="activity-title">Claydon Lock Flight</div>
+                        <div class="activity-details">Five locks in succession—great teamwork exercise. Take breaks between locks to enjoy the views.</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Midday</div>
                         <div class="activity-title">Summit pound cruising</div>
+                        <div class="activity-details">You&#39;ve reached the highest point on the canal! Enjoy the remote stretch past medieval Wormleighton</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Afternoon</div>
                         <div class="activity-title">Fenny Compton cutting</div>
+                        <div class="activity-details">Originally a tunnel, now a dramatic tree-lined cutting—very atmospheric in autumn</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">4:00 PM</div>
                         <div class="activity-title">Moor at Fenny Compton Wharf</div>
+                        <div class="activity-details">Good moorings right by the pub, water point and rubbish disposal available</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Evening</div>
                         <div class="activity-title">Dinner at The Wharf Inn</div>
+                        <div class="activity-details">Legendary boaters&#39; pub with excellent real ales, Sunday roasts, and quirky character</div>
                         
                         
                     </div>
+                    
+                    
+
+                    
+                    <div class="dining-section">
+                        <div class="dining-header">🍽️ Dining</div>
+                        
+                        <div class="dining-item">
+                            <span class="meal-type">Recommended:</span>
+                            <span class="meal-desc">The Wharf Inn, Fenny Compton</span>
+                        </div>
+                        
+                        
+                        <div class="dining-item">
+                            <span class="meal-desc">Traditional canalside pub beloved by generations of boaters. Wide selection of real ales, comprehensive menu from snacks to Sunday roasts. Has its own hair salon and launderette for the canal trade! Great beer garden for watching sunset over the canal.</span>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+
+                    
+                    <div class="day-highlights">
+                        <h5>⭐ Highlights</h5>
+                        <ul>
+                        
+                            <li>Claydon Lock flight—satisfying teamwork challenge</li>
+                        
+                            <li>Remote summit pound—feel like you've discovered a secret England</li>
+                        
+                            <li>Fenny Compton cutting—atmospheric wooded section</li>
+                        
+                        </ul>
+                    </div>
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1036,8 +1546,9 @@
                 <div class="day-header">
                     <div class="day-number">6</div>
                     <div class="day-info">
-                        <h3>Fenny Compton → Napton Junction</h3>
+                        <h3></h3>
                         <div class="day-date">2026-10-06</div>
+                        <div class="day-date">Fenny Compton → Napton Junction</div>
                     </div>
                 </div>
                 <div class="day-content">
@@ -1054,54 +1565,144 @@
                         
                     </div>
                     
+
+                    
+                    <div class="day-description">Cruise through rolling Warwickshire farmland toward the iconic Napton Windmill, visible for miles atop its hill. This is classic English canal country—sheep dotting the hillsides, church spires in the distance, and the promise of one of the best pubs on the entire canal network at day&#39;s end. Walk up to the windmill for panoramic views over five counties.</div>
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Distance</div>
+                            <div class="value">~5 miles</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Locks</div>
+                            <div class="value">Napton flight (9 locks)</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Cruise Time</div>
+                            <div class="value">4-5 hours cruising</div>
+                        </div>
+                        
+                    </div>
+                    
+
+                    
                     
                     <div class="activity">
                         
+                        <div class="activity-time">9:00 AM</div>
                         <div class="activity-title">Depart Fenny Compton</div>
+                        <div class="activity-details">Cruise through the peaceful morning countryside</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Late Morning</div>
                         <div class="activity-title">Approach Napton</div>
+                        <div class="activity-details">Watch for the windmill appearing on the hilltop—iconic photo opportunity</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Midday</div>
                         <div class="activity-title">Napton Lock Flight</div>
+                        <div class="activity-details">Nine locks with the windmill as your backdrop—one of the most scenic lock flights in England</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">2:00 PM</div>
                         <div class="activity-title">Moor near Bridge 113 (Folly Bridge)</div>
+                        <div class="activity-details">Good moorings right by the famous Folly Inn</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Afternoon</div>
                         <div class="activity-title">Walk up to Napton Windmill</div>
+                        <div class="activity-details">20-minute uphill walk rewarded with views over Warwickshire, Oxfordshire, Northamptonshire, Leicestershire and Gloucestershire</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Late Afternoon</div>
                         <div class="activity-title">Village exploration</div>
+                        <div class="activity-details">Visit Napton Village Store &amp; Kitchen for provisions and a coffee. Pop into the 13th-century church.</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Evening</div>
                         <div class="activity-title">Dinner at The Folly Inn</div>
+                        <div class="activity-details">One of the most famous pubs on the canal—don&#39;t miss it!</div>
                         
                         
+                    </div>
+                    
+                    
+
+                    
+                    <div class="dining-section">
+                        <div class="dining-header">🍽️ Dining</div>
+                        
+                        <div class="dining-item">
+                            <span class="meal-type">Recommended:</span>
+                            <span class="meal-desc">The Folly Inn, Napton</span>
+                        </div>
+                        
+                        
+                        <div class="dining-item">
+                            <span class="meal-desc">A canal legend since 1840! Grade II listed former farmhouse packed with curiosities—brass items, musical instruments, antiques covering every surface. Real ales (Hook Norton, Purity), excellent hearty food, live music some evenings. The new &#39;Potting Shed&#39; garden area is stunning. Booking recommended for dinner.</span>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+
+                    
+                    <div class="day-highlights">
+                        <h5>⭐ Highlights</h5>
+                        <ul>
+                        
+                            <li>Napton Windmill—iconic landmark visible for miles</li>
+                        
+                            <li>The Folly Inn—legendary canal pub</li>
+                        
+                            <li>13th-century All Saints Church</li>
+                        
+                        </ul>
+                    </div>
+                    
+
+                    
+
+                    
+                    <div class="day-shopping">
+                        <h5>🛍️ Shopping</h5>
+                        <div class="shopping-tags">
+                        
+                        </div>
                     </div>
                     
                 </div>
@@ -1111,8 +1712,9 @@
                 <div class="day-header">
                     <div class="day-number">7</div>
                     <div class="day-info">
-                        <h3>Napton → Braunston</h3>
+                        <h3></h3>
                         <div class="day-date">2026-10-07</div>
+                        <div class="day-date">Napton → Braunston</div>
                     </div>
                 </div>
                 <div class="day-content">
@@ -1129,54 +1731,152 @@
                         
                     </div>
                     
+
+                    
+                    <div class="day-description">Today you reach Braunston—the historic heart of England&#39;s canal network. This is where the Oxford Canal meets the Grand Union, and for 200 years it was the crossroads of waterway commerce. The atmospheric 2,042-yard Braunston Tunnel is a highlight, followed by the working marina and historic boatyard. The village has excellent pubs, a butcher, fish &amp; chip shop, and the church known as &#39;The Cathedral of the Canals.&#39;</div>
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Distance</div>
+                            <div class="value">~6 miles</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Locks</div>
+                            <div class="value">Braunston flight (6 locks)</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Cruise Time</div>
+                            <div class="value">4-5 hours cruising</div>
+                        </div>
+                        
+                    </div>
+                    
+
+                    
                     
                     <div class="activity">
                         
+                        <div class="activity-time">9:00 AM</div>
                         <div class="activity-title">Depart Napton</div>
+                        <div class="activity-details">Head east toward Braunston Junction</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Mid-Morning</div>
                         <div class="activity-title">Braunston Turn (Junction)</div>
+                        <div class="activity-details">Where Oxford Canal meets Grand Union—photo opportunity at the cast-iron bridge</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Late Morning</div>
                         <div class="activity-title">Braunston Lock Flight</div>
+                        <div class="activity-details">Six locks up toward the tunnel—volunteer lock keepers often on hand to help</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Midday</div>
                         <div class="activity-title">Braunston Tunnel</div>
+                        <div class="activity-details">2,042 yards of atmospheric cruising—turn on your headlight and enjoy the experience!</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Early Afternoon</div>
                         <div class="activity-title">Moor at Braunston Marina</div>
+                        <div class="activity-details">Plenty of visitor moorings near the village</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Afternoon</div>
                         <div class="activity-title">Explore Braunston</div>
+                        <div class="activity-details">Visit the historic boatyard, chandlery, and All Saints Church (&#39;Cathedral of the Canals&#39;). Browse the excellent butcher and village shop.</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Evening</div>
                         <div class="activity-title">Pub dinner</div>
+                        <div class="activity-details">Choice of excellent pubs—The Admiral Nelson by the lock or The Old Plough in the village</div>
                         
                         
+                    </div>
+                    
+                    
+
+                    
+                    <div class="dining-section">
+                        <div class="dining-header">🍽️ Dining</div>
+                        
+                        <div class="dining-item">
+                            <span class="meal-type">Recommended:</span>
+                            <span class="meal-desc">The Admiral Nelson, Braunston</span>
+                        </div>
+                        
+                        
+                        <div class="dining-item">
+                            <span class="meal-desc">Historic canalside pub built circa 1730, predating the canal itself! Right beside Lock No. 3 with outdoor seating overlooking the lock. Excellent food using local ingredients, great real ales. Known for generous portions and Sunday roasts. Family and dog friendly.</span>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+
+                    
+                    <div class="day-highlights">
+                        <h5>⭐ Highlights</h5>
+                        <ul>
+                        
+                            <li>Braunston Tunnel—2,042 yards of atmospheric cruising</li>
+                        
+                            <li>Historic Braunston Marina—working boatyard since canal era</li>
+                        
+                            <li>All Saints Church—'Cathedral of the Canals' where many boating families married</li>
+                        
+                            <li>Junction of Oxford Canal and Grand Union—historic crossroads</li>
+                        
+                        </ul>
+                    </div>
+                    
+
+                    
+
+                    
+                    <div class="day-shopping">
+                        <h5>🛍️ Shopping</h5>
+                        <div class="shopping-tags">
+                        
+                            <span class="shopping-tag">Braunston village shop with post office</span>
+                        
+                            <span class="shopping-tag">Excellent butcher on the high street</span>
+                        
+                            <span class="shopping-tag">Canal chandlery at the marina</span>
+                        
+                        </div>
                     </div>
                     
                 </div>
@@ -1186,8 +1886,9 @@
                 <div class="day-header">
                     <div class="day-number">8</div>
                     <div class="day-info">
-                        <h3>Braunston → Near Cropredy</h3>
+                        <h3></h3>
                         <div class="day-date">2026-10-08</div>
+                        <div class="day-date">Braunston → Near Cropredy</div>
                     </div>
                 </div>
                 <div class="day-content">
@@ -1204,55 +1905,129 @@
                         
                     </div>
                     
+
+                    
+                    <div class="day-description">Begin your return journey south. This is your longest cruising day, but familiar locks and scenery make it enjoyable. Everything looks different from the opposite direction—you&#39;ll notice things you missed heading north. The goal is to get past Napton and Fenny Compton, mooring somewhere near Cropredy for your final night on the northern stretch.</div>
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Distance</div>
+                            <div class="value">~15 miles</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Locks</div>
+                            <div class="value">Multiple flights (Braunston, Napton, Claydon)</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Cruise Time</div>
+                            <div class="value">7-8 hours cruising</div>
+                        </div>
+                        
+                    </div>
+                    
+
+                    
                     
                     <div class="activity">
                         
+                        <div class="activity-time">7:30 AM</div>
                         <div class="activity-title">Early start from Braunston</div>
+                        <div class="activity-details">Get through the tunnel before it gets busy</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Morning</div>
                         <div class="activity-title">Braunston flight down</div>
+                        <div class="activity-details">Descending locks is faster—enjoy the views you missed yesterday</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Late Morning</div>
                         <div class="activity-title">Pass Napton Junction</div>
+                        <div class="activity-details">Wave to The Folly as you pass</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Midday</div>
                         <div class="activity-title">Quick lunch aboard</div>
+                        <div class="activity-details">Sandwiches and snacks while cruising—make the miles count</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Afternoon</div>
                         <div class="activity-title">Fenny Compton &amp; Claydon locks</div>
+                        <div class="activity-details">The lock flights pass more quickly heading downhill</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">5:00 PM</div>
                         <div class="activity-title">Moor near Cropredy</div>
+                        <div class="activity-details">Find a quiet rural mooring between Claydon and Cropredy</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Evening</div>
                         <div class="activity-title">Cook aboard or visit village pub</div>
+                        <div class="activity-details">If moored near enough, walk to Cropredy for dinner at The Brasenose or The Red Lion. Otherwise, enjoy a cozy evening aboard.</div>
                         
                         
                     </div>
+                    
+                    
+
+                    
+                    <div class="dining-section">
+                        <div class="dining-header">🍽️ Dining</div>
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                    
+
+                    
+
+                    
+                    <div class="day-tips">
+                        <h5>💡 Tips</h5>
+                        <ul>
+                        
+                            <li>Start early to make the most of daylight</li>
+                        
+                            <li>Pack lunch aboard to save time</li>
+                        
+                            <li>This is your most active cruising day—share the tiller duty</li>
+                        
+                        </ul>
+                    </div>
+                    
+
                     
                 </div>
             </div>
@@ -1261,8 +2036,9 @@
                 <div class="day-header">
                     <div class="day-number">9</div>
                     <div class="day-info">
-                        <h3>Near Cropredy → Lower Heyford</h3>
+                        <h3></h3>
                         <div class="day-date">2026-10-09</div>
+                        <div class="day-date">Near Cropredy → Lower Heyford</div>
                     </div>
                 </div>
                 <div class="day-content">
@@ -1279,62 +2055,130 @@
                         
                     </div>
                     
+
+                    
+                    <div class="day-description">Your last morning at the helm. Savor every mile as you cruise back through Banbury and the Cherwell Valley to Lower Heyford. Return the boat by mid-afternoon (typically 4pm), then decide: stay local for a final night at The Bell Inn, or catch the train to London for a city evening before your flight tomorrow.</div>
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Distance</div>
+                            <div class="value">~10-12 miles</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Locks</div>
+                            <div class="value">Several</div>
+                        </div>
+                        
+                        
+                        <div class="cruise-info-item">
+                            <div class="label">Cruise Time</div>
+                            <div class="value">5-6 hours cruising</div>
+                        </div>
+                        
+                    </div>
+                    
+
+                    
                     
                     <div class="activity">
                         
+                        <div class="activity-time">8:00 AM</div>
                         <div class="activity-title">Final breakfast aboard</div>
+                        <div class="activity-details">Last chance for coffee on the stern deck watching the morning canal life</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">9:00 AM</div>
                         <div class="activity-title">Cast off for Lower Heyford</div>
+                        <div class="activity-details">Enjoy your final hours as narrowboat captain</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Late Morning</div>
                         <div class="activity-title">Cruise through Banbury</div>
+                        <div class="activity-details">Wave goodbye to Castle Quay and Tooley&#39;s</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Midday</div>
                         <div class="activity-title">Aynho Wharf</div>
+                        <div class="activity-details">Optional quick stop at Great Western Arms for a farewell lunch</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Early Afternoon</div>
                         <div class="activity-title">Lower Heyford approach</div>
+                        <div class="activity-details">Past Upper Heyford&#39;s thatched cottages one more time</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">3:30 PM</div>
                         <div class="activity-title">Return boat to Black Prince</div>
+                        <div class="activity-details">Fuel up, check out with the team, share your adventure stories</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Evening Option A</div>
                         <div class="activity-title">Stay in Lower Heyford</div>
+                        <div class="activity-details">Final dinner at The Bell Inn, taxi to nearby hotel, or B&amp;B</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Evening Option B</div>
                         <div class="activity-title">Train to London</div>
+                        <div class="activity-details">Catch train from Heyford to Marylebone (~1hr 15min), evening in London. Hotels near Paddington/Marylebone convenient for Heathrow tomorrow.</div>
                         
                         
                     </div>
+                    
+                    
+
+                    
+                    <div class="dining-section">
+                        <div class="dining-header">🍽️ Dining</div>
+                        
+                        
+                        
+                        
+                        <div class="dining-item">
+                            <span class="meal-type">Lunch:</span>
+                            <span class="meal-desc">Great Western Arms, Aynho—nice bookend to your first cruising day</span>
+                        </div>
+                        
+                        
+                    </div>
+                    
+
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1343,8 +2187,9 @@
                 <div class="day-header">
                     <div class="day-number">10</div>
                     <div class="day-info">
-                        <h3>London → Mobile</h3>
+                        <h3></h3>
                         <div class="day-date">2026-10-10</div>
+                        <div class="day-date">London → Mobile</div>
                     </div>
                 </div>
                 <div class="day-content">
@@ -1361,48 +2206,88 @@
                         
                     </div>
                     
+
+                    
+                    <div class="day-description">Your canal adventure ends but the memories remain. If you stayed in London, enjoy a leisurely morning before heading to Heathrow. Perhaps a walk through Hyde Park or a quick visit to a museum. If staying local in Oxfordshire, catch the train from Heyford to connect with your flight. Either way, you&#39;ll be home by evening with stories to tell and perhaps already planning your return.</div>
+                    
+
+                    
+
+                    
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Morning</div>
                         <div class="activity-title">London at leisure (if staying in city)</div>
+                        <div class="activity-details">Hyde Park walk, museum visit, or simply a proper English breakfast at a local café</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Morning</div>
                         <div class="activity-title">Train to Heathrow (if staying local)</div>
+                        <div class="activity-details">Heyford to Paddington, then Heathrow Express</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Early Afternoon</div>
                         <div class="activity-title">Check in at Heathrow</div>
+                        <div class="activity-details">Allow 3 hours for international departure</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Afternoon</div>
                         <div class="activity-title">Depart London (LHR)</div>
+                        <div class="activity-details">Flight to Atlanta</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Evening</div>
                         <div class="activity-title">Connect in Atlanta (ATL)</div>
+                        <div class="activity-details">Clear customs, brief layover</div>
                         
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-time">Night</div>
                         <div class="activity-title">Arrive Mobile (MOB)</div>
+                        <div class="activity-details">Home with a head full of memories—canal sunsets, lock teamwork, village pubs, and the gentle pace of life at 4 mph</div>
                         
                         
                     </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+                    <div class="day-tips">
+                        <h5>💡 Tips</h5>
+                        <ul>
+                        
+                            <li>Duty free at Heathrow is excellent for last-minute British treats</li>
+                        
+                            <li>If time permits, the Heathrow Express has a 15-minute frequency—no need to rush</li>
+                        
+                        </ul>
+                    </div>
+                    
+
                     
                 </div>
             </div>
@@ -1427,6 +2312,30 @@
                         <h4 style="color: var(--primary); margin-bottom: 8px;">Black Prince Narrowboats</h4>
                         <p style="font-size: 0.95em; color: var(--text-light); margin-bottom: 12px;">Recommended hire company - Lower Heyford base</p>
                         <a href="https://www.black-prince.com" class="card-link" target="_blank" rel="noopener noreferrer">View Resource →</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h4 style="color: var(--primary); margin-bottom: 8px;">Duchess 4 Narrowboat</h4>
+                        <p style="font-size: 0.95em; color: var(--text-light); margin-bottom: 12px;">58ft Classic boat - sleeps 2-4, 2 bedrooms, pet friendly</p>
+                        <a href="https://www.black-prince.com/duchess-4-narrowboat/" class="card-link" target="_blank" rel="noopener noreferrer">View Resource →</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h4 style="color: var(--primary); margin-bottom: 8px;">Lower Heyford Base Info</h4>
+                        <p style="font-size: 0.95em; color: var(--text-light); margin-bottom: 12px;">Routes, directions, nearby hotels, transport links</p>
+                        <a href="https://www.black-prince.com/hire-bases/lower-heyford/" class="card-link" target="_blank" rel="noopener noreferrer">View Resource →</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h4 style="color: var(--primary); margin-bottom: 8px;">Cropredy &amp; Return Route</h4>
+                        <p style="font-size: 0.95em; color: var(--text-light); margin-bottom: 12px;">34 miles, 22 locks - perfect for 1 week or 10 nights</p>
+                        <a href="https://www.black-prince.com/cropredy-return/" class="card-link" target="_blank" rel="noopener noreferrer">View Resource →</a>
                     </div>
                 </div>
                 
@@ -1468,35 +2377,35 @@
             <div class="pricing-box">
                 
                 <div class="pricing-row">
-                    <span>Flights (4 people) <span style="font-size: 0.85em; color: var(--text-light);">(MOB-LHR round-trip)</span></span>
+                    <span>Flights (4 people) <span style="font-size: 0.85em; color: var(--text-light);">(MOB-LHR round-trip estimate)</span></span>
                     <span>$2,800</span>
                 </div>
                 
                 <div class="pricing-row">
-                    <span>Narrowboat (7 nights)</span>
-                    <span>$2,200</span>
+                    <span>Narrowboat - Duchess 4 (10 nights) <span style="font-size: 0.85em; color: var(--text-light);">(£1,986 GBP @ 1.25 USD/GBP - SPECIAL OFFER (was £2,648))</span></span>
+                    <span>$2,480</span>
                 </div>
                 
                 <div class="pricing-row">
-                    <span>Train Transfers <span style="font-size: 0.85em; color: var(--text-light);">(Heathrow to Heyford &amp; return)</span></span>
+                    <span>Train Transfers <span style="font-size: 0.85em; color: var(--text-light);">(Heathrow Express + Chiltern Railways to Heyford &amp; return)</span></span>
                     <span>$480</span>
                 </div>
                 
                 <div class="pricing-row">
-                    <span>Diesel/Fuel</span>
-                    <span>$100</span>
+                    <span>Diesel/Fuel <span style="font-size: 0.85em; color: var(--text-light);">(Estimated £100)</span></span>
+                    <span>$125</span>
                 </div>
                 
                 <div class="pricing-row">
-                    <span>Food &amp; Provisions</span>
+                    <span>Food &amp; Provisions <span style="font-size: 0.85em; color: var(--text-light);">(Mix of pub meals and self-catering)</span></span>
                     <span>$600</span>
                 </div>
                 
-                <div class="pricing-row"><span>Per Person</span><span>$1,545</span></div>
+                <div class="pricing-row"><span>Per Person</span><span>$1,621</span></div>
                 <div class="pricing-row"><span>Number of Travelers</span><span>4</span></div>
-                <div class="pricing-row total"><span>Total Trip Investment</span><span>$6,180</span></div>
+                <div class="pricing-row total"><span>Total Trip Investment</span><span>$6,485</span></div>
                 
-                <p style="margin-top: 15px; font-size: 0.9em; color: var(--text-light);">Estimates based on current rates. Narrowboat pricing varies by season.</p>
+                <p style="margin-top: 15px; font-size: 0.9em; color: var(--text-light);">Based on Black Prince special offer £1,986 (was £2,648). Flight estimate pending quotes.</p>
                 
             </div>
         </div>
