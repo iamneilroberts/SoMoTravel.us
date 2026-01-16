@@ -2,6 +2,16 @@
   "version": 1,
   "trips": [
     {
+      "filename": "L_Williams_London_Paris_May2026.html",
+      "title": "Hartley and Leigh - London & Paris",
+      "dates": "May 2-9, 2026",
+      "category": "deposit_paid",
+      "tags": [
+        "Paris & London"
+      ],
+      "lastModified": "2026-01-16"
+    },
+    {
       "filename": "london-paris-williams-may-2026.html",
       "title": "Hartley and Leigh - London & Paris",
       "dates": "May 2-9, 2026",
