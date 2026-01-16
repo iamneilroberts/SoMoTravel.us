@@ -2,6 +2,17 @@
   "version": 1,
   "trips": [
     {
+      "filename": "london-paris-williams-may-2026.html",
+      "title": "Hartley and Leigh - London & Paris",
+      "dates": "May 2-9, 2026",
+      "category": "proposal",
+      "tags": [
+        "London",
+        "Paris"
+      ],
+      "lastModified": "2026-01-16"
+    },
+    {
       "filename": "Paris_London_Trip_Comparison_May2026.html",
       "title": "Paris & London Trip Comparison | May 2-9, 2026",
       "dates": "May 2-9, 2026",
