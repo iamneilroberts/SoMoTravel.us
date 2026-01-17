@@ -2,6 +2,16 @@
   "version": 1,
   "trips": [
     {
+      "filename": "alaska-denali-read-davis-2026.html",
+      "title": "Read/Davis Family - Alaska & Denali Cruisetour",
+      "dates": "July 23 - August 3, 2026",
+      "category": "confirmed",
+      "tags": [
+        "Alaska & Denali"
+      ],
+      "lastModified": "2026-01-17"
+    },
+    {
       "filename": "rv-weekend-comparison-feb-2026.html",
       "title": "Neil & Kim",
       "dates": "",
