@@ -250,6 +250,80 @@
 
         .card-link:hover { background: var(--accent-dark); }
 
+        /* Card Images */
+        .card-image {
+            width: 100%;
+            max-height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card-gallery img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .card-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hide broken images and collapse empty containers */
+        img[src=""], img:not([src]), img.broken {
+            display: none !important;
+        }
+        .card-gallery:empty, .hero-gallery:empty {
+            display: none !important;
+        }
+
+        .image-caption {
+            font-size: 0.85em;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        /* Hero Gallery */
+        .hero-gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 0;
+            background: var(--primary-dark);
+            padding: 0;
+        }
+
+        .hero-gallery-item {
+            flex: 0 0 auto;
+            position: relative;
+        }
+
+        .hero-gallery-item img {
+            height: 250px;
+            width: auto;
+            display: block;
+        }
+
+        .hero-gallery-item .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 8px 12px;
+            font-size: 0.9em;
+        }
+
         /* Flight Cards */
         .flight-card .card-header {
             background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
@@ -260,337 +334,6 @@
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 10px;
-        }
-
-        /* Ship Info Card - Cruise Specific */
-        .ship-card {
-            background: linear-gradient(135deg, var(--bg-section) 0%, var(--secondary-light) 100%);
-            border: 2px solid var(--primary);
-        }
-
-        .ship-name {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .cruise-line {
-            font-size: 1.1em;
-            color: var(--text-light);
-            margin-bottom: 15px;
-        }
-
-        /* Port Card - Cruise Specific */
-        .port-card {
-            border-left: 5px solid var(--secondary);
-        }
-
-        .port-card .card-header {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .port-times {
-            font-size: 0.85em;
-            opacity: 0.9;
-        }
-
-        .excursion-item {
-            background: var(--bg-light);
-            border-radius: 8px;
-            padding: 12px 15px;
-            margin-bottom: 10px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .excursion-item:last-child { margin-bottom: 0; }
-
-        .excursion-status {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .status-booked { background: #d4edda; color: #155724; }
-        .status-pending { background: #fff3cd; color: #856404; }
-        .status-recommended { background: var(--secondary-light); color: var(--primary); }
-
-        /* Dining Card - Cruise Specific */
-        .dining-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background: var(--bg-light);
-            border-radius: 8px;
-            margin-bottom: 12px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .dining-item:last-child { margin-bottom: 0; }
-
-        .dining-info h4 {
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .dining-time {
-            font-size: 0.9em;
-            color: var(--text-light);
-        }
-
-        /* Credits/Packages - Cruise Specific */
-        .credits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .credit-item {
-            background: var(--bg-section);
-            padding: 20px;
-            border-radius: var(--radius);
-            text-align: center;
-            border-top: 4px solid var(--accent);
-        }
-
-        .credit-amount {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .credit-label {
-            font-size: 0.9em;
-            color: var(--text-light);
-            margin-top: 5px;
-        }
-
-        /* Insider Tips - Cruise Specific */
-        .tip-card {
-            background: #fff8e6;
-            border-left: 5px solid #f5a623;
-            padding: 20px;
-            border-radius: 0 var(--radius) var(--radius) 0;
-            margin-bottom: 15px;
-        }
-
-        .tip-card:last-child { margin-bottom: 0; }
-
-        .tip-card h4 {
-            color: #c7880a;
-            margin-bottom: 8px;
-            font-size: 1.05em;
-        }
-
-        .tip-card p {
-            color: var(--text);
-            font-size: 0.95em;
-        }
-
-        /* Ship Info Styles */
-        .ship-specs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .ship-spec-item {
-            background: var(--bg-light);
-            padding: 15px;
-            border-radius: var(--radius);
-            text-align: center;
-        }
-
-        .ship-spec-label {
-            font-size: 0.8em;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 5px;
-        }
-
-        .ship-spec-value {
-            font-size: 1.1em;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .ship-upgrades {
-            margin-top: 20px;
-        }
-
-        .ship-upgrades h4 {
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-
-        .ship-upgrades ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .ship-upgrades li {
-            padding: 10px 15px;
-            background: var(--bg-light);
-            border-left: 4px solid var(--accent);
-            margin-bottom: 8px;
-            border-radius: 0 var(--radius) var(--radius) 0;
-        }
-
-        .ship-upgrades li:last-child { margin-bottom: 0; }
-
-        /* Excursion Options Styles */
-        .excursion-port {
-            margin-bottom: 30px;
-        }
-
-        .excursion-port:last-child { margin-bottom: 0; }
-
-        .port-header {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            color: var(--white);
-            padding: 15px 20px;
-            border-radius: var(--radius) var(--radius) 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .port-header h3 { margin: 0; font-size: 1.2em; }
-        .port-header .port-time { font-size: 0.9em; opacity: 0.9; }
-
-        .excursion-options {
-            border: 1px solid var(--border);
-            border-top: none;
-            border-radius: 0 0 var(--radius) var(--radius);
-            overflow: hidden;
-        }
-
-        .excursion-option {
-            padding: 20px;
-            border-bottom: 1px solid var(--border);
-            background: var(--white);
-        }
-
-        .excursion-option:last-child { border-bottom: none; }
-
-        .excursion-option.recommended {
-            background: #f0f9f0;
-            border-left: 4px solid var(--accent);
-        }
-
-        .option-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
-        }
-
-        .option-name {
-            font-weight: 600;
-            color: var(--text);
-            font-size: 1.05em;
-        }
-
-        .option-provider {
-            font-size: 0.85em;
-            color: var(--text-light);
-            margin-top: 3px;
-        }
-
-        .option-price {
-            font-size: 1.2em;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .option-details {
-            font-size: 0.9em;
-            color: var(--text-light);
-            margin-bottom: 10px;
-        }
-
-        .option-highlights {
-            font-size: 0.9em;
-            color: var(--text);
-            margin-bottom: 10px;
-        }
-
-        .ship-waits-badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: 600;
-        }
-
-        .ship-waits-yes {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .ship-waits-no {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .port-recommendation {
-            background: var(--bg-section);
-            padding: 15px 20px;
-            border-top: 1px solid var(--border);
-            font-size: 0.95em;
-            color: var(--text);
-        }
-
-        .port-recommendation strong {
-            color: var(--primary);
-        }
-
-        /* Video Grid Styles */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .video-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .video-embed {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-embed iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-caption {
-            padding: 12px 15px;
-            font-size: 0.95em;
-            color: var(--text);
-            background: var(--bg-light);
         }
 
         /* Day Itinerary */
@@ -638,7 +381,252 @@
 
         .activity:last-child { margin-bottom: 0; }
         .activity-title { font-weight: 600; color: var(--text); margin-bottom: 5px; }
+        .activity-time { font-size: 0.85em; color: var(--primary); font-weight: 600; margin-bottom: 3px; }
         .activity-details { font-size: 0.95em; color: var(--text-light); }
+
+        /* Day Description & Info Boxes */
+        .day-description {
+            font-size: 1.05em;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .cruise-info-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            background: var(--bg-section);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .cruise-info-item {
+            text-align: center;
+        }
+
+        .cruise-info-item .label {
+            font-size: 0.75em;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .cruise-info-item .value {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95em;
+        }
+
+        /* Dining Section */
+        .dining-section {
+            background: linear-gradient(135deg, #fff8f0 0%, #fff 100%);
+            border: 1px solid #f0d9c0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+        }
+
+        .dining-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #c7880a;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .dining-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0d9c0;
+            font-size: 0.95em;
+        }
+
+        .dining-item:last-child { border-bottom: none; }
+
+        .dining-item .meal-type {
+            font-weight: 600;
+            color: var(--text);
+            margin-right: 8px;
+        }
+
+        .dining-item .meal-desc {
+            color: var(--text-light);
+        }
+
+        /* Highlights & Tips */
+        .day-highlights {
+            background: var(--secondary-light);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+        }
+
+        .day-highlights h5 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .day-highlights ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .day-highlights li {
+            margin-bottom: 5px;
+            font-size: 0.95em;
+            color: var(--text);
+        }
+
+        .day-tips {
+            background: #fff8e6;
+            border-left: 4px solid #f5a623;
+            border-radius: 0 8px 8px 0;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-tips h5 {
+            color: #c7880a;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .day-tips ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .day-tips li {
+            margin-bottom: 4px;
+            font-size: 0.9em;
+            color: var(--text);
+        }
+
+        /* Shopping Section */
+        .day-shopping {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-shopping h5 {
+            color: var(--text);
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .shopping-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .shopping-tag {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            color: var(--text);
+        }
+
+        /* Day Videos */
+        .day-videos {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-videos h5 {
+            color: var(--text);
+            margin-bottom: 12px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text);
+            transition: border-color 0.2s;
+        }
+
+        .video-link:hover {
+            border-color: var(--primary);
+        }
+
+        .video-link .video-icon {
+            color: #ff0000;
+            font-size: 1.5em;
+        }
+
+        .video-link .video-title {
+            font-weight: 500;
+        }
+
+        /* Dining Links */
+        .dining-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .dining-link:hover {
+            text-decoration: underline;
+        }
 
         /* Pricing Section */
         .pricing-box {
@@ -767,17 +755,6 @@
             margin-bottom: 5px;
         }
 
-        /* QR Code */
-        .qr-section {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .qr-section p {
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .header-bar { flex-direction: column; gap: 10px; text-align: center; }
@@ -786,13 +763,35 @@
             .content { padding: 20px 15px; }
             .cards-grid { grid-template-columns: 1fr; }
             .overview-section { grid-template-columns: repeat(2, 1fr); }
-            .credits-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media print {
             .header-bar, .hero { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .card:hover { transform: none; box-shadow: var(--shadow); }
         }
+
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .card:hover { transform: none; }
+            .card-gallery img:hover { transform: none; }
+        }
+
+        /* Utility classes for common inline styles */
+        .mt-1 { margin-top: 8px; }
+        .mt-2 { margin-top: 12px; }
+        .mt-3 { margin-top: 20px; }
+        .mb-2 { margin-bottom: 12px; }
+        .mb-3 { margin-bottom: 20px; }
+        .text-muted { color: var(--text-light); font-size: 0.9em; }
+        .text-primary { color: var(--primary); }
+        .font-bold { font-weight: 600; }
+        .small-link { margin-top: 8px; padding: 6px 12px; font-size: 0.85em; }
     </style>
 </head>
 <body>
@@ -807,12 +806,15 @@
     </div>
 
     <!-- Hero Section -->
-    <div class="hero">
+    <div class="hero" >
         <h1>TBD</h1>
         <div class="destination">Caribbean - 5-Night Western Caribbean (Carnival Valor from New Orleans)</div>
         <div class="dates-badge">May 25-30, 2026</div>
         <div class="tagline">Let's Get You There - Your Adventure Awaits!</div>
     </div>
+
+    <!-- Hero Images Gallery (if multiple) -->
+    
 
     <!-- Main Content -->
     <div class="content">
@@ -828,8 +830,6 @@
             
 
             
-            
-            
 
             
             <div class="overview-card">
@@ -842,299 +842,9 @@
             
         </div>
 
-        <!-- Ship Info Section - CRUISE SPECIFIC -->
-        
-
-        <!-- Ship Info Section - Ship Specifications -->
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🛳️</div>
-                <h2>About Your Ship: Carnival Valor</h2>
-            </div>
-            <div class="content-box">
-                <div class="ship-specs">
-                    
-                    <div class="ship-spec-item">
-                        <div class="ship-spec-label">Class</div>
-                        <div class="ship-spec-value">Conquest-class</div>
-                    </div>
-                    
-                    
-                    <div class="ship-spec-item">
-                        <div class="ship-spec-label">Built</div>
-                        <div class="ship-spec-value">2004</div>
-                    </div>
-                    
-                    
-                    <div class="ship-spec-item">
-                        <div class="ship-spec-label">Last Refurbished</div>
-                        <div class="ship-spec-value">June 2025</div>
-                    </div>
-                    
-                    
-                    <div class="ship-spec-item">
-                        <div class="ship-spec-label">Guest Capacity</div>
-                        <div class="ship-spec-value">2984</div>
-                    </div>
-                    
-                    
-                    <div class="ship-spec-item">
-                        <div class="ship-spec-label">Crew Members</div>
-                        <div class="ship-spec-value">1150</div>
-                    </div>
-                    
-                    
-                    <div class="ship-spec-item">
-                        <div class="ship-spec-label">Decks</div>
-                        <div class="ship-spec-value">13</div>
-                    </div>
-                    
-                </div>
-
-                
-            </div>
-        </div>
-        
-
-        <!-- Ports of Call Section - CRUISE SPECIFIC -->
-        
-
-        <!-- Onboard Dining Section - CRUISE SPECIFIC -->
-        
-
-        <!-- Shore Excursions Section - CRUISE SPECIFIC -->
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🏝️</div>
-                <h2>Shore Excursion Options</h2>
-            </div>
-            
-            <div class="excursion-port">
-                <div class="port-header">
-                    <div>
-                        <h3>Day 3 — Cozumel, Mexico</h3>
-                        <div class="port-time">May 27, 2026 · 8:00 AM - 4:00 PM</div>
-                    </div>
-                </div>
-                <div class="excursion-options">
-                    
-                    <div class="excursion-option">
-                        <div class="option-header">
-                            <div>
-                                <div class="option-name">Jeep Safari All-Inclusive (Teens Can Drive!)</div>
-                                <div class="option-provider">Viator · 5-6 hours</div>
-                            </div>
-                            <div style="text-align: right;">
-                                <div class="option-price">$99/pp</div>
-                                
-                                <span class="ship-waits-badge ship-waits-no">Ship Won't Wait</span>
-                                
-                            </div>
-                        </div>
-                        <div class="option-highlights">Drive your own Jeep, Punta Sur Park, lighthouse climb, snorkeling, tequila tasting, lunch included</div>
-                        <div class="option-details"><strong>Best for:</strong> 18-year-olds wanting variety</div>
-                        
-                        <a href="https://www.viator.com/tours/Cozumel/The-Original-Private-Jeep-Safari-All-Inclusive/d632-427966P11?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link" target="_blank">Book Now →</a>
-                    </div>
-                    
-                    <div class="excursion-option">
-                        <div class="option-header">
-                            <div>
-                                <div class="option-name">Adventure Jeep, Snorkel &amp; Beach Club</div>
-                                <div class="option-provider">Carnival · 5 hours</div>
-                            </div>
-                            <div style="text-align: right;">
-                                <div class="option-price">$119/pp</div>
-                                
-                                <span class="ship-waits-badge ship-waits-yes">Ship Waits ✓</span>
-                                
-                            </div>
-                        </div>
-                        <div class="option-highlights">Jeep to Punta Sur, lighthouse, crocodile lagoon, beach club, snorkeling</div>
-                        <div class="option-details"><strong>Best for:</strong> Groups wanting ship guarantee</div>
-                        
-                        <a href="https://www.carnival.com/shore-excursions/all-terrain-vehicle/adventure-jeep-and-snorkel-at-punta-sur-304003" class="card-link" target="_blank">Book Now →</a>
-                    </div>
-                    
-                    <div class="excursion-option">
-                        <div class="option-header">
-                            <div>
-                                <div class="option-name">ATV + Jade Cenote + Beach Break</div>
-                                <div class="option-provider">Viator · 5 hours</div>
-                            </div>
-                            <div style="text-align: right;">
-                                <div class="option-price">$94/pp</div>
-                                
-                                <span class="ship-waits-badge ship-waits-no">Ship Won't Wait</span>
-                                
-                            </div>
-                        </div>
-                        <div class="option-highlights">ATV jungle trails, cenote swim, beach club, tacos, tequila</div>
-                        <div class="option-details"><strong>Best for:</strong> Adrenaline seekers</div>
-                        
-                        <a href="https://www.viator.com/tours/Cozumel/Atv-Tour-To-The-Famous-Wild-Jade-Cavern-With-Transfer/d632-411035P6?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link" target="_blank">Book Now →</a>
-                    </div>
-                    
-                    <div class="excursion-option">
-                        <div class="option-header">
-                            <div>
-                                <div class="option-name">ATV Xpedition, Xenote Swim &amp; Sensorial Xperiences</div>
-                                <div class="option-provider">Carnival · 5.5 hours</div>
-                            </div>
-                            <div style="text-align: right;">
-                                <div class="option-price">$149/pp</div>
-                                
-                                <span class="ship-waits-badge ship-waits-yes">Ship Waits ✓</span>
-                                
-                            </div>
-                        </div>
-                        <div class="option-highlights">ATV jungle ride, cenote swim, zero gravity experience, waterslide</div>
-                        <div class="option-details"><strong>Best for:</strong> Unique experiences with ship guarantee</div>
-                        
-                        <a href="https://www.carnival.com/shore-excursions/cozumel/atv-xpedition-xenote-swim--sensorial-xperiences-304395" class="card-link" target="_blank">Book Now →</a>
-                    </div>
-                    
-                    <div class="excursion-option">
-                        <div class="option-header">
-                            <div>
-                                <div class="option-name">Mr. Sanchos All-Inclusive Beach Club</div>
-                                <div class="option-provider">Direct · All day</div>
-                            </div>
-                            <div style="text-align: right;">
-                                <div class="option-price">$79/pp</div>
-                                
-                                <span class="ship-waits-badge ship-waits-no">Ship Won't Wait</span>
-                                
-                            </div>
-                        </div>
-                        <div class="option-highlights">Unlimited food &amp; drinks, pools, beach, swim-up bar, kayaks</div>
-                        <div class="option-details"><strong>Best for:</strong> Moms wanting relaxation</div>
-                        
-                        <a href="https://mrsanchos.com/activity/mr-sanchos-beach-club-all-inclusive-day-pass/" class="card-link" target="_blank">Book Now →</a>
-                    </div>
-                    
-                </div>
-                
-                <div class="port-recommendation">
-                    <strong>Recommendation:</strong> Split the group: Teens do Jeep Safari ($99) while moms relax at Mr. Sanchos ($79)
-                </div>
-                
-            </div>
-            
-            <div class="excursion-port">
-                <div class="port-header">
-                    <div>
-                        <h3>Day 4 — Progreso, Mexico</h3>
-                        <div class="port-time">May 28, 2026 · 8:00 AM - 4:00 PM</div>
-                    </div>
-                </div>
-                <div class="excursion-options">
-                    
-                    <div class="excursion-option">
-                        <div class="option-header">
-                            <div>
-                                <div class="option-name">Chichen Itza with Cenote Ik Kil &amp; Mayan Buffet ⭐ RECOMMENDED</div>
-                                <div class="option-provider">Carnival · 7+ hours</div>
-                            </div>
-                            <div style="text-align: right;">
-                                <div class="option-price">$169/pp</div>
-                                
-                                <span class="ship-waits-badge ship-waits-yes">Ship Waits ✓</span>
-                                
-                            </div>
-                        </div>
-                        <div class="option-highlights">World Wonder ruins, cenote swim, authentic buffet lunch, guided tour</div>
-                        <div class="option-details"><strong>Best for:</strong> Bucket list experience with peace of mind</div>
-                        <div class="option-details" style="color: #856404;">⚠️ 2+ hour drive each way - ship guarantee important!</div>
-                        <a href="https://www.carnival.com/shore-excursions/progreso/chichen-itza-sacred-cenote-ikkil--mayan-buffet-320077" class="card-link" target="_blank">Book Now →</a>
-                    </div>
-                    
-                    <div class="excursion-option">
-                        <div class="option-header">
-                            <div>
-                                <div class="option-name">Chichen Itza Ruins Basic Tour</div>
-                                <div class="option-provider">Carnival · 7 hours</div>
-                            </div>
-                            <div style="text-align: right;">
-                                <div class="option-price">$129/pp</div>
-                                
-                                <span class="ship-waits-badge ship-waits-yes">Ship Waits ✓</span>
-                                
-                            </div>
-                        </div>
-                        <div class="option-highlights">World Wonder ruins, English guide, box lunch</div>
-                        <div class="option-details"><strong>Best for:</strong> Budget-conscious with ship guarantee</div>
-                        
-                        <a href="https://www.carnival.com/shore-excursions/progreso/chichen-itza-ruins--a-wonder-of-the-world-320002" class="card-link" target="_blank">Book Now →</a>
-                    </div>
-                    
-                    <div class="excursion-option">
-                        <div class="option-header">
-                            <div>
-                                <div class="option-name">Small Group Chichen Itza (Max 8 People)</div>
-                                <div class="option-provider">Viator · 6-7 hours</div>
-                            </div>
-                            <div style="text-align: right;">
-                                <div class="option-price">$89/pp</div>
-                                
-                                <span class="ship-waits-badge ship-waits-no">Ship Won't Wait</span>
-                                
-                            </div>
-                        </div>
-                        <div class="option-highlights">Skip-the-line entry, Mercedes van, expert guide, intimate group</div>
-                        <div class="option-details"><strong>Best for:</strong> Budget + personalized experience</div>
-                        <div class="option-details" style="color: #856404;">⚠️ Ship does NOT wait - allow extra buffer time!</div>
-                        <a href="https://www.viator.com/tours/Progreso/Progreso-Shore-Excursion-Small-Group-Chichen-Itza-Mayan-Ruins/d4351-89829P32?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link" target="_blank">Book Now →</a>
-                    </div>
-                    
-                </div>
-                
-                <div class="port-recommendation">
-                    <strong>Recommendation:</strong> Book Carnival&#39;s cenote tour ($169) for guaranteed return on this long excursion
-                </div>
-                
-            </div>
-            
-        </div>
-        
-
-        <!-- Onboard Credits & Packages Section - CRUISE SPECIFIC -->
-        
-
-        <!-- Insider Tips Section - CRUISE SPECIFIC -->
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">💡</div>
-                <h2>Insider Tips</h2>
-            </div>
-            
-            <div class="tip-card">
-                <h4>2025 Refurbishment Edge</h4>
-                <p>The Valor&#39;s new WaterWorks waterslides and Heroes Tribute Bar opened June 2025 — shorter lines since repeat cruisers don&#39;t know about them yet.</p>
-            </div>
-            
-            <div class="tip-card">
-                <h4>Chichen Itza Timing Critical</h4>
-                <p>It&#39;s 2+ hours each way from Progreso. Book Carnival&#39;s $169 cenote tour for guaranteed ship-wait, or leave extra buffer if going independent.</p>
-            </div>
-            
-            <div class="tip-card">
-                <h4>Cozumel Beach Hack</h4>
-                <p>Mr. Sanchos is $79 all-inclusive booked direct vs $99+ through Carnival. Taxi from port is only $18 for 4 people — save $100+ for your group.</p>
-            </div>
-            
-            <div class="tip-card">
-                <h4>BlueIguana Secret</h4>
-                <p>Skip the crowded Lido buffet for breakfast — BlueIguana Cantina has amazing burritos with no lines. The huevos rancheros are worth waking up early for.</p>
-            </div>
-            
-        </div>
-        
-
         <!-- Travelers Section -->
+        
+        
         
 
         <!-- Preferences Section -->
@@ -1162,7 +872,10 @@
         <!-- Flights Section -->
         
 
-        <!-- Lodging Section (Pre/Post Cruise Hotels) -->
+        <!-- Lodging Section -->
+        
+
+        <!-- Narrowboat Section -->
         
 
         <!-- Itinerary Section -->
@@ -1177,53 +890,93 @@
                 <div class="day-header">
                     <div class="day-number">1</div>
                     <div class="day-info">
-                        <h3>New Orleans, LA</h3>
+                        <h3></h3>
                         <div class="day-date">May 25, 2026</div>
+                        <div class="day-date">New Orleans, LA</div>
                     </div>
                 </div>
                 <div class="day-content">
                     
+
+                    
+
+                    
+
+                    
+                    
                     <div class="activity">
+                        
+                        <div class="activity-time">11:00 AM - 1:00 PM</div>
                         <div class="activity-title">Arrive at Port of New Orleans</div>
+                        
                         <div class="activity-details">Check-in opens around 11am. Bring passport, cruise documents, and a carry-on with essentials (swimsuit, meds) in case luggage is delayed.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">1:00 PM</div>
                         <div class="activity-title">Board Carnival Valor</div>
+                        
                         <div class="activity-details">Ship boarding begins. Head to the Lido Deck for lunch at Guy&#39;s Burger Joint or the buffet while your cabin is prepared.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">2:00 - 4:00 PM</div>
                         <div class="activity-title">Explore the Ship</div>
+                        
                         <div class="activity-details">Get your bearings! Find the pools, spa, casino, and dining venues. Download the Carnival Hub app for schedules.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">4:00 PM</div>
                         <div class="activity-title">Muster Drill (Safety Briefing)</div>
+                        
                         <div class="activity-details">Required for all passengers. Report to your assigned station.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">4:30 PM</div>
                         <div class="activity-title">Sail Away Party 🎉</div>
+                        
                         <div class="activity-details">Grab a drink and wave goodbye to NOLA from the Lido Deck! Great photo op as you cruise down the Mississippi.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">6:00 or 8:15 PM</div>
                         <div class="activity-title">First Dinner</div>
+                        
                         <div class="activity-details">Main Dining Room (Your Time or assigned seating). Dress code: Cruise Casual.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">9:00 PM+</div>
                         <div class="activity-title">Evening Entertainment</div>
+                        
                         <div class="activity-details">Comedy shows, live music, casino, or teen hangouts. Check Carnival Hub for tonight&#39;s schedule.</div>
                         
                     </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1232,59 +985,102 @@
                 <div class="day-header">
                     <div class="day-number">2</div>
                     <div class="day-info">
-                        <h3>At Sea</h3>
+                        <h3></h3>
                         <div class="day-date">May 26, 2026</div>
+                        <div class="day-date">At Sea</div>
                     </div>
                 </div>
                 <div class="day-content">
                     
+
+                    
+
+                    
+
+                    
+                    
                     <div class="activity">
+                        
+                        <div class="activity-time">7:00 - 9:30 AM</div>
                         <div class="activity-title">Breakfast</div>
+                        
                         <div class="activity-details">Lido Buffet, Blue Iguana Cantina (breakfast burritos!), or sit-down in the Main Dining Room.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">Morning</div>
                         <div class="activity-title">Pool &amp; Water Slides</div>
+                        
                         <div class="activity-details">Hit the Twister Waterslide and main pool early before it gets crowded. Perfect for the 18-year-olds!</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">Anytime</div>
                         <div class="activity-title">Serenity Adult-Only Retreat</div>
+                        
                         <div class="activity-details">Moms — this is YOUR spot! Quiet pool, padded loungers, and no kids allowed.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">Lunch</div>
                         <div class="activity-title">Guy&#39;s Burger Joint</div>
+                        
                         <div class="activity-details">Free burgers designed by Guy Fieri. Consistently rated best food on Carnival ships.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">Afternoon</div>
                         <div class="activity-title">Spa &amp; Salon</div>
+                        
                         <div class="activity-details">Book a massage or facial. Tip: Port days often have spa specials!</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">3:00 PM</div>
                         <div class="activity-title">Hasbro Game Show or Trivia</div>
+                        
                         <div class="activity-details">Fun group activities — compete as a team!</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">6:00 or 8:15 PM</div>
                         <div class="activity-title">Elegant Night Dinner</div>
+                        
                         <div class="activity-details">Dress to impress! Great night for group photos. Lobster is usually on the menu.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">8:30 PM</div>
                         <div class="activity-title">Playlist Productions Show</div>
+                        
                         <div class="activity-details">High-energy song and dance show in the main theater.</div>
                         
                     </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1293,53 +1089,93 @@
                 <div class="day-header">
                     <div class="day-number">3</div>
                     <div class="day-info">
-                        <h3>Cozumel, Mexico</h3>
+                        <h3></h3>
                         <div class="day-date">May 27, 2026</div>
+                        <div class="day-date">Cozumel, Mexico</div>
                     </div>
                 </div>
                 <div class="day-content">
                     
+
+                    
+
+                    
+
+                    
+                    
                     <div class="activity">
+                        
+                        <div class="activity-time">7:00 AM</div>
                         <div class="activity-title">Breakfast on Board</div>
+                        
                         <div class="activity-details">Eat before heading out — long adventure day ahead!</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">8:30 AM - 2:30 PM</div>
                         <div class="activity-title">OPTION A: Teens — Jeep Safari Adventure</div>
+                        
                         <div class="activity-details">Drive your own Jeep! Includes Punta Sur Park, lighthouse climb, crocodile lagoon, snorkeling, tequila tasting, and lunch. ~$99/pp</div>
-                        <a href="https://www.viator.com/tours/Cozumel/The-Original-Private-Jeep-Safari-All-Inclusive/d632-427966P11?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
+                        <a href="https://www.viator.com/tours/Cozumel/The-Original-Private-Jeep-Safari-All-Inclusive/d632-427966P11?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">8:30 AM - 1:30 PM</div>
                         <div class="activity-title">OPTION B: Teens — ATV + Jade Cenote</div>
+                        
                         <div class="activity-details">Off-road ATV through jungle trails, swim in a cenote, beach club time. ~$94/pp (includes park fee)</div>
-                        <a href="https://www.viator.com/tours/Cozumel/Atv-Tour-To-The-Famous-Wild-Jade-Cavern-With-Transfer/d632-411035P6?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
+                        <a href="https://www.viator.com/tours/Cozumel/Atv-Tour-To-The-Famous-Wild-Jade-Cavern-With-Transfer/d632-411035P6?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">9:00 AM - 3:00 PM</div>
                         <div class="activity-title">Moms — Mr. Sanchos Beach Club</div>
+                        
                         <div class="activity-details">Ultimate relaxation! All-inclusive food &amp; drinks, pools, beach, swim-up bar, kayaks. Taxi from port ~$18 for 4. $79/pp</div>
-                        <a href="https://mrsanchos.com/activity/mr-sanchos-beach-club-all-inclusive-day-pass/" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
+                        <a href="https://mrsanchos.com/activity/mr-sanchos-beach-club-all-inclusive-day-pass/" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">3:30 PM</div>
                         <div class="activity-title">Return to Ship</div>
+                        
                         <div class="activity-details">⚠️ ALL ABOARD by 3:30 PM! Ship departs at 4:00 PM. Don&#39;t be late!</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">4:00 PM</div>
                         <div class="activity-title">Sunset Sail Away</div>
+                        
                         <div class="activity-details">Watch Cozumel fade into the sunset from the Lido Deck. Perfect photo moment!</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">Evening</div>
                         <div class="activity-title">Dinner &amp; Evening</div>
+                        
                         <div class="activity-details">Share adventure stories over dinner! Catch a comedy show or hit the club.</div>
                         
                     </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1348,47 +1184,84 @@
                 <div class="day-header">
                     <div class="day-number">4</div>
                     <div class="day-info">
-                        <h3>Progreso, Mexico</h3>
+                        <h3></h3>
                         <div class="day-date">May 28, 2026</div>
+                        <div class="day-date">Progreso, Mexico</div>
                     </div>
                 </div>
                 <div class="day-content">
                     
+
+                    
+
+                    
+
+                    
+                    
                     <div class="activity">
+                        
+                        <div class="activity-time">6:30 AM</div>
                         <div class="activity-title">Early Breakfast</div>
+                        
                         <div class="activity-details">Fuel up! Long day ahead — Chichen Itza is 2+ hours each way.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">7:30 AM - 3:30 PM</div>
                         <div class="activity-title">Chichen Itza Excursion</div>
+                        
                         <div class="activity-details">One of the New 7 Wonders of the World! Walk among ancient Mayan pyramids, temples, and the famous ball court.</div>
-                        <a href="https://www.viator.com/tours/Progreso/Progreso-Shore-Excursion-Small-Group-Chichen-Itza-Mayan-Ruins/d4351-89829P32?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
+                        <a href="https://www.viator.com/tours/Progreso/Progreso-Shore-Excursion-Small-Group-Chichen-Itza-Mayan-Ruins/d4351-89829P32?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">3:30 PM</div>
                         <div class="activity-title">Return to Ship</div>
+                        
                         <div class="activity-details">⚠️ CRITICAL: Be back early! If booking independent, build in buffer time. Missing the ship = very expensive!</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">4:00 - 6:00 PM</div>
                         <div class="activity-title">Recovery Time</div>
+                        
                         <div class="activity-details">Rest up after a long hot day. Pool, spa, or nap before dinner.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">6:00 or 8:15 PM</div>
                         <div class="activity-title">Dinner</div>
+                        
                         <div class="activity-details">Steakhouse upgrade available ($) or Main Dining Room (included).</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">9:00 PM+</div>
                         <div class="activity-title">Evening Entertainment</div>
+                        
                         <div class="activity-details">Live music, comedy, or dancing. Last night to enjoy the ship!</div>
                         
                     </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1397,53 +1270,93 @@
                 <div class="day-header">
                     <div class="day-number">5</div>
                     <div class="day-info">
-                        <h3>At Sea</h3>
+                        <h3></h3>
                         <div class="day-date">May 29, 2026</div>
+                        <div class="day-date">At Sea</div>
                     </div>
                 </div>
                 <div class="day-content">
                     
+
+                    
+
+                    
+
+                    
+                    
                     <div class="activity">
+                        
+                        <div class="activity-time">Morning</div>
                         <div class="activity-title">Sleep In &amp; Brunch</div>
+                        
                         <div class="activity-details">No rush today! Enjoy a leisurely breakfast or brunch.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">Late Morning</div>
                         <div class="activity-title">Last Pool Day</div>
+                        
                         <div class="activity-details">Soak up the sun one more time. Water slides, hot tubs, frozen drinks.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">Afternoon</div>
                         <div class="activity-title">BlueIguana Tequila Bar</div>
+                        
                         <div class="activity-details">For the 18+ crowd: tequila tasting flights! (21+ for alcohol)</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">Afternoon</div>
                         <div class="activity-title">Spa Deals</div>
+                        
                         <div class="activity-details">Last day = best spa prices! Moms, treat yourselves.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">5:00 PM</div>
                         <div class="activity-title">Pack &amp; Prepare</div>
+                        
                         <div class="activity-details">Set luggage outside cabin door by 10pm for porters. Keep carry-on with essentials.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">6:00 or 8:15 PM</div>
                         <div class="activity-title">Captain&#39;s Farewell Dinner</div>
+                        
                         <div class="activity-details">Final formal-ish dinner. Baked Alaska parade is a must-see!</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">9:00 PM+</div>
                         <div class="activity-title">Last Night Party</div>
+                        
                         <div class="activity-details">Dance the night away! Make the most of your last evening on board.</div>
                         
                     </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1452,35 +1365,66 @@
                 <div class="day-header">
                     <div class="day-number">6</div>
                     <div class="day-info">
-                        <h3>New Orleans, LA</h3>
+                        <h3></h3>
                         <div class="day-date">May 30, 2026</div>
+                        <div class="day-date">New Orleans, LA</div>
                     </div>
                 </div>
                 <div class="day-content">
                     
+
+                    
+
+                    
+
+                    
+                    
                     <div class="activity">
+                        
+                        <div class="activity-time">6:30 - 8:00 AM</div>
                         <div class="activity-title">Early Breakfast</div>
+                        
                         <div class="activity-details">Lido Buffet opens early for disembarkation day.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">8:00 - 10:00 AM</div>
                         <div class="activity-title">Disembark</div>
+                        
                         <div class="activity-details">Wait for your color group to be called. Have cruise card &amp; ID ready.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">At Terminal</div>
                         <div class="activity-title">Collect Luggage</div>
+                        
                         <div class="activity-details">Find your bags by color tag in the terminal, then clear customs.</div>
                         
                     </div>
                     
                     <div class="activity">
+                        
+                        <div class="activity-time">Rest of Day</div>
                         <div class="activity-title">Optional: Explore New Orleans</div>
+                        
                         <div class="activity-details">Not heading straight home? Beignets at Café Du Monde, French Quarter stroll, or jazz brunch!</div>
                         
                     </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1491,48 +1435,10 @@
         <!-- Extras / Recommendations Section -->
         
 
-        <!-- YouTube Videos Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🎬</div>
-                <h2>Helpful Videos</h2>
-            </div>
-            <div class="video-grid">
-                
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/BSp9Q0FAzlE" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">Carnival Valor Full Ship Tour - Deck by Deck</div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/zHpn3vHATHk" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">Things to Know Before Sailing Carnival Valor</div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/T276GXGFVaU" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">10 Things They Don&#39;t Tell You About Chichen Itza</div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/X6zVLUi4kOI" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">Don&#39;t Fall for These Cozumel Tourist Traps</div>
-                </div>
-                
-            </div>
-        </div>
+        <!-- Featured Links Section -->
         
 
-        <!-- Featured Links Section -->
+        <!-- Tiered Pricing Section -->
         
 
         <!-- Pricing Section -->
@@ -1544,8 +1450,8 @@
     <div class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <div class="footer-tagline">Set Sail on Your Dream Cruise</div>
-                <p>Cruising is our specialty. Let us help you create an unforgettable voyage.</p>
+                <div class="footer-tagline">Begin Your Adventure Today</div>
+                <p>Travel is our passion, and our area of expertise. Let us help you create memories that last a lifetime.</p>
             </div>
             <div class="footer-section">
                 <h4>Contact Your Travel Advisor</h4>
@@ -1563,23 +1469,9 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="qr-section">
-                <p>Scan to view on mobile</p>
-                <img id="qr-code" alt="QR Code" style="width: 100px; height: 100px;">
-            </div>
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
-            <p style="margin-top: 5px;">Template: cruise v1.0 | Generated January 14, 2026</p>
+            <p style="margin-top: 5px;">Generated January 14, 2026</p>
         </div>
     </div>
-
-    <script>
-        (function() {
-            var url = encodeURIComponent(window.location.href);
-            var qrImg = document.getElementById('qr-code');
-            if (qrImg) {
-                qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=' + url;
-            }
-        })();
-    </script>
 </body>
 </html>
