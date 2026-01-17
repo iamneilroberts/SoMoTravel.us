@@ -2,6 +2,16 @@
   "version": 1,
   "trips": [
     {
+      "filename": "greek-cruise-may-2026.html",
+      "title": "Mother-Daughter Trip",
+      "dates": "May 23 - June 6, 2026",
+      "category": "proposal",
+      "tags": [
+        "Greek Islands (Mediterranean Cruise)"
+      ],
+      "lastModified": "2026-01-17"
+    },
+    {
       "filename": "graduation-cruise-may-2026.html",
       "title": "TBD",
       "dates": "May 25-30, 2026",
