@@ -2,6 +2,16 @@
   "version": 1,
   "trips": [
     {
+      "filename": "uk-narrowboat-test-2026.html",
+      "title": "Roberts/Jones - England Narrowboat Adventure",
+      "dates": "October 2-14, 2026 (12 days)",
+      "category": "proposal",
+      "tags": [
+        "England - Oxford Canal & Cotswolds"
+      ],
+      "lastModified": "2026-01-17"
+    },
+    {
       "filename": "stmaarten-sonesta-apr-2026.html",
       "title": "Niwana & Jon",
       "dates": "April 2026",
