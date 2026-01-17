@@ -2,6 +2,16 @@
   "version": 1,
   "trips": [
     {
+      "filename": "italy-flexible-apr-2026.html",
+      "title": "TBD",
+      "dates": "April 14-23, 2026",
+      "category": "proposal",
+      "tags": [
+        "Italy (Rome, Naples, Positano, Tuscany, Florence)"
+      ],
+      "lastModified": "2026-01-17"
+    },
+    {
       "filename": "greek-cruise-may-2026.html",
       "title": "Mother-Daughter Trip",
       "dates": "May 23 - June 6, 2026",
