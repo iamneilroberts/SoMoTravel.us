@@ -1836,6 +1836,132 @@
             margin-top: 10px;
             font-size: 0.9em;
         }
+
+        /* Investment Section - Unified Budget Display */
+        .investment-summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .investment-card {
+            background: var(--bg-section);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .investment-card.total {
+            border-top-color: var(--accent);
+            background: linear-gradient(135deg, #e6f6ea 0%, #f5f9fc 100%);
+        }
+
+        .investment-card.per-person {
+            border-top-color: var(--secondary);
+        }
+
+        .investment-card.value {
+            border-top-color: #c7880a;
+            background: linear-gradient(135deg, #fff8f0 0%, #f5f9fc 100%);
+        }
+
+        .investment-card .label {
+            font-size: 0.85em;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .investment-card .value {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .investment-card.total .value {
+            color: var(--accent);
+        }
+
+        .investment-card.value .value {
+            color: #c7880a;
+        }
+
+        .budget-breakdown {
+            margin-bottom: 25px;
+        }
+
+        .budget-breakdown h4 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .budget-table tr {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .budget-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .budget-table td {
+            padding: 10px 0;
+        }
+
+        .budget-table td.item {
+            color: var(--text);
+        }
+
+        .budget-table td.amount {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .budget-table td.notes {
+            font-size: 0.85em;
+            color: var(--text-light);
+            padding-left: 15px;
+        }
+
+        .bookings-summary h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .included-value-condensed {
+            background: linear-gradient(135deg, #fff8f0 0%, #f5f9fc 100%);
+            border: 1px solid #f0d9c0;
+            border-radius: var(--radius);
+            padding: 15px 20px;
+            margin-top: 20px;
+        }
+
+        .included-value-condensed h4 {
+            color: #c7880a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .included-value-condensed .top-items {
+            font-size: 0.95em;
+            color: var(--text);
+        }
+
+        .included-value-condensed .top-items li {
+            margin-bottom: 4px;
+        }
     </style>
 </head>
 <body>
@@ -1911,6 +2037,195 @@
             </div>
             
         </div>
+
+        <!-- Your Investment Section - Unified Budget, Bookings, and Value -->
+        
+        <div class="section" id="investment">
+            <div class="section-header">
+                <div class="section-icon">💰</div>
+                <h2>Your Investment</h2>
+                <button class="comment-trigger" data-comment-section="Your Investment">Ask a question</button>
+            </div>
+            <div class="content-box">
+                <!-- Budget Summary Cards -->
+                <div class="investment-summary-cards">
+                    
+                    <div class="investment-card total">
+                        <div class="label">Total Investment</div>
+                        <div class="value">$4,012</div>
+                    </div>
+                    
+                    
+                    <div class="investment-card per-person">
+                        <div class="label">Per Person</div>
+                        <div class="value">$2,006</div>
+                    </div>
+                    
+                    
+                    <div class="investment-card value">
+                        <div class="label">Included Value</div>
+                        <div class="value">$610</div>
+                    </div>
+                    
+                </div>
+
+                <!-- Budget Line Items -->
+                
+                <div class="budget-breakdown">
+                    <h4>Cost Breakdown</h4>
+                    <table class="budget-table">
+                        
+                        <tr>
+                            <td class="item">Celestyal Cruise (7 nights)</td>
+                            <td class="amount">$3,334</td>
+                            <td class="notes">Booking #402390 - Tracie $1,888 + Bailey $1,446</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="item">Port Charges &amp; Fees</td>
+                            <td class="amount">$678</td>
+                            <td class="notes">$339 per person</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="item">Pre-Cruise Hotel (1 night)</td>
+                            <td class="amount">$0</td>
+                            <td class="notes">Included in cruise package</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="item">Standard Drinks with Meals</td>
+                            <td class="amount">$0</td>
+                            <td class="notes">Included</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="item">WiFi 250MB/day</td>
+                            <td class="amount">$0</td>
+                            <td class="notes">Included</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="item">Flights (TBD)</td>
+                            <td class="amount"></td>
+                            <td class="notes">See flight options below</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="item">Travel Insurance - Allianz</td>
+                            <td class="amount">$180</td>
+                            <td class="notes">3 plan options - see comparison below</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="item">Post-Cruise Hotel (Recommended)</td>
+                            <td class="amount">$150</td>
+                            <td class="notes">Estimated - 1 night Athens area</td>
+                        </tr>
+                        
+                    </table>
+                </div>
+                
+
+                <!-- Payment Status -->
+                
+
+                <!-- Booking Details (merged from standalone section) -->
+                
+                <div class="bookings-summary">
+                    <h4>Booking Confirmations</h4>
+                    <div class="cards-grid">
+                        
+                        <div class="card booking-card">
+                            <div class="card-body">
+                                <div class="booking-header">
+                                    <div class="booking-title">
+                                        🚢 
+                                        Cruise
+                                    </div>
+                                    
+                                    <span class="booking-status status-confirmed">✓ Confirmed</span>
+                                    
+                                </div>
+                                <div class="booking-supplier">Celestyal Cruises</div>
+                                
+                                <div class="card-detail"><span class="label">Confirmation</span><span class="value">402390</span></div>
+                                
+                                
+                                
+                                <div class="booking-amount">$4,012</div>
+                                
+                                <div class="card-detail"><span class="label">Balance</span><span class="value">$4,012</span></div>
+                                <div class="card-detail"><span class="label">Balance Due</span><span class="value">March 31, 2026</span></div>
+                                
+                                <div class="card-detail"><span class="label">Travelers</span><span class="value">Tracie Byrne, Bailey Byrne</span></div>
+                            </div>
+                        </div>
+                        
+                        <div class="card booking-card">
+                            <div class="card-body">
+                                <div class="booking-header">
+                                    <div class="booking-title">
+                                        🛡️ 
+                                        Insurance
+                                    </div>
+                                    
+                                    <span class="booking-status status-options provided">Options provided</span>
+                                    
+                                </div>
+                                <div class="booking-supplier">Allianz Global Assistance</div>
+                                
+                                
+                                
+                                
+                                
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                <!-- Condensed Included Value (top 5 items + total) -->
+                
+                <div class="included-value-condensed">
+                    <h4>💎 Included Value Highlights</h4>
+                    <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 10px;">These extras are included at no additional cost with your cruise package:</p>
+                    <ul class="top-items" style="margin-left: 20px;">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </ul>
+                    
+                    <div style="margin-top: 12px; font-weight: 600; color: #c7880a;">
+                        Total Included Value: $610
+                    </div>
+                    
+                </div>
+                
+
+                
+                <div class="alert-box" style="margin-top: 20px; margin-bottom: 0;">
+                    <h4>Pricing Notes</h4>
+                    <p>Celestyal all-inclusive pricing includes pre-cruise hotel, transfers, drinks with meals, WiFi, and gratuities.</p>
+                </div>
+                
+            </div>
+        </div>
+        
 
         <!-- Ship Info Section - CRUISE SPECIFIC -->
         
@@ -2058,28 +2373,6 @@
                 </div>
                 
 
-                
-                <div style="margin-top: 20px;">
-                    <div class="cards-grid">
-                        <div class="card">
-                            <div class="card-header">Embarkation</div>
-                            <div class="card-body">
-                                <div class="card-detail"><span class="label">Port</span><span class="value">Piraeus (Athens), Greece</span></div>
-                                
-                            </div>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-header">Debarkation</div>
-                            <div class="card-body">
-                                <div class="card-detail"><span class="label">Port</span><span class="value">Piraeus (Athens), Greece</span></div>
-                                
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                
             </div>
         </div>
         
@@ -2290,73 +2583,6 @@
                 <div class="highlight-box">
                     <h4>Trip Notes</h4>
                     <p>Mother-daughter trip, first-time Europe travelers seeking cultural immersion</p>
-                </div>
-                
-            </div>
-        </div>
-        
-
-        <!-- Bookings Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">📋</div>
-                <h2>Booking Details</h2>
-                <button class="comment-trigger" data-comment-section="Booking Details">Ask a question</button>
-            </div>
-            <div class="cards-grid">
-                
-                <div class="card booking-card">
-                    <div class="card-body">
-                        <div class="booking-header">
-                            <div class="booking-title">
-                                🚢 
-                                Cruise
-                            </div>
-                            
-                            <span class="booking-status status-confirmed">✓ Confirmed</span>
-                            
-                        </div>
-                        <div class="booking-supplier">Celestyal Cruises</div>
-                        
-                        <div class="card-detail"><span class="label">Confirmation</span><span class="value">402390</span></div>
-                        
-                        
-                        
-                        <div class="booking-amount">$4,012</div>
-                        
-                        <div class="card-detail"><span class="label">Balance</span><span class="value">$4,012</span></div>
-                        <div class="card-detail"><span class="label">Balance Due</span><span class="value">March 31, 2026</span></div>
-                        
-                        <div class="card-detail"><span class="label">Travelers</span><span class="value">Tracie Byrne, Bailey Byrne</span></div>
-                        <p class="booking-notes">7-night Greek Islands cruise + 1 pre-cruise hotel night</p>
-                        
-                    </div>
-                </div>
-                
-                <div class="card booking-card">
-                    <div class="card-body">
-                        <div class="booking-header">
-                            <div class="booking-title">
-                                🛡️ 
-                                Insurance
-                            </div>
-                            
-                            <span class="booking-status status-options provided">Options provided</span>
-                            
-                        </div>
-                        <div class="booking-supplier">Allianz Global Assistance</div>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <p class="booking-notes">Three plan options presented - client to select</p>
-                    </div>
                 </div>
                 
             </div>
@@ -2581,30 +2807,7 @@
         <!-- Action Items Section -->
         
 
-        <!-- Preferences Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">✨</div>
-                <h2>Your Travel Style</h2>
-                <button class="comment-trigger" data-comment-section="Travel Style">Ask a question</button>
-            </div>
-            <div class="content-box">
-                
-                <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>Vibe:</strong> Cultural immersion, ancient history, stunning sunsets, authentic Greek culture</p>
-                
-
-                
-                <h4 style="color: var(--primary); margin-bottom: 10px;">Must-Haves</h4>
-                <ul><li>Greek islands</li><li>Santorini sunset</li><li>Cultural experiences</li><li>Authentic Greek food</li><li>Smaller ship atmosphere</li></ul>
-                
-
-                
-                <h4 style="color: var(--primary); margin-top: 20px; margin-bottom: 10px;">Prefer to Avoid</h4>
-                <ul><li>Party crowds</li><li>Mega-ship atmosphere</li><li>Nickel-and-dime pricing</li></ul>
-                
-            </div>
-        </div>
+        <!-- Preferences Section (hidden by default, enable with meta.showTravelStyle: true) -->
         
 
         <!-- Flights Section -->
@@ -2856,6 +3059,11 @@
                     <p style="padding: 10px 20px; font-size: 0.9em; color: #856404; background: #fff8e6;">⚠️ One or more flights in lower cabin class than requested</p>
                 </div>
                 
+            </div>
+            
+            <div class="alert-box" style="margin-top: 20px;">
+                <h4>Self-Booking Note</h4>
+                <p>Airfare prices fluctuate daily. You&#39;re welcome to book flights on your own - it won&#39;t affect your cruise booking or pricing. Many travelers find deals through airline sales, credit card points, or loyalty programs. Just let us know your flight details so we can coordinate your airport transfers!</p>
             </div>
             
             
@@ -4212,7 +4420,7 @@
                 <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px;">
             </div>
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
-            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 18, 2026 | Rendered: 2026-01-18 22:45:15 UTC</p>
+            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 18, 2026 | Rendered: 2026-01-18 23:42:30 UTC</p>
         </div>
     </div>
 
