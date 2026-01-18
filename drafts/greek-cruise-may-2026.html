@@ -1501,34 +1501,67 @@
         }
 
         /* Included Value */
-        .included-value-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
-        }
-
-        .included-value-item {
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 14px;
-        }
-
-        .included-value-name {
-            font-weight: 600;
+        .included-value-intro {
+            background: var(--bg-section);
+            border-left: 4px solid var(--accent);
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            font-size: 0.95em;
             color: var(--text);
-            margin-bottom: 6px;
         }
 
-        .included-value-amount {
-            font-weight: 700;
+        .included-value-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+        }
+
+        .included-value-table th,
+        .included-value-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .included-value-table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .included-value-table td:last-child {
+            text-align: right;
+            font-weight: 600;
             color: var(--accent);
-            margin-bottom: 6px;
+            white-space: nowrap;
+        }
+
+        .included-value-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .included-value-table .total-row {
+            background: var(--bg-section);
+            font-weight: 700;
+        }
+
+        .included-value-table .total-row td {
+            border-top: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .included-value-table .total-row td:last-child {
+            color: var(--accent);
+            font-size: 1.1em;
         }
 
         .included-value-notes {
             font-size: 0.85em;
             color: var(--text-light);
+            margin-top: 4px;
         }
 
         .transfer-list {
@@ -2133,6 +2166,113 @@
 
         <!-- Viator Tours Section -->
         
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🧭</div>
+                <h2>Viator Tours</h2>
+                <button class="comment-trigger" data-comment-section="Viator Tours">Ask a question</button>
+            </div>
+            
+            <div class="content-box" style="margin-bottom: 20px;">
+                <p>Optional tours to enhance your Greek Islands experience. Book independently for flexibility.</p>
+            </div>
+            
+            
+            <div class="content-box" style="margin-bottom: 20px;">
+                <h3 style="color: var(--primary); margin-bottom: 12px;">Santorini</h3>
+                <div class="tours-grid">
+                    
+                    <div class="tour-card">
+                        <div class="tour-name">Santorini Wine Stories: Sunset Tour with Tasting &amp; Dinner</div>
+                        <div class="tour-meta">5 hours</div>
+                        <div class="tour-price">~$150/person</div>
+                        
+                        <ul class="tour-highlights">
+                            <li>Visit 3 wineries</li><li>10 wine tastings</li><li>5-course meal with pairings</li><li>Sunset views at Santo Winery</li>
+                        </ul>
+                        
+                        <a href="https://www.viator.com/tours/Santorini/Santorini-Wine-Stories/d959-85166P3" class="card-link small-link" target="_blank" rel="noopener noreferrer">View tour →</a>
+                    </div>
+                    
+                    <div class="tour-card">
+                        <div class="tour-name">Small-Group Wine Tasting Tour (Morning or Sunset)</div>
+                        <div class="tour-meta">4-5 hours</div>
+                        <div class="tour-price">~$120/person</div>
+                        
+                        <ul class="tour-highlights">
+                            <li>Max 10 travelers</li><li>3 family-owned wineries</li><li>12-14 tastings</li><li>Local nibbles included</li>
+                        </ul>
+                        
+                        <a href="https://www.viator.com/tours/Saronic-Gulf-Islands/Santorini-Small-Group-Wine-Tasting/d51324-26477P3" class="card-link small-link" target="_blank" rel="noopener noreferrer">View tour →</a>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="content-box" style="margin-bottom: 20px;">
+                <h3 style="color: var(--primary); margin-bottom: 12px;">Mykonos</h3>
+                <div class="tours-grid">
+                    
+                    <div class="tour-card">
+                        <div class="tour-name">Delos Half-Day Guided Tour with Boat Tickets</div>
+                        <div class="tour-meta">5 hours</div>
+                        <div class="tour-price">~$79/person</div>
+                        
+                        <ul class="tour-highlights">
+                            <li>UNESCO World Heritage Site</li><li>Birthplace of Apollo</li><li>Professional archaeologist guide</li><li>Terrace of the Lions</li>
+                        </ul>
+                        
+                        <a href="https://www.viator.com/tours/Mykonos/Delos-Guided-Tour/d958-29285P1" class="card-link small-link" target="_blank" rel="noopener noreferrer">View tour →</a>
+                    </div>
+                    
+                    <div class="tour-card">
+                        <div class="tour-name">Private Delos Shore Excursion</div>
+                        <div class="tour-meta">5 hours</div>
+                        <div class="tour-price">~$350 total (private)</div>
+                        
+                        <ul class="tour-highlights">
+                            <li>Private guide</li><li>Flexible pace</li><li>Skip-the-line knowledge</li><li>House of Cleopatra, House of Dionysus</li>
+                        </ul>
+                        
+                        <a href="https://www.viator.com/tours/Cyclades-Islands/Mykonos-Shore-Excursion-Private-Tour-to-Delos-Island/d957-5389PRTATHMYKPR02" class="card-link small-link" target="_blank" rel="noopener noreferrer">View tour →</a>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="content-box" style="margin-bottom: 20px;">
+                <h3 style="color: var(--primary); margin-bottom: 12px;">Rhodes</h3>
+                <div class="tours-grid">
+                    
+                    <div class="tour-card">
+                        <div class="tour-name">Best of Lindos &amp; Rhodes - Private Half-Day</div>
+                        <div class="tour-meta">5 hours</div>
+                        <div class="tour-price">~$280 total (up to 4 people)</div>
+                        
+                        <ul class="tour-highlights">
+                            <li>Lindos Acropolis (535 ft elevation)</li><li>Rhodes Medieval Old Town</li><li>Colossus of Rhodes site</li><li>Mercedes transport</li>
+                        </ul>
+                        
+                        <a href="https://www.viator.com/tours/Rhodes/BEST-OF-LINDOS-and-RHODES-PRIVATE-TOUR-SHORE-EXCURSION-HALF-DAY-4-People/d4272-170196P6" class="card-link small-link" target="_blank" rel="noopener noreferrer">View tour →</a>
+                    </div>
+                    
+                    <div class="tour-card">
+                        <div class="tour-name">Private Lindos, Acropolis &amp; Filerimos Hill</div>
+                        <div class="tour-meta">6 hours</div>
+                        <div class="tour-price">~$350 total (private)</div>
+                        
+                        <ul class="tour-highlights">
+                            <li>Lindos village & Acropolis</li><li>Byzantine Filerimos Monastery</li><li>Medieval Rhodes Town</li><li>Panoramic viewpoints</li>
+                        </ul>
+                        
+                        <a href="https://www.viator.com/tours/Rhodes/Private-Tour-Rhodes-Acropolis/d4272-116168P39" class="card-link small-link" target="_blank" rel="noopener noreferrer">View tour →</a>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
 
         <!-- Onboard Credits & Packages Section - CRUISE SPECIFIC -->
         
@@ -2176,36 +2316,25 @@
                     <div class="card-body">
                         <div class="booking-header">
                             <div class="booking-title">
-                                
+                                🚢 
                                 Cruise
                             </div>
                             
-                            <span class="booking-status">Confirmed</span>
+                            <span class="booking-status status-confirmed">✓ Confirmed</span>
                             
                         </div>
                         <div class="booking-supplier">Celestyal Cruises</div>
                         
-                        
-                        
-                        
                         <div class="card-detail"><span class="label">Confirmation</span><span class="value">402390</span></div>
+                        
                         
                         
                         <div class="booking-amount">$4,012</div>
                         
-                        
                         <div class="card-detail"><span class="label">Balance</span><span class="value">$4,012</span></div>
                         <div class="card-detail"><span class="label">Balance Due</span><span class="value">March 31, 2026</span></div>
                         
-                        
-                        
-                        
-                        
-                        <div style="margin-top: 8px;">
-                            <span class="traveler-badge" style="margin-right: 6px; margin-bottom: 6px; display: inline-block;">Tracie Byrne</span><span class="traveler-badge" style="margin-right: 6px; margin-bottom: 6px; display: inline-block;">Bailey Byrne</span>
-                        </div>
-                        
-                        
+                        <div class="card-detail"><span class="label">Travelers</span><span class="value">Tracie Byrne, Bailey Byrne</span></div>
                         <p class="booking-notes">7-night Greek Islands cruise + 1 pre-cruise hotel night</p>
                         
                     </div>
@@ -2215,11 +2344,11 @@
                     <div class="card-body">
                         <div class="booking-header">
                             <div class="booking-title">
-                                
+                                🛡️ 
                                 Insurance
                             </div>
                             
-                            <span class="booking-status">Quoted</span>
+                            <span class="booking-status status-quoted">⏳ Quoted</span>
                             
                         </div>
                         <div class="booking-supplier">Allianz Global Assistance</div>
@@ -2233,13 +2362,6 @@
                         <div class="booking-amount">$727.49</div>
                         
                         
-                        
-                        
-                        
-                        
-                        <div style="margin-top: 8px;">
-                            <span class="traveler-badge" style="margin-right: 6px; margin-bottom: 6px; display: inline-block;">2</span><span class="traveler-badge" style="margin-right: 6px; margin-bottom: 6px; display: inline-block;">[&quot;Tracie Byrne&quot;,&quot;Bailey Byrne&quot;]</span><span class="traveler-badge" style="margin-right: 6px; margin-bottom: 6px; display: inline-block;">Mother-daughter trip, first-time Europe travelers seeking cultural immersion</span><span class="traveler-badge" style="margin-right: 6px; margin-bottom: 6px; display: inline-block;">[{&quot;name&quot;:&quot;Tracie Byrne&quot;,&quot;role&quot;:&quot;Lead Passenger&quot;},{&quot;name&quot;:&quot;Bailey Byrne&quot;,&quot;role&quot;:&quot;Traveler&quot;}]</span>
-                        </div>
                         
                         
                         
@@ -2266,57 +2388,82 @@
                 <button class="comment-trigger" data-comment-section="Included Value">Ask a question</button>
             </div>
             <div class="content-box">
-                
-                <div class="included-value-grid">
-                    
-                    <div class="included-value-item">
-                        <div class="included-value-name"></div>
-                        <div class="included-value-amount">150</div>
-                        <div class="included-value-notes">4-star Luwian Boutique Hotel</div>
-                    </div>
-                    
-                    <div class="included-value-item">
-                        <div class="included-value-name"></div>
-                        <div class="included-value-amount">50</div>
-                        <div class="included-value-notes">Private car from Athens Airport</div>
-                    </div>
-                    
-                    <div class="included-value-item">
-                        <div class="included-value-name"></div>
-                        <div class="included-value-amount">50</div>
-                        <div class="included-value-notes">Private car to Piraeus</div>
-                    </div>
-                    
-                    <div class="included-value-item">
-                        <div class="included-value-name"></div>
-                        <div class="included-value-amount">50</div>
-                        <div class="included-value-notes">Private car after disembarkation</div>
-                    </div>
-                    
-                    <div class="included-value-item">
-                        <div class="included-value-name"></div>
-                        <div class="included-value-amount">100</div>
-                        <div class="included-value-notes">Soft drinks, coffee, tea included</div>
-                    </div>
-                    
-                    <div class="included-value-item">
-                        <div class="included-value-name"></div>
-                        <div class="included-value-amount">70</div>
-                        <div class="included-value-notes">Stay connected throughout cruise</div>
-                    </div>
-                    
-                    <div class="included-value-item">
-                        <div class="included-value-name"></div>
-                        <div class="included-value-amount">140</div>
-                        <div class="included-value-notes">No tipping required - $20/person/day value</div>
-                    </div>
-                    
+                <div class="included-value-intro">
+                    ✅ These extras are <strong>included at no additional cost</strong> with your cruise package. Many cruise lines charge separately for these amenities.
                 </div>
                 
+                <table class="included-value-table">
+                    <thead>
+                        <tr>
+                            <th>Included Benefit</th>
+                            <th>Est. Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>
+                                
+                                <div class="included-value-notes">4-star Luwian Boutique Hotel</div>
+                            </td>
+                            <td>$150</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                
+                                <div class="included-value-notes">Private car from Athens Airport</div>
+                            </td>
+                            <td>$50</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                
+                                <div class="included-value-notes">Private car to Piraeus</div>
+                            </td>
+                            <td>$50</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                
+                                <div class="included-value-notes">Private car after disembarkation</div>
+                            </td>
+                            <td>$50</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                
+                                <div class="included-value-notes">Soft drinks, coffee, tea included</div>
+                            </td>
+                            <td>$100</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                
+                                <div class="included-value-notes">Stay connected throughout cruise</div>
+                            </td>
+                            <td>$70</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                
+                                <div class="included-value-notes">No tipping required - $20/person/day value</div>
+                            </td>
+                            <td>$140</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
                 
-                <div class="highlight-box" style="margin-top: 20px;">
-                    <h4>Total Estimated Value</h4>
-                    <p>610</p>
+                
+                <div class="highlight-box" style="background: var(--bg-section); border: 2px solid var(--accent); padding: 15px; text-align: center;">
+                    <span style="color: var(--text); font-weight: 500;">Total Included Value:</span>
+                    <span style="font-size: 1.3em; font-weight: 700; color: var(--accent); margin-left: 10px;">$610</span>
                 </div>
                 
                 
@@ -2378,60 +2525,60 @@
             </div>
             <div class="extras-grid">
                 
-                <div class="extra-card priority-">
-                    <span class="priority-badge"></span>
+                <div class="extra-card priority-high">
+                    <span class="priority-badge">Popular</span>
                     <div class="extra-name">CelestyalPay Drink &amp; Dining Wallet</div>
                     <div class="extra-price">€200/person = €235 value (17% bonus)</div>
                     <div class="extra-desc">Prepay for cocktails, wine, and specialty dining and get bonus credit. No drink packages on Celestyal - this wallet gives you flexibility to spend as you like.</div>
                     <div class="extra-why">💡 Perfect for sunset cocktails, wine with dinner, or a special meal at Grill Seekers steakhouse. Prepay saves you 15-25% vs. paying onboard.</div>
                 </div>
                 
-                <div class="extra-card priority-">
-                    <span class="priority-badge"></span>
+                <div class="extra-card priority-high">
+                    <span class="priority-badge">Popular</span>
                     <div class="extra-name">Delos Island Day Trip (from Mykonos)</div>
                     <div class="extra-price">~$79/person</div>
                     <div class="extra-desc">UNESCO World Heritage Site - the mythological birthplace of Apollo. Only accessible by boat from Mykonos.</div>
                     <div class="extra-why">💡 Your overnight stay in Mykonos gives you time for this must-see ancient site. The Terrace of the Lions and ancient ruins are unforgettable. Book ahead - boats fill up!</div>
                 </div>
                 
-                <div class="extra-card priority-">
-                    <span class="priority-badge"></span>
+                <div class="extra-card priority-recommended">
+                    <span class="priority-badge">Agent Recommended</span>
+                    <div class="extra-name">Post-Cruise Athens Hotel</div>
+                    <div class="extra-price">~$150-200</div>
+                    <div class="extra-desc">One night in Athens after disembarkation before your flight home.</div>
+                    <div class="extra-why">💡 Your ship arrives at 8am but flights don&#39;t leave until evening. Enjoy a leisurely last day - visit the Acropolis, shop in Plaka, have a nice lunch. No rushing to the airport!</div>
+                </div>
+                
+                <div class="extra-card priority-medium">
+                    <span class="priority-badge">Recommended</span>
                     <div class="extra-name">Santorini Wine Tasting Tour</div>
                     <div class="extra-price">~$120-150/person</div>
                     <div class="extra-desc">Visit 3 local wineries, taste volcanic wines unique to Santorini, and watch the famous sunset.</div>
                     <div class="extra-why">💡 Since you&#39;re staying until 10pm in Santorini, you have time for a sunset wine tour - something most cruisers can&#39;t do! Taste Assyrtiko and Vinsanto wines you can&#39;t find anywhere else.</div>
                 </div>
                 
-                <div class="extra-card priority-">
-                    <span class="priority-badge"></span>
+                <div class="extra-card priority-medium">
+                    <span class="priority-badge">Recommended</span>
                     <div class="extra-name">Mother-Daughter Spa Day</div>
                     <div class="extra-price">~$100-200 for two</div>
                     <div class="extra-desc">Relaxing treatments at the Sozo Health Spa - massages, facials, and wellness packages.</div>
                     <div class="extra-why">💡 A special bonding experience at sea. Book a couples massage or side-by-side facials on your sea day.</div>
                 </div>
                 
-                <div class="extra-card priority-">
-                    <span class="priority-badge"></span>
+                <div class="extra-card priority-medium">
+                    <span class="priority-badge">Recommended</span>
                     <div class="extra-name">Palace of Knossos Excursion (Crete)</div>
                     <div class="extra-price">~$75/person</div>
                     <div class="extra-desc">Ancient Minoan palace - Europe&#39;s oldest city and legendary home of the Minotaur&#39;s labyrinth.</div>
                     <div class="extra-why">💡 The most significant Bronze Age archaeological site on Crete. Your included Lindos excursion is on Rhodes - Knossos would be a great add for Crete.</div>
                 </div>
                 
-                <div class="extra-card priority-">
-                    <span class="priority-badge"></span>
+                <div class="extra-card priority-splurge">
+                    <span class="priority-badge">Upgrade</span>
                     <div class="extra-name">Cabin Upgrade to Junior Suite with Balcony</div>
                     <div class="extra-price">+$600-1,000 total</div>
                     <div class="extra-desc">Private step-out balcony, more space, priority services, and exclusive perks.</div>
                     <div class="extra-why">💡 Watch the Santorini sunset from your own private balcony! Suite guests also get priority reservations, complimentary room service breakfast, and an invitation to the Captain&#39;s cocktail party.</div>
-                </div>
-                
-                <div class="extra-card priority-">
-                    <span class="priority-badge"></span>
-                    <div class="extra-name">Post-Cruise Athens Hotel</div>
-                    <div class="extra-price">~$150-200</div>
-                    <div class="extra-desc">One night in Athens after disembarkation before your flight home.</div>
-                    <div class="extra-why">💡 Your ship arrives at 8am but flights don&#39;t leave until evening. Enjoy a leisurely last day - visit the Acropolis, shop in Plaka, have a nice lunch. No rushing to the airport!</div>
                 </div>
                 
             </div>
@@ -4041,7 +4188,7 @@
                 <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px;">
             </div>
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
-            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 18, 2026 | Rendered: 2026-01-18 20:09:37 UTC</p>
+            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 18, 2026 | Rendered: 2026-01-18 20:26:52 UTC</p>
         </div>
     </div>
 
