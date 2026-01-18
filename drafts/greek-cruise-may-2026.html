@@ -1313,6 +1313,189 @@
             color: #856404;
             margin: 8px 0;
         }
+
+        /* Recommended Extras */
+        .extras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .extra-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 18px;
+            position: relative;
+        }
+
+        .extra-card .extra-name {
+            font-weight: 700;
+            font-size: 1.05em;
+            margin-bottom: 6px;
+            color: var(--primary);
+        }
+
+        .extra-price {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: var(--bg-light);
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .extra-desc {
+            color: var(--text-light);
+            font-size: 0.95em;
+            margin-bottom: 12px;
+        }
+
+        .extra-why {
+            background: #f2f8ff;
+            border-left: 3px solid #2b6cb0;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            color: var(--text);
+        }
+
+        .priority-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 0.7em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: #edf2f7;
+            color: #4a5568;
+        }
+
+        .extra-card.priority-high {
+            border-color: #2f855a;
+        }
+
+        .extra-card.priority-high .priority-badge {
+            background: #e6f6ea;
+            color: #2f855a;
+        }
+
+        .extra-card.priority-recommended {
+            border-color: #2b6cb0;
+        }
+
+        .extra-card.priority-recommended .priority-badge {
+            background: #e6f0ff;
+            color: #2b6cb0;
+        }
+
+        .extra-card.priority-splurge {
+            border-color: #b7791f;
+        }
+
+        .extra-card.priority-splurge .priority-badge {
+            background: #fff8e1;
+            color: #b7791f;
+        }
+
+        /* Comment UI */
+        .comment-trigger {
+            margin-left: auto;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--primary);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.7em;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            cursor: pointer;
+        }
+
+        .comment-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .comment-modal.active {
+            display: flex;
+        }
+
+        .comment-panel {
+            background: var(--white);
+            width: min(520px, 92vw);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+        }
+
+        .comment-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .comment-panel-title {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .comment-close {
+            background: transparent;
+            border: none;
+            font-size: 1.3em;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .comment-context {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .comment-form label {
+            display: block;
+            font-size: 0.85em;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-family: inherit;
+            font-size: 0.95em;
+            margin-bottom: 12px;
+        }
+
+        .comment-submit {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .comment-status {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
@@ -1381,6 +1564,7 @@
             <div class="section-header">
                 <div class="section-icon">🚢</div>
                 <h2>Your Cruise</h2>
+                <button class="comment-trigger" data-comment-section="Your Cruise">Ask a question</button>
             </div>
             <div class="content-box ship-card">
                 <div class="ship-name">Celestyal Journey</div>
@@ -1494,6 +1678,7 @@
             <div class="section-header">
                 <div class="section-icon">🏝️</div>
                 <h2>Ports of Call</h2>
+                <button class="comment-trigger" data-comment-section="Ports of Call">Ask a question</button>
             </div>
             
             <div class="card port-card" style="margin-bottom: 20px;">
@@ -1677,6 +1862,7 @@
             <div class="section-header">
                 <div class="section-icon">👥</div>
                 <h2>Your Travel Party</h2>
+                <button class="comment-trigger" data-comment-section="Travel Party">Ask a question</button>
             </div>
             <div class="content-box">
                 <div class="traveler-list">
@@ -1698,6 +1884,7 @@
             <div class="section-header">
                 <div class="section-icon">📋</div>
                 <h2>Booking Details</h2>
+                <button class="comment-trigger" data-comment-section="Booking Details">Ask a question</button>
             </div>
             <div class="cards-grid">
                 
@@ -1735,6 +1922,76 @@
         <!-- Inclusions Section -->
         
 
+        <!-- Recommended Extras Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">✨</div>
+                <h2>Enhance Your Experience</h2>
+                <button class="comment-trigger" data-comment-section="Recommended Extras">Ask a question</button>
+            </div>
+            <div class="extras-grid">
+                
+                <div class="extra-card priority-">
+                    <span class="priority-badge"></span>
+                    <div class="extra-name">CelestyalPay Drink &amp; Dining Wallet</div>
+                    <div class="extra-price">€200/person = €235 value (17% bonus)</div>
+                    <div class="extra-desc">Prepay for cocktails, wine, and specialty dining and get bonus credit. No drink packages on Celestyal - this wallet gives you flexibility to spend as you like.</div>
+                    <div class="extra-why">💡 Perfect for sunset cocktails, wine with dinner, or a special meal at Grill Seekers steakhouse. Prepay saves you 15-25% vs. paying onboard.</div>
+                </div>
+                
+                <div class="extra-card priority-">
+                    <span class="priority-badge"></span>
+                    <div class="extra-name">Delos Island Day Trip (from Mykonos)</div>
+                    <div class="extra-price">~$79/person</div>
+                    <div class="extra-desc">UNESCO World Heritage Site - the mythological birthplace of Apollo. Only accessible by boat from Mykonos.</div>
+                    <div class="extra-why">💡 Your overnight stay in Mykonos gives you time for this must-see ancient site. The Terrace of the Lions and ancient ruins are unforgettable. Book ahead - boats fill up!</div>
+                </div>
+                
+                <div class="extra-card priority-">
+                    <span class="priority-badge"></span>
+                    <div class="extra-name">Santorini Wine Tasting Tour</div>
+                    <div class="extra-price">~$120-150/person</div>
+                    <div class="extra-desc">Visit 3 local wineries, taste volcanic wines unique to Santorini, and watch the famous sunset.</div>
+                    <div class="extra-why">💡 Since you&#39;re staying until 10pm in Santorini, you have time for a sunset wine tour - something most cruisers can&#39;t do! Taste Assyrtiko and Vinsanto wines you can&#39;t find anywhere else.</div>
+                </div>
+                
+                <div class="extra-card priority-">
+                    <span class="priority-badge"></span>
+                    <div class="extra-name">Mother-Daughter Spa Day</div>
+                    <div class="extra-price">~$100-200 for two</div>
+                    <div class="extra-desc">Relaxing treatments at the Sozo Health Spa - massages, facials, and wellness packages.</div>
+                    <div class="extra-why">💡 A special bonding experience at sea. Book a couples massage or side-by-side facials on your sea day.</div>
+                </div>
+                
+                <div class="extra-card priority-">
+                    <span class="priority-badge"></span>
+                    <div class="extra-name">Palace of Knossos Excursion (Crete)</div>
+                    <div class="extra-price">~$75/person</div>
+                    <div class="extra-desc">Ancient Minoan palace - Europe&#39;s oldest city and legendary home of the Minotaur&#39;s labyrinth.</div>
+                    <div class="extra-why">💡 The most significant Bronze Age archaeological site on Crete. Your included Lindos excursion is on Rhodes - Knossos would be a great add for Crete.</div>
+                </div>
+                
+                <div class="extra-card priority-">
+                    <span class="priority-badge"></span>
+                    <div class="extra-name">Cabin Upgrade to Junior Suite with Balcony</div>
+                    <div class="extra-price">+$600-1,000 total</div>
+                    <div class="extra-desc">Private step-out balcony, more space, priority services, and exclusive perks.</div>
+                    <div class="extra-why">💡 Watch the Santorini sunset from your own private balcony! Suite guests also get priority reservations, complimentary room service breakfast, and an invitation to the Captain&#39;s cocktail party.</div>
+                </div>
+                
+                <div class="extra-card priority-">
+                    <span class="priority-badge"></span>
+                    <div class="extra-name">Post-Cruise Athens Hotel</div>
+                    <div class="extra-price">~$150-200</div>
+                    <div class="extra-desc">One night in Athens after disembarkation before your flight home.</div>
+                    <div class="extra-why">💡 Your ship arrives at 8am but flights don&#39;t leave until evening. Enjoy a leisurely last day - visit the Acropolis, shop in Plaka, have a nice lunch. No rushing to the airport!</div>
+                </div>
+                
+            </div>
+        </div>
+        
+
         <!-- Packing Guide Section -->
         
 
@@ -1747,6 +2004,7 @@
             <div class="section-header">
                 <div class="section-icon">✨</div>
                 <h2>Your Travel Style</h2>
+                <button class="comment-trigger" data-comment-section="Travel Style">Ask a question</button>
             </div>
             <div class="content-box">
                 
@@ -1776,6 +2034,7 @@
             <div class="section-header">
                 <div class="section-icon">✈️</div>
                 <h2>Flight Options Comparison</h2>
+                <button class="comment-trigger" data-comment-section="Flight Options">Ask a question</button>
             </div>
             <div class="flight-options-grid">
                 
@@ -2016,6 +2275,12 @@
                 
             </div>
             
+            <div class="alert-box" style="margin-top: 20px;">
+                <h4>Self-Booking Note</h4>
+                <p>Airfare prices fluctuate daily. You&#39;re welcome to book flights on your own - it won&#39;t affect your cruise booking or pricing. Many travelers find deals through airline sales, credit card points, or loyalty programs. Just let us know your flight details so we can coordinate your airport transfers!</p>
+            </div>
+            
+            
             <div class="highlight-box" style="margin-top: 20px;">
                 <h4>Recommendation</h4>
                 <p>Mobile Economy offers best value - $794 savings vs PNS with similar routing</p>
@@ -2032,6 +2297,7 @@
             <div class="section-header">
                 <div class="section-icon">🏨</div>
                 <h2>Pre/Post Cruise Accommodations</h2>
+                <button class="comment-trigger" data-comment-section="Accommodations">Ask a question</button>
             </div>
             
             <div class="lodging-item">
@@ -2087,6 +2353,7 @@
             <div class="section-header">
                 <div class="section-icon">📍</div>
                 <h2>Day-by-Day Itinerary</h2>
+                <button class="comment-trigger" data-comment-section="Itinerary">Ask a question</button>
             </div>
             
             <div class="day-card">
@@ -2982,6 +3249,7 @@
             <div class="section-header">
                 <div class="section-icon">🗺️</div>
                 <h2>Maps</h2>
+                <button class="comment-trigger" data-comment-section="Maps">Ask a question</button>
             </div>
             <div class="content-box">
                 
@@ -3051,6 +3319,7 @@
             <div class="section-header">
                 <div class="section-icon">🎬</div>
                 <h2>Helpful Videos</h2>
+                <button class="comment-trigger" data-comment-section="Helpful Videos">Ask a question</button>
             </div>
             <div class="video-grid">
                 
@@ -3080,6 +3349,7 @@
             <div class="section-header">
                 <div class="section-icon">📊</div>
                 <h2>Package Options</h2>
+                <button class="comment-trigger" data-comment-section="Package Options">Ask a question</button>
             </div>
             <div class="tiers-grid">
                 
@@ -3150,6 +3420,7 @@
             <div class="section-header">
                 <div class="section-icon">💰</div>
                 <h2>Investment Summary</h2>
+                <button class="comment-trigger" data-comment-section="Investment Summary">Ask a question</button>
             </div>
             <div class="pricing-box">
                 
@@ -3210,6 +3481,26 @@
 
     </div>
 
+    <div id="comment-modal" class="comment-modal">
+        <div class="comment-panel" role="dialog" aria-modal="true" aria-labelledby="comment-title">
+            <div class="comment-panel-header">
+                <div id="comment-title" class="comment-panel-title">Ask a question</div>
+                <button type="button" class="comment-close" aria-label="Close">x</button>
+            </div>
+            <div id="comment-context" class="comment-context"></div>
+            <form id="comment-form" class="comment-form">
+                <label for="comment-name">Name (optional)</label>
+                <input id="comment-name" type="text" autocomplete="name">
+                <label for="comment-email">Email (optional)</label>
+                <input id="comment-email" type="email" autocomplete="email">
+                <label for="comment-message">Question</label>
+                <textarea id="comment-message" rows="4" required></textarea>
+                <button class="comment-submit" type="submit">Send Question</button>
+                <div id="comment-status" class="comment-status"></div>
+            </form>
+        </div>
+    </div>
+
     <!-- Footer -->
     <div class="footer">
         <div class="footer-content">
@@ -3238,7 +3529,7 @@
                 <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px;">
             </div>
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
-            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 18, 2026 | Rendered: 2026-01-18 19:02:37 UTC</p>
+            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 18, 2026 | Rendered: 2026-01-18 19:18:49 UTC</p>
         </div>
     </div>
 
@@ -3303,6 +3594,94 @@
                     }
                 });
             });
+
+            // Comment modal handling
+            var tripKey = "kim_d63b7658/greek-cruise-may-2026";
+            var apiEndpoint = "https://voygent.somotravel.workers.dev";
+            var commentModal = document.getElementById('comment-modal');
+            var commentForm = document.getElementById('comment-form');
+            var commentContext = document.getElementById('comment-context');
+            var commentStatus = document.getElementById('comment-status');
+            var commentClose = document.querySelector('.comment-close');
+            var commentSection = 'General';
+            var commentItem = '';
+
+            function openCommentModal(section, item) {
+                commentSection = section || 'General';
+                commentItem = item || '';
+                if (commentContext) {
+                    commentContext.textContent = commentItem
+                        ? commentSection + " · " + commentItem
+                        : commentSection;
+                }
+                if (commentStatus) commentStatus.textContent = '';
+                if (commentModal) commentModal.classList.add('active');
+            }
+
+            function closeCommentModal() {
+                if (commentModal) commentModal.classList.remove('active');
+            }
+
+            document.querySelectorAll('.comment-trigger').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var section = button.getAttribute('data-comment-section') || 'General';
+                    var item = button.getAttribute('data-comment-item') || '';
+                    openCommentModal(section, item);
+                });
+            });
+
+            if (commentClose) {
+                commentClose.addEventListener('click', closeCommentModal);
+            }
+
+            if (commentModal) {
+                commentModal.addEventListener('click', function(event) {
+                    if (event.target === commentModal) closeCommentModal();
+                });
+            }
+
+            if (commentForm) {
+                commentForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    if (!tripKey || !apiEndpoint) {
+                        if (commentStatus) commentStatus.textContent = 'Unable to send right now. Please try again later.';
+                        return;
+                    }
+
+                    var nameField = document.getElementById('comment-name');
+                    var emailField = document.getElementById('comment-email');
+                    var messageField = document.getElementById('comment-message');
+                    var message = messageField ? messageField.value.trim() : '';
+
+                    if (!message) {
+                        if (commentStatus) commentStatus.textContent = 'Please enter a question before sending.';
+                        return;
+                    }
+
+                    if (commentStatus) commentStatus.textContent = 'Sending...';
+
+                    fetch(apiEndpoint + '/comment', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            tripKey: tripKey,
+                            section: commentSection,
+                            item: commentItem || null,
+                            message: message,
+                            name: nameField ? nameField.value.trim() : '',
+                            email: emailField ? emailField.value.trim() : ''
+                        })
+                    }).then(function(response) {
+                        if (!response.ok) throw new Error('Request failed');
+                        return response.json();
+                    }).then(function() {
+                        if (commentStatus) commentStatus.textContent = 'Sent! We will follow up soon.';
+                        if (commentForm) commentForm.reset();
+                    }).catch(function() {
+                        if (commentStatus) commentStatus.textContent = 'Unable to send right now. Please try again later.';
+                    });
+                });
+            }
         })();
     </script>
 </body>
