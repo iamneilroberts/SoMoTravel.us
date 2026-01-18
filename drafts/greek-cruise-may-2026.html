@@ -891,6 +891,11 @@
         .font-bold { font-weight: 600; }
         .small-link { margin-top: 8px; padding: 6px 12px; font-size: 0.85em; }
 
+        /* Hide broken/empty images */
+        img[src=""], img:not([src]) { display: none !important; }
+        img.hidden { display: none !important; }
+        .card-gallery:empty { display: none !important; }
+
         /* Map containers */
         .map-item { margin-bottom: 20px; }
         .map-item:last-child { margin-bottom: 0; }
@@ -3136,17 +3141,44 @@
                 <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px;">
             </div>
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
-            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 18, 2026 | Rendered: 2026-01-18 16:38:00 UTC</p>
+            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 18, 2026 | Rendered: 2026-01-18 16:58:24 UTC</p>
         </div>
     </div>
 
     <script>
         (function() {
+            // QR Code generation
             var url = encodeURIComponent(window.location.href);
             var qrImg = document.getElementById('qr-code');
             if (qrImg) {
                 qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=' + url;
             }
+
+            // Hide broken images and empty galleries
+            function cleanupBrokenImages() {
+                // Hide all images that failed to load
+                document.querySelectorAll('img').forEach(function(img) {
+                    if (!img.complete || img.naturalWidth === 0) {
+                        img.classList.add('hidden');
+                    }
+                });
+                // Hide galleries where all images are hidden
+                document.querySelectorAll('.card-gallery, .check-empty').forEach(function(gallery) {
+                    var visibleImages = gallery.querySelectorAll('img:not(.hidden)');
+                    if (visibleImages.length === 0) {
+                        gallery.style.display = 'none';
+                    }
+                });
+            }
+
+            // Run cleanup after page loads
+            if (document.readyState === 'complete') {
+                cleanupBrokenImages();
+            } else {
+                window.addEventListener('load', cleanupBrokenImages);
+            }
+            // Also run after a delay for lazy-loaded images
+            setTimeout(cleanupBrokenImages, 2000);
         })();
     </script>
 </body>
