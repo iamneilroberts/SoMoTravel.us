@@ -1425,6 +1425,213 @@
             color: #b7791f;
         }
 
+        /* Booking Details */
+        .booking-card {
+            border-top: 4px solid var(--primary);
+        }
+
+        .booking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .booking-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.05em;
+        }
+
+        .booking-status {
+            font-size: 0.7em;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: var(--bg-light);
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .booking-status.status-confirmed {
+            background: #e6f6ea;
+            color: #2f855a;
+        }
+
+        .booking-status.status-quoted {
+            background: #fff8e1;
+            color: #b7791f;
+        }
+
+        .booking-status.status-pending {
+            background: #e6f0ff;
+            color: #2b6cb0;
+        }
+
+        .booking-status.status-cancelled {
+            background: #fdecea;
+            color: #b83232;
+        }
+
+        .booking-supplier {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .booking-policy {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .booking-amount {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 12px 0;
+        }
+
+        .booking-notes {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        /* Included Value */
+        .included-value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .included-value-item {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .included-value-name {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .included-value-amount {
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .included-value-notes {
+            font-size: 0.85em;
+            color: var(--text-light);
+        }
+
+        .transfer-list {
+            margin-top: 16px;
+        }
+
+        .transfer-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .transfer-item:last-child {
+            border-bottom: none;
+        }
+
+        .transfer-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .transfer-details {
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        /* TripAdvisor */
+        .tripadvisor-box {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg-light);
+        }
+
+        .tripadvisor-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.85em;
+            color: var(--text-light);
+        }
+
+        .tripadvisor-highlights {
+            margin-top: 10px;
+        }
+
+        .tripadvisor-pill {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            font-size: 0.75em;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        .tripadvisor-tips {
+            margin-top: 10px;
+            font-size: 0.85em;
+            color: var(--text-light);
+        }
+
+        /* Viator Tours */
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .tour-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .tour-name {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .tour-meta {
+            font-size: 0.85em;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .tour-price {
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .tour-highlights {
+            margin: 8px 0 0;
+            padding-left: 18px;
+            font-size: 0.9em;
+        }
+
         /* Comment UI */
         .comment-trigger {
             margin-left: auto;
@@ -1634,18 +1841,25 @@
                 
 
                 
+                <div class="alert-box" style="margin-bottom: 20px;">
+                    <h4>Location Note</h4>
+                    <p>Cabin 6055 is well-positioned on Deck 6 - away from elevators and high-traffic areas for a quieter experience.</p>
+                </div>
+                
+
+                
                 <div class="cabin-media">
                     
                     
                     <a href="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.jpg" target="_blank" rel="noopener noreferrer">
-                        <img src="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.jpg" alt="Cabin interior" title="Cabin interior" loading="lazy" decoding="async" width="300" height="200" onerror="this.style.display='none'">
+                        <img src="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.jpg" alt='Cabin interior' title='Cabin interior' loading="lazy" decoding="async" width="300" height="200" onerror="this.style.display='none'">
                     </a>
                     
                     
                     
                     
                     <a href="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.gif" target="_blank" rel="noopener noreferrer">
-                        <img src="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.gif" alt="Stateroom floorplan" title="Stateroom floorplan" loading="lazy" decoding="async" width="300" height="200" onerror="this.style.display='none'">
+                        <img src="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.gif" alt='Stateroom floorplan' title='Stateroom floorplan' loading="lazy" decoding="async" width="300" height="200" onerror="this.style.display='none'">
                     </a>
                     
                     
@@ -1683,6 +1897,31 @@
                 </div>
                 
 
+                
+
+                
+                <div style="margin-top: 20px;">
+                    <h4 style="color: var(--primary); margin-bottom: 12px;">Complimentary Services (On Request)</h4>
+                    <ul>
+                        
+                        <li>Shoeshine (on request)</li>
+                        
+                        <li>Express ironing (on request)</li>
+                        
+                        <li>Laundry service (on request)</li>
+                        
+                        <li>Robes and slippers (on request)</li>
+                        
+                        <li>Pillow menu (6 types)</li>
+                        
+                        <li>Yoga mats (on request)</li>
+                        
+                        <li>Fresh fruit delivery (on request)</li>
+                        
+                        <li>Ice delivery (on request)</li>
+                        
+                    </ul>
+                </div>
                 
 
                 
@@ -1892,6 +2131,9 @@
         <!-- Shore Excursions Section - CRUISE SPECIFIC -->
         
 
+        <!-- Viator Tours Section -->
+        
+
         <!-- Onboard Credits & Packages Section - CRUISE SPECIFIC -->
         
 
@@ -1930,27 +2172,37 @@
             </div>
             <div class="cards-grid">
                 
-                <div class="card" style="border-top: 4px solid var(--primary);">
-                    <div class="card-header">Booking </div>
+                <div class="card booking-card">
                     <div class="card-body">
+                        <div class="booking-header">
+                            <div class="booking-title"> </div>
+                            
+                        </div>
+                        <div class="booking-supplier">Celestyal Cruises</div>
                         
                         
+                        <div class="booking-amount">$4,012</div>
                         
                         
-                        
+                        <p class="booking-notes">7-night Greek Islands cruise + 1 pre-cruise hotel night</p>
                         
                     </div>
                 </div>
                 
-                <div class="card" style="border-top: 4px solid var(--primary);">
-                    <div class="card-header">Booking </div>
+                <div class="card booking-card">
                     <div class="card-body">
+                        <div class="booking-header">
+                            <div class="booking-title"> </div>
+                            
+                        </div>
+                        <div class="booking-supplier">Allianz Global Assistance</div>
+                        <div class="booking-policy">Worldwide Policy</div>
+                        
+                        <div class="booking-amount">$727.49</div>
                         
                         
                         
-                        
-                        
-                        
+                        <p class="booking-notes">Pending client approval</p>
                     </div>
                 </div>
                 
@@ -1962,6 +2214,117 @@
         
 
         <!-- Inclusions Section -->
+        
+
+        <!-- Included Value Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">💎</div>
+                <h2>Included Value</h2>
+                <button class="comment-trigger" data-comment-section="Included Value">Ask a question</button>
+            </div>
+            <div class="content-box">
+                
+                <div class="included-value-grid">
+                    
+                    <div class="included-value-item">
+                        <div class="included-value-name"></div>
+                        <div class="included-value-amount">150</div>
+                        <div class="included-value-notes">4-star Luwian Boutique Hotel</div>
+                    </div>
+                    
+                    <div class="included-value-item">
+                        <div class="included-value-name"></div>
+                        <div class="included-value-amount">50</div>
+                        <div class="included-value-notes">Private car from Athens Airport</div>
+                    </div>
+                    
+                    <div class="included-value-item">
+                        <div class="included-value-name"></div>
+                        <div class="included-value-amount">50</div>
+                        <div class="included-value-notes">Private car to Piraeus</div>
+                    </div>
+                    
+                    <div class="included-value-item">
+                        <div class="included-value-name"></div>
+                        <div class="included-value-amount">50</div>
+                        <div class="included-value-notes">Private car after disembarkation</div>
+                    </div>
+                    
+                    <div class="included-value-item">
+                        <div class="included-value-name"></div>
+                        <div class="included-value-amount">100</div>
+                        <div class="included-value-notes">Soft drinks, coffee, tea included</div>
+                    </div>
+                    
+                    <div class="included-value-item">
+                        <div class="included-value-name"></div>
+                        <div class="included-value-amount">70</div>
+                        <div class="included-value-notes">Stay connected throughout cruise</div>
+                    </div>
+                    
+                    <div class="included-value-item">
+                        <div class="included-value-name"></div>
+                        <div class="included-value-amount">140</div>
+                        <div class="included-value-notes">No tipping required - $20/person/day value</div>
+                    </div>
+                    
+                </div>
+                
+                
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <h4>Total Estimated Value</h4>
+                    <p>610</p>
+                </div>
+                
+                
+                <div class="transfer-list">
+                    <h4 style="color: var(--primary); margin-bottom: 8px;">Transfers Included</h4>
+                    
+                    <div class="transfer-item">
+                        
+                        <div class="transfer-title">Airport pickup</div>
+                        <div class="transfer-details">
+                            <div>May 29</div>
+                            
+                            <div>From E.Venizelos Athens Airport → Luwian Hotel Athens</div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="transfer-item">
+                        
+                        <div class="transfer-title">Hotel to port</div>
+                        <div class="transfer-details">
+                            <div>May 30</div>
+                            
+                            <div>From Luwian Hotel Athens → Piraeus Port</div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="transfer-item">
+                        
+                        <div class="transfer-title">Port to airport</div>
+                        <div class="transfer-details">
+                            <div>June 6</div>
+                            
+                            <div>From Piraeus Port → E.Venizelos Athens Airport</div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                
+                <div class="alert-box" style="margin-top: 20px;">
+                    <h4>Meeting Instructions</h4>
+                    <p>Celestyal drivers will wait in Arrivals Hall A or B (depending on flight arrival) after baggage claim and customs. They will hold a sign with &#39;CELESTYAL&#39; and your name. If you can&#39;t locate the driver, proceed to the Pharmacy area.</p>
+                </div>
+                
+            </div>
+        </div>
         
 
         <!-- Recommended Extras Section -->
@@ -2323,6 +2686,12 @@
             </div>
             
             
+            <div class="alert-box" style="margin-top: 15px;">
+                <h4>Important</h4>
+                <p>⚠️ Airfare pricing fluctuates daily based on demand and availability. Prices shown are estimates from January 18, 2026 and may change. For potential savings, you may wish to book flights directly through the airline or your preferred booking site. We&#39;re happy to assist with flight booking if preferred.</p>
+            </div>
+            
+            
             <div class="highlight-box" style="margin-top: 20px;">
                 <h4>Recommendation</h4>
                 <p>Mobile Economy offers best value - $794 savings vs PNS with similar routing</p>
@@ -2374,6 +2743,29 @@
                         
                         <p style="margin-top: 12px; font-size: 0.9em; color: var(--text-light);">Included in Celestyal package</p>
                         
+                        <div class="tripadvisor-box">
+                            <div class="tripadvisor-metrics">
+                                <span>Rating: 4.8/5</span>
+                                <span>#62 of 360 hotels in Athens</span>
+                                <span>78 reviews</span>
+                            </div>
+                            
+                            <div class="tripadvisor-highlights">
+                                <span class="tripadvisor-pill">Modern boutique hotel</span><span class="tripadvisor-pill">Rooftop bar with Acropolis views</span><span class="tripadvisor-pill">Free breakfast included</span><span class="tripadvisor-pill">6 min walk to Omonia Metro</span><span class="tripadvisor-pill">12-15 min walk to Monastiraki/Plaka</span><span class="tripadvisor-pill">Free WiFi</span><span class="tripadvisor-pill">Spotless rooms</span><span class="tripadvisor-pill">Friendly staff</span>
+                            </div>
+                            
+                            
+                            <div class="tripadvisor-tips">
+                                <strong>Good to know:</strong>
+                                <ul>
+                                    <li>Request higher floor for less street noise</li><li>Rooftop Bronze restaurant has great views</li><li>Close to attractions - walkable to Acropolis</li>
+                                </ul>
+                            </div>
+                            
+                            <a href="https://www.tripadvisor.com/Hotel_Review-g189400-d27424994-Reviews-Luwian_Athens_Boutique_Hotel-Athens_Attica.html" class="card-link small-link" target="_blank" rel="noopener noreferrer">Read reviews →</a>
+                        </div>
+                        
+                        
                     </div>
                 </div>
                 
@@ -2410,6 +2802,7 @@
                         
                         
                         <p style="margin-top: 12px; font-size: 0.9em; color: var(--text-light);">Recommended for comfortable departure - allows time to explore Athens after disembarkation</p>
+                        
                         
                     </div>
                 </div>
@@ -3555,123 +3948,6 @@
         <!-- Featured Links Section -->
         
 
-        <!-- Tiered Pricing Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">📊</div>
-                <h2>Package Options</h2>
-                <button class="comment-trigger" data-comment-section="Package Options">Ask a question</button>
-            </div>
-            <div class="tiers-grid">
-                
-                <div class="tier-card">
-                    <div class="tier-header value">
-                        <div class="tier-name">Celestyal Ocean View</div>
-                        <div class="tier-desc">All-inclusive cruise with exterior cabin, 2 included excursions, pre-cruise Athens package</div>
-                    </div>
-                    <div class="tier-details">
-                        
-                        
-                        
-                        
-                    </div>
-                    <div class="tier-price">
-                        <div class="total">$4,268</div>
-                        <div class="per-person">$2,134 per person</div>
-                    </div>
-                </div>
-                
-
-                
-                <div class="tier-card recommended">
-                    <div class="tier-badge">Recommended</div>
-                    <div class="tier-header premium">
-                        <div class="tier-name">Celestyal Jr Suite Balcony</div>
-                        <div class="tier-desc">Upgraded suite with private balcony, exclusive dining access, all-inclusive amenities</div>
-                    </div>
-                    <div class="tier-details">
-                        
-                        
-                        
-                        
-                    </div>
-                    <div class="tier-price">
-                        <div class="total" style="color: var(--accent);">$5,488</div>
-                        <div class="per-person">$2,744 per person</div>
-                    </div>
-                </div>
-                
-
-                
-            </div>
-            
-        </div>
-        
-
-        <!-- Pricing Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">💰</div>
-                <h2>Investment Summary</h2>
-                <button class="comment-trigger" data-comment-section="Investment Summary">Ask a question</button>
-            </div>
-            <div class="pricing-box">
-                
-                
-                <div class="pricing-row">
-                    <span>Celestyal Cruise (7 nights) <span style="font-size: 0.85em; color: var(--text-light);">(Booking #402390 - Tracie $1,888 + Bailey $1,446)</span></span>
-                    <span>$3,334</span>
-                </div>
-                
-                <div class="pricing-row">
-                    <span>Port Charges &amp; Fees <span style="font-size: 0.85em; color: var(--text-light);">($339 per person)</span></span>
-                    <span>$678</span>
-                </div>
-                
-                <div class="pricing-row">
-                    <span>Pre-Cruise Hotel (1 night) <span style="font-size: 0.85em; color: var(--text-light);">(Included in cruise package)</span></span>
-                    <span>$0</span>
-                </div>
-                
-                <div class="pricing-row">
-                    <span>Standard Drinks with Meals <span style="font-size: 0.85em; color: var(--text-light);">(Included)</span></span>
-                    <span>$0</span>
-                </div>
-                
-                <div class="pricing-row">
-                    <span>WiFi 250MB/day <span style="font-size: 0.85em; color: var(--text-light);">(Included)</span></span>
-                    <span>$0</span>
-                </div>
-                
-                <div class="pricing-row">
-                    <span>Flights (TBD) <span style="font-size: 0.85em; color: var(--text-light);">(See flight options below)</span></span>
-                    <span></span>
-                </div>
-                
-                <div class="pricing-row">
-                    <span>Travel Insurance - Allianz <span style="font-size: 0.85em; color: var(--text-light);">(Worldwide Policy - Quote)</span></span>
-                    <span>$727.49</span>
-                </div>
-                
-                <div class="pricing-row">
-                    <span>Post-Cruise Hotel (Recommended) <span style="font-size: 0.85em; color: var(--text-light);">(Estimated - 1 night Athens area)</span></span>
-                    <span>$150</span>
-                </div>
-                
-                
-                <div class="pricing-row"><span>Per Person</span><span>$2,006</span></div>
-                <div class="pricing-row"><span>Number of Travelers</span><span>2</span></div>
-                
-                <div class="pricing-row"><span>Balance Due</span><span>$2,026</span></div>
-                
-                <div class="pricing-row total"><span>Total Trip Investment</span><span>$4,012</span></div>
-                
-                <p style="margin-top: 15px; font-size: 0.9em; color: var(--text-light);">Celestyal all-inclusive pricing includes pre-cruise hotel, transfers, drinks with meals, WiFi, and gratuities.</p>
-                
-            </div>
-        </div>
         
 
     </div>
@@ -3724,7 +4000,7 @@
                 <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px;">
             </div>
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
-            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 18, 2026 | Rendered: 2026-01-18 19:44:23 UTC</p>
+            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 18, 2026 | Rendered: 2026-01-18 20:01:22 UTC</p>
         </div>
     </div>
 
