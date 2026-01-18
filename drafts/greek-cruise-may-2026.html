@@ -890,6 +890,407 @@
         .text-primary { color: var(--primary); }
         .font-bold { font-weight: 600; }
         .small-link { margin-top: 8px; padding: 6px 12px; font-size: 0.85em; }
+
+        /* Map containers */
+        .map-item { margin-bottom: 20px; }
+        .map-item:last-child { margin-bottom: 0; }
+        .map-label { margin: 0 0 10px 0; font-size: 1em; color: var(--primary); font-weight: 600; }
+        .map-container { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+        .map-container iframe { width: 100%; height: 300px; border: none; }
+
+        /* Inline maps and videos (contextual) */
+        .lodging-item { margin-bottom: 25px; }
+        .lodging-item:last-child { margin-bottom: 0; }
+        .inline-map { margin-top: 15px; }
+        .inline-map .map-container iframe { height: 250px; }
+        .inline-videos { margin-top: 15px; }
+        .inline-videos .video-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+        /* Day Description & Enhanced Day Sections */
+        .day-description {
+            font-size: 1.05em;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .cruise-info-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            background: var(--bg-section);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .cruise-info-item {
+            text-align: center;
+        }
+
+        .cruise-info-item .label {
+            font-size: 0.75em;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .cruise-info-item .value {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95em;
+        }
+
+        /* Day Dining Section */
+        .day-dining-section {
+            background: linear-gradient(135deg, #fff8f0 0%, #fff 100%);
+            border: 1px solid #f0d9c0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+        }
+
+        .day-dining-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #c7880a;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .day-dining-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0d9c0;
+            font-size: 0.95em;
+        }
+
+        .day-dining-item:last-child { border-bottom: none; }
+
+        .day-dining-item .meal-type {
+            font-weight: 600;
+            color: var(--text);
+            margin-right: 8px;
+        }
+
+        .day-dining-item .meal-desc {
+            color: var(--text-light);
+        }
+
+        .dining-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .dining-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Day Highlights */
+        .day-highlights {
+            background: var(--secondary-light);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+        }
+
+        .day-highlights h5 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .day-highlights ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .day-highlights li {
+            margin-bottom: 5px;
+            font-size: 0.95em;
+            color: var(--text);
+        }
+
+        /* Day Tips */
+        .day-tips {
+            background: #fff8e6;
+            border-left: 4px solid #f5a623;
+            border-radius: 0 8px 8px 0;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-tips h5 {
+            color: #c7880a;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .day-tips ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .day-tips li {
+            margin-bottom: 4px;
+            font-size: 0.9em;
+            color: var(--text);
+        }
+
+        /* Day Shopping */
+        .day-shopping {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-shopping h5 {
+            color: var(--text);
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .shopping-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .shopping-tag {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            color: var(--text);
+        }
+
+        /* Day Videos */
+        .day-videos {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-videos h5 {
+            color: var(--text);
+            margin-bottom: 12px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Activity Time */
+        .activity-time {
+            font-size: 0.85em;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        /* Tiered Pricing */
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tier-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .tier-card.recommended {
+            border: 2px solid var(--accent);
+            transform: scale(1.02);
+        }
+
+        .tier-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--accent);
+            color: var(--white);
+            padding: 4px 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            border-radius: 0 0 0 8px;
+        }
+
+        .tier-header {
+            padding: 20px;
+            background: var(--bg-section);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tier-header.value { border-top: 4px solid var(--secondary); }
+        .tier-header.premium { border-top: 4px solid var(--accent); }
+        .tier-header.luxury { border-top: 4px solid #c7880a; background: linear-gradient(135deg, #fff8f0 0%, var(--bg-section) 100%); }
+
+        .tier-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .tier-desc {
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        .tier-details {
+            padding: 20px;
+        }
+
+        .tier-details ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .tier-details li {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .tier-price {
+            padding: 20px;
+            background: var(--bg-light);
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .tier-price .total {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .tier-price .per-person {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        /* Flight Options Comparison */
+        .flight-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .flight-option-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .flight-option-card.recommended {
+            border: 2px solid var(--accent);
+        }
+
+        .flight-option-header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .flight-option-header .option-label {
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .flight-option-header .option-price {
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        .flight-segment {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .flight-segment:last-child {
+            border-bottom: none;
+        }
+
+        .flight-segment-header {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .flight-leg {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .flight-leg:last-child {
+            border-bottom: none;
+        }
+
+        .flight-route-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .flight-cities {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .flight-times {
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        .flight-details-line {
+            font-size: 0.85em;
+            color: var(--text-light);
+        }
+
+        .layover-info {
+            background: #fff8e6;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            color: #856404;
+            margin: 8px 0;
+        }
     </style>
 </head>
 <body>
@@ -1135,6 +1536,394 @@
         <!-- Flights Section -->
         
 
+        <!-- Flight Options Comparison Section -->
+        
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">✈️</div>
+                <h2>Flight Options Comparison</h2>
+            </div>
+            <div class="flight-options-grid">
+                
+                <div class="flight-option-card ">
+                    <div class="flight-option-header">
+                        <span class="option-label">Pensacola - Economy (via ATL)</span>
+                        <span class="option-price">$4,018.86</span>
+                    </div>
+
+                    
+                    <div class="flight-segment">
+                        <div class="flight-segment-header">Outbound</div>
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                    
+
+                    
+                    <div class="flight-segment">
+                        <div class="flight-segment-header">Return</div>
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                    
+
+                    
+                    <div style="padding: 15px 20px; background: var(--bg-light); border-top: 1px solid var(--border);">
+                        <div class="card-detail"><span class="label">Per Person</span><span class="value">$2,009.43</span></div>
+                        <div class="card-detail"><span class="label">Total (2 travelers)</span><span class="value" style="font-weight: 700; color: var(--primary);">$4,018.86</span></div>
+                    </div>
+                    
+
+                    
+                </div>
+                
+                <div class="flight-option-card ">
+                    <div class="flight-option-header">
+                        <span class="option-label">Mobile - Economy (via ATL) ⭐ RECOMMENDED</span>
+                        <span class="option-price">$3,224.86</span>
+                    </div>
+
+                    
+                    <div class="flight-segment">
+                        <div class="flight-segment-header">Outbound</div>
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                    
+
+                    
+                    <div class="flight-segment">
+                        <div class="flight-segment-header">Return</div>
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                    
+
+                    
+                    <div style="padding: 15px 20px; background: var(--bg-light); border-top: 1px solid var(--border);">
+                        <div class="card-detail"><span class="label">Per Person</span><span class="value">$1,612.43</span></div>
+                        <div class="card-detail"><span class="label">Total (2 travelers)</span><span class="value" style="font-weight: 700; color: var(--primary);">$3,224.86</span></div>
+                    </div>
+                    
+
+                    
+                </div>
+                
+                <div class="flight-option-card ">
+                    <div class="flight-option-header">
+                        <span class="option-label">Pensacola - Premium Economy (via PHL)</span>
+                        <span class="option-price">$4,995.86</span>
+                    </div>
+
+                    
+                    <div class="flight-segment">
+                        <div class="flight-segment-header">Outbound</div>
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                    
+
+                    
+                    <div class="flight-segment">
+                        <div class="flight-segment-header">Return</div>
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="flight-leg">
+                            <div class="flight-route-line">
+                                <span class="flight-cities"> → </span>
+                                <span class="flight-times"> - </span>
+                            </div>
+                            <div class="flight-details-line">
+                                 
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                    
+
+                    
+                    <div style="padding: 15px 20px; background: var(--bg-light); border-top: 1px solid var(--border);">
+                        <div class="card-detail"><span class="label">Per Person</span><span class="value">$2,497.93</span></div>
+                        <div class="card-detail"><span class="label">Total (2 travelers)</span><span class="value" style="font-weight: 700; color: var(--primary);">$4,995.86</span></div>
+                    </div>
+                    
+
+                    
+                </div>
+                
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 20px;">
+                <h4>Recommendation</h4>
+                <p>Mobile Economy offers best value - $794 savings vs PNS with similar routing</p>
+            </div>
+            
+            
+        </div>
+        
+        
+
         <!-- Lodging Section (Pre/Post Cruise Hotels) -->
         
         <div class="section">
@@ -1142,9 +1931,11 @@
                 <div class="section-icon">🏨</div>
                 <h2>Pre/Post Cruise Accommodations</h2>
             </div>
-            <div class="cards-grid">
-                
+            
+            <div class="lodging-item">
                 <div class="card">
+                    
+                    
                     
                     <div class="card-header">Pre-Cruise Hotel (Athens)</div>
                     <div class="card-body">
@@ -1152,12 +1943,21 @@
                         <div class="card-detail"><span class="label">Nights</span><span class="value">1</span></div>
                         
                         
+                        <div class="card-detail"><span class="label">Dates</span><span class="value">May 29, 2026</span></div>
                         
+                        <div class="card-detail"><span class="label">Status</span><span class="value" style="color: var(--accent);">Confirmed</span></div>
+                        
+                        <p style="margin-top: 12px; font-size: 0.9em; color: var(--text-light);">Included in Celestyal package (1NPRE7NCFJ26)</p>
                         
                     </div>
                 </div>
                 
+            </div>
+            
+            <div class="lodging-item">
                 <div class="card">
+                    
+                    
                     
                     <div class="card-header">Post-Cruise Hotel (Recommended)</div>
                     <div class="card-body">
@@ -1165,12 +1965,17 @@
                         <div class="card-detail"><span class="label">Nights</span><span class="value">1</span></div>
                         
                         
+                        <div class="card-detail"><span class="label">Dates</span><span class="value">June 6, 2026</span></div>
                         <div class="card-detail"><span class="label">Rate</span><span class="value">$150/night</span></div>
+                        
+                        
+                        <p style="margin-top: 12px; font-size: 0.9em; color: var(--text-light);">Recommended for comfortable departure - not yet booked</p>
                         
                     </div>
                 </div>
                 
             </div>
+            
         </div>
         
 
@@ -1195,6 +2000,14 @@
                 <div class="day-content">
                     
 
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        
+                        
+                    </div>
                     
 
                     
@@ -1237,10 +2050,18 @@
                     
 
                     
+
+                    
+
+                    
                     <div style="background: var(--bg-section); border-radius: 8px; padding: 15px;">
                         <h5 style="color: var(--primary); margin-bottom: 8px;">🏨 </h5>
                         
                     </div>
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1258,6 +2079,14 @@
                 <div class="day-content">
                     
 
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        
+                        
+                    </div>
                     
 
                     
@@ -1309,10 +2138,18 @@
                     
 
                     
+
+                    
+
+                    
                     <div style="background: var(--bg-section); border-radius: 8px; padding: 15px;">
                         <h5 style="color: var(--primary); margin-bottom: 8px;">🏨 </h5>
                         
                     </div>
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1330,6 +2167,14 @@
                 <div class="day-content">
                     
 
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        
+                        
+                    </div>
                     
 
                     
@@ -1372,10 +2217,18 @@
                     
 
                     
+
+                    
+
+                    
                     <div style="background: var(--bg-section); border-radius: 8px; padding: 15px;">
                         <h5 style="color: var(--primary); margin-bottom: 8px;">🏨 </h5>
                         
                     </div>
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1393,6 +2246,14 @@
                 <div class="day-content">
                     
 
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        
+                        
+                    </div>
                     
 
                     
@@ -1444,10 +2305,18 @@
                     
 
                     
+
+                    
+
+                    
                     <div style="background: var(--bg-section); border-radius: 8px; padding: 15px;">
                         <h5 style="color: var(--primary); margin-bottom: 8px;">🏨 </h5>
                         
                     </div>
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1465,6 +2334,14 @@
                 <div class="day-content">
                     
 
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        
+                        
+                    </div>
                     
 
                     
@@ -1516,10 +2393,18 @@
                     
 
                     
+
+                    
+
+                    
                     <div style="background: var(--bg-section); border-radius: 8px; padding: 15px;">
                         <h5 style="color: var(--primary); margin-bottom: 8px;">🏨 </h5>
                         
                     </div>
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1537,6 +2422,14 @@
                 <div class="day-content">
                     
 
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        
+                        
+                    </div>
                     
 
                     
@@ -1597,10 +2490,18 @@
                     
 
                     
+
+                    
+
+                    
                     <div style="background: var(--bg-section); border-radius: 8px; padding: 15px;">
                         <h5 style="color: var(--primary); margin-bottom: 8px;">🏨 </h5>
                         
                     </div>
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1618,6 +2519,14 @@
                 <div class="day-content">
                     
 
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        
+                        
+                    </div>
                     
 
                     
@@ -1678,10 +2587,18 @@
                     
 
                     
+
+                    
+
+                    
                     <div style="background: var(--bg-section); border-radius: 8px; padding: 15px;">
                         <h5 style="color: var(--primary); margin-bottom: 8px;">🏨 </h5>
                         
                     </div>
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1699,6 +2616,14 @@
                 <div class="day-content">
                     
 
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        
+                        
+                    </div>
                     
 
                     
@@ -1750,10 +2675,18 @@
                     
 
                     
+
+                    
+
+                    
                     <div style="background: var(--bg-section); border-radius: 8px; padding: 15px;">
                         <h5 style="color: var(--primary); margin-bottom: 8px;">🏨 </h5>
                         
                     </div>
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1771,6 +2704,14 @@
                 <div class="day-content">
                     
 
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        
+                        
+                    </div>
                     
 
                     
@@ -1822,10 +2763,18 @@
                     
 
                     
+
+                    
+
+                    
                     <div style="background: var(--bg-section); border-radius: 8px; padding: 15px;">
                         <h5 style="color: var(--primary); margin-bottom: 8px;">🏨 </h5>
                         
                     </div>
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1843,6 +2792,14 @@
                 <div class="day-content">
                     
 
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        
+                        
+                    </div>
                     
 
                     
@@ -1894,10 +2851,18 @@
                     
 
                     
+
+                    
+
+                    
                     <div style="background: var(--bg-section); border-radius: 8px; padding: 15px;">
                         <h5 style="color: var(--primary); margin-bottom: 8px;">🏨 </h5>
                         
                     </div>
+                    
+
+                    
+
                     
                 </div>
             </div>
@@ -1908,7 +2873,77 @@
         <!-- Extras / Recommendations Section -->
         
 
+        <!-- General Maps Section (Overview) -->
+        
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🗺️</div>
+                <h2>Maps</h2>
+            </div>
+            <div class="content-box">
+                
+                <div class="map-item">
+                    <h4 class="map-label">Santorini - Overnight Stay</h4>
+                    <div class="map-container">
+                        <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Santorini%2C%20Greece">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="map-item">
+                    <h4 class="map-label">Mykonos - Overnight Stay</h4>
+                    <div class="map-container">
+                        <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Mykonos%2C%20Greece">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="map-item">
+                    <h4 class="map-label">Rhodes - Medieval Old Town</h4>
+                    <div class="map-container">
+                        <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Rhodes%20Old%20Town%2C%20Greece">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="map-item">
+                    <h4 class="map-label">Ephesus - Included Excursion</h4>
+                    <div class="map-container">
+                        <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Ephesus%2C%20Turkey">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="map-item">
+                    <h4 class="map-label">Athens - Pre-Cruise Stay</h4>
+                    <div class="map-container">
+                        <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Athens%2C%20Greece">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="map-item">
+                    <h4 class="map-label">Milos - Volcanic Beaches</h4>
+                    <div class="map-container">
+                        <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Milos%2C%20Greece">
+                        </iframe>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+
         <!-- YouTube Videos Section -->
+        
         
         <div class="section">
             <div class="section-header">
@@ -1932,8 +2967,79 @@
             </div>
         </div>
         
+        
 
         <!-- Featured Links Section -->
+        
+
+        <!-- Tiered Pricing Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">📊</div>
+                <h2>Package Options</h2>
+            </div>
+            <div class="tiers-grid">
+                
+                <div class="tier-card">
+                    <div class="tier-header value">
+                        <div class="tier-name">Celestyal Ocean View</div>
+                        <div class="tier-desc">All-inclusive cruise with exterior cabin, 2 included excursions, pre-cruise Athens package</div>
+                    </div>
+                    <div class="tier-details">
+                        
+                        
+                        
+                        
+                    </div>
+                    <div class="tier-price">
+                        <div class="total">$4,268</div>
+                        <div class="per-person">$2,134 per person</div>
+                    </div>
+                </div>
+                
+
+                
+                <div class="tier-card recommended">
+                    <div class="tier-badge">Recommended</div>
+                    <div class="tier-header premium">
+                        <div class="tier-name">Celestyal Jr Suite Balcony</div>
+                        <div class="tier-desc">Upgraded suite with private balcony, exclusive dining access, all-inclusive amenities</div>
+                    </div>
+                    <div class="tier-details">
+                        
+                        
+                        
+                        
+                    </div>
+                    <div class="tier-price">
+                        <div class="total" style="color: var(--accent);">$5,488</div>
+                        <div class="per-person">$2,744 per person</div>
+                    </div>
+                </div>
+                
+
+                
+                <div class="tier-card">
+                    <div class="tier-header luxury">
+                        <div class="tier-name">Norwegian Cruise Line</div>
+                        <div class="tier-desc">Mega-ship experience with Broadway shows, 20+ dining venues, modern amenities</div>
+                    </div>
+                    <div class="tier-details">
+                        
+                        
+                        
+                        
+                    </div>
+                    <div class="tier-price">
+                        <div class="total" style="color: #c7880a;">$5</div>
+                        <div class="per-person">$2 per person</div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
         
 
         <!-- Pricing Section -->
@@ -1946,13 +3052,56 @@
             <div class="pricing-box">
                 
                 
+                <div class="pricing-row">
+                    <span>Celestyal Cruise (7 nights) <span style="font-size: 0.85em; color: var(--text-light);">(Booking #402390 - Tracie $1,888 + Bailey $1,446)</span></span>
+                    <span>$3,334</span>
+                </div>
                 
+                <div class="pricing-row">
+                    <span>Port Charges &amp; Fees <span style="font-size: 0.85em; color: var(--text-light);">($339 per person)</span></span>
+                    <span>$678</span>
+                </div>
                 
+                <div class="pricing-row">
+                    <span>Pre-Cruise Hotel (1 night) <span style="font-size: 0.85em; color: var(--text-light);">(Included in cruise package)</span></span>
+                    <span>$0</span>
+                </div>
+                
+                <div class="pricing-row">
+                    <span>Standard Drinks with Meals <span style="font-size: 0.85em; color: var(--text-light);">(Included)</span></span>
+                    <span>$0</span>
+                </div>
+                
+                <div class="pricing-row">
+                    <span>WiFi 250MB/day <span style="font-size: 0.85em; color: var(--text-light);">(Included)</span></span>
+                    <span>$0</span>
+                </div>
+                
+                <div class="pricing-row">
+                    <span>Flights (TBD) <span style="font-size: 0.85em; color: var(--text-light);">(See flight options below)</span></span>
+                    <span></span>
+                </div>
+                
+                <div class="pricing-row">
+                    <span>Travel Insurance - Allianz <span style="font-size: 0.85em; color: var(--text-light);">(Worldwide Policy - Quote)</span></span>
+                    <span>$727.49</span>
+                </div>
+                
+                <div class="pricing-row">
+                    <span>Post-Cruise Hotel (Recommended) <span style="font-size: 0.85em; color: var(--text-light);">(Estimated - 1 night Athens area)</span></span>
+                    <span>$150</span>
+                </div>
                 
                 
                 <div class="pricing-row"><span>Per Person</span><span>$2,006</span></div>
                 <div class="pricing-row"><span>Number of Travelers</span><span>2</span></div>
+                
+                <div class="pricing-row"><span>Balance Due</span><span>$2,026</span></div>
+                
                 <div class="pricing-row total"><span>Total Trip Investment</span><span>$4,012</span></div>
+                
+                <p style="margin-top: 15px; font-size: 0.9em; color: var(--text-light);">Celestyal all-inclusive pricing (cruise + pre-cruise package). Does not include airfare (~$1,000-1,400/pp from US)</p>
+                
             </div>
         </div>
         
@@ -1984,10 +3133,10 @@
         <div class="footer-bottom">
             <div class="qr-section">
                 <p>Scan to view on mobile</p>
-                <img id="qr-code" alt="QR Code" style="width: 100px; height: 100px;">
+                <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px;">
             </div>
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
-            <p style="margin-top: 5px;">Template: cruise v1.0 | Generated January 18, 2026</p>
+            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 18, 2026 | Rendered: 2026-01-18 16:38:00 UTC</p>
         </div>
     </div>
 
@@ -1996,7 +3145,7 @@
             var url = encodeURIComponent(window.location.href);
             var qrImg = document.getElementById('qr-code');
             if (qrImg) {
-                qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=' + url;
+                qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=' + url;
             }
         })();
     </script>
