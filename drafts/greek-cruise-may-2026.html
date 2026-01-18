@@ -353,6 +353,25 @@
             padding: 6px;
         }
 
+        .cabin-photo-link.no-thumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+        }
+
+        .cabin-photo-fallback {
+            display: none;
+            color: var(--text-light);
+            font-size: 0.85em;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .cabin-photo-link.no-thumb .cabin-photo-fallback {
+            display: block;
+        }
+
         .cabin-media img {
             width: 100%;
             height: 140px;
@@ -1962,18 +1981,20 @@
                 <div class="cabin-media">
                     
                     
-                    <a href="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.jpg" target="_blank" rel="noopener noreferrer">
+                    <a href="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.jpg" target="_blank" rel="noopener noreferrer" class="cabin-photo-link">
                         
-                        <img src="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.jpg?w=200" alt='Cabin interior' title='Cabin interior' loading="lazy" decoding="async" onerror="this.style.display='none'">
+                        <img src="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.jpg?w=200" alt='Cabin interior' title='Cabin interior' loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('no-thumb');">
                         
+                        <span class="cabin-photo-fallback">Click to view stateroom photo</span>
                     </a>
                     
                     
                     
-                    <a href="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.gif" target="_blank" rel="noopener noreferrer">
+                    <a href="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.gif" target="_blank" rel="noopener noreferrer" class="cabin-photo-link">
                         
-                        <img src="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.gif?w=200" alt='Stateroom floorplan' title='Stateroom floorplan' loading="lazy" decoding="async" onerror="this.style.display='none'">
+                        <img src="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.gif?w=200" alt='Stateroom floorplan' title='Stateroom floorplan' loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('no-thumb');">
                         
+                        <span class="cabin-photo-fallback">Click to view stateroom photo</span>
                     </a>
                     
                     
@@ -4212,7 +4233,7 @@
                 <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px;">
             </div>
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
-            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 18, 2026 | Rendered: 2026-01-18 21:25:08 UTC</p>
+            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 18, 2026 | Rendered: 2026-01-18 21:36:06 UTC</p>
         </div>
     </div>
 
