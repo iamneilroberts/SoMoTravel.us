@@ -844,6 +844,57 @@
         .activity-title { font-weight: 600; color: var(--text); margin-bottom: 5px; }
         .activity-details { font-size: 0.95em; color: var(--text-light); }
 
+        /* Included vs Optional Activity Styling */
+        .activity.included {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 4px solid var(--accent);
+        }
+
+        .activity.optional {
+            background: var(--bg-light);
+            border-left: 4px solid var(--port);
+        }
+
+        .activity-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .activity-badge.included {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .activity-badge.optional {
+            background: var(--port-light);
+            color: var(--port-dark);
+            border: 1px solid var(--port);
+        }
+
+        .activity-subtext {
+            font-size: 0.8em;
+            color: var(--accent-dark);
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        .activity.included .activity-subtext {
+            color: var(--accent-dark);
+        }
+
+        .activity.optional .activity-subtext {
+            color: var(--port-dark);
+        }
+
         /* Pricing Section */
         .pricing-box {
             background: linear-gradient(135deg, var(--bg-section) 0%, var(--secondary-light) 100%);
@@ -3327,6 +3378,7 @@
                     <div class="extra-price">€200/person = €235 value (17% bonus)</div>
                     <div class="extra-desc">Prepay for cocktails, wine, and specialty dining and get bonus credit. No drink packages on Celestyal - this wallet gives you flexibility to spend as you like.</div>
                     <div class="extra-why">💡 Perfect for sunset cocktails, wine with dinner, or a special meal at Grill Seekers steakhouse. Prepay saves you 15-25% vs. paying onboard.</div>
+                    <a href="https://celestyal.com" class="card-link small-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                 </div>
                 
                 <div class="extra-card priority-medium">
@@ -3340,6 +3392,7 @@
                     <div class="extra-price">~$79/person</div>
                     <div class="extra-desc">UNESCO World Heritage Site - the mythological birthplace of Apollo. Only accessible by boat from Mykonos.</div>
                     <div class="extra-why">💡 Your 18-hour stay in Mykonos gives you time for this must-see ancient site. The Terrace of the Lions and ancient ruins are unforgettable. Book ahead - boats fill up.</div>
+                    <a href="https://www.viator.com/tours/Mykonos/Half-Day-Delos-Tour-from-Mykonos/d958-29285P1?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link small-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                 </div>
                 
                 <div class="extra-card priority-medium">
@@ -3353,6 +3406,7 @@
                     <div class="extra-price">~$90/person</div>
                     <div class="extra-desc">Half-day boat tour to Milos&#39;s famous sea caves with swimming, snorkeling, and lunch included.</div>
                     <div class="extra-why">💡 THE must-do experience in Milos! Stunning white rock formations, crystal-clear water, and ancient pirate caves - only accessible by boat. Your 8am-6pm port time fits perfectly.</div>
+                    <a href="https://www.viator.com/tours/Milos/Boat-tour-to-Kleftiko-from-Milos/d22323-103214P12?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link small-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                 </div>
                 
                 <div class="extra-card priority-medium">
@@ -3366,6 +3420,7 @@
                     <div class="extra-price">~$120-150/person</div>
                     <div class="extra-desc">Visit 3 local wineries, taste volcanic wines unique to Santorini, and watch the famous sunset.</div>
                     <div class="extra-why">💡 Your late 10pm departure means you can do a sunset wine tour - something most cruisers can&#39;t! Taste volcanic Assyrtiko and Vinsanto wines at 3 wineries.</div>
+                    <a href="https://www.viator.com/tours/Santorini/Small-Group-Santorini-Wine-Tasting-and-Vineyard-Tour/d959-6174WINE?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link small-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                 </div>
                 
                 <div class="extra-card priority-medium">
@@ -3379,6 +3434,7 @@
                     <div class="extra-price">~$75/person</div>
                     <div class="extra-desc">Ancient Minoan palace - guided tour with transportation from Agios Nikolaos area.</div>
                     <div class="extra-why">💡 Europe&#39;s oldest city and the legendary Minotaur&#39;s labyrinth. Your 12-hour port stay in Agios Nikolaos gives plenty of time for this day trip.</div>
+                    <a href="https://www.viator.com/tours/Heraklion/Ancient-Palace-of-Knossos-Tour/d961-2462KNOM?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link small-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                 </div>
                 
                 <div class="extra-card priority-medium">
@@ -3392,6 +3448,7 @@
                     <div class="extra-price">~$55/person</div>
                     <div class="extra-desc">Licensed guide leads you through the Parthenon, Propylaea, Temple of Athena Nike, and more with skip-the-line entry.</div>
                     <div class="extra-why">💡 First-time visitors benefit hugely from an expert guide who brings the ancient ruins to life. Skip-the-line access saves time. Perfect for your post-cruise Athens day.</div>
+                    <a href="https://www.viator.com/tours/Athens/Afternoon-Acropolis-tour/d496-5776P15?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link small-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                 </div>
                 
                 <div class="extra-card priority-medium">
@@ -3405,6 +3462,7 @@
                     <div class="extra-price">~$45/person</div>
                     <div class="extra-desc">Small-group walking tour (570+ reviews). 2.5 hours exploring the best-preserved medieval town in Europe.</div>
                     <div class="extra-why">💡 After your included Lindos excursion, explore the UNESCO Medieval Old Town with a local guide. Street of Knights, Palace of the Grand Master, Jewish Quarter - history comes alive.</div>
+                    <a href="https://www.viator.com/tours/Rhodes/Rhodes-Old-Town-Walking-Tour-Small-Group/d4272-69362P7?pid=P00005400&amp;uid=U00386675&amp;mcid=58086" class="card-link small-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                 </div>
                 
             </div>
@@ -3876,7 +3934,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Arrive Athens International Airport</div>
+                        <div class="activity-title">
+                            Arrive Athens International Airport
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Celestyal driver meets you at Arrivals Hall with name sign</div>
                         
@@ -3884,7 +3948,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Transfer to Luwian Athens Boutique Hotel</div>
+                        <div class="activity-title">
+                            Transfer to Luwian Athens Boutique Hotel
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Private car to hotel (~45 min from airport)</div>
                         
@@ -3892,7 +3962,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Check in and freshen up</div>
+                        <div class="activity-title">
+                            Check in and freshen up
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Hotel check-in typically 3pm, but luggage storage available if you arrive early</div>
                         
@@ -3900,7 +3976,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Evening: Explore Plaka neighborhood</div>
+                        <div class="activity-title">
+                            Evening: Explore Plaka neighborhood
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Athens&#39; oldest district - winding streets, shops, cafes at the foot of the Acropolis</div>
                         
@@ -3908,7 +3990,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Dinner in Plaka</div>
+                        <div class="activity-title">
+                            Dinner in Plaka
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Try Scholarchio (classic taverna since 1935) or rooftop dining with Acropolis views</div>
                         
@@ -4003,7 +4091,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Breakfast at hotel</div>
+                        <div class="activity-title">
+                            Breakfast at hotel
+                            
+                            
+                        </div>
+                        
+                        
                         
                         
                         
@@ -4011,7 +4105,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Morning option: Acropolis &amp; Parthenon</div>
+                        <div class="activity-title">
+                            Morning option: Acropolis &amp; Parthenon
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">If you&#39;re up for it! Opens 8am - allow 2 hours. Best to go early before crowds.</div>
                         
@@ -4019,7 +4119,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Morning option: Monastiraki Flea Market</div>
+                        <div class="activity-title">
+                            Morning option: Monastiraki Flea Market
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Browse antiques, souvenirs, and street food. Great for a leisurely morning.</div>
                         
@@ -4027,7 +4133,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Lunch in Athens</div>
+                        <div class="activity-title">
+                            Lunch in Athens
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Grab a quick bite before heading to the port</div>
                         
@@ -4035,7 +4147,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Transfer to Piraeus Port</div>
+                        <div class="activity-title">
+                            Transfer to Piraeus Port
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Depart hotel by 2:00pm - private car included</div>
                         
@@ -4043,7 +4161,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Board Celestyal Journey</div>
+                        <div class="activity-title">
+                            Board Celestyal Journey
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Embarkation opens ~2pm. Safety drill, explore the ship, settle into Cabin 6055</div>
                         
@@ -4051,7 +4175,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Ship departs 5:00pm</div>
+                        <div class="activity-title">
+                            Ship departs 5:00pm
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Dinner onboard as you sail toward Turkey</div>
                         
@@ -4139,15 +4269,27 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Arrive Kusadasi 8:00am</div>
+                        <div class="activity-title">
+                            Arrive Kusadasi 8:00am
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Gateway to ancient Ephesus - 10 hours in port</div>
                         
                     </div>
                     
-                    <div class="activity">
+                    <div class="activity included">
                         
-                        <div class="activity-title">⭐ INCLUDED: Ephesus Ancient City Excursion</div>
+                        <div class="activity-title">
+                            ⭐ INCLUDED: Ephesus Ancient City Excursion
+                            <span class="activity-badge included">✓ Included</span>
+                            
+                        </div>
+                        <div class="activity-subtext">Part of your cruise package - no extra cost</div>
+                        
                         
                         <div class="activity-details">Included with your Celestyal cruise! One of the world&#39;s best-preserved ancient cities - Library of Celsus, Great Theatre, Terrace Houses. Allow 4-5 hours.</div>
                         
@@ -4155,7 +4297,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Free time in Kusadasi</div>
+                        <div class="activity-title">
+                            Free time in Kusadasi
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Bazaar shopping, leather goods, Turkish delights, cafes along the waterfront</div>
                         
@@ -4163,7 +4311,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Ship departs 6:00pm</div>
+                        <div class="activity-title">
+                            Ship departs 6:00pm
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Evening sailing to Rhodes</div>
                         
@@ -4251,31 +4405,55 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Arrive Rhodes 8:00am</div>
+                        <div class="activity-title">
+                            Arrive Rhodes 8:00am
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Full day in port - 10 hours to explore</div>
                         
                     </div>
                     
-                    <div class="activity">
+                    <div class="activity included">
                         
-                        <div class="activity-title">⭐ INCLUDED: Lindos Acropolis Excursion</div>
+                        <div class="activity-title">
+                            ⭐ INCLUDED: Lindos Acropolis Excursion
+                            <span class="activity-badge included">✓ Included</span>
+                            
+                        </div>
+                        <div class="activity-subtext">Part of your cruise package - no extra cost</div>
+                        
                         
                         <div class="activity-details">Included with your Celestyal cruise! Ancient temple perched on dramatic clifftop with stunning views of St. Paul&#39;s Bay. Allow 4-5 hours including transport.</div>
                         
                     </div>
                     
-                    <div class="activity">
+                    <div class="activity optional">
                         
-                        <div class="activity-title">Explore Rhodes Medieval Old Town</div>
+                        <div class="activity-title">
+                            Explore Rhodes Medieval Old Town
+                            
+                            <span class="activity-badge optional">Optional</span>
+                        </div>
+                        
+                        <div class="activity-subtext">Available if you have free time</div>
                         
                         <div class="activity-details">UNESCO World Heritage Site - Palace of the Grand Master, Street of Knights, Jewish Quarter. Walking distance from cruise port.</div>
                         
                     </div>
                     
-                    <div class="activity">
+                    <div class="activity optional">
                         
-                        <div class="activity-title">Optional: Guided Old Town Walking Tour</div>
+                        <div class="activity-title">
+                            Optional: Guided Old Town Walking Tour
+                            
+                            <span class="activity-badge optional">Optional</span>
+                        </div>
+                        
+                        <div class="activity-subtext">Available if you have free time</div>
                         
                         <div class="activity-details">570+ reviews on Viator. Local guide brings medieval history to life - Jewish Quarter, Street of Knights, Grand Master Palace.</div>
                         
@@ -4283,7 +4461,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Ship departs 6:00pm</div>
+                        <div class="activity-title">
+                            Ship departs 6:00pm
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Evening sailing to Crete</div>
                         
@@ -4371,7 +4555,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Arrive Agios Nikolaos 8:00am</div>
+                        <div class="activity-title">
+                            Arrive Agios Nikolaos 8:00am
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Charming harbor town - 12 hours in port</div>
                         
@@ -4379,7 +4569,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Optional: Palace of Knossos excursion</div>
+                        <div class="activity-title">
+                            Optional: Palace of Knossos excursion
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Ancient Minoan civilization, Europe&#39;s oldest city, legendary Minotaur&#39;s labyrinth</div>
                         
@@ -4387,7 +4583,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Explore harbor and lakeside</div>
+                        <div class="activity-title">
+                            Explore harbor and lakeside
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Bottomless Lake (Lake Voulismeni), waterfront cafes, local shops</div>
                         
@@ -4395,7 +4597,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Dinner ashore (optional)</div>
+                        <div class="activity-title">
+                            Dinner ashore (optional)
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Late 8pm departure gives you time for a relaxed meal in town</div>
                         
@@ -4403,7 +4611,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Ship departs 8:00pm</div>
+                        <div class="activity-title">
+                            Ship departs 8:00pm
+                            
+                            
+                        </div>
+                        
+                        
                         
                         
                         
@@ -4491,7 +4705,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Arrive Santorini 8:00am</div>
+                        <div class="activity-title">
+                            Arrive Santorini 8:00am
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Tender to Fira - 14 hours in port</div>
                         
@@ -4499,7 +4719,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Explore Fira and Oia</div>
+                        <div class="activity-title">
+                            Explore Fira and Oia
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Blue domes, white buildings, caldera views</div>
                         
@@ -4507,7 +4733,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Optional: Wine tasting tour</div>
+                        <div class="activity-title">
+                            Optional: Wine tasting tour
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Santorini&#39;s unique volcanic wines - Assyrtiko, Vinsanto</div>
                         
@@ -4515,7 +4747,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Watch the legendary sunset</div>
+                        <div class="activity-title">
+                            Watch the legendary sunset
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Late departure means you can enjoy sunset from shore - head to Oia for the best views</div>
                         
@@ -4523,7 +4761,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Dinner ashore</div>
+                        <div class="activity-title">
+                            Dinner ashore
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Caldera-view restaurant in Oia or Fira</div>
                         
@@ -4531,7 +4775,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Ship departs 10:00pm</div>
+                        <div class="activity-title">
+                            Ship departs 10:00pm
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Late tender back after sunset</div>
                         
@@ -4619,7 +4869,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Arrive Mykonos 8:00am</div>
+                        <div class="activity-title">
+                            Arrive Mykonos 8:00am
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">18 hours in port - no rush today!</div>
                         
@@ -4627,7 +4883,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Optional: Morning trip to Delos</div>
+                        <div class="activity-title">
+                            Optional: Morning trip to Delos
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">UNESCO site, birthplace of Apollo - boats depart from Old Port (book ahead)</div>
                         
@@ -4635,7 +4897,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Explore Mykonos Town (Chora)</div>
+                        <div class="activity-title">
+                            Explore Mykonos Town (Chora)
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Iconic windmills, Paraportiani Church, maze of whitewashed streets</div>
                         
@@ -4643,7 +4911,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Little Venice at sunset</div>
+                        <div class="activity-title">
+                            Little Venice at sunset
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Waterfront bars with stunning views - arrive early for a good seat</div>
                         
@@ -4651,7 +4925,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Dinner ashore</div>
+                        <div class="activity-title">
+                            Dinner ashore
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Fresh seafood, Greek cuisine - plenty of options in Chora</div>
                         
@@ -4659,7 +4939,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Evening in town</div>
+                        <div class="activity-title">
+                            Evening in town
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Late ship departure means you can enjoy the nightlife</div>
                         
@@ -4667,7 +4953,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Return to ship by 1:30am</div>
+                        <div class="activity-title">
+                            Return to ship by 1:30am
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Ship departs 2:00am for Milos</div>
                         
@@ -4755,7 +5047,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Arrive Milos 8:00am</div>
+                        <div class="activity-title">
+                            Arrive Milos 8:00am
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Volcanic island with unique lunar landscapes</div>
                         
@@ -4763,7 +5061,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Sarakiniko Beach</div>
+                        <div class="activity-title">
+                            Sarakiniko Beach
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Famous white volcanic rock formations - the &#39;lunar beach&#39;</div>
                         
@@ -4771,7 +5075,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Optional: Kleftiko sea caves boat tour</div>
+                        <div class="activity-title">
+                            Optional: Kleftiko sea caves boat tour
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Stunning sea caves, crystal-clear swimming, snorkeling</div>
                         
@@ -4779,7 +5089,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Explore Plaka village</div>
+                        <div class="activity-title">
+                            Explore Plaka village
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Charming hilltop town - Venus de Milo was discovered here</div>
                         
@@ -4787,7 +5103,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Ship departs 6:00pm</div>
+                        <div class="activity-title">
+                            Ship departs 6:00pm
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Sunset sailing back to Athens</div>
                         
@@ -4882,7 +5204,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Arrive Piraeus 8:00am</div>
+                        <div class="activity-title">
+                            Arrive Piraeus 8:00am
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Disembarkation</div>
                         
@@ -4890,7 +5218,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Transfer to post-cruise hotel</div>
+                        <div class="activity-title">
+                            Transfer to post-cruise hotel
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Store luggage, freshen up</div>
                         
@@ -4898,7 +5232,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Morning: Acropolis &amp; Parthenon</div>
+                        <div class="activity-title">
+                            Morning: Acropolis &amp; Parthenon
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">The crown jewel of Athens - arrive early to beat crowds. Allow 2 hours.</div>
                         
@@ -4906,7 +5246,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Late Morning: Acropolis Museum</div>
+                        <div class="activity-title">
+                            Late Morning: Acropolis Museum
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">World-class museum with artifacts from the Acropolis</div>
                         
@@ -4914,7 +5260,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Lunch in Plaka</div>
+                        <div class="activity-title">
+                            Lunch in Plaka
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Athens&#39; oldest neighborhood - try Scholarchio or Café Avissinia</div>
                         
@@ -4922,7 +5274,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Afternoon: Explore at leisure</div>
+                        <div class="activity-title">
+                            Afternoon: Explore at leisure
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Anafiotika village, Ancient Agora, Monastiraki Flea Market, or National Gardens</div>
                         
@@ -4930,7 +5288,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Late Afternoon: Syntagma Square</div>
+                        <div class="activity-title">
+                            Late Afternoon: Syntagma Square
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Changing of the Guard at Tomb of Unknown Soldier (every hour)</div>
                         
@@ -4938,7 +5302,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Sunset: Rooftop drinks</div>
+                        <div class="activity-title">
+                            Sunset: Rooftop drinks
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">A for Athens or 360 Cocktail Bar - Acropolis views</div>
                         
@@ -4946,7 +5316,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Farewell Dinner</div>
+                        <div class="activity-title">
+                            Farewell Dinner
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Hotel rooftop or try Seychelles/Karamanlidika in Psyrri</div>
                         
@@ -5031,7 +5407,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Breakfast at hotel</div>
+                        <div class="activity-title">
+                            Breakfast at hotel
+                            
+                            
+                        </div>
+                        
+                        
                         
                         
                         
@@ -5039,7 +5421,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Last-minute shopping (optional)</div>
+                        <div class="activity-title">
+                            Last-minute shopping (optional)
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Plaka shops open early - olive oil, honey, ceramics, leather sandals</div>
                         
@@ -5047,7 +5435,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Transfer to Athens Airport</div>
+                        <div class="activity-title">
+                            Transfer to Athens Airport
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Allow 1 hour for transfer, arrive 3 hours before international flight</div>
                         
@@ -5055,7 +5449,13 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Fly home</div>
+                        <div class="activity-title">
+                            Fly home
+                            
+                            
+                        </div>
+                        
+                        
                         
                         <div class="activity-details">Safe travels!</div>
                         
@@ -5271,7 +5671,7 @@
                 <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px;">
             </div>
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
-            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 19, 2026 | Rendered: 2026-01-19 05:30:22 UTC</p>
+            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 19, 2026 | Rendered: 2026-01-19 05:42:02 UTC</p>
         </div>
     </div>
 
