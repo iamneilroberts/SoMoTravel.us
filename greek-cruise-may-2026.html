@@ -357,6 +357,30 @@
             border-radius: 8px;
             background: var(--bg-light);
             padding: 6px;
+            min-height: 140px;
+            position: relative;
+        }
+
+        /* Loading state - shows placeholder until image loads */
+        .cabin-photo-link::before {
+            content: "Loading photo...";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--text-light);
+            font-size: 0.85em;
+            z-index: 0;
+        }
+
+        .cabin-photo-link img {
+            position: relative;
+            z-index: 1;
+            background: var(--bg-light);
+        }
+
+        .cabin-photo-link.no-thumb::before {
+            display: none;
         }
 
         .cabin-photo-link.no-thumb {
@@ -1421,6 +1445,42 @@
 
         .timeline-content.collapsed .timeline-day .timeline-day-content {
             display: none;
+        }
+
+        /* Collapsed days indicator */
+        .collapsed-days-indicator {
+            display: none;
+            background: var(--bg-light);
+            border: 2px dashed var(--border);
+            border-radius: var(--radius);
+            padding: 15px 20px;
+            margin: 10px 0;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.95em;
+            order: 2; /* Position between first and last with flexbox */
+        }
+
+        .collapsed-days-indicator .days-count {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .timeline-content.collapsed {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .timeline-content.collapsed .collapsed-days-indicator {
+            display: block;
+        }
+
+        .timeline-content.collapsed .timeline-day:first-of-type {
+            order: 1;
+        }
+
+        .timeline-content.collapsed .timeline-day:last-of-type {
+            order: 3;
         }
 
         .timeline-day-header {
@@ -2649,7 +2709,7 @@
             <span class="logo-text">SoMo Travel Specialist</span>
         </div>
         <div class="header-contact">
-            Questions? Call <a href="tel:+12512891505">251-289-1505</a>
+            <strong>Kim Henderson</strong> · <a href="tel:+12512891505">251-289-1505</a> · <a href="mailto:kim.henderson@cruiseplanners.com">kim.henderson@cruiseplanners.com</a>
         </div>
     </div>
 
@@ -2703,7 +2763,9 @@
             <a href="#your-cruise" class="overview-card clickable">
                 <div class="icon">📋</div>
                 <div class="label">Status</div>
-                <div class="value">Proposal</div>
+                
+                <div class="value">Held until Jan 25</div>
+                
             </a>
             
 
@@ -2740,10 +2802,7 @@
                     </div>
                     
                     
-                    <div class="investment-card value">
-                        <div class="label">Included Perks</div>
-                        <div class="value">$610</div>
-                    </div>
+                    
                     
                 </div>
 
@@ -2865,34 +2924,7 @@
                 </div>
                 
 
-                <!-- Condensed Included Perks (top 5 items + total) -->
-                
-                <div class="included-value-condensed">
-                    <h4>💎 Included Perks Highlights</h4>
-                    <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 10px;">These extras are included at no additional cost with your cruise package:</p>
-                    <ul class="top-items" style="margin-left: 20px;">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    </ul>
-                    
-                    <div style="margin-top: 12px; font-weight: 600; color: var(--port-dark);">
-                        Total Included Perks: $610
-                    </div>
-                    
-                </div>
+                <!-- Condensed Included Perks (top items + total) -->
                 
 
                 
@@ -2992,16 +3024,7 @@
                     
                     <a href="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.jpg" target="_blank" rel="noopener noreferrer" class="cabin-photo-link">
                         
-                        <img src="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.jpg?w=200" alt='Cabin interior' title='Cabin interior' loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('no-thumb');">
-                        
-                        <span class="cabin-photo-fallback">Click to view stateroom photo</span>
-                    </a>
-                    
-                    
-                    
-                    <a href="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.gif" target="_blank" rel="noopener noreferrer" class="cabin-photo-link">
-                        
-                        <img src="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.gif?w=200" alt='Stateroom floorplan' title='Stateroom floorplan' loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('no-thumb');">
+                        <img src="https://voygent.somotravel.workers.dev/media/trips/greek-cruise-may-2026/lodging/img_1768764270778_uylzdv.jpg?w=200" alt='Cabin interior' title='Cabin interior' loading="eager" decoding="sync" onerror="this.style.display='none'; this.parentElement.classList.add('no-thumb');">
                         
                         <span class="cabin-photo-fallback">Click to view stateroom photo</span>
                     </a>
@@ -3160,142 +3183,6 @@
         <!-- Inclusions Section -->
         
 
-        <!-- Included Perks Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">💎</div>
-                <h2>Included Perks</h2>
-                <button class="comment-trigger" data-comment-section="Included Perks">Ask a question</button>
-            </div>
-            <div class="content-box">
-                <div class="included-value-intro">
-                    ✅ These extras are <strong>included at no additional cost</strong> with your cruise package. Many cruise lines charge separately for these amenities.
-                </div>
-                
-                <table class="included-value-table">
-                    <thead>
-                        <tr>
-                            <th>Included Benefit</th>
-                            <th>Est. Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        <tr>
-                            <td>
-                                
-                                <div class="included-value-notes">4-star Luwian Boutique Hotel</div>
-                            </td>
-                            <td>$150</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                
-                                <div class="included-value-notes">Private car from Athens Airport</div>
-                            </td>
-                            <td>$50</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                
-                                <div class="included-value-notes">Private car to Piraeus</div>
-                            </td>
-                            <td>$50</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                
-                                <div class="included-value-notes">Private car after disembarkation</div>
-                            </td>
-                            <td>$50</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                
-                                <div class="included-value-notes">Soft drinks, coffee, tea included</div>
-                            </td>
-                            <td>$100</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                
-                                <div class="included-value-notes">Stay connected throughout cruise</div>
-                            </td>
-                            <td>$70</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                
-                                <div class="included-value-notes">No tipping required - $20/person/day value</div>
-                            </td>
-                            <td>$140</td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
-                
-                
-                <div class="highlight-box" style="background: var(--bg-section); border: 2px solid var(--accent); padding: 15px; text-align: center;">
-                    <span style="color: var(--text); font-weight: 500;">Total Included Perks:</span>
-                    <span style="font-size: 1.3em; font-weight: 700; color: var(--accent); margin-left: 10px;">$610</span>
-                </div>
-                
-                
-                <div class="transfer-list">
-                    <h4 style="color: var(--primary); margin-bottom: 8px;">Transfers Included</h4>
-                    
-                    <div class="transfer-item">
-                        
-                        <div class="transfer-title">Airport pickup</div>
-                        <div class="transfer-details">
-                            <div>May 29</div>
-                            
-                            <div>From E.Venizelos Athens Airport → Luwian Hotel Athens</div>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="transfer-item">
-                        
-                        <div class="transfer-title">Hotel to port</div>
-                        <div class="transfer-details">
-                            <div>May 30</div>
-                            
-                            <div>From Luwian Hotel Athens → Piraeus Port</div>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="transfer-item">
-                        
-                        <div class="transfer-title">Port to airport</div>
-                        <div class="transfer-details">
-                            <div>June 6</div>
-                            
-                            <div>From Piraeus Port → E.Venizelos Athens Airport</div>
-                            
-                        </div>
-                    </div>
-                    
-                </div>
-                
-                
-                <div class="alert-box" style="margin-top: 20px;">
-                    <h4>Meeting Instructions</h4>
-                    <p>Celestyal drivers will wait in Arrivals Hall A or B (depending on flight arrival) after baggage claim and customs. They will hold a sign with &#39;CELESTYAL&#39; and your name. If you can&#39;t locate the driver, proceed to the Pharmacy area.</p>
-                </div>
-                
-            </div>
-        </div>
-        
-
         <!-- Travel Insurance Section -->
         
         <div class="section" id="travel-insurance">
@@ -3314,15 +3201,53 @@
             
             <!-- Fallback: show provider info when options not available -->
             <div class="content-box">
-                <p><strong>Provider:</strong> Allianz Global Assistance</p>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 15px;">
+                    <div>
+                        
+                        <div style="font-size: 1.2em; font-weight: 700; color: var(--primary); margin-bottom: 5px;">Allianz Global Assistance</div>
+                        
+                        
+                    </div>
+                    
+                    <span class="booking-status status-quoted">Options Provided</span>
+                    
+                </div>
                 
-                <p><strong>Status:</strong> Options Provided</p>
+                <div style="margin-top: 15px;">
+                    <h5 style="margin-bottom: 10px; color: var(--text);">Available Plans:</h5>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        
+                        <li style="margin-bottom: 5px;">OneTrip Basic - <strong>$90</strong> per person</li>
+                        
+                        <li style="margin-bottom: 5px;">OneTrip Prime (Recommended) - <strong>$160</strong> per person</li>
+                        
+                        <li style="margin-bottom: 5px;">OneTrip Premier - <strong>$220</strong> per person</li>
+                        
+                    </ul>
+                </div>
                 
-                <p><a href="https://www.allianztravelinsurance.com" target="_blank" rel="noopener" class="card-link">View Insurance Options →</a></p>
                 
-                <p style="margin-top: 15px; color: var(--text-light); font-size: 0.9em;">
-                    Contact your travel advisor for a personalized insurance quote based on your trip cost and traveler ages.
-                </p>
+                <div style="margin-top: 15px;">
+                    <h5 style="margin-bottom: 10px; color: var(--text);">Coverage Highlights:</h5>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        
+                        <li style="margin-bottom: 5px;">Trip cancellation up to 100% of trip cost</li>
+                        
+                        <li style="margin-bottom: 5px;">Emergency medical up to $50,000 (Prime/Premier)</li>
+                        
+                        <li style="margin-bottom: 5px;">24/7 travel assistance hotline</li>
+                        
+                        <li style="margin-bottom: 5px;">Baggage delay/loss coverage</li>
+                        
+                        <li style="margin-bottom: 5px;">Pre-existing condition coverage (within 14 days of deposit)</li>
+                        
+                    </ul>
+                </div>
+                
+                
+                <p style="margin-top: 15px;"><a href="https://www.allianztravelinsurance.com" target="_blank" rel="noopener" class="card-link">View Insurance Options →</a></p>
+                
+                
             </div>
             
 
@@ -3346,6 +3271,9 @@
                     
                     <span class="provider-badge cruise-line">Celestyal</span>
                     
+                    
+                    
+                    
                     <div class="extra-name">CelestyalPay Drink &amp; Dining Wallet</div>
                     <div class="extra-price">€200/person = €235 value (17% bonus)</div>
                     <div class="extra-desc">Prepay for cocktails, wine, and specialty dining and get bonus credit. No drink packages on Celestyal - this wallet gives you flexibility to spend as you like.</div>
@@ -3356,25 +3284,32 @@
                     
                     <span class="provider-badge viator">Viator</span>
                     
+                    
+                    
+                    
                     <div class="extra-name">Delos Island Day Trip (from Mykonos)</div>
                     <div class="extra-price">~$79/person</div>
                     <div class="extra-desc">UNESCO World Heritage Site - the mythological birthplace of Apollo. Only accessible by boat from Mykonos.</div>
-                    <div class="extra-why">💡 Your overnight stay in Mykonos gives you time for this must-see ancient site. The Terrace of the Lions and ancient ruins are unforgettable. Book ahead - boats fill up.</div>
+                    <div class="extra-why">💡 Your late departure from Mykonos gives you time for this must-see ancient site. The Terrace of the Lions and ancient ruins are unforgettable. Book ahead - boats fill up.</div>
                 </div>
                 
                 <div class="extra-card priority-medium">
                     
-                    <span class="priority-badge">Recommended</span>
+                    
+                    <span class="priority-badge" style="">AGENT RECOMMENDED</span>
                     
                     <div class="extra-name">Post-Cruise Athens Day</div>
                     <div class="extra-price">~$150-200</div>
                     <div class="extra-desc">One night in Athens after disembarkation before your flight home.</div>
-                    <div class="extra-why">💡 Your ship arrives at 8am but flights do not leave until evening. Spend a leisurely last day - visit the Acropolis, shop in Plaka, have a nice lunch. No rushing to the airport.</div>
+                    <div class="extra-why">💡 Your ship arrives at 8am but flights do not leave until the next morning. Spend a leisurely last day - visit the Acropolis, shop in Plaka, have a nice lunch.</div>
                 </div>
                 
                 <div class="extra-card priority-medium">
                     
                     <span class="provider-badge viator">Viator</span>
+                    
+                    
+                    <span class="priority-badge" style="top: 40px;">AGENT RECOMMENDED</span>
                     
                     <div class="extra-name">Santorini Wine Tasting Tour</div>
                     <div class="extra-price">~$120-150/person</div>
@@ -3384,32 +3319,15 @@
                 
                 <div class="extra-card priority-medium">
                     
-                    <span class="provider-badge cruise-line">Celestyal</span>
-                    
-                    <div class="extra-name">Mother-Daughter Spa Day</div>
-                    <div class="extra-price">~$100-200 for two</div>
-                    <div class="extra-desc">Relaxing treatments at the Sozo Health Spa - massages, facials, and wellness packages.</div>
-                    <div class="extra-why">💡 A special bonding experience at sea. Book a couples massage or side-by-side facials on your sea day.</div>
-                </div>
-                
-                <div class="extra-card priority-medium">
-                    
                     <span class="provider-badge viator">Viator</span>
+                    
+                    
+                    <span class="priority-badge" style="top: 40px;">AGENT RECOMMENDED</span>
                     
                     <div class="extra-name">Palace of Knossos Excursion (Crete)</div>
                     <div class="extra-price">~$75/person</div>
-                    <div class="extra-desc">Ancient Minoan palace - Europe oldest city and legendary home of the Minotaur labyrinth.</div>
-                    <div class="extra-why">💡 The most significant Bronze Age archaeological site on Crete. Your included Lindos excursion is on Rhodes - Knossos would be a great add for Crete.</div>
-                </div>
-                
-                <div class="extra-card priority-medium">
-                    
-                    <span class="priority-badge">Recommended</span>
-                    
-                    <div class="extra-name">Cabin Upgrade to Junior Suite with Balcony</div>
-                    <div class="extra-price">+$800-1,000 total</div>
-                    <div class="extra-desc">Private step-out balcony, more space, priority services, and exclusive perks.</div>
-                    <div class="extra-why">💡 Watch the Santorini sunset from your own private balcony. Suite guests also get priority embarkation and other perks.</div>
+                    <div class="extra-desc">Ancient Minoan palace - Europe&#39;s oldest city and legendary home of the Minotaur labyrinth.</div>
+                    <div class="extra-why">💡 The most significant Bronze Age archaeological site on Crete. Your Lindos excursion is on Rhodes - Knossos would be a great add for Crete.</div>
                 </div>
                 
             </div>
@@ -3676,12 +3594,6 @@
                 
             </div>
             
-            <div class="alert-box" style="margin-top: 20px;">
-                <h4>Self-Booking Note</h4>
-                <p>Airfare prices fluctuate daily. You&#39;re welcome to book flights on your own - it won&#39;t affect your cruise booking or pricing. Many travelers find deals through airline sales, credit card points, or loyalty programs. Just let us know your flight details so we can coordinate your airport transfers!</p>
-            </div>
-            
-            
             <div class="alert-box" style="margin-top: 15px;">
                 <h4>Important</h4>
                 <p>⚠️ Airfare pricing fluctuates daily based on demand and availability. Prices shown are estimates from January 18, 2026 and may change. For potential savings, you may wish to book flights directly through the airline or your preferred booking site. We&#39;re happy to assist with flight booking if preferred.</p>
@@ -3724,7 +3636,10 @@
                     
                     
                     
-                    <div class="card-header">Luwian Athens Boutique Hotel</div>
+                    <div class="card-header">
+                        Luwian Athens Boutique Hotel
+                        <span style="float: right; font-size: 0.75em; opacity: 0.9; text-transform: uppercase;">Pre-Cruise</span>
+                    </div>
                     <div class="card-body">
                         <div class="card-detail"><span class="label">Location</span><span class="value">P. Tsaldari 10, Athens 10431, Greece</span></div>
                         <div class="card-detail"><span class="label">Nights</span><span class="value">1</span></div>
@@ -3732,7 +3647,12 @@
                         
                         <div class="card-detail"><span class="label">Dates</span><span class="value">May 29, 2026</span></div>
                         
-                        <div class="card-detail"><span class="label">Status</span><span class="value" style="color: var(--accent);">Confirmed</span></div>
+                        
+                        <div class="card-detail">
+                            <span class="label">Status</span>
+                            <span class="value booking-status status-confirmed">Confirmed</span>
+                        </div>
+                        
                         
                         <p style="margin-top: 12px; font-size: 0.9em; color: var(--text-light);">Included in Celestyal package</p>
                         
@@ -3781,17 +3701,25 @@
                     
                     
                     
-                    <div class="card-header">Post-Cruise Hotel Options</div>
+                    <div class="card-header">
+                        Luwian Athens Boutique Hotel
+                        <span style="float: right; font-size: 0.75em; opacity: 0.9; text-transform: uppercase;">Post-Cruise</span>
+                    </div>
                     <div class="card-body">
-                        <div class="card-detail"><span class="label">Location</span><span class="value">Athens, Greece</span></div>
+                        <div class="card-detail"><span class="label">Location</span><span class="value">P. Tsaldari 10, Athens 10431, Greece</span></div>
                         <div class="card-detail"><span class="label">Nights</span><span class="value">1</span></div>
                         
                         
                         <div class="card-detail"><span class="label">Dates</span><span class="value">June 6, 2026</span></div>
                         
                         
+                        <div class="card-detail">
+                            <span class="label">Status</span>
+                            <span class="value booking-status status-">TBD</span>
+                        </div>
                         
                         
+                        <p style="margin-top: 12px; font-size: 0.9em; color: var(--text-light);">Same hotel as pre-cruise stay - pending confirmation</p>
                         
                         
                     </div>
@@ -3809,7 +3737,7 @@
                 <div class="section-icon">📅</div>
                 <div>
                     <h2 style="margin: 0;">Your Complete Itinerary</h2>
-                    <div class="timeline-summary">12 days of adventure</div>
+                    <div class="timeline-summary">10 days of adventure</div>
                 </div>
                 <button id="timeline-toggle-btn" class="timeline-expand-btn" onclick="event.stopPropagation(); toggleTimeline('timeline-content')">
                     <span>▼</span> View Full Itinerary
@@ -3818,6 +3746,9 @@
             </div>
 
             <div id="timeline-content" class="timeline-content collapsed">
+            <div id="collapsed-days-indicator" class="collapsed-days-indicator">
+                <span class="days-count">10</span> days in your itinerary · Click "View Full Itinerary" to see all days
+            </div>
             
             <div class="timeline-day pre-cruise">
                 <div class="timeline-day-header" onclick="toggleTimelineDay(this)">
@@ -3825,8 +3756,8 @@
                         ✈
                     </div>
                     <div class="timeline-day-info">
-                        <h3>Arrival Day</h3>
-                        
+                        <h3>Day 1 - Arrive Athens</h3>
+                        <div class="timeline-day-date">May 29, 2026</div>
                     </div>
                     <span class="timeline-day-type">
                         Arrival
@@ -3865,6 +3796,48 @@
                     
 
                     
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Arrive Athens International Airport</div>
+                        
+                        <div class="activity-details">Celestyal driver meets you at Arrivals Hall with name sign</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Transfer to Luwian Athens Boutique Hotel</div>
+                        
+                        <div class="activity-details">Private car to hotel (~45 min from airport)</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Check in and freshen up</div>
+                        
+                        <div class="activity-details">Hotel check-in typically 3pm, but luggage storage available if you arrive early</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Evening: Explore Plaka neighborhood</div>
+                        
+                        <div class="activity-details">Athens&#39; oldest district - winding streets, shops, cafes at the foot of the Acropolis</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Dinner in Plaka</div>
+                        
+                        <div class="activity-details">Try Scholarchio (classic taverna since 1935) or rooftop dining with Acropolis views</div>
+                        
+                    </div>
+                    
+                    
 
                     
 
@@ -3897,11 +3870,11 @@
             <div class="timeline-day embarkation">
                 <div class="timeline-day-header" onclick="toggleTimelineDay(this)">
                     <div class="timeline-day-number">
-                        1
+                        2
                     </div>
                     <div class="timeline-day-info">
-                        <h3>Piraeus (Athens)</h3>
-                        <div class="timeline-day-date">May 29, 2026</div>
+                        <h3>Day 2 - Athens &amp; Embarkation</h3>
+                        <div class="timeline-day-date">May 30, 2026</div>
                     </div>
                     <span class="timeline-day-type">
                         Port Day
@@ -3910,8 +3883,6 @@
                 </div>
 
                 <div class="timeline-day-content day-collapsed">
-                    
-                    <div class="day-description">Embarkation Day</div>
                     
 
                     
@@ -3955,147 +3926,57 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Arrive Athens International Airport</div>
-                        <div class="activity-details">Embarkation Day</div>
-                        <div class="activity-details">Celestyal driver meets you at Arrivals Hall with name sign</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        <div class="activity-title">Transfer to Luwian Athens Boutique Hotel</div>
-                        <div class="activity-details">Embarkation Day</div>
-                        <div class="activity-details">Private car included in package</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        <div class="activity-title">Evening at leisure</div>
-                        <div class="activity-details">Embarkation Day</div>
-                        <div class="activity-details">Explore Plaka neighborhood, dinner near Acropolis</div>
-                        
-                    </div>
-                    
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                    <div class="card-gallery" style="margin-bottom: 15px;">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    </div>
-                    
-
-                    
-
-                    
-                </div>
-            </div>
-            
-            <div class="timeline-day port-day">
-                <div class="timeline-day-header" onclick="toggleTimelineDay(this)">
-                    <div class="timeline-day-number">
-                        2
-                    </div>
-                    <div class="timeline-day-info">
-                        <h3>Kusadasi, Turkey</h3>
-                        <div class="timeline-day-date">May 30, 2026</div>
-                    </div>
-                    <span class="timeline-day-type">
-                        Port Day
-                    </span>
-                    <span class="day-expand-icon">▼</span>
-                </div>
-
-                <div class="timeline-day-content day-collapsed">
-                    
-                    <div class="day-description">Gateway to ancient Ephesus</div>
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                    
-                    <div class="timeline-port-info">
-                        <div class="timeline-port-name">📍 Kusadasi, Turkey</div>
-                        <div class="timeline-port-times">
-                            <span>Arrive: 8:00 AM</span>
-                            <span>Depart: 6:00 PM</span>
-                        </div>
-                    </div>
-                    
-                    
-
-                    
-                    <div class="cruise-info-box">
-                        
-                        
-                        
-                    </div>
-                    
-
-                    
-
-                    
-                    
-                    <div class="activity">
-                        
                         <div class="activity-title">Breakfast at hotel</div>
-                        <div class="activity-details">Gateway to ancient Ephesus</div>
-                        <div class="activity-details">Included in package</div>
+                        
+                        
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Morning at leisure in Athens</div>
-                        <div class="activity-details">Gateway to ancient Ephesus</div>
-                        <div class="activity-details">Optional: Acropolis visit or Monastiraki shopping</div>
+                        <div class="activity-title">Morning option: Acropolis &amp; Parthenon</div>
+                        
+                        <div class="activity-details">If you&#39;re up for it! Opens 8am - allow 2 hours. Best to go early before crowds.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Morning option: Monastiraki Flea Market</div>
+                        
+                        <div class="activity-details">Browse antiques, souvenirs, and street food. Great for a leisurely morning.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Lunch in Athens</div>
+                        
+                        <div class="activity-details">Grab a quick bite before heading to the port</div>
                         
                     </div>
                     
                     <div class="activity">
                         
                         <div class="activity-title">Transfer to Piraeus Port</div>
-                        <div class="activity-details">Gateway to ancient Ephesus</div>
-                        <div class="activity-details">Private car included - depart by 2:00pm</div>
+                        
+                        <div class="activity-details">Depart hotel by 2:00pm - private car included</div>
                         
                     </div>
                     
                     <div class="activity">
                         
                         <div class="activity-title">Board Celestyal Journey</div>
-                        <div class="activity-details">Gateway to ancient Ephesus</div>
-                        <div class="activity-details">Embarkation, safety drill, explore ship</div>
+                        
+                        <div class="activity-details">Embarkation opens ~2pm. Safety drill, explore the ship, settle into Cabin 6055</div>
                         
                     </div>
                     
                     <div class="activity">
                         
                         <div class="activity-title">Ship departs 5:00pm</div>
-                        <div class="activity-details">Gateway to ancient Ephesus</div>
-                        <div class="activity-details">Dinner onboard, settle into Cabin 6055</div>
+                        
+                        <div class="activity-details">Dinner onboard as you sail toward Turkey</div>
                         
                     </div>
                     
@@ -4135,7 +4016,7 @@
                         3
                     </div>
                     <div class="timeline-day-info">
-                        <h3>Rhodes, Greece</h3>
+                        <h3>Day 3 - Kusadasi, Turkey</h3>
                         <div class="timeline-day-date">May 31, 2026</div>
                     </div>
                     <span class="timeline-day-type">
@@ -4145,8 +4026,6 @@
                 </div>
 
                 <div class="timeline-day-content day-collapsed">
-                    
-                    <div class="day-description">Medieval Old Town &amp; Lindos Acropolis</div>
                     
 
                     
@@ -4160,7 +4039,7 @@
                     
                     
                     <div class="timeline-port-info">
-                        <div class="timeline-port-name">📍 Rhodes, Greece</div>
+                        <div class="timeline-port-name">📍 Kusadasi, Turkey</div>
                         <div class="timeline-port-times">
                             <span>Arrive: 8:00 AM</span>
                             <span>Depart: 6:00 PM</span>
@@ -4184,15 +4063,15 @@
                     <div class="activity">
                         
                         <div class="activity-title">Arrive Kusadasi 8:00am</div>
-                        <div class="activity-details">Medieval Old Town &amp; Lindos Acropolis</div>
+                        
                         <div class="activity-details">Gateway to ancient Ephesus</div>
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-title">INCLUDED: Ephesus Excursion</div>
-                        <div class="activity-details">Medieval Old Town &amp; Lindos Acropolis</div>
+                        <div class="activity-title">Ephesus Excursion</div>
+                        
                         <div class="activity-details">One of world&#39;s best-preserved ancient cities - Library of Celsus, Great Theatre, Terrace Houses</div>
                         
                     </div>
@@ -4200,7 +4079,7 @@
                     <div class="activity">
                         
                         <div class="activity-title">Free time in Kusadasi</div>
-                        <div class="activity-details">Medieval Old Town &amp; Lindos Acropolis</div>
+                        
                         <div class="activity-details">Bazaar shopping, leather goods, Turkish delights</div>
                         
                     </div>
@@ -4208,7 +4087,7 @@
                     <div class="activity">
                         
                         <div class="activity-title">Ship departs 6:00pm</div>
-                        <div class="activity-details">Medieval Old Town &amp; Lindos Acropolis</div>
+                        
                         <div class="activity-details">Evening sailing to Rhodes</div>
                         
                     </div>
@@ -4249,7 +4128,7 @@
                         4
                     </div>
                     <div class="timeline-day-info">
-                        <h3>Agios Nikolaos, Crete</h3>
+                        <h3>Day 4 - Rhodes, Greece</h3>
                         <div class="timeline-day-date">June 1, 2026</div>
                     </div>
                     <span class="timeline-day-type">
@@ -4259,8 +4138,6 @@
                 </div>
 
                 <div class="timeline-day-content day-collapsed">
-                    
-                    <div class="day-description">Charming harbor town, Palace of Knossos nearby</div>
                     
 
                     
@@ -4274,10 +4151,10 @@
                     
                     
                     <div class="timeline-port-info">
-                        <div class="timeline-port-name">📍 Agios Nikolaos, Crete</div>
+                        <div class="timeline-port-name">📍 Rhodes, Greece</div>
                         <div class="timeline-port-times">
                             <span>Arrive: 8:00 AM</span>
-                            <span>Depart: 8:00 PM</span>
+                            <span>Depart: 6:00 PM</span>
                         </div>
                     </div>
                     
@@ -4298,31 +4175,31 @@
                     <div class="activity">
                         
                         <div class="activity-title">Arrive Rhodes 8:00am</div>
-                        <div class="activity-details">Charming harbor town, Palace of Knossos nearby</div>
+                        
                         <div class="activity-details">Full day in port</div>
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-title">INCLUDED: Lindos Acropolis Excursion</div>
-                        <div class="activity-details">Charming harbor town, Palace of Knossos nearby</div>
-                        <div class="activity-details">Ancient temple perched on dramatic clifftop</div>
+                        <div class="activity-title">Lindos Acropolis Excursion</div>
+                        
+                        <div class="activity-details">Ancient temple perched on dramatic clifftop with stunning views</div>
                         
                     </div>
                     
                     <div class="activity">
                         
                         <div class="activity-title">Explore Rhodes Medieval Old Town</div>
-                        <div class="activity-details">Charming harbor town, Palace of Knossos nearby</div>
-                        <div class="activity-details">UNESCO World Heritage Site, Palace of the Grand Master, Street of Knights</div>
+                        
+                        <div class="activity-details">UNESCO World Heritage Site - Palace of the Grand Master, Street of Knights</div>
                         
                     </div>
                     
                     <div class="activity">
                         
                         <div class="activity-title">Ship departs 6:00pm</div>
-                        <div class="activity-details">Charming harbor town, Palace of Knossos nearby</div>
+                        
                         <div class="activity-details">Evening sailing to Crete</div>
                         
                     </div>
@@ -4363,7 +4240,7 @@
                         5
                     </div>
                     <div class="timeline-day-info">
-                        <h3>Santorini ★</h3>
+                        <h3>Day 5 - Agios Nikolaos, Crete</h3>
                         <div class="timeline-day-date">June 2, 2026</div>
                     </div>
                     <span class="timeline-day-type">
@@ -4373,8 +4250,6 @@
                 </div>
 
                 <div class="timeline-day-content day-collapsed">
-                    
-                    <div class="day-description">Famous caldera views, blue domes, sunset</div>
                     
 
                     
@@ -4388,10 +4263,10 @@
                     
                     
                     <div class="timeline-port-info">
-                        <div class="timeline-port-name">📍 Santorini ★</div>
+                        <div class="timeline-port-name">📍 Agios Nikolaos, Crete</div>
                         <div class="timeline-port-times">
                             <span>Arrive: 8:00 AM</span>
-                            <span>Depart: 10:00 PM</span>
+                            <span>Depart: 8:00 PM</span>
                         </div>
                     </div>
                     
@@ -4412,32 +4287,40 @@
                     <div class="activity">
                         
                         <div class="activity-title">Arrive Agios Nikolaos 8:00am</div>
-                        <div class="activity-details">Famous caldera views, blue domes, sunset</div>
-                        <div class="activity-details">Charming harbor town - 12 hours in port!</div>
+                        
+                        <div class="activity-details">Charming harbor town - 12 hours in port</div>
                         
                     </div>
                     
                     <div class="activity">
                         
                         <div class="activity-title">Optional: Palace of Knossos excursion</div>
-                        <div class="activity-details">Famous caldera views, blue domes, sunset</div>
-                        <div class="activity-details">Ancient Minoan civilization, Europe&#39;s oldest city, Minotaur&#39;s labyrinth legend</div>
+                        
+                        <div class="activity-details">Ancient Minoan civilization, Europe&#39;s oldest city, legendary Minotaur&#39;s labyrinth</div>
                         
                     </div>
                     
                     <div class="activity">
                         
                         <div class="activity-title">Explore harbor and lakeside</div>
-                        <div class="activity-details">Famous caldera views, blue domes, sunset</div>
+                        
                         <div class="activity-details">Bottomless Lake (Lake Voulismeni), waterfront cafes, local shops</div>
                         
                     </div>
                     
                     <div class="activity">
                         
+                        <div class="activity-title">Dinner ashore (optional)</div>
+                        
+                        <div class="activity-details">Late 8pm departure gives you time for a relaxed meal in town</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
                         <div class="activity-title">Ship departs 8:00pm</div>
-                        <div class="activity-details">Famous caldera views, blue domes, sunset</div>
-                        <div class="activity-details">Late departure - enjoy dinner ashore if desired</div>
+                        
+                        
                         
                     </div>
                     
@@ -4477,7 +4360,7 @@
                         6
                     </div>
                     <div class="timeline-day-info">
-                        <h3>Mykonos ★ OVERNIGHT</h3>
+                        <h3>Day 6 - Santorini</h3>
                         <div class="timeline-day-date">June 3, 2026</div>
                     </div>
                     <span class="timeline-day-type">
@@ -4487,8 +4370,6 @@
                 </div>
 
                 <div class="timeline-day-content day-collapsed">
-                    
-                    <div class="day-description">Windmills, Little Venice - overnight stay!</div>
                     
 
                     
@@ -4502,10 +4383,10 @@
                     
                     
                     <div class="timeline-port-info">
-                        <div class="timeline-port-name">📍 Mykonos ★ OVERNIGHT</div>
+                        <div class="timeline-port-name">📍 Santorini</div>
                         <div class="timeline-port-times">
                             <span>Arrive: 8:00 AM</span>
-                            
+                            <span>Depart: 10:00 PM</span>
                         </div>
                     </div>
                     
@@ -4526,15 +4407,15 @@
                     <div class="activity">
                         
                         <div class="activity-title">Arrive Santorini 8:00am</div>
-                        <div class="activity-details">Windmills, Little Venice - overnight stay!</div>
-                        <div class="activity-details">Tender to Fira - 14 hours in port!</div>
+                        
+                        <div class="activity-details">Tender to Fira - 14 hours in port</div>
                         
                     </div>
                     
                     <div class="activity">
                         
                         <div class="activity-title">Explore Fira and Oia</div>
-                        <div class="activity-details">Windmills, Little Venice - overnight stay!</div>
+                        
                         <div class="activity-details">Blue domes, white buildings, caldera views</div>
                         
                     </div>
@@ -4542,23 +4423,23 @@
                     <div class="activity">
                         
                         <div class="activity-title">Optional: Wine tasting tour</div>
-                        <div class="activity-details">Windmills, Little Venice - overnight stay!</div>
+                        
                         <div class="activity-details">Santorini&#39;s unique volcanic wines - Assyrtiko, Vinsanto</div>
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-title">★ WATCH THE LEGENDARY SUNSET</div>
-                        <div class="activity-details">Windmills, Little Venice - overnight stay!</div>
-                        <div class="activity-details">14 hours means you can enjoy sunset from shore - most cruisers can&#39;t do this!</div>
+                        <div class="activity-title">Watch the legendary sunset</div>
+                        
+                        <div class="activity-details">Late departure means you can enjoy sunset from shore - head to Oia for the best views</div>
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Dinner ashore (optional)</div>
-                        <div class="activity-details">Windmills, Little Venice - overnight stay!</div>
+                        <div class="activity-title">Dinner ashore</div>
+                        
                         <div class="activity-details">Caldera-view restaurant in Oia or Fira</div>
                         
                     </div>
@@ -4566,7 +4447,7 @@
                     <div class="activity">
                         
                         <div class="activity-title">Ship departs 10:00pm</div>
-                        <div class="activity-details">Windmills, Little Venice - overnight stay!</div>
+                        
                         <div class="activity-details">Late tender back after sunset</div>
                         
                     </div>
@@ -4607,7 +4488,7 @@
                         7
                     </div>
                     <div class="timeline-day-info">
-                        <h3>Mykonos → Milos</h3>
+                        <h3>Day 7 - Mykonos</h3>
                         <div class="timeline-day-date">June 4, 2026</div>
                     </div>
                     <span class="timeline-day-type">
@@ -4618,7 +4499,141 @@
 
                 <div class="timeline-day-content day-collapsed">
                     
-                    <div class="day-description">Depart Mykonos 02:00, Milos volcanic beaches</div>
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                    
+                    <div class="timeline-port-info">
+                        <div class="timeline-port-name">📍 Mykonos</div>
+                        <div class="timeline-port-times">
+                            <span>Arrive: 8:00 AM</span>
+                            <span>Depart: 2:00am (June 5)</span>
+                        </div>
+                    </div>
+                    
+                    
+
+                    
+                    <div class="cruise-info-box">
+                        
+                        
+                        
+                    </div>
+                    
+
+                    
+
+                    
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Arrive Mykonos 8:00am</div>
+                        
+                        <div class="activity-details">18 hours in port - no rush today!</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Optional: Morning trip to Delos</div>
+                        
+                        <div class="activity-details">UNESCO site, birthplace of Apollo - boats depart from Old Port (book ahead)</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Explore Mykonos Town (Chora)</div>
+                        
+                        <div class="activity-details">Iconic windmills, Paraportiani Church, maze of whitewashed streets</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Little Venice at sunset</div>
+                        
+                        <div class="activity-details">Waterfront bars with stunning views - arrive early for a good seat</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Dinner ashore</div>
+                        
+                        <div class="activity-details">Fresh seafood, Greek cuisine - plenty of options in Chora</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Evening in town</div>
+                        
+                        <div class="activity-details">Late ship departure means you can enjoy the nightlife</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Return to ship by 1:30am</div>
+                        
+                        <div class="activity-details">Ship departs 2:00am for Milos</div>
+                        
+                    </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                    <div class="card-gallery" style="margin-bottom: 15px;">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                    
+
+                    
+
+                    
+                </div>
+            </div>
+            
+            <div class="timeline-day port-day">
+                <div class="timeline-day-header" onclick="toggleTimelineDay(this)">
+                    <div class="timeline-day-number">
+                        8
+                    </div>
+                    <div class="timeline-day-info">
+                        <h3>Day 8 - Milos</h3>
+                        <div class="timeline-day-date">June 5, 2026</div>
+                    </div>
+                    <span class="timeline-day-type">
+                        Port Day
+                    </span>
+                    <span class="day-expand-icon">▼</span>
+                </div>
+
+                <div class="timeline-day-content day-collapsed">
                     
 
                     
@@ -4655,49 +4670,41 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Arrive Mykonos 8:00am</div>
-                        <div class="activity-details">Depart Mykonos 02:00, Milos volcanic beaches</div>
-                        <div class="activity-details">Famous windmills and Little Venice - OVERNIGHT STAY!</div>
+                        <div class="activity-title">Arrive Milos 8:00am</div>
+                        
+                        <div class="activity-details">Volcanic island with unique lunar landscapes</div>
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Explore Mykonos Town (Chora)</div>
-                        <div class="activity-details">Depart Mykonos 02:00, Milos volcanic beaches</div>
-                        <div class="activity-details">Iconic windmills, Paraportiani Church, maze of whitewashed streets</div>
+                        <div class="activity-title">Sarakiniko Beach</div>
+                        
+                        <div class="activity-details">Famous white volcanic rock formations - the &#39;lunar beach&#39;</div>
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Optional: Day trip to Delos</div>
-                        <div class="activity-details">Depart Mykonos 02:00, Milos volcanic beaches</div>
-                        <div class="activity-details">UNESCO site, birthplace of Apollo - only accessible from Mykonos</div>
+                        <div class="activity-title">Optional: Kleftiko sea caves boat tour</div>
+                        
+                        <div class="activity-details">Stunning sea caves, crystal-clear swimming, snorkeling</div>
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Little Venice at sunset</div>
-                        <div class="activity-details">Depart Mykonos 02:00, Milos volcanic beaches</div>
-                        <div class="activity-details">Waterfront bars with stunning views</div>
+                        <div class="activity-title">Explore Plaka village</div>
+                        
+                        <div class="activity-details">Charming hilltop town - Venus de Milo was discovered here</div>
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-title">★ OVERNIGHT IN PORT</div>
-                        <div class="activity-details">Depart Mykonos 02:00, Milos volcanic beaches</div>
-                        <div class="activity-details">Experience Mykonos nightlife and late dinner!</div>
+                        <div class="activity-title">Ship departs 6:00pm</div>
                         
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        <div class="activity-title">Ship departs 2:00am (June 5)</div>
-                        <div class="activity-details">Depart Mykonos 02:00, Milos volcanic beaches</div>
-                        <div class="activity-details">Return to ship by 1:30am - enjoy the evening!</div>
+                        <div class="activity-details">Sunset sailing back to Athens</div>
                         
                     </div>
                     
@@ -4734,11 +4741,11 @@
             <div class="timeline-day embarkation">
                 <div class="timeline-day-header" onclick="toggleTimelineDay(this)">
                     <div class="timeline-day-number">
-                        8
+                        9
                     </div>
                     <div class="timeline-day-info">
-                        <h3>Piraeus (Athens)</h3>
-                        <div class="timeline-day-date">June 5, 2026</div>
+                        <h3>Day 9 - Athens (Post-Cruise Day)</h3>
+                        <div class="timeline-day-date">June 6, 2026</div>
                     </div>
                     <span class="timeline-day-type">
                         Port Day
@@ -4747,8 +4754,6 @@
                 </div>
 
                 <div class="timeline-day-content day-collapsed">
-                    
-                    <div class="day-description">Disembarkation</div>
                     
 
                     
@@ -4792,119 +4797,9 @@
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Arrive Milos 8:00am</div>
-                        <div class="activity-details">Disembarkation</div>
-                        <div class="activity-details">Volcanic island with unique lunar landscapes - tender port</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        <div class="activity-title">Sarakiniko Beach</div>
-                        <div class="activity-details">Disembarkation</div>
-                        <div class="activity-details">Famous white volcanic rock formations - &#39;lunar beach&#39;</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        <div class="activity-title">Optional: Kleftiko sea caves boat tour</div>
-                        <div class="activity-details">Disembarkation</div>
-                        <div class="activity-details">Stunning sea caves and crystal-clear swimming</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        <div class="activity-title">Explore Plaka village</div>
-                        <div class="activity-details">Disembarkation</div>
-                        <div class="activity-details">Charming hilltop town, Venus de Milo was discovered here</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        <div class="activity-title">Ship departs 6:00pm</div>
-                        <div class="activity-details">Disembarkation</div>
-                        <div class="activity-details">Sunset sailing back to Athens</div>
-                        
-                    </div>
-                    
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                    <div class="card-gallery" style="margin-bottom: 15px;">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    </div>
-                    
-
-                    
-
-                    
-                </div>
-            </div>
-            
-            <div class="timeline-day cruise">
-                <div class="timeline-day-header" onclick="toggleTimelineDay(this)">
-                    <div class="timeline-day-number">
-                        9
-                    </div>
-                    <div class="timeline-day-info">
-                        <h3>Day 9</h3>
-                        <div class="timeline-day-date">June 6, 2026</div>
-                    </div>
-                    <span class="timeline-day-type">
-                        Cruise
-                    </span>
-                    <span class="day-expand-icon">▼</span>
-                </div>
-
-                <div class="timeline-day-content day-collapsed">
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                    <div class="cruise-info-box">
-                        
-                        
-                        
-                    </div>
-                    
-
-                    
-
-                    
-                    
-                    <div class="activity">
-                        
                         <div class="activity-title">Arrive Piraeus 8:00am</div>
                         
-                        <div class="activity-details">Disembarkation - no rush today!</div>
+                        <div class="activity-details">Disembarkation</div>
                         
                     </div>
                     
@@ -4928,7 +4823,7 @@
                         
                         <div class="activity-title">Late Morning: Acropolis Museum</div>
                         
-                        <div class="activity-details">World-class museum with artifacts from the Acropolis. Glass floor reveals excavations below.</div>
+                        <div class="activity-details">World-class museum with artifacts from the Acropolis</div>
                         
                     </div>
                     
@@ -4936,7 +4831,7 @@
                         
                         <div class="activity-title">Lunch in Plaka</div>
                         
-                        <div class="activity-details">Athens&#39; oldest neighborhood - try Scholarchio or Café Avissinia for authentic Greek food</div>
+                        <div class="activity-details">Athens&#39; oldest neighborhood - try Scholarchio or Café Avissinia</div>
                         
                     </div>
                     
@@ -4944,7 +4839,7 @@
                         
                         <div class="activity-title">Afternoon: Explore at leisure</div>
                         
-                        
+                        <div class="activity-details">Anafiotika village, Ancient Agora, Monastiraki Flea Market, or National Gardens</div>
                         
                     </div>
                     
@@ -4952,15 +4847,15 @@
                         
                         <div class="activity-title">Late Afternoon: Syntagma Square</div>
                         
-                        <div class="activity-details">Watch the Changing of the Guard at the Tomb of the Unknown Soldier (every hour, elaborate ceremony on Sundays at 11am)</div>
+                        <div class="activity-details">Changing of the Guard at Tomb of Unknown Soldier (every hour)</div>
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Sunset: Rooftop drinks with Acropolis views</div>
+                        <div class="activity-title">Sunset: Rooftop drinks</div>
                         
-                        <div class="activity-details">A for Athens or 360 Cocktail Bar in Monastiraki - perfect end to your Greek adventure!</div>
+                        <div class="activity-details">A for Athens or 360 Cocktail Bar - Acropolis views</div>
                         
                     </div>
                     
@@ -4968,109 +4863,7 @@
                         
                         <div class="activity-title">Farewell Dinner</div>
                         
-                        <div class="activity-details">Rooftop restaurant at your hotel, or try Seychelles or Karamanlidika in Psyrri</div>
-                        
-                    </div>
-                    
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                    <div class="card-gallery" style="margin-bottom: 15px;">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    </div>
-                    
-
-                    
-
-                    
-                </div>
-            </div>
-            
-            <div class="timeline-day cruise">
-                <div class="timeline-day-header" onclick="toggleTimelineDay(this)">
-                    <div class="timeline-day-number">
-                        10
-                    </div>
-                    <div class="timeline-day-info">
-                        <h3>Day 10</h3>
-                        <div class="timeline-day-date">June 7, 2026</div>
-                    </div>
-                    <span class="timeline-day-type">
-                        Cruise
-                    </span>
-                    <span class="day-expand-icon">▼</span>
-                </div>
-
-                <div class="timeline-day-content day-collapsed">
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                    <div class="cruise-info-box">
-                        
-                        
-                        
-                    </div>
-                    
-
-                    
-
-                    
-                    
-                    <div class="activity">
-                        
-                        <div class="activity-title">Breakfast at hotel</div>
-                        
-                        <div class="activity-details">Enjoy a leisurely morning</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        <div class="activity-title">Last-minute shopping (optional)</div>
-                        
-                        <div class="activity-details">Plaka shops open early - olive oil, honey, ceramics, leather sandals</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        <div class="activity-title">Transfer to Athens Airport</div>
-                        
-                        <div class="activity-details">Allow 1 hour for transfer, arrive 3 hours before international flight</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        <div class="activity-title">Depart Athens</div>
-                        
-                        <div class="activity-details">Fly home with amazing memories!</div>
+                        <div class="activity-details">Hotel rooftop or try Seychelles/Karamanlidika in Psyrri</div>
                         
                     </div>
                     
@@ -5110,8 +4903,8 @@
                         ✈
                     </div>
                     <div class="timeline-day-info">
-                        <h3>Departure Day</h3>
-                        
+                        <h3>Day 10 - Depart Athens</h3>
+                        <div class="timeline-day-date">June 7, 2026</div>
                     </div>
                     <span class="timeline-day-type">
                         Departure
@@ -5126,8 +4919,8 @@
 
                     
                     <div class="timeline-hotel-info">
-                        <h5>🏨 Post-Cruise Hotel Options</h5>
-                        <div>Athens, Greece</div>
+                        <h5>🏨 Luwian Athens Boutique Hotel</h5>
+                        <div>P. Tsaldari 10, Athens 10431, Greece</div>
                         
                         
                     </div>
@@ -5149,6 +4942,40 @@
 
                     
 
+                    
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Breakfast at hotel</div>
+                        
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Last-minute shopping (optional)</div>
+                        
+                        <div class="activity-details">Plaka shops open early - olive oil, honey, ceramics, leather sandals</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Transfer to Athens Airport</div>
+                        
+                        <div class="activity-details">Allow 1 hour for transfer, arrive 3 hours before international flight</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Fly home</div>
+                        
+                        <div class="activity-details">Safe travels!</div>
+                        
+                    </div>
+                    
                     
 
                     
@@ -5203,7 +5030,7 @@
                 <div class="content-box">
                     
                     <div class="map-item">
-                        <h4 class="map-label">Santorini - Overnight Stay</h4>
+                        <h4 class="map-label">Santorini</h4>
                         <div class="map-container">
                             <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
                                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Santorini%2C%20Greece">
@@ -5212,7 +5039,7 @@
                     </div>
                     
                     <div class="map-item">
-                        <h4 class="map-label">Mykonos - Overnight Stay</h4>
+                        <h4 class="map-label">Mykonos</h4>
                         <div class="map-container">
                             <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
                                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Mykonos%2C%20Greece">
@@ -5230,7 +5057,7 @@
                     </div>
                     
                     <div class="map-item">
-                        <h4 class="map-label">Ephesus - Included Excursion</h4>
+                        <h4 class="map-label">Ephesus</h4>
                         <div class="map-container">
                             <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
                                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Ephesus%2C%20Turkey">
@@ -5239,7 +5066,7 @@
                     </div>
                     
                     <div class="map-item">
-                        <h4 class="map-label">Athens - Pre-Cruise Stay</h4>
+                        <h4 class="map-label">Athens</h4>
                         <div class="map-container">
                             <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
                                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Athens%2C%20Greece">
@@ -5291,62 +5118,6 @@
         
 
         <!-- Featured Links Section -->
-        
-
-        
-        <!-- Tiered Pricing Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">📊</div>
-                <h2>Package Options</h2>
-                <button class="comment-trigger" data-comment-section="Package Options">Ask a question</button>
-            </div>
-            <div class="tiers-grid">
-                
-                <div class="tier-card">
-                    <div class="tier-header value">
-                        <div class="tier-name">Celestyal Ocean View</div>
-                        <div class="tier-desc">All-inclusive cruise with exterior cabin, 2 included excursions, pre-cruise Athens package</div>
-                    </div>
-                    <div class="tier-details">
-                        
-                        
-                        
-                        
-                    </div>
-                    <div class="tier-price">
-                        <div class="total">$4,268</div>
-                        <div class="per-person">$2,134 per person</div>
-                    </div>
-                </div>
-                
-
-                
-                <div class="tier-card recommended">
-                    <div class="tier-badge">Recommended</div>
-                    <div class="tier-header premium">
-                        <div class="tier-name">Celestyal Jr Suite Balcony</div>
-                        <div class="tier-desc">Upgraded suite with private balcony, exclusive dining access, all-inclusive amenities</div>
-                    </div>
-                    <div class="tier-details">
-                        
-                        
-                        
-                        
-                    </div>
-                    <div class="tier-price">
-                        <div class="total" style="color: var(--accent);">$5,488</div>
-                        <div class="per-person">$2,744 per person</div>
-                    </div>
-                </div>
-                
-
-                
-            </div>
-            
-        </div>
-        
         
 
     </div>
@@ -5415,7 +5186,7 @@
                 <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px;">
             </div>
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
-            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 19, 2026 | Rendered: 2026-01-19 02:33:27 UTC</p>
+            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 19, 2026 | Rendered: 2026-01-19 04:19:18 UTC</p>
         </div>
     </div>
 
