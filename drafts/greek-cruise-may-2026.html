@@ -1176,12 +1176,28 @@
             border-radius: 6px;
             font-weight: 600;
             font-size: 0.9em;
-            transition: background 0.2s, transform 0.2s;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .quick-link::after {
+            content: '↗';
+            font-size: 0.85em;
+            margin-left: 4px;
+            opacity: 0.8;
+            transition: transform 0.2s, opacity 0.2s;
         }
 
         .quick-link:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .quick-link:hover::after {
+            transform: translate(2px, -2px);
+            opacity: 1;
         }
 
         .quick-link .icon {
@@ -5229,7 +5245,7 @@
                 <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px;">
             </div>
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
-            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 19, 2026 | Rendered: 2026-01-19 05:04:02 UTC</p>
+            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 19, 2026 | Rendered: 2026-01-19 05:12:57 UTC</p>
         </div>
     </div>
 
