@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roberts & Jones - UK - Oxford Canal Narrowboat | SoMo Travel Specialist</title>
+    <title>Roberts &amp; Jones - UK - Oxford Canal Narrowboat | Neil Travel</title>
     <style>
         :root {
-            /* Cruise Planners / SoMo Travel Brand Colors */
-            --primary: #1b619c;
-            --primary-dark: #154a78;
-            --secondary: #90c8ed;
-            --secondary-light: #c5e4f7;
-            --accent: #3baf2a;
-            --accent-dark: #2d8a21;
+            /* Dynamic Brand Colors from Agent Profile */
+            --primary: #8b5cf6;
+            --primary-dark: color-mix(in srgb, #8b5cf6 80%, black);
+            --secondary: color-mix(in srgb, #8b5cf6 40%, white);
+            --secondary-light: color-mix(in srgb, #8b5cf6 20%, white);
+            --accent: #ec4899;
+            --accent-dark: color-mix(in srgb, #ec4899 80%, black);
 
             /* Neutrals */
             --white: #ffffff;
@@ -69,6 +69,50 @@
             color: var(--white);
             text-decoration: none;
             font-weight: 600;
+        }
+
+        .conversation-banner {
+            background: var(--bg-light);
+            padding: 12px 30px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .conversation-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            color: var(--primary);
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+        }
+
+        .conversation-link:hover {
+            border-color: var(--secondary);
+        }
+
+        .conversation-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #e8f5e9;
+            color: var(--accent-dark);
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .conversation-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
         }
 
         /* Hero Section */
@@ -154,7 +198,7 @@
             margin-bottom: 35px;
         }
 
-        .section-header { display: flex; justify-content: space-between; align-items: center;
+        .section-header {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -250,6 +294,122 @@
 
         .card-link:hover { background: var(--accent-dark); }
 
+        /* Card Images */
+        .card-image {
+            width: 100%;
+            max-height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card-gallery img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .card-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hide broken images and collapse empty containers */
+        img[src=""], img:not([src]), img.broken {
+            display: none !important;
+        }
+        .card-gallery:empty, .hero-gallery:empty {
+            display: none !important;
+        }
+
+        .image-caption {
+            font-size: 0.85em;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .cabin-media {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        .cabin-media a {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-light);
+            padding: 6px;
+        }
+
+        .cabin-photo-link.no-thumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+        }
+
+        .cabin-photo-fallback {
+            display: none;
+            color: var(--text-light);
+            font-size: 0.85em;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .cabin-photo-link.no-thumb .cabin-photo-fallback {
+            display: block;
+        }
+
+        .cabin-media img {
+            width: 100%;
+            height: 140px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        /* Hero Gallery */
+        .hero-gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 0;
+            background: var(--primary-dark);
+            padding: 0;
+        }
+
+        .hero-gallery-item {
+            flex: 0 0 auto;
+            position: relative;
+        }
+
+        .hero-gallery-item img {
+            height: 250px;
+            width: auto;
+            display: block;
+        }
+
+        .hero-gallery-item .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 8px 12px;
+            font-size: 0.9em;
+        }
+
         /* Flight Cards */
         .flight-card .card-header {
             background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
@@ -307,7 +467,252 @@
 
         .activity:last-child { margin-bottom: 0; }
         .activity-title { font-weight: 600; color: var(--text); margin-bottom: 5px; }
+        .activity-time { font-size: 0.85em; color: var(--primary); font-weight: 600; margin-bottom: 3px; }
         .activity-details { font-size: 0.95em; color: var(--text-light); }
+
+        /* Day Description & Info Boxes */
+        .day-description {
+            font-size: 1.05em;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .cruise-info-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            background: var(--bg-section);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .cruise-info-item {
+            text-align: center;
+        }
+
+        .cruise-info-item .label {
+            font-size: 0.75em;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .cruise-info-item .value {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95em;
+        }
+
+        /* Dining Section */
+        .dining-section {
+            background: linear-gradient(135deg, #fff8f0 0%, #fff 100%);
+            border: 1px solid #f0d9c0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+        }
+
+        .dining-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #c7880a;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .dining-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0d9c0;
+            font-size: 0.95em;
+        }
+
+        .dining-item:last-child { border-bottom: none; }
+
+        .dining-item .meal-type {
+            font-weight: 600;
+            color: var(--text);
+            margin-right: 8px;
+        }
+
+        .dining-item .meal-desc {
+            color: var(--text-light);
+        }
+
+        /* Highlights & Tips */
+        .day-highlights {
+            background: var(--secondary-light);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+        }
+
+        .day-highlights h5 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .day-highlights ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .day-highlights li {
+            margin-bottom: 5px;
+            font-size: 0.95em;
+            color: var(--text);
+        }
+
+        .day-tips {
+            background: #fff8e6;
+            border-left: 4px solid #f5a623;
+            border-radius: 0 8px 8px 0;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-tips h5 {
+            color: #c7880a;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .day-tips ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .day-tips li {
+            margin-bottom: 4px;
+            font-size: 0.9em;
+            color: var(--text);
+        }
+
+        /* Shopping Section */
+        .day-shopping {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-shopping h5 {
+            color: var(--text);
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .shopping-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .shopping-tag {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            color: var(--text);
+        }
+
+        /* Day Videos */
+        .day-videos {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-videos h5 {
+            color: var(--text);
+            margin-bottom: 12px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text);
+            transition: border-color 0.2s;
+        }
+
+        .video-link:hover {
+            border-color: var(--primary);
+        }
+
+        .video-link .video-icon {
+            color: #ff0000;
+            font-size: 1.5em;
+        }
+
+        .video-link .video-title {
+            font-weight: 500;
+        }
+
+        /* Dining Links */
+        .dining-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .dining-link:hover {
+            text-decoration: underline;
+        }
 
         /* Pricing Section */
         .pricing-box {
@@ -436,175 +841,76 @@
             margin-bottom: 5px;
         }
 
-
-        /* Tiered Pricing Comparison */
-        .tiers-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+        /* Advisor Card */
+        .advisor-card {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
         }
 
-        .tier-card {
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: white;
-            transition: transform 0.2s, box-shadow 0.2s;
+        .advisor-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary);
         }
 
-        .tier-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .tier-card.recommended {
-            border-color: var(--primary);
-            box-shadow: 0 4px 16px rgba(27, 97, 156, 0.25);
-        }
-
-        .tier-header {
-            padding: 20px;
-            text-align: center;
-            background: var(--bg-light);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .tier-card.recommended .tier-header {
-            background: var(--primary);
-            color: white;
-        }
-
-        .tier-name {
-            font-size: 1.3em;
+        .advisor-photo-fallback {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 700;
+            font-size: 1.5em;
+        }
+
+        .advisor-details {
+            flex: 1;
+        }
+
+        .advisor-name {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: var(--white);
+        }
+
+        .advisor-title {
+            color: var(--secondary-light);
+            font-size: 0.95em;
             margin-bottom: 5px;
         }
 
-        .tier-description {
-            font-size: 0.9em;
-            color: var(--text-light);
+        .advisor-affiliation,
+        .advisor-franchise {
+            font-size: 0.85em;
+            color: var(--secondary);
+            line-height: 1.4;
         }
 
-        .tier-card.recommended .tier-description {
-            color: rgba(255,255,255,0.85);
-        }
-
-        .tier-price {
-            padding: 20px;
-            text-align: center;
-            background: var(--bg-section);
-        }
-
-        .tier-price .total {
-            font-size: 2em;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .tier-price .per-person {
-            font-size: 0.95em;
-            color: var(--text-light);
-            margin-top: 5px;
-        }
-
-        .tier-details {
-            padding: 20px;
-        }
-
-        .tier-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.95em;
-        }
-
-        .tier-item:last-child { border-bottom: none; }
-
-        .tier-item .check {
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .tier-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.75em;
-            font-weight: 600;
-            margin-left: 10px;
-        }
-
-
-
-        /* Map Section */
-        .map-container {
-            border-radius: var(--radius);
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 300px;
-            border: none;
-        }
-
-        /* Inline maps and videos (contextual) */
-        .lodging-item {
-            margin-bottom: 25px;
-        }
-        .lodging-item:last-child {
-            margin-bottom: 0;
-        }
-        .inline-map {
+        .advisor-contact {
             margin-top: 10px;
-        }
-        .inline-map .map-container iframe {
-            height: 250px;
-        }
-        .inline-videos .video-grid {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
 
-        /* Video Embeds */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        .contact-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9em;
         }
 
-        .video-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
+        .contact-link:hover {
+            color: var(--secondary-light);
         }
 
-        .video-embed {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-embed iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-caption {
-            padding: 12px 15px;
-            font-size: 0.95em;
-            color: var(--text);
-            background: var(--bg-light);
+        .contact-link.phone {
+            font-weight: 600;
         }
 
         /* Responsive */
@@ -615,9 +921,18 @@
             .content { padding: 20px 15px; }
             .cards-grid { grid-template-columns: 1fr; }
             .overview-section { grid-template-columns: repeat(2, 1fr); }
-            /* Mobile tiers */
-            .tiers-grid { grid-template-columns: 1fr; gap: 15px; }
-            .tier-card.recommended { order: -1; }
+        }
+
+        @media (max-width: 600px) {
+            .advisor-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .advisor-contact {
+                align-items: center;
+            }
         }
 
         @media print {
@@ -625,128 +940,61 @@
             .card:hover { transform: none; box-shadow: var(--shadow); }
         }
 
-        /* Comment buttons and modal */
-        .comment-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            font-size: 0.9em;
-            font-weight: 500;
-            color: white;
-            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 2px 8px rgba(230, 126, 34, 0.3);
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .card:hover { transform: none; }
+            .card-gallery img:hover { transform: none; }
         }
-        .comment-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.4);
-        }
-        .comment-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .comment-modal.active { display: flex; }
-        .comment-form {
-            background: white;
-            padding: 25px;
-            border-radius: var(--radius);
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-        .comment-form h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        .comment-form input,
-        .comment-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            font-size: 1em;
-            box-sizing: border-box;
-        }
-        .comment-form textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-        .comment-form-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-        }
-        .comment-form button {
-            padding: 10px 20px;
-            border-radius: var(--radius);
-            font-size: 1em;
-            cursor: pointer;
-        }
-        .comment-form .cancel-btn {
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            color: var(--text);
-        }
-        .comment-form .submit-btn {
-            background: var(--primary);
-            border: none;
-            color: white;
-        }
-        .reserve-btn {
-            display: block;
-            width: 100%;
-            padding: 18px 30px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark, #1a4a6e) 100%);
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: 600;
-            border-radius: var(--radius);
-            margin: 30px 0;
-            box-shadow: var(--shadow);
-        }
-        .reserve-section {
-            text-align: center;
-            margin: 30px 0;
-        }
-        .general-comment {
-            text-align: center;
-            margin: 20px 0;
-        }
+
+        /* Utility classes for common inline styles */
+        .mt-1 { margin-top: 8px; }
+        .mt-2 { margin-top: 12px; }
+        .mt-3 { margin-top: 20px; }
+        .mb-2 { margin-bottom: 12px; }
+        .mb-3 { margin-bottom: 20px; }
+        .text-muted { color: var(--text-light); font-size: 0.9em; }
+        .text-primary { color: var(--primary); }
+        .font-bold { font-weight: 600; }
+        .small-link { margin-top: 8px; padding: 6px 12px; font-size: 0.85em; }
     </style>
 </head>
 <body>
     <!-- Header Bar -->
     <div class="header-bar">
         <div class="logo-container">
-            <img src="https://www.somotravelspecialist.com/images/web/svg/logo_white_base.svg" alt="Cruise Planners - SoMo Travel Specialist">
+            
+            <span class="logo-text">Neil Travel</span>
         </div>
         <div class="header-contact">
-            Questions? Call <a href="tel:251-293-4992">251-293-4992</a>
+            Questions? Call <a href="tel:2514635712">2514635712</a>
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>Roberts & Jones</h1>
-        <div class="destination">UK - Oxford Canal Narrowboat</div>
-        <div class="dates-badge">Oct 26 – Nov 6, 2026 (12 days / 11 nights)</div>
-        <div class="tagline">Let's Get You There - Your Adventure Awaits!</div>
+    
+    <div class="conversation-banner">
+        <a href="https://voygent.somotravel.workers.dev/trips/uk-narrowboat-oct-2026/comments" class="conversation-link">
+            <span>💬 Conversation</span>
+            
+        </a>
     </div>
+    
+
+    <!-- Hero Section -->
+    <div class="hero" >
+        <h1>Roberts &amp; Jones</h1>
+        <div class="destination">UK - Oxford Canal Narrowboat</div>
+        <div class="dates-badge">Target start Oct 26, 2026 (12 days / 11 nights aboard)</div>
+        <div class="tagline">Adventure Awaits - Let Me Plan Your Perfect Trip!</div>
+    </div>
+
+    <!-- Hero Images Gallery (if multiple) -->
+    
 
     <!-- Main Content -->
     <div class="content">
@@ -767,37 +1015,19 @@
             <div class="overview-card">
                 <div class="icon">📋</div>
                 <div class="label">Status</div>
-                <div class="value">Proposal</div>
+                <div class="value">Discovery</div>
             </div>
             
 
             
         </div>
-
-
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🗺️</div>
-                <h2>Destination Map</h2>
-            </div>
-            <div class="map-container">
-                <iframe
-                    loading="lazy"
-                    allowfullscreen
-                    referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=UK%20-%20Oxford%20Canal%20Narrowboat">
-                </iframe>
-            </div>
-        </div>
-        
 
         <!-- Travelers Section -->
         
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">👥</div>
-                <h2>Travelers</h2><button class="comment-btn" onclick="openComment('travelers', 'Travelers')">💬 Comment</button>
+                <h2>Your Travel Party</h2>
             </div>
             <div class="content-box">
                 <div class="traveler-list">
@@ -806,7 +1036,7 @@
                 
                 <div class="highlight-box">
                     <h4>Trip Notes</h4>
-                    <p>Two married couples in their 50s. Neil & Kim are married; Susie & Brad are married. All experienced travelers looking for relaxed, authentic UK canal experience.</p>
+                    <p>Two married couples in their 50s. Neil &amp; Kim are married; Susie &amp; Brad are married. All experienced travelers looking for relaxed, authentic UK canal experience.</p>
                 </div>
                 
             </div>
@@ -818,7 +1048,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">✨</div>
-                <h2>Preferences</h2>
+                <h2>Your Travel Style</h2>
             </div>
             <div class="content-box">
                 
@@ -843,7 +1073,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">✈️</div>
-                <h2>Flights</h2><button class="comment-btn" onclick="openComment('flights', 'Flights')">💬 Comment</button>
+                <h2>Flight Details</h2>
             </div>
             <div class="cards-grid">
                 
@@ -882,415 +1112,9 @@
         <!-- Lodging Section -->
         
 
-        <!-- Narrowboat Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🚢</div>
-                <h2>Your Vessel</h2><button class="comment-btn" onclick="openComment('lodging', 'Vessel')">💬 Comment</button>
-            </div>
-            <div class="content-box">
-                <div class="overview-section" style="margin-bottom: 25px;">
-                    <div class="overview-card">
-                        <div class="label">Duration</div>
-                        <div class="value">12 days (11 nights aboard)</div>
-                    </div>
-                    
-                    <div class="overview-card">
-                        <div class="label">Cabins</div>
-                        <div class="value">2 separate double cabins</div>
-                    </div>
-                    
-                    
-                    <div class="overview-card">
-                        <div class="label">Bathrooms</div>
-                        <div class="value">2 preferred (one per couple)</div>
-                    </div>
-                    
-                </div>
-
-                
-                <h4 style="color: var(--primary); margin-bottom: 15px;">Recommended Companies</h4>
-                <div class="cards-grid">
-                    
-                    <div class="card">
-                        <div class="card-header">Black Prince - Lower Heyford Base</div>
-                        <div class="card-body">
-                            <p style="font-size: 0.9em; margin-bottom: 12px;">IDEAL for Oxford Canal. Base is ON the Oxford Canal at Lower Heyford. Direct access to route. Season ends Oct 30, 2026.</p>
-                            <div class="card-detail"><span class="label">Train Access</span><span class="value">Heyford Station is RIGHT NEXT to the base - trains from Oxford (~15 min) or Banbury (~15 min)</span></div>
-                            <div class="card-detail"><span class="label">Phone</span><span class="value">01527 575 115</span></div>
-                            <a href="https://www.black-prince.com/hire-bases/lower-heyford/" class="card-link" target="_blank">Visit Website →</a>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">Black Prince - Napton Base</div>
-                        <div class="card-body">
-                            <p style="font-size: 0.9em; margin-bottom: 12px;">At junction of Oxford and Grand Union canals. Access to both south to Oxford and north toward Coventry.</p>
-                            <div class="card-detail"><span class="label">Train Access</span><span class="value">Leamington Spa station (~9 miles) - taxi/transfer needed</span></div>
-                            <div class="card-detail"><span class="label">Phone</span><span class="value">01527 575 115</span></div>
-                            <a href="https://www.black-prince.com/hire-bases/napton-hire-base/" class="card-link" target="_blank">Visit Website →</a>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">Napton Narrowboats</div>
-                        <div class="card-body">
-                            <p style="font-size: 0.9em; margin-bottom: 12px;">Family company, high-end boats. 1st Class Fleet has King-Size beds, two bathrooms. 10/11 night holidays available.</p>
-                            <div class="card-detail"><span class="label">Train Access</span><span class="value">Leamington Spa station (~9 miles)</span></div>
-                            
-                            <a href="https://www.napton-marina.co.uk/" class="card-link" target="_blank">Visit Website →</a>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">Oxfordshire Narrowboats</div>
-                        <div class="card-body">
-                            <p style="font-size: 0.9em; margin-bottom: 12px;">Based at Lower Heyford AND Bradford on Avon. 4-8 berth boats with option for 2 en-suite bathrooms.</p>
-                            <div class="card-detail"><span class="label">Train Access</span><span class="value">Heyford Station adjacent to base</span></div>
-                            
-                            <a href="https://www.oxfordshire-narrowboats.co.uk/" class="card-link" target="_blank">Visit Website →</a>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">College Cruisers</div>
-                        <div class="card-body">
-                            <p style="font-size: 0.9em; margin-bottom: 12px;">Based in Oxford. Fleet of 10 narrowboats. Outstanding customer service reputation.</p>
-                            <div class="card-detail"><span class="label">Train Access</span><span class="value">Oxford - direct trains from London Paddington (1 hour)</span></div>
-                            
-                            <a href="https://www.collegecruisers.com/" class="card-link" target="_blank">Visit Website →</a>
-                        </div>
-                    </div>
-                    
-                </div>
-                
-
-                
-                <div class="highlight-box" style="margin-top: 25px;">
-                    <h4>Estimated Boat Cost</h4>
-                    <p>£1,800 - £2,800 for 12 days - Late Sept/early Oct is end of season - good availability, reasonable prices. Premium boats with 2 bathrooms at higher end.</p>
-                </div>
-                
-            </div>
-        </div>
         
 
         <!-- Itinerary Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">📍</div>
-                <h2>Day-by-Day Itinerary</h2><button class="comment-btn" onclick="openComment('itinerary', 'Itinerary')">💬 Comment</button>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">1</div>
-                    <div class="day-info">
-                        <h3>Lower Heyford → Aynho</h3>
-                        
-                    </div>
-                </div>
-                <div class="day-content">
-                    
-                    <div class="activity">
-                        <div class="activity-title">Boat handover & training</div>
-                        <div class="activity-details">Allow ~1.5–2 hrs for briefing, inventory check, water/fuel, and first-timer practice.</div>
-                        <a href="https://www.black-prince.com/hire-bases/lower-heyford/" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="activity-title">Provisioning stop (first-day essentials)</div>
-                        <div class="activity-details">Keep it simple: breakfast supplies, tea/coffee, snacks, and pub dinner so you’re not cooking on Day 1.</div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">2</div>
-                    <div class="day-info">
-                        <h3>Aynho → Banbury</h3>
-                        
-                    </div>
-                </div>
-                <div class="day-content">
-                    
-                    <div class="activity">
-                        <div class="activity-title">Easy morning cruise through North Oxfordshire countryside</div>
-                        <div class="activity-details">Relaxed day to settle into lock rhythm—swap steering/lock duties and find your routine.</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="activity-title">Banbury town walk + supplies</div>
-                        <div class="activity-details">Stretch legs, restock groceries, and enjoy a first proper ‘canal town’ afternoon.</div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">3</div>
-                    <div class="day-info">
-                        <h3>Banbury → Cropredy</h3>
-                        
-                    </div>
-                </div>
-                <div class="day-content">
-                    
-                    <div class="activity">
-                        <div class="activity-title">Cruise past Banbury’s northern outskirts into open countryside</div>
-                        <div class="activity-details">Watch for lift bridges and towpath walkers—good day for photos and a slow lunch on-board.</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="activity-title">Pub night in Cropredy</div>
-                        <div class="activity-details">Classic canal-village evening: real ale, hearty dinner, and early night before the lock-heavy day ahead.</div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">4</div>
-                    <div class="day-info">
-                        <h3>Cropredy → Claydon Locks</h3>
-                        
-                    </div>
-                </div>
-                <div class="day-content">
-                    
-                    <div class="activity">
-                        <div class="activity-title">Claydon Locks flight</div>
-                        <div class="activity-details">Most lock-intensive day; start early and pace yourselves. Take turns and keep gloves handy.</div>
-                        <a href="https://canalrivertrust.org.uk/" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="activity-title">Canal-side picnic / tea break</div>
-                        <div class="activity-details">Build in a 30–45 min break between lock groups—this day feels longer than the mileage suggests.</div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">5</div>
-                    <div class="day-info">
-                        <h3>Claydon Locks → Fenny Compton</h3>
-                        
-                    </div>
-                </div>
-                <div class="day-content">
-                    
-                    <div class="activity">
-                        <div class="activity-title">Long, peaceful pound cruising</div>
-                        <div class="activity-details">After Claydon, enjoy one of the Oxford Canal’s most relaxing stretches—great for wildlife spotting.</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="activity-title">Canal-side dinner at The Wharf Inn (or similar)</div>
-                        <div class="activity-details">Easy, social evening—perfect for a ‘pub quiz / pints’ night if there’s live music on.</div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">6</div>
-                    <div class="day-info">
-                        <h3>Fenny Compton → Napton Junction</h3>
-                        
-                    </div>
-                </div>
-                <div class="day-content">
-                    
-                    <div class="activity">
-                        <div class="activity-title">Cruise the classic ‘contour canal’ bends</div>
-                        <div class="activity-details">This is peak Oxford Canal scenery—slow curves, fields, and that timeless ‘away from it all’ feel.</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="activity-title">Sunset walk to Napton windmill viewpoint</div>
-                        <div class="activity-details">Iconic canal-country photo spot; easy walk from moorings for big-sky views.</div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">7</div>
-                    <div class="day-info">
-                        <h3>Napton Junction → Braunston (near Braunston Turn)</h3>
-                        
-                    </div>
-                </div>
-                <div class="day-content">
-                    
-                    <div class="activity">
-                        <div class="activity-title">Explore Braunston village & canal heritage spots</div>
-                        <div class="activity-details">Braunston is ‘canal central’—great pubs, chandlery browsing, and classic narrowboat atmosphere.</div>
-                        <a href="https://waterways.org.uk/waterways/using-the-waterways/activities/braunston-village-canal-circular-heritage-walk" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="activity-title">Canal-side pub + live music hunt</div>
-                        <div class="activity-details">Ask locals what’s on—Braunston often has a lively boating scene on weekends.</div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">8</div>
-                    <div class="day-info">
-                        <h3>Braunston (layover / turnaround day)</h3>
-                        
-                    </div>
-                </div>
-                <div class="day-content">
-                    
-                    <div class="activity">
-                        <div class="activity-title">Turnaround day + slow morning</div>
-                        <div class="activity-details">Sleep in, do laundry tidying, charge devices, and enjoy a proper cooked breakfast.</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="activity-title">Walk to Braunston Locks / towpath photography</div>
-                        <div class="activity-details">Great ‘cathedral of the canals’ vibe—easy stroll and fantastic boat/lock photos.</div>
-                        <a href="https://waterways.org.uk/waterways/using-the-waterways/activities/braunston-village-canal-circular-heritage-walk" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">9</div>
-                    <div class="day-info">
-                        <h3>Braunston → Napton Junction</h3>
-                        
-                    </div>
-                </div>
-                <div class="day-content">
-                    
-                    <div class="activity">
-                        <div class="activity-title">Return cruise (north-to-south) with easy steering shifts</div>
-                        <div class="activity-details">Now that you’ve found your rhythm, this feels effortless—ideal for long chats and relaxed drinks on deck.</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="activity-title">Stock up on basics at a village shop (if convenient)</div>
-                        <div class="activity-details">Grab breakfast items + snacks so you’re not dependent on big-town stops every day.</div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">10</div>
-                    <div class="day-info">
-                        <h3>Napton Junction → Fenny Compton</h3>
-                        
-                    </div>
-                </div>
-                <div class="day-content">
-                    
-                    <div class="activity">
-                        <div class="activity-title">Rural mooring + stargazing night</div>
-                        <div class="activity-details">Pick a hedge-lined stretch away from road bridges for a quiet ‘only the owls’ evening.</div>
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="activity-title">Optional bike stroll / towpath wander</div>
-                        <div class="activity-details">Short towpath walks here are gorgeous—keep it flexible based on weather.</div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">11</div>
-                    <div class="day-info">
-                        <h3>Fenny Compton → Cropredy</h3>
-                        
-                    </div>
-                </div>
-                <div class="day-content">
-                    
-                    <div class="activity">
-                        <div class="activity-title">Claydon Locks flight (return direction)</div>
-                        <div class="activity-details">Your ‘big lock day’ on the way back—start early, bring gloves, and take breaks to keep it fun.</div>
-                        <a href="https://canalrivertrust.org.uk/" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="activity-title">Celebrate the last full boating night</div>
-                        <div class="activity-details">Toast the trip: best pub meal, favorite lock moment, and plan a ‘return to the canals’ photo.</div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">12</div>
-                    <div class="day-info">
-                        <h3>Aynho → Lower Heyford (return boat) → Oxford / London</h3>
-                        
-                    </div>
-                </div>
-                <div class="day-content">
-                    
-                    <div class="activity">
-                        <div class="activity-title">Return boat + checkout</div>
-                        <div class="activity-details">Allow time for fuel/water, rubbish, final inventory check, and staff inspection.</div>
-                        <a href="https://www.black-prince.com/hire-bases/lower-heyford/" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="activity-title">Oxford Canal walk (city section) or quick Oxford visit (time permitting)</div>
-                        <div class="activity-details">If you have a few hours before trains, the canal path near the city is an easy, scenic stroll.</div>
-                        <a href="https://www.oxford.gov.uk/waterway-walking-cycling-routes/oxford-canal-walking-cycling-routes" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="activity-title">Port Meadow sunset walk (hidden gem)</div>
-                        <div class="activity-details">Free, local favorite with big-sky views—perfect final memory before heading home.</div>
-                        <a href="https://en.wikipedia.org/wiki/Port_Meadow" class="card-link" style="margin-top: 8px; padding: 6px 12px; font-size: 0.85em;" target="_blank">More Info →</a>
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
         
 
         <!-- Extras / Recommendations Section -->
@@ -1298,7 +1122,7 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">💎</div>
-                <h2>Recommendations</h2>
+                <h2>Special Recommendations</h2>
             </div>
             <div class="cards-grid">
                 
@@ -1306,9 +1130,9 @@
                     <div class="card-body">
                         <h4 style="color: #c7880a; margin-bottom: 10px;">🌟 Hidden Gem</h4>
                         <p style="font-weight: 600; color: var(--text);">Port Meadow (Oxford) at sunset</p>
-                        <p style="margin-top: 10px;">A huge, peaceful riverside meadow with grazing horses/cattle and big-sky views—locals' favorite for an easy walk and photos.</p>
+                        <p style="margin-top: 10px;">A huge, peaceful riverside meadow with grazing horses/cattle and big-sky views—locals&#39; favorite for an easy walk and photos.</p>
                         <p style="margin-top: 10px;"><strong>Pro Tip:</strong> From Oxford city center, walk or taxi to Walton Well Road / Port Meadow entrance; best in late afternoon for golden light.</p>
-                        <a href="https://en.wikipedia.org/wiki/Port_Meadow" class="card-link" target="_blank">Learn More →</a>
+                        <a href="https://en.wikipedia.org/wiki/Port_Meadow" class="card-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                     </div>
                 </div>
                 
@@ -1317,9 +1141,9 @@
                 <div class="card" style="border-top: 4px solid var(--secondary);">
                     <div class="card-body">
                         <h4 style="color: var(--primary); margin-bottom: 10px;">📸 Photo Opportunity</h4>
-                        <p style="font-weight: 600; color: var(--text);">Duke's Cut on the Oxford Canal</p>
-                        <p style="margin-top: 10px;">A pretty, tree-lined canal cut with classic narrowboat scenery—great 'we're on the canal!' photo moment.</p>
-                        <p style="margin-top: 10px;"><strong>Pro Tip:</strong> If routing includes Oxford's northern approaches, pause for photos around the Duke's Cut area; keep it flexible based on cruising pace.</p>
+                        <p style="font-weight: 600; color: var(--text);">Duke&#39;s Cut on the Oxford Canal</p>
+                        <p style="margin-top: 10px;">A pretty, tree-lined canal cut with classic narrowboat scenery—great &#39;we&#39;re on the canal!&#39; photo moment.</p>
+                        <p style="margin-top: 10px;"><strong>Pro Tip:</strong> If routing includes Oxford&#39;s northern approaches, pause for photos around the Duke&#39;s Cut area; keep it flexible based on cruising pace.</p>
                     </div>
                 </div>
                 
@@ -1327,184 +1151,52 @@
         </div>
         
 
-
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🎬</div>
-                <h2>Helpful Videos</h2>
-            </div>
-            <div class="video-grid">
-            
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/--PAUJkLJfM" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">How to operate a canal lock (beginner-friendly refresher)</div>
-                </div>
-            
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/RrFZAVeQyEo" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">Boating through Banbury on the Oxford Canal (what it looks like in town)</div>
-                </div>
-            
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/scXFgKxYFQ0" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">Inside Banbury Lock (maintenance + how locks work) – CruisingTheCut</div>
-                </div>
-            
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/zTfchEr1HRg" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">Narrowboat going through Duke’s Lock on the Oxford Canal (Oxford area)</div>
-                </div>
-            
-                <div class="video-card">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/Rm9gbS1zQfs" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">Braunston to Banbury (Oxford Canal cruising vlog episode)</div>
-                </div>
-            
-            </div>
-        </div>
+        <!-- Featured Links Section -->
         
 
-        <!-- Package Options / Pricing Section -->
+        <!-- Tiered Pricing Section -->
         
-        
+
+        <!-- Pricing Section -->
         
 
     </div>
 
     <!-- Footer -->
-    
-    <!-- Reserve Now Section -->
-    <div class="reserve-section">
-        <p style="color: var(--text-light); margin-bottom: 15px;">Ready to book? Secure your trip with a deposit.</p>
-        <a href="https://www.somotravelspecialist.com" class="reserve-btn" target="_blank">Reserve Now</a>
-    </div>
-
-    <!-- General Comment -->
-    <div class="general-comment">
-        <button class="comment-btn" onclick="openComment('general', 'Overall Trip')">
-            💬 Questions or changes? Let us know
-        </button>
-    </div>
-
-    <!-- Comment Modal -->
-    <div id="commentModal" class="comment-modal" onclick="if(event.target===this)closeComment()">
-        <div class="comment-form">
-            <h3 id="commentTitle">Comment on Section</h3>
-            <input type="text" id="commentName" placeholder="Your name (optional)">
-            <input type="email" id="commentEmail" placeholder="Email for reply (optional)">
-            <textarea id="commentMessage" placeholder="Your question, feedback, or requested changes..."></textarea>
-            <div class="comment-form-buttons">
-                <button class="cancel-btn" onclick="closeComment()">Cancel</button>
-                <button class="submit-btn" id="submitComment" onclick="submitComment()">Send</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        var commentSection = '';
-        var commentItem = '';
-        var tripKey = 'susie_65439631/uk-narrowboat-oct-2026';
-        var apiEndpoint = 'https://voygent.somotravel.workers.dev';
-
-        function openComment(section, item) {
-            commentSection = section;
-            commentItem = item || '';
-            document.getElementById('commentTitle').textContent = 'Comment on ' + (item || section);
-            document.getElementById('commentModal').classList.add('active');
-            document.getElementById('commentMessage').focus();
-        }
-
-        function closeComment() {
-            document.getElementById('commentModal').classList.remove('active');
-            document.getElementById('commentName').value = '';
-            document.getElementById('commentEmail').value = '';
-            document.getElementById('commentMessage').value = '';
-        }
-
-        function submitComment() {
-            var message = document.getElementById('commentMessage').value.trim();
-            if (!message) return;
-
-            var btn = document.getElementById('submitComment');
-            btn.disabled = true;
-            btn.textContent = 'Sending...';
-
-            fetch(apiEndpoint + '/comment', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    tripKey: tripKey,
-                    section: commentSection,
-                    item: commentItem,
-                    message: message,
-                    name: document.getElementById('commentName').value.trim() || null,
-                    email: document.getElementById('commentEmail').value.trim() || null
-                })
-            })
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
-                if (data.success) {
-                    document.querySelector('.comment-form').innerHTML = '<div style="text-align:center;padding:20px;color:var(--primary);"><h3>✓ Comment Sent!</h3><p>Your travel agent will review your message.</p><button class="cancel-btn" onclick="closeComment();location.reload();">Close</button></div>';
-                } else {
-                    throw new Error('Failed');
-                }
-            })
-            .catch(function() {
-                btn.disabled = false;
-                btn.textContent = 'Send';
-                alert('Failed to send comment. Please try again.');
-            });
-        }
-    </script>
-
     <div class="footer">
         <div class="footer-content">
             <div class="footer-section">
                 <div class="footer-tagline">Begin Your Adventure Today</div>
                 <p>Travel is our passion, and our area of expertise. Let us help you create memories that last a lifetime.</p>
             </div>
-            <div class="footer-section">
-                <h4>Contact Your Travel Advisor</h4>
-                <p>
-                    📞 <a href="tel:251-293-4992">251-293-4992</a><br>
-                    🌐 <a href="https://www.somotravelspecialist.com">somotravelspecialist.com</a>
-                </p>
+            <div class="footer-section advisor-info">
+                <h4>Your Travel Advisor</h4>
+                <div class="advisor-card">
+                    
+                    <div class="advisor-photo-fallback" style="display:flex;">NR</div>
+                    
+                    <div class="advisor-details">
+                        <div class="advisor-name">Neil Roberts</div>
+                        <div class="advisor-title">Travel Consultant</div>
+                        <div class="advisor-franchise">Independent Travel Advisor</div>
+                        <div class="advisor-contact">
+                            <a href="tel:2514635712" class="contact-link phone">📞 2514635712</a>
+                            <a href="mailto:dneilroberts@gmail.com" class="contact-link email">✉️ dneilroberts@gmail.com</a>
+                            <a href="https://www.neiltravel.com" target="_blank" class="contact-link web">🌐 https://www.neiltravel.com</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
             <div class="footer-section">
-                <h4>Cruise Planners</h4>
-                <p>
-                    FL ST# 39068 | CA ST# 2034468-50<br>
-                    HI ST# TAR-7058 | WA ST# 603-399-504
-                </p>
+                <h4>Neil Travel</h4>
             </div>
+            
         </div>
-        <div class="qr-section" style="text-align: center; padding: 20px 0;">
-                <p style="font-size: 0.9em; color: var(--secondary-light); margin-bottom: 10px;">Scan to view on mobile</p>
-                <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px; border-radius: 8px; padding: 8px; background: white;">
-            </div>
-            <div class="footer-bottom">
-            <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
+        <div class="footer-bottom">
+            <p>Prepared with care by Neil Travel, Independent Travel Advisor</p>
             <p style="margin-top: 5px;">Generated January 11, 2026</p>
-            <p style="margin-top: 5px; font-size: 0.8em; opacity: 0.7;">Template: somotravel-cruisemasters v1.8 | Rendered: 2026-01-12 09:52:46 UTC</p>
         </div>
     </div>
-    <script>
-        (function() {
-            var qrImg = document.getElementById('qr-code');
-            var url = encodeURIComponent(window.location.href);
-            qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + url;
-        })();
-    </script>
 </body>
 </html>
