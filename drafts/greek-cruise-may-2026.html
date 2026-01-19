@@ -1161,7 +1161,7 @@
         .cruise-quick-links {
             display: flex;
             gap: 12px;
-            margin: 15px 0;
+            margin: 15px 0 30px 0;
             flex-wrap: wrap;
         }
 
@@ -1179,6 +1179,19 @@
             transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .quick-link .click-hint {
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7em;
+            font-weight: 400;
+            color: var(--text-secondary, #666);
+            white-space: nowrap;
+            opacity: 0.7;
         }
 
         .quick-link::after {
@@ -3021,18 +3034,21 @@
                     <a href="https://celestyal.com/us/our-ships/celestyal-journey" target="_blank" rel="noopener" class="quick-link ship-info">
                         <span class="icon">🛳️</span>
                         <span class="label">Ship Info</span>
+                        <span class="click-hint">click to view</span>
                     </a>
                     
                     
                     <a href="https://www.cruisemapper.com/deckplans/Celestyal-Journey-632" target="_blank" rel="noopener" class="quick-link deck-plan">
                         <span class="icon">📋</span>
                         <span class="label">Deck Plan</span>
+                        <span class="click-hint">click to view</span>
                     </a>
                     
                     
                     <a href="https://www.mykindofcruise.com/lines/celestyal/celestyal-journey/cabins/outside/xb" target="_blank" rel="noopener" class="quick-link stateroom">
                         <span class="icon">🚪</span>
                         <span class="label">Stateroom</span>
+                        <span class="click-hint">click to view</span>
                     </a>
                     
                 </div>
@@ -3380,13 +3396,15 @@
                 
                 <div class="extra-card priority-medium">
                     
+                    <span class="provider-badge viator">Viator</span>
                     
-                    <span class="priority-badge" style="">AGENT RECOMMENDED</span>
                     
-                    <div class="extra-name">Post-Cruise Athens Hotel</div>
-                    <div class="extra-price">~$150-200</div>
-                    <div class="extra-desc">One night in Athens after disembarkation before your flight home.</div>
-                    <div class="extra-why">💡 Your ship arrives at 8am but flights don&#39;t leave until the next morning. Enjoy a leisurely last day exploring Athens.</div>
+                    
+                    
+                    <div class="extra-name">Rhodes Medieval Old Town Walking Tour</div>
+                    <div class="extra-price">~$45/person</div>
+                    <div class="extra-desc">Small-group walking tour (570+ reviews). 2.5 hours exploring the best-preserved medieval town in Europe.</div>
+                    <div class="extra-why">💡 After your included Lindos excursion, explore the UNESCO Medieval Old Town with a local guide. Street of Knights, Palace of the Grand Master, Jewish Quarter - history comes alive.</div>
                 </div>
                 
             </div>
@@ -4123,15 +4141,15 @@
                         
                         <div class="activity-title">Arrive Kusadasi 8:00am</div>
                         
-                        <div class="activity-details">Gateway to ancient Ephesus</div>
+                        <div class="activity-details">Gateway to ancient Ephesus - 10 hours in port</div>
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Ephesus Excursion</div>
+                        <div class="activity-title">⭐ INCLUDED: Ephesus Ancient City Excursion</div>
                         
-                        <div class="activity-details">One of world&#39;s best-preserved ancient cities - Library of Celsus, Great Theatre, Terrace Houses</div>
+                        <div class="activity-details">Included with your Celestyal cruise! One of the world&#39;s best-preserved ancient cities - Library of Celsus, Great Theatre, Terrace Houses. Allow 4-5 hours.</div>
                         
                     </div>
                     
@@ -4139,7 +4157,7 @@
                         
                         <div class="activity-title">Free time in Kusadasi</div>
                         
-                        <div class="activity-details">Bazaar shopping, leather goods, Turkish delights</div>
+                        <div class="activity-details">Bazaar shopping, leather goods, Turkish delights, cafes along the waterfront</div>
                         
                     </div>
                     
@@ -4235,15 +4253,15 @@
                         
                         <div class="activity-title">Arrive Rhodes 8:00am</div>
                         
-                        <div class="activity-details">Full day in port</div>
+                        <div class="activity-details">Full day in port - 10 hours to explore</div>
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-title">Lindos Acropolis Excursion</div>
+                        <div class="activity-title">⭐ INCLUDED: Lindos Acropolis Excursion</div>
                         
-                        <div class="activity-details">Ancient temple perched on dramatic clifftop with stunning views</div>
+                        <div class="activity-details">Included with your Celestyal cruise! Ancient temple perched on dramatic clifftop with stunning views of St. Paul&#39;s Bay. Allow 4-5 hours including transport.</div>
                         
                     </div>
                     
@@ -4251,7 +4269,15 @@
                         
                         <div class="activity-title">Explore Rhodes Medieval Old Town</div>
                         
-                        <div class="activity-details">UNESCO World Heritage Site - Palace of the Grand Master, Street of Knights</div>
+                        <div class="activity-details">UNESCO World Heritage Site - Palace of the Grand Master, Street of Knights, Jewish Quarter. Walking distance from cruise port.</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-title">Optional: Guided Old Town Walking Tour</div>
+                        
+                        <div class="activity-details">570+ reviews on Viator. Local guide brings medieval history to life - Jewish Quarter, Street of Knights, Grand Master Palace.</div>
                         
                     </div>
                     
@@ -5245,7 +5271,7 @@
                 <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px;">
             </div>
             <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
-            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 19, 2026 | Rendered: 2026-01-19 05:12:57 UTC</p>
+            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 19, 2026 | Rendered: 2026-01-19 05:29:49 UTC</p>
         </div>
     </div>
 
