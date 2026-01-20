@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neil &amp; Kim - RV Weekend Getaway Options | SoMo Travel Specialist</title>
+    <title>Neil &amp; Kim - RV Weekend Getaway Options | SOMO Travel</title>
     <style>
         :root {
-            /* Cruise Planners / SoMo Travel Brand Colors */
+            /* Dynamic Brand Colors from Agent Profile */
             --primary: #1b619c;
-            --primary-dark: #154a78;
-            --secondary: #90c8ed;
-            --secondary-light: #c5e4f7;
+            --primary-dark: color-mix(in srgb, #1b619c 80%, black);
+            --secondary: color-mix(in srgb, #1b619c 40%, white);
+            --secondary-light: color-mix(in srgb, #1b619c 20%, white);
             --accent: #3baf2a;
-            --accent-dark: #2d8a21;
+            --accent-dark: color-mix(in srgb, #3baf2a 80%, black);
 
             /* Neutrals */
             --white: #ffffff;
@@ -69,6 +69,50 @@
             color: var(--white);
             text-decoration: none;
             font-weight: 600;
+        }
+
+        .conversation-banner {
+            background: var(--bg-light);
+            padding: 12px 30px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .conversation-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            color: var(--primary);
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+        }
+
+        .conversation-link:hover {
+            border-color: var(--secondary);
+        }
+
+        .conversation-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #e8f5e9;
+            color: var(--accent-dark);
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .conversation-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
         }
 
         /* Hero Section */
@@ -291,6 +335,48 @@
             color: var(--text-light);
             text-align: center;
             margin-top: 5px;
+        }
+
+        .cabin-media {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        .cabin-media a {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-light);
+            padding: 6px;
+        }
+
+        .cabin-photo-link.no-thumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+        }
+
+        .cabin-photo-fallback {
+            display: none;
+            color: var(--text-light);
+            font-size: 0.85em;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .cabin-photo-link.no-thumb .cabin-photo-fallback {
+            display: block;
+        }
+
+        .cabin-media img {
+            width: 100%;
+            height: 140px;
+            object-fit: contain;
+            border-radius: 6px;
         }
 
         /* Hero Gallery */
@@ -755,6 +841,78 @@
             margin-bottom: 5px;
         }
 
+        /* Advisor Card */
+        .advisor-card {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .advisor-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary);
+        }
+
+        .advisor-photo-fallback {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5em;
+        }
+
+        .advisor-details {
+            flex: 1;
+        }
+
+        .advisor-name {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: var(--white);
+        }
+
+        .advisor-title {
+            color: var(--secondary-light);
+            font-size: 0.95em;
+            margin-bottom: 5px;
+        }
+
+        .advisor-affiliation,
+        .advisor-franchise {
+            font-size: 0.85em;
+            color: var(--secondary);
+            line-height: 1.4;
+        }
+
+        .advisor-contact {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .contact-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .contact-link:hover {
+            color: var(--secondary-light);
+        }
+
+        .contact-link.phone {
+            font-weight: 600;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-bar { flex-direction: column; gap: 10px; text-align: center; }
@@ -763,6 +921,18 @@
             .content { padding: 20px 15px; }
             .cards-grid { grid-template-columns: 1fr; }
             .overview-section { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .advisor-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .advisor-contact {
+                align-items: center;
+            }
         }
 
         @media print {
@@ -798,19 +968,29 @@
     <!-- Header Bar -->
     <div class="header-bar">
         <div class="logo-container">
-            <img src="https://www.somotravelspecialist.com/images/web/svg/logo_white_base.svg" alt="Cruise Planners - SoMo Travel Specialist">
+            <img src="https://voygent.somotravel.workers.dev/media/branding/CPLogoMain.jpg" alt="SOMO Travel" class="header-logo" onerror="this.style.display='none'">
+            <span class="logo-text">SOMO Travel</span>
         </div>
         <div class="header-contact">
-            Questions? Call <a href="tel:251-293-4992">251-293-4992</a>
+            Questions? Call <a href="tel:251-289-1505">251-289-1505</a>
         </div>
     </div>
+
+    
+    <div class="conversation-banner">
+        <a href="https://voygent.somotravel.workers.dev/trips/rv-weekend-comparison-feb-2026/comments" class="conversation-link">
+            <span>💬 Conversation</span>
+            
+        </a>
+    </div>
+    
 
     <!-- Hero Section -->
     <div class="hero" >
         <h1>Neil &amp; Kim</h1>
         <div class="destination">RV Weekend Getaway Options</div>
         
-        <div class="tagline">Let's Get You There - Your Adventure Awaits!</div>
+        <div class="tagline">Lets Get You There - Your Adventure Awaits!</div>
     </div>
 
     <!-- Hero Images Gallery (if multiple) -->
@@ -873,7 +1053,6 @@
         <!-- Lodging Section -->
         
 
-        <!-- Narrowboat Section -->
         
 
         <!-- Itinerary Section -->
@@ -979,23 +1158,36 @@
                 <div class="footer-tagline">Begin Your Adventure Today</div>
                 <p>Travel is our passion, and our area of expertise. Let us help you create memories that last a lifetime.</p>
             </div>
-            <div class="footer-section">
-                <h4>Contact Your Travel Advisor</h4>
-                <p>
-                    📞 <a href="tel:251-293-4992">251-293-4992</a><br>
-                    🌐 <a href="https://www.somotravelspecialist.com">somotravelspecialist.com</a>
-                </p>
+            <div class="footer-section advisor-info">
+                <h4>Your Travel Advisor</h4>
+                <div class="advisor-card">
+                    
+                    <img src="https://voygent.somotravel.workers.dev/media/branding/kimThumbnail.png"
+                         alt="Kim Henderson"
+                         class="advisor-photo"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="advisor-photo-fallback" style="display:none;">KH</div>
+                    
+                    <div class="advisor-details">
+                        <div class="advisor-name">Kim Henderson</div>
+                        <div class="advisor-title">Cruise &amp; Tour Specialist</div>
+                        <div class="advisor-franchise">Cruise Planners Independent Franchise Owner</div>
+                        <div class="advisor-contact">
+                            <a href="tel:251-289-1505" class="contact-link phone">📞 251-289-1505</a>
+                            <a href="mailto:kim.henderson@cruiseplanners.com" class="contact-link email">✉️ kim.henderson@cruiseplanners.com</a>
+                            <a href="https://www.somotravelspecialist.com" target="_blank" class="contact-link web">🌐 https://www.somotravelspecialist.com</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
             <div class="footer-section">
-                <h4>Cruise Planners</h4>
-                <p>
-                    FL ST# 39068 | CA ST# 2034468-50<br>
-                    HI ST# TAR-7058 | WA ST# 603-399-504
-                </p>
+                <h4>SOMO Travel</h4>
             </div>
+            
         </div>
         <div class="footer-bottom">
-            <p>Prepared with care by SoMo Travel Specialist, a Cruise Planners Franchise</p>
+            <p>Prepared with care by SOMO Travel, Cruise Planners Independent Franchise Owner</p>
             <p style="margin-top: 5px;">Generated </p>
         </div>
     </div>
