@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Trip - European Romance - Paris, France &amp; Rome, Italy | None</title>
+    <style>
+        :root {
+            /* Dynamic Brand Colors from Agent Profile */
+            --primary: #667eea;
+            --primary-dark: color-mix(in srgb, #667eea 80%, black);
+            --secondary: color-mix(in srgb, #667eea 40%, white);
+            --secondary-light: color-mix(in srgb, #667eea 20%, white);
+            --accent: #3baf2a;
+            --accent-dark: color-mix(in srgb, #3baf2a 80%, black);
+
+            /* Neutrals */
+            --white: #ffffff;
+            --bg-light: #f5f9fc;
+            --bg-section: #e8f4fc;
+            --text: #2c3e50;
+            --text-light: #5a6c7d;
+            --border: #d1e3f0;
+            --shadow: 0 4px 12px rgba(27, 97, 156, 0.15);
+            --radius: 10px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--white);
+        }
+
+        /* Header with Logo */
+        .header-bar {
+            background: var(--primary);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .header-contact {
+            color: var(--secondary-light);
+            font-size: 0.9em;
+        }
+
+        .header-contact a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .conversation-banner {
+            background: var(--bg-light);
+            padding: 12px 30px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .conversation-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            color: var(--primary);
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+        }
+
+        .conversation-link:hover {
+            border-color: var(--secondary);
+        }
+
+        .conversation-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #e8f5e9;
+            color: var(--accent-dark);
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .conversation-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.4em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero .destination {
+            font-size: 1.4em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .hero .dates-badge {
+            display: inline-block;
+            background: var(--accent);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .hero .tagline {
+            margin-top: 25px;
+            font-size: 1em;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Overview Cards */
+        .overview-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .overview-card {
+            background: var(--bg-section);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .overview-card .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .overview-card .label {
+            font-size: 0.85em;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .overview-card .value {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .section-header h2 {
+            color: var(--primary);
+            font-size: 1.4em;
+            font-weight: 700;
+        }
+
+        .section-icon {
+            background: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        /* Content Box */
+        .content-box {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(27, 97, 156, 0.2);
+        }
+
+        .card-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95em;
+        }
+
+        .card-detail:last-child { border-bottom: none; }
+        .card-detail .label { color: var(--text-light); }
+        .card-detail .value { font-weight: 600; color: var(--text); }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+
+        .card-link:hover { background: var(--accent-dark); }
+
+        /* Card Images */
+        .card-image {
+            width: 100%;
+            max-height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card-gallery img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .card-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hide broken images and collapse empty containers */
+        img[src=""], img:not([src]), img.broken {
+            display: none !important;
+        }
+        .card-gallery:empty, .hero-gallery:empty {
+            display: none !important;
+        }
+
+        .image-caption {
+            font-size: 0.85em;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .cabin-media {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        .cabin-media a {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-light);
+            padding: 6px;
+        }
+
+        .cabin-photo-link.no-thumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+        }
+
+        .cabin-photo-fallback {
+            display: none;
+            color: var(--text-light);
+            font-size: 0.85em;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .cabin-photo-link.no-thumb .cabin-photo-fallback {
+            display: block;
+        }
+
+        .cabin-media img {
+            width: 100%;
+            height: 140px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        /* Hero Gallery */
+        .hero-gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 0;
+            background: var(--primary-dark);
+            padding: 0;
+        }
+
+        .hero-gallery-item {
+            flex: 0 0 auto;
+            position: relative;
+        }
+
+        .hero-gallery-item img {
+            height: 250px;
+            width: auto;
+            display: block;
+        }
+
+        .hero-gallery-item .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 8px 12px;
+            font-size: 0.9em;
+        }
+
+        /* Flight Cards */
+        .flight-card .card-header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+        }
+
+        .flight-route {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Day Itinerary */
+        .day-card {
+            margin-bottom: 20px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .day-header {
+            background: var(--bg-section);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .day-number {
+            background: var(--primary);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .day-info h3 { color: var(--primary); margin-bottom: 3px; }
+        .day-date { color: var(--text-light); font-size: 0.9em; }
+
+        .day-content { padding: 20px; }
+
+        .activity {
+            padding: 15px;
+            margin-bottom: 12px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .activity:last-child { margin-bottom: 0; }
+        .activity-title { font-weight: 600; color: var(--text); margin-bottom: 5px; }
+        .activity-time { font-size: 0.85em; color: var(--primary); font-weight: 600; margin-bottom: 3px; }
+        .activity-details { font-size: 0.95em; color: var(--text-light); }
+
+        /* Day Description & Info Boxes */
+        .day-description {
+            font-size: 1.05em;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .cruise-info-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            background: var(--bg-section);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .cruise-info-item {
+            text-align: center;
+        }
+
+        .cruise-info-item .label {
+            font-size: 0.75em;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .cruise-info-item .value {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95em;
+        }
+
+        /* Dining Section */
+        .dining-section {
+            background: linear-gradient(135deg, #fff8f0 0%, #fff 100%);
+            border: 1px solid #f0d9c0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+        }
+
+        .dining-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #c7880a;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .dining-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0d9c0;
+            font-size: 0.95em;
+        }
+
+        .dining-item:last-child { border-bottom: none; }
+
+        .dining-item .meal-type {
+            font-weight: 600;
+            color: var(--text);
+            margin-right: 8px;
+        }
+
+        .dining-item .meal-desc {
+            color: var(--text-light);
+        }
+
+        /* Highlights & Tips */
+        .day-highlights {
+            background: var(--secondary-light);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+        }
+
+        .day-highlights h5 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .day-highlights ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .day-highlights li {
+            margin-bottom: 5px;
+            font-size: 0.95em;
+            color: var(--text);
+        }
+
+        .day-tips {
+            background: #fff8e6;
+            border-left: 4px solid #f5a623;
+            border-radius: 0 8px 8px 0;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-tips h5 {
+            color: #c7880a;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .day-tips ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .day-tips li {
+            margin-bottom: 4px;
+            font-size: 0.9em;
+            color: var(--text);
+        }
+
+        /* Shopping Section */
+        .day-shopping {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-shopping h5 {
+            color: var(--text);
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .shopping-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .shopping-tag {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            color: var(--text);
+        }
+
+        /* Day Videos */
+        .day-videos {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-videos h5 {
+            color: var(--text);
+            margin-bottom: 12px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text);
+            transition: border-color 0.2s;
+        }
+
+        .video-link:hover {
+            border-color: var(--primary);
+        }
+
+        .video-link .video-icon {
+            color: #ff0000;
+            font-size: 1.5em;
+        }
+
+        .video-link .video-title {
+            font-weight: 500;
+        }
+
+        /* Dining Links */
+        .dining-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .dining-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Pricing Section */
+        .pricing-box {
+            background: linear-gradient(135deg, var(--bg-section) 0%, var(--secondary-light) 100%);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 30px;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 1.05em;
+        }
+
+        .pricing-row:last-child { border-bottom: none; }
+
+        .pricing-row.total {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--primary);
+            border-top: 3px solid var(--primary);
+            margin-top: 15px;
+            padding-top: 20px;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: var(--secondary-light);
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin: 20px 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .alert-box {
+            background: #fff8e6;
+            border-left: 5px solid #f5a623;
+            padding: 20px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin: 20px 0;
+        }
+
+        .alert-box h4 {
+            color: #c7880a;
+            margin-bottom: 10px;
+        }
+
+        /* Lists */
+        ul { margin-left: 20px; }
+        li { margin-bottom: 8px; }
+
+        /* Traveler Names */
+        .traveler-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .traveler-badge {
+            background: var(--primary);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 40px 30px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 950px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--secondary-light);
+            font-size: 0.95em;
+            line-height: 1.8;
+        }
+
+        .footer-section a {
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.85em;
+            color: var(--secondary-light);
+        }
+
+        .footer-tagline {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        /* Advisor Card */
+        .advisor-card {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .advisor-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary);
+        }
+
+        .advisor-photo-fallback {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5em;
+        }
+
+        .advisor-details {
+            flex: 1;
+        }
+
+        .advisor-name {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: var(--white);
+        }
+
+        .advisor-title {
+            color: var(--secondary-light);
+            font-size: 0.95em;
+            margin-bottom: 5px;
+        }
+
+        .advisor-affiliation,
+        .advisor-franchise {
+            font-size: 0.85em;
+            color: var(--secondary);
+            line-height: 1.4;
+        }
+
+        .advisor-contact {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .contact-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .contact-link:hover {
+            color: var(--secondary-light);
+        }
+
+        .contact-link.phone {
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-bar { flex-direction: column; gap: 10px; text-align: center; }
+            .hero h1 { font-size: 1.8em; }
+            .hero .destination { font-size: 1.1em; }
+            .content { padding: 20px 15px; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .overview-section { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .advisor-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .advisor-contact {
+                align-items: center;
+            }
+        }
+
+        @media print {
+            .header-bar, .hero { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .card:hover { transform: none; box-shadow: var(--shadow); }
+        }
+
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .card:hover { transform: none; }
+            .card-gallery img:hover { transform: none; }
+        }
+
+        /* Utility classes for common inline styles */
+        .mt-1 { margin-top: 8px; }
+        .mt-2 { margin-top: 12px; }
+        .mt-3 { margin-top: 20px; }
+        .mb-2 { margin-bottom: 12px; }
+        .mb-3 { margin-bottom: 20px; }
+        .text-muted { color: var(--text-light); font-size: 0.9em; }
+        .text-primary { color: var(--primary); }
+        .font-bold { font-weight: 600; }
+        .small-link { margin-top: 8px; padding: 6px 12px; font-size: 0.85em; }
+    </style>
+</head>
+<body>
+    <!-- Header Bar -->
+    <div class="header-bar">
+        <div class="logo-container">
+            
+            <span class="logo-text">None</span>
+        </div>
+        <div class="header-contact">
+            
+        </div>
+    </div>
+
+    
+    <div class="conversation-banner">
+        <a href="https://voygent.somotravel.workers.dev/trips/sample-europe-romantic-7day/comments" class="conversation-link">
+            <span>💬 Conversation</span>
+            
+        </a>
+    </div>
+    
+
+    <!-- Hero Section -->
+    <div class="hero" >
+        <h1>Sample Trip - European Romance</h1>
+        <div class="destination">Paris, France &amp; Rome, Italy</div>
+        <div class="dates-badge">Sample dates - customize for your client</div>
+        
+    </div>
+
+    <!-- Hero Images Gallery (if multiple) -->
+    
+
+    <!-- Main Content -->
+    <div class="content">
+
+        <!-- Overview Cards -->
+        <div class="overview-section">
+            
+            <div class="overview-card">
+                <div class="icon">👥</div>
+                <div class="label">Travelers</div>
+                <div class="value">2 Guests</div>
+            </div>
+            
+
+            
+            <div class="overview-card">
+                <div class="icon">📅</div>
+                <div class="label">Duration</div>
+                <div class="value">7 Days</div>
+            </div>
+            
+
+            
+            <div class="overview-card">
+                <div class="icon">📋</div>
+                <div class="label">Status</div>
+                <div class="value">Proposal</div>
+            </div>
+            
+
+            
+            <div class="overview-card">
+                <div class="icon">💰</div>
+                <div class="label">Investment</div>
+                <div class="value">$8,300</div>
+            </div>
+            
+        </div>
+
+        <!-- Travelers Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">👥</div>
+                <h2>Your Travel Party</h2>
+            </div>
+            <div class="content-box">
+                <div class="traveler-list">
+                    <span class="traveler-badge">Traveler 1</span><span class="traveler-badge">Traveler 2</span>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <!-- Preferences Section -->
+        
+
+        <!-- Flights Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">✈️</div>
+                <h2>Flight Details</h2>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card flight-card">
+                    <div class="card-header">Outbound Flight</div>
+                    <div class="card-body">
+                        <div class="flight-route">Home → Paris (CDG)</div>
+                        <div class="card-detail"><span class="label">Date</span><span class="value">2026-06-01</span></div>
+                        <div class="card-detail"><span class="label">Airline</span><span class="value">TBD</span></div>
+                        <p style="margin-top: 12px; font-size: 0.9em; color: var(--text-light);">Direct or 1-stop options available</p>
+                    </div>
+                </div>
+                
+
+                
+                <div class="card flight-card">
+                    <div class="card-header">Return Flight</div>
+                    <div class="card-body">
+                        <div class="flight-route">Rome (FCO) → Home</div>
+                        <div class="card-detail"><span class="label">Date</span><span class="value">2026-06-07</span></div>
+                        <div class="card-detail"><span class="label">Airline</span><span class="value">TBD</span></div>
+                    </div>
+                </div>
+                
+            </div>
+
+            
+        </div>
+        
+
+        <!-- Lodging Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🏨</div>
+                <h2>Accommodations</h2>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    
+                    
+                    
+                    <div class="card-header">Boutique Hotel - Le Marais District</div>
+                    <div class="card-body">
+                        <div class="card-detail"><span class="label">Location</span><span class="value">Paris, France</span></div>
+                        <div class="card-detail"><span class="label">Nights</span><span class="value">3</span></div>
+                        
+                        
+                        <div class="card-detail"><span class="label">Rate</span><span class="value">$220/night</span></div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    
+                    
+                    
+                    <div class="card-header">Boutique Hotel - Trastevere</div>
+                    <div class="card-body">
+                        <div class="card-detail"><span class="label">Location</span><span class="value">Rome, Italy</span></div>
+                        <div class="card-detail"><span class="label">Nights</span><span class="value">3</span></div>
+                        
+                        
+                        <div class="card-detail"><span class="label">Rate</span><span class="value">$180/night</span></div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        
+
+        <!-- Itinerary Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">📍</div>
+                <h2>Day-by-Day Itinerary</h2>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">1</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">2026-06-01</div>
+                        <div class="day-date">Paris, France</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+
+                    
+
+                    
+
+                    
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Afternoon</div>
+                        <div class="activity-title">Arrive &amp; Check-in</div>
+                        <div class="activity-details">Settle into your Le Marais hotel. Take a leisurely stroll through the neighborhood to shake off jet lag.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-title">Seine River Walk</div>
+                        <div class="activity-details">Walk along the Seine as the sun sets. Cross to Île de la Cité to see Notre-Dame&#39;s exterior restoration.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-title">Welcome Dinner</div>
+                        <div class="activity-details">Classic French bistro in Le Marais. Try the duck confit or steak frites paired with local wine.</div>
+                        <div class="activity-details">Reservation recommended</div>
+                        
+                    </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+                    <div class="day-tips">
+                        <h5>💡 Tips</h5>
+                        <ul>
+                        
+                            <li>Free: Window shop along Rue des Francs-Bourgeois for vintage finds</li>
+                        
+                            <li>Free: Peek into hidden courtyards - many Le Marais buildings have beautiful interior gardens</li>
+                        
+                        </ul>
+                    </div>
+                    
+
+                    
+
+                    
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">2</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">2026-06-02</div>
+                        <div class="day-date">Paris, France</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+
+                    
+
+                    
+
+                    
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Morning</div>
+                        <div class="activity-title">Eiffel Tower - Skip the Line</div>
+                        <div class="activity-details">Beat the crowds with an early morning timed entry. Summit access for panoramic views of the city.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Late Morning</div>
+                        <div class="activity-title">Trocadéro Gardens</div>
+                        <div class="activity-details">Cross to Trocadéro for the classic Eiffel Tower photo op. Lovely gardens to explore.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Afternoon</div>
+                        <div class="activity-title">Louvre Museum - Guided Highlights Tour</div>
+                        <div class="activity-details">2-hour guided tour hitting the must-sees: Mona Lisa, Venus de Milo, Winged Victory. Skip-the-line entry included.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-title">Dinner in Saint-Germain-des-Prés</div>
+                        <div class="activity-details">Cross to the Left Bank for dinner in the literary quarter. Café de Flore or Les Deux Magots for atmosphere.</div>
+                        
+                        
+                    </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+                    <div class="day-tips">
+                        <h5>💡 Tips</h5>
+                        <ul>
+                        
+                            <li>Free: Walk through the Tuileries Garden between Louvre and Place de la Concorde</li>
+                        
+                            <li>Free: Browse the bouquinistes (book stalls) along the Seine</li>
+                        
+                        </ul>
+                    </div>
+                    
+
+                    
+
+                    
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">3</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">2026-06-03</div>
+                        <div class="day-date">Paris, France</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+
+                    
+
+                    
+
+                    
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Morning</div>
+                        <div class="activity-title">Montmartre Food &amp; Wine Tour</div>
+                        <div class="activity-details">3-hour walking tour through the artistic Montmartre neighborhood. Visit local cheese shops, bakeries, chocolate makers, and wine bars. Includes tastings at 6-8 stops.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Afternoon</div>
+                        <div class="activity-title">Sacré-Cœur Basilica</div>
+                        <div class="activity-details">Free entry to the stunning white-domed basilica. Climb to the dome for city views or relax on the steps watching street performers.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Afternoon</div>
+                        <div class="activity-title">Artist Square (Place du Tertre)</div>
+                        <div class="activity-details">Browse local artists at work. Fun spot for a caricature or small painting souvenir.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-title">Final Paris Evening</div>
+                        <div class="activity-details">Farewell dinner at a Michelin-recommended bistro, or keep it casual with wine and cheese in the hotel neighborhood.</div>
+                        
+                        
+                    </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+                    <div class="day-tips">
+                        <h5>💡 Tips</h5>
+                        <ul>
+                        
+                            <li>Free: Walk through the Montmartre vineyard, one of the last working vineyards in Paris</li>
+                        
+                            <li>Free: Explore the quiet streets behind Sacré-Cœur - charming village feel away from tourists</li>
+                        
+                        </ul>
+                    </div>
+                    
+
+                    
+
+                    
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">4</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">2026-06-04</div>
+                        <div class="day-date">Paris → Rome</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+
+                    
+
+                    
+
+                    
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Morning</div>
+                        <div class="activity-title">Leisurely Departure</div>
+                        <div class="activity-details">Enjoy a final Parisian breakfast. Coffee and croissant at a neighborhood café.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Midday</div>
+                        <div class="activity-title">Flight to Rome</div>
+                        <div class="activity-details">Short 2-hour flight from Paris CDG to Rome FCO.</div>
+                        <div class="activity-details">Flight cost included in trip total</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Afternoon</div>
+                        <div class="activity-title">Arrive in Rome &amp; Check-in</div>
+                        <div class="activity-details">Transfer to your Trastevere hotel. This charming neighborhood feels like the &#39;real Rome&#39; with cobblestone streets and local trattorias.</div>
+                        <div class="activity-details">Private transfer from airport</div>
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-title">Trastevere Evening Stroll</div>
+                        <div class="activity-details">Get lost in the atmospheric streets. End at Piazza di Santa Maria for people-watching.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-title">Roman Dinner</div>
+                        <div class="activity-details">Authentic Roman cuisine: cacio e pepe, carbonara, or amatriciana. Book a table at a local trattoria.</div>
+                        
+                        
+                    </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+                    <div class="day-tips">
+                        <h5>💡 Tips</h5>
+                        <ul>
+                        
+                            <li>Free: The Trastevere neighborhood is beautiful for evening walks - every corner is photogenic</li>
+                        
+                            <li>Free: Santa Maria in Trastevere church has stunning Byzantine mosaics (free entry)</li>
+                        
+                        </ul>
+                    </div>
+                    
+
+                    
+
+                    
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">5</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">2026-06-05</div>
+                        <div class="day-date">Rome, Italy</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+
+                    
+
+                    
+
+                    
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Morning</div>
+                        <div class="activity-title">Colosseum, Forum &amp; Palatine - Priority Access</div>
+                        <div class="activity-details">Comprehensive guided tour of Ancient Rome&#39;s heart. Underground Colosseum access to see gladiator tunnels (premium tier). Skip all lines.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Afternoon</div>
+                        <div class="activity-title">Lunch Near Campo de&#39; Fiori</div>
+                        <div class="activity-details">Walk to this lively market square for fresh produce, flowers, and casual lunch options.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Afternoon</div>
+                        <div class="activity-title">Trevi Fountain &amp; Spanish Steps</div>
+                        <div class="activity-details">Hit the iconic spots. Toss a coin in Trevi (guarantees your return to Rome!). Walk up the Spanish Steps.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-title">Aperitivo Hour</div>
+                        <div class="activity-details">Experience the Roman tradition of pre-dinner drinks with complimentary snacks. The hotel neighborhood or Piazza Navona area both excellent.</div>
+                        
+                        
+                    </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+                    <div class="day-tips">
+                        <h5>💡 Tips</h5>
+                        <ul>
+                        
+                            <li>Free: The Pantheon is free to enter - arrive early or late to avoid peak crowds</li>
+                        
+                            <li>Free: Window shop along Via del Corso and Via Condotti (luxury designer row)</li>
+                        
+                        </ul>
+                    </div>
+                    
+
+                    
+
+                    
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">6</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">2026-06-06</div>
+                        <div class="day-date">Rome, Italy</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+
+                    
+
+                    
+
+                    
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Early Morning</div>
+                        <div class="activity-title">Vatican Museums &amp; Sistine Chapel - Early Entry</div>
+                        <div class="activity-details">Special early access before crowds. Guided tour through the museums culminating in the Sistine Chapel. St. Peter&#39;s Basilica entry included.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Afternoon</div>
+                        <div class="activity-title">Castel Sant&#39;Angelo (Optional)</div>
+                        <div class="activity-details">Former papal fortress with excellent views from the rooftop terrace. Skip if museum&#39;d out.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Afternoon</div>
+                        <div class="activity-title">Gelato Quest</div>
+                        <div class="activity-details">Sample Rome&#39;s famous gelato. Favorites: Giolitti (classic), Fatamorgana (creative flavors), Come Il Latte (pure ingredients).</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-title">Farewell Dinner with a View</div>
+                        <div class="activity-details">Special last-night dinner. Rooftop restaurant with view of the dome of St. Peter&#39;s, or intimate Trastevere gem.</div>
+                        
+                        
+                    </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+                    <div class="day-tips">
+                        <h5>💡 Tips</h5>
+                        <ul>
+                        
+                            <li>Free: St. Peter's Square is stunning at any time but magical at sunset</li>
+                        
+                            <li>Free: Walk across Ponte Sant'Angelo - the bridge with Bernini's angels</li>
+                        
+                        </ul>
+                    </div>
+                    
+
+                    
+
+                    
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">7</div>
+                    <div class="day-info">
+                        <h3></h3>
+                        <div class="day-date">2026-06-07</div>
+                        <div class="day-date">Rome, Italy</div>
+                    </div>
+                </div>
+                <div class="day-content">
+                    
+
+                    
+
+                    
+
+                    
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Morning</div>
+                        <div class="activity-title">Final Morning in Rome</div>
+                        <div class="activity-details">Depending on flight time: sleep in, final neighborhood wander, or quick visit to any missed spots.</div>
+                        
+                        
+                    </div>
+                    
+                    <div class="activity">
+                        
+                        <div class="activity-time">Varies</div>
+                        <div class="activity-title">Airport Transfer &amp; Flight Home</div>
+                        <div class="activity-details">Private transfer to FCO airport. Arrivederci, Roma!</div>
+                        
+                        
+                    </div>
+                    
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+
+        <!-- Extras / Recommendations Section -->
+        
+
+        <!-- Featured Links Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🔗</div>
+                <h2>Useful Resources</h2>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h4 style="color: var(--primary); margin-bottom: 8px;">Paris Metro Guide</h4>
+                        <p style="font-size: 0.95em; color: var(--text-light); margin-bottom: 12px;">Official Paris public transport</p>
+                        <a href="https://www.ratp.fr/en" class="card-link" target="_blank" rel="noopener noreferrer">View Resource →</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h4 style="color: var(--primary); margin-bottom: 8px;">Rome Public Transport</h4>
+                        <p style="font-size: 0.95em; color: var(--text-light); margin-bottom: 12px;">Metro, bus, and tram in Rome</p>
+                        <a href="https://www.atac.roma.it/en" class="card-link" target="_blank" rel="noopener noreferrer">View Resource →</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <!-- Tiered Pricing Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">📊</div>
+                <h2>Package Options</h2>
+            </div>
+            <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                
+                <div class="card" style="border-top: 4px solid var(--secondary);">
+                    <div class="card-header" style="background: var(--secondary); color: var(--text);">Essential Romance</div>
+                    <div class="card-body">
+                        <p style="margin-bottom: 15px; color: var(--text-light);">All the highlights with smart savings</p>
+                        <ul style="margin-bottom: 15px;"><li>Economy flights</li><li>3-star boutique hotels in great locations</li><li>Skip-the-line entries (self-guided)</li><li>Public transport passes</li><li>Restaurant recommendations</li></ul>
+                        <div style="text-align: center; padding-top: 15px; border-top: 1px solid var(--border);">
+                            <div style="font-size: 1.6em; font-weight: 700; color: var(--primary);">$5,600</div>
+                            <div style="font-size: 0.9em; color: var(--text-light);">$2,800 per person</div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="card" style="border-top: 4px solid var(--accent); transform: scale(1.02);">
+                    <div class="card-header" style="background: var(--accent);">
+                        <span>Romantic Getaway</span>
+                        <span style="margin-left: 10px; background: var(--white); color: var(--accent); padding: 2px 8px; border-radius: 10px; font-size: 0.75em;">Recommended</span>
+                    </div>
+                    <div class="card-body">
+                        <p style="margin-bottom: 15px; color: var(--text-light);">Our recommended experience - guided tours and premium touches</p>
+                        <ul style="margin-bottom: 15px;"><li>Economy Plus or Premium Economy flights</li><li>4-star boutique hotels</li><li>All guided tours as described</li><li>Private airport transfers</li><li>Dedicated trip support</li></ul>
+                        <div style="text-align: center; padding-top: 15px; border-top: 1px solid var(--border);">
+                            <div style="font-size: 1.6em; font-weight: 700; color: var(--accent);">$7,000</div>
+                            <div style="font-size: 0.9em; color: var(--text-light);">$3,500 per person</div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="card" style="border-top: 4px solid #c7880a;">
+                    <div class="card-header" style="background: linear-gradient(135deg, #c7880a 0%, #f5a623 100%);">Ultimate Romance</div>
+                    <div class="card-body">
+                        <p style="margin-bottom: 15px; color: var(--text-light);">First-class treatment throughout</p>
+                        <ul style="margin-bottom: 15px;"><li>Business class flights</li><li>5-star luxury hotels</li><li>Private guided tours</li><li>Private car service throughout</li><li>Special experiences: private museum viewing, chef's table dinners</li><li>24/7 concierge support</li></ul>
+                        <div style="text-align: center; padding-top: 15px; border-top: 1px solid var(--border);">
+                            <div style="font-size: 1.6em; font-weight: 700; color: #c7880a;">$15,000</div>
+                            <div style="font-size: 0.9em; color: var(--text-light);">$7,500 per person</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 20px;">
+                <h4>Pricing Notes</h4>
+                <p>Prices are estimates and vary based on travel dates, availability, and current rates. Final quote provided after date selection.</p>
+            </div>
+            
+        </div>
+        
+
+        <!-- Pricing Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">💰</div>
+                <h2>Investment Summary</h2>
+            </div>
+            <div class="pricing-box">
+                
+                <div class="pricing-row">
+                    <span>Flights (Economy, 2 passengers) <span style="font-size: 0.85em; color: var(--text-light);">(Estimated economy fares: Home–Paris, Paris–Rome, Rome–Home)</span></span>
+                    <span>$3,300</span>
+                </div>
+                
+                <div class="pricing-row"><span>Per Person</span><span>$4,150</span></div>
+                <div class="pricing-row"><span>Number of Travelers</span><span>2</span></div>
+                <div class="pricing-row total"><span>Total Trip Investment</span><span>$8,300</span></div>
+                
+                <p style="margin-top: 15px; font-size: 0.9em; color: var(--text-light);">Mid-range estimate including flights, hotels, activities, and meals. Can be adjusted based on tier selection.</p>
+                
+            </div>
+        </div>
+        
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-tagline">Begin Your Adventure Today</div>
+                <p>Travel is our passion, and our area of expertise. Let us help you create memories that last a lifetime.</p>
+            </div>
+            <div class="footer-section advisor-info">
+                <h4>Your Travel Advisor</h4>
+                <div class="advisor-card">
+                    
+                    <div class="advisor-photo-fallback" style="display:flex;">TO</div>
+                    
+                    <div class="advisor-details">
+                        <div class="advisor-name">Test Onboarding User</div>
+                        
+                        
+                        <div class="advisor-contact">
+                            
+                            <a href="mailto:dneilroberts@gmail.com" class="contact-link email">✉️ dneilroberts@gmail.com</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="footer-bottom">
+            <p>Prepared with care by None</p>
+            <p style="margin-top: 5px;">Generated January 20, 2026</p>
+        </div>
+    </div>
+</body>
+</html>
