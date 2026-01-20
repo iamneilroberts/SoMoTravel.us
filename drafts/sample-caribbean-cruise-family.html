@@ -2779,6 +2779,21 @@
             align-items: center;
             gap: 6px;
         }
+
+        /* Utility Classes */
+        .mt-10 { margin-top: 10px; }
+        .mt-15 { margin-top: 15px; }
+        .mt-20 { margin-top: 20px; }
+        .mb-0 { margin-bottom: 0; }
+        .mb-10 { margin-bottom: 10px; }
+        .mb-15 { margin-bottom: 15px; }
+        .mb-20 { margin-bottom: 20px; }
+        .text-center { text-align: center; }
+        .text-light { color: var(--text-light); }
+        .text-sm { font-size: 0.9em; }
+        .text-xs { font-size: 0.85em; }
+        .font-semibold { font-weight: 600; }
+        .font-bold { font-weight: 700; }
     </style>
 </head>
 <body>
@@ -2852,7 +2867,7 @@
             <a href="#investment" class="overview-card clickable">
                 <div class="icon">💰</div>
                 <div class="label">Investment</div>
-                <div class="value">$8,800</div>
+                <div class="value">$10,800</div>
             </a>
             
         </div>
@@ -2871,13 +2886,13 @@
                     
                     <div class="investment-card total">
                         <div class="label">Total Investment</div>
-                        <div class="value">$8,800</div>
+                        <div class="value">$10,800</div>
                     </div>
                     
                     
                     <div class="investment-card per-person">
                         <div class="label">Per Person</div>
-                        <div class="value">$2,200</div>
+                        <div class="value">$2,700</div>
                     </div>
                     
                     
@@ -2892,33 +2907,9 @@
                     <table class="budget-table">
                         
                         <tr>
-                            <td class="item">Flights (4 passengers)</td>
+                            <td class="item">Flights (Economy, 4 passengers)</td>
                             <td class="amount">$2,000</td>
-                            <td class="notes">Round-trip to Fort Lauderdale</td>
-                        </tr>
-                        
-                        <tr>
-                            <td class="item">Cruise fare (7 nights, balcony cabin)</td>
-                            <td class="amount">$4,800</td>
-                            <td class="notes">Includes meals, entertainment, kids clubs</td>
-                        </tr>
-                        
-                        <tr>
-                            <td class="item">Pre-cruise hotel (1 night)</td>
-                            <td class="amount">$200</td>
-                            <td class="notes">Near port for easy embarkation</td>
-                        </tr>
-                        
-                        <tr>
-                            <td class="item">Shore excursions</td>
-                            <td class="amount">$1,200</td>
-                            <td class="notes">Mix of booked and independent</td>
-                        </tr>
-                        
-                        <tr>
-                            <td class="item">Onboard extras</td>
-                            <td class="amount">$600</td>
-                            <td class="notes">Specialty dining, drinks, spa, etc.</td>
+                            <td class="notes">Estimated roundtrip economy flights to Fort Lauderdale</td>
                         </tr>
                         
                     </table>
@@ -2941,6 +2932,67 @@
                 </div>
                 
             </div>
+        </div>
+        
+
+        <!-- Tiered Pricing Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">📊</div>
+                <h2>Package Options</h2>
+                <button class="comment-trigger" data-comment-section="Package Options">Ask a question</button>
+            </div>
+            <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                
+                <div class="card" style="border-top: 4px solid var(--secondary);">
+                    <div class="card-header" style="background: var(--secondary); color: var(--text);">Family Value</div>
+                    <div class="card-body">
+                        <p class="mb-15 text-light">Great cruise experience with smart savings</p>
+                        <ul class="mb-15"><li>Economy flights</li><li>Inside cabin (larger category for family)</li><li>1 ship excursion (Stingray City or Dunn's River)</li><li>Main dining and buffet (included)</li><li>Kids club and teen activities (included)</li></ul>
+                        <div class="text-center" style="padding-top: 15px; border-top: 1px solid var(--border);">
+                            <div class="font-bold" style="font-size: 1.6em; color: var(--primary);">$6,400</div>
+                            <div class="text-sm text-light">$1,600 per person</div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="card" style="border-top: 4px solid var(--accent); transform: scale(1.02);">
+                    <div class="card-header" style="background: var(--accent);">
+                        <span>Family Adventure</span>
+                        <span style="margin-left: 10px; background: var(--white); color: var(--accent); padding: 2px 8px; border-radius: 10px; font-size: 0.75em;">Recommended</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-15 text-light">Our recommendation - balcony cabin and key excursions</p>
+                        <ul class="mb-15"><li>Economy or Economy Plus flights</li><li>Balcony cabin</li><li>Pre-cruise hotel night</li><li>2-3 shore excursions (Stingray City, Dunn's River, Beach Day)</li><li>Specialty dining package</li><li>Drink package (adults) / soda package (kids)</li></ul>
+                        <div class="text-center" style="padding-top: 15px; border-top: 1px solid var(--border);">
+                            <div class="font-bold" style="font-size: 1.6em; color: var(--accent);">$8,800</div>
+                            <div class="text-sm text-light">$2,200 per person</div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="card" style="border-top: 4px solid #c7880a;">
+                    <div class="card-header" style="background: linear-gradient(135deg, #c7880a 0%, #f5a623 100%);">Ultimate Family Cruise</div>
+                    <div class="card-body">
+                        <p class="mb-15 text-light">Suite life with all the extras</p>
+                        <ul class="mb-15"><li>Premium Economy or Business flights</li><li>Suite with concierge service</li><li>2 nights pre-cruise at luxury hotel</li><li>All port excursions (private tours)</li><li>Ultimate beverage package</li><li>Specialty dining at will</li><li>WiFi package</li><li>Priority everything</li></ul>
+                        <div class="text-center" style="padding-top: 15px; border-top: 1px solid var(--border);">
+                            <div class="font-bold" style="font-size: 1.6em; color: #c7880a;">$18,000</div>
+                            <div class="text-sm text-light">$4,500 per person</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="highlight-box mt-20">
+                <h4>Pricing Notes</h4>
+                <p>Cruise pricing varies dramatically by sail date, cabin availability, and booking timing. Early booking and repositioning cruises offer best value.</p>
+            </div>
+            
         </div>
         
 
@@ -3005,7 +3057,10 @@
         <!-- Viator Tours Section -->
         
 
-        <!-- Onboard Credits & Packages Section - CRUISE SPECIFIC -->
+        <!-- Onboard Credits & Packages Section - CRUISE SPECIFIC (Unified) -->
+        
+        <!-- Fallback: Show onboardCredits alone if no credits object -->
+        
         
 
         <!-- Insider Tips Section - CRUISE SPECIFIC -->
@@ -3117,9 +3172,6 @@
         </div>
         
 
-        <!-- Onboard Credits Section -->
-        
-
         <!-- Inclusions Section -->
         
 
@@ -3154,6 +3206,24 @@
                 <div class="card flight-card">
                     <div class="card-header">Outbound Flights</div>
                     <div class="card-body">
+                        
+                        <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+                            <div class="flight-route"></div>
+                            <div class="card-detail"><span class="label">Date</span><span class="value"></span></div>
+                            <div class="card-detail"><span class="label">Flight</span><span class="value"> </span></div>
+                            <div class="card-detail"><span class="label">Depart</span><span class="value"></span></div>
+                            <div class="card-detail"><span class="label">Arrive</span><span class="value"></span></div>
+                            
+                        </div>
+                        
+                        <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+                            <div class="flight-route"></div>
+                            <div class="card-detail"><span class="label">Date</span><span class="value"></span></div>
+                            <div class="card-detail"><span class="label">Flight</span><span class="value"> </span></div>
+                            <div class="card-detail"><span class="label">Depart</span><span class="value"></span></div>
+                            <div class="card-detail"><span class="label">Arrive</span><span class="value"></span></div>
+                            
+                        </div>
                         
                         <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
                             <div class="flight-route"></div>
@@ -3236,6 +3306,24 @@
                             
                         </div>
                         
+                        <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+                            <div class="flight-route"></div>
+                            <div class="card-detail"><span class="label">Date</span><span class="value"></span></div>
+                            <div class="card-detail"><span class="label">Flight</span><span class="value"> </span></div>
+                            <div class="card-detail"><span class="label">Depart</span><span class="value"></span></div>
+                            <div class="card-detail"><span class="label">Arrive</span><span class="value"></span></div>
+                            
+                        </div>
+                        
+                        <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+                            <div class="flight-route"></div>
+                            <div class="card-detail"><span class="label">Date</span><span class="value"></span></div>
+                            <div class="card-detail"><span class="label">Flight</span><span class="value"> </span></div>
+                            <div class="card-detail"><span class="label">Depart</span><span class="value"></span></div>
+                            <div class="card-detail"><span class="label">Arrive</span><span class="value"></span></div>
+                            
+                        </div>
+                        
                     </div>
                 </div>
                 
@@ -3273,7 +3361,7 @@
                         <div class="card-detail"><span class="label">Nights</span><span class="value">1</span></div>
                         <div class="card-detail"><span class="label">Check-in</span><span class="value">2026-07-18</span></div>
                         <div class="card-detail"><span class="label">Check-out</span><span class="value">2026-07-19</span></div>
-                        <div class="card-detail"><span class="label">Dates</span><span class="value">{&quot;start&quot;:&quot;2026-07-18&quot;,&quot;end&quot;:&quot;2026-07-27&quot;,&quot;duration&quot;:10,&quot;flexible&quot;:true,&quot;notes&quot;:&quot;7-night cruise + 2 hotel nights (pre/post). Adjust dates based on sail date availability.&quot;}</span></div>
+                        
                         <div class="card-detail"><span class="label">Rate</span><span class="value">$200/night</span></div>
                         
                         
@@ -3312,7 +3400,7 @@
                         <div class="card-detail"><span class="label">Nights</span><span class="value">7</span></div>
                         <div class="card-detail"><span class="label">Check-in</span><span class="value">2026-07-19</span></div>
                         <div class="card-detail"><span class="label">Check-out</span><span class="value">2026-07-26</span></div>
-                        <div class="card-detail"><span class="label">Dates</span><span class="value">{&quot;start&quot;:&quot;2026-07-18&quot;,&quot;end&quot;:&quot;2026-07-27&quot;,&quot;duration&quot;:10,&quot;flexible&quot;:true,&quot;notes&quot;:&quot;7-night cruise + 2 hotel nights (pre/post). Adjust dates based on sail date availability.&quot;}</span></div>
+                        
                         
                         
                         
@@ -4806,7 +4894,7 @@
                 <img id="qr-code" alt="QR Code" style="width: 120px; height: 120px;">
             </div>
             <p>Prepared with care by None</p>
-            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated  | Rendered: 2026-01-20 21:50:02 UTC</p>
+            <p style="margin-top: 5px;">Template: cruise v2.0 | Generated January 20, 2026 | Rendered: 2026-01-20 22:03:21 UTC</p>
         </div>
     </div>
 
