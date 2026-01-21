@@ -1205,12 +1205,13 @@
         }
 
         .dining-rec-card .name a {
-            color: inherit;
+            color: var(--primary);
             text-decoration: none;
+            font-weight: 600;
         }
 
         .dining-rec-card .name a:hover {
-            color: var(--primary);
+            text-decoration: underline;
         }
 
         .dining-rec-card .price-cuisine {
@@ -1507,7 +1508,7 @@
                         <div class="map-item-label">Paris Overview</div>
                         <iframe
                             class="map-embed"
-                            src="https://www.google.com/maps/embed/v1/place?key=&q=Paris%2C%20France"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Paris%2C%20France"
                             loading="lazy"
                             allowfullscreen
                             referrerpolicy="no-referrer-when-downgrade">
@@ -1518,7 +1519,7 @@
                         <div class="map-item-label">Rome Overview</div>
                         <iframe
                             class="map-embed"
-                            src="https://www.google.com/maps/embed/v1/place?key=&q=Rome%2C%20Italy"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Rome%2C%20Italy"
                             loading="lazy"
                             allowfullscreen
                             referrerpolicy="no-referrer-when-downgrade">
@@ -1661,7 +1662,7 @@
                         <div style="margin-top: 15px;">
                             <iframe
                                 style="width: 100%; height: 150px; border: none; border-radius: 8px;"
-                                src="https://www.google.com/maps/embed/v1/place?key=&q=Le%20Marais%2C%20Paris%2C%20France"
+                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Le%20Marais%2C%20Paris%2C%20France"
                                 loading="lazy"
                                 allowfullscreen>
                             </iframe>
@@ -1690,7 +1691,7 @@
                         <div style="margin-top: 15px;">
                             <iframe
                                 style="width: 100%; height: 150px; border: none; border-radius: 8px;"
-                                src="https://www.google.com/maps/embed/v1/place?key=&q=Trastevere%2C%20Rome%2C%20Italy"
+                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Trastevere%2C%20Rome%2C%20Italy"
                                 loading="lazy"
                                 allowfullscreen>
                             </iframe>
@@ -1714,7 +1715,7 @@
                         
                         
                         <div class="card-detail"><span class="label">Rate</span><span class="value">$120/night</span></div>
-                        
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Budget%20Option%20-%20Centro%20Storico%20Rome%2C%20Italy" class="card-link" target="_blank" rel="noopener noreferrer">View Property →</a>
                         
                     </div>
                 </div>
@@ -1758,12 +1759,7 @@
 
                     
                     <div class="transport-info">
-                        <div class="transport-icon">
-                            
-                            
-                            
-                            🚆
-                        </div>
+                        <div class="transport-icon">🚗</div>
                         <div class="transport-details">
                             <div class="mode"></div>
                             
@@ -1792,10 +1788,11 @@
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
-                            Arrive &amp; Check-in
+                            <a href="https://www.tripadvisor.com/Search?q=Arrive%20%26%20Check-in%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Arrive &amp; Check-in</a>
                         </div>
                         <div class="activity-details">Settle into your Le Marais hotel. Take a leisurely stroll through the neighborhood to shake off jet lag.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Arrive%20%26%20Check-in%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -1807,6 +1804,7 @@
                         </div>
                         <div class="activity-details">Walk along the Seine as the sun sets. Cross to Île de la Cité to see Notre-Dame&#39;s exterior restoration.</div>
                         
+                        <a href="https://www.tripadvisor.com/Attraction_Review-Paris-Seine_River.html" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -1814,10 +1812,11 @@
                         
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
-                            Welcome Dinner
+                            <a href="https://www.tripadvisor.com/Search?q=Welcome%20Dinner%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Welcome Dinner</a>
                         </div>
                         <div class="activity-details">Classic French bistro in Le Marais. Try the duck confit or steak frites paired with local wine.</div>
                         <div class="activity-details">Reservation recommended</div>
+                        <a href="https://www.tripadvisor.com/Search?q=Welcome%20Dinner%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     
@@ -1840,6 +1839,7 @@
                                         <span>French</span>
                                     </div>
                                     <div class="description">Famous for chocolate mousse and Provençal cuisine</div>
+                                    <a href="https://www.tripadvisor.com/Restaurant_Review-Paris-Chez_Janou.html" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">View →</a>
                                 </div>
                             </div>
                             
@@ -1854,6 +1854,7 @@
                                         <span>French</span>
                                     </div>
                                     <div class="description">Cozy neighborhood bistro with seasonal menu</div>
+                                    <a href="https://www.tripadvisor.com/Restaurant_Review-Paris-Le_Petit_Cler.html" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">View →</a>
                                 </div>
                             </div>
                             
@@ -1919,10 +1920,11 @@
                         
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
-                            Eiffel Tower - Skip the Line
+                            <a href="https://www.tripadvisor.com/Search?q=Eiffel%20Tower%20-%20Skip%20the%20Line%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Eiffel Tower - Skip the Line</a>
                         </div>
                         <div class="activity-details">Beat the crowds with an early morning timed entry. Summit access for panoramic views of the city.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Eiffel%20Tower%20-%20Skip%20the%20Line%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -1930,10 +1932,11 @@
                         
                         <div class="activity-time">Late Morning</div>
                         <div class="activity-title">
-                            Trocadéro Gardens
+                            <a href="https://www.tripadvisor.com/Search?q=Trocad%C3%A9ro%20Gardens%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Trocadéro Gardens</a>
                         </div>
                         <div class="activity-details">Cross to Trocadéro for the classic Eiffel Tower photo op. Lovely gardens to explore.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Trocad%C3%A9ro%20Gardens%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -1941,10 +1944,11 @@
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
-                            Louvre Museum - Guided Highlights Tour
+                            <a href="https://www.tripadvisor.com/Search?q=Louvre%20Museum%20-%20Guided%20Highlights%20Tour%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Louvre Museum - Guided Highlights Tour</a>
                         </div>
                         <div class="activity-details">2-hour guided tour hitting the must-sees: Mona Lisa, Venus de Milo, Winged Victory. Skip-the-line entry included.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Louvre%20Museum%20-%20Guided%20Highlights%20Tour%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -1952,10 +1956,11 @@
                         
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
-                            Dinner in Saint-Germain-des-Prés
+                            <a href="https://www.tripadvisor.com/Search?q=Dinner%20in%20Saint-Germain-des-Pr%C3%A9s%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Dinner in Saint-Germain-des-Prés</a>
                         </div>
                         <div class="activity-details">Cross to the Left Bank for dinner in the literary quarter. Café de Flore or Les Deux Magots for atmosphere.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Dinner%20in%20Saint-Germain-des-Pr%C3%A9s%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     
@@ -2019,10 +2024,11 @@
                         
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
-                            Montmartre Food &amp; Wine Tour
+                            <a href="https://www.tripadvisor.com/Search?q=Montmartre%20Food%20%26%20Wine%20Tour%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Montmartre Food &amp; Wine Tour</a>
                         </div>
                         <div class="activity-details">3-hour walking tour through the artistic Montmartre neighborhood. Visit local cheese shops, bakeries, chocolate makers, and wine bars. Includes tastings at 6-8 stops.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Montmartre%20Food%20%26%20Wine%20Tour%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2030,10 +2036,11 @@
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
-                            Sacré-Cœur Basilica
+                            <a href="https://www.tripadvisor.com/Search?q=Sacr%C3%A9-C%C5%93ur%20Basilica%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Sacré-Cœur Basilica</a>
                         </div>
                         <div class="activity-details">Free entry to the stunning white-domed basilica. Climb to the dome for city views or relax on the steps watching street performers.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Sacr%C3%A9-C%C5%93ur%20Basilica%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2041,10 +2048,11 @@
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
-                            Artist Square (Place du Tertre)
+                            <a href="https://www.tripadvisor.com/Search?q=Artist%20Square%20(Place%20du%20Tertre)%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Artist Square (Place du Tertre)</a>
                         </div>
                         <div class="activity-details">Browse local artists at work. Fun spot for a caricature or small painting souvenir.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Artist%20Square%20(Place%20du%20Tertre)%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2052,10 +2060,11 @@
                         
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
-                            Final Paris Evening
+                            <a href="https://www.tripadvisor.com/Search?q=Final%20Paris%20Evening%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Final Paris Evening</a>
                         </div>
                         <div class="activity-details">Farewell dinner at a Michelin-recommended bistro, or keep it casual with wine and cheese in the hotel neighborhood.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Final%20Paris%20Evening%20Paris%2C%20France&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     
@@ -2119,10 +2128,11 @@
                         
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
-                            Leisurely Departure
+                            <a href="https://www.tripadvisor.com/Search?q=Leisurely%20Departure%20Paris%20%E2%86%92%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Leisurely Departure</a>
                         </div>
                         <div class="activity-details">Enjoy a final Parisian breakfast. Coffee and croissant at a neighborhood café.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Leisurely%20Departure%20Paris%20%E2%86%92%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2130,10 +2140,11 @@
                         
                         <div class="activity-time">Midday</div>
                         <div class="activity-title">
-                            Flight to Rome
+                            <a href="https://www.tripadvisor.com/Search?q=Flight%20to%20Rome%20Paris%20%E2%86%92%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Flight to Rome</a>
                         </div>
                         <div class="activity-details">Short 2-hour flight from Paris CDG to Rome FCO.</div>
                         <div class="activity-details">Flight cost included in trip total</div>
+                        <a href="https://www.tripadvisor.com/Search?q=Flight%20to%20Rome%20Paris%20%E2%86%92%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2141,10 +2152,11 @@
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
-                            Arrive in Rome &amp; Check-in
+                            <a href="https://www.tripadvisor.com/Search?q=Arrive%20in%20Rome%20%26%20Check-in%20Paris%20%E2%86%92%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Arrive in Rome &amp; Check-in</a>
                         </div>
                         <div class="activity-details">Transfer to your Trastevere hotel. This charming neighborhood feels like the &#39;real Rome&#39; with cobblestone streets and local trattorias.</div>
                         <div class="activity-details">Private transfer from airport</div>
+                        <a href="https://www.tripadvisor.com/Search?q=Arrive%20in%20Rome%20%26%20Check-in%20Paris%20%E2%86%92%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2152,10 +2164,11 @@
                         
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
-                            Trastevere Evening Stroll
+                            <a href="https://www.tripadvisor.com/Search?q=Trastevere%20Evening%20Stroll%20Paris%20%E2%86%92%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Trastevere Evening Stroll</a>
                         </div>
                         <div class="activity-details">Get lost in the atmospheric streets. End at Piazza di Santa Maria for people-watching.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Trastevere%20Evening%20Stroll%20Paris%20%E2%86%92%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2163,10 +2176,11 @@
                         
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
-                            Roman Dinner
+                            <a href="https://www.tripadvisor.com/Search?q=Roman%20Dinner%20Paris%20%E2%86%92%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Roman Dinner</a>
                         </div>
                         <div class="activity-details">Authentic Roman cuisine: cacio e pepe, carbonara, or amatriciana. Book a table at a local trattoria.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Roman%20Dinner%20Paris%20%E2%86%92%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     
@@ -2230,10 +2244,11 @@
                         
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
-                            Colosseum, Forum &amp; Palatine - Priority Access
+                            <a href="https://www.tripadvisor.com/Search?q=Colosseum%2C%20Forum%20%26%20Palatine%20-%20Priority%20Access%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Colosseum, Forum &amp; Palatine - Priority Access</a>
                         </div>
                         <div class="activity-details">Comprehensive guided tour of Ancient Rome&#39;s heart. Underground Colosseum access to see gladiator tunnels (premium tier). Skip all lines.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Colosseum%2C%20Forum%20%26%20Palatine%20-%20Priority%20Access%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2241,10 +2256,11 @@
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
-                            Lunch Near Campo de&#39; Fiori
+                            <a href="https://www.tripadvisor.com/Search?q=Lunch%20Near%20Campo%20de&#39;%20Fiori%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Lunch Near Campo de&#39; Fiori</a>
                         </div>
                         <div class="activity-details">Walk to this lively market square for fresh produce, flowers, and casual lunch options.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Lunch%20Near%20Campo%20de&#39;%20Fiori%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2252,10 +2268,11 @@
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
-                            Trevi Fountain &amp; Spanish Steps
+                            <a href="https://www.tripadvisor.com/Search?q=Trevi%20Fountain%20%26%20Spanish%20Steps%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Trevi Fountain &amp; Spanish Steps</a>
                         </div>
                         <div class="activity-details">Hit the iconic spots. Toss a coin in Trevi (guarantees your return to Rome!). Walk up the Spanish Steps.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Trevi%20Fountain%20%26%20Spanish%20Steps%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2263,10 +2280,11 @@
                         
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
-                            Aperitivo Hour
+                            <a href="https://www.tripadvisor.com/Search?q=Aperitivo%20Hour%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Aperitivo Hour</a>
                         </div>
                         <div class="activity-details">Experience the Roman tradition of pre-dinner drinks with complimentary snacks. The hotel neighborhood or Piazza Navona area both excellent.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Aperitivo%20Hour%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     
@@ -2330,10 +2348,11 @@
                         
                         <div class="activity-time">Early Morning</div>
                         <div class="activity-title">
-                            Vatican Museums &amp; Sistine Chapel - Early Entry
+                            <a href="https://www.tripadvisor.com/Search?q=Vatican%20Museums%20%26%20Sistine%20Chapel%20-%20Early%20Entry%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Vatican Museums &amp; Sistine Chapel - Early Entry</a>
                         </div>
                         <div class="activity-details">Special early access before crowds. Guided tour through the museums culminating in the Sistine Chapel. St. Peter&#39;s Basilica entry included.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Vatican%20Museums%20%26%20Sistine%20Chapel%20-%20Early%20Entry%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2341,10 +2360,11 @@
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
-                            Castel Sant&#39;Angelo (Optional)
+                            <a href="https://www.tripadvisor.com/Search?q=Castel%20Sant&#39;Angelo%20(Optional)%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Castel Sant&#39;Angelo (Optional)</a>
                         </div>
                         <div class="activity-details">Former papal fortress with excellent views from the rooftop terrace. Skip if museum&#39;d out.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Castel%20Sant&#39;Angelo%20(Optional)%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2352,10 +2372,11 @@
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
-                            Gelato Quest
+                            <a href="https://www.tripadvisor.com/Search?q=Gelato%20Quest%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Gelato Quest</a>
                         </div>
                         <div class="activity-details">Sample Rome&#39;s famous gelato. Favorites: Giolitti (classic), Fatamorgana (creative flavors), Come Il Latte (pure ingredients).</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Gelato%20Quest%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2363,10 +2384,11 @@
                         
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
-                            Farewell Dinner with a View
+                            <a href="https://www.tripadvisor.com/Search?q=Farewell%20Dinner%20with%20a%20View%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Farewell Dinner with a View</a>
                         </div>
                         <div class="activity-details">Special last-night dinner. Rooftop restaurant with view of the dome of St. Peter&#39;s, or intimate Trastevere gem.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Farewell%20Dinner%20with%20a%20View%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     
@@ -2430,10 +2452,11 @@
                         
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
-                            Final Morning in Rome
+                            <a href="https://www.tripadvisor.com/Search?q=Final%20Morning%20in%20Rome%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Final Morning in Rome</a>
                         </div>
                         <div class="activity-details">Depending on flight time: sleep in, final neighborhood wander, or quick visit to any missed spots.</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Final%20Morning%20in%20Rome%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
@@ -2441,10 +2464,11 @@
                         
                         <div class="activity-time">Varies</div>
                         <div class="activity-title">
-                            Airport Transfer &amp; Flight Home
+                            <a href="https://www.tripadvisor.com/Search?q=Airport%20Transfer%20%26%20Flight%20Home%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="activity-link" target="_blank" rel="noopener noreferrer">Airport Transfer &amp; Flight Home</a>
                         </div>
                         <div class="activity-details">Private transfer to FCO airport. Arrivederci, Roma!</div>
                         
+                        <a href="https://www.tripadvisor.com/Search?q=Airport%20Transfer%20%26%20Flight%20Home%20Rome%2C%20Italy&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     
@@ -2482,7 +2506,7 @@
                         <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">📍 Paris</p>
                         <p style="color: var(--text);">Wander the narrow streets of the historic Jewish quarter for the best falafel in Paris at L&#39;As du Fallafel, vintage shops, and gorgeous hidden courtyards. Most tourists miss the beautiful interior gardens visible through archways.</p>
                         <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Visit on a Sunday when other neighborhoods are quiet but Le Marais is bustling.</p>
-                        
+                        <a href="https://www.tripadvisor.com/Search?q=Le%20Marais%20Jewish%20Quarter%20Paris&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                     </div>
                 </div>
                 
@@ -2492,7 +2516,7 @@
                         <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">📍 Paris</p>
                         <p style="color: var(--text);">An elevated park built on an old railway line—the inspiration for NYC&#39;s High Line. Walk 4.5km from Bastille through treetops, gardens, and tunnels. Feels like a secret only Parisians know.</p>
                         <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Start at Bastille and walk east for the best experience. Ends at Bois de Vincennes.</p>
-                        
+                        <a href="https://www.tripadvisor.com/Search?q=Promenade%20Plant%C3%A9e%20Paris&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                     </div>
                 </div>
                 
@@ -2502,7 +2526,7 @@
                         <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">📍 Rome</p>
                         <p style="color: var(--text);">Cross the river to Rome&#39;s most romantic neighborhood. The ochre buildings glow at sunset, and the winding cobblestone streets feel like stepping back in time. Stay for dinner at a local trattoria.</p>
                         <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Arrive around 6pm, grab a gelato, and wander until you find the perfect dinner spot.</p>
-                        
+                        <a href="https://www.tripadvisor.com/Search?q=Trastevere%20at%20Golden%20Hour%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                     </div>
                 </div>
                 
@@ -2512,7 +2536,7 @@
                         <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">📍 Rome</p>
                         <p style="color: var(--text);">At the Knights of Malta gate on Aventine Hill, peek through the famous keyhole for a perfectly framed view of St. Peter&#39;s dome. Magical at sunset and rarely crowded.</p>
                         <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Combine with the peaceful Orange Garden (Giardino degli Aranci) next door for Rome&#39;s best sunset views.</p>
-                        
+                        <a href="https://www.tripadvisor.com/Search?q=Aventine%20Keyhole%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                     </div>
                 </div>
                 
@@ -2531,31 +2555,35 @@
                 <div class="cards-grid" style="grid-template-columns: 1fr;">
                     
                     <div style="padding: 15px; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="color: var(--primary); margin-bottom: 8px;">Greeting Etiquette</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 8px;"><a href="https://www.google.com/search?q=Greeting%20Etiquette%20Paris%2C%20France%20%26%20Rome%2C%20Italy%20culture%20etiquette" style="color: var(--primary); text-decoration: none;" target="_blank" rel="noopener noreferrer">Greeting Etiquette</a></h4>
                         <p style="color: var(--text);">In France, it&#39;s customary to greet shopkeepers with &#39;Bonjour&#39; when entering and &#39;Au revoir&#39; when leaving. In Italy, &#39;Buongiorno&#39; (good morning/day) or &#39;Buonasera&#39; (good evening) works similarly.</p>
                         <p style="margin-top: 8px; color: var(--accent-dark);"><strong>✓ Do:</strong> Say &#39;Bonjour/Buongiorno&#39; when entering shops, restaurants, or elevators</p>
                         <p style="margin-top: 4px; color: #d32f2f;"><strong>✗ Avoid:</strong> Walking into a shop and immediately asking for something without greeting first</p>
+                        <a href="https://www.google.com/search?q=Greeting%20Etiquette%20Paris%2C%20France%20%26%20Rome%2C%20Italy%20culture%20etiquette" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">Learn More →</a>
                     </div>
                     
                     <div style="padding: 15px; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="color: var(--primary); margin-bottom: 8px;">Dining Pace</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 8px;"><a href="https://www.google.com/search?q=Dining%20Pace%20Paris%2C%20France%20%26%20Rome%2C%20Italy%20culture%20etiquette" style="color: var(--primary); text-decoration: none;" target="_blank" rel="noopener noreferrer">Dining Pace</a></h4>
                         <p style="color: var(--text);">Europeans dine leisurely. In both Paris and Rome, a meal is an experience—expect 1.5-2 hours minimum. Waiters won&#39;t rush you or bring the check until you ask.</p>
                         <p style="margin-top: 8px; color: var(--accent-dark);"><strong>✓ Do:</strong> Signal for the check when ready by saying &#39;L&#39;addition&#39; (France) or &#39;Il conto&#39; (Italy)</p>
                         <p style="margin-top: 4px; color: #d32f2f;"><strong>✗ Avoid:</strong> Expecting the check to arrive automatically—it&#39;s considered rude to rush diners</p>
+                        <a href="https://www.google.com/search?q=Dining%20Pace%20Paris%2C%20France%20%26%20Rome%2C%20Italy%20culture%20etiquette" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">Learn More →</a>
                     </div>
                     
                     <div style="padding: 15px; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="color: var(--primary); margin-bottom: 8px;">Café Culture</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 8px;"><a href="https://www.google.com/search?q=Caf%C3%A9%20Culture%20Paris%2C%20France%20%26%20Rome%2C%20Italy%20culture%20etiquette" style="color: var(--primary); text-decoration: none;" target="_blank" rel="noopener noreferrer">Café Culture</a></h4>
                         <p style="color: var(--text);">In Paris, standing at the bar for coffee is cheaper than sitting at a table. In Rome, a quick espresso at the bar is the local way—Italians rarely sit for coffee during the day.</p>
                         <p style="margin-top: 8px; color: var(--accent-dark);"><strong>✓ Do:</strong> Try the local way: order &#39;un caffè&#39; standing at an Italian bar</p>
                         <p style="margin-top: 4px; color: #d32f2f;"><strong>✗ Avoid:</strong> Ordering a cappuccino after 11am in Italy—locals only drink it at breakfast</p>
+                        <a href="https://www.google.com/search?q=Caf%C3%A9%20Culture%20Paris%2C%20France%20%26%20Rome%2C%20Italy%20culture%20etiquette" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">Learn More →</a>
                     </div>
                     
                     <div style="padding: 15px; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="color: var(--primary); margin-bottom: 8px;">Church Dress Code</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 8px;"><a href="https://www.google.com/search?q=Church%20Dress%20Code%20Paris%2C%20France%20%26%20Rome%2C%20Italy%20culture%20etiquette" style="color: var(--primary); text-decoration: none;" target="_blank" rel="noopener noreferrer">Church Dress Code</a></h4>
                         <p style="color: var(--text);">Both countries require covered shoulders and knees in churches. St. Peter&#39;s and the Vatican are strict; Notre-Dame area churches are more relaxed but still respectful.</p>
                         <p style="margin-top: 8px; color: var(--accent-dark);"><strong>✓ Do:</strong> Carry a light scarf or shawl for impromptu church visits</p>
                         <p style="margin-top: 4px; color: #d32f2f;"><strong>✗ Avoid:</strong> Wearing shorts, tank tops, or revealing clothing to major religious sites</p>
+                        <a href="https://www.google.com/search?q=Church%20Dress%20Code%20Paris%2C%20France%20%26%20Rome%2C%20Italy%20culture%20etiquette" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">Learn More →</a>
                     </div>
                     
                 </div>
@@ -2577,61 +2605,67 @@
                     <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
                             <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
-                            <h4 style="color: var(--text); font-size: 1em;">Pantheon</h4>
+                            <h4 style="color: var(--text); font-size: 1em;"><a href="https://www.tripadvisor.com/Search?q=Pantheon%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" style="color: var(--primary); text-decoration: none;" target="_blank" rel="noopener noreferrer">Pantheon</a></h4>
                         </div>
                         <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Rome</p>
                         <p style="font-size: 0.95em; color: var(--text);">This 2,000-year-old temple is free to enter. The dome&#39;s oculus (open hole) lets in dramatic shafts of light. One of the best-preserved ancient Roman buildings.</p>
                         <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Arrive early morning (8:30am) or late afternoon to avoid peak crowds</p>
+                        <a href="https://www.tripadvisor.com/Search?q=Pantheon%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">Learn More →</a>
                     </div>
                     
                     <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
                             <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
-                            <h4 style="color: var(--text); font-size: 1em;">Sacré-Cœur Basilica</h4>
+                            <h4 style="color: var(--text); font-size: 1em;"><a href="https://www.tripadvisor.com/Search?q=Sacr%C3%A9-C%C5%93ur%20Basilica%20Montmartre%2C%20Paris&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" style="color: var(--primary); text-decoration: none;" target="_blank" rel="noopener noreferrer">Sacré-Cœur Basilica</a></h4>
                         </div>
                         <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Montmartre, Paris</p>
                         <p style="font-size: 0.95em; color: var(--text);">Stunning white-domed church with panoramic city views from the steps. Free entry to the basilica interior. Street performers and artists add to the atmosphere.</p>
                         <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Sunset for magical views over Paris</p>
+                        <a href="https://www.tripadvisor.com/Search?q=Sacr%C3%A9-C%C5%93ur%20Basilica%20Montmartre%2C%20Paris&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">Learn More →</a>
                     </div>
                     
                     <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
                             <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
-                            <h4 style="color: var(--text); font-size: 1em;">Tuileries Garden</h4>
+                            <h4 style="color: var(--text); font-size: 1em;"><a href="https://www.tripadvisor.com/Search?q=Tuileries%20Garden%20Paris&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" style="color: var(--primary); text-decoration: none;" target="_blank" rel="noopener noreferrer">Tuileries Garden</a></h4>
                         </div>
                         <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Paris</p>
                         <p style="font-size: 0.95em; color: var(--text);">Historic formal garden stretching from the Louvre to Place de la Concorde. Perfect for a peaceful stroll, people-watching, or renting a classic green chair by the pond.</p>
                         <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Morning for photos, afternoon for relaxing</p>
+                        <a href="https://www.tripadvisor.com/Search?q=Tuileries%20Garden%20Paris&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">Learn More →</a>
                     </div>
                     
                     <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
                             <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
-                            <h4 style="color: var(--text); font-size: 1em;">Trevi Fountain &amp; Spanish Steps</h4>
+                            <h4 style="color: var(--text); font-size: 1em;"><a href="https://www.tripadvisor.com/Search?q=Trevi%20Fountain%20%26%20Spanish%20Steps%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" style="color: var(--primary); text-decoration: none;" target="_blank" rel="noopener noreferrer">Trevi Fountain &amp; Spanish Steps</a></h4>
                         </div>
                         <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Rome</p>
                         <p style="font-size: 0.95em; color: var(--text);">Two of Rome&#39;s most iconic landmarks are free to visit. Toss a coin in Trevi (tradition says you&#39;ll return to Rome) and climb the Spanish Steps for views.</p>
                         <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Very early morning (7am) or late evening to avoid massive crowds</p>
+                        <a href="https://www.tripadvisor.com/Search?q=Trevi%20Fountain%20%26%20Spanish%20Steps%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">Learn More →</a>
                     </div>
                     
                     <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
                             <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
-                            <h4 style="color: var(--text); font-size: 1em;">Seine River Walk &amp; Bouquinistes</h4>
+                            <h4 style="color: var(--text); font-size: 1em;"><a href="https://www.tripadvisor.com/Search?q=Seine%20River%20Walk%20%26%20Bouquinistes%20Paris&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" style="color: var(--primary); text-decoration: none;" target="_blank" rel="noopener noreferrer">Seine River Walk &amp; Bouquinistes</a></h4>
                         </div>
                         <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Paris</p>
                         <p style="font-size: 0.95em; color: var(--text);">Walk along the riverbanks and browse the famous green bookstalls (bouquinistes). Cross to Île de la Cité for views of Notre-Dame&#39;s restoration.</p>
                         <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Golden hour for beautiful photos of the bridges</p>
+                        <a href="https://www.tripadvisor.com/Search?q=Seine%20River%20Walk%20%26%20Bouquinistes%20Paris&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">Learn More →</a>
                     </div>
                     
                     <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
                             <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
-                            <h4 style="color: var(--text); font-size: 1em;">Piazza Navona</h4>
+                            <h4 style="color: var(--text); font-size: 1em;"><a href="https://www.tripadvisor.com/Search?q=Piazza%20Navona%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" style="color: var(--primary); text-decoration: none;" target="_blank" rel="noopener noreferrer">Piazza Navona</a></h4>
                         </div>
                         <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Rome</p>
                         <p style="font-size: 0.95em; color: var(--text);">Rome&#39;s most beautiful baroque square with three ornate fountains, street artists, and people-watching cafés. The architecture is the main attraction—and it&#39;s free.</p>
                         <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Evening when the fountains are lit and locals come out to stroll</p>
+                        <a href="https://www.tripadvisor.com/Search?q=Piazza%20Navona%20Rome&amp;searchSessionId=&amp;searchNearby=false&amp;geo=&amp;ssrc=Attractions" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">Learn More →</a>
                     </div>
                     
                 </div>
