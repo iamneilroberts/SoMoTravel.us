@@ -913,6 +913,464 @@
             font-weight: 600;
         }
 
+        /* Traveler Table */
+        .traveler-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+        }
+
+        .traveler-table th,
+        .traveler-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .traveler-table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .traveler-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .traveler-type {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .traveler-type.adult {
+            background: var(--secondary-light);
+            color: var(--primary);
+        }
+
+        .traveler-type.teen {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .traveler-type.child {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+            margin-right: 4px;
+        }
+
+        .doc-badge.pending {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .doc-badge.complete {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .mobility-flag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: #f5a623;
+            font-size: 0.9em;
+        }
+
+        /* Maps Section */
+        .maps-section {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .map-item {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .map-item-label {
+            padding: 10px 15px;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--bg-section);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .map-embed {
+            width: 100%;
+            height: 250px;
+            border: none;
+        }
+
+        /* Transport & Driving Info */
+        .transport-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: var(--bg-section);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .transport-icon {
+            font-size: 1.5em;
+            flex-shrink: 0;
+        }
+
+        .transport-details {
+            flex: 1;
+        }
+
+        .transport-details .mode {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .transport-details .times {
+            font-size: 0.9em;
+            color: var(--text);
+        }
+
+        .transport-details .confirmation {
+            font-size: 0.85em;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .driving-info {
+            background: linear-gradient(135deg, #f5f9fc 0%, #e8f4fc 100%);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .driving-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .driving-stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        .driving-stat {
+            font-size: 0.95em;
+        }
+
+        .driving-stat .label {
+            color: var(--text-light);
+        }
+
+        .driving-stat .value {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .driving-breaks {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed var(--border);
+        }
+
+        .driving-breaks h6 {
+            font-size: 0.85em;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .break-item {
+            display: flex;
+            gap: 8px;
+            font-size: 0.9em;
+            margin-bottom: 4px;
+        }
+
+        .break-item .location {
+            font-weight: 500;
+        }
+
+        .break-item .reason {
+            color: var(--text-light);
+        }
+
+        /* Daily Lodging Indicator */
+        .daily-lodging {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--secondary-light);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-left: 15px;
+        }
+
+        .daily-lodging .hotel-icon {
+            font-size: 1em;
+        }
+
+        .daily-lodging .hotel-name {
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .daily-lodging .night-info {
+            color: var(--text-light);
+            font-size: 0.9em;
+        }
+
+        /* Dining Recommendations */
+        .dining-recommendations {
+            background: linear-gradient(135deg, #fffbf5 0%, #fff 100%);
+            border: 1px solid #f0d9c0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .dining-rec-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #c7880a;
+            margin-bottom: 12px;
+        }
+
+        .dining-rec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .dining-rec-card {
+            background: var(--white);
+            border: 1px solid #f0d9c0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .dining-rec-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(199, 136, 10, 0.15);
+        }
+
+        .dining-rec-card .thumbnail {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .dining-rec-card .content {
+            padding: 12px;
+        }
+
+        .dining-rec-card .name {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .dining-rec-card .name a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .dining-rec-card .name a:hover {
+            color: var(--primary);
+        }
+
+        .dining-rec-card .price-cuisine {
+            display: flex;
+            gap: 8px;
+            font-size: 0.85em;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+
+        .dining-rec-card .price-level {
+            color: #c7880a;
+            font-weight: 600;
+        }
+
+        .dining-rec-card .description {
+            font-size: 0.9em;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* Photo Thumbnails & Lightbox */
+        .thumbnail {
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover {
+            color: var(--secondary);
+        }
+
+        /* Lodging Status Badges */
+        .lodging-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .lodging-status.confirmed {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .lodging-status.selected {
+            background: var(--secondary-light);
+            color: var(--primary);
+        }
+
+        .lodging-status.option {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .card.lodging-option {
+            border-style: dashed;
+            opacity: 0.9;
+        }
+
+        .card.lodging-confirmed {
+            border-color: #4caf50;
+            border-width: 2px;
+        }
+
+        /* Notes Section */
+        .notes-section {
+            background: #fffde7;
+            border: 1px solid #fff176;
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+
+        .notes-section h4 {
+            color: #f9a825;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .notes-section ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .notes-section li {
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .notes-section p {
+            margin: 0;
+            color: var(--text);
+        }
+
+        /* Activity URL/Photo Enhancements */
+        .activity-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .activity-link:hover {
+            text-decoration: underline;
+        }
+
+        .activity-thumbnail {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            float: right;
+            margin-left: 12px;
+            margin-bottom: 8px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-bar { flex-direction: column; gap: 10px; text-align: center; }
@@ -1034,6 +1492,45 @@
             
         </div>
 
+        <!-- Maps Section -->
+        
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🗺️</div>
+                <h2>Trip Maps</h2>
+            </div>
+            <div class="maps-section">
+                <div class="map-grid">
+                    
+                    <div class="map-item">
+                        <div class="map-item-label">Paris Overview</div>
+                        <iframe
+                            class="map-embed"
+                            src="https://www.google.com/maps/embed/v1/place?key=&q=Paris%2C%20France"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    
+                    <div class="map-item">
+                        <div class="map-item-label">Rome Overview</div>
+                        <iframe
+                            class="map-embed"
+                            src="https://www.google.com/maps/embed/v1/place?key=&q=Rome%2C%20Italy"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+
         <!-- Travelers Section -->
         
         <div class="section">
@@ -1042,11 +1539,52 @@
                 <h2>Your Travel Party</h2>
             </div>
             <div class="content-box">
-                <div class="traveler-list">
-                    <span class="traveler-badge">Jane Smith</span><span class="traveler-badge">John Smith</span>
-                </div>
+                <!-- Traveler table with PII protection and status -->
+                <table class="traveler-table">
+                    <thead>
+                        <tr>
+                            <th>Traveler</th>
+                            <th>Type</th>
+                            <th>Notes</th>
+                            <th>Documents</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>
+                                Jane S.
+                            </td>
+                            <td>
+                                <span class="traveler-type adult">Adult</span>
+                            </td>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                <span class="doc-badge complete">✓ Complete</span>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                John S.
+                            </td>
+                            <td>
+                                <span class="traveler-type adult">Adult</span>
+                            </td>
+                            <td>
+                                <span class="mobility-flag">⚠️ Prefers limited stairs</span>
+                            </td>
+                            <td>
+                                <span class="doc-badge pending">passport</span><span class="doc-badge pending">travel insurance</span>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
                 
-                <div class="highlight-box">
+                <div class="highlight-box" style="margin-top: 20px;">
                     <h4>Trip Notes</h4>
                     <p>Anniversary celebration - 10 years!</p>
                 </div>
@@ -1103,11 +1641,15 @@
             </div>
             <div class="cards-grid">
                 
-                <div class="card">
+                <div class="card lodging-confirmed">
                     
                     
                     
-                    <div class="card-header">Boutique Hotel - Le Marais District</div>
+                    <div class="card-header">
+                        Boutique Hotel - Le Marais District
+                        <span class="lodging-status confirmed">Confirmed</span>
+                        
+                    </div>
                     <div class="card-body">
                         <div class="card-detail"><span class="label">Location</span><span class="value">Paris, France</span></div>
                         <div class="card-detail"><span class="label">Nights</span><span class="value">3</span></div>
@@ -1115,14 +1657,28 @@
                         
                         <div class="card-detail"><span class="label">Rate</span><span class="value">$220/night</span></div>
                         <a href="https://www.tripadvisor.com/Hotels-Paris-Le_Marais" class="card-link" target="_blank" rel="noopener noreferrer">View Property →</a>
+                        
+                        <div style="margin-top: 15px;">
+                            <iframe
+                                style="width: 100%; height: 150px; border: none; border-radius: 8px;"
+                                src="https://www.google.com/maps/embed/v1/place?key=&q=Le%20Marais%2C%20Paris%2C%20France"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        
                     </div>
                 </div>
                 
-                <div class="card">
+                <div class="card lodging-selected">
                     
                     
                     
-                    <div class="card-header">Boutique Hotel - Trastevere</div>
+                    <div class="card-header">
+                        Boutique Hotel - Trastevere
+                        <span class="lodging-status selected">Selected</span>
+                        
+                    </div>
                     <div class="card-body">
                         <div class="card-detail"><span class="label">Location</span><span class="value">Rome, Italy</span></div>
                         <div class="card-detail"><span class="label">Nights</span><span class="value">3</span></div>
@@ -1130,20 +1686,35 @@
                         
                         <div class="card-detail"><span class="label">Rate</span><span class="value">$180/night</span></div>
                         <a href="https://www.tripadvisor.com/Hotels-Rome-Trastevere" class="card-link" target="_blank" rel="noopener noreferrer">View Property →</a>
+                        
+                        <div style="margin-top: 15px;">
+                            <iframe
+                                style="width: 100%; height: 150px; border: none; border-radius: 8px;"
+                                src="https://www.google.com/maps/embed/v1/place?key=&q=Trastevere%2C%20Rome%2C%20Italy"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        
                     </div>
                 </div>
                 
-                <div class="card">
+                <div class="card lodging-option">
                     
                     
                     
-                    <div class="card-header">Budget Option - Centro Storico</div>
+                    <div class="card-header">
+                        Budget Option - Centro Storico
+                        <span class="lodging-status option">Option</span>
+                        
+                    </div>
                     <div class="card-body">
                         <div class="card-detail"><span class="label">Location</span><span class="value">Rome, Italy</span></div>
                         <div class="card-detail"><span class="label">Nights</span><span class="value">3</span></div>
                         
                         
                         <div class="card-detail"><span class="label">Rate</span><span class="value">$120/night</span></div>
+                        
                         
                     </div>
                 </div>
@@ -1170,6 +1741,15 @@
                         <div class="day-date">2026-06-01</div>
                         <div class="day-date">Paris, France</div>
                     </div>
+                    
+                    <div class="daily-lodging">
+                        <span class="hotel-icon">🏨</span>
+                        <span class="hotel-name">Boutique Hotel - Le Marais</span>
+                        <span class="night-info">(Night 1)</span>
+                        <span class="night-info">• Check-in</span>
+                        
+                    </div>
+                    
                 </div>
                 <div class="day-content">
                     
@@ -1177,47 +1757,109 @@
                     
 
                     
+                    <div class="transport-info">
+                        <div class="transport-icon">
+                            
+                            
+                            
+                            🚆
+                        </div>
+                        <div class="transport-details">
+                            <div class="mode"></div>
+                            
+                            <div class="times">
+                                Depart: 11:00 → Arrive: 12:00
+                            </div>
+                            
+                            
+                            <div class="confirmation">Confirmation: TRF-PAR-001</div>
+                            
+                            
+                            <div class="confirmation">Driver will meet at arrivals with name sign</div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    
+
+                    
 
                     
                     
                     <div class="activity">
+                        
                         
                         <div class="activity-time">Afternoon</div>
-                        <div class="activity-title">Arrive &amp; Check-in</div>
+                        <div class="activity-title">
+                            Arrive &amp; Check-in
+                        </div>
                         <div class="activity-details">Settle into your Le Marais hotel. Take a leisurely stroll through the neighborhood to shake off jet lag.</div>
                         
-                        
                     </div>
                     
                     <div class="activity">
                         
+                        
                         <div class="activity-time">Evening</div>
-                        <div class="activity-title">Seine River Walk</div>
+                        <div class="activity-title">
+                            <a href="https://www.tripadvisor.com/Attraction_Review-Paris-Seine_River.html" class="activity-link" target="_blank" rel="noopener noreferrer">Seine River Walk</a>
+                        </div>
                         <div class="activity-details">Walk along the Seine as the sun sets. Cross to Île de la Cité to see Notre-Dame&#39;s exterior restoration.</div>
                         
-                        <a href="https://www.tripadvisor.com/Attraction_Review-Paris-Seine_River.html" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
                     <div class="activity">
                         
+                        
                         <div class="activity-time">Evening</div>
-                        <div class="activity-title">Welcome Dinner</div>
+                        <div class="activity-title">
+                            Welcome Dinner
+                        </div>
                         <div class="activity-details">Classic French bistro in Le Marais. Try the duck confit or steak frites paired with local wine.</div>
                         <div class="activity-details">Reservation recommended</div>
-                        
                     </div>
                     
                     
 
                     
-                    <div class="dining-section">
-                        <div class="dining-header">🍽️ Dining</div>
-                        
-                        
-                        
-                        
-                        
+                    
+                    <!-- Dining recommendations cards -->
+                    <div class="dining-recommendations">
+                        <div class="dining-rec-header">🍽️ Restaurant Recommendations</div>
+                        <div class="dining-rec-grid">
+                            
+                            <div class="dining-rec-card">
+                                
+                                <div class="content">
+                                    <div class="name">
+                                        <a href="https://www.tripadvisor.com/Restaurant_Review-Paris-Chez_Janou.html" target="_blank" rel="noopener noreferrer">Chez Janou</a>
+                                    </div>
+                                    <div class="price-cuisine">
+                                        <span class="price-level">$$</span>
+                                        <span>French</span>
+                                    </div>
+                                    <div class="description">Famous for chocolate mousse and Provençal cuisine</div>
+                                </div>
+                            </div>
+                            
+                            <div class="dining-rec-card">
+                                
+                                <div class="content">
+                                    <div class="name">
+                                        <a href="https://www.tripadvisor.com/Restaurant_Review-Paris-Le_Petit_Cler.html" target="_blank" rel="noopener noreferrer">Le Petit Cler</a>
+                                    </div>
+                                    <div class="price-cuisine">
+                                        <span class="price-level">$$</span>
+                                        <span>French</span>
+                                    </div>
+                                    <div class="description">Cozy neighborhood bistro with seasonal menu</div>
+                                </div>
+                            </div>
+                            
+                        </div>
                     </div>
+                    
                     
 
                     
@@ -1249,6 +1891,15 @@
                         <div class="day-date">2026-06-02</div>
                         <div class="day-date">Paris, France</div>
                     </div>
+                    
+                    <div class="daily-lodging">
+                        <span class="hotel-icon">🏨</span>
+                        <span class="hotel-name"></span>
+                        
+                        
+                        
+                    </div>
+                    
                 </div>
                 <div class="day-content">
                     
@@ -1258,40 +1909,52 @@
                     
 
                     
+
+                    
+
+                    
                     
                     <div class="activity">
+                        
                         
                         <div class="activity-time">Morning</div>
-                        <div class="activity-title">Eiffel Tower - Skip the Line</div>
+                        <div class="activity-title">
+                            Eiffel Tower - Skip the Line
+                        </div>
                         <div class="activity-details">Beat the crowds with an early morning timed entry. Summit access for panoramic views of the city.</div>
                         
-                        
                     </div>
                     
                     <div class="activity">
+                        
                         
                         <div class="activity-time">Late Morning</div>
-                        <div class="activity-title">Trocadéro Gardens</div>
+                        <div class="activity-title">
+                            Trocadéro Gardens
+                        </div>
                         <div class="activity-details">Cross to Trocadéro for the classic Eiffel Tower photo op. Lovely gardens to explore.</div>
                         
-                        
                     </div>
                     
                     <div class="activity">
+                        
                         
                         <div class="activity-time">Afternoon</div>
-                        <div class="activity-title">Louvre Museum - Guided Highlights Tour</div>
+                        <div class="activity-title">
+                            Louvre Museum - Guided Highlights Tour
+                        </div>
                         <div class="activity-details">2-hour guided tour hitting the must-sees: Mona Lisa, Venus de Milo, Winged Victory. Skip-the-line entry included.</div>
-                        
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-time">Evening</div>
-                        <div class="activity-title">Dinner in Saint-Germain-des-Prés</div>
-                        <div class="activity-details">Cross to the Left Bank for dinner in the literary quarter. Café de Flore or Les Deux Magots for atmosphere.</div>
                         
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-title">
+                            Dinner in Saint-Germain-des-Prés
+                        </div>
+                        <div class="activity-details">Cross to the Left Bank for dinner in the literary quarter. Café de Flore or Les Deux Magots for atmosphere.</div>
                         
                     </div>
                     
@@ -1328,6 +1991,15 @@
                         <div class="day-date">2026-06-03</div>
                         <div class="day-date">Paris, France</div>
                     </div>
+                    
+                    <div class="daily-lodging">
+                        <span class="hotel-icon">🏨</span>
+                        <span class="hotel-name"></span>
+                        
+                        
+                        
+                    </div>
+                    
                 </div>
                 <div class="day-content">
                     
@@ -1337,40 +2009,52 @@
                     
 
                     
+
+                    
+
+                    
                     
                     <div class="activity">
+                        
                         
                         <div class="activity-time">Morning</div>
-                        <div class="activity-title">Montmartre Food &amp; Wine Tour</div>
+                        <div class="activity-title">
+                            Montmartre Food &amp; Wine Tour
+                        </div>
                         <div class="activity-details">3-hour walking tour through the artistic Montmartre neighborhood. Visit local cheese shops, bakeries, chocolate makers, and wine bars. Includes tastings at 6-8 stops.</div>
                         
-                        
                     </div>
                     
                     <div class="activity">
                         
+                        
                         <div class="activity-time">Afternoon</div>
-                        <div class="activity-title">Sacré-Cœur Basilica</div>
+                        <div class="activity-title">
+                            Sacré-Cœur Basilica
+                        </div>
                         <div class="activity-details">Free entry to the stunning white-domed basilica. Climb to the dome for city views or relax on the steps watching street performers.</div>
                         
-                        
                     </div>
                     
                     <div class="activity">
+                        
                         
                         <div class="activity-time">Afternoon</div>
-                        <div class="activity-title">Artist Square (Place du Tertre)</div>
+                        <div class="activity-title">
+                            Artist Square (Place du Tertre)
+                        </div>
                         <div class="activity-details">Browse local artists at work. Fun spot for a caricature or small painting souvenir.</div>
-                        
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-time">Evening</div>
-                        <div class="activity-title">Final Paris Evening</div>
-                        <div class="activity-details">Farewell dinner at a Michelin-recommended bistro, or keep it casual with wine and cheese in the hotel neighborhood.</div>
                         
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-title">
+                            Final Paris Evening
+                        </div>
+                        <div class="activity-details">Farewell dinner at a Michelin-recommended bistro, or keep it casual with wine and cheese in the hotel neighborhood.</div>
                         
                     </div>
                     
@@ -1407,6 +2091,15 @@
                         <div class="day-date">2026-06-04</div>
                         <div class="day-date">Paris → Rome</div>
                     </div>
+                    
+                    <div class="daily-lodging">
+                        <span class="hotel-icon">🏨</span>
+                        <span class="hotel-name"></span>
+                        
+                        
+                        
+                    </div>
+                    
                 </div>
                 <div class="day-content">
                     
@@ -1416,49 +2109,63 @@
                     
 
                     
+
+                    
+
+                    
                     
                     <div class="activity">
+                        
                         
                         <div class="activity-time">Morning</div>
-                        <div class="activity-title">Leisurely Departure</div>
+                        <div class="activity-title">
+                            Leisurely Departure
+                        </div>
                         <div class="activity-details">Enjoy a final Parisian breakfast. Coffee and croissant at a neighborhood café.</div>
                         
-                        
                     </div>
                     
                     <div class="activity">
+                        
                         
                         <div class="activity-time">Midday</div>
-                        <div class="activity-title">Flight to Rome</div>
+                        <div class="activity-title">
+                            Flight to Rome
+                        </div>
                         <div class="activity-details">Short 2-hour flight from Paris CDG to Rome FCO.</div>
                         <div class="activity-details">Flight cost included in trip total</div>
-                        
                     </div>
                     
                     <div class="activity">
+                        
                         
                         <div class="activity-time">Afternoon</div>
-                        <div class="activity-title">Arrive in Rome &amp; Check-in</div>
+                        <div class="activity-title">
+                            Arrive in Rome &amp; Check-in
+                        </div>
                         <div class="activity-details">Transfer to your Trastevere hotel. This charming neighborhood feels like the &#39;real Rome&#39; with cobblestone streets and local trattorias.</div>
                         <div class="activity-details">Private transfer from airport</div>
-                        
                     </div>
                     
                     <div class="activity">
                         
+                        
                         <div class="activity-time">Evening</div>
-                        <div class="activity-title">Trastevere Evening Stroll</div>
+                        <div class="activity-title">
+                            Trastevere Evening Stroll
+                        </div>
                         <div class="activity-details">Get lost in the atmospheric streets. End at Piazza di Santa Maria for people-watching.</div>
                         
-                        
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-time">Evening</div>
-                        <div class="activity-title">Roman Dinner</div>
-                        <div class="activity-details">Authentic Roman cuisine: cacio e pepe, carbonara, or amatriciana. Book a table at a local trattoria.</div>
                         
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-title">
+                            Roman Dinner
+                        </div>
+                        <div class="activity-details">Authentic Roman cuisine: cacio e pepe, carbonara, or amatriciana. Book a table at a local trattoria.</div>
                         
                     </div>
                     
@@ -1495,6 +2202,15 @@
                         <div class="day-date">2026-06-05</div>
                         <div class="day-date">Rome, Italy</div>
                     </div>
+                    
+                    <div class="daily-lodging">
+                        <span class="hotel-icon">🏨</span>
+                        <span class="hotel-name"></span>
+                        
+                        
+                        
+                    </div>
+                    
                 </div>
                 <div class="day-content">
                     
@@ -1504,40 +2220,52 @@
                     
 
                     
+
+                    
+
+                    
                     
                     <div class="activity">
+                        
                         
                         <div class="activity-time">Morning</div>
-                        <div class="activity-title">Colosseum, Forum &amp; Palatine - Priority Access</div>
+                        <div class="activity-title">
+                            Colosseum, Forum &amp; Palatine - Priority Access
+                        </div>
                         <div class="activity-details">Comprehensive guided tour of Ancient Rome&#39;s heart. Underground Colosseum access to see gladiator tunnels (premium tier). Skip all lines.</div>
                         
-                        
                     </div>
                     
                     <div class="activity">
                         
+                        
                         <div class="activity-time">Afternoon</div>
-                        <div class="activity-title">Lunch Near Campo de&#39; Fiori</div>
+                        <div class="activity-title">
+                            Lunch Near Campo de&#39; Fiori
+                        </div>
                         <div class="activity-details">Walk to this lively market square for fresh produce, flowers, and casual lunch options.</div>
                         
-                        
                     </div>
                     
                     <div class="activity">
+                        
                         
                         <div class="activity-time">Afternoon</div>
-                        <div class="activity-title">Trevi Fountain &amp; Spanish Steps</div>
+                        <div class="activity-title">
+                            Trevi Fountain &amp; Spanish Steps
+                        </div>
                         <div class="activity-details">Hit the iconic spots. Toss a coin in Trevi (guarantees your return to Rome!). Walk up the Spanish Steps.</div>
-                        
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-time">Evening</div>
-                        <div class="activity-title">Aperitivo Hour</div>
-                        <div class="activity-details">Experience the Roman tradition of pre-dinner drinks with complimentary snacks. The hotel neighborhood or Piazza Navona area both excellent.</div>
                         
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-title">
+                            Aperitivo Hour
+                        </div>
+                        <div class="activity-details">Experience the Roman tradition of pre-dinner drinks with complimentary snacks. The hotel neighborhood or Piazza Navona area both excellent.</div>
                         
                     </div>
                     
@@ -1574,6 +2302,15 @@
                         <div class="day-date">2026-06-06</div>
                         <div class="day-date">Rome, Italy</div>
                     </div>
+                    
+                    <div class="daily-lodging">
+                        <span class="hotel-icon">🏨</span>
+                        <span class="hotel-name"></span>
+                        
+                        
+                        
+                    </div>
+                    
                 </div>
                 <div class="day-content">
                     
@@ -1583,40 +2320,52 @@
                     
 
                     
+
+                    
+
+                    
                     
                     <div class="activity">
+                        
                         
                         <div class="activity-time">Early Morning</div>
-                        <div class="activity-title">Vatican Museums &amp; Sistine Chapel - Early Entry</div>
+                        <div class="activity-title">
+                            Vatican Museums &amp; Sistine Chapel - Early Entry
+                        </div>
                         <div class="activity-details">Special early access before crowds. Guided tour through the museums culminating in the Sistine Chapel. St. Peter&#39;s Basilica entry included.</div>
                         
-                        
                     </div>
                     
                     <div class="activity">
                         
+                        
                         <div class="activity-time">Afternoon</div>
-                        <div class="activity-title">Castel Sant&#39;Angelo (Optional)</div>
+                        <div class="activity-title">
+                            Castel Sant&#39;Angelo (Optional)
+                        </div>
                         <div class="activity-details">Former papal fortress with excellent views from the rooftop terrace. Skip if museum&#39;d out.</div>
                         
-                        
                     </div>
                     
                     <div class="activity">
+                        
                         
                         <div class="activity-time">Afternoon</div>
-                        <div class="activity-title">Gelato Quest</div>
+                        <div class="activity-title">
+                            Gelato Quest
+                        </div>
                         <div class="activity-details">Sample Rome&#39;s famous gelato. Favorites: Giolitti (classic), Fatamorgana (creative flavors), Come Il Latte (pure ingredients).</div>
-                        
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-time">Evening</div>
-                        <div class="activity-title">Farewell Dinner with a View</div>
-                        <div class="activity-details">Special last-night dinner. Rooftop restaurant with view of the dome of St. Peter&#39;s, or intimate Trastevere gem.</div>
                         
+                        <div class="activity-time">Evening</div>
+                        <div class="activity-title">
+                            Farewell Dinner with a View
+                        </div>
+                        <div class="activity-details">Special last-night dinner. Rooftop restaurant with view of the dome of St. Peter&#39;s, or intimate Trastevere gem.</div>
                         
                     </div>
                     
@@ -1653,6 +2402,15 @@
                         <div class="day-date">2026-06-07</div>
                         <div class="day-date">Rome, Italy</div>
                     </div>
+                    
+                    <div class="daily-lodging">
+                        <span class="hotel-icon">🏨</span>
+                        <span class="hotel-name"></span>
+                        
+                        
+                        
+                    </div>
+                    
                 </div>
                 <div class="day-content">
                     
@@ -1662,22 +2420,30 @@
                     
 
                     
+
+                    
+
+                    
                     
                     <div class="activity">
                         
-                        <div class="activity-time">Morning</div>
-                        <div class="activity-title">Final Morning in Rome</div>
-                        <div class="activity-details">Depending on flight time: sleep in, final neighborhood wander, or quick visit to any missed spots.</div>
                         
+                        <div class="activity-time">Morning</div>
+                        <div class="activity-title">
+                            Final Morning in Rome
+                        </div>
+                        <div class="activity-details">Depending on flight time: sleep in, final neighborhood wander, or quick visit to any missed spots.</div>
                         
                     </div>
                     
                     <div class="activity">
                         
-                        <div class="activity-time">Varies</div>
-                        <div class="activity-title">Airport Transfer &amp; Flight Home</div>
-                        <div class="activity-details">Private transfer to FCO airport. Arrivederci, Roma!</div>
                         
+                        <div class="activity-time">Varies</div>
+                        <div class="activity-title">
+                            Airport Transfer &amp; Flight Home
+                        </div>
+                        <div class="activity-details">Private transfer to FCO airport. Arrivederci, Roma!</div>
                         
                     </div>
                     
@@ -1699,6 +2465,254 @@
         
 
         <!-- Extras / Recommendations Section -->
+        
+
+        <!-- Hidden Gems Section (Array version) -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">💎</div>
+                <h2>Hidden Gems</h2>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card" style="border-top: 4px solid #f5a623;">
+                    <div class="card-body">
+                        <h4 style="color: #c7880a; margin-bottom: 10px;">🌟 Le Marais Jewish Quarter</h4>
+                        <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">📍 Paris</p>
+                        <p style="color: var(--text);">Wander the narrow streets of the historic Jewish quarter for the best falafel in Paris at L&#39;As du Fallafel, vintage shops, and gorgeous hidden courtyards. Most tourists miss the beautiful interior gardens visible through archways.</p>
+                        <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Visit on a Sunday when other neighborhoods are quiet but Le Marais is bustling.</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="card" style="border-top: 4px solid #f5a623;">
+                    <div class="card-body">
+                        <h4 style="color: #c7880a; margin-bottom: 10px;">🌟 Promenade Plantée</h4>
+                        <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">📍 Paris</p>
+                        <p style="color: var(--text);">An elevated park built on an old railway line—the inspiration for NYC&#39;s High Line. Walk 4.5km from Bastille through treetops, gardens, and tunnels. Feels like a secret only Parisians know.</p>
+                        <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Start at Bastille and walk east for the best experience. Ends at Bois de Vincennes.</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="card" style="border-top: 4px solid #f5a623;">
+                    <div class="card-body">
+                        <h4 style="color: #c7880a; margin-bottom: 10px;">🌟 Trastevere at Golden Hour</h4>
+                        <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">📍 Rome</p>
+                        <p style="color: var(--text);">Cross the river to Rome&#39;s most romantic neighborhood. The ochre buildings glow at sunset, and the winding cobblestone streets feel like stepping back in time. Stay for dinner at a local trattoria.</p>
+                        <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Arrive around 6pm, grab a gelato, and wander until you find the perfect dinner spot.</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="card" style="border-top: 4px solid #f5a623;">
+                    <div class="card-body">
+                        <h4 style="color: #c7880a; margin-bottom: 10px;">🌟 Aventine Keyhole</h4>
+                        <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">📍 Rome</p>
+                        <p style="color: var(--text);">At the Knights of Malta gate on Aventine Hill, peek through the famous keyhole for a perfectly framed view of St. Peter&#39;s dome. Magical at sunset and rarely crowded.</p>
+                        <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Combine with the peaceful Orange Garden (Giardino degli Aranci) next door for Rome&#39;s best sunset views.</p>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <!-- Local Customs Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🌍</div>
+                <h2>Local Customs & Etiquette</h2>
+            </div>
+            <div class="content-box">
+                <div class="cards-grid" style="grid-template-columns: 1fr;">
+                    
+                    <div style="padding: 15px; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--primary);">
+                        <h4 style="color: var(--primary); margin-bottom: 8px;">Greeting Etiquette</h4>
+                        <p style="color: var(--text);">In France, it&#39;s customary to greet shopkeepers with &#39;Bonjour&#39; when entering and &#39;Au revoir&#39; when leaving. In Italy, &#39;Buongiorno&#39; (good morning/day) or &#39;Buonasera&#39; (good evening) works similarly.</p>
+                        <p style="margin-top: 8px; color: var(--accent-dark);"><strong>✓ Do:</strong> Say &#39;Bonjour/Buongiorno&#39; when entering shops, restaurants, or elevators</p>
+                        <p style="margin-top: 4px; color: #d32f2f;"><strong>✗ Avoid:</strong> Walking into a shop and immediately asking for something without greeting first</p>
+                    </div>
+                    
+                    <div style="padding: 15px; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--primary);">
+                        <h4 style="color: var(--primary); margin-bottom: 8px;">Dining Pace</h4>
+                        <p style="color: var(--text);">Europeans dine leisurely. In both Paris and Rome, a meal is an experience—expect 1.5-2 hours minimum. Waiters won&#39;t rush you or bring the check until you ask.</p>
+                        <p style="margin-top: 8px; color: var(--accent-dark);"><strong>✓ Do:</strong> Signal for the check when ready by saying &#39;L&#39;addition&#39; (France) or &#39;Il conto&#39; (Italy)</p>
+                        <p style="margin-top: 4px; color: #d32f2f;"><strong>✗ Avoid:</strong> Expecting the check to arrive automatically—it&#39;s considered rude to rush diners</p>
+                    </div>
+                    
+                    <div style="padding: 15px; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--primary);">
+                        <h4 style="color: var(--primary); margin-bottom: 8px;">Café Culture</h4>
+                        <p style="color: var(--text);">In Paris, standing at the bar for coffee is cheaper than sitting at a table. In Rome, a quick espresso at the bar is the local way—Italians rarely sit for coffee during the day.</p>
+                        <p style="margin-top: 8px; color: var(--accent-dark);"><strong>✓ Do:</strong> Try the local way: order &#39;un caffè&#39; standing at an Italian bar</p>
+                        <p style="margin-top: 4px; color: #d32f2f;"><strong>✗ Avoid:</strong> Ordering a cappuccino after 11am in Italy—locals only drink it at breakfast</p>
+                    </div>
+                    
+                    <div style="padding: 15px; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--primary);">
+                        <h4 style="color: var(--primary); margin-bottom: 8px;">Church Dress Code</h4>
+                        <p style="color: var(--text);">Both countries require covered shoulders and knees in churches. St. Peter&#39;s and the Vatican are strict; Notre-Dame area churches are more relaxed but still respectful.</p>
+                        <p style="margin-top: 8px; color: var(--accent-dark);"><strong>✓ Do:</strong> Carry a light scarf or shawl for impromptu church visits</p>
+                        <p style="margin-top: 4px; color: #d32f2f;"><strong>✗ Avoid:</strong> Wearing shorts, tank tops, or revealing clothing to major religious sites</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Free Things to Do Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🎁</div>
+                <h2>Free Things to Do</h2>
+            </div>
+            <div class="content-box" style="background: linear-gradient(135deg, #e8f5e9 0%, #fff 100%); border-color: #4caf50;">
+                <p style="margin-bottom: 15px; color: var(--text-light); font-style: italic;">Great experiences that won't cost a thing!</p>
+                <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                    
+                    <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
+                            <h4 style="color: var(--text); font-size: 1em;">Pantheon</h4>
+                        </div>
+                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Rome</p>
+                        <p style="font-size: 0.95em; color: var(--text);">This 2,000-year-old temple is free to enter. The dome&#39;s oculus (open hole) lets in dramatic shafts of light. One of the best-preserved ancient Roman buildings.</p>
+                        <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Arrive early morning (8:30am) or late afternoon to avoid peak crowds</p>
+                    </div>
+                    
+                    <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
+                            <h4 style="color: var(--text); font-size: 1em;">Sacré-Cœur Basilica</h4>
+                        </div>
+                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Montmartre, Paris</p>
+                        <p style="font-size: 0.95em; color: var(--text);">Stunning white-domed church with panoramic city views from the steps. Free entry to the basilica interior. Street performers and artists add to the atmosphere.</p>
+                        <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Sunset for magical views over Paris</p>
+                    </div>
+                    
+                    <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
+                            <h4 style="color: var(--text); font-size: 1em;">Tuileries Garden</h4>
+                        </div>
+                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Paris</p>
+                        <p style="font-size: 0.95em; color: var(--text);">Historic formal garden stretching from the Louvre to Place de la Concorde. Perfect for a peaceful stroll, people-watching, or renting a classic green chair by the pond.</p>
+                        <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Morning for photos, afternoon for relaxing</p>
+                    </div>
+                    
+                    <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
+                            <h4 style="color: var(--text); font-size: 1em;">Trevi Fountain &amp; Spanish Steps</h4>
+                        </div>
+                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Rome</p>
+                        <p style="font-size: 0.95em; color: var(--text);">Two of Rome&#39;s most iconic landmarks are free to visit. Toss a coin in Trevi (tradition says you&#39;ll return to Rome) and climb the Spanish Steps for views.</p>
+                        <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Very early morning (7am) or late evening to avoid massive crowds</p>
+                    </div>
+                    
+                    <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
+                            <h4 style="color: var(--text); font-size: 1em;">Seine River Walk &amp; Bouquinistes</h4>
+                        </div>
+                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Paris</p>
+                        <p style="font-size: 0.95em; color: var(--text);">Walk along the riverbanks and browse the famous green bookstalls (bouquinistes). Cross to Île de la Cité for views of Notre-Dame&#39;s restoration.</p>
+                        <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Golden hour for beautiful photos of the bridges</p>
+                    </div>
+                    
+                    <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
+                            <h4 style="color: var(--text); font-size: 1em;">Piazza Navona</h4>
+                        </div>
+                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Rome</p>
+                        <p style="font-size: 0.95em; color: var(--text);">Rome&#39;s most beautiful baroque square with three ornate fountains, street artists, and people-watching cafés. The architecture is the main attraction—and it&#39;s free.</p>
+                        <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Evening when the fountains are lit and locals come out to stroll</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Packing Tips Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🧳</div>
+                <h2>Packing Tips</h2>
+            </div>
+            <div class="content-box">
+                
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: var(--primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">✓ Essentials</h4>
+                    <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px;">
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: var(--bg-light); border-radius: 6px;">Passport (check 6+ months validity)</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: var(--bg-light); border-radius: 6px;">Comfortable walking shoes (cobblestones!)</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: var(--bg-light); border-radius: 6px;">Light scarf for church visits</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: var(--bg-light); border-radius: 6px;">Universal power adapter (Type C/F for Europe)</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: var(--bg-light); border-radius: 6px;">Crossbody bag (pickpocket deterrent)</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: var(--bg-light); border-radius: 6px;">Medications in original containers</li>
+                        
+                    </ul>
+                </div>
+                
+                
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">👍 Recommended</h4>
+                    <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px;">
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: var(--accent-light); border-radius: 6px;">Portable phone charger</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: var(--accent-light); border-radius: 6px;">Small umbrella or packable rain jacket</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: var(--accent-light); border-radius: 6px;">Layers—even summer evenings can be cool</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: var(--accent-light); border-radius: 6px;">Dress/nice outfit for romantic dinners</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: var(--accent-light); border-radius: 6px;">Reusable water bottle (Rome has drinking fountains!)</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: var(--accent-light); border-radius: 6px;">Good camera or phone for photos</li>
+                        
+                    </ul>
+                </div>
+                
+                
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #d32f2f; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">✗ Skip These</h4>
+                    <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px;">
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: #ffebee; border-radius: 6px; color: #c62828;">Bulky toiletries (hotel provides basics)</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: #ffebee; border-radius: 6px; color: #c62828;">Flashy jewelry (invites pickpockets)</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: #ffebee; border-radius: 6px; color: #c62828;">Too many 'just in case' outfits</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: #ffebee; border-radius: 6px; color: #c62828;">Beach gear (not a beach trip)</li>
+                        
+                        <li style="list-style: none; padding: 8px 12px; background: #ffebee; border-radius: 6px; color: #c62828;">Formal business attire</li>
+                        
+                    </ul>
+                </div>
+                
+                
+                <div class="highlight-box" style="margin-top: 15px;">
+                    <h4>🌤️ Weather & Clothing</h4>
+                    <p>June in Paris and Rome: warm days (70-85°F / 21-29°C), cooler evenings. Occasional rain possible. Pack light layers, a light jacket for evenings, and one nicer outfit for elegant dinners.</p>
+                </div>
+                
+            </div>
+        </div>
         
 
         <!-- Featured Links Section -->
@@ -1790,6 +2804,23 @@
         </div>
         
 
+        <!-- Notes Section -->
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">📝</div>
+                <h2>Important Notes</h2>
+            </div>
+            <div class="notes-section">
+                <h4>📌 Trip Notes</h4>
+                
+                <!-- Notes is a string -->
+                <p>{&quot;customization&quot;:&quot;This is a sample trip showcasing the system&#39;s capabilities. Customize destinations, dates, activities, and budget to match your client&#39;s preferences.&quot;,&quot;bookingReminder&quot;:&quot;All tours and timed entries require advance booking, especially in high season (May-September).&quot;}</p>
+                
+            </div>
+        </div>
+        
+
         <!-- Pricing Section -->
         
         <div class="section">
@@ -1863,5 +2894,40 @@
             <p style="margin-top: 5px;">Generated </p>
         </div>
     </div>
+
+    <!-- Photo Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+        <img id="lightbox-img" src="" alt="Enlarged photo">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            if (!src) return;
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Handle broken images
+        document.querySelectorAll('img').forEach(function(img) {
+            img.addEventListener('error', function() {
+                this.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 </html>
