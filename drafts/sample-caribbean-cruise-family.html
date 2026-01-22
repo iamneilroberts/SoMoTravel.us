@@ -174,11 +174,6 @@
             border-top: 4px solid var(--primary);
         }
 
-        .overview-card .icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
         .overview-card .label {
             font-size: 0.85em;
             color: var(--text-light);
@@ -211,18 +206,6 @@
             color: var(--primary);
             font-size: 1.4em;
             font-weight: 700;
-        }
-
-        .section-icon {
-            background: var(--primary);
-            color: var(--white);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em;
         }
 
         /* Content Box */
@@ -469,6 +452,51 @@
         .activity-title { font-weight: 600; color: var(--text); margin-bottom: 5px; }
         .activity-time { font-size: 0.85em; color: var(--primary); font-weight: 600; margin-bottom: 3px; }
         .activity-details { font-size: 0.95em; color: var(--text-light); }
+
+        /* Included vs Optional Activity Styling */
+        .activity.included {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left-color: var(--accent);
+        }
+
+        .activity.optional {
+            background: var(--bg-light);
+            border-left-color: #f5a623;
+        }
+
+        .activity-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .activity-badge.included {
+            background: var(--accent);
+            color: white;
+        }
+
+        .activity-badge.optional {
+            background: #f5a623;
+            color: white;
+        }
+
+        .activity-subtext {
+            font-size: 0.85em;
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        .activity.included .activity-subtext {
+            color: var(--accent);
+        }
+
+        .activity.optional .activity-subtext {
+            color: #c7880a;
+        }
 
         /* Day Description & Info Boxes */
         .day-description {
@@ -1373,12 +1401,45 @@
         }
 
         /* Responsive */
+        /* Packing List Grid - responsive columns */
+        .packing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 6px;
+            list-style: none;
+        }
+
+        .packing-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+
+        .packing-item::before {
+            content: "";
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .packing-item.essential { background: var(--bg-light); }
+        .packing-item.essential::before { color: var(--primary); }
+
+        .packing-item.recommended { background: color-mix(in srgb, var(--accent) 15%, white); }
+        .packing-item.recommended::before { content: "+"; }
+
+        .packing-item.skip { background: #ffebee; color: #c62828; }
+        .packing-item.skip::before { content: ""; color: #d32f2f; }
+
         @media (max-width: 768px) {
             .header-bar { flex-direction: column; gap: 10px; text-align: center; }
             .hero h1 { font-size: 1.8em; }
             .hero .destination { font-size: 1.1em; }
             .content { padding: 20px 15px; }
             .cards-grid { grid-template-columns: 1fr; }
+            .packing-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
             .overview-section { grid-template-columns: repeat(2, 1fr); }
         }
 
@@ -1391,6 +1452,22 @@
 
             .advisor-contact {
                 align-items: center;
+            }
+
+            .packing-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 4px;
+            }
+
+            .packing-item {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .packing-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1438,7 +1515,7 @@
     
     <div class="conversation-banner">
         <a href="https://voygent.somotravel.workers.dev/trips/sample-caribbean-cruise-family/comments" class="conversation-link">
-            <span>💬 Conversation</span>
+            <span>Conversation</span>
             
         </a>
     </div>
@@ -1462,7 +1539,6 @@
         <div class="overview-section">
             
             <div class="overview-card">
-                <div class="icon">👥</div>
                 <div class="label">Travelers</div>
                 <div class="value">4 Guests</div>
             </div>
@@ -1470,7 +1546,6 @@
 
             
             <div class="overview-card">
-                <div class="icon">📅</div>
                 <div class="label">Duration</div>
                 <div class="value">10 Days</div>
             </div>
@@ -1478,7 +1553,6 @@
 
             
             <div class="overview-card">
-                <div class="icon">📋</div>
                 <div class="label">Status</div>
                 <div class="value">Proposal</div>
             </div>
@@ -1486,7 +1560,6 @@
 
             
             <div class="overview-card">
-                <div class="icon">💰</div>
                 <div class="label">Investment</div>
                 <div class="value">$8,800</div>
             </div>
@@ -1497,33 +1570,11 @@
         
         
         
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🗺️</div>
-                <h2>Destination Map</h2>
-            </div>
-            <div class="maps-section">
-                <div class="map-item" style="max-width: 100%;">
-                    <iframe
-                        class="map-embed"
-                        style="height: 350px;"
-                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4ZqEv-J8jBIk3MNxVblvb6MexsuwkLMA&q=Western%20Caribbean%20Cruise%20from%20Fort%20Lauderdale"
-                        loading="lazy"
-                        allowfullscreen
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-        
-        
-        
 
         <!-- Travelers Section -->
         
         <div class="section">
             <div class="section-header">
-                <div class="section-icon">👥</div>
                 <h2>Your Travel Party</h2>
             </div>
             <div class="content-box">
@@ -1550,7 +1601,7 @@
                                 
                             </td>
                             <td>
-                                <span class="doc-badge complete">✓ Complete</span>
+                                <span class="doc-badge complete"> Complete</span>
                             </td>
                         </tr>
                         
@@ -1565,7 +1616,7 @@
                                 
                             </td>
                             <td>
-                                <span class="doc-badge complete">✓ Complete</span>
+                                <span class="doc-badge complete"> Complete</span>
                             </td>
                         </tr>
                         
@@ -1618,7 +1669,6 @@
         
         <div class="section">
             <div class="section-header">
-                <div class="section-icon">✈️</div>
                 <h2>Flight Details</h2>
             </div>
             <div class="cards-grid">
@@ -1654,7 +1704,6 @@
         
         <div class="section">
             <div class="section-header">
-                <div class="section-icon">🏨</div>
                 <h2>Accommodations</h2>
             </div>
             <div class="cards-grid">
@@ -1718,7 +1767,6 @@
         
         <div class="section">
             <div class="section-header">
-                <div class="section-icon">📍</div>
                 <h2>Day-by-Day Itinerary</h2>
             </div>
             
@@ -1732,7 +1780,6 @@
                     </div>
                     
                     <div class="daily-lodging">
-                        <span class="hotel-icon">🏨</span>
                         <span class="hotel-name"></span>
                         
                         
@@ -1765,19 +1812,27 @@
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Arrive &amp; Check into Hotel
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Arrive at FLL, transfer to hotel. Relax after flight - pool time for the kids!</div>
                         
                         
                     </div>
                     
-                    <div class="activity">
+                    <div class="activity optional">
                         
                         
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
                             <a href="https://www.tripadvisor.com/Attraction_Review-g34227-d109953-Reviews-Las_Olas_Boulevard-Fort_Lauderdale_Broward_County_Florida.html" class="activity-link" target="_blank" rel="noopener noreferrer">Las Olas Boulevard Dinner</a>
+                            
+                            <span class="activity-badge optional">Optional</span>
                         </div>
+                        
+                        <div class="activity-subtext">Available if you have free time</div>
                         <div class="activity-details">Stroll the palm-lined boulevard with shops and restaurants. Great family-friendly options from casual to upscale.</div>
                         
                         <a href="https://www.tripadvisor.com/Attraction_Review-g34227-d109953-Reviews-Las_Olas_Boulevard-Fort_Lauderdale_Broward_County_Florida.html" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
@@ -1791,7 +1846,7 @@
 
                     
                     <div class="day-tips">
-                        <h5>💡 Tips</h5>
+                        <h5>Tips</h5>
                         <ul>
                         
                             <li>Pre-cruise option: Everglades airboat tour (book in advance if interested)</li>
@@ -1818,7 +1873,6 @@
                     </div>
                     
                     <div class="daily-lodging">
-                        <span class="hotel-icon">🏨</span>
                         <span class="hotel-name"></span>
                         
                         
@@ -1851,7 +1905,11 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             Pre-Cruise Breakfast &amp; Packing
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Leisurely hotel breakfast. Double-check passports, cruise documents, and carry-on essentials.</div>
                         
                         
@@ -1863,7 +1921,11 @@
                         <div class="activity-time">Late Morning</div>
                         <div class="activity-title">
                             Transfer to Port Everglades
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Short drive/shuttle to cruise terminal. Check-in process typically 30-60 minutes.</div>
                         <div class="activity-details">Uber/Lyft ~$15, hotel shuttle may be free</div>
                         
@@ -1875,7 +1937,11 @@
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Board the Ship!
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Explore the ship while cabins are being prepared. Hit the buffet for lunch - it&#39;s included! Attend muster drill (mandatory safety briefing).</div>
                         
                         
@@ -1887,7 +1953,11 @@
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Explore &amp; Unpack
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Cabins ready around 1:30pm. Unpack, explore kids&#39; clubs, and find key venues: main dining room, pool deck, guest services.</div>
                         
                         
@@ -1899,7 +1969,11 @@
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
                             Sail Away Party!
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Don&#39;t miss the sail-away from the top deck! Live music, first sunset at sea, and that magical moment when the ship leaves port.</div>
                         
                         
@@ -1911,7 +1985,11 @@
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
                             First Dinner &amp; Show
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Main dining room dinner (included) or try a specialty restaurant. Evening show in the main theater - great family entertainment.</div>
                         
                         
@@ -1925,7 +2003,7 @@
 
                     
                     <div class="day-tips">
-                        <h5>💡 Tips</h5>
+                        <h5>Tips</h5>
                         <ul>
                         
                             <li>Pro tip: Carry swimsuits in your day bag - pools open at noon before cabins are ready</li>
@@ -1952,7 +2030,6 @@
                     </div>
                     
                     <div class="daily-lodging">
-                        <span class="hotel-icon">🏨</span>
                         <span class="hotel-name"></span>
                         
                         
@@ -1985,19 +2062,27 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             Family Pool Time
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Main pool deck, waterslides, and kids&#39; splash areas. Best time: right after breakfast when it&#39;s less crowded.</div>
                         
                         
                     </div>
                     
-                    <div class="activity">
+                    <div class="activity optional">
                         
                         
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             Teen Zone Check-In
+                            
+                            <span class="activity-badge optional">Optional</span>
                         </div>
+                        
+                        <div class="activity-subtext">Available if you have free time</div>
                         <div class="activity-details">Let your teen explore the dedicated teen club - video games, movies, and age-appropriate activities with new cruise friends.</div>
                         
                         
@@ -2009,19 +2094,27 @@
                         <div class="activity-time">Midday</div>
                         <div class="activity-title">
                             Adventure Activities
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Try the rock climbing wall, FlowRider surf simulator, or mini-golf. Most ships have multiple family-friendly activities.</div>
                         
                         
                     </div>
                     
-                    <div class="activity">
+                    <div class="activity optional">
                         
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Adult Escape: Spa or Adults-Only Deck
+                            
+                            <span class="activity-badge optional">Optional</span>
                         </div>
+                        
+                        <div class="activity-subtext">Available if you have free time</div>
                         <div class="activity-details">While kids are at their clubs: couples massage, thermal suite, or quiet pool time in the adults-only retreat.</div>
                         
                         
@@ -2033,7 +2126,11 @@
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Kids Club Programming
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Science experiments, treasure hunts, and themed activities for the 9-year-old. Supervised and free!</div>
                         
                         
@@ -2045,7 +2142,11 @@
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
                             Elegant Night Dinner
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">First formal night! Dress up for photos and a special menu in the main dining room.</div>
                         
                         
@@ -2057,7 +2158,11 @@
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
                             Family Game Show or Trivia
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Many ships have nightly family activities - game shows, trivia, and deck parties.</div>
                         
                         
@@ -2087,7 +2192,6 @@
                     </div>
                     
                     <div class="daily-lodging">
-                        <span class="hotel-icon">🏨</span>
                         <span class="hotel-name"></span>
                         
                         
@@ -2120,7 +2224,11 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             Early Off - Beat the Crowds
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Be among the first off the ship. Crowds build by 10am as multiple ships disembark.</div>
                         
                         
@@ -2132,7 +2240,11 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             <a href="https://www.viator.com/tours/Cozumel/Chankanaab-Cozumel-Beach-and-Snorkel-package/d632-120267P11" class="activity-link" target="_blank" rel="noopener noreferrer">OPTION A: Chankanaab Beach Adventure Park</a>
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">All-ages adventure: snorkeling in crystal-clear lagoons with underwater statues, sea lion shows, and beautiful beach. Dolphin encounters available for additional cost.</div>
                         <div class="activity-details">Taxi ~$15 each way, or book ship excursion with transport</div>
                         <a href="https://www.viator.com/tours/Cozumel/Chankanaab-Cozumel-Beach-and-Snorkel-package/d632-120267P11" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
@@ -2144,19 +2256,27 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             OPTION B: Snorkel Tour (Independent)
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Book a local snorkel tour to Palancar or Colombia reef - among the world&#39;s best! More adventurous, great for teens.</div>
                         <div class="activity-details">Book in advance via Viator or local operator</div>
                         
                     </div>
                     
-                    <div class="activity">
+                    <div class="activity optional">
                         
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Downtown Cozumel &amp; Lunch
+                            
+                            <span class="activity-badge optional">Optional</span>
                         </div>
+                        
+                        <div class="activity-subtext">Available if you have free time</div>
                         <div class="activity-details">Stroll the town square, shop for souvenirs, grab tacos and fresh guacamole. Authentic Mexican food at local prices.</div>
                         
                         
@@ -2168,7 +2288,11 @@
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Return to Ship Early
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Beat the rush back. Pool deck is empty when everyone&#39;s ashore - perfect time for the waterslides!</div>
                         
                         
@@ -2182,7 +2306,7 @@
 
                     
                     <div class="day-tips">
-                        <h5>💡 Tips</h5>
+                        <h5>Tips</h5>
                         <ul>
                         
                             <li>Money tip: Mexican pesos get better prices, but USD widely accepted</li>
@@ -2209,7 +2333,6 @@
                     </div>
                     
                     <div class="daily-lodging">
-                        <span class="hotel-icon">🏨</span>
                         <span class="hotel-name"></span>
                         
                         
@@ -2242,7 +2365,11 @@
                         <div class="activity-time">Early Morning</div>
                         <div class="activity-title">
                             First Tender Strategy
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Get tender tickets at 6:30am. First tenders leave around 7:30am. Alternatively, wait until 10am when initial rush clears.</div>
                         
                         
@@ -2254,7 +2381,11 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             <a href="https://www.viator.com/tours/Grand-Cayman/Stingray-City-Experience-Plus-Two-Snorkeling-Stops/d50485-9297P2" class="activity-link" target="_blank" rel="noopener noreferrer">OPTION A: Stingray City Sandbar Experience</a>
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">World-famous sandbar where you can touch and feed wild stingrays in waist-deep crystal-clear water. Truly magical family experience! Most tours include snorkeling stops.</div>
                         <div class="activity-details">Book early - sells out. Ship excursion or independent catamaran tour.</div>
                         <a href="https://www.viator.com/tours/Grand-Cayman/Stingray-City-Experience-Plus-Two-Snorkeling-Stops/d50485-9297P2" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
@@ -2266,19 +2397,27 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             <a href="https://www.tripadvisor.com/Attraction_Review-g612424-d147948-Reviews-Seven_Mile_Beach-Seven_Mile_Beach_Grand_Cayman.html" class="activity-link" target="_blank" rel="noopener noreferrer">OPTION B: Seven Mile Beach</a>
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Stunning public beach - no excursion needed. Take a taxi ($5-7/person), rent chairs ($15), and enjoy pristine Caribbean water.</div>
                         
                         <a href="https://www.tripadvisor.com/Attraction_Review-g612424-d147948-Reviews-Seven_Mile_Beach-Seven_Mile_Beach_Grand_Cayman.html" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
-                    <div class="activity">
+                    <div class="activity optional">
                         
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             George Town Walk
+                            
+                            <span class="activity-badge optional">Optional</span>
                         </div>
+                        
+                        <div class="activity-subtext">Available if you have free time</div>
                         <div class="activity-details">Duty-free shopping and waterfront walk. Margaritaville for lunch or Guy&#39;s Burger Joint equivalent on shore.</div>
                         
                         
@@ -2290,7 +2429,11 @@
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Early Return
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Tender lines get long after 2pm. Head back by 1:30pm for quick return.</div>
                         
                         
@@ -2304,7 +2447,7 @@
 
                     
                     <div class="day-tips">
-                        <h5>💡 Tips</h5>
+                        <h5>Tips</h5>
                         <ul>
                         
                             <li>Currency: Cayman dollars or USD (USD widely accepted at slight premium)</li>
@@ -2331,7 +2474,6 @@
                     </div>
                     
                     <div class="daily-lodging">
-                        <span class="hotel-icon">🏨</span>
                         <span class="hotel-name"></span>
                         
                         
@@ -2364,7 +2506,11 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             <a href="https://www.viator.com/tours/Montego-Bay/Dunns-River-Falls-Tour-from-Montego-Bay-Hotels/d432-137054P4" class="activity-link" target="_blank" rel="noopener noreferrer">OPTION A: Dunn&#39;s River Falls</a>
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Iconic 600-foot waterfall climb! Terraced falls you climb hand-in-hand as a group. Wet, adventurous, and unforgettable. One of Jamaica&#39;s top attractions.</div>
                         <div class="activity-details">Ship excursion recommended - includes transport (1 hour drive). Bring water shoes!</div>
                         <a href="https://www.viator.com/tours/Montego-Bay/Dunns-River-Falls-Tour-from-Montego-Bay-Hotels/d432-137054P4" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
@@ -2376,31 +2522,43 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             <a href="https://www.viator.com/tours/Falmouth/Falmouth-Shore-Excursion-Martha-Brae-River-Rafting/d4154-2424PRTFMHRAFT" class="activity-link" target="_blank" rel="noopener noreferrer">OPTION B: Martha Brae River Bamboo Rafting</a>
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Peaceful 3-mile float down the Martha Brae River on a traditional bamboo raft with a local captain. Relaxing alternative - perfect for all ages.</div>
                         
                         <a href="https://www.viator.com/tours/Falmouth/Falmouth-Shore-Excursion-Martha-Brae-River-Rafting/d4154-2424PRTFMHRAFT" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
                     </div>
                     
-                    <div class="activity">
+                    <div class="activity optional">
                         
                         
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             OPTION C: Stay on Ship
+                            
+                            <span class="activity-badge optional">Optional</span>
                         </div>
+                        
+                        <div class="activity-subtext">Available if you have free time</div>
                         <div class="activity-details">Skip this port and enjoy an empty ship! Pool deck, spa, specialty lunch - it&#39;s like having the ship to yourselves.</div>
                         
                         
                     </div>
                     
-                    <div class="activity">
+                    <div class="activity optional">
                         
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Falmouth Historic Walk
+                            
+                            <span class="activity-badge optional">Optional</span>
                         </div>
+                        
+                        <div class="activity-subtext">Available if you have free time</div>
                         <div class="activity-details">If not on excursion, the port area has Georgian architecture and local craft vendors. Stay in the port area for security.</div>
                         
                         
@@ -2414,7 +2572,7 @@
 
                     
                     <div class="day-tips">
-                        <h5>💡 Tips</h5>
+                        <h5>Tips</h5>
                         <ul>
                         
                             <li>Safety: Stick to excursions or port area. Don't venture independently.</li>
@@ -2441,7 +2599,6 @@
                     </div>
                     
                     <div class="daily-lodging">
-                        <span class="hotel-icon">🏨</span>
                         <span class="hotel-name"></span>
                         
                         
@@ -2474,7 +2631,11 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             Sleep In &amp; Room Service
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Order breakfast to the cabin and eat on the balcony. After 3 ports, you&#39;ve earned it!</div>
                         <div class="activity-details">Pack tonight! Leave out one outfit for tomorrow. Settlement of shipboard account happens automatically unless you have questions.</div>
                         
@@ -2486,7 +2647,11 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             Morning Activities Split
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Adults: fitness center or quiet time. Teen: sports deck or video arcade. Child: morning kids club session.</div>
                         <div class="activity-details">Pack tonight! Leave out one outfit for tomorrow. Settlement of shipboard account happens automatically unless you have questions.</div>
                         
@@ -2498,19 +2663,27 @@
                         <div class="activity-time">Midday</div>
                         <div class="activity-title">
                             Family Competition Time
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Mini golf tournament, ping pong, or basketball on the sports deck. Many ships have family Olympics events.</div>
                         <div class="activity-details">Pack tonight! Leave out one outfit for tomorrow. Settlement of shipboard account happens automatically unless you have questions.</div>
                         
                     </div>
                     
-                    <div class="activity">
+                    <div class="activity optional">
                         
                         
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Specialty Lunch (Optional)
+                            
+                            <span class="activity-badge optional">Optional</span>
                         </div>
+                        
+                        <div class="activity-subtext">Available if you have free time</div>
                         <div class="activity-details">Treat yourselves to the specialty burger joint, pizza parlor, or hibachi. Most are included or low-cost.</div>
                         <div class="activity-details">Pack tonight! Leave out one outfit for tomorrow. Settlement of shipboard account happens automatically unless you have questions.</div>
                         
@@ -2522,7 +2695,11 @@
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Pool &amp; Waterslide Marathon
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Final full day for ship activities! Race down the waterslides, try the FlowRider, or just float in the pool.</div>
                         <div class="activity-details">Pack tonight! Leave out one outfit for tomorrow. Settlement of shipboard account happens automatically unless you have questions.</div>
                         
@@ -2534,7 +2711,11 @@
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
                             Captain&#39;s Farewell Dinner
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Final formal night with special menu. Photos in your finest, baked Alaska parade in the dining room.</div>
                         <div class="activity-details">Pack tonight! Leave out one outfit for tomorrow. Settlement of shipboard account happens automatically unless you have questions.</div>
                         
@@ -2546,7 +2727,11 @@
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
                             Farewell Show &amp; Deck Party
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Final evening entertainment. Many ships do a deck party with dancing under the stars.</div>
                         <div class="activity-details">Pack tonight! Leave out one outfit for tomorrow. Settlement of shipboard account happens automatically unless you have questions.</div>
                         
@@ -2576,7 +2761,6 @@
                     </div>
                     
                     <div class="daily-lodging">
-                        <span class="hotel-icon">🏨</span>
                         <span class="hotel-name"></span>
                         
                         
@@ -2609,7 +2793,11 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             First Tender to Island
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Private island days are crowded by 10am. First tender gets best beach chairs!</div>
                         
                         
@@ -2621,19 +2809,27 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             Beach Day!
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Crystal clear water, BBQ lunch (included), and family beach time. This is why you came to the Caribbean!</div>
                         
                         
                     </div>
                     
-                    <div class="activity">
+                    <div class="activity optional">
                         
                         
                         <div class="activity-time">Midday</div>
                         <div class="activity-title">
                             Snorkel Rental or Water Sports
+                            
+                            <span class="activity-badge optional">Optional</span>
                         </div>
+                        
+                        <div class="activity-subtext">Available if you have free time</div>
                         <div class="activity-details">Kayaks, paddleboards, snorkel gear available for rent. Some activities included with cruise fare.</div>
                         
                         
@@ -2645,7 +2841,11 @@
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Island Exploration
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Walking trails, nature areas, and often a splash pad/water park for kids. Take the family photo with the island backdrop!</div>
                         
                         
@@ -2657,7 +2857,11 @@
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Final Ship Return
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Return by 2pm for smooth tender experience. Final sunset sail-away from your balcony.</div>
                         
                         
@@ -2669,7 +2873,11 @@
                         <div class="activity-time">Evening</div>
                         <div class="activity-title">
                             Final Dinner &amp; Shows
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Last night aboard! Enjoy dinner and catch any shows you missed. Many ships have a final farewell performance.</div>
                         
                         
@@ -2683,7 +2891,7 @@
 
                     
                     <div class="day-tips">
-                        <h5>💡 Tips</h5>
+                        <h5>Tips</h5>
                         <ul>
                         
                             <li>Bring towels from ship (or they provide at island)</li>
@@ -2712,7 +2920,6 @@
                     </div>
                     
                     <div class="daily-lodging">
-                        <span class="hotel-icon">🏨</span>
                         <span class="hotel-name"></span>
                         
                         
@@ -2745,7 +2952,11 @@
                         <div class="activity-time">Early Morning</div>
                         <div class="activity-title">
                             Wake Up &amp; Final Breakfast
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Ship docks ~7am. Enjoy final breakfast in dining room or grab-and-go from buffet.</div>
                         
                         
@@ -2757,7 +2968,11 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             Debarkation
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Self-assist debark (carry your own bags) exits first ~8am. Otherwise, wait for your color group to be called (8:30-10:30am).</div>
                         <div class="activity-details">Have passports ready, settle any outstanding charges night before</div>
                         
@@ -2769,7 +2984,11 @@
                         <div class="activity-time">Morning</div>
                         <div class="activity-title">
                             Transfer to Airport
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Taxi, Uber, or shuttle to FLL airport. ~15 minutes from port. Arrive 2 hours before domestic flight.</div>
                         
                         
@@ -2781,7 +3000,11 @@
                         <div class="activity-time">Afternoon</div>
                         <div class="activity-title">
                             Flight Home
+                            
+                            
                         </div>
+                        
+                        
                         <div class="activity-details">Afternoon flight recommended. Don&#39;t book before 1pm - debarkation can run late!</div>
                         
                         
@@ -2795,7 +3018,7 @@
 
                     
                     <div class="day-tips">
-                        <h5>💡 Tips</h5>
+                        <h5>Tips</h5>
                         <ul>
                         
                             <li>Pro tip: Self-assist debark if you can carry all your bags - you'll be off 1-2 hours earlier</li>
@@ -2824,15 +3047,14 @@
         
         <div class="section">
             <div class="section-header">
-                <div class="section-icon">💎</div>
                 <h2>Hidden Gems</h2>
             </div>
             <div class="cards-grid">
                 
                 <div class="card" style="border-top: 4px solid #f5a623;">
                     <div class="card-body">
-                        <h4 style="color: #c7880a; margin-bottom: 10px;">🌟 Empty Ship Strategy</h4>
-                        <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">📍 At Sea / Port Days</p>
+                        <h4 style="color: #c7880a; margin-bottom: 10px;">Empty Ship Strategy</h4>
+                        <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">At Sea / Port Days</p>
                         <p style="color: var(--text);">When everyone rushes off at ports, the ship is nearly empty! Pool deck, spa, and specialty restaurants with no wait. The best-kept secret of seasoned cruisers.</p>
                         <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Return to ship by 2pm on port days for a private pool experience, or stay aboard on one port day for ultimate relaxation.</p>
                         
@@ -2841,8 +3063,8 @@
                 
                 <div class="card" style="border-top: 4px solid #f5a623;">
                     <div class="card-body">
-                        <h4 style="color: #c7880a; margin-bottom: 10px;">🌟 Secret Beach at Chankanaab</h4>
-                        <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">📍 Cozumel, Mexico</p>
+                        <h4 style="color: #c7880a; margin-bottom: 10px;">Secret Beach at Chankanaab</h4>
+                        <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">Cozumel, Mexico</p>
                         <p style="color: var(--text);">Most tourists crowd the main beach at Chankanaab. Walk 5 minutes to the lagoon side for a serene snorkeling spot with underwater statues and colorful fish—often just you and the wildlife.</p>
                         <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Bring your own snorkel gear to avoid the rental lines.</p>
                         
@@ -2851,8 +3073,8 @@
                 
                 <div class="card" style="border-top: 4px solid #f5a623;">
                     <div class="card-body">
-                        <h4 style="color: #c7880a; margin-bottom: 10px;">🌟 Governor&#39;s Beach</h4>
-                        <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">📍 Grand Cayman</p>
+                        <h4 style="color: #c7880a; margin-bottom: 10px;">Governor&#39;s Beach</h4>
+                        <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">Grand Cayman</p>
                         <p style="color: var(--text);">While everyone heads to Seven Mile Beach, locals prefer Governor&#39;s Beach south of George Town. Calm waters, fewer crowds, and the same crystal-clear Caribbean water.</p>
                         <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Ask your taxi driver for Governor&#39;s Beach—about $15 each way from the tender pier.</p>
                         
@@ -2861,8 +3083,8 @@
                 
                 <div class="card" style="border-top: 4px solid #f5a623;">
                     <div class="card-body">
-                        <h4 style="color: #c7880a; margin-bottom: 10px;">🌟 Room Service Balcony Breakfast</h4>
-                        <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">📍 At Sea</p>
+                        <h4 style="color: #c7880a; margin-bottom: 10px;">Room Service Balcony Breakfast</h4>
+                        <p style="font-size: 0.9em; color: var(--text-light); margin-bottom: 8px;">At Sea</p>
                         <p style="color: var(--text);">Skip the crowded buffet and order room service to your balcony. Watch the sunrise over the Caribbean with fresh coffee and pastries—included in your cruise fare!</p>
                         <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Order the night before using the door hanger form, or call in the morning for delivery within 30 minutes.</p>
                         
@@ -2877,7 +3099,6 @@
         
         <div class="section">
             <div class="section-header">
-                <div class="section-icon">🌍</div>
                 <h2>Local Customs & Etiquette</h2>
             </div>
             <div class="content-box">
@@ -2886,32 +3107,32 @@
                     <div style="padding: 15px; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--primary);">
                         <h4 style="color: var(--primary); margin-bottom: 8px;">Haggling &amp; Tipping</h4>
                         <p style="color: var(--text);">Bargaining is expected at market stalls and with taxi drivers. Start at 50% of the asking price. Tipping 10-15% is appreciated at restaurants.</p>
-                        <p style="margin-top: 8px; color: var(--accent-dark);"><strong>✓ Do:</strong> Negotiate politely at craft markets—it&#39;s part of the culture</p>
-                        <p style="margin-top: 4px; color: #d32f2f;"><strong>✗ Avoid:</strong> Paying the first price quoted at non-fixed-price shops</p>
+                        <p style="margin-top: 8px; color: var(--accent-dark);"><strong> Do:</strong> Negotiate politely at craft markets—it&#39;s part of the culture</p>
+                        <p style="margin-top: 4px; color: #d32f2f;"><strong> Avoid:</strong> Paying the first price quoted at non-fixed-price shops</p>
                         
                     </div>
                     
                     <div style="padding: 15px; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--primary);">
                         <h4 style="color: var(--primary); margin-bottom: 8px;">British Manners</h4>
                         <p style="color: var(--text);">Grand Cayman is a British territory. &#39;Please&#39; and &#39;thank you&#39; go a long way. Driving is on the left side. Tipping 15-18% is standard at restaurants.</p>
-                        <p style="margin-top: 8px; color: var(--accent-dark);"><strong>✓ Do:</strong> Queue patiently—cutting in line is considered very rude</p>
-                        <p style="margin-top: 4px; color: #d32f2f;"><strong>✗ Avoid:</strong> Being overly casual with service staff; politeness is valued</p>
+                        <p style="margin-top: 8px; color: var(--accent-dark);"><strong> Do:</strong> Queue patiently—cutting in line is considered very rude</p>
+                        <p style="margin-top: 4px; color: #d32f2f;"><strong> Avoid:</strong> Being overly casual with service staff; politeness is valued</p>
                         
                     </div>
                     
                     <div style="padding: 15px; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--primary);">
                         <h4 style="color: var(--primary); margin-bottom: 8px;">Safety &amp; Interaction</h4>
                         <p style="color: var(--text);">Jamaicans are friendly and welcoming. Stick to organized excursions or the port area. Aggressive vendors may approach—a firm &#39;No, thank you&#39; works.</p>
-                        <p style="margin-top: 8px; color: var(--accent-dark);"><strong>✓ Do:</strong> Book ship excursions for Jamaica—safer and more convenient</p>
-                        <p style="margin-top: 4px; color: #d32f2f;"><strong>✗ Avoid:</strong> Venturing far from port independently; stick to organized tours</p>
+                        <p style="margin-top: 8px; color: var(--accent-dark);"><strong> Do:</strong> Book ship excursions for Jamaica—safer and more convenient</p>
+                        <p style="margin-top: 4px; color: #d32f2f;"><strong> Avoid:</strong> Venturing far from port independently; stick to organized tours</p>
                         
                     </div>
                     
                     <div style="padding: 15px; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--primary);">
                         <h4 style="color: var(--primary); margin-bottom: 8px;">Ship Etiquette</h4>
                         <p style="color: var(--text);">Common cruise courtesies: don&#39;t save lounge chairs with towels for hours, tip your cabin steward and dining staff at cruise end, and be on time for all-aboard!</p>
-                        <p style="margin-top: 8px; color: var(--accent-dark);"><strong>✓ Do:</strong> Pre-pay gratuities or tip $12-15 per person per day at cruise end</p>
-                        <p style="margin-top: 4px; color: #d32f2f;"><strong>✗ Avoid:</strong> Being late to the ship—they WILL leave without you!</p>
+                        <p style="margin-top: 8px; color: var(--accent-dark);"><strong> Do:</strong> Pre-pay gratuities or tip $12-15 per person per day at cruise end</p>
+                        <p style="margin-top: 4px; color: #d32f2f;"><strong> Avoid:</strong> Being late to the ship—they WILL leave without you!</p>
                         
                     </div>
                     
@@ -2924,7 +3145,6 @@
         
         <div class="section">
             <div class="section-header">
-                <div class="section-icon">🎁</div>
                 <h2>Free Things to Do</h2>
             </div>
             <div class="content-box" style="background: linear-gradient(135deg, #e8f5e9 0%, #fff 100%); border-color: #4caf50;">
@@ -2936,7 +3156,7 @@
                             <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
                             <h4 style="color: var(--text); font-size: 1em;">Main Pool &amp; Waterslides</h4>
                         </div>
-                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 At Sea</p>
+                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">At Sea</p>
                         <p style="font-size: 0.95em; color: var(--text);">Pool deck, waterslides, splash zones—all included! Best time: right after breakfast when most guests sleep in, or during port days when others are ashore.</p>
                         <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> 8-10am or during port days for no lines</p>
                         
@@ -2947,7 +3167,7 @@
                             <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
                             <h4 style="color: var(--text); font-size: 1em;">Kids Club &amp; Teen Zone</h4>
                         </div>
-                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 At Sea</p>
+                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">At Sea</p>
                         <p style="font-size: 0.95em; color: var(--text);">Supervised activities for kids (typically ages 3-11) and teens (12-17). Counselors run games, crafts, parties, and themed events. Parents get free time!</p>
                         <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Drop off after breakfast; evening sessions let adults enjoy dinner alone</p>
                         
@@ -2958,7 +3178,7 @@
                             <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
                             <h4 style="color: var(--text); font-size: 1em;">Live Entertainment &amp; Shows</h4>
                         </div>
-                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 At Sea</p>
+                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">At Sea</p>
                         <p style="font-size: 0.95em; color: var(--text);">Broadway-style shows, live music, comedy, and game shows—all included with your cruise. The main theater shows rival professional productions.</p>
                         <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Check the daily schedule; popular shows book up fast on sea days</p>
                         
@@ -2969,7 +3189,7 @@
                             <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
                             <h4 style="color: var(--text); font-size: 1em;"><a href="https://www.tripadvisor.com/Attraction_Review-g612424-d147948-Reviews-Seven_Mile_Beach-Seven_Mile_Beach_Grand_Cayman.html" style="color: var(--primary); text-decoration: none;" target="_blank" rel="noopener noreferrer">Seven Mile Beach</a></h4>
                         </div>
-                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Grand Cayman</p>
+                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">Grand Cayman</p>
                         <p style="font-size: 0.95em; color: var(--text);">Stunning public beach with powdery white sand and crystal-clear water. Take a $5 taxi from the pier, rent a chair ($15), and enjoy paradise without an excursion.</p>
                         <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Early morning for the calmest water and most space</p>
                         <a href="https://www.tripadvisor.com/Attraction_Review-g612424-d147948-Reviews-Seven_Mile_Beach-Seven_Mile_Beach_Grand_Cayman.html" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">Learn More →</a>
@@ -2980,7 +3200,7 @@
                             <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
                             <h4 style="color: var(--text); font-size: 1em;">Fitness Center &amp; Sports Courts</h4>
                         </div>
-                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 At Sea</p>
+                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">At Sea</p>
                         <p style="font-size: 0.95em; color: var(--text);">Gym with ocean views, jogging track, basketball court, mini golf—all included. Many ships have rock climbing walls and FlowRider surf simulators too!</p>
                         <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Early morning or during shows when the gym empties out</p>
                         
@@ -2991,7 +3211,7 @@
                             <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
                             <h4 style="color: var(--text); font-size: 1em;">George Town Waterfront Walk</h4>
                         </div>
-                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">📍 Grand Cayman</p>
+                        <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 6px;">Grand Cayman</p>
                         <p style="font-size: 0.95em; color: var(--text);">Stroll the picturesque harbor, browse duty-free shops, and watch the tenders come and go. The waterfront is clean, safe, and easy to explore on foot.</p>
                         <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> First thing after tendering—before crowds build</p>
                         
@@ -3006,64 +3226,63 @@
         
         <div class="section">
             <div class="section-header">
-                <div class="section-icon">🧳</div>
                 <h2>Packing Tips</h2>
             </div>
             <div class="content-box">
                 
-                <div style="margin-bottom: 20px;">
-                    <h4 style="color: var(--primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">✓ Essentials</h4>
-                    <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px;">
+                <div style="margin-bottom: 16px;">
+                    <h4 style="color: var(--primary); margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.5px;">Essentials</h4>
+                    <ul class="packing-grid">
                         
-                        <li style="list-style: none; padding: 8px 12px; background: var(--bg-light); border-radius: 6px;">Valid passports for all travelers (check expiration dates!)</li>
+                        <li class="packing-item essential">Valid passports for all travelers (check expiration dates!)</li>
                         
-                        <li style="list-style: none; padding: 8px 12px; background: var(--bg-light); border-radius: 6px;">Cruise documents & boarding passes</li>
+                        <li class="packing-item essential">Cruise documents & boarding passes</li>
                         
-                        <li style="list-style: none; padding: 8px 12px; background: var(--bg-light); border-radius: 6px;">Motion sickness medication (just in case)</li>
+                        <li class="packing-item essential">Motion sickness medication (just in case)</li>
                         
-                        <li style="list-style: none; padding: 8px 12px; background: var(--bg-light); border-radius: 6px;">Reef-safe sunscreen (required in some ports)</li>
+                        <li class="packing-item essential">Reef-safe sunscreen (required in some ports)</li>
                         
-                        <li style="list-style: none; padding: 8px 12px; background: var(--bg-light); border-radius: 6px;">Water shoes for Dunn's River Falls</li>
+                        <li class="packing-item essential">Water shoes for Dunn's River Falls</li>
                         
-                        <li style="list-style: none; padding: 8px 12px; background: var(--bg-light); border-radius: 6px;">Waterproof phone case or pouch</li>
-                        
-                    </ul>
-                </div>
-                
-                
-                <div style="margin-bottom: 20px;">
-                    <h4 style="color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">👍 Recommended</h4>
-                    <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px;">
-                        
-                        <li style="list-style: none; padding: 8px 12px; background: var(--accent-light); border-radius: 6px;">Lanyard for cruise card (or magnetic hooks for cabin door)</li>
-                        
-                        <li style="list-style: none; padding: 8px 12px; background: var(--accent-light); border-radius: 6px;">Power strip (without surge protector—ship rules)</li>
-                        
-                        <li style="list-style: none; padding: 8px 12px; background: var(--accent-light); border-radius: 6px;">Small day backpack for shore excursions</li>
-                        
-                        <li style="list-style: none; padding: 8px 12px; background: var(--accent-light); border-radius: 6px;">Snorkel gear (rentals available but lines are long)</li>
-                        
-                        <li style="list-style: none; padding: 8px 12px; background: var(--accent-light); border-radius: 6px;">Over-door shoe organizer for bathroom storage</li>
-                        
-                        <li style="list-style: none; padding: 8px 12px; background: var(--accent-light); border-radius: 6px;">Insulated tumbler for poolside drinks</li>
+                        <li class="packing-item essential">Waterproof phone case or pouch</li>
                         
                     </ul>
                 </div>
                 
                 
-                <div style="margin-bottom: 20px;">
-                    <h4 style="color: #d32f2f; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">✗ Skip These</h4>
-                    <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px;">
+                <div style="margin-bottom: 16px;">
+                    <h4 style="color: var(--accent); margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.5px;">Recommended</h4>
+                    <ul class="packing-grid">
                         
-                        <li style="list-style: none; padding: 8px 12px; background: #ffebee; border-radius: 6px; color: #c62828;">Beach towels (ship provides at pool and ports)</li>
+                        <li class="packing-item recommended">Lanyard for cruise card (or magnetic hooks for cabin door)</li>
                         
-                        <li style="list-style: none; padding: 8px 12px; background: #ffebee; border-radius: 6px; color: #c62828;">Shampoo, soap, hair dryer (all in cabin)</li>
+                        <li class="packing-item recommended">Power strip (without surge protector—ship rules)</li>
                         
-                        <li style="list-style: none; padding: 8px 12px; background: #ffebee; border-radius: 6px; color: #c62828;">Iron or steamer (prohibited for fire safety)</li>
+                        <li class="packing-item recommended">Small day backpack for shore excursions</li>
                         
-                        <li style="list-style: none; padding: 8px 12px; background: #ffebee; border-radius: 6px; color: #c62828;">Full-size toiletries (limited storage space)</li>
+                        <li class="packing-item recommended">Snorkel gear (rentals available but lines are long)</li>
                         
-                        <li style="list-style: none; padding: 8px 12px; background: #ffebee; border-radius: 6px; color: #c62828;">Candles or incense (fire hazard, not allowed)</li>
+                        <li class="packing-item recommended">Over-door shoe organizer for bathroom storage</li>
+                        
+                        <li class="packing-item recommended">Insulated tumbler for poolside drinks</li>
+                        
+                    </ul>
+                </div>
+                
+                
+                <div style="margin-bottom: 16px;">
+                    <h4 style="color: #d32f2f; margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.5px;">Skip These</h4>
+                    <ul class="packing-grid">
+                        
+                        <li class="packing-item skip">Beach towels (ship provides at pool and ports)</li>
+                        
+                        <li class="packing-item skip">Shampoo, soap, hair dryer (all in cabin)</li>
+                        
+                        <li class="packing-item skip">Iron or steamer (prohibited for fire safety)</li>
+                        
+                        <li class="packing-item skip">Full-size toiletries (limited storage space)</li>
+                        
+                        <li class="packing-item skip">Candles or incense (fire hazard, not allowed)</li>
                         
                     </ul>
                 </div>
@@ -3077,7 +3296,6 @@
         
         <div class="section">
             <div class="section-header">
-                <div class="section-icon">🔗</div>
                 <h2>Useful Resources</h2>
             </div>
             <div class="cards-grid">
@@ -3122,7 +3340,6 @@
         
         <div class="section">
             <div class="section-header">
-                <div class="section-icon">📊</div>
                 <h2>Package Options</h2>
             </div>
             <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
@@ -3178,28 +3395,13 @@
         </div>
         
 
-        <!-- Notes Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">📝</div>
-                <h2>Important Notes</h2>
-            </div>
-            <div class="notes-section">
-                <h4>📌 Trip Notes</h4>
-                
-                <!-- Notes is a string -->
-                <p>{&quot;customization&quot;:&quot;This is a sample cruise trip showing the system&#39;s capabilities. Customize cruise line, ship, dates, and activities to match your client&#39;s preferences.&quot;,&quot;bookingReminder&quot;:&quot;Cruise cabins sell out - book early for best selection, especially balconies and suites.&quot;,&quot;familyTip&quot;:&quot;Connecting cabins or larger family staterooms make a huge difference with kids. Worth the upgrade!&quot;}</p>
-                
-            </div>
-        </div>
+        <!-- Notes Section - only render if notes is an array with items -->
         
 
         <!-- Pricing Section -->
         
         <div class="section">
             <div class="section-header">
-                <div class="section-icon">💰</div>
                 <h2>Investment Summary</h2>
             </div>
             <div class="pricing-box">
@@ -3259,8 +3461,8 @@
                         
                         
                         <div class="advisor-contact">
-                            <a href="tel:251-656-5607" class="contact-link phone">📞 251-656-5607</a>
-                            <a href="mailto:stephenkountz@yahoo.com" class="contact-link email">✉️ stephenkountz@yahoo.com</a>
+                            <a href="tel:251-656-5607" class="contact-link phone">251-656-5607</a>
+                            <a href="mailto:stephenkountz@yahoo.com" class="contact-link email">stephenkountz@yahoo.com</a>
                             
                         </div>
                     </div>
