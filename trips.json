@@ -2,13 +2,27 @@
   "version": 1,
   "trips": [
     {
+      "filename": "Scotland_Ireland_Complete_Travel_Guide_2026.html",
+      "title": "Scotland & Ireland Heritage Journey - 3 Ladies",
+      "dates": "April 29 - May 10, 2026",
+      "category": "confirmed",
+      "tags": ["Scotland", "Ireland", "Edinburgh", "Limerick"],
+      "lastModified": "2026-01-23"
+    },
+    {
+      "filename": "April-2026-Scotland-Ireland.html",
+      "title": "Scotland & Ireland Journey - 3 Ladies",
+      "dates": "April 29 - May 10, 2026",
+      "category": "confirmed",
+      "tags": ["Scotland", "Ireland"],
+      "lastModified": "2026-01-23"
+    },
+    {
       "filename": "uk-narrowboat-test-2026.html",
       "title": "Roberts/Jones - England Narrowboat Adventure",
       "dates": "October 2-14, 2026 (12 days)",
       "category": "proposal",
-      "tags": [
-        "England - Oxford Canal & Cotswolds"
-      ],
+      "tags": ["England - Oxford Canal & Cotswolds"],
       "lastModified": "2026-01-17"
     },
     {
@@ -16,9 +30,7 @@
       "title": "Niwana & Jon",
       "dates": "April 2026",
       "category": "proposal",
-      "tags": [
-        "St. Maarten (Dutch Side)"
-      ],
+      "tags": ["St. Maarten (Dutch Side)"],
       "lastModified": "2026-01-17"
     },
     {
@@ -26,9 +38,7 @@
       "title": "Henderson & Jones",
       "dates": "March 22-31, 2026",
       "category": "proposal",
-      "tags": [
-        "Portugal"
-      ],
+      "tags": ["Portugal"],
       "lastModified": "2026-01-17"
     },
     {
@@ -36,9 +46,7 @@
       "title": "Bethany Lightsey Family",
       "dates": "December 3-6, 2026",
       "category": "proposal",
-      "tags": [
-        "New York City, USA"
-      ],
+      "tags": ["New York City, USA"],
       "lastModified": "2026-01-17"
     },
     {
@@ -46,9 +54,7 @@
       "title": "TBD",
       "dates": "April 14-23, 2026",
       "category": "proposal",
-      "tags": [
-        "Italy (Rome, Naples, Positano, Tuscany, Florence)"
-      ],
+      "tags": ["Italy (Rome, Naples, Positano, Tuscany, Florence)"],
       "lastModified": "2026-01-17"
     },
     {
@@ -56,19 +62,15 @@
       "title": "Tracie & Bailey Byrne",
       "dates": "May 29 - June 6, 2026",
       "category": "proposal",
-      "tags": [
-        "Greek Islands (Mediterranean Cruise)"
-      ],
-      "lastModified": "2026-01-19"
+      "tags": ["Greek Islands (Mediterranean Cruise)"],
+      "lastModified": "2026-01-17"
     },
     {
       "filename": "graduation-cruise-may-2026.html",
       "title": "TBD",
       "dates": "May 25-30, 2026",
       "category": "proposal",
-      "tags": [
-        "Caribbean - 5-Night Western Caribbean (Carnival Valor from New Orleans)"
-      ],
+      "tags": ["Caribbean - 5-Night Western Caribbean (Carnival Valor from New Orleans)"],
       "lastModified": "2026-01-17"
     },
     {
@@ -76,9 +78,7 @@
       "title": "Read/Davis Family - Alaska & Denali Cruisetour",
       "dates": "July 23 - August 3, 2026",
       "category": "confirmed",
-      "tags": [
-        "Alaska & Denali"
-      ],
+      "tags": ["Alaska & Denali"],
       "lastModified": "2026-01-17"
     },
     {
@@ -86,9 +86,7 @@
       "title": "Neil & Kim",
       "dates": "",
       "category": "proposal",
-      "tags": [
-        "RV Weekend Getaway Options"
-      ],
+      "tags": ["RV Weekend Getaway Options"],
       "lastModified": "2026-01-17"
     },
     {
@@ -96,9 +94,7 @@
       "title": "Hartley and Leigh - London & Paris",
       "dates": "May 2-9, 2026",
       "category": "deposit_paid",
-      "tags": [
-        "Paris & London"
-      ],
+      "tags": ["Paris & London"],
       "lastModified": "2026-01-16"
     },
     {
@@ -106,9 +102,7 @@
       "title": "Hartley and Leigh - London & Paris",
       "dates": "May 2-9, 2026",
       "category": "confirmed",
-      "tags": [
-        "Paris & London"
-      ],
+      "tags": ["Paris & London"],
       "lastModified": "2026-01-17"
     },
     {
