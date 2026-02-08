@@ -34,7 +34,29 @@
       margin-bottom: 12px;
     }
 
-    /* Print ad preview */
+    /* Print ad link */
+    .ad-link-card {
+      background: white;
+      border: 1px solid #e0e3e8;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .ad-link-card a {
+      color: #1a5f7a;
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .ad-link-card a:hover { text-decoration: underline; }
+    .ad-link-card span {
+      display: block;
+      font-size: 13px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    /* Print ad iframe preview (desktop only) */
     .ad-preview {
       background: white;
       border: 1px solid #e0e3e8;
@@ -48,22 +70,6 @@
       border: none;
       display: block;
     }
-    .ad-preview-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 20px;
-      background: #f8f9fa;
-      border-top: 1px solid #e0e3e8;
-      font-size: 13px;
-      color: #666;
-    }
-    .ad-preview-bar a {
-      color: #1a5f7a;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .ad-preview-bar a:hover { text-decoration: underline; }
 
     /* QR codes */
     .qr-grid {
@@ -222,16 +228,8 @@
       header h1 { font-size: 22px; }
       .container { padding: 0 12px; margin: 20px auto; }
 
-      /* Iframe: ads stack vertically on mobile, need more height */
-      .ad-preview iframe { height: 1500px; }
-
-      .ad-preview-bar {
-        flex-direction: column;
-        gap: 6px;
-        text-align: center;
-        padding: 10px 16px;
-        font-size: 12px;
-      }
+      /* Hide iframe on mobile — use the link instead */
+      .ad-preview { display: none; }
 
       .qr-grid { grid-template-columns: 1fr; }
       .qr-card { padding: 16px; gap: 14px; }
@@ -253,12 +251,12 @@
 
     <!-- PRINT AD PROOFS -->
     <div class="section-label">Newspaper Print Ads — 2x4"</div>
+    <div class="ad-link-card">
+      <a href="print-ad-2x4.html">View Print Ad Proofs &rarr;</a>
+      <span>2" x 4" at 150 DPI (300x600px) &middot; Black &amp; white safe &middot; 2 versions</span>
+    </div>
     <div class="ad-preview">
       <iframe src="print-ad-2x4.html" title="Print Ad Proofs"></iframe>
-      <div class="ad-preview-bar">
-        <span>2" x 4" at 150 DPI (300x600px) &middot; Black &amp; white safe</span>
-        <a href="print-ad-2x4.html" target="_blank">Open full page &rarr;</a>
-      </div>
     </div>
 
     <!-- QR CODES -->
