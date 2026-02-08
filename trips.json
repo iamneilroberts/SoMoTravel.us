@@ -2,6 +2,16 @@
   "version": 1,
   "trips": [
     {
+      "filename": "samples/alaska-family-cruise-2026.html",
+      "title": "The Martinez Family",
+      "dates": "July 5-14, 2026",
+      "category": "samples",
+      "tags": [
+        "Alaska Inside Passage"
+      ],
+      "lastModified": "2026-02-08"
+    },
+    {
       "filename": "samples/ireland-anniversary-2026.html",
       "title": "The Andersons",
       "dates": "August 15-24, 2026",
