@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ad Materials — Somo Travel</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f4f5f7;
+      color: #333;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(135deg, #1a5f7a 0%, #0d3d4d 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+    header p { opacity: 0.8; font-size: 15px; }
+    .container {
+      max-width: 800px;
+      margin: 32px auto;
+      padding: 0 20px;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+      margin-bottom: 12px;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid #e0e3e8;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .card:hover {
+      border-color: #1a5f7a;
+      box-shadow: 0 4px 16px rgba(26,95,122,0.12);
+      transform: translateY(-2px);
+    }
+    .card h3 { font-size: 16px; color: #1a5f7a; }
+    .card p { font-size: 13px; color: #666; line-height: 1.5; }
+    .card .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      width: fit-content;
+    }
+    .badge-html { background: #e8f4f8; color: #1a5f7a; }
+    .badge-png { background: #fef3e2; color: #b45309; }
+    .badge-svg { background: #e8f8ed; color: #16803c; }
+
+    .qr-preview {
+      margin-top: 8px;
+      width: 80px;
+      height: 80px;
+      border: 1px solid #e0e3e8;
+      border-radius: 6px;
+      padding: 4px;
+    }
+
+    .info-box {
+      background: white;
+      border: 1px solid #e0e3e8;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 36px;
+    }
+    .info-box h3 {
+      font-size: 15px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .info-box p, .info-box li {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.7;
+    }
+    .info-box ul { padding-left: 18px; }
+    .info-box code {
+      background: #f0f2f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 13px;
+      color: #999;
+    }
+    footer a { color: #1a5f7a; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Somo Travel — Ad Materials</h1>
+    <p>Print ads, QR codes, and campaign assets</p>
+  </header>
+
+  <div class="container">
+
+    <div class="section-label">Newspaper Print Ad — 2x4"</div>
+    <div class="card-grid">
+      <a class="card" href="print-ad-2x4.html">
+        <span class="badge badge-html">HTML</span>
+        <h3>Print Ad Proofs</h3>
+        <p>Two versions (bold statement + question-driven) at 2x4" proportions with embedded QR codes and Kim's contact info.</p>
+      </a>
+    </div>
+
+    <div class="section-label">QR Codes</div>
+    <div class="card-grid">
+      <a class="card" href="qr-somo-print-ad.png">
+        <span class="badge badge-png">PNG</span>
+        <h3>QR Code — Raster</h3>
+        <p>High-resolution PNG for screen use, emails, or web. Points to <code>somo.voygent.ai/?src=print-ad</code>.</p>
+        <img class="qr-preview" src="qr-somo-print-ad.png" alt="QR code">
+      </a>
+      <a class="card" href="qr-somo-print-ad.svg">
+        <span class="badge badge-svg">SVG</span>
+        <h3>QR Code — Vector</h3>
+        <p>Scalable vector for print shops. Renders perfectly at any DPI — use this for the newspaper ad.</p>
+        <img class="qr-preview" src="qr-somo-print-ad.svg" alt="QR code">
+      </a>
+    </div>
+
+    <div class="info-box">
+      <h3>Tracking &amp; Attribution</h3>
+      <ul>
+        <li>All QR codes include <code>?src=print-ad</code> which is tracked in the Voygent admin dashboard</li>
+        <li>Daily visit counts stored at <code>_somo/visits/{date}</code></li>
+        <li>Source attribution at <code>_somo/sources/print-ad</code></li>
+        <li>To track per-newspaper, generate unique QR codes with different <code>src</code> values (e.g., <code>?src=print-lagniappe</code>)</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <h3>Landing Page</h3>
+      <ul>
+        <li><strong>URL:</strong> <a href="https://somo.voygent.ai">somo.voygent.ai</a></li>
+        <li>Trip category cards, inline demo builder, Kim's contact card</li>
+        <li>Demo builder respects the Enabled toggle in the <a href="https://voygent.ai/admin">admin dashboard</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer>
+    <a href="https://somotravel.us">somotravel.us</a> &middot; <a href="https://voygent.ai">voygent.ai</a>
+  </footer>
+
+</body>
+</html>
