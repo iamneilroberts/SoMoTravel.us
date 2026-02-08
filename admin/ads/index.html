@@ -34,42 +34,144 @@
       margin-bottom: 12px;
     }
 
-    /* Print ad link */
-    .ad-link-card {
+    /* ── Inline print ad previews ── */
+    .ads-container {
       background: white;
       border: 1px solid #e0e3e8;
       border-radius: 12px;
-      padding: 20px 24px;
-      margin-bottom: 16px;
-    }
-    .ad-link-card a {
-      color: #1a5f7a;
-      font-size: 17px;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .ad-link-card a:hover { text-decoration: underline; }
-    .ad-link-card span {
-      display: block;
-      font-size: 13px;
-      color: #888;
-      margin-top: 4px;
-    }
-
-    /* Print ad iframe preview (desktop only) */
-    .ad-preview {
-      background: white;
-      border: 1px solid #e0e3e8;
-      border-radius: 12px;
-      overflow: hidden;
+      padding: 32px 24px;
       margin-bottom: 36px;
     }
-    .ad-preview iframe {
-      width: 100%;
-      height: 760px;
-      border: none;
-      display: block;
+    .ads-spec {
+      text-align: center;
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 28px;
     }
+    .ads-grid {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    .ad-wrapper {
+      text-align: center;
+    }
+    .ad-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #666;
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Ad frame — 300x600 native, scaled via transform on mobile */
+    .ad-frame {
+      width: 300px;
+      height: 600px;
+      background: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px 24px 22px;
+      position: relative;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      transform-origin: top center;
+    }
+
+    /* Headline area */
+    .ad-headline {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .ad-headline h2 {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: #111;
+    }
+    .ad-headline .free {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1a5f7a;
+      margin-top: 4px;
+    }
+    .ad-headline .sub {
+      font-size: 15px;
+      font-weight: 400;
+      color: #444;
+      line-height: 1.4;
+      margin-top: 10px;
+    }
+    .ad-url {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a5f7a;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+    .ad-divider {
+      width: 100%;
+      height: 1px;
+      background: #ddd;
+      margin: 14px 0;
+    }
+    .ad-bottom {
+      display: flex;
+      align-items: flex-end;
+      gap: 14px;
+    }
+    .ad-qr {
+      width: 90px;
+      height: 90px;
+      flex-shrink: 0;
+    }
+    .ad-qr img {
+      width: 100%;
+      height: 100%;
+    }
+    .ad-contact {
+      text-align: right;
+      flex: 1;
+    }
+    .ad-contact .name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+    }
+    .ad-contact .agency {
+      font-size: 12px;
+      color: #555;
+      margin-top: 1px;
+    }
+    .ad-contact .phone {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a5f7a;
+      margin-top: 3px;
+    }
+
+    /* Link to standalone file (secondary) */
+    .ad-standalone-link {
+      text-align: center;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #f0f0f0;
+    }
+    .ad-standalone-link a {
+      color: #1a5f7a;
+      font-size: 13px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .ad-standalone-link a:hover { text-decoration: underline; }
 
     /* QR codes */
     .qr-grid {
@@ -223,13 +325,24 @@
     }
     footer a { color: #1a5f7a; text-decoration: none; }
 
+    /* ── Mobile responsive ── */
     @media (max-width: 700px) {
       header { padding: 28px 16px; }
       header h1 { font-size: 22px; }
       .container { padding: 0 12px; margin: 20px auto; }
 
-      /* Hide iframe on mobile — use the link instead */
-      .ad-preview { display: none; }
+      .ads-container { padding: 20px 12px; }
+      .ads-grid { gap: 28px; }
+
+      /* Scale ad frames to fit mobile viewport */
+      .ad-wrapper {
+        --ad-scale: min(1, calc((100vw - 60px) / 300));
+        width: calc(300px * var(--ad-scale));
+        height: calc(600px * var(--ad-scale) + 28px); /* +28px for label */
+      }
+      .ad-frame {
+        transform: scale(var(--ad-scale));
+      }
 
       .qr-grid { grid-template-columns: 1fr; }
       .qr-card { padding: 16px; gap: 14px; }
@@ -237,6 +350,13 @@
 
       .fb-post { padding: 16px; }
       .fb-post-body { font-size: 13px; }
+    }
+
+    /* Tiny phones (< 380px) — scale down more */
+    @media (max-width: 380px) {
+      .ad-wrapper {
+        --ad-scale: calc((100vw - 48px) / 300);
+      }
     }
   </style>
 </head>
@@ -249,14 +369,68 @@
 
   <div class="container">
 
-    <!-- PRINT AD PROOFS -->
+    <!-- PRINT AD PROOFS — INLINE -->
     <div class="section-label">Newspaper Print Ads — 2x4"</div>
-    <div class="ad-link-card">
-      <a href="print-ad-2x4.html">View Print Ad Proofs &rarr;</a>
-      <span>2" x 4" at 150 DPI (300x600px) &middot; Black &amp; white safe &middot; 2 versions</span>
-    </div>
-    <div class="ad-preview">
-      <iframe src="print-ad-2x4.html" title="Print Ad Proofs"></iframe>
+    <div class="ads-container">
+      <div class="ads-spec">2" wide x 4" tall &middot; Black &amp; white safe &middot; Shown at 150 DPI (300x600px)</div>
+
+      <div class="ads-grid">
+
+        <!-- VERSION A: Bold Statement -->
+        <div class="ad-wrapper">
+          <div class="ad-label">Version A — Bold Statement</div>
+          <div class="ad-frame">
+            <div class="ad-headline">
+              <h2>YOUR<br>DREAM<br>VACATION,<br>PLANNED IN<br>2 MINUTES.</h2>
+              <div class="free">FREE.</div>
+            </div>
+            <div>
+              <div class="ad-url">somo.voygent.ai</div>
+              <div class="ad-divider"></div>
+              <div class="ad-bottom">
+                <div class="ad-qr">
+                  <img src="qr-somo-print-ad.svg" alt="QR code">
+                </div>
+                <div class="ad-contact">
+                  <div class="name">Kim Henderson</div>
+                  <div class="agency">Somo Travel</div>
+                  <div class="phone">251-289-1505</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VERSION B: Question-Driven -->
+        <div class="ad-wrapper">
+          <div class="ad-label">Version B — Question-Driven</div>
+          <div class="ad-frame">
+            <div class="ad-headline">
+              <h2>WHERE<br>DO YOU<br>WANT<br>TO GO?</h2>
+              <p class="sub">Free personalized vacation plan in 2 minutes. Hotels, activities, pricing — all planned for you.</p>
+            </div>
+            <div>
+              <div class="ad-url">somo.voygent.ai</div>
+              <div class="ad-divider"></div>
+              <div class="ad-bottom">
+                <div class="ad-qr">
+                  <img src="qr-somo-print-ad.svg" alt="QR code">
+                </div>
+                <div class="ad-contact">
+                  <div class="name">Kim Henderson</div>
+                  <div class="agency">Somo Travel</div>
+                  <div class="phone">251-289-1505</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="ad-standalone-link">
+        <a href="print-ad-2x4.html">Open standalone print-ready version &rarr;</a>
+      </div>
     </div>
 
     <!-- QR CODES -->
