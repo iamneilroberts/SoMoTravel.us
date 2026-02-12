@@ -15,7 +15,7 @@
     header{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px}
     h1{margin:8px 0 0; font-size:28px}
     .toolbar{display:flex; gap:10px; flex-wrap:wrap}
-    .btn{border:none; background:#eef0f6; padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer}
+    .btn{border:none; background:#eef0f6; padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer; text-decoration:none; display:inline-block; font-size:inherit; line-height:1.2; box-sizing:border-box}
     .btn-primary{background:var(--primary); color:#fff}
     .btn-primary:hover{background:var(--primary-600)}
     .btn-secondary{background:#e9ecf4; color:#111}
@@ -58,6 +58,25 @@
 
     #emptyState{color:var(--muted); margin-top:20px}
 
+    /* Loading skeleton */
+    .skeleton-section{background:#fff; border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); margin-bottom:18px}
+    .skeleton-header{height:48px; background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%); background-size:200% 100%; animation:shimmer 1.5s infinite; border-radius:0}
+    .skeleton-card{background:#fff; border:1px solid var(--border); border-radius:16px; padding:16px; height:140px}
+    .skeleton-line{height:14px; background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%); background-size:200% 100%; animation:shimmer 1.5s infinite; border-radius:6px; margin-bottom:10px}
+    .skeleton-line.w60{width:60%} .skeleton-line.w40{width:40%} .skeleton-line.w80{width:80%}
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+    /* Mobile responsive header */
+    @media(max-width:640px){
+      header{flex-direction:column; align-items:flex-start; gap:10px}
+      h1{font-size:22px; margin:0}
+      .toolbar{width:100%; display:grid; grid-template-columns:1fr 1fr; gap:8px}
+      .toolbar .btn{font-size:13px; padding:10px 8px; text-align:center}
+      .grid{grid-template-columns:1fr}
+      .actions{flex-wrap:wrap}
+      .actions .btn{flex:0 0 auto; font-size:13px; padding:7px 10px}
+    }
+
     /* Backdrop + modal */
     .backdrop{display:none; position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:1000; align-items:center; justify-content:center}
     .modal{width:min(820px,95%); max-height:85vh; overflow:auto; background:#fff; border-radius:14px; border:1px solid var(--border); box-shadow:0 18px 46px rgba(0,0,0,.25)}
@@ -85,7 +104,17 @@
       </div>
     </header>
 
-    <div id="tripGrid"></div>
+    <div id="tripGrid">
+      <!-- Loading skeleton shown until JS replaces content -->
+      <div class="skeleton-section">
+        <div class="skeleton-header"></div>
+        <div style="padding:16px; display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px">
+          <div class="skeleton-card"><div class="skeleton-line w60"></div><div class="skeleton-line w40"></div><div class="skeleton-line w80"></div></div>
+          <div class="skeleton-card"><div class="skeleton-line w60"></div><div class="skeleton-line w40"></div><div class="skeleton-line w80"></div></div>
+          <div class="skeleton-card"><div class="skeleton-line w60"></div><div class="skeleton-line w40"></div><div class="skeleton-line w80"></div></div>
+        </div>
+      </div>
+    </div>
     <div id="emptyState" style="display:none">No trips yet.</div>
   </div>
 
