@@ -2,6 +2,16 @@
   "version": 1,
   "trips": [
     {
+      "filename": "samples/nyc-food-wine-experience.html",
+      "title": "Demo Trip - Food & Wine",
+      "dates": "",
+      "category": "samples",
+      "tags": [
+        "New York City"
+      ],
+      "lastModified": "2026-02-17"
+    },
+    {
       "filename": "samples/costa-rica-beach-getaway.html",
       "title": "Demo Trip - Jaco Beach Getaway",
       "dates": "August 8-12, 2026",
