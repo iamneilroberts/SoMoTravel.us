@@ -1,3031 +1,1688 @@
-<!-- voygent:generated:2026-02-17T15:09:22.737Z -->
+<!-- voygent:generated:2026-02-17T15:34:42.662Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Trip - Jaco Beach Getaway - Jaco Beach, Costa Rica | SOMO Travel</title>
+    <title>Jaco Beach, Costa Rica Trip Proposal - Voygent AI Demo</title>
     <style>
-        :root {
-            /* Dynamic Brand Colors from Agent Profile */
-            --primary: #0891b2;
-            --primary-dark: color-mix(in srgb, #0891b2 80%, black);
-            --secondary: color-mix(in srgb, #0891b2 40%, white);
-            --secondary-light: color-mix(in srgb, #0891b2 20%, white);
-            --accent: #34d399;
-            --accent-dark: color-mix(in srgb, #34d399 80%, black);
-
-            /* Neutrals */
-            --white: #ffffff;
-            --bg-light: #f5f9fc;
-            --bg-section: #e8f4fc;
-            --text: #2c3e50;
-            --text-light: #5a6c7d;
-            --border: #d1e3f0;
-            --shadow: 0 4px 12px rgba(27, 97, 156, 0.15);
-            --radius: 10px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --demo-primary: #0d9488;
+            --demo-primary-dark: #0f766e;
+            --demo-accent: #f59e0b;
+            --demo-profit: #059669;
+            --demo-profit-light: #ecfdf5;
+            --demo-bg: #ffffff;
+            --demo-bg-alt: #f0fdfa;
+            --demo-text: #1e293b;
+            --demo-text-light: #64748b;
+            --demo-border: #e2e8f0;
+            --demo-radius: 10px;
+            --demo-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
 
         body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background: var(--white);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--demo-text);
+            background: var(--demo-bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Header with Logo */
-        .header-bar {
-            background: var(--primary);
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* Header */
+        .header {
+            background: var(--demo-primary);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--demo-shadow);
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-container img {
-            height: 50px;
-            width: auto;
-        }
-
-        .logo-text {
-            color: var(--white);
-            font-size: 1.1em;
-            font-weight: 500;
-        }
-
-        .header-contact {
-            color: var(--secondary-light);
-            font-size: 0.9em;
-        }
-
-        .header-contact a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .conversation-banner {
-            background: var(--bg-light);
-            padding: 12px 30px;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .conversation-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--white);
-            color: var(--primary);
-            padding: 10px 16px;
-            border-radius: 999px;
-            border: 1px solid var(--border);
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: var(--shadow);
-        }
-
-        .conversation-link:hover {
-            border-color: var(--secondary);
-        }
-
-        .conversation-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #e8f5e9;
-            color: var(--accent-dark);
-            padding: 4px 10px;
-            border-radius: 999px;
-            font-size: 0.85em;
-            font-weight: 600;
-        }
-
-        .conversation-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--white);
-            padding: 50px 30px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.4em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .hero .destination {
-            font-size: 1.4em;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        .hero .dates-badge {
-            display: inline-block;
-            background: var(--accent);
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-
-        .hero .tagline {
-            margin-top: 25px;
-            font-size: 1em;
-            opacity: 0.8;
-            font-style: italic;
-        }
-
-        /* Main Content */
-        .content {
-            max-width: 950px;
+        .header-content {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 30px 20px;
-        }
-
-        /* Overview Cards */
-        .overview-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .overview-card {
-            background: var(--bg-section);
-            padding: 20px;
-            border-radius: var(--radius);
-            text-align: center;
-            border-top: 4px solid var(--primary);
-        }
-
-        .overview-card .label {
-            font-size: 0.85em;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        .overview-card .value {
-            font-size: 1.2em;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        /* Section Styles */
-        .section {
-            margin-bottom: 35px;
-        }
-
-        .section-header {
+            padding: 0 1.5rem;
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 3px solid var(--primary);
-        }
-
-        .section-header h2 {
-            color: var(--primary);
-            font-size: 1.4em;
-            font-weight: 700;
-        }
-
-        /* Content Box */
-        .content-box {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 25px;
-            box-shadow: var(--shadow);
-        }
-
-        /* Cards Grid */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(27, 97, 156, 0.2);
-        }
-
-        .card-header {
-            background: var(--primary);
-            color: var(--white);
-            padding: 15px 20px;
-            font-weight: 600;
-            font-size: 1.1em;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        .card-detail {
-            display: flex;
             justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.95em;
         }
 
-        .card-detail:last-child { border-bottom: none; }
-        .card-detail .label { color: var(--text-light); }
-        .card-detail .value { font-weight: 600; color: var(--text); }
+        .header-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
 
-        .card-link {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: var(--accent);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 5px;
+        .demo-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
             font-weight: 600;
-            font-size: 0.9em;
-            transition: background 0.2s;
         }
 
-        .card-link:hover { background: var(--accent-dark); }
-
-        /* Card Images */
-        .card-image {
-            width: 100%;
-            max-height: 180px;
-            object-fit: cover;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .card-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .card-gallery img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .card-gallery img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Hide broken images and collapse empty containers */
-        img[src=""], img:not([src]), img.broken {
-            display: none !important;
-        }
-        .card-gallery:empty, .hero-gallery:empty {
-            display: none !important;
-        }
-
-        .image-caption {
-            font-size: 0.85em;
-            color: var(--text-light);
-            text-align: center;
-            margin-top: 5px;
-        }
-
-        .cabin-media {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 12px;
-            margin-top: 20px;
-            margin-bottom: 8px;
-        }
-
-        .cabin-media a {
-            display: block;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background: var(--bg-light);
-            padding: 6px;
-        }
-
-        .cabin-photo-link.no-thumb {
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 450px;
+            background: linear-gradient(135deg, rgba(13,148,136,0.85) 0%, rgba(15,118,110,0.75) 100%), url('') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 140px;
-        }
-
-        .cabin-photo-fallback {
-            display: none;
-            color: var(--text-light);
-            font-size: 0.85em;
+            color: white;
             text-align: center;
-            padding: 8px;
         }
 
-        .cabin-photo-link.no-thumb .cabin-photo-fallback {
+        .hero-content {
+            max-width: 700px;
+            padding: 0 1.5rem;
+            z-index: 1;
+        }
+
+        .hero-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.95;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 3.5rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            color: var(--demo-text);
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--demo-text-light);
+            margin-bottom: 2rem;
+        }
+
+        /* Overview Cards */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .overview-card {
+            background: var(--demo-bg);
+            border: 1px solid var(--demo-border);
+            border-radius: var(--demo-radius);
+            padding: 1.5rem;
+            box-shadow: var(--demo-shadow);
+        }
+
+        .overview-label {
+            font-size: 0.875rem;
+            color: var(--demo-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .overview-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--demo-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .overview-detail {
+            font-size: 0.875rem;
+            color: var(--demo-text-light);
+            margin-top: 0.25rem;
+        }
+
+        /* Map */
+        .map-container {
+            border-radius: var(--demo-radius);
+            overflow: hidden;
+            box-shadow: var(--demo-shadow);
+            border: 1px solid var(--demo-border);
+            margin-bottom: 3rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
             display: block;
         }
 
-        .cabin-media img {
-            width: 100%;
-            height: 140px;
-            object-fit: contain;
+        /* Lodging */
+        .lodging-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .lodging-card {
+            background: var(--demo-bg);
+            border: 1px solid var(--demo-border);
+            border-radius: var(--demo-radius);
+            padding: 1.75rem;
+            box-shadow: var(--demo-shadow);
+        }
+
+        .lodging-header {
+            margin-bottom: 1rem;
+        }
+
+        .lodging-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--demo-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .lodging-location {
+            color: var(--demo-text-light);
+            font-size: 1rem;
+        }
+
+        .lodging-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--demo-border);
+        }
+
+        .lodging-detail {
+            font-size: 0.875rem;
+        }
+
+        .lodging-detail strong {
+            display: block;
+            color: var(--demo-text);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .lodging-detail span {
+            color: var(--demo-text-light);
+        }
+        .lodging-website-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--demo-primary);
+            color: #fff;
             border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 600;
+            transition: opacity 0.2s;
         }
+        .lodging-website-btn:hover { opacity: 0.85; }
 
-        /* Hero Gallery */
-        .hero-gallery {
-            display: flex;
-            overflow-x: auto;
-            gap: 0;
-            background: var(--primary-dark);
-            padding: 0;
-        }
-
-        .hero-gallery-item {
-            flex: 0 0 auto;
+        /* Itinerary */
+        .itinerary-timeline {
             position: relative;
         }
 
-        .hero-gallery-item img {
-            height: 250px;
-            width: auto;
-            display: block;
-        }
-
-        .hero-gallery-item .image-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0,0.6);
-            color: white;
-            padding: 8px 12px;
-            font-size: 0.9em;
-        }
-
-        /* Flight Cards */
-        .flight-card .card-header {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-        }
-
-        .flight-route {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        /* Day Itinerary */
         .day-card {
-            margin-bottom: 20px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            border: 1px solid var(--border);
+            background: var(--demo-bg);
+            border: 1px solid var(--demo-border);
+            border-radius: var(--demo-radius);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--demo-shadow);
+            position: relative;
         }
 
         .day-header {
-            background: var(--bg-section);
-            padding: 15px 20px;
             display: flex;
-            align-items: center;
-            gap: 15px;
-            border-bottom: 1px solid var(--border);
+            align-items: flex-start;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
         }
 
         .day-number {
-            background: var(--primary);
-            color: var(--white);
+            background: var(--demo-primary);
+            color: white;
             width: 50px;
             height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .day-info h3 { color: var(--primary); margin-bottom: 3px; }
-        .day-date { color: var(--text-light); font-size: 0.9em; }
-
-        .day-content { padding: 20px; }
-
-        .activity {
-            padding: 15px;
-            margin-bottom: 12px;
-            background: var(--bg-light);
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .activity:last-child { margin-bottom: 0; }
-        .activity-title { font-weight: 600; color: var(--text); margin-bottom: 5px; }
-        .activity-time { font-size: 0.85em; color: var(--primary); font-weight: 600; margin-bottom: 3px; }
-        .activity-details { font-size: 0.95em; color: var(--text-light); }
-
-        /* Included vs Optional Activity Styling */
-        .activity.included {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-            border-left-color: var(--accent);
-        }
-
-        .activity.optional {
-            background: var(--bg-light);
-            border-left-color: #f5a623;
-        }
-
-        .activity-badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.75em;
-            font-weight: 600;
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-
-        .activity-badge.included {
-            background: var(--accent);
-            color: white;
-        }
-
-        .activity-badge.optional {
-            background: #f5a623;
-            color: white;
-        }
-
-        .activity-subtext {
-            font-size: 0.85em;
-            font-style: italic;
-            margin-top: 4px;
-        }
-
-        .activity.included .activity-subtext {
-            color: var(--accent);
-        }
-
-        .activity.optional .activity-subtext {
-            color: #c7880a;
-        }
-
-        /* Day Description & Info Boxes */
-        .day-description {
-            font-size: 1.05em;
-            color: var(--text);
-            line-height: 1.7;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: var(--white);
-            border-radius: 8px;
-            border: 1px solid var(--border);
-        }
-
-        .cruise-info-box {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-            background: var(--bg-section);
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border: 1px solid var(--border);
-        }
-
-        .cruise-info-item {
-            text-align: center;
-        }
-
-        .cruise-info-item .label {
-            font-size: 0.75em;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 3px;
-        }
-
-        .cruise-info-item .value {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 0.95em;
-        }
-
-        /* Dining Section */
-        .dining-section {
-            background: linear-gradient(135deg, #fff8f0 0%, #fff 100%);
-            border: 1px solid #f0d9c0;
-            border-radius: 8px;
-            padding: 15px 20px;
-            margin-bottom: 15px;
-        }
-
-        .dining-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            color: #c7880a;
-            margin-bottom: 10px;
-            font-size: 1em;
-        }
-
-        .dining-item {
-            padding: 8px 0;
-            border-bottom: 1px solid #f0d9c0;
-            font-size: 0.95em;
-        }
-
-        .dining-item:last-child { border-bottom: none; }
-
-        .dining-item .meal-type {
-            font-weight: 600;
-            color: var(--text);
-            margin-right: 8px;
-        }
-
-        .dining-item .meal-desc {
-            color: var(--text-light);
-        }
-
-        /* Highlights & Tips */
-        .day-highlights {
-            background: var(--secondary-light);
-            border-radius: 8px;
-            padding: 15px 20px;
-            margin-bottom: 15px;
-        }
-
-        .day-highlights h5 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 0.95em;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .day-highlights ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-        .day-highlights li {
-            margin-bottom: 5px;
-            font-size: 0.95em;
-            color: var(--text);
-        }
-
-        .day-tips {
-            background: #fff8e6;
-            border-left: 4px solid #f5a623;
-            border-radius: 0 8px 8px 0;
-            padding: 12px 15px;
-            margin-bottom: 15px;
-        }
-
-        .day-tips h5 {
-            color: #c7880a;
-            margin-bottom: 8px;
-            font-size: 0.9em;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .day-tips ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-        .day-tips li {
-            margin-bottom: 4px;
-            font-size: 0.9em;
-            color: var(--text);
-        }
-
-        /* Shopping Section */
-        .day-shopping {
-            background: var(--bg-light);
-            border-radius: 8px;
-            padding: 12px 15px;
-            margin-bottom: 15px;
-        }
-
-        .day-shopping h5 {
-            color: var(--text);
-            margin-bottom: 8px;
-            font-size: 0.9em;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .shopping-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .shopping-tag {
-            background: var(--white);
-            border: 1px solid var(--border);
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.85em;
-            color: var(--text);
-        }
-
-        /* Day Videos */
-        .day-videos {
-            background: var(--bg-light);
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-
-        .day-videos h5 {
-            color: var(--text);
-            margin-bottom: 12px;
-            font-size: 0.9em;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-        }
-
-        .video-embed {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
-            background: #000;
-        }
-
-        .video-embed iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 15px;
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--text);
-            transition: border-color 0.2s;
-        }
-
-        .video-link:hover {
-            border-color: var(--primary);
-        }
-
-        .video-link .video-icon {
-            color: #ff0000;
-            font-size: 1.5em;
-        }
-
-        .video-link .video-title {
-            font-weight: 500;
-        }
-
-        .video-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .video-caption {
-            padding: 12px 15px;
-            font-size: 0.95em;
-            color: var(--text);
-            background: var(--bg-light);
-        }
-
-        /* Dining Links */
-        .dining-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .dining-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Pricing Section */
-        .pricing-box {
-            background: linear-gradient(135deg, var(--bg-section) 0%, var(--secondary-light) 100%);
-            border: 2px solid var(--primary);
-            border-radius: var(--radius);
-            padding: 30px;
-        }
-
-        .pricing-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 1.05em;
-        }
-
-        .pricing-row:last-child { border-bottom: none; }
-
-        .pricing-row.total {
-            font-size: 1.4em;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: var(--primary);
-            border-top: 3px solid var(--primary);
-            margin-top: 15px;
-            padding-top: 20px;
+            flex-shrink: 0;
         }
 
-        .price-source-badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 0.7em;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-left: 6px;
-            vertical-align: middle;
-        }
-        .price-source-gds {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
-        .price-source-estimated {
-            background: #fff3e0;
-            color: #e65100;
-        }
-
-        /* Highlight Boxes */
-        .highlight-box {
-            background: var(--secondary-light);
-            border-left: 5px solid var(--primary);
-            padding: 20px;
-            border-radius: 0 var(--radius) var(--radius) 0;
-            margin: 20px 0;
-        }
-
-        .highlight-box h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .alert-box {
-            background: #fff8e6;
-            border-left: 5px solid #f5a623;
-            padding: 20px;
-            border-radius: 0 var(--radius) var(--radius) 0;
-            margin: 20px 0;
-        }
-
-        .alert-box h4 {
-            color: #c7880a;
-            margin-bottom: 10px;
-        }
-
-        /* Pricing Disclaimer */
-        .pricing-disclaimer {
-            font-size: 0.85em;
-            color: var(--text-light);
-            text-align: center;
-            padding: 15px 20px;
-            margin-top: 10px;
-            border-top: 1px solid var(--border);
-        }
-
-        /* Lists */
-        ul { margin-left: 20px; }
-        li { margin-bottom: 8px; }
-
-        /* Traveler Names */
-        .traveler-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .traveler-badge {
-            background: var(--primary);
-            color: var(--white);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.95em;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary);
-            color: var(--white);
-            padding: 40px 30px;
-            margin-top: 50px;
-        }
-
-        .footer-content {
-            max-width: 950px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .footer-section h4 {
-            font-size: 1.1em;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-
-        .footer-section p, .footer-section a {
-            color: var(--secondary-light);
-            font-size: 0.95em;
-            line-height: 1.8;
-        }
-
-        .footer-section a {
-            text-decoration: none;
-        }
-
-        .footer-section a:hover {
-            color: var(--white);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            font-size: 0.85em;
-            color: var(--secondary-light);
-        }
-
-        /* QR Code - presentation-sized for projector scanning */
-        .qr-section {
-            text-align: center;
-            margin: 30px auto;
-            padding: 30px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 16px;
-            max-width: 400px;
-        }
-
-        .qr-section .qr-label {
-            font-size: 1.1em;
-            margin-bottom: 15px;
-            color: var(--white);
-            font-weight: 600;
-        }
-
-        .qr-section .qr-url {
-            font-size: 0.95em;
-            margin-top: 15px;
-            color: var(--secondary-light);
-            word-break: break-all;
-            font-family: monospace;
-            opacity: 0.9;
-        }
-
-        .qr-section .qr-url a {
-            color: var(--secondary-light);
-            text-decoration: underline;
-        }
-
-        .qr-section .qr-url a:hover {
-            color: var(--white);
-        }
-
-        .footer-tagline {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 5px;
-        }
-
-        /* Advisor Cards Container - for multiple advisors */
-        .advisor-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        /* Advisor Card */
-        .advisor-card {
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-        }
-
-        .advisor-card.co-advisor {
-            padding-top: 15px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .advisor-role {
-            font-size: 0.8em;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 2px;
-        }
-
-        .advisor-photo {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--secondary);
-        }
-
-        .advisor-photo-fallback {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--secondary);
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.5em;
-        }
-
-        .advisor-details {
+        .day-info {
             flex: 1;
         }
 
-        .advisor-name {
+        .day-title {
+            font-size: 1.5rem;
             font-weight: 700;
-            font-size: 1.1em;
-            color: var(--white);
+            color: var(--demo-text);
+            margin-bottom: 0.25rem;
         }
 
-        .advisor-title {
-            color: var(--secondary-light);
-            font-size: 0.95em;
-            margin-bottom: 5px;
+        .day-meta {
+            color: var(--demo-text-light);
+            font-size: 0.875rem;
         }
 
-        .advisor-affiliation,
-        .advisor-franchise {
-            font-size: 0.85em;
-            color: var(--secondary);
-            line-height: 1.4;
+        .day-content {
+            padding-left: 66px;
         }
 
-        .advisor-contact {
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+        .activity-list {
+            margin-bottom: 1.5rem;
         }
 
-        .contact-link {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.9em;
+        .activity-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--demo-border);
         }
 
-        .contact-link:hover {
-            color: var(--secondary-light);
-        }
-
-        .contact-link.phone {
-            font-weight: 600;
-        }
-
-        /* Traveler Table */
-        .traveler-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95em;
-        }
-
-        .traveler-table th,
-        .traveler-table td {
-            padding: 10px 12px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .traveler-table th {
-            background: var(--bg-light);
-            font-weight: 600;
-            color: var(--text-light);
-            font-size: 0.85em;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .traveler-table tr:last-child td {
+        .activity-item:last-child {
             border-bottom: none;
         }
 
-        .traveler-type {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 12px;
+        .activity-time {
+            font-size: 0.875rem;
+            color: var(--demo-primary);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--demo-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .activity-description {
+            color: var(--demo-text-light);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        .dining-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--demo-bg-alt);
+        }
+
+        .dining-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--demo-text);
+            margin-bottom: 1rem;
+        }
+
+        .dining-item {
+            margin-bottom: 1rem;
+        }
+
+        .dining-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .dining-name {
+            font-weight: 600;
+            color: var(--demo-text);
+            margin-bottom: 0.25rem;
+        }
+
+        .dining-meta {
+            font-size: 0.875rem;
+            color: var(--demo-text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .dining-description {
+            font-size: 0.9375rem;
+            color: var(--demo-text-light);
+            line-height: 1.6;
+        }
+
+        /* Video */
+        .video-container {
+            border-radius: var(--demo-radius);
+            overflow: hidden;
+            box-shadow: var(--demo-shadow);
+            border: 1px solid var(--demo-border);
+            margin-bottom: 3rem;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            display: block;
+        }
+
+        .video-caption {
+            padding: 0.75rem 0;
+            font-size: 0.9rem;
+            color: var(--demo-text-light);
+            text-align: center;
+        }
+
+        /* Hidden Gems & Free Activities */
+        .gems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gem-card {
+            background: var(--demo-bg-alt);
+            border: 1px solid var(--demo-border);
+            border-radius: var(--demo-radius);
+            padding: 1.5rem;
+        }
+
+        .gem-name {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--demo-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .gem-location {
+            font-size: 0.875rem;
+            color: var(--demo-primary);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .gem-description {
+            font-size: 0.9375rem;
+            color: var(--demo-text-light);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .gem-tip {
+            font-size: 0.875rem;
+            color: var(--demo-text);
+            background: white;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--demo-accent);
+        }
+
+        .gem-best-time {
+            font-size: 0.875rem;
+            color: var(--demo-primary);
+            font-weight: 600;
+            margin-top: 0.75rem;
+        }
+
+        /* Tiers */
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .tier-card {
+            background: var(--demo-bg);
+            border: 1px solid var(--demo-border);
+            border-radius: var(--demo-radius);
+            padding: 2rem;
+            box-shadow: var(--demo-shadow);
+            position: relative;
+        }
+
+        .tier-card.recommended {
+            border-color: var(--demo-primary);
+            border-width: 2px;
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(13,148,136,0.15);
+        }
+
+        .tier-card.luxury {
+            border-color: #c7880a;
+            border-top: 4px solid #c7880a;
+        }
+
+        .tier-card.luxury .tier-price {
+            color: #c7880a;
+        }
+
+        .budget-item-notes {
             font-size: 0.85em;
-            font-weight: 500;
+            color: var(--demo-text-light);
+            font-weight: 400;
         }
 
-        .traveler-type.adult {
-            background: var(--secondary-light);
-            color: var(--primary);
+        .tier-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--demo-primary);
+            color: white;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .traveler-type.teen {
-            background: #e8f5e9;
-            color: #2e7d32;
+        .tier-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--demo-text);
+            margin-bottom: 0.5rem;
         }
 
-        .traveler-type.child {
-            background: #fff3e0;
-            color: #e65100;
+        .tier-description {
+            font-size: 0.9375rem;
+            color: var(--demo-text-light);
+            margin-bottom: 1.5rem;
         }
 
-        .doc-badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 0.8em;
-            margin-right: 4px;
+        .tier-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--demo-primary);
+            margin-bottom: 0.25rem;
         }
 
-        .doc-badge.pending {
-            background: #fff3e0;
-            color: #e65100;
+        .tier-per-person {
+            font-size: 0.875rem;
+            color: var(--demo-text-light);
+            margin-bottom: 1.5rem;
         }
 
-        .doc-badge.complete {
-            background: #e8f5e9;
-            color: #2e7d32;
+        .tier-includes {
+            list-style: none;
+            margin-bottom: 1.5rem;
         }
 
-        .mobility-flag {
-            display: inline-flex;
+        .tier-includes li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9375rem;
+            color: var(--demo-text-light);
+        }
+
+        .tier-includes li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--demo-primary);
+            font-weight: 700;
+        }
+
+        /* Budget */
+        .budget-card {
+            background: var(--demo-bg);
+            border: 1px solid var(--demo-border);
+            border-radius: var(--demo-radius);
+            padding: 2rem;
+            box-shadow: var(--demo-shadow);
+        }
+
+        .budget-line-items {
+            margin-bottom: 1.5rem;
+        }
+
+        .budget-item {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 4px;
-            color: #f5a623;
-            font-size: 0.9em;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--demo-border);
         }
 
-        /* Maps Section */
-        .maps-section {
-            background: var(--bg-light);
-            border-radius: var(--radius);
-            padding: 20px;
+        .budget-item:last-child {
+            border-bottom: none;
         }
 
-        .map-grid {
+        .budget-item-name {
+            font-size: 1rem;
+            color: var(--demo-text);
+        }
+
+        .budget-item-amount {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--demo-text);
+        }
+
+        .budget-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-top: 2px solid var(--demo-border);
+            margin-top: 1rem;
+        }
+
+        .budget-total-label {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--demo-text);
+        }
+
+        .budget-total-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--demo-primary);
+        }
+
+        .budget-per-person {
+            text-align: center;
+            color: var(--demo-text-light);
+            font-size: 0.9375rem;
+            margin-top: 0.5rem;
+        }
+
+        .budget-notes {
+            background: var(--demo-bg-alt);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--demo-text-light);
+            line-height: 1.6;
+        }
+
+        /* Profitability */
+        .profitability-section {
+            background: var(--demo-profit-light);
+            border: 2px solid var(--demo-profit);
+            border-radius: var(--demo-radius);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .profitability-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profitability-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--demo-profit);
+            margin-bottom: 0.5rem;
+        }
+
+        .profitability-subtitle {
+            font-size: 1rem;
+            color: var(--demo-text-light);
+        }
+
+        .profitability-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 1.5rem;
         }
 
-        .map-item {
-            background: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border);
+        .profitability-card {
+            background: white;
+            border-radius: var(--demo-radius);
+            padding: 1.75rem;
+            box-shadow: var(--demo-shadow);
         }
 
-        .map-item-label {
-            padding: 10px 15px;
-            font-weight: 600;
-            color: var(--primary);
-            background: var(--bg-section);
-            border-bottom: 1px solid var(--border);
+        .commission-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--demo-profit);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
         }
 
-        .map-embed {
-            width: 100%;
-            height: 250px;
-            border: none;
+        .commission-label {
+            font-size: 0.9375rem;
+            color: var(--demo-text-light);
+            margin-bottom: 1rem;
         }
 
-        /* Transport & Driving Info */
-        .transport-info {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            background: var(--bg-section);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--primary);
+        .commission-notes {
+            font-size: 0.875rem;
+            color: var(--demo-text-light);
+            line-height: 1.6;
         }
 
-        .transport-icon {
-            font-size: 1.5em;
-            flex-shrink: 0;
+        .upsell-card-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--demo-text);
+            margin-bottom: 1rem;
         }
 
-        .transport-details {
-            flex: 1;
-        }
-
-        .transport-details .mode {
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 4px;
-        }
-
-        .transport-details .times {
-            font-size: 0.9em;
-            color: var(--text);
-        }
-
-        .transport-details .confirmation {
-            font-size: 0.85em;
-            color: var(--text-light);
-            margin-top: 4px;
-        }
-
-        .driving-info {
-            background: linear-gradient(135deg, #f5f9fc 0%, #e8f4fc 100%);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-
-        .driving-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .driving-stats {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 10px;
-        }
-
-        .driving-stat {
-            font-size: 0.95em;
-        }
-
-        .driving-stat .label {
-            color: var(--text-light);
-        }
-
-        .driving-stat .value {
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .driving-breaks {
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px dashed var(--border);
-        }
-
-        .driving-breaks h6 {
-            font-size: 0.85em;
-            color: var(--text-light);
-            margin-bottom: 8px;
-        }
-
-        .break-item {
-            display: flex;
-            gap: 8px;
-            font-size: 0.9em;
-            margin-bottom: 4px;
-        }
-
-        .break-item .location {
-            font-weight: 500;
-        }
-
-        .break-item .reason {
-            color: var(--text-light);
-        }
-
-        /* Daily Lodging Indicator */
-        .daily-lodging {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--secondary-light);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin-left: 15px;
-        }
-
-        .daily-lodging .hotel-name {
-            font-weight: 500;
-            color: var(--primary);
-        }
-
-        .daily-lodging .night-info {
-            color: var(--text-light);
-            font-size: 0.9em;
-        }
-
-        /* Dining Recommendations */
-        .dining-recommendations {
-            background: linear-gradient(135deg, #fffbf5 0%, #fff 100%);
-            border: 1px solid #f0d9c0;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-
-        .dining-rec-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            color: #c7880a;
-            margin-bottom: 12px;
-        }
-
-        .dining-rec-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 12px;
-        }
-
-        .dining-rec-card {
-            background: var(--white);
-            border: 1px solid #f0d9c0;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .dining-rec-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(199, 136, 10, 0.15);
-        }
-
-        .dining-rec-card .thumbnail {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            cursor: pointer;
-        }
-
-        .dining-rec-card .content {
-            padding: 12px;
-        }
-
-        .dining-rec-card .name {
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 4px;
-        }
-
-        .dining-rec-card .name a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .dining-rec-card .name a:hover {
-            text-decoration: underline;
-        }
-
-        .dining-rec-card .price-cuisine {
-            display: flex;
-            gap: 8px;
-            font-size: 0.85em;
-            color: var(--text-light);
-            margin-bottom: 6px;
-        }
-
-        .dining-rec-card .price-level {
-            color: #c7880a;
-            font-weight: 600;
-        }
-
-        .dining-rec-card .description {
-            font-size: 0.9em;
-            color: var(--text-light);
-            line-height: 1.4;
-        }
-
-        /* Photo Thumbnails & Lightbox */
-        .thumbnail {
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .thumbnail:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 10000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            border-radius: 4px;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 2em;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 10px;
-            line-height: 1;
-        }
-
-        .lightbox-close:hover {
-            color: var(--secondary);
-        }
-
-        /* Lodging Status Badges */
-        .lodging-status {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: 600;
-            margin-left: 10px;
-        }
-
-        .lodging-status.confirmed {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
-
-        .lodging-status.selected {
-            background: var(--secondary-light);
-            color: var(--primary);
-        }
-
-        .lodging-status.option {
-            background: #fff3e0;
-            color: #e65100;
-        }
-
-        .card.lodging-option {
-            border-style: dashed;
-            opacity: 0.9;
-        }
-
-        .card.lodging-confirmed {
-            border-color: #4caf50;
-            border-width: 2px;
-        }
-
-        /* Activity URL/Photo Enhancements */
-        .activity-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .activity-link:hover {
-            text-decoration: underline;
-        }
-
-        .activity-thumbnail {
-            width: 80px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 6px;
-            float: right;
-            margin-left: 12px;
-            margin-bottom: 8px;
-        }
-
-        /* Responsive */
-        /* Packing List Grid - responsive columns */
-        .packing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 6px;
+        .upsell-list {
             list-style: none;
         }
 
-        .packing-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 0.95em;
+        .upsell-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9375rem;
+            color: var(--demo-text-light);
+            border-bottom: 1px solid var(--demo-border);
         }
 
-        .packing-item::before {
-            content: "";
-            font-weight: bold;
-            flex-shrink: 0;
+        .upsell-list li:last-child {
+            border-bottom: none;
         }
 
-        .packing-item.essential { background: var(--bg-light); }
-        .packing-item.essential::before { color: var(--primary); }
+        .upsell-list li:before {
+            content: "💡";
+            position: absolute;
+            left: 0;
+        }
 
-        .packing-item.recommended { background: color-mix(in srgb, var(--accent) 15%, white); }
-        .packing-item.recommended::before { content: "+"; }
+        /* Disclaimer */
+        .disclaimer {
+            background: var(--demo-bg-alt);
+            border: 1px solid var(--demo-border);
+            border-radius: var(--demo-radius);
+            padding: 1.5rem;
+            margin: 3rem 0;
+            font-size: 0.875rem;
+            color: var(--demo-text-light);
+            line-height: 1.6;
+        }
 
-        .packing-item.skip { background: #ffebee; color: #c62828; }
-        .packing-item.skip::before { content: ""; color: #d32f2f; }
+        /* CTA Footer */
+        .cta-footer {
+            background: var(--demo-primary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
 
+        .cta-footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .cta-heading {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-subheading {
+            font-size: 1.125rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--demo-primary);
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .header-bar { flex-direction: column; gap: 10px; text-align: center; }
-            .hero h1 { font-size: 1.8em; }
-            .hero .destination { font-size: 1.1em; }
-            .content { padding: 20px 15px; }
-            .cards-grid { grid-template-columns: 1fr; }
-            .packing-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
-            .overview-section { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 600px) {
-            .advisor-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+            .hero {
+                height: 350px;
             }
 
-            .advisor-contact {
-                align-items: center;
+            .hero-title {
+                font-size: 2rem;
             }
 
-            .packing-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 4px;
+            .hero-subtitle {
+                font-size: 1rem;
             }
 
-            .packing-item {
-                padding: 6px 10px;
-                font-size: 0.9em;
+            .section {
+                padding: 2.5rem 0;
             }
-        }
 
-        @media (max-width: 400px) {
-            .packing-grid {
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .overview-grid {
                 grid-template-columns: 1fr;
             }
-        }
 
-        @media print {
-            .header-bar, .hero { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .card:hover { transform: none; box-shadow: var(--shadow); }
-        }
-
-        /* Respect reduced motion preferences */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
+            .map-container iframe {
+                height: 300px;
             }
-            .card:hover { transform: none; }
-            .card-gallery img:hover { transform: none; }
-        }
 
-        /* Utility classes for common inline styles */
-        .mt-1 { margin-top: 8px; }
-        .mt-2 { margin-top: 12px; }
-        .mt-3 { margin-top: 20px; }
-        .mb-2 { margin-bottom: 12px; }
-        .mb-3 { margin-bottom: 20px; }
-        .text-muted { color: var(--text-light); font-size: 0.9em; }
-        .text-primary { color: var(--primary); }
-        .font-bold { font-weight: 600; }
-        .small-link { margin-top: 8px; padding: 6px 12px; font-size: 0.85em; }
+            .video-container iframe {
+                height: 300px;
+            }
+
+            .day-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .day-content {
+                padding-left: 0;
+            }
+
+            .tiers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tier-card.recommended {
+                transform: none;
+            }
+
+            .profitability-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-heading {
+                font-size: 1.5rem;
+            }
+
+            .cta-subheading {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Header Bar -->
-    <div class="header-bar">
-        <div class="logo-container">
-            <img src="https://voygent.somotravel.workers.dev/media/branding/CPLogoMain.jpg" alt="SOMO Travel" class="header-logo" onerror="this.style.display='none'">
-            <span class="logo-text">SOMO Travel</span>
-        </div>
-        <div class="header-contact">
-            Questions? Call <a href="tel:251-289-1505">251-289-1505</a>
-        </div>
-    </div>
 
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-title">Voygent AI Demo</div>
+            <div class="demo-badge">Sample Trip Proposal</div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">Trip Proposal For</div>
+            <h1 class="hero-title">Demo Trip - Jaco Beach Getaway</h1>
+            <div class="hero-subtitle">Jaco Beach, Costa Rica • August 8-12, 2026</div>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="overview-grid">
+                
+                <div class="overview-card">
+                    <div class="overview-label">Travelers</div>
+                    <div class="overview-value">2 Guests</div>
+                </div>
+                
+                
+                <div class="overview-card">
+                    <div class="overview-label">Duration</div>
+                    <div class="overview-value">5 Days</div>
+                </div>
+                
+                
+                <div class="overview-card">
+                    <div class="overview-label">Status</div>
+                    <div class="overview-value">Proposal</div>
+                </div>
+                
+                <div class="overview-card">
+                    <div class="overview-label">Investment</div>
+                    <div class="overview-value">$3,150</div>
+                    <div class="overview-detail">$1,575 per person</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
     
-    <div class="conversation-banner">
-        <a href="https://voygent.ai/trips/demo-costa-rica-jaco-kt75/comments" class="conversation-link">
-            <span>Conversation</span>
-            
-        </a>
-    </div>
+
+    <!-- Lodging -->
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Where You'll Stay</h2>
+            <div class="lodging-grid">
+                
+                <div class="lodging-card">
+                    
+                    <div class="lodging-header">
+                        <h3 class="lodging-name">Croc&#39;s Resort &amp; Casino</h3>
+                        
+                        <div class="lodging-location">Jaco Beach</div>
+                        
+                    </div>
+                    <div class="lodging-details">
+                        
+                        <div class="lodging-detail">
+                            <strong>Nights</strong>
+                            <span>4 Nights</span>
+                        </div>
+                        
+                        <div class="lodging-detail">
+                            <strong>Rate</strong>
+                            <span>$189 per night</span>
+                        </div>
+                        
+                        <div class="lodging-detail">
+                            <strong>Check In</strong>
+                            <span>August 8, 2026</span>
+                        </div>
+                        
+                        
+                        <div class="lodging-detail">
+                            <strong>Check Out</strong>
+                            <span>August 12, 2026</span>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+                <div class="lodging-card">
+                    
+                    <div class="lodging-header">
+                        <h3 class="lodging-name">Hotel Cocal &amp; Casino</h3>
+                        
+                        <div class="lodging-location">Jaco Beach</div>
+                        
+                    </div>
+                    <div class="lodging-details">
+                        
+                        <div class="lodging-detail">
+                            <strong>Nights</strong>
+                            <span>4 Nights</span>
+                        </div>
+                        
+                        <div class="lodging-detail">
+                            <strong>Rate</strong>
+                            <span>$125 per night</span>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                
+                <div class="lodging-card">
+                    
+                    <div class="lodging-header">
+                        <h3 class="lodging-name">Los Suenos Marriott Ocean &amp; Golf Resort</h3>
+                        
+                        <div class="lodging-location">Playa Herradura (10 min from Jaco)</div>
+                        
+                    </div>
+                    <div class="lodging-details">
+                        
+                        <div class="lodging-detail">
+                            <strong>Nights</strong>
+                            <span>4 Nights</span>
+                        </div>
+                        
+                        <div class="lodging-detail">
+                            <strong>Rate</strong>
+                            <span>$350 per night</span>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section>
     
 
-    <!-- Hero Section -->
-    <div class="hero" >
-        <h1>Demo Trip - Jaco Beach Getaway</h1>
-        <div class="destination">Jaco Beach, Costa Rica</div>
-        <div class="dates-badge">August 8-12, 2026</div>
-        <div class="tagline">Lets Get You There - Your Adventure Awaits!</div>
-    </div>
-
-    <!-- Hero Images Gallery (if multiple) -->
+    <!-- Itinerary -->
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Your Day-by-Day Itinerary</h2>
+            <div class="itinerary-timeline">
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">1</div>
+                        <div class="day-info">
+                            <h3 class="day-title">Arrival &amp; Beach Sunset</h3>
+                            <div class="day-meta">
+                                <span>2026-08-08</span>
+                                 • San José → Jaco Beach
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day-content">
+                        
+                        <div class="activity-list">
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">1:30 PM</div>
+                                
+                                <div class="activity-name">Arrive SJO Airport</div>
+                                
+                                <div class="activity-description">Clear immigration, pick up rental car at Adobe Rent-a-Car (pre-booked)</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">2:30 PM</div>
+                                
+                                <div class="activity-name">Crocodile Bridge Stop</div>
+                                
+                                <div class="activity-description">Quick stop at Tarcoles Bridge - massive crocodiles bask in the river below. Free viewing from the bridge!</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">4:00 PM</div>
+                                
+                                <div class="activity-name">Check into Resort</div>
+                                
+                                <div class="activity-description">Settle in, explore the property, take a dip in the pool</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">6:00 PM</div>
+                                
+                                <div class="activity-name">Sunset Beach Walk</div>
+                                
+                                <div class="activity-description">Jaco Beach is famous for stunning Pacific sunsets. Walk the 2.5-mile beach as the sky lights up.</div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="dining-section">
+                            <div class="dining-title">Restaurant Recommendations</div>
+                            
+                            <div class="dining-item">
+                                <div class="dining-name">El Hicaco</div>
+                                <div class="dining-meta">
+                                    <span>$$</span>
+                                     • Seafood/Costa Rican
+                                </div>
+                                
+                                <div class="dining-description">Beachfront institution serving fresh ceviche and whole grilled fish. Toes in the sand dining.</div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">2</div>
+                        <div class="day-info">
+                            <h3 class="day-title">Manuel Antonio National Park</h3>
+                            <div class="day-meta">
+                                <span>2026-08-09</span>
+                                 • Manuel Antonio (Day Trip)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day-content">
+                        
+                        <div class="activity-list">
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">6:30 AM</div>
+                                
+                                <div class="activity-name">Early Departure</div>
+                                
+                                <div class="activity-description">Drive to Manuel Antonio (1 hour south). Early arrival beats the crowds and heat.</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">7:30 AM</div>
+                                
+                                <div class="activity-name">Manuel Antonio National Park</div>
+                                
+                                <div class="activity-description">Costa Rica&#39;s most famous park - pristine beaches, howler monkeys, sloths, and stunning trails. Hire a guide at the entrance to spot wildlife you&#39;d otherwise miss.</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">12:00 PM</div>
+                                
+                                <div class="activity-name">Beach Time at Playa Manuel Antonio</div>
+                                
+                                <div class="activity-description">Swim at the park&#39;s main beach - calm waters, white sand, and monkeys in the trees above</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">2:00 PM</div>
+                                
+                                <div class="activity-name">Lunch in Quepos</div>
+                                
+                                <div class="activity-description">Stop in the nearby town of Quepos for authentic casado (traditional lunch plate)</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">4:00 PM</div>
+                                
+                                <div class="activity-name">Return to Jaco</div>
+                                
+                                <div class="activity-description">Scenic coastal drive back. Optional stop at Rainmaker Park if energy permits.</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">Evening</div>
+                                
+                                <div class="activity-name">Downtown Jaco Stroll</div>
+                                
+                                <div class="activity-description">Explore the surf town vibe - shops, bars, street food</div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="dining-section">
+                            <div class="dining-title">Restaurant Recommendations</div>
+                            
+                            <div class="dining-item">
+                                <div class="dining-name">Cafe Milagro</div>
+                                <div class="dining-meta">
+                                    <span>$$</span>
+                                     • Fusion/Coffee
+                                </div>
+                                
+                                <div class="dining-description">Manuel Antonio area&#39;s beloved coffee roaster with excellent breakfast and lunch</div>
+                                
+                            </div>
+                            
+                            <div class="dining-item">
+                                <div class="dining-name">Graffiti Restro Cafe</div>
+                                <div class="dining-meta">
+                                    <span>$$$</span>
+                                     • International Fusion
+                                </div>
+                                
+                                <div class="dining-description">Creative dishes in an art-filled space. Worth the splurge for dinner.</div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">3</div>
+                        <div class="day-info">
+                            <h3 class="day-title">Surf, Zip &amp; Relax</h3>
+                            <div class="day-meta">
+                                <span>2026-08-10</span>
+                                 • Jaco Beach
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day-content">
+                        
+                        <div class="activity-list">
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">7:00 AM</div>
+                                
+                                <div class="activity-name">Beginner Surf Lesson</div>
+                                
+                                <div class="activity-description">Jaco is one of Costa Rica&#39;s best beginner surf spots. 2-hour lesson includes board, rash guard, and instruction.</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">10:00 AM</div>
+                                
+                                <div class="activity-name">Pool &amp; Beach Recovery</div>
+                                
+                                <div class="activity-description">Relax after surfing - resort pool or beach lounging</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">1:00 PM</div>
+                                
+                                <div class="activity-name">Rainforest Adventures Zip Line</div>
+                                
+                                <div class="activity-description">10 zip line cables through the jungle canopy including one over 2,500 feet long! Includes aerial tram ride up.</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">5:00 PM</div>
+                                
+                                <div class="activity-name">Couples Massage</div>
+                                
+                                <div class="activity-description">Optional spa treatment at the resort or nearby Serenity Spa</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">7:30 PM</div>
+                                
+                                <div class="activity-name">Dinner &amp; Nightlife</div>
+                                
+                                <div class="activity-description">Jaco has the best nightlife on the Central Pacific coast</div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="dining-section">
+                            <div class="dining-title">Restaurant Recommendations</div>
+                            
+                            <div class="dining-item">
+                                <div class="dining-name">Lemon Zest</div>
+                                <div class="dining-meta">
+                                    <span>$$$</span>
+                                     • Mediterranean/Seafood
+                                </div>
+                                
+                                <div class="dining-description">Rooftop dining with ocean views. The tuna tartare and lobster risotto are outstanding.</div>
+                                
+                            </div>
+                            
+                            <div class="dining-item">
+                                <div class="dining-name">Green Room Cafe</div>
+                                <div class="dining-meta">
+                                    <span>$</span>
+                                     • Healthy/Surf
+                                </div>
+                                
+                                <div class="dining-description">Surfer-favorite for acai bowls, smoothies, and healthy breakfasts</div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">4</div>
+                        <div class="day-info">
+                            <h3 class="day-title">Waterfalls &amp; Wildlife</h3>
+                            <div class="day-meta">
+                                <span>2026-08-11</span>
+                                 • Jaco &amp; Carara
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day-content">
+                        
+                        <div class="activity-list">
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">7:00 AM</div>
+                                
+                                <div class="activity-name">Carara National Park Birding</div>
+                                
+                                <div class="activity-description">Home to scarlet macaws, toucans, and 400+ bird species. The trail is easy and well-maintained. Best birding in the Central Pacific region.</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">11:00 AM</div>
+                                
+                                <div class="activity-name">Nauyaca Waterfalls</div>
+                                
+                                <div class="activity-description">Spectacular two-tiered waterfall. Horseback or 4x4 tour to reach it, then swim in the natural pool at the base.</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">4:00 PM</div>
+                                
+                                <div class="activity-name">Beach &amp; Pool Time</div>
+                                
+                                <div class="activity-description">Last afternoon to enjoy Jaco Beach</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">7:00 PM</div>
+                                
+                                <div class="activity-name">Farewell Dinner</div>
+                                
+                                <div class="activity-description">Celebrate the trip at one of Jaco&#39;s best restaurants</div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="dining-section">
+                            <div class="dining-title">Restaurant Recommendations</div>
+                            
+                            <div class="dining-item">
+                                <div class="dining-name">Tsunami Sushi</div>
+                                <div class="dining-meta">
+                                    <span>$$$</span>
+                                     • Japanese/Fusion
+                                </div>
+                                
+                                <div class="dining-description">Surprisingly excellent sushi in a beach town. Fresh Pacific fish prepared by trained sushi chefs.</div>
+                                
+                            </div>
+                            
+                            <div class="dining-item">
+                                <div class="dining-name">Tacobar</div>
+                                <div class="dining-meta">
+                                    <span>$$</span>
+                                     • Mexican/Fusion
+                                </div>
+                                
+                                <div class="dining-description">Local favorite with creative tacos and killer margaritas. Always packed.</div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">5</div>
+                        <div class="day-info">
+                            <h3 class="day-title">Departure Day</h3>
+                            <div class="day-meta">
+                                <span>2026-08-12</span>
+                                 • Jaco → San José → Mobile
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day-content">
+                        
+                        <div class="activity-list">
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">6:00 AM</div>
+                                
+                                <div class="activity-name">Sunrise Beach Walk</div>
+                                
+                                <div class="activity-description">One last walk on Jaco Beach before departure</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">7:00 AM</div>
+                                
+                                <div class="activity-name">Breakfast &amp; Checkout</div>
+                                
+                                <div class="activity-description">Final breakfast at resort, check out by 8 AM</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">8:00 AM</div>
+                                
+                                <div class="activity-name">Drive to San José Airport</div>
+                                
+                                <div class="activity-description">1.5 hour drive to SJO. Stop in Atenas for coffee if time permits - supposedly the best climate in the world!</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">11:00 AM</div>
+                                
+                                <div class="activity-name">Depart SJO</div>
+                                
+                                <div class="activity-description">Flight to Atlanta, connection to Mobile</div>
+                                
+                            </div>
+                            
+                            <div class="activity-item">
+                                
+                                <div class="activity-time">7:45 PM</div>
+                                
+                                <div class="activity-name">Arrive Mobile</div>
+                                
+                                <div class="activity-description">Welcome home!</div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
     
 
-    <!-- Main Content -->
-    <div class="content">
-
-        <!-- Overview Cards -->
-        <div class="overview-section">
+    <!-- Video -->
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Experience Jaco Beach, Costa Rica</h2>
             
-            <div class="overview-card">
-                <div class="label">Travelers</div>
-                <div class="value">2 Guests</div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/QrDsHAXSdNI" title="15 Best Things To Do In Jaco" allowfullscreen loading="lazy"></iframe>
             </div>
+            <div class="video-caption"><strong>15 Best Things To Do In Jaco</strong></div>
             
-
-            
-            <div class="overview-card">
-                <div class="label">Duration</div>
-                <div class="value">5 Days</div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/B7l1ZU3IDx8" title="5 Things You Will Love &amp; Hate about Jaco" allowfullscreen loading="lazy"></iframe>
             </div>
-            
-
-            
-            <div class="overview-card">
-                <div class="label">Status</div>
-                <div class="value">Proposal</div>
-            </div>
-            
-
-            
-            <div class="overview-card">
-                <div class="label">Investment</div>
-                <div class="value"></div>
-            </div>
+            <div class="video-caption"><strong>5 Things You Will Love &amp; Hate about Jaco</strong></div>
             
         </div>
+    </section>
+    
 
-        <!-- Maps Section -->
-        
-        
-        
-
-        <!-- Travelers Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <h2>Your Travel Party</h2>
-            </div>
-            <div class="content-box">
-                <!-- Traveler table with PII protection and status -->
-                <table class="traveler-table">
-                    <thead>
-                        <tr>
-                            <th>Traveler</th>
-                            <th>Type</th>
-                            <th>Notes</th>
-                            <th>Documents</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        <tr>
-                            <td>
-                                Michael C.
-                            </td>
-                            <td>
-                                <span class="traveler-type adult">Adult</span>
-                            </td>
-                            <td>
-                                
-                            </td>
-                            <td>
-                                <span class="doc-badge complete"></span>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                Lisa C.
-                            </td>
-                            <td>
-                                <span class="traveler-type adult">Adult</span>
-                            </td>
-                            <td>
-                                
-                            </td>
-                            <td>
-                                <span class="doc-badge complete"></span>
-                            </td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-
-        <!-- Preferences Section -->
-        
-
-        <!-- Flights Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <h2>Flight Details</h2>
-            </div>
-            <div class="cards-grid">
+    <!-- Hidden Gems -->
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Hidden Gems</h2>
+            <p class="section-subtitle">Local favorites and insider spots you won't find in guidebooks</p>
+            <div class="gems-grid">
                 
-                <div class="card flight-card">
-                    <div class="card-header">Outbound Flight</div>
-                    <div class="card-body">
-                        <div class="flight-route">MOB → ATL → SJO</div>
-                        <div class="card-detail"><span class="label">Date</span><span class="value">2026-08-08</span></div>
-                        <div class="card-detail"><span class="label">Airline</span><span class="value">Delta</span></div>
-                        
-                    </div>
+                <div class="gem-card">
+                    <h3 class="gem-name">Tarcoles Bridge Crocodiles</h3>
+                    
+                    
+                    <p class="gem-description">Free roadside attraction on the way from the airport - dozens of massive American crocodiles basking below</p>
+                    
+                    
+                    <div class="gem-tip"><strong>Insider Tip:</strong> Pull off on the Jaco side, not the San José side, for safer parking</div>
+                    
                 </div>
                 
-
-                
-                <div class="card flight-card">
-                    <div class="card-header">Return Flight</div>
-                    <div class="card-body">
-                        <div class="flight-route">SJO → ATL → MOB</div>
-                        <div class="card-detail"><span class="label">Date</span><span class="value">2026-08-12</span></div>
-                        <div class="card-detail"><span class="label">Airline</span><span class="value">Delta</span></div>
-                        
-                    </div>
+                <div class="gem-card">
+                    <h3 class="gem-name">Playa Hermosa</h3>
+                    
+                    
+                    <p class="gem-description">Just 10 minutes south of Jaco - less crowded, better surf, more local vibe</p>
+                    
+                    
+                    <div class="gem-tip"><strong>Insider Tip:</strong> Great for watching pro surfers, not ideal for swimming (strong currents)</div>
+                    
                 </div>
                 
-            </div>
-
-            
-        </div>
-        
-
-        <!-- Lodging Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <h2>Accommodations</h2>
-            </div>
-            <div class="cards-grid">
-                
-                <div class="card lodging-recommended">
+                <div class="gem-card">
+                    <h3 class="gem-name">Pura Vida Waterfall Gardens</h3>
                     
                     
-                    
-                    <div class="card-header">
-                        Croc&#39;s Resort &amp; Casino
-                        
-                        <span class="lodging-status selected">Recommended</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-detail"><span class="label">Location</span><span class="value">Jaco Beach</span></div>
-                        <div class="card-detail"><span class="label">Nights</span><span class="value">4</span></div>
-                        <div class="card-detail"><span class="label">Check-in</span><span class="value">2026-08-08</span></div>
-                        <div class="card-detail"><span class="label">Check-out</span><span class="value">2026-08-12</span></div>
-                        <div class="card-detail"><span class="label">Rate</span><span class="value">/night</span></div>
-                        <a href="https://www.crocsresort.com" class="card-link" target="_blank" rel="noopener noreferrer">View Property →</a>
-                        
-                        <div style="margin-top: 15px;">
-                            <iframe
-                                style="width: 100%; height: 150px; border: none; border-radius: 8px;"
-                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBP8Ui29roeDPbXaDalAgktaU5TU65gy8s&q=Calle%20Cocal%2C%20Jaco%2C%20Costa%20Rica"
-                                loading="lazy"
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                        
-                    </div>
-                </div>
-                
-                <div class="card lodging-option">
+                    <p class="gem-description">Private waterfall just outside Jaco - swim in a jungle pool without the tourist crowds</p>
                     
                     
+                    <div class="gem-tip"><strong>Insider Tip:</strong> Ask locals for directions, it&#39;s not well-marked</div>
                     
-                    <div class="card-header">
-                        Hotel Cocal &amp; Casino
-                        
-                        
-                    </div>
-                    <div class="card-body">
-                        <div class="card-detail"><span class="label">Location</span><span class="value">Jaco Beach</span></div>
-                        <div class="card-detail"><span class="label">Nights</span><span class="value">4</span></div>
-                        
-                        
-                        <div class="card-detail"><span class="label">Rate</span><span class="value">/night</span></div>
-                        
-                        
-                        <div style="margin-top: 15px;">
-                            <iframe
-                                style="width: 100%; height: 150px; border: none; border-radius: 8px;"
-                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBP8Ui29roeDPbXaDalAgktaU5TU65gy8s&q=Avenida%20Pastor%20Diaz%2C%20Jaco%2C%20Costa%20Rica"
-                                loading="lazy"
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                        
-                    </div>
-                </div>
-                
-                <div class="card lodging-option">
-                    
-                    
-                    
-                    <div class="card-header">
-                        Los Suenos Marriott Ocean &amp; Golf Resort
-                        
-                        
-                    </div>
-                    <div class="card-body">
-                        <div class="card-detail"><span class="label">Location</span><span class="value">Playa Herradura (10 min from Jaco)</span></div>
-                        <div class="card-detail"><span class="label">Nights</span><span class="value">4</span></div>
-                        
-                        
-                        <div class="card-detail"><span class="label">Rate</span><span class="value">/night</span></div>
-                        <a href="https://www.marriott.com/hotels/travel/sjols-los-suenos-marriott-ocean-and-golf-resort/" class="card-link" target="_blank" rel="noopener noreferrer">View Property →</a>
-                        
-                        <div style="margin-top: 15px;">
-                            <iframe
-                                style="width: 100%; height: 150px; border: none; border-radius: 8px;"
-                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBP8Ui29roeDPbXaDalAgktaU5TU65gy8s&q=Playa%20Herradura%2C%20Puntarenas%2C%20Costa%20Rica"
-                                loading="lazy"
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                        
-                    </div>
                 </div>
                 
             </div>
         </div>
-        
+    </section>
+    
 
-        
-
-        <!-- Itinerary Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <h2>Day-by-Day Itinerary</h2>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">1</div>
-                    <div class="day-info">
-                        <h3></h3>
-                        <div class="day-date">2026-08-08</div>
-                        <div class="day-date">San José → Jaco Beach</div>
-                    </div>
-                    
-                    <div class="daily-lodging">
-                        <span class="hotel-name">Croc&#39;s Resort &amp; Casino</span>
-                        <span class="night-info">(Night 1)</span>
-                        <span class="night-info">• Check-in</span>
-                        
-                    </div>
-                    
-                </div>
-                <div class="day-content">
-                    
-
-                    
-
-                    
-                    <div class="transport-info">
-                        
-                        <div class="transport-details">
-                            <div class="mode"></div>
-                            
-                            
-                            
-                            <div class="confirmation">Highway 27 is excellent - tolls ~$5 total. Stop at Tarcoles Bridge for crocodile viewing!</div>
-                            
-                        </div>
-                    </div>
-                    
-
-                    
-
-                    
-
-                    
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">1:30 PM</div>
-                        <div class="activity-title">
-                            Arrive SJO Airport
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Clear immigration, pick up rental car at Adobe Rent-a-Car (pre-booked)</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">2:30 PM</div>
-                        <div class="activity-title">
-                            Crocodile Bridge Stop
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Quick stop at Tarcoles Bridge - massive crocodiles bask in the river below. Free viewing from the bridge!</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">4:00 PM</div>
-                        <div class="activity-title">
-                            Check into Resort
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Settle in, explore the property, take a dip in the pool</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">6:00 PM</div>
-                        <div class="activity-title">
-                            Sunset Beach Walk
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Jaco Beach is famous for stunning Pacific sunsets. Walk the 2.5-mile beach as the sky lights up.</div>
-                        
-                        
-                    </div>
-                    
-                    
-
-                    
-                    
-                    <!-- Dining recommendations cards -->
-                    <div class="dining-recommendations">
-                        <div class="dining-rec-header">Restaurant Recommendations</div>
-                        <div class="dining-rec-grid">
-                            
-                            <div class="dining-rec-card">
-                                
-                                <div class="content">
-                                    <div class="name">
-                                        <a href="https://www.tripadvisor.com/Restaurant_Review-g309274-d1014146-Reviews-El_Hicaco-Jaco_Province_of_Puntarenas.html" target="_blank" rel="noopener noreferrer">El Hicaco</a>
-                                    </div>
-                                    <div class="price-cuisine">
-                                        <span class="price-level">$$</span>
-                                        <span>Seafood/Costa Rican</span>
-                                    </div>
-                                    <div class="description">Beachfront institution serving fresh ceviche and whole grilled fish. Toes in the sand dining.</div>
-                                    <a href="https://www.tripadvisor.com/Restaurant_Review-g309274-d1014146-Reviews-El_Hicaco-Jaco_Province_of_Puntarenas.html" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">View →</a>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    
-                    
-
-                    
-
-                    
-                    <div class="day-tips">
-                        <h5>Tips</h5>
-                        <ul>
-                        
-                        </ul>
-                    </div>
-                    
-
-                    
-
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">2</div>
-                    <div class="day-info">
-                        <h3></h3>
-                        <div class="day-date">2026-08-09</div>
-                        <div class="day-date">Manuel Antonio (Day Trip)</div>
-                    </div>
-                    
-                    <div class="daily-lodging">
-                        <span class="hotel-name">Croc&#39;s Resort &amp; Casino</span>
-                        <span class="night-info">(Night 2)</span>
-                        
-                        
-                    </div>
-                    
-                </div>
-                <div class="day-content">
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">6:30 AM</div>
-                        <div class="activity-title">
-                            Early Departure
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Drive to Manuel Antonio (1 hour south). Early arrival beats the crowds and heat.</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">7:30 AM</div>
-                        <div class="activity-title">
-                            Manuel Antonio National Park
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Costa Rica&#39;s most famous park - pristine beaches, howler monkeys, sloths, and stunning trails. Hire a guide at the entrance to spot wildlife you&#39;d otherwise miss.</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">12:00 PM</div>
-                        <div class="activity-title">
-                            Beach Time at Playa Manuel Antonio
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Swim at the park&#39;s main beach - calm waters, white sand, and monkeys in the trees above</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">2:00 PM</div>
-                        <div class="activity-title">
-                            Lunch in Quepos
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Stop in the nearby town of Quepos for authentic casado (traditional lunch plate)</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">4:00 PM</div>
-                        <div class="activity-title">
-                            Return to Jaco
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Scenic coastal drive back. Optional stop at Rainmaker Park if energy permits.</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">Evening</div>
-                        <div class="activity-title">
-                            Downtown Jaco Stroll
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Explore the surf town vibe - shops, bars, street food</div>
-                        
-                        
-                    </div>
-                    
-                    
-
-                    
-                    
-                    <!-- Dining recommendations cards -->
-                    <div class="dining-recommendations">
-                        <div class="dining-rec-header">Restaurant Recommendations</div>
-                        <div class="dining-rec-grid">
-                            
-                            <div class="dining-rec-card">
-                                
-                                <div class="content">
-                                    <div class="name">
-                                        <a href="https://www.cafemilagro.com" target="_blank" rel="noopener noreferrer">Cafe Milagro</a>
-                                    </div>
-                                    <div class="price-cuisine">
-                                        <span class="price-level">$$</span>
-                                        <span>Fusion/Coffee</span>
-                                    </div>
-                                    <div class="description">Manuel Antonio area&#39;s beloved coffee roaster with excellent breakfast and lunch</div>
-                                    <a href="https://www.cafemilagro.com" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">View →</a>
-                                </div>
-                            </div>
-                            
-                            <div class="dining-rec-card">
-                                
-                                <div class="content">
-                                    <div class="name">
-                                        <a href="https://www.graffiticostarica.com" target="_blank" rel="noopener noreferrer">Graffiti Restro Cafe</a>
-                                    </div>
-                                    <div class="price-cuisine">
-                                        <span class="price-level">$$$</span>
-                                        <span>International Fusion</span>
-                                    </div>
-                                    <div class="description">Creative dishes in an art-filled space. Worth the splurge for dinner.</div>
-                                    <a href="https://www.graffiticostarica.com" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">View →</a>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    
-                    
-
-                    
-
-                    
-                    <div class="day-tips">
-                        <h5>Tips</h5>
-                        <ul>
-                        
-                        </ul>
-                    </div>
-                    
-
-                    
-
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">3</div>
-                    <div class="day-info">
-                        <h3></h3>
-                        <div class="day-date">2026-08-10</div>
-                        <div class="day-date">Jaco Beach</div>
-                    </div>
-                    
-                    <div class="daily-lodging">
-                        <span class="hotel-name">Croc&#39;s Resort &amp; Casino</span>
-                        <span class="night-info">(Night 3)</span>
-                        
-                        
-                    </div>
-                    
-                </div>
-                <div class="day-content">
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                    
-                    <div class="activity optional">
-                        
-                        
-                        <div class="activity-time">7:00 AM</div>
-                        <div class="activity-title">
-                            <a href="https://www.viator.com/tours/Jaco/Beginner-Surf-Lesson-in-Jaco/d22696-32846P1?pid=P00005400&amp;mcid=58086&amp;medium=link" class="activity-link" target="_blank" rel="noopener noreferrer">Beginner Surf Lesson</a>
-                            
-                            <span class="activity-badge optional">Optional</span>
-                        </div>
-                        
-                        <div class="activity-subtext">Available if you have free time</div>
-                        <div class="activity-details">Jaco is one of Costa Rica&#39;s best beginner surf spots. 2-hour lesson includes board, rash guard, and instruction.</div>
-                        
-                        <a href="https://www.viator.com/tours/Jaco/Beginner-Surf-Lesson-in-Jaco/d22696-32846P1?pid=P00005400&amp;mcid=58086&amp;medium=link" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">10:00 AM</div>
-                        <div class="activity-title">
-                            Pool &amp; Beach Recovery
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Relax after surfing - resort pool or beach lounging</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">1:00 PM</div>
-                        <div class="activity-title">
-                            <a href="https://www.viator.com/tours/Jaco/Rainforest-Adventures-Aerial-Tram-and-Zipline-Tour/d22696-11624P1?pid=P00005400&amp;mcid=58086&amp;medium=link" class="activity-link" target="_blank" rel="noopener noreferrer">Rainforest Adventures Zip Line</a>
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">10 zip line cables through the jungle canopy including one over 2,500 feet long! Includes aerial tram ride up.</div>
-                        
-                        <a href="https://www.viator.com/tours/Jaco/Rainforest-Adventures-Aerial-Tram-and-Zipline-Tour/d22696-11624P1?pid=P00005400&amp;mcid=58086&amp;medium=link" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
-                    </div>
-                    
-                    <div class="activity optional">
-                        
-                        
-                        <div class="activity-time">5:00 PM</div>
-                        <div class="activity-title">
-                            Couples Massage
-                            
-                            <span class="activity-badge optional">Optional</span>
-                        </div>
-                        
-                        <div class="activity-subtext">Available if you have free time</div>
-                        <div class="activity-details">Optional spa treatment at the resort or nearby Serenity Spa</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">7:30 PM</div>
-                        <div class="activity-title">
-                            Dinner &amp; Nightlife
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Jaco has the best nightlife on the Central Pacific coast</div>
-                        
-                        
-                    </div>
-                    
-                    
-
-                    
-                    
-                    <!-- Dining recommendations cards -->
-                    <div class="dining-recommendations">
-                        <div class="dining-rec-header">Restaurant Recommendations</div>
-                        <div class="dining-rec-grid">
-                            
-                            <div class="dining-rec-card">
-                                
-                                <div class="content">
-                                    <div class="name">
-                                        <a href="https://www.tripadvisor.com/Restaurant_Review-g309274-d2291136-Reviews-Lemon_Zest-Jaco_Province_of_Puntarenas.html" target="_blank" rel="noopener noreferrer">Lemon Zest</a>
-                                    </div>
-                                    <div class="price-cuisine">
-                                        <span class="price-level">$$$</span>
-                                        <span>Mediterranean/Seafood</span>
-                                    </div>
-                                    <div class="description">Rooftop dining with ocean views. The tuna tartare and lobster risotto are outstanding.</div>
-                                    <a href="https://www.tripadvisor.com/Restaurant_Review-g309274-d2291136-Reviews-Lemon_Zest-Jaco_Province_of_Puntarenas.html" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">View →</a>
-                                </div>
-                            </div>
-                            
-                            <div class="dining-rec-card">
-                                
-                                <div class="content">
-                                    <div class="name">
-                                        Green Room Cafe
-                                    </div>
-                                    <div class="price-cuisine">
-                                        <span class="price-level">$</span>
-                                        <span>Healthy/Surf</span>
-                                    </div>
-                                    <div class="description">Surfer-favorite for acai bowls, smoothies, and healthy breakfasts</div>
-                                    
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    
-                    
-
-                    
-
-                    
-                    <div class="day-tips">
-                        <h5>Tips</h5>
-                        <ul>
-                        
-                        </ul>
-                    </div>
-                    
-
-                    
-
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">4</div>
-                    <div class="day-info">
-                        <h3></h3>
-                        <div class="day-date">2026-08-11</div>
-                        <div class="day-date">Jaco &amp; Carara</div>
-                    </div>
-                    
-                    <div class="daily-lodging">
-                        <span class="hotel-name">Croc&#39;s Resort &amp; Casino</span>
-                        <span class="night-info">(Night 4)</span>
-                        
-                        
-                    </div>
-                    
-                </div>
-                <div class="day-content">
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">7:00 AM</div>
-                        <div class="activity-title">
-                            Carara National Park Birding
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Home to scarlet macaws, toucans, and 400+ bird species. The trail is easy and well-maintained. Best birding in the Central Pacific region.</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity optional">
-                        
-                        
-                        <div class="activity-time">11:00 AM</div>
-                        <div class="activity-title">
-                            <a href="https://www.viator.com/tours/Jaco/Nauyaca-Waterfalls-Horseback-Riding-Tour/d22696-13574P1?pid=P00005400&amp;mcid=58086&amp;medium=link" class="activity-link" target="_blank" rel="noopener noreferrer">Nauyaca Waterfalls</a>
-                            
-                            <span class="activity-badge optional">Optional</span>
-                        </div>
-                        
-                        <div class="activity-subtext">Available if you have free time</div>
-                        <div class="activity-details">Spectacular two-tiered waterfall. Horseback or 4x4 tour to reach it, then swim in the natural pool at the base.</div>
-                        
-                        <a href="https://www.viator.com/tours/Jaco/Nauyaca-Waterfalls-Horseback-Riding-Tour/d22696-13574P1?pid=P00005400&amp;mcid=58086&amp;medium=link" class="card-link small-link" target="_blank" rel="noopener noreferrer">More Info →</a>
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">4:00 PM</div>
-                        <div class="activity-title">
-                            Beach &amp; Pool Time
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Last afternoon to enjoy Jaco Beach</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">7:00 PM</div>
-                        <div class="activity-title">
-                            Farewell Dinner
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Celebrate the trip at one of Jaco&#39;s best restaurants</div>
-                        
-                        
-                    </div>
-                    
-                    
-
-                    
-                    
-                    <!-- Dining recommendations cards -->
-                    <div class="dining-recommendations">
-                        <div class="dining-rec-header">Restaurant Recommendations</div>
-                        <div class="dining-rec-grid">
-                            
-                            <div class="dining-rec-card">
-                                
-                                <div class="content">
-                                    <div class="name">
-                                        <a href="https://www.tripadvisor.com/Restaurant_Review-g309274-d1495645-Reviews-Tsunami_Sushi-Jaco_Province_of_Puntarenas.html" target="_blank" rel="noopener noreferrer">Tsunami Sushi</a>
-                                    </div>
-                                    <div class="price-cuisine">
-                                        <span class="price-level">$$$</span>
-                                        <span>Japanese/Fusion</span>
-                                    </div>
-                                    <div class="description">Surprisingly excellent sushi in a beach town. Fresh Pacific fish prepared by trained sushi chefs.</div>
-                                    <a href="https://www.tripadvisor.com/Restaurant_Review-g309274-d1495645-Reviews-Tsunami_Sushi-Jaco_Province_of_Puntarenas.html" class="card-link small-link" target="_blank" rel="noopener noreferrer" style="margin-top: 8px; display: inline-block;">View →</a>
-                                </div>
-                            </div>
-                            
-                            <div class="dining-rec-card">
-                                
-                                <div class="content">
-                                    <div class="name">
-                                        Tacobar
-                                    </div>
-                                    <div class="price-cuisine">
-                                        <span class="price-level">$$</span>
-                                        <span>Mexican/Fusion</span>
-                                    </div>
-                                    <div class="description">Local favorite with creative tacos and killer margaritas. Always packed.</div>
-                                    
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    
-                    
-
-                    
-
-                    
-                    <div class="day-tips">
-                        <h5>Tips</h5>
-                        <ul>
-                        
-                        </ul>
-                    </div>
-                    
-
-                    
-
-                    
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-number">5</div>
-                    <div class="day-info">
-                        <h3></h3>
-                        <div class="day-date">2026-08-12</div>
-                        <div class="day-date">Jaco → San José → Mobile</div>
-                    </div>
-                    
-                    <div class="daily-lodging">
-                        <span class="hotel-name">Croc&#39;s Resort &amp; Casino</span>
-                        
-                        
-                        <span class="night-info">• Check-out</span>
-                    </div>
-                    
-                </div>
-                <div class="day-content">
-                    
-
-                    
-
-                    
-                    <div class="transport-info">
-                        
-                        <div class="transport-details">
-                            <div class="mode"></div>
-                            
-                            
-                            
-                            <div class="confirmation">Return car with full tank - gas station at airport entrance</div>
-                            
-                        </div>
-                    </div>
-                    
-
-                    
-
-                    
-
-                    
-                    
-                    <div class="activity optional">
-                        
-                        
-                        <div class="activity-time">6:00 AM</div>
-                        <div class="activity-title">
-                            Sunrise Beach Walk
-                            
-                            <span class="activity-badge optional">Optional</span>
-                        </div>
-                        
-                        <div class="activity-subtext">Available if you have free time</div>
-                        <div class="activity-details">One last walk on Jaco Beach before departure</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">7:00 AM</div>
-                        <div class="activity-title">
-                            Breakfast &amp; Checkout
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Final breakfast at resort, check out by 8 AM</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">8:00 AM</div>
-                        <div class="activity-title">
-                            Drive to San José Airport
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">1.5 hour drive to SJO. Stop in Atenas for coffee if time permits - supposedly the best climate in the world!</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">11:00 AM</div>
-                        <div class="activity-title">
-                            Depart SJO
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Flight to Atlanta, connection to Mobile</div>
-                        
-                        
-                    </div>
-                    
-                    <div class="activity">
-                        
-                        
-                        <div class="activity-time">7:45 PM</div>
-                        <div class="activity-title">
-                            Arrive Mobile
-                            
-                            
-                        </div>
-                        
-                        
-                        <div class="activity-details">Welcome home!</div>
-                        
-                        
-                    </div>
-                    
-                    
-
-                    
-
-                    
-
-                    
-                    <div class="day-tips">
-                        <h5>Tips</h5>
-                        <ul>
-                        
-                        </ul>
-                    </div>
-                    
-
-                    
-
-                    
-                </div>
-            </div>
-            
-        </div>
-        
-
-        <!-- YouTube Videos Section -->
-        
-        
-        <div class="section">
-            <div class="section-header">
-                <h2>Helpful Videos</h2>
-                <button class="comment-trigger" data-comment-section="Helpful Videos">Ask a question</button>
-            </div>
-            <div class="video-grid">
+    <!-- Free Activities -->
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Free Activities</h2>
+            <p class="section-subtitle">Explore without spending a dime</p>
+            <div class="gems-grid">
                 
-                <div class="video-card">
-                    <div class="video-embed">
-                        
-                        <iframe src="https://www.youtube.com/embed/QrDsHAXSdNI" title="15 Best Things To Do In Jaco" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">
-                        <div style="font-weight: 600; color: var(--text);">15 Best Things To Do In Jaco</div>
-                        
-                        
-                    </div>
+                <div class="gem-card">
+                    <h3 class="gem-name">Jaco Beach Sunsets</h3>
+                    
+                    
+                    <p class="gem-description">The 2.5-mile beach puts on a free show every evening</p>
+                    
+                    
+                    <div class="gem-best-time">Best Time: 5:30-6:30 PM</div>
+                    
                 </div>
                 
-                <div class="video-card">
-                    <div class="video-embed">
-                        
-                        <iframe src="https://www.youtube.com/embed/B7l1ZU3IDx8" title="5 Things You Will Love &amp; Hate about Jaco" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-caption">
-                        <div style="font-weight: 600; color: var(--text);">5 Things You Will Love &amp; Hate about Jaco</div>
-                        
-                        
-                    </div>
+                <div class="gem-card">
+                    <h3 class="gem-name">Downtown Jaco Street Art Walk</h3>
+                    
+                    
+                    <p class="gem-description">Colorful murals throughout downtown - grab a coffee and explore</p>
+                    
+                    
+                    <div class="gem-best-time">Best Time: Morning or late afternoon</div>
+                    
+                </div>
+                
+                <div class="gem-card">
+                    <h3 class="gem-name">Crocodile Bridge Viewing</h3>
+                    
+                    
+                    <p class="gem-description">Stop on Route 34 over the Tarcoles River for incredible crocodile viewing from the bridge</p>
+                    
+                    
+                    <div class="gem-best-time">Best Time: Any time - they&#39;re always there</div>
+                    
                 </div>
                 
             </div>
         </div>
-        
-        
+    </section>
+    
 
-        <!-- Extras / Recommendations Section -->
-        
-
-        <!-- Hidden Gems Section (Array version) -->
-        
-        <div class="section">
-            <div class="section-header">
-                <h2>Hidden Gems</h2>
-            </div>
-            <div class="cards-grid">
+    <!-- Tiers -->
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Package Options</h2>
+            <p class="section-subtitle">Choose the experience that's right for you</p>
+            <div class="tiers-grid">
                 
-                <div class="card" style="border-top: 4px solid #f5a623;">
-                    <div class="card-body">
-                        <h4 style="color: #c7880a; margin-bottom: 10px;">Tarcoles Bridge Crocodiles</h4>
-                        
-                        <p style="color: var(--text);">Free roadside attraction on the way from the airport - dozens of massive American crocodiles basking below</p>
-                        <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Pull off on the Jaco side, not the San José side, for safer parking</p>
-                        
-                    </div>
+                <div class="tier-card">
+                    <h3 class="tier-name">Beach Budget</h3>
+                    <p class="tier-description">Great trip without breaking the bank</p>
+                    <ul class="tier-includes"><li>Budget hotel (Hotel Cocal)</li><li>Economy flights</li><li>Rental car</li><li>Self-guided park visits</li><li>Beach time</li></ul>
+                    <div class="tier-price">$2,300</div>
+                    <div class="tier-per-person">$1,150 per person</div>
                 </div>
                 
-                <div class="card" style="border-top: 4px solid #f5a623;">
-                    <div class="card-body">
-                        <h4 style="color: #c7880a; margin-bottom: 10px;">Playa Hermosa</h4>
-                        
-                        <p style="color: var(--text);">Just 10 minutes south of Jaco - less crowded, better surf, more local vibe</p>
-                        <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Great for watching pro surfers, not ideal for swimming (strong currents)</p>
-                        
-                    </div>
+                
+                <div class="tier-card recommended">
+                    <div class="tier-badge">Recommended</div>
+                    <h3 class="tier-name">Pura Vida Experience</h3>
+                    <p class="tier-description">Best balance of comfort and adventure</p>
+                    <ul class="tier-includes"><li>Croc's Resort beachfront</li><li>Comfortable flights</li><li>Rental SUV</li><li>Guided park tours</li><li>Zip line adventure</li><li>Nice dinners</li></ul>
+                    <div class="tier-price">$3,150</div>
+                    <div class="tier-per-person">$1,575 per person</div>
                 </div>
                 
-                <div class="card" style="border-top: 4px solid #f5a623;">
-                    <div class="card-body">
-                        <h4 style="color: #c7880a; margin-bottom: 10px;">Pura Vida Waterfall Gardens</h4>
-                        
-                        <p style="color: var(--text);">Private waterfall just outside Jaco - swim in a jungle pool without the tourist crowds</p>
-                        <p style="margin-top: 10px;"><strong>Pro Tip:</strong> Ask locals for directions, it&#39;s not well-marked</p>
-                        
-                    </div>
+                
+                <div class="tier-card luxury">
+                    <h3 class="tier-name">Ultimate Costa Rica</h3>
+                    <p class="tier-description">First-class everything</p>
+                    <ul class="tier-includes"><li>Los Suenos Marriott Resort</li><li>Premium economy flights</li><li>Private SUV transfers</li><li>Private guided tours</li><li>Spa treatments</li><li>Fine dining throughout</li></ul>
+                    <div class="tier-price">$5,700</div>
+                    <div class="tier-per-person">$2,850 per person</div>
                 </div>
                 
             </div>
         </div>
-        
+    </section>
+    
 
-        <!-- Local Customs Section -->
-        
-
-        <!-- Free Things to Do Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <h2>Free Things to Do</h2>
-            </div>
-            <div class="content-box" style="background: linear-gradient(135deg, #e8f5e9 0%, #fff 100%); border-color: #4caf50;">
-                <p style="margin-bottom: 15px; color: var(--text-light); font-style: italic;">Great experiences that won't cost a thing!</p>
-                <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+    <!-- Budget -->
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Investment Summary</h2>
+            <div class="budget-card">
+                
+                <div class="budget-line-items">
                     
-                    <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                            <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
-                            <h4 style="color: var(--text); font-size: 1em;">Jaco Beach Sunsets</h4>
-                        </div>
-                        
-                        <p style="font-size: 0.95em; color: var(--text);">The 2.5-mile beach puts on a free show every evening</p>
-                        <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> 5:30-6:30 PM</p>
-                        
+                    <div class="budget-item">
+                        <div class="budget-item-name">Flights (MOB-SJO roundtrip) <span class="budget-item-notes">(Delta via Atlanta, economy)</span></div>
+                        <div class="budget-item-amount">$900</div>
                     </div>
                     
-                    <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                            <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
-                            <h4 style="color: var(--text); font-size: 1em;">Downtown Jaco Street Art Walk</h4>
-                        </div>
-                        
-                        <p style="font-size: 0.95em; color: var(--text);">Colorful murals throughout downtown - grab a coffee and explore</p>
-                        <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Morning or late afternoon</p>
-                        
+                    <div class="budget-item">
+                        <div class="budget-item-name">Accommodations (4 nights) <span class="budget-item-notes">(Croc&#39;s Resort at $189/night)</span></div>
+                        <div class="budget-item-amount">$756</div>
                     </div>
                     
-                    <div style="padding: 15px; background: var(--white); border-radius: 8px; border: 1px solid #c8e6c9;">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                            <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;">FREE</span>
-                            <h4 style="color: var(--text); font-size: 1em;">Crocodile Bridge Viewing</h4>
-                        </div>
-                        
-                        <p style="font-size: 0.95em; color: var(--text);">Stop on Route 34 over the Tarcoles River for incredible crocodile viewing from the bridge</p>
-                        <p style="margin-top: 8px; font-size: 0.85em; color: var(--primary);"><strong>Best time:</strong> Any time - they&#39;re always there</p>
-                        
+                    <div class="budget-item">
+                        <div class="budget-item-name">Rental Car (5 days) <span class="budget-item-notes">(Compact SUV with insurance, GPS)</span></div>
+                        <div class="budget-item-amount">$350</div>
+                    </div>
+                    
+                    <div class="budget-item">
+                        <div class="budget-item-name">Tours &amp; Activities <span class="budget-item-notes">(Park fees, zip line, guide tips)</span></div>
+                        <div class="budget-item-amount">$450</div>
+                    </div>
+                    
+                    <div class="budget-item">
+                        <div class="budget-item-name">Meals &amp; Drinks <span class="budget-item-notes">($100/day for couple)</span></div>
+                        <div class="budget-item-amount">$500</div>
+                    </div>
+                    
+                    <div class="budget-item">
+                        <div class="budget-item-name">Miscellaneous <span class="budget-item-notes">(Gas, tolls, tips, souvenirs)</span></div>
+                        <div class="budget-item-amount">$194</div>
                     </div>
                     
                 </div>
-            </div>
-        </div>
-        
-
-        <!-- Packing Tips Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <h2>Packing Tips</h2>
-            </div>
-            <div class="content-box">
+                
+                <div class="budget-total">
+                    <div class="budget-total-label">Total Investment</div>
+                    <div class="budget-total-amount">$3,150</div>
+                </div>
+                
+                <div class="budget-per-person">$1,575 per person</div>
                 
                 
-                
+                <div class="budget-notes">Mid-range estimate based on recommended lodging and included activities</div>
                 
             </div>
         </div>
-        
+    </section>
+    
 
-        <!-- Featured Links Section -->
-        
+    <!-- Profitability -->
+    
 
-        <!-- Tiered Pricing Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <h2>Package Options</h2>
-            </div>
-            <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                
-                <div class="card" style="border-top: 4px solid var(--secondary);">
-                    <div class="card-header" style="background: var(--secondary); color: var(--text);">Beach Budget</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 15px; color: var(--text-light);">Great trip without breaking the bank</p>
-                        <ul style="margin-bottom: 15px;"><li>Budget hotel (Hotel Cocal)</li><li>Economy flights</li><li>Rental car</li><li>Self-guided park visits</li><li>Beach time</li></ul>
-                        <div style="text-align: center; padding-top: 15px; border-top: 1px solid var(--border);">
-                            <div style="font-size: 1.6em; font-weight: 700; color: var(--primary);"></div>
-                            <div style="font-size: 0.9em; color: var(--text-light);"> per person</div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="card" style="border-top: 4px solid var(--accent); transform: scale(1.02);">
-                    <div class="card-header" style="background: var(--accent);">
-                        <span>Pura Vida Experience</span>
-                        <span style="margin-left: 10px; background: var(--white); color: var(--accent); padding: 2px 8px; border-radius: 10px; font-size: 0.75em;">Recommended</span>
-                    </div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 15px; color: var(--text-light);">Best balance of comfort and adventure</p>
-                        <ul style="margin-bottom: 15px;"><li>Croc's Resort beachfront</li><li>Comfortable flights</li><li>Rental SUV</li><li>Guided park tours</li><li>Zip line adventure</li><li>Nice dinners</li></ul>
-                        <div style="text-align: center; padding-top: 15px; border-top: 1px solid var(--border);">
-                            <div style="font-size: 1.6em; font-weight: 700; color: var(--accent);"></div>
-                            <div style="font-size: 0.9em; color: var(--text-light);"> per person</div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <div class="card" style="border-top: 4px solid #c7880a;">
-                    <div class="card-header" style="background: linear-gradient(135deg, #c7880a 0%, #f5a623 100%);">Ultimate Costa Rica</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 15px; color: var(--text-light);">First-class everything</p>
-                        <ul style="margin-bottom: 15px;"><li>Los Suenos Marriott Resort</li><li>Premium economy flights</li><li>Private SUV transfers</li><li>Private guided tours</li><li>Spa treatments</li><li>Fine dining throughout</li></ul>
-                        <div style="text-align: center; padding-top: 15px; border-top: 1px solid var(--border);">
-                            <div style="font-size: 1.6em; font-weight: 700; color: #c7880a;"></div>
-                            <div style="font-size: 0.9em; color: var(--text-light);"> per person</div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            
-            <div class="highlight-box" style="margin-top: 20px;">
-                <h4>Pricing Notes</h4>
-                <p>Prices based on August 2026 estimates. Final pricing upon booking confirmation.</p>
-            </div>
-            
-        </div>
-        
-
-        <!-- voygent:trial-promo-anchor -->
-
-        <!-- Pricing Section -->
-        
-        <div class="section">
-            <div class="section-header">
-                <h2>Investment Summary</h2>
-            </div>
-            <div class="pricing-box">
-                
-                <div class="pricing-row">
-                    <span>Flights (MOB-SJO roundtrip) <span style="font-size: 0.85em; color: var(--text-light);">(Delta via Atlanta, economy)</span></span>
-                    <span></span>
-                </div>
-                
-                <div class="pricing-row">
-                    <span>Accommodations (4 nights) <span style="font-size: 0.85em; color: var(--text-light);">(Croc&#39;s Resort at $189/night)</span></span>
-                    <span></span>
-                </div>
-                
-                <div class="pricing-row">
-                    <span>Rental Car (5 days) <span style="font-size: 0.85em; color: var(--text-light);">(Compact SUV with insurance, GPS)</span></span>
-                    <span></span>
-                </div>
-                
-                <div class="pricing-row">
-                    <span>Tours &amp; Activities <span style="font-size: 0.85em; color: var(--text-light);">(Park fees, zip line, guide tips)</span></span>
-                    <span></span>
-                </div>
-                
-                <div class="pricing-row">
-                    <span>Meals &amp; Drinks <span style="font-size: 0.85em; color: var(--text-light);">($100/day for couple)</span></span>
-                    <span></span>
-                </div>
-                
-                <div class="pricing-row">
-                    <span>Miscellaneous <span style="font-size: 0.85em; color: var(--text-light);">(Gas, tolls, tips, souvenirs)</span></span>
-                    <span></span>
-                </div>
-                
-                <div class="pricing-row"><span>Per Person</span><span></span></div>
-                <div class="pricing-row"><span>Number of Travelers</span><span>2</span></div>
-                <div class="pricing-row total"><span>Total Trip Investment</span><span></span></div>
-                
-                <p style="margin-top: 15px; font-size: 0.9em; color: var(--text-light);">Mid-range estimate based on recommended lodging and included activities</p>
-                
+    <!-- Disclaimer -->
+    <section class="section">
+        <div class="container">
+            <div class="disclaimer">
+                <strong>Pricing Disclaimer:</strong> All prices are estimates based on current rates and availability. Final pricing may vary based on seasonality, availability, and booking conditions. A deposit is required to confirm your reservation. Please contact us for the most up-to-date pricing and availability.
             </div>
         </div>
-        
+    </section>
 
-        <!-- Pricing Disclaimer -->
-        <div class="pricing-disclaimer">
-            All pricing is subject to availability and may change until a deposit is received and the trip is formally repriced. Final costs will be confirmed at the time of booking.
+    <!-- CTA Footer -->
+    <footer class="cta-footer">
+        <div class="cta-footer-content">
+            <h2 class="cta-heading">Like What You See?</h2>
+            <p class="cta-subheading">Create beautiful, professional trip proposals like this for your own clients in minutes with Voygent AI.</p>
+            <a href="https://voygent.ai/#signup" class="cta-button">Start Free Trial</a>
         </div>
+    </footer>
 
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-tagline">Begin Your Adventure Today</div>
-                <p>Travel is our passion, and our area of expertise. Let us help you create memories that last a lifetime.</p>
-            </div>
-            <div class="footer-section advisor-info">
-                <h4>Your Travel Advisor</h4>
-                <div class="advisor-cards">
-                    <!-- Primary Advisor -->
-                    <div class="advisor-card">
-                        
-                        <img src="https://voygent.somotravel.workers.dev/media/branding/kimThumbnail.png"
-                             alt="Kim Henderson"
-                             class="advisor-photo"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="advisor-photo-fallback" style="display:none;">KH</div>
-                        
-                        <div class="advisor-details">
-                            
-                            <div class="advisor-name">Kim Henderson</div>
-                            <div class="advisor-title">Personalized European Trip Specialist</div>
-                            <div class="advisor-franchise">Cruise Planners Independent Franchise Owner</div>
-                            <div class="advisor-contact">
-                                <a href="tel:251-289-1505" class="contact-link phone">251-289-1505</a>
-                                <a href="mailto:kim.henderson@cruiseplanners.com" class="contact-link email">kim.henderson@cruiseplanners.com</a>
-                                <a href="https://www.somotravelspecialist.com" target="_blank" class="contact-link web">https://www.somotravelspecialist.com</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Co-Advisors -->
-                    
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h4>SOMO Travel</h4>
-            </div>
-            
-        </div>
-        <div class="footer-bottom">
-            <div class="qr-section">
-                <p class="qr-label">Scan to view this proposal</p>
-                <img id="qr-code" alt="QR Code" style="width: 280px; height: 280px; border-radius: 8px;">
-                <p class="qr-url" id="qr-url"></p>
-            </div>
-            <p>Prepared with care by SOMO Travel, Cruise Planners Independent Franchise Owner</p>
-            <p style="margin-top: 5px;">Generated February 4, 2026</p>
-        </div>
-    </div>
-
-    <!-- Photo Lightbox -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
-        <img id="lightbox-img" src="" alt="Enlarged photo">
-    </div>
-
-    <script>
-        function openLightbox(src) {
-            if (!src) return;
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = src;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Close on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeLightbox();
-        });
-
-        // Handle broken images
-        document.querySelectorAll('img').forEach(function(img) {
-            img.addEventListener('error', function() {
-                this.style.display = 'none';
-            });
-        });
-
-        // QR Code generation with fallback (280px for projector/presentation scanning)
-        (function() {
-            var pageUrl = window.location.href.split('?')[0].split('#')[0];
-            var url = encodeURIComponent(pageUrl);
-            var qrImg = document.getElementById('qr-code');
-            if (qrImg) {
-                var primaryUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=' + url;
-                var fallbackUrl = 'https://chart.googleapis.com/chart?cht=qr&chs=280x280&chl=' + url;
-
-                qrImg.onerror = function() {
-                    this.onerror = null;
-                    this.src = fallbackUrl;
-                };
-                qrImg.src = primaryUrl;
-            }
-
-            // Display the URL text under the QR code
-            var qrUrlEl = document.getElementById('qr-url');
-            if (qrUrlEl) {
-                qrUrlEl.innerHTML = '<a href="' + pageUrl + '">' + pageUrl + '</a>';
-            }
-        })();
-    </script>
 </body>
 </html>
