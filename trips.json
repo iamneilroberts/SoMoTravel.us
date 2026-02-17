@@ -2,6 +2,16 @@
   "version": 1,
   "trips": [
     {
+      "filename": "samples/ireland-family-vacation.html",
+      "title": "Demo Trip - Family Vacation",
+      "dates": "August 8-12, 2026",
+      "category": "samples",
+      "tags": [
+        "Ireland"
+      ],
+      "lastModified": "2026-02-17"
+    },
+    {
       "filename": "samples/alaska-family-cruise-2026.html",
       "title": "The Martinez Family",
       "dates": "July 5-14, 2026",
