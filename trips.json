@@ -2,6 +2,16 @@
   "version": 1,
   "trips": [
     {
+      "filename": "zambia-london-layover-jun-2026.html",
+      "title": "Zambia Trip - London Layover & Flights",
+      "dates": "June 25 - July 18, 2026",
+      "category": "testing",
+      "tags": [
+        "London (layover) & Livingstone, Zambia"
+      ],
+      "lastModified": "2026-02-19"
+    },
+    {
       "filename": "samples/nyc-food-wine-experience.html",
       "title": "Demo Trip - Food & Wine",
       "dates": "",
