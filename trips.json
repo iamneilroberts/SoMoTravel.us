@@ -2,6 +2,16 @@
   "version": 1,
   "trips": [
     {
+      "filename": "spain-eclipse-wolk-aug-2026.html",
+      "title": "Melinda Wolk - Spain Solar Eclipse",
+      "dates": "August 5–15/16, 2026",
+      "category": "proposal",
+      "tags": [
+        "Spain (Barcelona, Zaragoza, Madrid)"
+      ],
+      "lastModified": "2026-03-21"
+    },
+    {
       "filename": "zambia-london-layover-jun-2026.html",
       "title": "Zambia Trip - London Layover & Flights",
       "dates": "June 25 - July 18, 2026",
