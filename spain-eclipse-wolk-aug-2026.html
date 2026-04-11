@@ -1,4 +1,4 @@
-<!-- voygent:generated:2026-04-11T03:57:20.125Z -->
+<!-- voygent:generated:2026-04-11T04:17:56.378Z -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -263,11 +263,28 @@
             padding: 10px 0;
             border-bottom: 1px solid var(--border);
             font-size: 0.95em;
+            gap: 12px;
         }
 
         .card-detail:last-child { border-bottom: none; }
-        .card-detail .label { color: var(--text-light); }
-        .card-detail .value { font-weight: 600; color: var(--text); }
+        .card-detail .label { color: var(--text-light); flex-shrink: 0; }
+        .card-detail .value { font-weight: 600; color: var(--text); text-align: right; }
+
+        /* Stacked variant — label on top, value full-width below.
+           Used for long-form fields (e.g. lodging Location) where the
+           default left/right split squashes the value into a narrow
+           column and makes wrapped text look indented. */
+        .card-detail.card-detail-stack {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 4px;
+        }
+        .card-detail.card-detail-stack .value {
+            text-align: left;
+            font-weight: 500;
+            line-height: 1.5;
+            width: 100%;
+        }
 
         .card-link {
             display: inline-block;
@@ -452,21 +469,39 @@
             font-size: 0.9em;
         }
         .flight-segments {
-            padding: 20px 24px;
+            padding: 16px 24px;
         }
         .flight-segment {
             display: grid;
-            grid-template-columns: 80px 40px 1fr 80px;
-            gap: 0 12px;
+            grid-template-columns: 110px 28px 1fr auto;
+            gap: 0 14px;
             align-items: start;
-            padding: 8px 0;
+            padding: 6px 0;
         }
         .seg-time {
             font-weight: 700;
-            font-size: 1em;
+            font-size: 1.05em;
             color: var(--text);
             text-align: right;
             line-height: 1.3;
+        }
+        /* Prominent banner above the segments showing the suggested
+           airport arrival time. Uses warm color so it reads as guidance,
+           not booked travel. */
+        .flight-arrival-guidance {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: #fffbeb;
+            border-bottom: 1px solid #fde68a;
+            color: #78350f;
+            font-size: 0.95em;
+            font-weight: 600;
+        }
+        .flight-arrival-guidance strong {
+            font-size: 1.08em;
+            color: #78350f;
         }
         .seg-time-arrival {
             color: var(--text);
@@ -576,7 +611,23 @@
             border-top: 1px solid var(--border);
             font-size: 0.88em;
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.65;
+            white-space: pre-line; /* preserve \n in source data */
+        }
+        /* Full layover line that shows the parent flight's layover text
+           ("London Heathrow (LHR) — 3h 20m. Request WCHR assistance.")
+           when the per-segment layoverDuration field isn't populated. */
+        .flight-layover-text {
+            padding: 10px 24px;
+            background: var(--bg-light);
+            border-top: 1px dashed var(--border);
+            border-bottom: 1px dashed var(--border);
+            font-size: 0.9em;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        .flight-layover-text .flight-layover-icon {
+            margin-right: 8px;
         }
         .flight-confirmation {
             display: flex;
@@ -591,10 +642,10 @@
             color: var(--text-light);
         }
         .flight-confirmation-code {
-            font-size: 1.3em;
-            font-weight: 700;
+            font-size: 1.65em;
+            font-weight: 800;
             color: var(--text);
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             font-family: 'Courier New', monospace;
         }
         .flight-checkin-notice {
@@ -703,14 +754,12 @@
         .activity-details {
             font-size: 0.95em;
             color: var(--text-light);
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
             line-height: 1.5;
+            white-space: pre-line; /* preserve \n in source data */
         }
+        /* .expanded retained for backwards compatibility — no longer
+           needed now that line-clamp is removed, but harmless. */
         .activity-details.expanded {
-            -webkit-line-clamp: unset;
             overflow: visible;
         }
         .activity-expand {
@@ -3555,7 +3604,7 @@
         
         <div class="section">
             <div class="section-header">
-                <h2>Flight Details</h2>
+                <h2>✈️ Flight Details</h2>
             </div>
 
             
@@ -3564,38 +3613,39 @@
                     <span class="flight-direction">Departing</span>
                     <span class="flight-summary-meta">RDU → LHR → BCN</span>
                 </div>
+                <div class="flight-arrival-guidance">⏰ Arrive at airport by <strong>4:30 PM</strong> · Flight departs <strong>7:05 PM Aug 5</strong></div>
                 
                 
                 
                 <div class="flight-date-header">Wed, August 5, 2026</div>
                 <div class="flight-segments">
                     <div class="flight-segment">
-                        <div class="seg-time"></div>
+                        <div class="seg-time">7:05 PM Aug 5</div>
                         <div class="seg-dot-col"><div class="seg-dot filled"></div><div class="seg-line"></div></div>
-                        <div class="seg-detail"><span class="seg-airport">RDU → London Heathrow (LHR)</span></div>
+                        <div class="seg-detail"><span class="seg-airport">✈️ Raleigh-Durham (RDU) → London Heathrow (LHR)</span></div>
                         <div class="seg-class-badge"><span>777-200</span></div>
                     </div>
                     <div class="flight-segment">
-                        <div class="seg-time seg-time-arrival"></div>
+                        <div class="seg-time seg-time-arrival">7:40 AM Aug 6</div>
                         <div class="seg-dot-col"><div class="seg-dot"></div></div>
-                        <div class="seg-duration"></div>
+                        <div class="seg-duration"><span class="seg-airline-info">American Airlines · BA 1551 · Business</span></div>
                         <div></div>
                     </div>
                 </div>
                 
-                <div class="flight-layover"><span class="flight-layover-icon">&#9201;</span> Layover</div>
+                <div class="flight-layover-text"><span class="flight-layover-icon">⏱</span>Layover · </div>
                 <div class="flight-date-header">Thu, August 6, 2026</div>
                 <div class="flight-segments">
                     <div class="flight-segment">
-                        <div class="seg-time"></div>
+                        <div class="seg-time">11:00 AM Aug 6</div>
                         <div class="seg-dot-col"><div class="seg-dot filled"></div><div class="seg-line"></div></div>
-                        <div class="seg-detail"><span class="seg-airport">London Heathrow (LHR) → Barcelona (BCN)</span></div>
+                        <div class="seg-detail"><span class="seg-airport">✈️ London Heathrow (LHR) → Barcelona El Prat (BCN)</span></div>
                         <div class="seg-class-badge"><span>A321neo</span></div>
                     </div>
                     <div class="flight-segment">
-                        <div class="seg-time seg-time-arrival"></div>
+                        <div class="seg-time seg-time-arrival">2:15 PM Aug 6</div>
                         <div class="seg-dot-col"><div class="seg-dot"></div></div>
-                        <div class="seg-duration"></div>
+                        <div class="seg-duration"><span class="seg-airline-info">British Airways · BA 478 · Business</span></div>
                         <div></div>
                     </div>
                 </div>
@@ -3604,8 +3654,7 @@
                 
                 <div class="flight-confirmation"><span class="flight-confirmation-label">Confirmation Code</span><span class="flight-confirmation-code">BYC4DR</span></div>
                 
-                <div class="flight-baggage-note">Fare Buzz Booking #93846160. Airline confirmation BYC4DR. Business class all 3 travelers. WCHR requested at RDU, LHR, BCN.
-📱 CHECK-IN: Use confirmation BYC4DR on the British Airways website (ba.com) or BA app. Download the BA app before travel.</div>
+                <div class="flight-baggage-note">Fare Buzz Booking #93846160.<br>Airline confirmation BYC4DR.<br>Business class all 3 travelers.<br>WCHR requested at RDU, LHR, BCN.<br>📱 CHECK-IN: Use confirmation BYC4DR on the British Airways website (ba.com) or BA app.<br>Download the BA app before travel.</div>
                 
             </div>
             
@@ -3616,38 +3665,39 @@
                     <span class="flight-direction">Returning &middot; August 15, 2026</span>
                     <span class="flight-summary-meta">MAD → LHR → RDU</span>
                 </div>
+                <div class="flight-arrival-guidance">⏰ Arrive at airport by <strong>6:30 AM</strong> · Flight departs <strong>9:10 AM Aug 15</strong></div>
                 
                 
                 
                 <div class="flight-date-header">Sat, August 15, 2026</div>
                 <div class="flight-segments">
                     <div class="flight-segment">
-                        <div class="seg-time"></div>
+                        <div class="seg-time">9:10 AM Aug 15</div>
                         <div class="seg-dot-col"><div class="seg-dot filled"></div><div class="seg-line"></div></div>
-                        <div class="seg-detail"><span class="seg-airport">Madrid (MAD) → London Heathrow (LHR)</span></div>
+                        <div class="seg-detail"><span class="seg-airport">✈️ Madrid Barajas (MAD) → London Heathrow (LHR)</span></div>
                         <div class="seg-class-badge"><span>A320</span></div>
                     </div>
                     <div class="flight-segment">
-                        <div class="seg-time seg-time-arrival"></div>
+                        <div class="seg-time seg-time-arrival">10:35 AM Aug 15</div>
                         <div class="seg-dot-col"><div class="seg-dot"></div></div>
-                        <div class="seg-duration"></div>
+                        <div class="seg-duration"><span class="seg-airline-info">Iberia · AA 8655 · Coach</span></div>
                         <div></div>
                     </div>
                 </div>
                 
-                <div class="flight-layover"><span class="flight-layover-icon">&#9201;</span> Layover</div>
+                <div class="flight-layover-text"><span class="flight-layover-icon">⏱</span>Layover · </div>
                 
                 <div class="flight-segments">
                     <div class="flight-segment">
-                        <div class="seg-time"></div>
+                        <div class="seg-time">1:00 PM Aug 15</div>
                         <div class="seg-dot-col"><div class="seg-dot filled"></div><div class="seg-line"></div></div>
-                        <div class="seg-detail"><span class="seg-airport">London Heathrow (LHR) → RDU</span></div>
+                        <div class="seg-detail"><span class="seg-airport">✈️ London Heathrow (LHR) → Raleigh-Durham (RDU)</span></div>
                         <div class="seg-class-badge"><span>777-200</span></div>
                     </div>
                     <div class="flight-segment">
-                        <div class="seg-time seg-time-arrival"></div>
+                        <div class="seg-time seg-time-arrival">4:35 PM Aug 15</div>
                         <div class="seg-dot-col"><div class="seg-dot"></div></div>
-                        <div class="seg-duration"></div>
+                        <div class="seg-duration"><span class="seg-airline-info">American Airlines · AA 173 · Business</span></div>
                         <div></div>
                     </div>
                 </div>
@@ -3656,7 +3706,7 @@
                 
                 <div class="flight-confirmation"><span class="flight-confirmation-label">Confirmation Code</span><span class="flight-confirmation-code">MNXLDC</span></div>
                 
-                <div class="flight-baggage-note">Fare Buzz Booking #93846160. Airline confirmation MNXLDC (use on both aa.com and iberia.com). MAD-LHR coach (Iberia A320), LHR-RDU business (AA 777). Pre-book MAD accessibility 48 hrs ahead: +34 91 321 10 00.</div>
+                <div class="flight-baggage-note">Fare Buzz Booking #93846160.<br>Airline confirmation MNXLDC (use on both aa.com and iberia.com).<br>MAD-LHR coach (Iberia A320), LHR-RDU business (AA 777).<br>Pre-book MAD accessibility 48 hrs ahead: +34 91 321 10 00.</div>
                 
             </div>
             
@@ -3669,7 +3719,7 @@
         
         <div class="section">
             <div class="section-header">
-                <h2>Accommodations</h2>
+                <h2>🏨 Accommodations</h2>
             </div>
             <div class="cards-grid">
                 
@@ -3684,7 +3734,7 @@
                         
                     </div>
                     <div class="card-body">
-                        <div class="card-detail"><span class="label">Location</span><span class="value">Barcelona - Eixample/Gràcia border, near Sagrada Família</span></div>
+                        <div class="card-detail card-detail-stack"><span class="label">Location</span><span class="value">Barcelona - Eixample/Gràcia border, near Sagrada Família</span></div>
                         <div class="card-detail"><span class="label">Dates</span><span class="value">Aug 6-9</span></div>
                         
                         
@@ -3707,7 +3757,7 @@
                         
                     </div>
                     <div class="card-body">
-                        <div class="card-detail"><span class="label">Location</span><span class="value">Bilbao - Old Town (Casco Viejo) or Ensanche district</span></div>
+                        <div class="card-detail card-detail-stack"><span class="label">Location</span><span class="value">Bilbao - Old Town (Casco Viejo) or Ensanche district</span></div>
                         <div class="card-detail"><span class="label">Dates</span><span class="value">Aug 9-11</span></div>
                         
                         
@@ -3730,7 +3780,7 @@
                         
                     </div>
                     <div class="card-body">
-                        <div class="card-detail"><span class="label">Location</span><span class="value">Zaragoza - Historic Centre, near Plaza del Pilar / Ebro River</span></div>
+                        <div class="card-detail card-detail-stack"><span class="label">Location</span><span class="value">Zaragoza - Historic Centre, near Plaza del Pilar / Ebro River</span></div>
                         <div class="card-detail"><span class="label">Dates</span><span class="value">Aug 11-13</span></div>
                         
                         
@@ -3753,7 +3803,7 @@
                         
                     </div>
                     <div class="card-body">
-                        <div class="card-detail"><span class="label">Location</span><span class="value">Madrid - Barrio de Las Letras / near Prado</span></div>
+                        <div class="card-detail card-detail-stack"><span class="label">Location</span><span class="value">Madrid - Barrio de Las Letras / near Prado</span></div>
                         <div class="card-detail"><span class="label">Dates</span><span class="value">Aug 13-15</span></div>
                         
                         
@@ -4220,11 +4270,6 @@ Use whichever booking channel (official or Viator) has better timed-entry availa
                     
 
                     
-                    <div class="day-notes">
-                        <div class="day-notes-label">Day Notes</div>
-                        <div class="day-notes-content"></div>
-                    </div>
-                    
 
                     
                     
@@ -4509,11 +4554,6 @@ https://www.viator.com/tours/Barcelona/Private-tour-half-day-customized-sightsee
                     
 
                     
-                    <div class="day-notes">
-                        <div class="day-notes-label">Day Notes</div>
-                        <div class="day-notes-content"></div>
-                    </div>
-                    
 
                     
                     
@@ -4691,11 +4731,6 @@ Pre-flight: log in at https://www.vueling.com with confirmation ZHBSWV to scan p
                     
                     
 
-                    
-                    <div class="day-notes">
-                        <div class="day-notes-label">Day Notes</div>
-                        <div class="day-notes-content"></div>
-                    </div>
                     
 
                     
@@ -5055,11 +5090,6 @@ Full-day tour (~9am–3pm) visiting San Juan de Gaztelugatxe (Game of Thrones&#3
                     
 
                     
-                    <div class="day-notes">
-                        <div class="day-notes-label">Day Notes</div>
-                        <div class="day-notes-content"></div>
-                    </div>
-                    
 
                     
                     
@@ -5310,11 +5340,6 @@ Drive Bilbao → Zaragoza ~3.5 hrs via AP-68. Total: $737.20 (EUR 635.98 due at 
                     
                     
 
-                    
-                    <div class="day-notes">
-                        <div class="day-notes-label">Day Notes</div>
-                        <div class="day-notes-content"></div>
-                    </div>
                     
 
                     
@@ -6251,6 +6276,11 @@ All in the same Lounge H area after security. Recommended: Cathay or Qantas over
                     
 
                     
+                    <div class="day-notes">
+                        <div class="day-notes-label">Day Notes</div>
+                        <div class="day-notes-content">ANCHOR DATE: Solar eclipse August 12, 2026 Zaragoza. Date logic: Depart RDU Aug 5, arrive BCN Aug 6, Barcelona 4 nights (Aug 6-9), train to Zaragoza Aug 10 (2 nights before eclipse Aug 10-11), eclipse Aug 12, 1 night after Aug 13, train to Madrid Aug 14, Madrid 2 nights (Aug 14-15), depart MAD Aug 16., FLIGHTS - BOOK NOW: Delta RDU-&gt;ATL-&gt;BCN (Aug 5) / MAD-&gt;ATL-&gt;RDU (Aug 16). Delta One A350 lie-flat business class for Melinda + father-in-law. Economy for Jonathan. Request WCHR on ALL segments at booking. Estimated $10,000-14,500 total., HIGH-SPEED TRAINS - BOOK NOW at renfe.com: (1) Barcelona Sants -&gt; Zaragoza Delicias | Renfe AVE | 1 hr 45 min | 1st Class Preferente | Aug 10. (2) Zaragoza Delicias -&gt; Madrid Atocha | Renfe AVE | 1 hr 30 min | 1st Class Preferente | Aug 14. Request accessible seating both legs. Go to RENFE assistance office at each station on arrival - do not rely on ticket notation alone for boarding ramp., SUV RENTAL - BOOK NOW (inside Zaragoza Delicias station): Full-size SUV not available for these dates. Best options: SIXT Economy SUV (code EFAR) $617.21 all-in | Hertz Intermediate SUV (code IFAR) $662.30 all-in. Both automatic, A/C, comfortable for 3 passengers. Pick up at station Arrivals Hall ground floor on arrival Aug 10. All station facilities confirmed accessible for reduced mobility - no airport trip needed. Return same desk before Madrid train Aug 14., PRIVATE TRANSFERS: (1) Home to RDU airport - allow 3 hrs. (2) BCN airport to hotel - Taxi Amic Barcelona (accessible), ~30-40 min, pre-book. (3) Zaragoza hotel to Delicias station (for Madrid train Aug 14) - private taxi ~10 min. (4) Madrid Atocha to hotel - private accessible transfer, arrange porter (Atocha is large). (5) Madrid hotel to MAD airport - allow 3.5 hrs minimum., ACCESSIBILITY - ALL RESTAURANTS: Every restaurant in this proposal confirmed wheelchair/mobility accessible. Can Majo Barcelona confirmed acceso movilidad reducida. Estimar Madrid confirmed accessible with staff assistance for 2cm entry step. Zaragoza recommendations all ground-floor terrace or flat-access. When booking any restaurant mention reduced mobility and request accessible seating., BOOK IMMEDIATELY: Sagrada Familia tickets at sagradafamilia.org (disabled + companion tickets, father-in-law enters free as 65+, bring passport). Estimar Madrid farewell dinner. SUV at Hertz or SIXT Zaragoza Delicias (inventory is limited for Aug dates)., HOTEL OPTIONS - BARCELONA: Top pick Ilunion Barcelona (Eixample, purpose-built accessible). Alternative: Hotel Olivia Balmes (Eixample). Both within reach of all sites. Eixample is flattest most accessible neighborhood., HOTEL OPTIONS - ZARAGOZA: Top pick INNSiDE by Melia (modern building, best elevator access, rooftop pool, Lateral Bar on-site). Alternatives: Catalonia El Pilar (confirmed accessible, beautiful Art Nouveau building, call ahead re elevator size), NH Ciudad de Zaragoza (Ebro views, small elevator - confirm), Hotel Pilar Plaza (confirmed accessible, steps from Basilica). Hotel Sauce eliminated - elevator too small., HOTEL OPTIONS - MADRID: Top pick The Palace Luxury Collection (Prado across the street, fully accessible post-2025 renovation, $350-450/night). Alternative: NH Collection Palacio de Tepa (Barrio de Las Letras, confirmed accessible, $250-350/night). Luxury option: Hotel Ritz/Mandarin Oriental (confirmed accessible, $500-800+). Purpose-built accessible: Ilunion Madrid (Chamartin district, further from Prado but gold standard accessibility)., RENFE ACCESSIBILITY: Go to RENFE assistance office physically at Barcelona Sants AND Zaragoza Delicias on day of travel. Do not rely on ticket notation alone - staff must be notified to have boarding ramp ready., MAD AIRPORT ACCESSIBILITY: Pre-book special assistance 48 hours in advance: +34 91 321 10 00., FOR MELINDA SOLO TIME: Tea - Caj Chai Gothic Quarter, Sans &amp; Sans Calle Argenteria, Caelum Gothic Quarter (Roman bath ruins in basement, monastic pastries). Crafts - Trencadis Gaudi tile workshop (Viator), Eves Pottery cafe Madrid. Spa - AIRE Ancient Baths Gothic Quarter, Le Patio Spa Eixample, Panpuri Organic Spa Madrid. Outdoors - Barceloneta boardwalk, Real Jardin Botanico Madrid (next to Prado, accessible, 5000+ plant species)., MISSING: Father-in-law full legal name. Does father-in-law use wheelchair/walker/cane.</div>
+                    </div>
+                    
 
                     
 
@@ -6420,10 +6450,10 @@ All in the same Lounge H area after security. Recommended: Cathay or Qantas over
                 
                 <div class="card">
                     <div class="card-body">
-                        <h4 style="color: var(--primary); margin-bottom: 8px;"></h4>
+                        <h4 style="color: var(--primary); margin-bottom: 8px;">🏥 Allyz TravelSmart — Allianz Travel Insurance App</h4>
                         
-                        <p style="font-size: 0.95em; color: var(--text-light); margin-bottom: 12px;">Download for Robert&#39;s Allianz travel insurance coverage. Access policy details, file claims, 24/7 emergency assistance, and medical/travel support while abroad. Set up account with policy number before departure.</p>
-                        <a href="" class="card-link" target="_blank" rel="noopener noreferrer">View Resource →</a>
+                        <p style="font-size: 0.95em; color: var(--text-light); margin-bottom: 12px;">Download for Robert&#39;s Allianz travel insurance coverage. Access policy details, file claims, 24/7 emergency assistance, and medical/travel support while abroad. Set up account with policy number E2563793899 before departure.</p>
+                        <a href="https://www.allyz.com/" class="card-link" target="_blank" rel="noopener noreferrer">View Resource →</a>
                     </div>
                 </div>
                 
